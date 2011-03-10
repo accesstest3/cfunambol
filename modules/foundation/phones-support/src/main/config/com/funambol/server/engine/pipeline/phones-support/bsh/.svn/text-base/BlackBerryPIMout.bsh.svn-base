@@ -1,0 +1,209 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2009 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+import com.funambol.framework.core.*;
+import com.funambol.framework.core.Sync4jException;
+import com.funambol.framework.engine.pipeline.InputMessageProcessor;
+import com.funambol.framework.engine.pipeline.MessageProcessingContext;
+import com.funambol.framework.engine.pipeline.StopProcessingException;
+import com.funambol.framework.logging.FunambolLogger;
+import com.funambol.framework.logging.FunambolLoggerFactory;
+import com.funambol.framework.tools.Base64;
+import com.funambol.framework.engine.pipeline.OutputMessageProcessor;
+
+import com.funambol.foundation.synclet.PIMItemsHandler;
+
+/**
+ * 1. (only for BlackBerry plugin version prior to the 7.x.x)
+ *  
+ * Value of body tag of the outgoing SIF note is created as follows:
+ * - delete the first row of the content of the tag Body
+ *   
+ * @version $Id: BlackBerryPIMout.bsh,v 1.1 2008/07/30 23:53:59 scova Exp $  
+ */ 
+// ------------------------------------------------------------------- Constants
+
+// ---------------------------------------------------------------- Private data
+private final FunambolLogger logger =
+    FunambolLoggerFactory.getLogger("engine.pipeline");
+
+// ------------------------------------------------------ Synclet implementation
+importCommands("/com/funambol/server/engine/pipeline/phones-support/bsh/commands");
+
+/**
+ * Processes input message and set MessageProcessingContext property.
+ *
+ * @param mpc the message processing context
+ * @param message the message to be processed
+ *
+ * @throws Sync4jException
+ */
+void postProcessMessage(MessageProcessingContext mpc,
+                       SyncML message              )
+throws Sync4jException {
+
+    if (logger.isTraceEnabled()) {
+        logger.trace("BlackBerryPIMout.postProcessMessage(...)");
+    }
+    
+    processIncomingSIFNotes(mpc, message);
+    
+    throw new StopProcessingException("BlackBerryPIMout Synclet finished");
+}
+
+/**
+ * Processes incoming SIF notes.
+ */
+void processIncomingSIFNotes(MessageProcessingContext pContext,
+                                    SyncML message)
+throws Sync4jException {
+
+    if (logger.isTraceEnabled()) {
+        logger.trace("Start processing outgoing SIF notes...");
+    }
+
+    cmds = message.syncBody.commands;
+    for (AbstractCommand bodyc : cmds) {
+
+        if (bodyc instanceof Sync) {
+
+            syncCmds = bodyc.commands;
+            for (ItemizedCommand c : syncCmds) {
+
+                //
+                // Skip other commands than Add and Replace
+                //
+                if (!(Replace.COMMAND_NAME.equals(c.name) ||
+                    Add.COMMAND_NAME.equals(c.name))      ) {
+                    continue;
+                }
+                
+                //
+                // Gets the format from command, if any
+                //
+                meta   = c.meta;
+                String format = null;
+                if (meta != null){
+                    format = meta.format;
+                }
+                
+                items = c.items;
+                for (Item item: items) {                        
+                    processSIFNote(item, format);                    
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Process a single item. If format of data within the item is b64, then item's
+ * data must be decoded before processing.
+ * 
+ * @param item note to be processed
+ * @param format format of the data. If format is <code>null</code>, then try to 
+ * get the format of the data from the item itself      
+ */ 
+void processSIFNote(Item item, String format){
+    
+    String data = item.data.data;
+    
+    //
+    // Gets the format from the item, if any
+    //    
+    meta = item.meta;
+
+    if (meta != null) {
+        String itemFormat = item.meta.format;
+        if (itemFormat != null){
+            format = itemFormat;
+        }
+    }
+
+    String SIFNote = null;
+    if (format != null && format.equals("b64")){
+        SIFNote = new String(Base64.decode(data));            
+    } else {
+        SIFNote = data;
+    }
+    
+    //
+    // Do not process the item if it is not a note.
+    //
+    if(SIFNote != null && !SIFNote.contains("<note>")){
+        return;
+    }
+    
+    // see point 1. from synclet description
+    String newNote = deleteFirstRowFromBody(SIFNote);
+    if (format != null && format.equals("b64")){
+        newNote = new String(Base64.encode(newNote.getBytes()));
+    }
+    
+    item.data.data = newNote;
+}
+
+/**
+ * Deletes the first line of the body
+ * 
+ * @param SIFNote the SIF note to process  
+ */ 
+String deleteFirstRowFromBody(String SIFNote){
+
+    String subject = getSIFNoteSubject(SIFNote);
+    String body    = getSIFNoteBody   (SIFNote);
+    
+    //
+    // strip the subject from the body. 
+    // Subject is the first row of the value of the tag Body.
+    //
+    int start = body.indexOf('\n') + 1;
+    if(start == 0) {
+        // The body contains only one line
+        return replaceSIFNoteBody(SIFNote, "");
+    }
+    return replaceSIFNoteBody(SIFNote, body.substring(start));   
+}
+
+void init(){
+// do nothing
+}

@@ -1,0 +1,199 @@
+/*
+ * Copyright (c) 2004 Harrie Hazewinkel. All rights reserved.
+ */
+
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2003 - 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+PARSER_BEGIN(VNoteParser)
+
+package com.funambol.common.pim.vnote;
+
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import com.funambol.common.pim.model.Property;
+import com.funambol.common.pim.model.Parameter;
+import com.funambol.common.pim.model.VNote;
+
+public class VNoteParser {
+
+}
+
+
+
+PARSER_END(VNoteParser)
+
+VNote VNote() : {
+    VNote note = new VNote();
+    Property property;
+}
+{
+    <BEGIN_VNOTE_T>
+    <CRLF_T>
+    (
+        property=Property()
+        { note.addProperty(property); }
+    )+
+    <END_VNOTE_T>
+    <CRLF_T>
+    { return note; }
+}
+
+Property Property() : {
+    Token name;
+    ArrayList parameters = new ArrayList();
+    StringBuffer value = new StringBuffer();
+}
+{
+    name=<IDENTIFIER_T>
+    Parameters(parameters)
+    <COLON_T>
+    PropertyValue(value)
+    <CRLF_T>
+    { return new Property(name.toString(),
+                        false,
+                        parameters,
+                        value.toString());
+    }
+}
+
+void ExceptionValue(StringBuffer value) : {
+    Token tok;
+}
+{
+    (
+        (
+             <EXCEPTION_LINEFOLD_T> // eating linewrap and ignore them.
+        )?
+        tok=<EXCEPTION_VALUE_PART_T>
+        { value.append(tok.toString()); }
+    )*
+}
+
+void PropertyValue(StringBuffer buffer) : {
+    Token value;
+}
+{
+    (
+        value=<PROP_EXCEPTIONS_T>
+        { buffer.append(value.toString()); }
+    |
+        value=<PROP_LINEFOLD_T>
+        { buffer.append("=\r\n"); }
+    |
+        value=<PROP_VALUE_T>
+        { buffer.append(value.toString()); }
+    )*
+}
+
+void Parameters(ArrayList parameters) : {
+}
+{
+    (
+         Parameter(parameters)
+    )*
+}
+
+void Parameter(ArrayList parameters) : {
+    Token name = null;
+    Token value = null;
+}
+{
+// Here we combine the parameters from differen states.
+// The lexical state seperates them. Other option is duplicate
+// the grammar rule.
+    (
+        name=<PARAMETER_T>
+    |
+        name=<EXCEPTION_PARAMETER_T>
+    )
+    ((
+        value=<PARAMETER_VALUE_T>
+    |
+        value=<EXCEPTION_PARAMETER_VALUE_T>
+    ))?
+    { parameters.add(new Parameter(name.toString().substring(1),
+                                   value.toString().substring(1))); }
+
+}
+
+/**
+ * Tokens used for parsing.
+ */
+TOKEN : {
+    <BEGIN_VNOTE_T: "BEGIN:VNOTE">
+}
+TOKEN : {
+    <END_VNOTE_T: "END:VNOTE">
+}
+TOKEN : {
+    <WS_T: (" "|"\t")>
+}
+<*>
+TOKEN : {
+    <CRLF_T: "\r\n" | "\n">: DEFAULT // State DEFAULT, if not already
+}
+TOKEN : {
+    <CRLFCRLF_T: "\r\n\r\n" | "\n\n">
+}
+
+<EXCEPTION_PARAM_STATE>
+TOKEN : { <EXCEPTION_PARAMETER_T: ";" (~["\r", "\n", ";", ":", "="])*> // stay in same state
+|         <EXCEPTION_PARAMETER_VALUE_T: "=" (~["\r", "\n", ";", ":", "="])+> // stay in same state
+|         <EXCEPTION_COLON_T: ":"> : EXCEPTION_PROP_STATE
+}
+<EXCEPTION_PROP_STATE>
+TOKEN : { <EXCEPTION_SEMI_T: ";"> // stay in same state
+|         <EXCEPTION_VALUE_PART_T: (~["\r", "\n", "\\", ";"])+> // stay in same state
+|         <EXCEPTION_LINEFOLD_T: "\\\r\n" | "\\\n"> // stay in same state
+}
+
+TOKEN : {
+    <PARAMETER_T: ";" (~["\r", "\n", ";", ":", "="])*>
+}
+TOKEN : {
+    <PARAMETER_VALUE_T: "=" (~["\r", "\n", ";", ":", "="])+>
+}
+TOKEN : {
+    <IDENTIFIER_T: ["a"-"z", "A"-"Z"] (("-" ["a"-"z", "A"-"Z", "0"-"9"]) | ["a"-"z", "A"-"Z", "0"-"9"])*>
+}
+
+TOKEN : { <COLON_T: ":"> : PROP_VALUE_STATE
+}
+<PROP_VALUE_STATE>
+TOKEN : { <PROP_VALUE_T: (~["\r","\n","="])+ > : PROP_VALUE_STATE // stay in same state
+|         <PROP_EXCEPTIONS_T: "=" (["0"-"9", "A"-"F", "a"-"f"]["0"-"9", "A"-"F", "a"-"f"])?> : PROP_VALUE_STATE // stay in same state
+|         <PROP_LINEFOLD_T: ("="<CRLF_T>) | (<CRLF_T><WS_T>) > // stay in same state
+}
+

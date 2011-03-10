@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:20060416T204136Z-4272-727-1-247@gollum
+DTSTAMP:20060416T204136Z
+DTSTART:20060406T190000Z
+DTEND:20060406T193000Z
+TRANSP:TRANSPARENT
+SEQUENCE:4
+SUMMARY:all fields
+LOCATION:virtual
+CATEGORIES:Business,test,bar
+CLASS:PRIVATE
+CREATED:20080809T193645
+LAST-MODIFIED:20080809T193645
+DESCRIPTION:this is an appointment with plenty of fields
+  set\, and special attributes...\n\nempty line above\,
+  line\nbreak\n\nspecial characters:\na-umlaut ä\nexclamation mark !\nampersand
+  disabled\nhash #\nleft angle bracket disabled\nright angle bracket
+  disabled\nleft square bracket [\nright square bracket ]\nleft bracket (\nright
+  bracket )\nbackslash \\\nbackslash lf \\n\nbackslash cr \\r\nstar
+  *\ncarret ^\npercent %\ntilde ~\ntick `\nbacktick `\ndouble quotation
+  - not tested because Evolution encodes it incorrectly\nsingle quotation
+  '\ncolon : \nsemicolon \;\ncomma \,\n
+END:VEVENT
+END:VCALENDAR

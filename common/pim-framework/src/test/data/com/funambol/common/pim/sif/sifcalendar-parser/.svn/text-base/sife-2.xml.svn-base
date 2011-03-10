@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appointment>
+<Timezone>
+ <BasicOffset>+0100</BasicOffset>
+ <DayLight>
+  <DSTOffset>+0200</DSTOffset>
+  <DSTStart>20070325T020000</DSTStart>
+  <DSTEnd>20071028T030000</DSTEnd>
+  <DSTName>Europe/Rome</DSTName>
+  <StandardName>Europe/Rome</StandardName>
+ </DayLight>
+ <DayLight>
+  <DSTOffset>+0200</DSTOffset>
+  <DSTStart>20080330T020000</DSTStart>
+  <DSTEnd>20081026T030000</DSTEnd>
+  <DSTName>Europe/Rome</DSTName>
+  <StandardName>Europe/Rome</StandardName>
+ </DayLight>
+ <DayLight>
+  <DSTOffset>+0200</DSTOffset>
+  <DSTStart>20090329T020000</DSTStart>
+  <DSTEnd>20091025T030000</DSTEnd>
+  <DSTName>Europe/Rome</DSTName>
+  <StandardName>Europe/Rome</StandardName>
+ </DayLight>
+</Timezone>
+<Start>20070101T120000Z</Start>
+<End>20070101T130000Z</End>
+</appointment>

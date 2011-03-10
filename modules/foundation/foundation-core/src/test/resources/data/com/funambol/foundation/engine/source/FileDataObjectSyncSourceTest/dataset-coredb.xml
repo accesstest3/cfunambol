@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <!--
+        fnbl_sync_source
+    -->
+    <fnbl_sync_source
+        uri="briefcase"
+        config="foundation/foundation/fs-foundation/BriefcaseSource.xml"
+        name="briefcase"
+        sourcetype="fs-foundation"
+    />
+    <fnbl_sync_source
+        uri="cal"
+        config="foundation/foundation/calendar-foundation/VCalendarSource.xml"
+        name="cal"
+        sourcetype="calendar-foundation"
+    />
+    <fnbl_sync_source
+        uri="picture"
+        config="foundation/foundation/fdo-foundation/PictureSource.xml"
+        name="picture"
+        sourcetype="fdo-foundation"
+    />
+    <fnbl_sync_source
+        uri="configuration"
+        config="foundation/foundation/configuration/configuration.xml"
+        name="configuration"
+        sourcetype="config-foundation"
+    />
+    <fnbl_sync_source
+        uri="task"
+        config="foundation/foundation/calendar-foundation/VTodoSource.xml"
+        name="task"
+        sourcetype="calendar-foundation"
+    />
+</dataset>

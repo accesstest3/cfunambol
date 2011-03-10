@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-mina-codec/src/test/java/com/funambol/ctp/filter/codec
+END
+CTPProtocolTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-mina-codec/src/test/java/com/funambol/ctp/filter/codec/CTPProtocolTest.java
+END
+CTPProtocolEncoderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-mina-codec/src/test/java/com/funambol/ctp/filter/codec/CTPProtocolEncoderTest.java
+END
+CTPProtocolDecoderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-mina-codec/src/test/java/com/funambol/ctp/filter/codec/CTPProtocolDecoderTest.java
+END

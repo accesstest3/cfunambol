@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/35930/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/framework
+END
+ServiceDescriptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/framework/ServiceDescriptor.java
+END
+TaskExecutorException.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/framework/TaskExecutorException.java
+END
+TaskException.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/framework/TaskException.java
+END
+Task.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/35930/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/framework/Task.java
+END
+ScheduledTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/35930/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/framework/ScheduledTask.java
+END
+PushListenerException.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/framework/PushListenerException.java
+END
+PushListenerInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/core/!svn/ver/29974/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/framework/PushListenerInterface.java
+END
+TaskConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/31180/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/framework/TaskConfiguration.java
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/pim-listener/src/test/resources/config/com/funambol/server/db/jdbc
+END
+fnbluser.xml
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/pim-listener/src/test/resources/config/com/funambol/server/db/jdbc/fnbluser.xml
+END
+fnblcore.xml
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/pim-listener/src/test/resources/config/com/funambol/server/db/jdbc/fnblcore.xml
+END

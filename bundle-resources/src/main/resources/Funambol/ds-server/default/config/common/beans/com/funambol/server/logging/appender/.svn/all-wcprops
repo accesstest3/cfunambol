@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/core/!svn/ver/34374/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/logging/appender
+END
+funambol.hourly-logfile.xml
+K 25
+svn:wc:ra_dav:version-url
+V 187
+/svn/core/!svn/ver/34374/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/logging/appender/funambol.hourly-logfile.xml
+END
+funambol.logfile.xml
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svn/core/!svn/ver/34374/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/logging/appender/funambol.logfile.xml
+END
+funambol.daily-logfile.xml
+K 25
+svn:wc:ra_dav:version-url
+V 186
+/svn/core/!svn/ver/34374/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/logging/appender/funambol.daily-logfile.xml
+END
+funambol.console.xml
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svn/core/!svn/ver/34374/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/logging/appender/funambol.console.xml
+END

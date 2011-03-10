@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/core/!svn/ver/33301/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/notification
+END
+PendingNotificationDAOTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/33301/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/notification/PendingNotificationDAOTest.java
+END
+PushManagerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/31368/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/notification/PushManagerTest.java
+END
+NotificationEngineImplTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/33301/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/notification/NotificationEngineImplTest.java
+END

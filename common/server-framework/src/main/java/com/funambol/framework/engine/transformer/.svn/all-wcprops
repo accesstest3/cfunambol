@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/33359/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/transformer
+END
+TransformerException.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/transformer/TransformerException.java
+END
+TransformationInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/transformer/TransformationInfo.java
+END
+DataTransformerManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/core/!svn/ver/33359/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/transformer/DataTransformerManager.java
+END
+DataTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/transformer/DataTransformer.java
+END

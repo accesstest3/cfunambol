@@ -1,0 +1,1631 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Sync4j Architecture</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.0.1  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Stefano Fornari">
+	<META NAME="CREATED" CONTENT="20021111;18280000">
+	<META NAME="CHANGEDBY" CONTENT="Stefano Fornari">
+	<META NAME="CHANGED" CONTENT="20021228;16140700">
+	<STYLE>
+	<!--
+		P { margin-bottom: 0.21cm; color: #000000; text-align: justify; widows: 2; orphans: 2 }
+		P.western { font-family: "Arial", sans-serif; font-size: 10pt; so-language: en-US }
+		P.cjk { font-family: "Times New Roman", serif; font-size: 11pt }
+		H1 { margin-bottom: 0.11cm; color: #000000; text-align: justify; widows: 2; orphans: 2 }
+		H1.western { font-family: "Arial", sans-serif; font-size: 16pt; so-language: en-US }
+		H1.cjk { font-family: "Times New Roman", serif; font-size: 16pt }
+		H1.ctl { font-family: "Arial Unicode MS"; font-size: 12pt; font-weight: medium }
+		H2 { margin-bottom: 0.11cm; color: #000000; text-align: justify; widows: 2; orphans: 2 }
+		H2.western { font-family: "Arial", sans-serif; font-size: 14pt; so-language: en-US }
+		H2.cjk { font-family: "Times New Roman", serif; font-size: 14pt }
+		H2.ctl { font-family: "Arial Unicode MS"; font-size: 12pt; font-weight: medium }
+		H3 { margin-bottom: 0.11cm; color: #000000; text-align: justify; widows: 2; orphans: 2 }
+		H3.western { font-family: "Arial", sans-serif; font-size: 12pt; so-language: en-US }
+		H3.cjk { font-family: "Times New Roman", serif; font-size: 12pt }
+		H3.ctl { font-family: "Arial Unicode MS"; font-size: 12pt; font-weight: medium }
+		TD P { margin-bottom: 0.21cm; color: #000000; text-align: justify; widows: 2; orphans: 2 }
+		TD P.western { font-family: "Arial", sans-serif; font-size: 10pt; so-language: en-US }
+		TD P.cjk { font-family: "Times New Roman", serif; font-size: 11pt }
+		TH P { margin-bottom: 0.21cm; color: #000000; widows: 2; orphans: 2 }
+		TH P.western { font-family: "Arial", sans-serif; font-size: 10pt; so-language: en-US; font-style: italic }
+		TH P.cjk { font-family: "Times New Roman", serif; font-size: 11pt; font-style: italic }
+		TH P.ctl { font-style: italic }
+		A:link { color: #0000ff }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" LINK="#0000ff">
+<CENTER>
+	<TABLE WIDTH=591 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0 RULES=NONE>
+		<COL WIDTH=575>
+		<TR>
+			<TD WIDTH=575 VALIGN=TOP>
+				<P ALIGN=RIGHT><IMG SRC="sync4j-architecture_html_1a50f7f8.png" NAME="Immagine2" ALIGN=BOTTOM WIDTH=219 HEIGHT=90 BORDER=0></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=575 VALIGN=TOP>
+				<P STYLE="margin-bottom: 0cm"><BR><BR><BR><BR><BR><BR><BR><BR><B><FONT SIZE=4 STYLE="font-size: 16pt"><SDFIELD TYPE=DOCINFO SUBTYPE=TITLE>Sync4j Architecture</SDFIELD></FONT></B></P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal">12 Nov 2002<BR><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR><BR>
+				</P>
+				<P STYLE="margin-top: 0.21cm; font-style: normal"><BR>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0cm; page-break-before: always">
+<FONT SIZE=4 STYLE="font-size: 16pt"><U><B>Change History</B></U></FONT></P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<CENTER>
+	<TABLE WIDTH=591 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0>
+		<COL WIDTH=93>
+		<COL WIDTH=72>
+		<COL WIDTH=318>
+		<COL WIDTH=50>
+		<TR VALIGN=TOP>
+			<TD WIDTH=93 BGCOLOR="#000080">
+				<P>Date</P>
+			</TD>
+			<TD WIDTH=72 BGCOLOR="#000080">
+				<P>Author</P>
+			</TD>
+			<TD WIDTH=318 BGCOLOR="#000080">
+				<P>Description</P>
+			</TD>
+			<TD WIDTH=50 BGCOLOR="#000080">
+				<P>Rev #</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 VALIGN=TOP>
+				<P>06 Oct 2002</P>
+			</TD>
+			<TD WIDTH=72>
+				<P>Stefano Fornari</P>
+			</TD>
+			<TD WIDTH=318 VALIGN=TOP>
+				<P>Initial version</P>
+			</TD>
+			<TD WIDTH=50 VALIGN=TOP>
+				<P>1.0</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=93>
+				<P>12 Nov 2002</P>
+			</TD>
+			<TD WIDTH=72>
+				<P>Stefano Fornari</P>
+			</TD>
+			<TD WIDTH=318>
+				<P>Added persistent store architecture</P>
+			</TD>
+			<TD WIDTH=50>
+				<P>1.1</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=93>
+				<P>29 Nov 2002</P>
+			</TD>
+			<TD WIDTH=72>
+				<P>Stefano Fornari</P>
+			</TD>
+			<TD WIDTH=318>
+				<P>Added security architecture</P>
+			</TD>
+			<TD WIDTH=50>
+				<P>1.2</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=93>
+				<P>20 Dec 2002</P>
+			</TD>
+			<TD WIDTH=72>
+				<P>Stefano Fornari</P>
+			</TD>
+			<TD WIDTH=318>
+				<P>Added synchronization process</P>
+			</TD>
+			<TD WIDTH=50 SDVAL="0,04375" SDNUM="1040;0;@">
+				<P ALIGN=LEFT>1.3</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=93>
+				<P>23 Dec 2002</P>
+			</TD>
+			<TD WIDTH=72>
+				<P>Stefano Fornari</P>
+			</TD>
+			<TD WIDTH=318>
+				<P>Added error and exception handling</P>
+			</TD>
+			<TD WIDTH=50 SDVAL="0" SDNUM="1040;0;@">
+				<P ALIGN=LEFT>1.4</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=93>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=72>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=318>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=50 SDNUM="1040;0;@">
+				<P ALIGN=LEFT><BR>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<DIV ID="Indice generale1">
+	<DIV ID="Indice generale1_Head">
+		<P ALIGN=CENTER STYLE="margin-top: 0.42cm; page-break-before: always; page-break-after: avoid">
+		<FONT FACE="Albany, sans-serif"><FONT SIZE=4 STYLE="font-size: 16pt"><U><B>Table
+		of Content</B></U></FONT></FONT></P>
+	</DIV>
+	<P STYLE="margin-bottom: 0cm; page-break-before: auto">1.High-level
+	Architecture	5</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	1.1.The Framework	5</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	1.2.Transport Layer	8</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	1.3.Application Layer	8</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	1.4.The Synchronization Engine	8</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	1.5.A Simple Example	9</P>
+	<P STYLE="margin-bottom: 0cm; page-break-before: auto">2.The
+	Synchronization Process	13</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	2.1.Preparation	13</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	2.2.Synchronization	14</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	2.3.Finalization	15</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	2.4.Synchronization Sequence Diagram	15</P>
+	<P STYLE="margin-bottom: 0cm; page-break-before: auto">3.The
+	Persistent Store	17</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	3.1.The Interface sync4j.server.store.PersistentStore 	17</P>
+	<P STYLE="margin-left: 0.78cm; text-indent: 0cm; margin-bottom: 0cm">
+	3.1.1.sync4j.server.store.SyncPersistentStore	18</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	3.2.sync4j.server.store.PersistentStoreManager	18</P>
+	<P STYLE="margin-bottom: 0cm; page-break-before: auto">4.Security
+	Architecture	20</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.1.Officer	20</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.2.JAAS	21</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.3.sync4j.framework.security.SimpleOfficer	21</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.4.sync4j.framework.security.JAASOfficer	21</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.5.Sync4jEgine Configuration	22</P>
+	<P STYLE="margin-bottom: 0cm; page-break-before: auto">5.Error and
+	Exception Handling	23</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	5.1.Sync4jException	24</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	5.2.ServerException	24</P>
+	<P STYLE="margin-left: 0.78cm; text-indent: 0cm; margin-bottom: 0cm">
+	5.2.1.SyncML Exceptions	24</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	5.3.ProtocolException	24</P>
+	<P STYLE="margin-bottom: 0cm; page-break-before: auto">6.References
+	and Resources	26</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	6.1.References	26</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	6.2.Resources	26</P>
+</DIV>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<H1 CLASS="western" STYLE="page-break-before: always">1.High-level
+Architecture</H1>
+<P LANG="en-GB" ALIGN=LEFT STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<FONT FACE="Arial, sans-serif"><FONT SIZE=2>A SyncML server is a
+software that receives SyncML requests from many remote devices,
+update their remote data with local modifications and update local
+data with remote updates.</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">Sync4j implements the
+following functional blocks:</P>
+<UL>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">the SyncML protocol</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">synchronization
+	engine</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">a server waiting for
+	requests</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">the interface to
+	remote devices</P>
+</UL>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><SPAN LANG="en-GB">The Sync4j
+architecture is a layered as depicted in Figure 1.</SPAN></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P LANG="en-GB" ALIGN=CENTER STYLE="margin-bottom: 0cm; page-break-after: avoid">
+<IMG SRC="sync4j-architecture_html_m2348deeb.gif" NAME="Oggetto1" ALIGN=BOTTOM WIDTH=495 HEIGHT=250></P>
+<P STYLE="margin-top: 0.21cm"><A NAME="_Ref16905580"></A><I><SPAN LANG="en-GB">Figure
+1 &ndash; Sync4j layered architecture</SPAN></I></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">The layer at the bottom is
+a framework that implements and provides to the other layers the
+protocol implementation, horizontal services and the interface of the
+synchronization engine. On this basement, the transport and the
+application layers are developed. The application layer can be
+further divided in client and server application layers, where with
+<I>server</I> is intended the software that accepts and processes
+SyncML messages.
+</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">The server relays on the
+transport layer in order to receive messages delivered with different
+protocols such as HTTP, SMTP, OBEX, etc. In the current
+implementation of Sync4j the server is implemented as an EJB service
+deployable in a J2EE compliant application server.
+</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">Client applications take
+advantage of the services provided by the framework in order to code
+and decode SyncML messages and to send and receive SyncML messages on
+one of the supported transport protocol.</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<H2 LANG="en-GB" CLASS="western">1.1.The Framework</H2>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">Many packages are part of
+the base framework. The most important are:</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<UL>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">sync4j.framework.client;</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">sync4j.framework.core;</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">sync4j.framework.engine;</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">sync4j.framework.logging;</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">sync4j.framework.protocol;</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">sync4j.framework.security;</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">sync4j.framework.server.</P>
+</UL>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><I>sync4j.framework.core</I><SPAN LANG="en-GB">
+implements the block that in Figure 1 is called SyncML and groups the
+foundation classes used to represent a <I>message</I>. In practice,
+this module allows an easy translation of a XML stream into an
+objects tree, which is much more manageable from a programming point
+of view. Vice versa, an object representing a message can be easily
+converted in the corresponding XML representation. The classes of the
+framework are responsible for checking that a given message is a
+valid SyncML message. Note that this validity check guarantees only
+that the XML structure can really represent a message, regardless the
+context in which the message is processed. The scope of this check is
+to verify that the </SPAN><I>representation</I><SPAN LANG="en-GB">
+rules are all respected.</SPAN></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">A SyncML communication is
+a sequence of correlated messages that must follow additional rules,
+dictated as well by the specification of the protocol. For instance,
+consider the following message:</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;SyncHdr&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;VerDTD&gt;1.1&lt;/VerDTD&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;VerProto&gt;SyncML/1.1&lt;/VerProto&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;SessionID&gt;1028886155551&lt;/SessionID&gt;</FONT></FONT></P>
+<P LANG="it-IT" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;MsgID&gt;2&lt;/MsgID&gt;</FONT></FONT></P>
+<P LANG="it-IT" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;Target&gt;</FONT></FONT></P>
+<P LANG="it-IT" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;LocURI&gt;URI:2002&lt;/LocURI&gt;</FONT></FONT></P>
+<P LANG="it-IT" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;/Target&gt;</FONT></FONT></P>
+<P LANG="it-IT" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;Source&gt;</FONT></FONT></P>
+<P LANG="it-IT" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;LocURI&gt;http://www.sync4j.org/sync4j&lt;/LocURI&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;/Source&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;/SyncHdr&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;/SyncML&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">It is not a valid SyncML
+message in any context because it does not contain a &lt;SyncBody&gt;
+tag. The following instead:</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;SyncHdr&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;VerDTD&gt;1.1&lt;/VerDTD&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;VerProto&gt;SyncML/1.1&lt;/VerProto&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;SessionID&gt;1028886155551&lt;/SessionID&gt;</FONT></FONT></P>
+<P LANG="it-IT" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;MsgID&gt;2&lt;/MsgID&gt;</FONT></FONT></P>
+<P LANG="it-IT" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;Target&gt;</FONT></FONT></P>
+<P LANG="it-IT" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;LocURI&gt;URI:2002&lt;/LocURI&gt;</FONT></FONT></P>
+<P LANG="it-IT" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;/Target&gt;</FONT></FONT></P>
+<P LANG="it-IT" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;Source&gt;</FONT></FONT></P>
+<P LANG="it-IT" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;LocURI&gt;http://www.sync4j.org/sync4j&lt;/LocURI&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;/Source&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;/SyncHdr&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;SyncBody&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;Status&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;CmdID&gt;5&lt;/CmdID&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;MsgRef&gt;1&lt;/MsgRef&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;CmdRef&gt;3&lt;/CmdRef&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;Cmd&gt;Sync&lt;/Cmd&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;TargetRef&gt;db1&lt;/TargetRef&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;SourceRef&gt;db1&lt;/SourceRef&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;Data&gt;405&lt;/Data&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;/Status&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;Add&gt;&lt;CmdID&gt;3&lt;/CmdID&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;NoResp/&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;Meta&gt;&lt;Type
+xmlns='syncml:metinf'&gt;...&lt;/Type&gt;&lt;/Meta&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;Item&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;Target&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;LocURI&gt;item1&lt;/LocURI&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;/Target&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;Source&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;LocURI&gt;item1&lt;/LocURI&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;/Source&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;Data&gt;some
+data &lt;/Data&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;/Item&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;/Add&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;/SyncBody&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>&lt;/SyncML&gt;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><SPAN LANG="en-GB">Even if it follows
+the representation rules is valid only in the case a previous
+initialization was made and the client requested the synchronization
+of the database </SPAN><I>db1</I><SPAN LANG="en-GB">. The package in
+charge of those aspects is </SPAN><I>sync4j.framework.protocol.</I></P>
+<P STYLE="margin-bottom: 0cm"><SPAN LANG="en-GB">The two packages
+</SPAN><I>sync4j.framework.security</I><SPAN LANG="en-GB"> and
+</SPAN><I>sync4j.framework.logging</I><SPAN LANG="en-GB"> represent
+the module  that in <B>Figure</B> <B>1</B> is called </SPAN><I>Services</I><SPAN LANG="en-GB">.
+They implement logging and security services. Note that for the
+security aspects, Sync4j adheres to the Java Authentication and
+Authorization Service (JAAS) delivered with the JDK 1.4. It is than
+possible to develop your own authentication and authorization policy
+independently by the development of Sync4j and just configure it to
+use your own module instead the standard one.</SPAN></P>
+<P STYLE="margin-bottom: 0cm"><SPAN LANG="en-GB">A package that plays
+and important role in the Sync4j architecture is
+</SPAN><I>sync4j.framework.engine</I><SPAN LANG="en-GB">. It provides
+a basic interface for a </SPAN><I>synchronization engine</I><SPAN LANG="en-GB">.
+It defines only the interface of the engine in order to have a
+pluggable architecture for the engine. Generally speaking, the
+process of  receiving and interpreting a synchronization message and
+the process of updating the data source and producing the
+modifications for the client are two distinct processes. And they can
+be applied independently one from the other. For example, from the
+synchronization point of view it does not really matter if a
+synchronization request came from a SyncML message or a simple HTTP
+request. In the same way, from the protocol point of view, it does
+not really matter which conflict resolution the synchronization
+engine will adopt. With this pluggable architecture the business
+logic of the protocol and of the synchronization can be developed and
+extended separately (and without touching the server or the other
+modules) to meet at best the requirements. Sync4j provides a
+reference implementation ready to be used.</SPAN></P>
+<P STYLE="margin-bottom: 0cm"><SPAN LANG="en-GB">The last two
+packages, </SPAN><I>sync4j.framework.client</I><SPAN LANG="en-GB">
+and </SPAN><I>sync4j.framework.server</I><SPAN LANG="en-GB"> include
+common classes for the development of client and server applications.</SPAN></P>
+<H2 LANG="en-GB" CLASS="western">1.2.Transport Layer</H2>
+<P STYLE="margin-bottom: 0cm"><SPAN LANG="en-GB">At this stage the
+support for the various transport protocol is implemented. At the
+moment, Sync4j supports only the HTTP protocol by the mean of the
+servlet s</SPAN><I>ync4j.transport.server.Sync4jServlet.java</I><SPAN LANG="en-GB">.
+Other protocol will be added in the next releases.</SPAN></P>
+<H2 LANG="en-GB" CLASS="western">1.3.Application Layer</H2>
+<P STYLE="margin-bottom: 0cm"><I>sync4j.client</I><SPAN LANG="en-GB">
+and </SPAN><I>sync4j.server</I><SPAN LANG="en-GB"> implement a client
+and a server SyncML respectively. Currently the development is
+concentrating most on the server side, which is the most significant
+component of Sync4j. Moreover, with the adoption of the SyncML
+protocol by the manufacturers of remote devices, it is foreseeable
+that the client protocol stack will be implemented directly in the
+devices. The development of the server gets the priority.</SPAN></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">In the current
+architecture, the server is implemented as an Enterprise Java Bean
+that can be deployed into whatever J2EE application server. This
+choice is due to the following factors:</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<UL>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">decoupling between
+	the transport protocol and the synchronization logic;</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">application servers
+	provide out of the box many facilities and services that otherwise
+	should be redeveloped (i.e. connection management, thread
+	management, security, scalability, availability, reliability);</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">it is a widely
+	accepted standard;</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">reusing the existing
+	application server infrastructure simplifying management and
+	deployment.</P>
+</UL>
+<H2 LANG="en-GB" CLASS="western">1.4.The Synchronization Engine</H2>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">A synchronization server
+is not helpful without synchronization logic, such as the set of
+rules followed to:</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<UL>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">identify the sources
+	and the destinations of data to be synchronized;</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">identify what data
+	needs to be updated/added/deleted</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">determine how updates
+	must be applied;</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">detect conflicts;</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">resolve conflicts.</P>
+</UL>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P LANG="en-GB" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">The
+synchronization engine is the core of a data synchronization server.
+Sync4j allows developers to plug their own implementation of the
+synchronization engine. Therefore, developers can extend the basic
+behaviour in order to meet their own requirements. Developers can
+even completely substitute the default implementation with a custom
+engine developed from scratch.</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><SPAN ID="Cornice1" STYLE="float: left; width: 15.24cm; height: 3.21cm; border: none; padding: 0cm; background: #ffffff">
+	<P STYLE="margin-top: 0.21cm"><IMG SRC="sync4j-architecture_html_3076bde4.gif" NAME="Figure2" ALIGN=LEFT WIDTH=100% BORDER=0><I>Figure
+	2<SPAN LANG="en-GB"> &ndash;  Example System Architecture</SPAN></I></P>
+</SPAN>This brings a flexible and modular architecture, easier to
+reuse, extend and maintain.
+</P>
+<P STYLE="margin-bottom: 0cm"><SPAN LANG="en-GB">The basic interfaces
+and classes are grouped in the package </SPAN><I>sync4j.framework.engine</I><SPAN LANG="en-GB">.
+The reference implementation, instead, is grouped under
+</SPAN>sync4j.server.engine<I>.</I></P>
+<P STYLE="margin-bottom: 0cm"><SPAN STYLE="font-style: normal">Since
+the synchronization process </SPAN>is the core of the synchronization
+engine, it is described in more detail in a dedicated section.</P>
+<H2 LANG="en-GB" CLASS="western">1.5.A Simple Example</H2>
+<P STYLE="margin-bottom: 0cm"><SPAN LANG="en-GB">This section
+presents how a simple SyncML  client looks like. <B>Figure 2</B>
+shows the system architecture in its building blocks. A client SyncML
+using the HTTP protocol as transport protocol, is an application that
+can make an HTTP post request. The web server receives the requests
+and fires the execution of </SPAN><I>Sync4jServlet</I><SPAN LANG="en-GB">,
+which, after reading the entire message, invokes the EJB on the
+SyncML server, making a remote call to </SPAN><I>processMessage()</I><SPAN LANG="en-GB">.
+The response message is then returned to the client again through the
+servlet.</SPAN></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">The SyncML client can be
+any kind of device or program. In our example it is implemented as a
+java program. Here is it makes the request:</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm; page-break-after: avoid"><BR>
+</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>import
+sync4j.framework.core.*;</FONT></FONT></P>
+<P LANG="fr-FR" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>import
+sync4j.transport.http.client.HttpClientConnection;</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>...</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>public
+class PostSyncML {</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>
+ ...</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>
+ Message postRequest(Message request) {</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>
+   HttpClientConnection syncMLConnection = </FONT></FONT>
+</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>
+     new HttpClientConnection(SYNC_URL);</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>
+   return syncMLConnection.sendMessage(request);</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>
+ }</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>
+ ...</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=3>}</FONT></FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><SPAN LANG="en-GB">Given the SyncML
+message and the access URL, </SPAN><I>postRequest()</I><SPAN LANG="en-GB">
+uses the Sync4j class </SPAN><I>HttpClientConnection</I><SPAN LANG="en-GB">
+in order to send the message to the server.</SPAN></P>
+<P STYLE="margin-bottom: 0cm"><SPAN LANG="en-GB">When the servlet
+processes the request, it invokes </SPAN><I>SyncBean</I><SPAN LANG="en-GB">:</SPAN></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">public
+final class Sync4jServlet</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+       extends javax.servlet.http.HttpServlet</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">{</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+ ...</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+ public void doPost(</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+           final HttpServletRequest httpRequest,</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+           final HttpServletResponse httpResponse)</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+           throws ServletException, IOException {</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+   final String strContentType = httpRequest.getContentType();</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+   final int iContentLength = httpRequest.getContentLength();</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<BR><BR>
+</P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+   if (iContentLength &lt; 1)</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+   {</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     throw new Error(&quot;iContentLength &lt; 1&quot;);</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+   }</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<BR><BR>
+</P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+   byte[] yaRequestData = new byte[iContentLength];</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<BR><BR>
+</P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+   InputStream in = httpRequest.getInputStream();</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+   int n = 0;</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+   int iBytesRead = 0;</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<BR><BR>
+</P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+   try {</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     do {</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+       n = in.read(yaRequestData,</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+                   iBytesRead,</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+                   yaRequestData.length - iBytesRead);</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+       if (n &gt; 0){</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+         iBytesRead += n;</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+       }</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     } while (n != -1);</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+   } catch (IOException ex) {</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     handleError(httpRequest, httpResponse, &quot;Error reading the
+request&quot;, ex);</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     return;</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+   } finally {</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     ...</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+   }</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+   ...</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+   final HttpSession session = httpRequest.getSession();</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<BR><BR>
+</P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+   SyncHolder holder = (SyncHolder) </FONT></FONT>
+</P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     session.getAttribute(HOLDER_ATTRIBUTE_NAME);</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+   if (null == holder) {</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     try {</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+       InitialContext ctxInit = new InitialContext();</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+       ISyncHomeLocal home = (ISyncHomeLocal) </FONT></FONT>
+</P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+         ctxInit.lookup(&quot;java:comp/env/ejb/SyncBean&quot;);</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<BR><BR>
+</P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+       ISyncLocal sync = home.create();</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+       holder = new SyncHolder(sync);</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+       session.setAttribute(HOLDER_ATTRIBUTE_NAME, holder);</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     } catch (Exception e) {</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+       ...</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     }</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<BR><BR>
+</P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     ISyncLocal sync = holder.getISyncLocalObject();</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<BR><BR>
+</P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     ISyncResponse resp = null;</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+       </FONT></FONT>
+</P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     try {</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+       resp = sync.processMessage(yaRequestData, strContentType);</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     } catch (EJBException e) {</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+       ...</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     }</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<BR><BR>
+</P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     OutputStream out = httpResponse.getOutputStream();</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     httpResponse.setContentType(resp.getMimeType());</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     String strResponseMsg = resp.getMessageString();</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     httpResponse.setContentLength(strResponseMsg.length());</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     out.write(strResponseMsg.getBytes());</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+     out.flush();</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+ }</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+ ...</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">}</FONT></FONT></P>
+<H1 LANG="en-GB" CLASS="western" STYLE="page-break-before: always">2.The
+Synchronization Process</H1>
+<P STYLE="margin-bottom: 0cm"><SPAN LANG="en-GB">The synchronization
+process is driven by the <I>synchronization engin</I></SPAN><I>e</I>,
+which in turn is a concrete<SPAN LANG="en-US"> implementation </SPAN>of
+the interface <FONT FACE="Courier New, monospace">sync4j.framework.engine.SyncEngine</FONT>.
+Sync4j provides its own engine, represented by the class
+<FONT FACE="Courier New, monospace">sync4j.server.engine.Sync4jEngine</FONT>.
+</P>
+<P STYLE="margin-bottom: 0cm">The<SPAN LANG="en-US"> synchronization
+</SPAN>process is accomplished in three steps:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0cm">Preparation</P>
+	<LI><P STYLE="margin-bottom: 0cm">Synchronization</P>
+	<LI><P STYLE="margin-bottom: 0cm">Finalization</P>
+</OL>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace">Sync4jEngine</FONT>
+gets through these steps and coordinates their execution, but
+delegates most of the synchronization logic to an auxiliary class,
+implementation of the <FONT FACE="Courier New, monospace">SyncStrategy
+</FONT>interface. The concrete implementation used by Sync4j is
+<FONT FACE="Courier New, monospace">sync4j.server.engine.Sync4jStrategy</FONT>.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">The following sections describe in more
+detail each phase and other key aspect of the synchronization engine
+architecture. The section 2.4 puts all together describing the
+sequence diagram of the synchronization process.</P>
+<H2 CLASS="western">2.1.Preparation</H2>
+<P STYLE="margin-bottom: 0cm">This phase is crucial in the process of
+synchronizing items. In fact, it is at this point that the data
+sources (called SyncSources) are queried for new, updated and deleted
+items (called in this context SyncItems), eventually since a
+particular date and time. After having obtained all the modified
+items from the different sources, the synchronization process follows
+this algorithm:<BR><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Given a set of sources A, B, C, D, <SPAN LANG="en-US">etc</SPAN>,
+the synchronization process takes place between two sources at a
+time: A is first<SPAN LANG="en-US"> synchronized </SPAN>with B, then
+AB with C, then ABC with D and so on.<BR>Now, given the sources to be
+compared, suppose A and B, the goal of the algorithm is to produce an
+array of <FONT FACE="Courier New, monospace">SyncOperation</FONT>
+objects, in which each element represents a particular
+synchronization action,<SPAN LANG="en-US"> i.e. </SPAN><I>create an
+item in the source A</I>, <I>delete the item X from the source B</I>,<SPAN LANG="en-US">
+etc. </SPAN>Sometime it is not possible decide what to do, thus a
+<FONT FACE="Courier New, monospace">SyncConflict</FONT> operation is
+used. A conflict might be solved by something external the
+synchronization process, for instance by a user action. In order to
+create the <FONT FACE="Courier New, monospace">SyncOperation[]</FONT>
+array, each item in the source A is compared with each item in the
+source B, creating when necessary the <FONT FACE="Courier New, monospace">SyncOperation</FONT>
+object. Below is a table of all possible situations.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<TABLE WIDTH=100% BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=46*>
+	<COL WIDTH=39*>
+	<COL WIDTH=43*>
+	<COL WIDTH=43*>
+	<COL WIDTH=45*>
+	<COL WIDTH=40*>
+	<THEAD>
+		<TR VALIGN=TOP>
+			<TH WIDTH=18%>
+				<P CLASS="western">Source A &rarr;</P>
+				<P CLASS="western">&darr; Source B</P>
+			</TH>
+			<TH WIDTH=15%>
+				<P CLASS="western">New</P>
+			</TH>
+			<TH WIDTH=17%>
+				<P CLASS="western">Deleted</P>
+			</TH>
+			<TH WIDTH=17%>
+				<P CLASS="western">Updated</P>
+			</TH>
+			<TH WIDTH=18%>
+				<P CLASS="western">Synchronized/Unchanged</P>
+			</TH>
+			<TH WIDTH=16%>
+				<P CLASS="western">Not Existing</P>
+			</TH>
+		</TR>
+	</THEAD>
+	<TBODY>
+		<TR VALIGN=TOP>
+			<TH WIDTH=18%>
+				<P CLASS="western">New</P>
+			</TH>
+			<TD WIDTH=15%>
+				<P CLASS="western" ALIGN=CENTER>C</P>
+			</TD>
+			<TD WIDTH=17%>
+				<P CLASS="western" ALIGN=CENTER>C</P>
+			</TD>
+			<TD WIDTH=17%>
+				<P CLASS="western" ALIGN=CENTER>C</P>
+			</TD>
+			<TD WIDTH=18%>
+				<P CLASS="western" ALIGN=CENTER>C</P>
+			</TD>
+			<TD WIDTH=16%>
+				<P CLASS="western" ALIGN=CENTER>B</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TH WIDTH=18%>
+				<P CLASS="western">Deleted</P>
+			</TH>
+			<TD WIDTH=15%>
+				<P CLASS="western" ALIGN=CENTER>C</P>
+			</TD>
+			<TD WIDTH=17%>
+				<P CLASS="western" ALIGN=CENTER>X</P>
+			</TD>
+			<TD WIDTH=17%>
+				<P CLASS="western" ALIGN=CENTER>C</P>
+			</TD>
+			<TD WIDTH=18%>
+				<P CLASS="western" ALIGN=CENTER>X</P>
+			</TD>
+			<TD WIDTH=16%>
+				<P CLASS="western" ALIGN=CENTER>X</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TH WIDTH=18%>
+				<P CLASS="western">Updated</P>
+			</TH>
+			<TD WIDTH=15%>
+				<P CLASS="western" ALIGN=CENTER>C</P>
+			</TD>
+			<TD WIDTH=17%>
+				<P CLASS="western" ALIGN=CENTER>C</P>
+			</TD>
+			<TD WIDTH=17%>
+				<P CLASS="western" ALIGN=CENTER>C</P>
+			</TD>
+			<TD WIDTH=18%>
+				<P CLASS="western" ALIGN=CENTER>B</P>
+			</TD>
+			<TD WIDTH=16%>
+				<P CLASS="western" ALIGN=CENTER>B</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TH WIDTH=18%>
+				<P CLASS="western">Synchronized/Unchanged</P>
+			</TH>
+			<TD WIDTH=15%>
+				<P CLASS="western" ALIGN=CENTER>O</P>
+			</TD>
+			<TD WIDTH=17%>
+				<P CLASS="western" ALIGN=CENTER>X</P>
+			</TD>
+			<TD WIDTH=17%>
+				<P CLASS="western" ALIGN=CENTER>A</P>
+			</TD>
+			<TD WIDTH=18% SDVAL="0" SDNUM="1040;0;@">
+				<P CLASS="western" ALIGN=CENTER>=</P>
+			</TD>
+			<TD WIDTH=16%>
+				<P CLASS="western" ALIGN=CENTER>B</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TH WIDTH=18%>
+				<P CLASS="western">Not Existing</P>
+			</TH>
+			<TD WIDTH=15%>
+				<P CLASS="western" ALIGN=CENTER>A</P>
+			</TD>
+			<TD WIDTH=17%>
+				<P CLASS="western" ALIGN=CENTER>X</P>
+			</TD>
+			<TD WIDTH=17%>
+				<P CLASS="western" ALIGN=CENTER>A</P>
+			</TD>
+			<TD WIDTH=18%>
+				<P CLASS="western" ALIGN=CENTER>A</P>
+			</TD>
+			<TD WIDTH=16%>
+				<P CLASS="western" ALIGN=CENTER>X</P>
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Where:</P>
+<P STYLE="margin-bottom: 0cm"><B>X</B> : item not existing</P>
+<P STYLE="margin-bottom: 0cm"><B>C</B> : conflict</P>
+<P STYLE="margin-bottom: 0cm"><B>A</B> : item A replaces item B</P>
+<P STYLE="margin-bottom: 0cm"><B>B</B> : item B replaces item A</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Items are compared based on a subset of
+the information they contain called <I>key</I>, which in the
+synchronization engine takes the name of <FONT FACE="Courier New, monospace">SyncItemKey</FONT>.
+It is<SPAN LANG="en-US"> responsibility </SPAN>of the <FONT FACE="Courier New, monospace">SyncSource</FONT>
+to create proper and unique key for each item. The <FONT FACE="Courier New, monospace">SyncItemKey</FONT>
+is stored in the <FONT FACE="Courier New, monospace">SyncItem</FONT>
+and can be returned calling <FONT FACE="Courier New, monospace">getKey()</FONT>.
+The comparison is accomplished by the method <FONT FACE="Courier New, monospace">equals()</FONT>
+of the <FONT FACE="Courier New, monospace">SyncItemKey</FONT> object.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">The SyncOperation object thus created
+contain the following pieces of information:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">The SyncItem belonging to the A
+	source (item A)</P>
+	<LI><P STYLE="margin-bottom: 0cm">The SyncItem belonging to the B
+	source (item B)</P>
+	<LI><P STYLE="margin-bottom: 0cm">The operation to be performed</P>
+</UL>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Based on the operation and on the
+presence of item A or B, the synchronization engine will be able to
+perform the<SPAN LANG="en-US"> right </SPAN>action.
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">This algorithm is<SPAN LANG="en-US">
+encapsulated </SPAN>in a specific class called <FONT FACE="Courier New, monospace">SyncStrategy</FONT>,
+which is used by <FONT FACE="Courier New, monospace">SyncEngine</FONT>
+through the method <FONT FACE="Courier New, monospace">prepareSync()</FONT>.</P>
+<H2 CLASS="western">2.2.Synchronization</H2>
+<P STYLE="margin-bottom: 0cm">The synchronization step is the phase
+where the sync operations prepared in the previous step are executed.
+Executing a <FONT FACE="Courier New, monospace">SyncOperation</FONT>
+means apply the required modifications to the sync sources involved.
+The modification applied depends on the content of each <FONT FACE="Courier New, monospace">SyncOperation</FONT>
+and on the table above.
+</P>
+<P STYLE="margin-bottom: 0cm">For example, the <FONT FACE="Courier New, monospace">SyncOperation</FONT>
+represented by:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">operation: <SPAN STYLE="font-style: normal">new</SPAN></P>
+<P STYLE="margin-bottom: 0cm; font-style: normal">item A:
+ITM0040102001  &larr; (the item key)</P>
+<P STYLE="margin-bottom: 0cm; font-style: normal">item B: null</P>
+<P STYLE="margin-bottom: 0cm; font-style: normal"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><SPAN STYLE="font-style: normal">Results
+in the addition of item B to the <FONT FACE="Courier New, monospace">SyncSource</FONT>
+B. <SPAN LANG="en-US">Instead</SPAN>, if the operation is:</SPAN></P>
+<P STYLE="margin-bottom: 0cm; font-style: normal"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm; font-style: normal">operation: new</P>
+<P STYLE="margin-bottom: 0cm; font-style: normal">item A: null</P>
+<P STYLE="margin-bottom: 0cm; font-style: normal">item B:
+ITM0376488440</P>
+<P STYLE="margin-bottom: 0cm; font-style: normal"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm; font-style: normal">The item B will be
+added to the source A. The following combination will result in a
+conflict:</P>
+<P STYLE="margin-bottom: 0cm; font-style: normal"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm; font-style: normal">operation: new</P>
+<P STYLE="margin-bottom: 0cm; font-style: normal">item A:
+ITM0040102001</P>
+<P STYLE="margin-bottom: 0cm; font-style: normal">item B:
+ITM0040102001</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Note that item A and item B in a
+<FONT FACE="Courier New, monospace">SyncOperation</FONT> object
+always reference to the same <FONT FACE="Courier New, monospace">SyncItem
+(</FONT>the <FONT FACE="Courier New, monospace">SyncItemKey</FONT> is
+the same<FONT FACE="Courier New, monospace">)</FONT>; they are simply
+different images of the item coming from two different sources.</P>
+<P STYLE="margin-bottom: 0cm">This phase is implemented in the
+<FONT FACE="Courier New, monospace">sync(SyncOperation[])</FONT>
+method of <FONT FACE="Courier New, monospace">SyncStrategy</FONT>.</P>
+<H2 CLASS="western">2.3.Finalization</H2>
+<P STYLE="margin-bottom: 0cm">The third and last step is intended for
+clean up purposes. It is simply implemented with the empty
+<FONT FACE="Courier New, monospace">SyncStartegy</FONT>'s method
+<FONT FACE="Courier New, monospace">endSync()</FONT>.</P>
+<H2 CLASS="western">2.4.Synchronization Sequence Diagram</H2>
+<P STYLE="margin-bottom: 0cm">In this section, an high level overview
+of the overall synchronization process implemented in Sync4j is
+described. The sequence of operations is depicted in Figure 3 that
+will serve as a guide for the following description.<BR><BR>The
+<FONT FACE="Courier New, monospace">SyncEngine</FONT> object drives
+the execution of all steps in its <FONT FACE="Courier New, monospace">sync()</FONT>
+method. In it, the requested sources are scanned for modified items.
+For each source, the sequence drown in the picture is executed.
+<FONT FACE="Courier New, monospace">SyncSourceA</FONT> and
+<FONT FACE="Courier New, monospace">SyncSourceB</FONT> represent the
+two images of the same source; generally, one source is the client
+view of the database, whilst the other source is the server view of
+the same data source.<BR><BR>First of all, <FONT FACE="Courier New, monospace">SyncEngine</FONT>
+calls <FONT FACE="Courier New, monospace">SyncStrategy</FONT>.<FONT FACE="Courier New, monospace">prepareSync(SyncSource[])</FONT>
+which returns an array of <FONT FACE="Courier New, monospace">SyncOperation</FONT>
+to be performed. Here the synchronization engine has the opportunity
+to further elaborate the required operations. For example it is at
+this level that the engine can decide how to solve conflicts.<BR><BR>After
+preparation and additional operation elaboration, the engine is ready
+to fire the the execution of the real data sources synchronization.
+It does it again delegating the task to the <FONT FACE="Courier New, monospace">sync()</FONT>
+method of <FONT FACE="Courier New, monospace">SyncStrategy</FONT>. <BR><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Again, the engine can do other work
+before ending the process calling <FONT FACE="Courier New, monospace">SyncStartegy.endSync()</FONT>.<BR><BR>Regarding
+the <FONT FACE="Courier New, monospace">SyncStrategy</FONT> object,
+the picture shows only the main tasks <FONT FACE="Courier New, monospace">SyncStrategy</FONT>
+performs. First of all it queries source A and B about which items
+have changed and collects all of them in a two lists, one for source
+A's items and one for source B's items. At this point <FONT FACE="Courier New, monospace">SyncStrategy</FONT>
+is ready to compare those two sets of items and create the
+<FONT FACE="Courier New, monospace">SyncOperation[]</FONT> array.
+This is done by calling <FONT FACE="Courier New, monospace">checkSyncOperation(SyncItem[],
+SyncItem[])</FONT> where the rules described in the sections above
+are applied.<BR><BR>Note that the SyncStrategy is part of the
+configuration of Sync4jEngine. In fact, the engine keeps a reference
+to the SyncStrategy interface and not to the Sync4jStrategy concrete
+implementation. This means that a different implementation of the
+synchronization strategy is very easily pluggable in Sync4j. It is
+sufficient to implement SyncStrategy and configure accordingly the
+Sync4jEngine component.</P>
+<P STYLE="margin-bottom: 0cm"><SPAN ID="Cornice3" STYLE="float: left; width: 12.44cm; height: 21.12cm; border: none; padding: 0cm; background: #ffffff">
+	<P STYLE="margin-top: 0.21cm"><IMG SRC="sync4j-architecture_html_m78f3eaef.gif" NAME="Immagine3" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><I>Figure
+	3The synchronization process</I></P>
+</SPAN><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<H1 LANG="en-GB" CLASS="western" STYLE="page-break-before: always">3.The
+Persistent Store</H1>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">This chapter presents the
+architecture and the design of the persistent store, which is the
+module used to access the database for the operations that concern
+the operation of the server itself. The persistent store is not
+intended to store data to be synchronized; that is matter for the
+synchronization engine and server framework. The scope of this store
+is to make persistent the kind of information required by the Sync4j
+server in order to support the protocol and provide its services.</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">The persistent store is
+designed without tighting it to a persistence technology (Entity
+beans, JDO), but it wants to be generic enough to be easily
+integrated with any of such persistence models. I have to admit,
+though, that I do not consider Entity EJBs a good candidate as
+implementation of a persistent store. Instead, the new emerging
+standard JDO looks much more appropriate and maybe in the future the
+Sync4j team will select a JDO provider to be used with Sync4j.</P>
+<P STYLE="margin-bottom: 0cm"><SPAN LANG="en-GB">The core of the
+persistent store architecture is the interface
+<I>sync4j.server.store.PersistentStore</I>, described in the
+following section. The next chapters describe also some of the
+concrete implementations developed in Sync4j and how they are used by
+the server module.</SPAN></P>
+<H2 CLASS="western">3.1.<SPAN LANG="en-GB">The Interface
+<I>sync4j.server.store.PersistentStore</I> </SPAN>
+</H2>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">This is the interface that
+defines the services that a concrete implementation must provide in
+order to work as persistent store. By the mean of the PersistentStore
+interface, the server can work with whatever concrete implementation
+is made available to it.</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">PersistentStore is a class
+that stores objects in a persistent media such as a database. The
+work of saving and reading data to and from the store is delegated to
+the store(obj) and read(obj) methods, which can take the appropriate
+actions based on the type of the object that has to be written or
+read.</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">Note that those two
+methods return true if they know how to deal with the given object;
+that return value is not intended to be a success indicator. It just
+tells the caller that the PersistentStore knew how to process the
+given object.</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">A PersistentStore can be
+configured calling configure(map) with a java.util.Map parameter
+containing the configuration properties. The content of the map is
+implementation specific.</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">This design is based on
+the following design principles:</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<UL>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">Have a flexible and
+	light way to access the database for the storage purposes of the
+	server activity.</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">Centralize the
+	database access logic in few specific classes, as opposed to spread
+	the database access code whenever required by the classes.</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">Keep the roles and
+	responsibilities of the classes as much clear as possible. In
+	particular, avoid that the centralization of the database access
+	code brings to the development of one huge class containing the most
+	different functionalities.
+	</P>
+	<LI><P LANG="en-GB" STYLE="margin-bottom: 0cm">Decouple database
+	access from the other Sync4j modules (synchronization engine, server
+	implementation, security services, ecc.). The server should deal
+	only with java classes until it has to access the persistent sore,
+	in which case it simply passes the objects to the right persistent
+	store instance.</P>
+	<P LANG="en-GB" STYLE="margin-bottom: 0cm"></P>
+</UL>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">Following those
+principles, a single PersistentStore implementation should have
+access to a relatively small set of related tables and should have
+the knowledge about how to persist a relatively small set of related
+objects.</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm">As an example of
+implementation of the PersistentStore interface, the following
+section describes the SyncPersistentStore object.</P>
+<H3 LANG="fr-FR" CLASS="western">3.1.1.sync4j.server.store.SyncPersistentStore</H3>
+<P STYLE="margin-bottom: 0cm">This persistent store is used to
+persist information regarding the synchronization process and status
+to a relational database. The database is accessed through JDBC,
+acquiring the datasource looking up the connection from the
+application server.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">At the time of the current
+implementation, it stores the following classes:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">sync4j.framework.server.LastTimestamp</P>
+</UL>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">SyncPersistentStore is configured with
+the following properties:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">jndi-data-source-name: the JNDI
+	name used to look up the datasource</P>
+	<LI><P STYLE="margin-bottom: 0cm">username: the database user name</P>
+	<LI><P STYLE="margin-bottom: 0cm">password: the database user
+	password</P>
+</UL>
+<H2 LANG="fr-FR" CLASS="western">3.2.sync4j.server.store.PersistentStoreManager</H2>
+<P STYLE="margin-bottom: 0cm">With the presented approach, there is
+the risk that a lot of persistent stores are created, each for a
+specific purpose. This is not bad in itself because it keeps the code
+with a good localization and clear responsibilities. But as soon as
+the number of those classes increases, it might become hard to use
+them properly from the caller perspective. To overcome this drawback,
+a persistent store manager is provided. It behaves as a container of
+persistent stores and the other modules have to deal only with it. It
+is not necessary to configure each single persistent store, since the
+manager does it for you.
+</P>
+<P STYLE="margin-bottom: 0cm">As shown in <B>Figure 4</B>, the
+persistent store manager keeps a list of persistent stores. When the
+persistent store manager is configured, it calls the configure()
+method of each managed persistent store. The same when an object is
+called for to be persisted or read. In this case, however, the
+persistent store manager loops through the list of persistent stores
+looking for the first occurrence that knows how to handle the object.
+If the method returns true, the manager ends looping.</P>
+<P STYLE="margin-bottom: 0cm"><SPAN ID="Cornice2" STYLE="float: left; width: 9.87cm; height: 6.03cm; border: none; padding: 0cm; background: #ffffff">
+	<P STYLE="margin-top: 0.21cm"><IMG SRC="sync4j-architecture_html_m4770cb8c.gif" NAME="Figure3" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><I>Figure
+	4 - The PersistentStoreManager</I></P>
+</SPAN><BR CLEAR=LEFT><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">In this way, the other modules need
+just to keep a reference to the PersistentStoreManager object, while
+the details of who stores what are delegated to the each single
+persistent store.</P>
+<P STYLE="margin-bottom: 0cm">The PersistentStoreManager object is
+configured essentially with the following properties:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">jndi-data-source-name: the JNDI
+	name used to look up the datasource</P>
+	<LI><P STYLE="margin-bottom: 0cm">username: the database user name</P>
+	<LI><P STYLE="margin-bottom: 0cm">password: the database user
+	password</P>
+	<P STYLE="margin-bottom: 0cm"></P>
+</UL>
+<P STYLE="margin-bottom: 0cm">Note that another advantage in using
+the manager is that it is sufficient to configure the manager in
+order to get the managed persistent stores configured.</P>
+<H1 CLASS="western" STYLE="page-break-before: always">4.Security
+Architecture</H1>
+<P STYLE="margin-bottom: 0cm">Security is one of the horizontal
+services Sync4j implements in order to provide user authentication
+and authorization. With modularity in mind, Sync4j does not want to
+implement complex authentication and authorization mechanisms;
+usually this is accomplished by dedicated software such as directory
+services. In addition, a classic problem when applications keep users
+and user information in a proprietary database is the synchronization
+between the local database and the corporate database. This is even
+more problematic when single sign on is required and than user login
+and password must be stored and verified in only one place.</P>
+<P STYLE="margin-bottom: 0cm">The Sync4j security architecture is
+designed to be pluggable and it is based on a very simple concept:
+authentication and authorization are centralized in a single dedicate
+component called <I>officer</I>. An officer is a Java class that
+implements a specified interface. Concrete implementations provide
+adapters to external security services.</P>
+<P STYLE="margin-bottom: 0cm">Sync4j includes the following officers:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">sync4j.framework.security.SimpleOfficer:
+	very simple officer that always authenticates and authorizes.</P>
+	<LI><P STYLE="margin-bottom: 0cm">sync4j.framework.security.JAASOfficer:
+	officer that delegates authentication and authorization to the
+	standard (since JDK 1.4) Java Authentication and Authorization
+	Service (see JAAS section below).</P>
+	<P STYLE="margin-bottom: 0cm"></P>
+</UL>
+<P STYLE="margin-bottom: 0cm">The classes of the security service are
+grouped under the packages sync4j.framework.security and
+sync4j.framework.security.saas.</P>
+<H2 CLASS="western">4.1.Officer</H2>
+<P STYLE="margin-bottom: 0cm">The component responsible for
+authenticating and authorizing users to access the server or a
+particular resource is called <I>officer</I>. A user is represented
+by a <I>credential</I> whilst a <I>resource</I> is identified by its
+name. A resource can be a SyncML database, a SyncML item or whatever
+else must be protected by unauthorized access. An officer is any java
+class that implements the sync4j.framework.security.Officer
+interface, which defines the following methods:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<CENTER>
+	<TABLE WIDTH=591 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0>
+		<COL WIDTH=300>
+		<COL WIDTH=261>
+		<TR VALIGN=TOP>
+			<TD WIDTH=300 BGCOLOR="#000080">
+				<P><B>Method signature</B></P>
+			</TD>
+			<TD WIDTH=261 BGCOLOR="#000080">
+				<P><B>Description</B></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=300>
+				<P STYLE="margin-bottom: 0cm">boolean</P>
+				<P>authenticate(Credential credential)</P>
+			</TD>
+			<TD WIDTH=261>
+				<P>Is the give credential valid? Usually the credential is
+				represented by a login/password pair, but could be also something
+				else such as a certificate. The authentication is valid for an
+				entire SyncML session.</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=300>
+				<P STYLE="margin-bottom: 0cm">boolean</P>
+				<P STYLE="margin-bottom: 0cm">authorize(java.lang.String
+				resource,
+				</P>
+				<P>Credential credential)</P>
+			</TD>
+			<TD WIDTH=261>
+				<P>Is the given credential authorized to access the resource with
+				the given name?</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=300>
+				<P>void unAuthenticate(Credential credential)</P>
+			</TD>
+			<TD WIDTH=261>
+				<P>Used to invalidate the given credential for the current
+				session. The credential can be authenticated again with a new
+				call to authenticate().</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Since the SyncML specifications do not
+mandate a per database authorization, therefore in simple cases,
+authenticating the user for the session may be sufficient (with the
+meaning that an authenticated user is authorized to access the server
+and all databases). However, the architecture allows more complex
+authorization policies.</P>
+<H2 CLASS="western"><A NAME="_Ref26286524"></A>4.2.JAAS</H2>
+<P STYLE="margin-bottom: 0cm">The Java Authentication and
+Authorization Service (JAAS) was introduced as an optional package
+(extension) to the Java 2 SDK, Standard Edition (J2SDK), v 1.3. JAAS
+has now been integrated into the J2SDK, v 1.4.
+</P>
+<P STYLE="margin-bottom: 0cm">JAAS can be used for two purposes:
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">for <I>authentication</I> of
+	users, to reliably and securely determine who is currently executing
+	Java code, regardless of whether the code is running as an
+	application, an applet, a bean, or a servlet; and
+	</P>
+	<LI><P STYLE="margin-bottom: 0cm">for <I>authorization</I> of users
+	to ensure they have the access control rights (permissions) required
+	to do the actions performed.
+	</P>
+</UL>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">JAAS authentication is performed in a
+<I>pluggable</I> fashion. This permits applications to remain
+independent from underlying authentication technologies. New or
+updated authentication technologies can be plugged under an
+application without requiring modifications to the application
+itself. Applications enable the authentication process by
+instantiating a <FONT FACE="Courier New, monospace"><FONT SIZE=2><A HREF="../../../../../C:\programming\java\jdk\j2sdk1.4.1_01\docs\api\javax\security\auth\login\LoginContext.html"><U><FONT COLOR="#0000ff">LoginContext</FONT></U></A></FONT></FONT>
+object, which in turn references a <FONT FACE="Courier New, monospace"><FONT SIZE=2><A HREF="../../../../../C:\programming\java\jdk\j2sdk1.4.1_01\docs\api\javax\security\auth\login\Configuration.html"><U><FONT COLOR="#0000ff">Configuration</FONT></U></A></FONT></FONT>
+to determine the authentication technology(ies), or <FONT FACE="Courier New, monospace"><FONT SIZE=2><A HREF="../../../../../C:\programming\java\jdk\j2sdk1.4.1_01\docs\api\javax\security\auth\spi\LoginModule.html"><U><FONT COLOR="#0000ff">LoginModule</FONT></U></A></FONT></FONT>(s),
+to be used in performing the authentication. Typical <FONT FACE="Courier New, monospace"><FONT SIZE=2>LoginModule</FONT></FONT>s
+may prompt for and verify a username and password. Others may read
+and verify a voice or fingerprint sample.
+</P>
+<P STYLE="margin-bottom: 0cm">Once the user or service executing the
+code has been authenticated, the JAAS authorization component works
+in conjunction with the core Java 2 access control model to protect
+access to sensitive resources.
+</P>
+<P STYLE="margin-bottom: 0cm">For additional information about JAAS
+see [8].
+</P>
+<H2 CLASS="western">4.3.sync4j.framework.security.SimpleOfficer</H2>
+<P STYLE="margin-bottom: 0cm">SimpleOfficer is a placeholder for more
+meaningful implementations of an officer. Both authenticate() and
+authorize() return true and the implementation of unAuthenticate() is
+simply empty. The result is that users are ignored, therefore always
+authenticated and authorized.</P>
+<H2 CLASS="western">4.4.sync4j.framework.security.JAASOfficer</H2>
+<P STYLE="margin-bottom: 0cm">This implementation of Officer
+delegates to JAAS the authentication and authorization services.</P>
+<P STYLE="margin-bottom: 0cm"> In order to use this implementation,
+the system property java.security.auth.login.config must be set
+accordingly to what specified in the JAAS documentation or in the
+documentation of the application server in use.</P>
+<P STYLE="margin-bottom: 0cm">Sync4j implements also an empty
+LoginModule that, like SimpleOfficer, always authenticates and
+authorizes the users. This module is under the package
+sync4j.framework.security.jaas and is plugged in the JAAS
+configuration adding the following lines to the login configuration
+file:</P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">sync4j
+{</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">
+ sync4j.framework.security.jaas.SimpleLoginModule required required
+debug=true;</FONT></FONT></P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">}</FONT></FONT></P>
+<H2 CLASS="western">4.5.Sync4jEgine Configuration</H2>
+<P STYLE="margin-bottom: 0cm">The way to plug a specific officer
+implementation in Sync4j is by configuring the Sync4jEngine
+(sync4j.server.engine.Sync4jEngine) component, which is done by
+editing the file Sync4jEngine.properties. Simply change the following
+standard configuration:</P>
+<P STYLE="margin-top: 0.21cm; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.18cm 0cm">
+<FONT FACE="Courier New, monospace"><FONT SIZE=1 STYLE="font-size: 8pt">security.officer=sync4j.framework.security.JAASOfficer</FONT></FONT></P>
+<P STYLE="margin-bottom: 0cm">However, the recommended way to use an
+existing authentication/authorization module is the JAAS compliant
+way, which is the standard Java way to configure security. Therefore
+the above configuration should be left unchanged, modifying instead
+the JAAS subsystem to use a proper implementation of LoginModuule.</P>
+<H1 CLASS="western" STYLE="page-break-before: always">5.Error and
+Exception Handling</H1>
+<P STYLE="margin-bottom: 0cm">This chapter describes the use of
+exceptions to handle error conditions at the different levels in the
+layered architecture of Sync4j. Simplifying the structure depicted in
+Figure 1 and focusing on the execution flow of a SyncML request, we
+have the flow of Figure 5.
+</P>
+<P STYLE="margin-bottom: 0cm"><SPAN ID="Cornice4" STYLE="float: left; width: 11cm; height: 16.1cm; border: none; padding: 0cm; background: #ffffff">
+	<P STYLE="margin-top: 0.21cm"><IMG SRC="sync4j-architecture_html_m551cf03b.gif" ALIGN=LEFT><BR CLEAR=LEFT><I>Figure
+	5 - Message processing flow</I></P>
+</SPAN><BR CLEAR=LEFT><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">The rule of thumb in handling error
+conditions is that when possible a SyncML message with an error
+status code should be returned instead of other kind of errors (such
+as transport level errors).
+</P>
+<P STYLE="margin-bottom: 0cm">As the picture suggests, only few types
+of exception should be thrown by the methods that cross the layers
+boundaries. Those exceptions should be strongly related with the
+responsibility of the throwing layer. Inside the layer instead, other
+exception types can be defined and used as needed.</P>
+<P STYLE="margin-bottom: 0cm">The following sections describe the
+error handling at each specific layer and the meaning of the
+different exceptions used in Sync4j and shown in Figure 6.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><SPAN ID="Cornice5" STYLE="float: left; width: 15.24cm; height: 6.16cm; border: none; padding: 0cm; background: #ffffff">
+	<P STYLE="margin-top: 0.21cm"><IMG SRC="sync4j-architecture_html_625795e6.gif" NAME="Immagine4" ALIGN=LEFT WIDTH=511 HEIGHT=233 BORDER=0><BR CLEAR=LEFT><I>Figure
+	6- Exception hierarchy</I></P>
+</SPAN><BR>
+</P>
+<H2 CLASS="western">5.1.Sync4jException</H2>
+<P STYLE="margin-bottom: 0cm">It is the base of most of the
+exceptions defined in Sync4j. It makes use of the new <FONT FACE="Courier New, monospace">Exception</FONT>
+object provided by the JDK 1.4, which allows chaining an exception
+with causing exception. This is very useful converting a low-level
+exception to an exception that crosses the layer boundary while
+keeping the root cause of the error.</P>
+<H2 CLASS="western">5.2.ServerException</H2>
+<P STYLE="margin-bottom: 0cm">The Sync4j server should only throw
+<FONT FACE="Courier New, monospace">ServerException</FONT>
+exceptions. This will include the causing exception if the error
+condition is due to one of the underlying layers.  In addition to
+simply representing an error condition, <FONT FACE="Courier New, monospace">ServerException</FONT>
+stores also a status code associated to the error. This is
+particularly helpful when dealing with exceptions that encapsulate
+SyncML -level errors such as the SyncML error codes. <FONT FACE="Courier New, monospace">ServerException</FONT>s
+should be let reach the transport layer only when the error is in
+some way fatal so that it is not possible recover from it and produce
+a proper SyncML response message. When possible, it is recommended to
+create a SyncML message with a <FONT FACE="Courier New, monospace">&lt;Status&gt;</FONT>
+element representing the error condition with a proper status code in
+its <FONT FACE="Courier New, monospace">&lt;Data&gt;</FONT>
+subelement; status codes are defined by the SyncML specifications in
+the document <B>[1]</B>.</P>
+<H3 CLASS="western">5.2.1.SyncML Exceptions</H3>
+<P STYLE="margin-bottom: 0cm">Each SyncML error status code is
+encapsulated in a corresponding exception, for example
+<FONT FACE="Courier New, monospace">NotImplementedException</FONT> or
+<FONT FACE="Courier New, monospace">BadCGIScriptException</FONT>. All
+these exceptions are direct subclasses of <FONT FACE="Courier New, monospace">SyncServerException</FONT>.</P>
+<H2 CLASS="western">5.3.ProtocolException</H2>
+<P STYLE="margin-bottom: 0cm">A protocol error can be of two types:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0cm">SyncML representation</P>
+	<LI><P STYLE="margin-bottom: 0cm">SyncML specifications</P>
+</OL>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">The former groups the errors in the
+representation of a SyncML message such as the XML document is not
+well formed, or there are parse or syntax errors. Or, even if the
+message is a well formed XML content, it does not represent a SyncML
+message (for example the <FONT FACE="Courier New, monospace">&lt;SyncHeader&gt;</FONT>
+element is missing). These are low level exceptions that may make
+impossible returning a proper SyncML response containing the error
+status code. When creating the response SyncML error message is
+impossible, the exception will bubble up to the transport level and a
+transport specific error response will be returned to the client.</P>
+<P STYLE="margin-bottom: 0cm">The latter type of exceptions groups
+the errors related to the violation of the SyncML protocol in terms
+of sequence of messages. Examples of these errors are the violations
+of the requirements mandated by the SyncML specifications for the
+initialization or modifications message (see <B>[2]</B>).</P>
+<P STYLE="margin-bottom: 0cm">Following the classification above, two
+different exception classes are defined in Sync4j:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace">core.framework.protocol.ProtocolExcepion</FONT></P>
+	<LI><P STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace">core.framework.core.RepresentationException</FONT></P>
+</OL>
+<H1 CLASS="western" STYLE="page-break-before: always">6.References
+and Resources</H1>
+<H2 CLASS="western">6.1.References</H2>
+<P ALIGN=LEFT STYLE="margin-left: 0.56cm; text-indent: -0.56cm; margin-bottom: 0cm">
+[1] <I>SyncML Representation Protocol, version 1.1</I>,
+<A HREF="http://www.syncml.org/docs/syncml_represent_v11_20020215.pdf">http://www.syncml.org/docs/syncml_represent_v11_20020215.pdf</A></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.56cm; text-indent: -0.56cm; margin-bottom: 0cm">
+[2] <I>SyncML Sync Protocol, version 1.1</I>,
+http://www.syncml.org/docs/syncml_sync_protocol_v11_20020215.pdf</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.56cm; text-indent: -0.56cm; margin-bottom: 0cm">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.56cm; text-indent: -0.56cm; margin-bottom: 0cm">
+<BR>
+</P>
+<H2 CLASS="western">6.2.Resources</H2>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT SIZE=2>[1]
+www.syncml.org</FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT SIZE=2>[3]
+www.sourceforge.net</FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT SIZE=2>[4]
+www.cygwin.com</FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT SIZE=2>[5]
+jakarta.apache.org/cactus</FONT></P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT SIZE=2>[6]
+www.jdom.org</FONT></P>
+<P STYLE="margin-bottom: 0cm"><SPAN LANG="en-GB"><FONT SIZE=2>[7]
+</FONT></SPAN>www.junit.org</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><FONT SIZE=2>[8] Java
+Authentication and Authorization Service, Reference Guide, JDK 1.4.x
+documentation</FONT></P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P LANG="en-GB" STYLE="margin-bottom: 0cm"><BR>
+</P>
+</BODY>
+</HTML>

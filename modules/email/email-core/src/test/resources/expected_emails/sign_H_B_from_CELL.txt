@@ -1,0 +1,29 @@
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 4C4051EEC031
+	for <gibi@funambol.net>; Tue, 18 Dec 2007 01:01:24 -0800 (PST)
+X-Spam-Score: -0.754
+X-Spam-Level: 
+X-Spam-Status: No, score=-0.754 tagged_above=-10 required=5 tests=[AWL=-1.175,
+	BAYES_00=-2.599, DATE_IN_PAST_06_12=0.827, INVALID_DATE=2.193]
+Received: from a.mail.sonomait.com ([127.0.0.1])
+	by localhost (a.mail.sonomait.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Uz-m9is04N8f for <gibi@funambol.net>;
+	Tue, 18 Dec 2007 01:01:17 -0800 (PST)
+Received: from ARGANTE (85-18-37-27.ip.fastwebnet.it [85.18.37.27])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 6A9F61EEC02C
+	for <gibi@funambol.net>; Tue, 18 Dec 2007 01:01:16 -0800 (PST)
+Date: Tue, 18 Dec 2007 9:1:9 -0000
+From: gibi gibi <gibi@funambol.net>
+To: "gibi test" <gibi@funambol.net>
+Message-ID: <27109920.141197968474574.JavaMail.gibi@ARGANTE>
+Subject: test da cellulare
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Funambol: true
+
+test da cellulare senza attachment ovviamnete. versione precendente alle modifiche per gli attachment. gibi
+
+
+__________
+Funambol :: mobile open source :: http://www.funambol.com

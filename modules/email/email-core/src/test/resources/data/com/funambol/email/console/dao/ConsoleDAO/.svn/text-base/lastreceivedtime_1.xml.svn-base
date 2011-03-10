@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "src/test/resources/data/com/funambol/email/console/dao/ConsoleDAO/dataset.dtd">
+<dataset>
+
+<!--
+    FNBL_EMAIL_INBOX
+    ****************
+-->
+<FNBL_EMAIL_INBOX   guid     ="1"
+                    username ="username1"
+                    protocol ="imap"
+                    received ="20090220T135331Z"
+                    last_crc ="0"
+                    />
+
+<FNBL_EMAIL_INBOX   guid     ="3"
+                    username ="username1"
+                    protocol ="imap"
+                    received ="20090101T010101Z"
+                    last_crc ="0"
+                    />
+
+<FNBL_EMAIL_INBOX   guid     ="4"
+                    username ="username1"
+                    protocol ="imap"
+                    received ="20090202T020202Z"
+                    last_crc ="0"
+                    />
+
+</dataset>

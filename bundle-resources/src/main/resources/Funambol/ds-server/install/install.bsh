@@ -1,0 +1,170 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2006 - 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+
+/**
+ * This is bsh is used to handle the jdbc classpath specified in the
+ * install.properties during the installation process.
+ *
+ * @version $Id: install.bsh,v 1.1 2008-07-01 21:54:11 nichele Exp $
+ */
+
+import java.io.*;
+import java.util.*;
+
+final String PROPERTY_JDBC_CLASSPATH  = "jdbc.classpath";
+
+/**
+ * Returns a List with the valid Files specified in the
+ * PROPERTY_JDBC_CLASSPATH property
+ */
+List getAbsolutePaths(String jdbcClasspath) {
+
+    List filesList = new ArrayList();
+
+    if (jdbcClasspath == null) {
+        return filesList;
+    }
+
+    String[] files = jdbcClasspath.split(File.pathSeparator);
+
+    if (files == null) {
+        return filesList;
+    }
+
+    File file = null;
+
+    for (int i=0; i<files.length; i++) {
+        file = new File(files[i]);
+        if (file.isFile() && file.exists()) {
+            filesList.add(file);
+        }
+    }
+
+
+    return filesList;
+}
+
+/**
+ * Copies the valid Files specified in the
+ * PROPERTY_JDBC_CLASSPATH property in the directory specified
+ * in the property with the given name
+ */
+void copyJDBCDriverFiles(String propertyName) {
+
+    String jdbcClasspath = project.getProperty(PROPERTY_JDBC_CLASSPATH);
+
+    String dir = project.getProperty(propertyName);
+
+    File destDir = new File(dir);
+
+    List files = getAbsolutePaths(jdbcClasspath);
+
+    copyTask = project.createTask("copy");
+
+    int numFiles = files.size();
+    File fileToCopy = null;
+    for (int i=0; i<numFiles; i++) {
+
+        fileToCopy = (File)files.get(i);
+        copyTask.setFile(fileToCopy);
+        copyTask.setTodir(destDir);
+        copyTask.perform();
+
+    }
+}
+
+/**
+ * Sets a property with the given name with a classpath composed
+ * with the absolute path of the valid files
+ */
+void setAbsoluteJDBCDriverFilesPath(String propertyName) {
+
+    String jdbcClasspath = project.getProperty(PROPERTY_JDBC_CLASSPATH);
+
+    List files = getAbsolutePaths(jdbcClasspath);
+
+    StringBuffer sb = new StringBuffer();
+
+    int numFiles = files.size();
+    File file = null;
+    for (int i=0; i<numFiles; i++) {
+        file = (File)files.get(i);
+
+        sb.append(file.getCanonicalPath()).append(File.pathSeparator);
+
+    }
+
+    project.setProperty(propertyName, sb.toString());
+}
+
+/**
+ * Sets the property propertyToSet with the list of files contained in the directory
+ * set in propertyDirectoryName using separator as separator (just the files with
+ * the given fileExtension are added)
+ */
+void setFileList(String propertyDirectoryName,
+                 String fileExtension,
+                 String separator,
+                 String propertyToSet) {
+
+    String directoryName = project.getProperty(propertyDirectoryName);
+    File directory = new File(directoryName);
+    if (directory != null && directory.isDirectory()){
+
+        File[] files = directory.listFiles();
+
+        StringBuffer sb = new StringBuffer();
+        int cont = 0;
+        for (File f : files) {
+            if (!f.isFile()) {
+                continue;
+            }
+            String name = f.getName();
+            if (fileExtension != null) {
+                if (!(name.toUpperCase().endsWith(fileExtension.toUpperCase()))) {
+                	continue;
+                }
+            }
+            if ((cont++) != 0) {
+                sb.append(separator);
+            }
+            sb.append(name);
+        }
+
+        project.setProperty(propertyToSet, sb.toString());
+
+    }
+}

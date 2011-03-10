@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/core/!svn/ver/34885/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/PIMCalendarDAO
+END
+dataset.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/core/!svn/ver/32801/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/PIMCalendarDAO/dataset.dtd
+END
+store-event-dataset-part1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/core/!svn/ver/34885/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/PIMCalendarDAO/store-event-dataset-part1.xml
+END
+store-task-dataset-part1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/core/!svn/ver/34885/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/PIMCalendarDAO/store-task-dataset-part1.xml
+END
+initial-db-dataset-part1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/core/!svn/ver/34885/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/PIMCalendarDAO/initial-db-dataset-part1.xml
+END
+update-event-dataset-part1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/core/!svn/ver/34885/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/PIMCalendarDAO/update-event-dataset-part1.xml
+END
+update-task-dataset-part1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/core/!svn/ver/34885/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/PIMCalendarDAO/update-task-dataset-part1.xml
+END

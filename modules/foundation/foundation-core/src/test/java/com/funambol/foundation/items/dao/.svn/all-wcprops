@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/36704/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/items/dao
+END
+PIMNoteDAOTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/core/!svn/ver/34913/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/items/dao/PIMNoteDAOTest.java
+END
+PIMCalendarDAOTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/core/!svn/ver/34904/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/items/dao/PIMCalendarDAOTest.java
+END
+FileDataObjectDAOTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/items/dao/FileDataObjectDAOTest.java
+END
+PIMContactDAOTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/core/!svn/ver/36698/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/items/dao/PIMContactDAOTest.java
+END
+JcloudsFileDataObjectBodyDAOTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/items/dao/JcloudsFileDataObjectBodyDAOTest.java
+END
+DataBaseFileDataObjectMetadataDAOTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/core/!svn/ver/36704/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/items/dao/DataBaseFileDataObjectMetadataDAOTest.java
+END
+MockFoundationPartitioningCriteria.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/items/dao/MockFoundationPartitioningCriteria.java
+END

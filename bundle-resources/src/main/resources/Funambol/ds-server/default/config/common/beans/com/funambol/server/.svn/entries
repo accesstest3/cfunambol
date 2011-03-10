@@ -1,0 +1,98 @@
+10
+
+dir
+36744
+https://core.forge.funambol.org/svn/core/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server
+https://core.forge.funambol.org/svn/core
+
+
+
+2011-02-26T09:00:31.417647Z
+36693
+nichele
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+e8e8ed6c-164c-0410-afcf-9e9a7c7d8c10
+
+sms
+dir
+
+update
+dir
+
+session
+dir
+
+engine
+dir
+
+db
+dir
+
+logging
+dir
+
+notification
+dir
+
+security
+dir
+
+admin
+dir
+
+store
+dir
+
+inventory
+dir
+
+SyncMLCanonizer.xml
+file
+
+
+
+
+2011-03-10T18:10:35.589353Z
+dda27ff16950c8fa31ce8162448a5e65
+2008-07-01T21:54:11.000000Z
+26081
+nichele
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+165
+
+plugin
+dir
+

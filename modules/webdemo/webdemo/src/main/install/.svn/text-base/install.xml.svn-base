@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<project name="Funambol Web Demo Client Installation" default="install"
+         basedir=".">
+
+    <!-- Pick up the environment variables -->
+    <property environment="ENV"/>
+    
+    <!-- =================================================================== -->
+    <!-- install - custom module installation                                -->
+    <!-- =================================================================== -->
+    <target name="install">
+        <antcall target="install-${ENV.APPSRV}"/>
+        <echo message="Web Demo Client installation successfully completed"/>
+    </target>
+    
+    <target name="install-tomcat55">
+        <antcall target="install-tomcat"/>
+    </target>
+    
+    <target name="install-tomcat60">
+        <antcall target="install-tomcat"/>
+    </target>
+    
+    <target name="install-tomcat">
+        <echo message="Install Funambol Web Demo Client on Tomcat (${basedir})"/>
+        <echo message="Funambol home: (${funambol-home})"/>
+        
+        <copy todir="${ENV.J2EE_HOME}/webapps/webdemo" overwrite="true">
+            <fileset dir="exclude">
+                <include name="webdemo-*.war"/>
+            </fileset>
+        </copy>
+        <unwar dest="${ENV.J2EE_HOME}/webapps/webdemo/">
+            <fileset dir="${ENV.J2EE_HOME}/webapps/webdemo">
+                <include name="**/*.war"/>
+            </fileset>
+        </unwar>
+        <replace dir="${ENV.J2EE_HOME}/webapps/webdemo/WEB-INF/classes" summary="true">
+            <include name="log4j.properties"/>
+            <replacefilter token="{SYNCSERVER_HOME}" value="${funambol-home}" />
+        </replace>
+        <replaceregexp file="${ENV.J2EE_HOME}/webapps/webdemo/WEB-INF/classes/log4j.properties"
+                       match="\\"
+                       replace="/"
+                       flags="g"/>
+    </target>
+</project>

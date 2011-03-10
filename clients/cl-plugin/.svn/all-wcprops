@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/core/!svn/ver/36445/trunk/funambol/clients/cl-plugin
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/core/!svn/ver/27993/trunk/funambol/clients/cl-plugin/LICENSE.txt
+END
+changeslog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/core/!svn/ver/36421/trunk/funambol/clients/cl-plugin/changeslog.txt
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/core/!svn/ver/36445/trunk/funambol/clients/cl-plugin/pom.xml
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/core/!svn/ver/27993/trunk/funambol/clients/cl-plugin/.cvsignore
+END

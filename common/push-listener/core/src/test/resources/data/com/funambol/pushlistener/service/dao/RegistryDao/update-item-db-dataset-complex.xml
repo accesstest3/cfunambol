@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+ <!--
+    FNBL_PUSH_REGISTRY_COMPLEX
+    ***************************
+  -->
+
+
+  <FNBL_PUSH_REGISTRY_COMPLEX    period         ="4543432"
+                                 active         ="N"
+                                 last_update    ="3432421321342"
+                                 status         ="U"
+                                 task_bean_file ="com.funambol.task.SmartTask"
+                                 VAR_FIELD       ="string fields"
+                                 OLD_BOOL_FIELD  ="N"
+                                 LONG_FIELD      ="435245435235"
+                                 DOUBLE_FIELD    ="225.67"
+                                 TIME_FIELD      ="09:42:12"
+                                 TIMESTAMP_FIELD ="2009-12-20 12:34:34"
+  />                                         
+                                             
+  <FNBL_PUSH_REGISTRY_COMPLEX    period         ="3334542333"
+                                 active         ="N"
+                                 last_update    ="33389765432"
+                                 status         ="U"
+                                 task_bean_file ="com.funambol.task.CustomTask"
+                             
+  />
+  
+  <FNBL_PUSH_REGISTRY_COMPLEX    period         ="3334542332223"
+                                 active         ="Y"
+                                 last_update    ="33389111765432"
+                                 status         ="U"
+                                 task_bean_file ="com.funambol.task.SimpleJoinTask"
+                                 BOOL_FIELD      ="false"
+                                 OLD_BOOL_FIELD  ="Y"
+                                 LONG_FIELD      ="435245434445235"
+                                 DECIMAL_FIELD   ="1234567899876543221"
+                                 DOUBLE_FIELD    ="22445.67"
+                                 INTEGER_FIELD   ="226788"
+                                 DATE_FIELD      ="2010-04-11"
+                                 TIME_FIELD      ="23:43:11"
+                                 TIMESTAMP_FIELD ="2009-07-22 19:30:14"
+  />
+   
+</dataset>

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/core/!svn/ver/34831/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/session
+END
+SessionHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/session/SessionHandler.java
+END
+AbstractSessionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/session/AbstractSessionManager.java
+END
+SessionExpiredException.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/session/SessionExpiredException.java
+END
+SyncState.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/core/!svn/ver/33374/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/session/SyncState.java
+END
+SyncSessionHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/34831/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/session/SyncSessionHandler.java
+END
+SyncSourceState.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/session/SyncSourceState.java
+END

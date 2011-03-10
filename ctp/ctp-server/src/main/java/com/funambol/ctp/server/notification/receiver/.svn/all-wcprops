@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/notification/receiver
+END
+ReceiverException.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/notification/receiver/ReceiverException.java
+END
+NotificationReceiver.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/notification/receiver/NotificationReceiver.java
+END
+ChannelReceiver.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/notification/receiver/ChannelReceiver.java
+END

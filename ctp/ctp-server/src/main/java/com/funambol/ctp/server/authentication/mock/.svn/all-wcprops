@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/authentication/mock
+END
+FakeAuthenticationManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/authentication/mock/FakeAuthenticationManager.java
+END
+MockAuthenticationManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/authentication/mock/MockAuthenticationManager.java
+END

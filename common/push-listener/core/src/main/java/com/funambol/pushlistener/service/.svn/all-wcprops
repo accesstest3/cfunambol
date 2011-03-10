@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/36032/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service
+END
+PushListenerHealthStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/PushListenerHealthStatus.java
+END
+DBConnectionProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/DBConnectionProvider.java
+END
+StatisticsCollector.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/29975/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/StatisticsCollector.java
+END
+PushListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/35930/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/PushListener.java
+END
+PushListenerMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/PushListenerMBean.java
+END
+DBConnectionProviderHealthStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/DBConnectionProviderHealthStatus.java
+END
+BaseThreadFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/BaseThreadFactory.java
+END
+ManagementTools.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/ManagementTools.java
+END

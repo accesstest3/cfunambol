@@ -1,0 +1,13 @@
+K 10
+svn:ignore
+V 27
+.DS_Store
+nbproject
+target
+
+K 13
+svn:mergeinfo
+V 130
+/branches/us5422/funambol/common/server-framework:35155-35929
+/branches/v8_configurable_engine/common/server-framework:31387-31758
+END

@@ -1,0 +1,1403 @@
+2011-02-01
+- nichele: Removed cluster-framework dependency
+
+----------------------------------
+Funambol Email Connector 9.0.0
+----------------------------------
+
+2010-10-11
+- testa: Fixed bug 10216 - Unable to download attachment with name containing 
+         non ascii characters on BlackBerry 8100 Pearl.
+
+----------------------------------
+Funambol Email Connector 8.7.0
+----------------------------------
+2010-07-12
+- machi: fixed typo in the copyright
+
+
+----------------------------------
+Funambol Email Connector 8.5.2
+----------------------------------
+2010-04-11 v85
+- maria: updated dependencies
+
+----------------------------------
+Funambol Email Connector 8.5.1
+----------------------------------
+2010-03-29
+- machi: Fixed bug #8907: Logging email Message-ID in server log
+         Updated the manager layer in order to log the Message-ID of incoming and 
+         outcoming email messages.
+         
+2010-02-05
+- machi: Updated multipart plain html calendar test files in order to force the
+         timezone and avoid timezone issues when using different jdks.
+
+2010-02-04
+- nichele: Added in log4j configuration file (for inbox-listener) a new hourly 
+           appender
+
+----------------------------------
+Funambol Email Connector 8.2.4
+----------------------------------
+2009-12-04
+- maria: updated dependencies
+
+----------------------------------
+Funambol Email Connector 8.2.3
+----------------------------------
+- machi: fix core-framework dependency for the email-core artifact.
+
+----------------------------------
+Funambol Email Connector 8.0.1
+----------------------------------
+2009-10-24
+- maria: updated dependencies
+
+----------------------------------
+Funambol Email Connector 8.0.0
+----------------------------------
+2009-06-11
+- fabius: Fixed bug #7436: Not possible to send emails from Hotmail
+          account on certain network 
+
+2009-05-13
+- piter: Fixed bug #7207: No emails received on client after first installation
+         and using a POP mail account
+
+2009-05-04
+- piter: Fixed bug #7143: wrong message displayed to the user when the Hotmail
+         account is not accesible
+
+2009-04-15
+- piter: Fixed bug #7111: synchronization is stopped at the begin if Hotmail account
+         is not accessible.
+- machi: Fixed bug #7105: Error retrieving the number of unread messages for a 
+         email account
+         - fixed ConsoleDAO in order to use connection to user database
+         - fixed ConsoleDAOTest in order to use partitioned database.  
+
+2009-04-08
+- piter: Fixed bug #7087: inbox listener now retrieves emails in the right order
+         for Hotmail account. 
+- piter: Fixed bug #6977: inbox listener is now able to detect when a Hotmail
+         account is not accessible and, in this case, fnbl_email_inbox is not
+         affected.
+
+2009-04-08
+- machi: Added JUnit test for UTC/Date conversions method in the Utility class
+         Changed query in order to use Jdbc parameter replacement instead of MessageFormat.
+
+2009-04-07
+- machi: Fixed query to retrieve the number of unread emails taking care of the max number
+         of emails defined by the user account.
+         Added JUnit test for getNumberOfUnreadEmails() of the COnsoleDAO class.
+         Added JUnit test fot getTimeOfLastReceivedEmail() of the COnsoleDAO class.
+
+2009-04-03
+- machi: Added ConsoleDAOTest class. 
+         Deprecated "User" method in the ConsoleDAO in favor of "UserAccount" method.
+         Create getUserAccounts method.
+
+2009-04-02
+- lulu: Implemented ConsoleManager.getTimeOfLastReceivedEmail(..) method in order
+        to retrieve the time in milliseconds of the last received email.
+        Added Utility.UtcToLong(..) method in order to convert the UTC string 
+        in a long value.
+
+2009-03-25
+- lulu: Changed the push event logging in InboxListenerManager using the new
+        PushFlowEvent object.
+
+----------------------------------
+Funambol Email Connector 7.1.1
+----------------------------------
+2009-02-01
+- nichele: Imported Funambol certificate in cacerts file
+
+----------------------------------
+Funambol Email Connector 7.1.0
+----------------------------------
+2009-01-25
+- nichele: Fixed bug #6700: Missing database indexes on emailconnector tables:
+               - fnbl_email_enable_account(username)
+               - fnbl_email_push_registry (last_update, status)
+               - fnbl_email_push_registry (status)
+               - fnbl_email_cache(source_uri, principal)
+               - fnbl_email_folder(source_uri, principal)
+
+2009-01-16
+- nichele: Fixed bug #6677 Missing database index on fnbl_email_inbox.token
+- nichele: Fixed bug #6636 Attachment id generation accesses DB everytime
+
+2009-01-09
+- testa: Rollback changes applied on 2008-12-22 to fix #6565.
+         Fixed bug #6565: the 'path' field comparision in the select statement
+         is case insensitive. This fix is also for bug #6586
+
+2008-12-22
+- testa: Added in the ConsoleManager the method updateConfiguredInboxFolderName.
+         Fixed bug #6565: while inserting the default inbox folder, if the 
+         configured inbox folder name is lowercase but the inbox folder name in 
+         the mail server is upper case, the configured values is updated.
+
+2008-12-11
+- piter: While creating header for an outgoing mail, headers "CC" and "BCC" are
+         handled in a case-insensitive way. This fixes bug #6508.
+
+2008-11-12
+- piter: Added utf8 encoding of headers. This fixes bug #6089.
+
+2008-11-06
+- testa: Added isEmail method in the IEmailGeneric interface.
+         Fixed bug for folders management during a slow sync.
+
+2008-11-05
+- piter: Invitation emails are represented in a human readable format. The original
+         vcalendar invitation is still present as attachment.
+
+2008-10-23
+- testa: Changed EmailSyncSource as MergableSyncsource in order to manage smart 
+         email slow syncs.
+         When an add is required by the Server during a slow sync or for an empty
+         email in the inbox it is refused throwing a RefusedItemException.
+
+2008-09-24
+- piter: Fixed email deletion from the Inbox folder for imap account when the
+         mail server also deletes the original message while it is performing
+         copy operation of the message itself from the Inbox folder to the Trash
+         folder.  
+
+2008-09-24
+- piter: Fixed InboxListenerConfiguration.xml in test resources.
+- piter: With imap account, during email deletion, if the Trash folder does not
+         exist, then it will be created.
+
+2008-09-23
+- piter: Replaced usages of the deprecated classes of push-framework (package
+         com.funambol.pushlistener.service.ws) in email-core and inbox-listener.
+         Replaced WSServerInformation property with serverInformation in file
+         InboxListenerConfiguration.xml .            
+- nichele: Updated dependencies.
+- lulu: Fixed bug #5507 - Gmail is misspelled in the Email Connector
+
+2008-09-16
+- nichele: Swapped token/status fields in the table fnbl_email_inbox for mysql
+           and postgresql schema in order to use the same hypersonic order.
+
+2008-09-12
+- piter: Fixed bug #5299: on imap accounts, when an email is deleted from the inbox
+         folder then the message is moved from inbox to the trash folder
+
+2008-09-05
+- testa: Fixed bug #5318: Using IMAP protocol, emails containing JAD files as
+         attachments are downloaded on device without any attachment. This fix 
+         handles the "Unable to load BODYSTRUCTURE" exception thown by some imap 
+         servers when parsing emails with special type of attachments 
+
+----------------------------------
+Funambol Email Connector 7.0.6
+----------------------------------
+2008-07-26
+- nichele: Updated to pim-framework 7.0.6
+
+----------------------------------
+Funambol Email Connector 7.0.5
+----------------------------------
+2008-07-18
+- nichele: Updated to pim-framework 7.0.5, push-framework 7.0.5
+
+2008-07-17
+- testa: Fixed bug #5614: Exception while syncing the email if the token is null
+         in the fnbl_email_inbox
+
+----------------------------------
+Funambol Email Connector 7.0.4
+----------------------------------
+2008-07-15
+- nichele: Updated to pim-framework 7.0.4
+
+----------------------------------
+Funambol Email Connector 7.0.3
+----------------------------------
+2008-07-06
+- nichele: Change scope of hsqldb:hsqldb in order to have it in the distribution
+- nichele: Fixed bug #5486: PIMListener/Inboxlistener don't start if JAVA_HOME variable is set
+
+2008-07-03
+- paulo: Changed the packaging, removing the artifact added twice
+
+2008-07-02
+- nichele: Updated dependencies
+- paulo: Changed the packaging of the inbox-listener, now sources and javadoc artifacts are not included
+
+----------------------------------
+Funambol Email Connector 7.0.2
+----------------------------------
+2008-06-24
+- testa: fixed issue about email containing more than one part and one of them 
+         is a "text/calendar" part and is not an attachment disposition.
+
+2008-06-17
+- gibi: fixed the issue about the updated email list in the inbox-listener in order to
+        avoid Too many useless queries 
+
+2008-06-16
+- piter: fixed issue about parsing of html attributes whose value contains '>'
+         character  
+- gibi: changed the trailer layout
+
+2008-06-11
+- gibi: fixed issue about tag <H1>
+- gibi: fixed issue about tag <blocked:: and added the related test
+
+2008-06-05
+- testa: Truncate long file names in the attachment URL used by to retrieve it from
+         the Content Provider
+
+2008-06-03
+- testa: Added the Content Provider URL configuration in the Email SyncSource 
+         config pannel.
+         Moved method getItem from PopEntityManager to PopEntityDAO.
+
+2008-06-03
+- piter: Added email attachment handling by url at email connector side. Changes
+         include:
+         added token column to the fnbl_email_inbox table to store token associated 
+         to each email;
+         added package com.funambol.email.util.token to the email core in order
+         to handle tokens
+         inbox listener now creates and insert tokens to each new email; that token
+         will be read by the email connector during email retrieving.         
+
+2008-05-29
+- gibi: Added index in the fnbl_email_inbox table
+
+2008-05-19
+- nichele: Updated v7 with new database architecture from v66
+
+2008-05-16
+- gibi: fixed the issue about the hotmail server and the getMessages() javamail method
+
+2008-05-13
+- gibi: reviewed the log.error parameters 
+
+----------------------------------
+Funambol Email Connector 7.0.1
+----------------------------------
+2008-05-06
+- gibi: fixed issue about the following behaviour: if the user deletes an email in the inbox folder 
+        no alert is sent by the IL when the number of the emails in the inbox folder is less than the 
+        number of the "max email number"
+
+2008-05-04
+- gibi: fixed issue about the unsupported encoding (there is an email with uft-8 instead of utf-8).
+
+2008-04-08
+- gibi: removed the "default funambol signature".
+
+2008-04-07
+- gibi: removed the "contact filter" feature
+- gibi: reviewed the directories structure
+
+2008-04-03
+- gibi: improved the error handling in the opening connection
+- gibi: fixed issue in the methods enable/disable user
+
+2008-04-02
+- gibi: fixed issue about the sent email: read flags and from value are correct now
+- gibi: fixed issue about slash in the email with only html body
+- gibi: fixed issue about the text/calendar mime type: 1) added the mime type in a static block;
+        2) hanlde the content type text calendar in the email parser; 3) added some comments;
+
+2008-03-25
+- gibi: reviewed the directory structure in order to allow the continuum procedure
+
+2008-02-21
+- testa :Updated to funambol:ds-server:7.0.0-SNAPSHOT
+
+- piter: added handling of "is in my contact" filtering for emails:
+         - added column isinmycontacts (character(1)) to the fnbl_email_inbox table 
+           to store if an email comes from user's contacts email addresses or not. 
+           At each run the inbox listener updates that column.
+         - at each sync the SyncSource retrieves "is in my contact" option setting
+           by the configDeviceProvider and stores it in the EmailFilter object for
+           this synchronization session (added mailFromMyContactsOnly property
+           to EmailFilter class). If no configuration is found for current principal
+           then option is considered to be unset.
+         - if filter option is set: for each item the corresponding isinmycontacts
+           field is tested in order to see if that item matches filter or not
+         - added FilteMatcher class to support filtering
+
+2008-02-20
+- gibi: added the SSLException in the sending procedure error handler
+        
+2008-02-05
+- gibi: Added the paragraph related to the Configuration Device Inventory, 
+        Configuration Persistence store and the Synchronization of the 
+        Configuration.
+        
+2007-12-14
+- gibi: added the command to include the documentation. modified the bin.xml file
+
+2007-12-13
+- gibi: fixed issue in the packaging process. modified the bin.xml file
+
+
+----------------------------------
+Funambol Email Connector 6.6.0
+----------------------------------
+
+2008-04-04
+- nichele: Reviewed database access to support core and user database separation.
+- nichele: Deprecated almost all the constructors with the datasource jndiName as parameter.
+
+2008-03-31
+- nichele: Changed log4j configuration for the inbox-listener adding a new
+           RollingFileAppender and using it instead of the DailyRollingFileAppender.
+
+2008-03-29
+- nichele: Removed basicDataSource configuration in InboxListenerConfiguration.xml
+           since with the push-framework:6.0.0 the datasources are handled in a
+           different way.
+
+2008-03-27
+- lulu: Reviewed DAOs in order to mark as read-only the connections used to 
+        perform only 'select'.
+
+2008-03-26
+- nichele: Improved exceptions handling in EmailConnectorConfig.getConfigInstance()
+- nichele: Renamed jgroups.xml in jgroups-inboxlistener.xml; reviewed also the
+           InboxListenerConfiguration.xml in order to use the new jgroups-inboxlistener.xml
+           file.
+
+
+----------------------------------
+Funambol Email Connector 6.5.12
+----------------------------------
+
+2008-02-20
+- gibi: fixed issue in the sending procedure: if the sent folder is not present
+        the addMethod return the email with the GUID based on the LUID and the folder ID
+
+2008-02-19
+- nichele: Increased size of the messageid field in fnbl_email_inbox, fnbl_email_inbox
+           and in fnbl_email_sentpop to 700 chars.
+- nichele: Reviewed prepared statements usage in InboxListenerDAO
+           
+2008-02-18
+- nichele: Reviewed exceptions logging in InboxListenerTask.execute() and in
+           InboxListenerScheduledTask.execute().
+- gibi: Improved the error logging in the sending procedure.
+
+
+2008-02-16
+- nichele: Reviewed InboxListenerManager.hasNewMessages(...) in order to
+           check if there are new emails also if the push is disabled.
+- nichele: Reviewed InboxListenerManager.engine(...) in order to log a IL_PUSH_EXC event
+           instead of a IL_NEW_MAIL_EX if the push is disabled.
+
+2008-02-14
+- nichele: Increased version of funambol:push-framework.
+
+
+----------------------------------
+Funambol Email Connector 6.5.11
+----------------------------------
+
+2008-02-06
+- gibi: Modified the check "equals" about ATTACHMENT and INLINE. Now the
+        connector uses the "equalsIgnoreCase" in the class: MessageCreator
+        and MessageParser
+- gibi: If the user change the mail server the updateUser procedure
+        removes the items in the fnbl_email_inbox and in the fnbl_email_folder
+
+2008-02-05
+- nichele: Reviewed exception handling in calling the ds-server notification
+           method in order to provide better messages.
+- lulu: Added funambol.push logger to log push events
+
+2008-02-04
+- gibi: added the SMTP Error Code in the sending procedure 
+
+2008-01-22
+- piter: added handling of smtp authentication per user account:
+         - added columns out_login (varchar(50)), out_password (varchar(50)) 
+           to the fnbl_email_account table
+         - added public method openConnection to the IMailServerWrapper interface
+           and to the CommonMailServerWrapper class including smtp authentication
+           credentials parameters (userOut, passwordOut).
+           Previous openConnection method was deprecated.   
+         - added outLogin and outPassword properties to the MailServerAccount
+           class
+
+
+----------------------------------
+Funambol Email Connector 6.5.10
+----------------------------------
+
+2007-12-07
+- nichele: Updated to funambol:ds-server:6.5.12
+
+
+----------------------------------
+Funambol Email Connector 6.5.9
+----------------------------------
+
+2007-11-30
+- piter: Reviewed crc calculation for pop access.
+
+2007-11-29
+- nichele: Added 'license' option to the inbox-listener starting script files in
+           order to show the AGPLv3 license.
+- piter: Fixed some issues about accessing Gmail account through imap protocol.
+- piter: Changed database initialization scripts for "Gmail" and "Google Mail"
+         mail servers to use imap access instead of pop. 
+
+
+----------------------------------
+Funambol Email Connector 6.5.8
+----------------------------------
+
+2007-11-26
+- piter: Added account deletion in InboxListenerTask if the ds user has been
+         deleted
+         
+2007-11-21
+- nichele: Set the idSpace used to create the registry entries in the
+           fnbl_email_push_registry to 'email.registryid'.
+           Previously the standard one (pushlistener.id) was used.
+
+2007-11-19
+- nichele: Minor changes in log4j configuration:
+           - set the root level to error
+           - added a new funambol.email logger (it is commented by default)
+
+
+----------------------------------
+Funambol Email Connector 6.5.7
+----------------------------------
+
+2007-11-15:
+- gibi: removed the 'recent' flag; it is no longer used in the CRC
+
+2007-11-13
+- nichele: Added a FunambolTrustManager and a FunambolSSLSocketFactory to disable
+           certificates check in SSL connections.
+           Reviewed inboxlistener starting script files in order to use our own
+           cacerts file.
+
+2007-11-09
+- lulu: Fixed the query to search the Public Mail Server when a condition is
+        specified.
+
+
+----------------------------------
+Funambol Email Connector 6.5.6
+----------------------------------
+
+2007-11-05
+- gibi: added the X-Priority field in the header-minimum
+
+2007-10-29
+- piter: Fixed initialization of AOL public mail server.
+- piter: Fixed bad account filling when Folder button is pressed in account detail
+         panel.
+
+2007-10-28
+- nichele: Improved script files
+
+2007-10-26
+- piter: when a ds user is deleted the its account and account related info will 
+         be removed at the successive inbox listener run; in the meantime the
+         account will be not editable.
+- piter: when a mail is sent from a device, that message is also added to the
+         sent folder of the mail server account (except AOL accounts)
+
+2007-10-22
+- gibi: new behaviour in addEmail() method: the email connector saves 
+        the email that the client sends in the SENT folder, even if the SENT folder
+        is not selected in the Admin Tool.
+
+
+----------------------------------
+Funambol Email Connector 6.5.5
+----------------------------------
+
+2007-10-17
+- gibi: Fixed issue about Timeout in the EmailOfficer 
+
+2007-10-11
+- piter: Fixed search result table update in the admin tool after account deletion.
+- piter: Email parts with content type "MESSAGE/RFC822" are now treated as
+         regular attachment.
+
+2007-10-07
+- nichele: Upgraded to funambol:pim-framework:6.5.3
+
+
+----------------------------------
+Funambol Email Connector 6.5.4
+----------------------------------
+
+2007-10-04
+- piter: Added deletion of all account related information while removing an
+         account.
+- gibi: added the multicast reader in the inbox-listener
+- piter: Fixed addition of a mail item which contains only flags (for imap account); 
+         if an addition of such mail is sent to the server, no email is added to 
+         the mail server and a status 500 is returned.
+
+2007-10-03
+- nichele: Removed the version from the configuration file because now it is read
+           from META-INF/maven/funambol/inbox-listener/pom.properties. 
+           Upgraded to PushFramework 6.5.4 adding the class InboxListener that is the
+           starting class for the Inbox Listener.
+           Removed version and service name from the configuration file.
+           Changed the name of the main MBean from com.funambol.pushframework=type:PushFramework
+           to com.funambol.inboxlistener=type:InboxListener.
+           
+2007-09-29
+- nichele: Reviewed build/forge process in order to use the jars specified in
+           the pom file.
+
+2007-09-28
+- gibi: added 'implements serializable' in the MailServerError class 
+
+2007-09-27
+- piter: changed value (from 587 to 465) for outgoing server port during insertion 
+         of the Yahoo mail server while installing email module.
+
+
+----------------------------------
+Funambol Email Connector 6.5.3
+----------------------------------
+
+2007-09-26
+- gibi: fixed the parser for the UDP message in the Inbox-Lister
+
+2007-09-24
+- piter: fixed the Wrong value for refresh time in the il.log file
+- piter: fixed the JAVA_OPTS settings when the "inboxlistener.sh status" command is launched
+
+2007-09-22
+- nichele: Added -Dfile.encoding=UTF-8 in the inboxlistener script files
+
+2007-09-21
+- piter: fixed issue about the Administration tool freezing (folders from "account details")
+- piter: fixed issue about disable / enable user methods
+- piter: put the property: timeout in the connector xml configuration file
+- piter: put the property: registryTableName in the connector xml configuration file
+
+
+2007-09-18
+- gibi: modified the comment in the sending notification command
+
+2007-09-17
+- gibi: removed the closing connector procedure when there is a "SendingException"
+- gibi: reviewed the description of the exception in the "SendingException"
+       
+
+----------------------------------
+Funambol Email Connector 6.5.2
+----------------------------------
+
+2007-09-13
+- nichele: Changed JMX port from 4099 to 4101
+
+2007-09-10
+- lulu: Changed logs directory for inbox-listener in order to have
+        Funambol
+        |- logs
+           |- inbox-listener
+              - inbox-listener.log
+- lulu: Changed logs directory for Email connector in order to have
+        Funambol
+        |- logs
+           |- ds-server
+              - ds-server.email.log
+              
+2007-09-09
+- nichele: Added serviceName and version in InboxlistenerConfiguration.xml
+
+2007-09-07
+- piter: revised implementation of ConsoleManager.exceptionHandler method; added
+         class to wrap error given by mailserver (MailServerError) and changed
+         return type for checkAccount method exposed by web service.
+
+2007-09-06
+- piter: fixed admin tool issues: while inserting a new mail server account  
+         server ports are initialized correctly and folder path are correctly
+         saved; edit and delete buttons on mail server search panel are enabled 
+         only if a mail server from search result table is selected; fixed user
+         search while in adding mail server account.
+
+2007-09-04
+- nichele: Improved INBOXLISTENER_HOME detection in inboxlistener.sh(.cmd)
+- nichele: Improved libraries loading in inboxlistener.sh(.cmd)
+           (all jars in the lib directory are automatically loaded)
+           
+2007-09-03
+- nichele: Put in the configuration a default jgroups.xml file that can be used
+           in a cluster environment.
+- nichele: Added to the InboxListenerConfiguration.xml the section for the cluster
+           configuration.
+- nichele: Fixed classpath usage in inboxlistener.sh
+- nichele: Changed the depencendy from push-framework 6.5.1 to push-framework 6.5.2
+
+
+----------------------------------
+Funambol Email Connector 6.5.1
+----------------------------------
+
+2007-08-31
+- piter: UDP mailbox name and email address parsers now recognizes for the correctness 
+         of the message prefix. 
+
+2007-08-30
+- gibi: added the AccountNotFoundException
+- piter:fixed the UDP message Parser
+
+2007-08-29
+- piter: added createMailServerAccount method to ConsoleDAO class. Using it in
+         methods getUsers, getUser, getUserFromID. 
+- piter: replaced TokenUtility with com.funambol.framework.tools.encryption.EncryptionTool. 
+- gibi: removed the listenerID properties (not used in the new architecture)
+
+2007-08-28
+- piter: added mail offset over the number of mail retrieved by method getItem
+         in class PopEntityManager.
+- gibi: fixed the issue when the ConsoleManager checks the inbox folder name
+- piter: transition from the "adding account: select user" panel to the 
+         "adding user account: insert account data" panel now occurs on clicking 
+         twice over a user.
+
+2007-08-27
+- gibi: fixed the issue about 'recent:' login for the gmail server
+
+2007-08-24
+- gibi: added JGroups lib and implemented the new policy in order to set the
+        total number of the IL and the index of the IL 
+- piter: added column ms_mailboxname to fnbl_email_account     
+
+2007-08-21
+- piter: reviewed the packaging and created the new Submitter
+
+2007-08-13
+- gibi: updated the code with the push listener framework 6.5.1
+        
+2007-08-10
+- gibi: fixed the issue about the resfresh fnbl_email_inbox when the admin change the 
+        protocol or/and the mail server
+
+2007-08-09
+- gibi: new instructions in order to handle the certificates. the funambol platform will 
+        use the jdk/jre keystore
+- gibi: deprecated the Inbox-Listener command line tool
+- gibi: optimized the encodeHeaderField call in the setNewHeaderIn() method
+
+2007-08-08
+- gibi: added the googlemail pop server
+- gibi: fixed the issue about the No Notification of New Email Messages if No Previous 
+        Manual Synchronization was Performed
+- gibi: fixed the issue about the 'null, null'  display name. modified the
+        method setNewHeaderOut() in the MessageCreator class.
+
+2007-08-07
+- gibi: added the parameter for the 'just new email notification' feature. 
+        the administrator can configure when the inbox-listener sends the notification;
+        1) IL sends the notification if there is a new email
+        2) IL sends the notification if there is a new email or if an email is added 
+           to the inbox (drag and drop)
+- gibi: added the check about the flag DELETE. the inbox listener skip the email 
+        in the inbox with flag 'deleted'
+
+2007-07-29
+- nichele: Reviewed MessageParser.isBodyTxt and MessageParser.isBodyHtml in order
+           to handle emails with content type TEXT/plain
+           
+2007-07-28
+- nichele: Changed the configuation file from
+           com/funambol/pushlistener/PushListenerConfiguration.xml to
+           com/funambol/email/inboxlistener/InboxListenerConfiguration.xml
+           
+           
+----------------------------------
+Funambol Email Connector 6.5.0
+----------------------------------
+
+2007-07-24
+- piter: removed usage of a custom truststore file
+
+2007-07-19
+- gibi: fixed the issue about the SSL configuration. removed the settings in the admin panels
+- lulu: Added support to MySQL
+
+2007-07-17
+- gibi: added the tool that allow to create the keystore file
+
+2007-07-11
+- piter: removed the convertHtml call from the setContent process and put it in previous step
+
+2007-07-08
+- piter: modified the HTML Parser
+- gibi: modified the InserUser method in the ConsoleManager. removed the updated method 
+
+2007-07-07
+- gibi: modified the refresh method in the inbox-listener (get just the New email)
+
+2007-06-29
+- gibi: modified the refresh method in the inbox-listener (avoid the delete all and insert all)
+- piter: Fixed mail server account deletion.
+- piter: Handled deletion of account from admin tool panel if no account is 
+         selected in account grid.
+- piter: Replaced popup message after account deletion from the admin tool panel
+         with a message in the output messages window.
+- piter: Modified account list retrieving in admin tool panel so that only not 
+         deleted account are taken.
+
+2007-06-28
+- gibi: modified the encodeHeaderField in order to optimize the performance
+- gibi: Push email notification message is sent just if a new message is received
+
+2007-06-27
+- piter: Disabled calls to hidden options and improved error messages in the
+         inboxlistener console.
+
+2007-06-26
+- gibi: enabled the inbox text field in the MailServer Detail panel and in the 
+        Account Detail Panel
+- piter: Improved layout for the cache details panel
+
+2007-06-26
+- piter: Changed drop_schema.sql script for postgres for compatibility with
+         database version 8.1
+
+2007-06-25
+- gibi: added double click on the tables of mail server and user search result 
+- gibi: reviewed double click feature in the result account table 
+- gibi: reviewed double click feature in the result mail server table 
+- gibi: removed the popup about "mail server saved" mailserver detail panel
+- gibi: removed the popup about "account saved" account detail panel
+- gibi: integrated the IL and the Push Framework
+- gibi: changed the License in all files
+
+2007-06-22
+- piter: Changed drop_schema.sql script in order to avoid errors during first time installation.    
+- piter: Added modification of a mail server by double clicking its row in the 
+         search result table in the administration tool panel.  
+- piter: Added modification of a mail server account by double clicking its row
+         in the search result table in the administration tool panel.  
+
+
+
+----------------------------------
+Funambol Email Connector 6.0.6
+----------------------------------
+2007-06-04
+- gibi: changed the AOL amtp port (new port value: 587)
+2007-06-01
+- gibi: fixed the issue about Outbox Folder (i.e. ROOT/O is null). this involved the AOL sending procedure (java.NullPointerException) 
+- gibi: fixed the issue about NullPointerException in the EndSync
+
+
+----------------------------------
+Funambol Email Connector 6.0.5
+----------------------------------
+2007-05-28
+- gibi: fixed the issue about the received date
+- gibi: fixed the issue about the html parser
+        
+         
+----------------------------------
+Funambol Email Connector 6.0.4
+----------------------------------
+2007-05-23
+- gibi: modified the strong encryption implementation. the TokenProvider class is released 
+        with the native library 
+
+
+----------------------------------
+Funambol Email Connector 6.0.3
+----------------------------------
+2007-04-20
+- gibi: modified the query INBOX_SELECT_UNDELETED_MAILBOX_INFO (order by headerdate desc)
+- gibi: fixed an issue in the connector configuration panel about the SSL settings
+
+2007-04-18
+- gibi: fixed an issue about the folder name settings during the mail server insert/update
+
+2007-04-17
+- gibi: removed obsolete menu in the Inboxlistener command line tool
+- gibi: fixed the issue about the wrong check on the username during the account creation
+
+
+----------------------------------
+Funambol Email Connector 6.0.2
+----------------------------------
+2007-04-12
+- mauro: Made the Inbox Listener's error logging more informational if there's a problem while
+         getting the accounts from the DB.
+
+2007-04-11
+- gibi: improved the filter feature in order to hanlde attachment in the ics/vcs format
+
+2007-04-11
+- gibi: modified the query INBOX_SELECT_UNDELETED_MAILBOX_INFO (order by headerdate asc)
+
+2007-04-10
+- gibi: insert the connection timeout in the 'check account' feature
+
+2007-04-07
+- nichele: Correct boundary detection in choice of two- vs. three-byte UTF-8 representations
+           in MessageCreator
+           
+2007-03-23
+- gibi: improved the QP implementation in order to make elaboration lighter on the client side
+- gibi: the server sends to the device the items sorted by date value. 
+        so that the client side can avoid the some elaboration    
+- gibi: fixed the issue about items that could be stored in the server INBOX folder during the sync session
+- gibi: improved the 'time filter'. both pop and imap account are based on the manual parser of the received 
+        date. if it fails the connector uses the getRecived() method (just for IMAP) and in the end get the 
+        Header Date value.
+
+
+----------------------------------
+Funambol Email Connector 6.0.1
+----------------------------------
+2007-03-23
+- gibi: modified the existsDevice in the EmailOfficer class
+
+2007-03-19
+- gibi: added the 'push' clause in the account search panel
+- gibi: modified the Inbox-listener: the thread neam is created with 'prefix + ms login + ds-server username'
+- gibi: modified the update item method in the imap-based account in order to hanlde the modification 
+        from the client in the inbox folder. The email connector didn't refresh the fnbl_email_inbox table
+        and the endSync() method was not accurated in the cache refresh.
+
+2007-03-16
+- gibi: the inbox-listener avoid to load in the cache some corrupted email (all header fields null)
+
+2007-03-15
+- gibi: the email connector set a custom date if the date value in the header is unparsable (not in rfc2822 format)
+
+2007-03-14
+- gibi: the email connector set a custom message-id if the message-id value in the header is null
+
+2007-03-12
+- gibi: enabled the folder filter for the pop-based account
+- gibi: modified the CRC calculation. it uses the haeder date in string format (before it used the parsed date)
+- gibi: modified the funambol signature filename in order to force javamail to put the quotes
+- gibi: fixed the folder selection for the pop-based account in the email configuration panels
+- gibi: modifications in order to avoid the message-id null for the client
+
+2007-03-09
+- gibi: in the pop-based account the admin can choose to save only a minimum header in db (without subject
+        or other private data) 
+- gibi: the connector creates a message-id if the original email in the MailServer has message-id equals to null 
+
+2007-03-08
+- gibi: fixed issue about the password of the admin user in the admin tool (Email Connector configuration)
+
+2007-03-07
+- gibi: reviewed the email parser in order to check the mail with gb2312, big5, EUC-KR, EUC-JP
+
+2007-03-06
+- gibi: modification about the NPE in the getItem method during a 'refresh from server' sync session, 
+        after a sending procedure.
+- gibi: reviewed the filter feature in order to parser the email from Apple Mailer.
+
+2007-03-02
+- gibi: added the optimization of the quoted-printable. the system applies the QP just if it's usefull
+- gibi: modified the filter feature in order to handle the unsupported attachment content type. 
+        the connector sends the email and a default txt attachment if in the atacchment there is something 
+        unparsable.
+
+2007-02-28
+- gibi: modified the filter feature in order to hanle the emails with content type = text/calendar
+
+2007-02-27
+- nichele: added the classes in order to start/stop the inbox-listener tool
+
+2007-02-26
+- gibi: reviewed the isHtmlBody method in the MessageParser class
+- gibi: the EmailSyncSource implements the ServerWinsSyncSource
+        
+2007-02-21
+- lulu: reviewed implementation and extended AbstractOfficer
+- gibi: fixed the inbox folder name. now the openConnection method get the name from the 
+        Account configuration (before it was the default value)
+
+2007-02-20
+- gibi: reviewed the returned value of the DeleteUser in the ConsoleDAO
+
+2007-02-19
+- gibi: added Reply-To in the header minimum list
+- gibi: changed the time filter strategy: the connector uses the "received time" if it's present, otherwise the "date" 
+- gibi: fixed the NPE in the EmailOfficer when the client enable the push enviroment before starting synchornizing
+
+
+----------------------------------
+Funambol Email Connector 6.0.0
+----------------------------------
+
+2007-02-08
+- gibi: reviewed the filter feature; added the partIndex property 
+
+2007-02-07
+- gibi: added feature to delete account if the admin removes the ds-user
+- gibi: added property 'saveSender' in the InboxListener
+
+2007-02-06
+- gibi: removed the static block and added the get() method in the Token Management Feature
+
+2007-02-05
+- gibi: added the properties: SSLInput and SSLOutput
+- gibi: reviewed the authentication process in the Officer
+
+2007-02-02
+- gibi: improved the 'dll/so' library management
+
+2007-02-01
+- gibi: added mail server ip for debug purpose
+- gibi: imrpoved the Html2Txt utility class
+
+2007-01-30
+- gibi: added 'from' field settings if the client doesn't set the value
+- gibi: fixed issue in the email parser. implementet the getTextBody method  
+- gibi: modified the refresh_time type in the DB. now we are using seconds
+
+2007-01-29
+- gibi: implemented the token management with '.dll' and '.so' files
+
+2007-01-25
+- gibi: added the 'flagged' flag  
+
+2007-01-25
+- gibi: improved the exception handler in the email sending process 
+- gibi: improved the exception handler in the mail server connection process 
+- gibi: added feature: when the account is deleted the system clears the cache table
+- gibi: new email creation process: the filtered email will have a minimum header field list 
+        the new body will be in UTF-8 format 
+
+2007-01-22
+- gibi: added configurable "funambol signature" property
+
+2007-01-22
+- gibi: removed the internal utility about the lookup dataSource (now it uses the DataSourceTools)
+- gibi: fixed the issue about the total size of the email in the Ext fields
+- gibi: removed the deprecated setType()/getType() methods in the SyncSource
+
+2007-01-17
+- gibi: added the password encryption implementation
+
+2007-01-12
+- gibi: added the GMail DAO implementation for the inbox-listener
+- gibi: reviewed the SSL configuration
+
+2007-01-08
+- gibi: removed the messages on the console terminal
+- gibi: updated the project libraries
+- gibi: new EmailOfficer implementation
+- gibi: added the configuration for the keystore home and keystore name
+- gibi: added the configuration for the jndi DataSource name
+- gibi: added the configuration for the saveOnlyHeader parameter in order to save just the header
+        in the fnbl_email_sentpop table, instead of the entire email
+- gibi: added the enableAccount() method in the Email Console Tool
+- gibi: added the <fixcrlf eol="unix"> tag in the build.xml file
+
+2007-01-05
+- gibi: upgraded the logging system
+- gibi: fixed issues in the Ext handling
+- gibi: added the DB Connection Pool in the Inbox-Listener
+
+2007-01-04
+- gibi: fixed the Missing text for multipart messages with more than one text part
+
+2007-01-03
+- gibi: implemented the "soft delete" feature
+
+2006-12-20
+- gibi: set "quoted-printable" in lower case
+- gibi: added the checkAccount() method in the EmailWS console
+- gibi: improved the HTML to TXT conversion
+ 
+2006-12-18
+- gibi: completed the Back-End implementation inorder to handle the Account and the Mail Server 
+- gibi: added the subject, from, received fields in the Caching System
+ 
+2006-12-12
+- gibi: added the signature/banner in the sent emails  
+- gibi: added the x-funambol-size parameter for the Extension Fields 
+
+2006-12-11
+- gibi: modified the getHeaderDatePatch3() method: inserted the 'now' value insted of 01-01-1970
+- gibi: modified the UtcToDate() method: inserted the 'UTC' timezone
+
+2006-12-06
+- gibi: patch about the Message-ID creation in the Utility Class
+- gibi: Avoid to open the inbox folder in openCOnnection Method of the InboxListener
+
+2006-12-04
+- gibi: fixed the NullPointerException in the getHB() method
+2006-11-30
+- gibi: set the max number of emails to sync in the Trash Folder
+- gibi: Reviewed the EmailOfficer in order to insert the account in the fnbl_email_account table
+        (this allows to avoid to insert the user using the Inbox-Listener Console) 
+2006-11-29
+- gibi: Fixed the issue about the Unsupported Encoding in the getH, getHB, getHBA methods
+
+2006-11-23
+- gibi: Reviewed the setNewHeader() method; now it uses the addHeader() instead of setHeader() method.
+- gibi: created a new utility class to hanlde the Date Parser.
+
+2006-11-21
+- gibi: reviewed the filter feature
+- gibi: added clearer comments when the user is not authenticated
+- gibi: improved the method getFilteredItemByTime (EntityManager class)
+
+2006-11-23
+- gibi: Reviewed the setNewHeader() method; now it uses the addHeader() instead of setHeader() method.
+- gibi: created a new utility class to hanlde the Date Parser.
+- lulu: Reviewed the Officers implementation according to the new Officer interface.
+
+2006-11-21
+- gibi: reviewed the filter feature
+- gibi: added clearer comments when the user is not authenticated
+- gibi: improved the method getFilteredItemByTime (EntityManager class)
+
+2006-11-16
+- gibi: added the EmailMultiOffer
+        
+2006-11-11
+- gibi: added the MaxSentEmailNumber parameter. The Connector get only N emails from the 
+        Sent folder
+
+2006-11-07
+- gibi: the InboxListener checks the Message-ID before saving the email in the inbox cache.
+        if there are two emails with the same Message-ID the InboxListener saves just one item. 
+
+2006-11-06
+- gibi: optimization: pop-based SyncSource; the getItemFromUID try to get subset of 
+        emails in the Inbox folder. If the emails is not in the subset the method get a 
+        second subset.  
+
+2006-11-03
+- gibi: HashMap is used istead of the ArrayList for localItems and serverItems Collection
+- gibi: Added PK in the fnbl_email_folder table
+
+2006-10-31
+- gibi: Added all the modification in order to manage the new Caching System
+
+2006-10-25
+- gibi: optimized the getSyncItem method in the POP-based sync source
+
+
+----------------------------------
+Funambol Email Connector 3.0.22
+----------------------------------
+2006-10-20
+- gibi: reviewed the after/before Method in order to compare Date values
+- gibi: reviewed the time filter for the IMAP SyncSource
+- gibi: modified the getEncodingType; the email is always Q-P encoded.
+
+
+----------------------------------
+Funambol Email Connector 3.0.21
+----------------------------------
+2006-10-19
+- gibi: catched the Date Parsering Error in the getItemInfo method. Improved the log
+
+
+----------------------------------
+Funambol Email Connector 3.0.20
+----------------------------------
+
+2006-10-17
+- gibi: added the Header messageID and Date Values in the caching system
+- gibi: modified the isEmailinFilter method (common method fot IMAP and POP SyncSource)
+- gibi: reviewed the filter in the caching system (getNew, getUpdated, getDeleted)
+
+
+----------------------------------
+Funambol Email Connector 3.0.19
+----------------------------------
+
+2006-10-12
+- gibi: added the Header Date Value in the SyncItemInfo object
+
+
+----------------------------------
+Funambol Email Connector 3.0.18
+----------------------------------
+
+2006-10-11
+- gibi: improved the "inclusive" filter. Added the correct method in the caching system
+
+
+----------------------------------
+Funambol Email Connector 3.0.17
+----------------------------------
+2006-10-10
+- gibi: fixed issue about the filter "get email where ID = ?"
+- gibi: fixed issue about the Quoted-Printable conversion for the chinese charset
+
+2006-10-09
+- gibi: fixed the role setting in the "getFolderFromUID" method
+- gibi: fixed the date header parser (the parsing process doesn't stop the sync session)
+
+
+----------------------------------
+Funambol Email Connector 3.0.16
+----------------------------------
+
+2006-09-28
+- mauro: changed GUID separator because already used internally by Courier to form UIDs
+
+2006-09-26
+- diogo: improved the filter feature (handling the INLINE diposition-content)
+
+2006-09-25
+- diogo: fixed the issue about the Courier Mail Server (addMessage and SendMessage)
+
+2006-09-21
+- diogo: fixed the issue about the Courier Mail Server (getMessages)
+- diogo: inserted in the SyncSource Configuration Panel the parameter "Mail Server Name"
+
+2006-09-18
+- gibi: inserted the SofDelete feature
+- gibi: inserted the "saveOnlyHeader" option for the pop-based syncsource
+
+2006-09-15
+- diogo: fixed issue about the "Port" field don't accept negative values
+- diogo: changed sync sources name in sql scripts
+
+2006-09-12
+- gibi: improved the error throwing in the "getItem" methods
+
+2006-09-11
+- gibi: improved multi-language support
+
+2006-09-08
+- gibi: improved the Twin method (the searching process works on the local db now)
+
+2006-09-05
+- gibi: improved the filter feature (handling mail with rfc/822 format)
+
+----------------------------------
+Funambol Email Connector 3.0.15
+----------------------------------
+
+2006-09-06
+- gibi: added the HPL
+
+
+----------------------------------
+Funambol Email Connector 3.0.14
+----------------------------------
+
+2006-08-08
+- gibi: Changeed the License
+- gibi: Added IMAP-Based SyncSource
+
+----------------------------------
+Funambol Email Connector 3.0.13
+----------------------------------
+
+2006-07-12
+- gibi: improved the "get" method related to the "replace all local data" and "recovery" 
+        added the checkMessageIDforDrafts method in the begin of Sync Session (related to 1176 bug)
+- gibi: improved the filter parser (related to 1175 bug)
+- gibi: added the retry policy for the openConnection method (related to 1111 bug)
+
+
+----------------------------------
+Funambol Email Connector 3.0.12
+----------------------------------
+
+2006-07-04
+- gibi: fixed the getMessageId utility method (related to 1199 bug)
+- gibi: fixed the isInFilter method (related to 1199 bug)
+
+2006-06-27
+- gibi: Improved the pop3-based syncsource configuration panel layout
+- gibi: Improved the filter feature
+
+2006-06-26
+- gibi: fixed the inssue isInFilter Method for pop3-based syncsource
+
+
+----------------------------------
+Funambol Email Connector 3.0.11
+----------------------------------
+
+2006-06-20
+- gibi: fixed an inssue about the read flag in the getHBA method
+
+
+----------------------------------
+Funambol Email Connector 3.0.10
+----------------------------------
+
+2006-06-14
+- gibi: set filter activation by default (in the connector configuration panel)
+
+2006-06-13
+- gibi: improved the filters methods about the message-ID setting (after the saveMessage command)
+
+2006-06-12
+- gibi: improved the method "getHBA" with num. bytes limitation 
+        (it sets the correct content type for mulitpart/alternative mail)   
+
+2006-06-11
+- gibi: enanchement: added the Data Tarsformation feature in the SyncSource Config. Panel
+
+2006-06-06
+- gibi: fixed 1020: improved filter feature 
+
+2006-06-05
+- gibi: syncml dimension optimization; the conenctor can send only the flags
+
+2006-05-26
+- gibi: improved the log information (license not found)
+- gibi: fixed the bug 950 and improved the filter feature
+
+
+----------------------------------
+Funambol Email Connector 3.0.9
+----------------------------------
+
+2006-05-15
+- gibi: fixed some issues for the filter feature
+
+2006-05-10
+- gibi: code review for updateItem and addItem
+
+2006-05-09
+- gibi: put the getEncoding Method in the EntityManagerFilter class
+- gibi: fixed the bug 772
+
+
+----------------------------------
+Funambol Email Connector 3.0.8
+----------------------------------
+
+2006-05-06
+- gibi: fixed bug about outbox document duplication for the pop3 protocol
+
+2006-05-05
+- gibi: removed added the time search method for the pop3 protocol
+- gibi: improved getIdAfter and getIdBefore Utility methods
+
+
+----------------------------------
+Funambol Email Connector 3.0.7
+----------------------------------
+
+2006-04-28
+- gibi: removed the external "<![CDATA[" tag
+
+2006-04-27
+- alex: inserted the default values for: type, supported types, 
+        version, imap/pop3 port in the SyncSource configuration panel 
+- alex: inserted the passphrase for the SSL configuration 
+
+2006-04-26
+- alex: added the "encoding" feature
+- alex: improvement in the Filter Feature
+
+
+----------------------------------
+Funambol Email Connector 3.0.6
+----------------------------------
+
+2006-04-18
+- alex: improvement in the Filter Feature
+- alex: improvement in the Configuration Panels
+
+2006-04-17
+- alex: modified the officer (now it insert the user also)
+
+
+----------------------------------
+Funambol Email Connector 3.0.5
+----------------------------------
+
+2006-03-31
+- gilberto: added folder filter in the admin panel
+
+2006-03-29
+- gilberto: added modification for the Enabler Compatibility
+
+2006-03-28
+- gilberto: added modification for the nokia phone 
+
+2006-03-21
+- gilberto: fixed issue about read/unread property (bug 744)
+- gilberto: fixed isuue about draft document (bug 725-726)
+
+2006-03-20
+- gilberto: Add functionality "refresh from client"
+
+
+----------------------------------
+Funambol Email Connector 3.0.4
+----------------------------------
+
+2006-03-17
+- gilberto: fixed bug 772
+- gilberto: fixed bug 718
+
+2006-03-15
+- gilberto: removed protocol from fnbl_email_account
+- gilberto: removed table fnbl_email_listener
+- gilberto: Added keystore parameter
+- gilberto: Added folder management feature (2)
+
+2006-03-07
+- gilberto: Added folder management feature (1)
+
+2006-02-22
+- gilberto: Inserted port for the smtp protocol
+- gilberto: Redesign the SyncSource/Connector parameters
+
+2006-02-21
+- gilberto: Changed package for Cache
+- gilberto: Make the changes about the SENT/OUTBOX synchronization for a POP3 based connector
+
+
+----------------------------------
+Funambol Email Connector 3.0.3
+----------------------------------
+
+2006-02-19
+- harrie: Make the changes needed due to a Sync4jPrincipal change
+  where the id is now an integer.
+
+2006-02-15
+- gilberto: added the inboxlistener module
+
+
+----------------------------------
+Funambol Email Connector 3.0.2
+----------------------------------
+
+2006-02-01
+- gilberto: make compliant new Open Source Server
+- gilberto: removed the blackberry 7290 date format handling
+
+
+----------------------------------
+Funambol Email Connector 3.0.1
+----------------------------------
+
+2006-01-15
+- gilberto: Fixed the issue about Origination Date
+
+
+----------------------------------
+Funambol Email Connector 3.0.0
+----------------------------------
+
+New Major Release

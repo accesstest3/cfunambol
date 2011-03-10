@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appointment>
+<AllDayEvent>0</AllDayEvent>
+<Start>20090424T150000Z</Start>
+<End>20090424T160000Z</End>
+<Subject>Meeting</Subject>
+<Location></Location>
+<Body></Body>
+<ReminderMinutesBeforeStart>15</ReminderMinutesBeforeStart>
+<ReminderSet>1</ReminderSet>
+<Sensitivity>0</Sensitivity>
+<BusyStatus>2</BusyStatus>
+<Attendees>
+  <Attendee>
+    <AttendeeName></AttendeeName>
+    <AttendeeStatus></AttendeeStatus>
+    <AttendeeType></AttendeeType>
+    <AttendeeEmail>mail@mail.com</AttendeeEmail>
+  </Attendee>
+</Attendees>
+<IsRecurring>0</IsRecurring>
+</appointment>
+

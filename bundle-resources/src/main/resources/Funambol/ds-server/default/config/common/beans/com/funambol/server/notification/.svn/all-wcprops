@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/core/!svn/ver/31485/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/notification
+END
+PushSender.xml
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/core/!svn/ver/29981/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/notification/PushSender.xml
+END
+DSNotificationBuilder.xml
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/notification/DSNotificationBuilder.xml
+END
+DS11NotificationBuilder.xml
+K 25
+svn:wc:ra_dav:version-url
+V 183
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/notification/DS11NotificationBuilder.xml
+END
+PushManager.xml
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/core/!svn/ver/31485/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/notification/PushManager.xml
+END

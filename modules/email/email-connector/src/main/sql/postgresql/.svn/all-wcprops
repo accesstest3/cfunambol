@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-connector/src/main/sql/postgresql
+END
+create_schema.sql
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-connector/src/main/sql/postgresql/create_schema.sql
+END
+init_schema.sql
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-connector/src/main/sql/postgresql/init_schema.sql
+END
+drop_schema.sql
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-connector/src/main/sql/postgresql/drop_schema.sql
+END

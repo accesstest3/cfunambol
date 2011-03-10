@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/29665/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/plugin
+END
+PluginUtility.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/plugin/PluginUtility.java
+END
+Configuration.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/plugin/Configuration.java
+END
+UDPMulticastReaderThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/29665/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/plugin/UDPMulticastReaderThread.java
+END
+UDPUnicastReaderThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/29665/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/plugin/UDPUnicastReaderThread.java
+END
+UDPReaderPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/plugin/UDPReaderPlugin.java
+END

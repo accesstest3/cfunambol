@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/filter
+END
+FieldClause.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/filter/FieldClause.java
+END
+FilterClause.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/filter/FilterClause.java
+END
+AllClause.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/filter/AllClause.java
+END
+LogicalClause.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/filter/LogicalClause.java
+END
+WhereClause.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/filter/WhereClause.java
+END
+IDClause.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/filter/IDClause.java
+END
+Clause.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/filter/Clause.java
+END

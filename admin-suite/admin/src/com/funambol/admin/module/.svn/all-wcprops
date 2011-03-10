@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/core/!svn/ver/28917/trunk/funambol/admin-suite/admin/src/com/funambol/admin/module
+END
+SyncSourcesController.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/28917/trunk/funambol/admin-suite/admin/src/com/funambol/admin/module/SyncSourcesController.java
+END
+SyncSourceEventListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/module/SyncSourceEventListener.java
+END
+ConnectorController.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/module/ConnectorController.java
+END

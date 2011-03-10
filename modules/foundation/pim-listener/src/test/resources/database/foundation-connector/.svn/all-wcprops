@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/pim-listener/src/test/resources/database/foundation-connector
+END
+create_schema.sql
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/pim-listener/src/test/resources/database/foundation-connector/create_schema.sql
+END
+init_schema.sql
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/pim-listener/src/test/resources/database/foundation-connector/init_schema.sql
+END
+drop_schema.sql
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/pim-listener/src/test/resources/database/foundation-connector/drop_schema.sql
+END
+create_pimlistener.sql
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/pim-listener/src/test/resources/database/foundation-connector/create_pimlistener.sql
+END
+drop_pimlistener.sql
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/pim-listener/src/test/resources/database/foundation-connector/drop_pimlistener.sql
+END

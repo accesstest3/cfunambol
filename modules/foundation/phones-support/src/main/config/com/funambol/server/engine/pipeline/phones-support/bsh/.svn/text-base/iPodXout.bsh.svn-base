@@ -1,0 +1,159 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang.StringUtils;
+
+import com.funambol.framework.core.*;
+import com.funambol.framework.core.Sync4jException;
+import com.funambol.framework.engine.pipeline.OutputMessageProcessor;
+import com.funambol.framework.engine.pipeline.MessageProcessingContext;
+import com.funambol.framework.logging.FunambolLogger;
+import com.funambol.framework.logging.FunambolLoggerFactory;
+
+import com.funambol.foundation.synclet.PIMItemsHandler;
+
+/**
+ * Contacts:
+ * =========
+ * Processes the outgoing vcard items and removes the empty tokens.
+ * This is done because iPod shows also the empty fields.
+ *
+ * @version $Id: iPodXout.bsh,v 1.6 2008-03-26 22:22:12 stefano_fornari Exp $
+ */
+
+// ---------------------------------------------------------------- Private data
+private final FunambolLogger log =
+    FunambolLoggerFactory.getLogger("engine.pipeline");
+
+private List emptyTokens = null;
+
+// ------------------------------------------------------ Synclet implementation
+
+/**
+ * Process and manipulate the output message.
+ *
+ * @param processingContext the message processing context
+ * @param message the message to be processed
+ *
+ * @throws Sync4jException
+ */
+void postProcessMessage(MessageProcessingContext processingContext,
+                        SyncML message                            )
+throws Sync4jException {
+
+    if (log.isTraceEnabled()) {
+        log.trace("iPodXout.postProcessMessage(...)");
+    }
+
+    // This map contains the three lists of items separated based on their type
+    PIMItemsHandler pimItemsHandler = new PIMItemsHandler();
+    Map mapItems = pimItemsHandler.extractOutgoingPIMItems(message);
+    processPIMItems(mapItems);
+}
+
+/**
+ * Processes outgoing items.
+ *
+ * @param mapItems the map that contains the three lists of items separated
+ *                 based on their type
+ *
+ */
+void processPIMItems(Map mapItems) {
+
+    //
+    // Cycle on vcard list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VCARD)) {
+        postProcessContacts(i);
+    }
+}
+
+/**
+ * Processes outgoing contacts.
+ * Removes the tokens without value.
+ *
+ * @param i the item to be processed
+ *
+ */
+void postProcessContacts(Item i) {
+
+    data = i.data.data;
+    Iterator it    = emptyTokens.iterator();
+    String   token = null                  ;
+
+    while (it.hasNext()) {
+        token = (String)it.next();
+
+        if (data.indexOf(token) != -1) {
+            data = StringUtils.replace(data, token, "");
+        }
+    }
+
+    i.data.data = data;
+}
+
+/**
+ * Initializes array of vcard properties.
+ */
+void init() {
+    emptyTokens = new ArrayList();
+
+    emptyTokens.add("N:;;;;\r\n"         );
+    emptyTokens.add("FN:\r\n"            );
+    emptyTokens.add("ADR:;;;;;;\r\n"     );
+    emptyTokens.add("ADR;HOME:;;;;;;\r\n");
+    emptyTokens.add("ADR;WORK:;;;;;;\r\n");
+    emptyTokens.add("TITLE:\r\n"         );
+    emptyTokens.add("ORG:;\r\n"          );
+    emptyTokens.add("NOTE:\r\n"          );
+    emptyTokens.add("URL:\r\n"           );
+    emptyTokens.add("BDAY:\r\n"          );
+    emptyTokens.add("ROLE:\r\n"          );
+    emptyTokens.add("TEL;VOICE;HOME:\r\n");
+    emptyTokens.add("TEL;VOICE;WORK:\r\n");
+    emptyTokens.add("TEL;VOICE:\r\n"     );
+    emptyTokens.add("TEL;CELL:\r\n"      );
+    emptyTokens.add("TEL;FAX;HOME:\r\n"  );
+    emptyTokens.add("TEL;FAX;WORK:\r\n"  );
+    emptyTokens.add("TEL;CAR;VOICE:\r\n" );
+    emptyTokens.add("TEL;PAGER:\r\n"     );
+    emptyTokens.add("EMAIL;INTERNET:\r\n");
+    emptyTokens.add("TEL;PREF;VOICE:\r\n");
+    emptyTokens.add("TEL;WORK;PREF:\r\n" );
+}

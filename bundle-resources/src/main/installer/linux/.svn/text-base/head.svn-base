@@ -1,0 +1,14 @@
+#!/bin/sh
+PATH=/usr/bin:/bin
+umask 022
+NODOT_VERSION=
+###
+javahome=jdk1.5.0
+platform=linux
+###
+PACKED_JARS="lib/tools.jar jre/lib/rt.jar jre/lib/jsse.jar jre/lib/charsets.jar
+jre/lib/ext/localedata.jar jre/lib/plugin.jar jre/lib/javaws.jar jre/lib/deploy.
+jar"
+ARCH=32
+LINUX_RPM=
+libthread_path=

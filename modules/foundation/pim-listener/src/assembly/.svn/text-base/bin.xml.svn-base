@@ -1,0 +1,61 @@
+<!--
+    Copyright (C) 2007 Funambol, Inc.  All rights reserved.
+-->
+<assembly>
+    <formats>
+        <format>zip</format>
+        <format>tar.gz</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>Funambol/pim-listener/lib</outputDirectory>
+            <fileMode>0774</fileMode>
+        </dependencySet>       
+    </dependencySets>
+    <fileSets>
+        <fileSet>
+            <directory>.</directory>
+            <outputDirectory>Funambol/pim-listener</outputDirectory>
+            <includes>
+                <include>LICENSES/*</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>.</directory>
+            <outputDirectory>Funambol/pim-listener</outputDirectory>
+            <includes>
+                <include>LICENSE.txt</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>target/resources/config</directory>
+            <outputDirectory>Funambol/pim-listener/config</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>target/resources/bin</directory>
+            <lineEnding>dos</lineEnding>
+            <outputDirectory>Funambol/pim-listener/bin</outputDirectory>
+            <includes>
+                <include>*.bat</include>
+                <include>*.cmd</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>target/resources/bin</directory>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0775</fileMode>
+            <outputDirectory>Funambol/pim-listener/bin</outputDirectory>
+            <includes>
+                <include>*.sh</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>target/resources/docs</directory>
+            <outputDirectory>Funambol/pim-listener/docs</outputDirectory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>

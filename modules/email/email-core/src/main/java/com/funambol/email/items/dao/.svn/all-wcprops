@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/items/dao
+END
+PopEntityDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/items/dao/PopEntityDAO.java
+END
+EntityDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/29947/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/items/dao/EntityDAO.java
+END
+ImapEntityDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/28685/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/items/dao/ImapEntityDAO.java
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/29662/trunk/funambol/modules/email/email-core/src/test/java/com/funambol/email/test
+END
+SyncSourceUtility.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/java/com/funambol/email/test/SyncSourceUtility.java
+END
+Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/java/com/funambol/email/test/Constants.java
+END
+EmailConnectorTestCase.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/29662/trunk/funambol/modules/email/email-core/src/test/java/com/funambol/email/test/EmailConnectorTestCase.java
+END
+ManagerUtility.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/29584/trunk/funambol/modules/email/email-core/src/test/java/com/funambol/email/test/ManagerUtility.java
+END

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.1//EN" "http://www.netbeans.org/dtds/filesystem-1_1.dtd">
+<filesystem>
+    <!--
+        Services
+    -->
+    <folder name="Services">
+        <folder name="AutoupdateType">
+          <file name="com_funambol_admin_au_type.settings" url="au-type.settings">
+            <attr name="SystemFileSystem.localizingBundle" stringvalue="com.funambol.admin.util.Bundle"/>
+            <attr name="url" stringvalue="http://{0}:{1}/funambol/autoupdate/info.jsp"/>
+          </file>
+        </folder>
+        <file name="org-netbeans-modules-autoupdate-Settings.settings" url="au.settings"/>
+    </folder>
+    
+    <!--
+        Menu
+    -->
+    <folder name="Menu">
+
+        <attr name="File/View" boolvalue="true"/>
+        <attr name="View/Tools" boolvalue="true"/>
+        <attr name="Tools/Help" boolvalue="true"/>
+        
+        <folder name="File">
+            <file name="com-funambol-admin-actions-LoginAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/File/com-funambol-admin-actions-LoginAction.instance"/>
+            </file>
+            <file name="com-funambol-admin-actions-AutoUpdateAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/File/com-funambol-admin-actions-AutoUpdateAction.instance"/>
+            </file>
+            <attr name="com-funambol-admin-actions-AutoUpdateAction.shadow/com-funambol-admin-actions-separatorAfter.instance" boolvalue="true"/>
+            <file name="com-funambol-admin-actions-separatorAfter.instance">
+                <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+            </file>
+            <attr name="com-funambol-admin-actions-separatorAfter.instance/Separator4.instance" boolvalue="true"/>
+        </folder>
+        
+        <folder name="View">
+            <file name="com-funambol-admin-actions-CreateConsole.instance"/>
+            <file name="com-funambol-admin-actions-ViewOutputWindow.instance">
+                <attr name="instanceClass" stringvalue="com.funambol.admin.actions.ViewOutputWindowAction"/>
+            </file>
+        </folder>
+        
+        <folder name="Tools">
+            <attr name="org-netbeans-core-actions-OptionsAction.instance/com-funambol-admin-actions-OptionsAction.shadow" boolvalue="true"/>
+            <file name="com-funambol-admin-actions-OptionsAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Tools/com-funambol-admin-actions-OptionsAction.instance"/>
+            </file>
+            <attr name="com-funambol-admin-actions-OptionsAction.shadow/Separator3.instance" boolvalue="true"/>
+        </folder>
+        
+        <folder name="Help">
+            <attr name="com-funambol-admin-actions-HelpContents.shadow/com-funambol-admin-actions-HelpContentsAction.shadow" boolvalue="true"/>
+            <file name="com-funambol-admin-actions-HelpContentsAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Help/com-funambol-admin-actions-HelpContentsAction.instance"/>
+            </file>
+            <attr name="com-funambol-admin-actions-HelpContentsAction.shadow/master-help.xml" boolvalue="true"/>
+            <attr name="com-funambol-admin-actions-HelpContentsAction.shadow/com-funambol-admin-actions-HelpContentsAction.shadow" boolvalue="false"/>
+            
+            <attr name="com-funambol-admin-actions-About.shadow/com-funambol-admin-actions-AboutAction.shadow" boolvalue="true"/>
+            <file name="com-funambol-admin-actions-AboutAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Help/com-funambol-admin-actions-AboutAction.instance"/>
+            </file>
+            <attr name="com-funambol-admin-actions-AboutAction.shadow/master-help.xml" boolvalue="true"/>
+            <attr name="com-funambol-admin-actions-AboutAction.shadow/com-funambol-admin-actions-AboutAction.shadow" boolvalue="false"/>
+            
+            <file name="master-help.xml_hidden"/>
+            <file name="org-netbeans-core-actions-AboutAction.instance_hidden"/>
+            <attr name="com-funambol-admin-actions-HelpContentsAction.shadow/com-funambol-admin-actions-AboutAction.shadow" boolvalue="true"/>
+        </folder>
+
+    </folder>
+            
+    <!--
+        Actions
+    -->
+    <folder name="Actions">
+        <!-- Add to actions pool too: -->
+        <attr name="Edit/File" boolvalue="true"/>
+        
+        <folder name="File">
+            <file name="com-funambol-admin-actions-LoginAction.instance">
+                <attr name="instanceClass" stringvalue="com.funambol.admin.actions.LoginAction"/>
+            </file>
+            <file name="com-funambol-admin-actions-AutoUpdateAction.instance">
+                <attr name="instanceClass" stringvalue="com.funambol.admin.actions.AutoUpdateAction"/>
+            </file>
+        </folder>
+
+        <folder name="Tools">
+            <file name="com-funambol-admin-actions-OptionsAction.instance"/>
+        </folder>
+        
+        <folder name="Help">
+            <file name="com-funambol-admin-actions-HelpContentsAction.instance">
+                <attr name="instanceClass" stringvalue="com.funambol.admin.actions.HelpContentsAction"/>
+            </file>
+            
+            <file name="com-funambol-admin-actions-AboutAction.instance">
+                <attr name="instanceClass" stringvalue="com.funambol.admin.actions.AboutAction"/>
+            </file>            
+            
+        </folder>
+        <attr name="Help/Project" boolvalue="true"/>
+    </folder>
+        
+    <!--
+        Windows 2
+    -->
+    <folder name="Windows2">
+        <folder name="Components">
+            <file name="server.settings" url="server.settings"/>
+            <file name="mainpanel.settings" url="mainpanel.settings"/>
+        </folder>
+        <folder name="Modes">
+            <folder name="explorer">
+                <file name="server.wstcref" url="server.wstcref"/>
+            </folder>
+            <folder name="editor">
+                <file name="mainpanel.wstcref" url="mainpanel.wstcref"/>
+            </folder>
+        </folder>
+    </folder>
+ </filesystem>

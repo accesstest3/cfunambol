@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/core/!svn/ver/36596/trunk/funambol/modules/email/inbox-listener
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/LICENSE.txt
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/core/!svn/ver/36596/trunk/funambol/modules/email/inbox-listener/pom.xml
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/.cvsignore
+END

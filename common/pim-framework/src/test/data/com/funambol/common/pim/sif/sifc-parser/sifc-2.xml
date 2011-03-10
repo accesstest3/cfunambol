@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contact>
+<Anniversary/>
+<AssistantName/>
+<AssistantTelephoneNumber/>
+<BillingInformation/>
+<Birthday/>
+<Body/>
+<Business2TelephoneNumber/>
+<BusinessAddressCity/>
+<BusinessAddressCountry/>
+<BusinessAddressPostOfficeBox/>
+<BusinessAddressPostalCode/>
+<BusinessAddressState/>
+<BusinessAddressStreet/>
+<BusinessFaxNumber/>
+<BusinessTelephoneNumber/>
+<BusinessWebPage/>
+<CallbackTelephoneNumber/>
+<CarTelephoneNumber/>
+<Categories/>
+<Children/>
+<Companies/>
+<CompanyMainTelephoneNumber/>
+<CompanyName/>
+<ComputerNetworkName/>
+<Department/>
+<Email1Address/>
+<Email1AddressType/>
+<Email2Address/>
+<Email2AddressType/>
+<Email3Address/>
+<Email3AddressType/>
+<FileAs>Photo, Test</FileAs>
+<FirstName>Test</FirstName>
+<Folder>DEFAULT_FOLDER</Folder>
+<Gender>0</Gender>
+<Hobby/>
+<Home2TelephoneNumber/>
+<HomeAddressCity/>
+<HomeAddressCountry/>
+<HomeAddressPostOfficeBox/>
+<HomeAddressPostalCode/>
+<HomeAddressState/>
+<HomeAddressStreet/>
+<HomeFaxNumber/>
+<HomeTelephoneNumber/>
+<HomeWebPage/>
+<IMAddress/>
+<Importance>1</Importance>
+<Initials>T.P.</Initials>
+<JobTitle/>
+<Language/>
+<LastName>Photo</LastName>
+<MailingAddress/>
+<ManagerName/>
+<MiddleName/>
+<Mileage/>
+<MobileTelephoneNumber/>
+<NickName/>
+<OfficeLocation/>
+<OrganizationalIDNumber/>
+<OtherAddressCity/>
+<OtherAddressCountry/>
+<OtherAddressPostOfficeBox/>
+<OtherAddressPostalCode/>
+<OtherAddressState/>
+<OtherAddressStreet/>
+<OtherFaxNumber/>
+<OtherTelephoneNumber/>
+<PagerNumber/>
+<Photo encoding="base64" type="JPG">/9j/4AAQSkZJRgABAQEAeAB4AAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQY
+    GBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYa
+    KCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAAR
+    CABIAFoDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAA
+    AgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkK
+    FhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWG
+    h4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl
+    5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREA
+    AgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYk
+    NOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOE
+    hYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk
+    5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD0c+A9GzsXT5Pm+VQZGyf8jFXbf4c6TJ8s
+    mkTEsTyZHXvXa30Ny88LW0G5RGpLFchj6da3LeNYowFQITywHTNdX17E/wDPyX3sw+rUf5F9
+    x5xJ8JPDsjbmsJM+1w4/rVO++Fnhu0j3vp0hT1N04/rXq9Z2tnFvGR1D+/ofSm8xxaWlWX/g
+    TF9Tw/8AIvuR5XbeAPCM8gj+xMJD91Vu3JP61c/4Vh4X/wCgfN/4EP8A/FV229ZI2wTwOeoo
+    R4Qi5aXIH93P61ms0xr/AOXsvvf+Y/qeH/kX3I4r/hWHhf8A6B83/gS//wAVSf8ACr/C/wD0
+    D5v/AAJf/wCKru3VEXdufnpwP8aKHmmNX/L6X3v/ADBYPD/yL7kcJ/wq/wAL/wDQPm/8CX/+
+    Ko/4Vf4X/wCgfN/4Ev8A/FV3dFT/AGrjf+f0vvY/qWH/AJF9yOQsPAOhaeG+x2k8ZPXFw/pj
+    1qrN4F8PTyvLLZTGR2LMfPccnk13I61DKP3r/U1nLF1qr5qk236msKcaStTVl5HQW/8Ax7xf
+    7o/lUlR2/wDx7xf7o/lUlIYVna5/x7J1+92BPY+nNaNZuugm2QAZO70z2PalLYDORcQ8E5Iz
+    ySf581ZiUIgG8H1ywP8AOqltExUqAoL8Abcc+/NaUVrOiBWUHHA2tgVlBFMrzjcmAy8EHqP6
+    UyrU9vMIiQNoHJJbPFVaUwQUUUVAwHWopR+9f/eNSjqKbMP30n+8auBMjct/+PeL/dH8qkqO
+    3/494v8AdH8qkrcQVR1b/Vxf7/8AQ1eqjq3+ri/3/wChqZbMDNZ2QgqDn2FPW7uC2Cz/AFpK
+    KwUrF2JGnlZSGdiD1GajoopXuAUUUUAA6iknH76T/eP86UdRSz/6+T/eP86uBMiuv2/YoW/d
+    QckfIOBg4FTfarsSOvmKQoXBwcnI570xN+2Pr91v/QTUDeZ9puOSBsTH5CtxFtru5BbMyqAO
+    CQevp1qV/OmiXzE3nqMSY/Gs9xIwJCrIcDluF+nT8avWocwjIQ9vlXJHsfkP86AF+zSHG23c
+    j1EvFKtpKWA+zsAe5lOKtRNtVQZZozk/KkeVH47BUqt+8X9/Oeehj4P1+WlZAVf7Pkz91cf9
+    dW/woOnvjhRn/rqf8K1KKLIDL/s98/dH/f0/4Uf2e/8AdH/f0/4VqUUWQGU2nyYOFUen70/4
+    Vk/ZGX5SEyOOprqz0rn5LmAyMQ3GT2NFmvhE7dTDi8U6SYoydS01Tt6G7jyMj60n/CS6T5kj
+    f2rpnzADH2uPjH/AqKKTqWdrfmCV1uI3iPR34bVNMK4xgXcY/wDZqmTxXpCKAuo6UT6m8Tn/
+    AMeoope18vzHy+ZYg8ZaWpVP7V0lIxn/AJeUOP8Ax+rH/CZaNuGdb0rGeR5yc/8Aj9FFJzbH
+    Ym/4TTw//wBBfT//AAKj/wAaP+E08P8A/QX0/wD8Co/8aKKXOx2D/hNPD/8A0F9P/wDAqP8A
+    xo/4TTw//wBBfT//AAKj/wAaKKOdhYbJ400EI2zVdOZscD7XGM/rXNnxLoGf+Q1p3/f5f8aK
+    K1pybuZz0P/Z
+</Photo>
+<PrimaryTelephoneNumber/>
+<Profession/>
+<RadioTelephoneNumber/>
+<Sensitivity>0</Sensitivity>
+<Spouse/>
+<Subject>Test Photo</Subject>
+<Suffix/>
+<TelexNumber/>
+<Title/>
+<WebPage/>
+<YomiCompanyName/>
+<YomiFirstName/>
+<YomiLastName/>
+</contact>

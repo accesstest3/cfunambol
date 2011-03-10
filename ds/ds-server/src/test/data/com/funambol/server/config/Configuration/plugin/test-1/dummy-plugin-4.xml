@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.0" class="java.beans.XMLDecoder">
+ <object class="com.funambol.server.plugin.DummyPlugin">
+  <void property="name">
+    <string>test-plugin-4</string>
+  </void>
+  <void property="enabled">
+    <boolean>false</boolean>
+  </void>  
+ </object>
+</java>

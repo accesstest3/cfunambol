@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/util
+END
+AuthenticationUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/util/AuthenticationUtils.java
+END
+MessageParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/util/MessageParser.java
+END
+MessageConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/util/MessageConverter.java
+END

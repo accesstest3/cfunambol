@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+ <!--
+    FNBL_PUSH_REGISTRY_USERNAME
+    ***************************
+  -->
+
+
+  <FNBL_PUSH_REGISTRY_USERNAME    period         ="4543432"
+                                  active         ="N"
+                                  last_update    ="3432421321342"
+                                  status         ="U"
+                                  task_bean_file ="com.funambol.task.SmartTask"
+                                  USERNAME       ="Mary"
+  />                                         
+                                             
+  <FNBL_PUSH_REGISTRY_USERNAME    period         ="3334542333"
+                                  active         ="N"
+                                  last_update    ="33389765432"
+                                  status         ="U"
+                                  task_bean_file ="com.funambol.task.CustomTask"
+                                  USERNAME       ="Andrew"
+  />
+  
+  <FNBL_PUSH_REGISTRY_USERNAME    period         ="3334542332223"
+                                  active         ="Y"
+                                  last_update    ="33389111765432"
+                                  status         ="U"
+                                  task_bean_file ="com.funambol.task.SimpleJoinTask"
+  />
+  
+</dataset>

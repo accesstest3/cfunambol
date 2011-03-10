@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+
+<!--
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2005 - 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+-->
+ 
+<!-- $Id: ds-server.xml,v 1.66 2008-07-02 09:07:03 nichele Exp $ --> 
+ 
+<!-- ====================================================================== -->
+<!--     Build and packaging the ds server                                  -->
+<!-- ====================================================================== -->  
+<project name="Funambol Data Synchornization Server" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+
+  <target name="properties-ds-server" depends="init">
+
+    <property name="server.forge.dir" value="output/Funambol/ds-server"/>
+    <property name="src.sql.dir"      value="ds/ds-server/src/sql"/>
+    <property name="module-dev-tutorial-name" 
+              value="funambol_ds_server_module_development_tutorial"/>
+  </target>
+
+  <target name="preparing-ds-server" depends="properties-ds-server">
+    <echo message="Preparing ds-server directory (version: ${ds-server.version})"/>
+    
+    <artifact:dependencies filesetId="ds-server.dependency.fileset">
+        <pom refid="ds-server"/>
+    </artifact:dependencies>
+
+    <artifact:dependencies filesetId="ds-server-webapp.dependency.fileset">
+        <pom refid="ds-server-webapp"/>
+    </artifact:dependencies>
+
+    <!-- Copy the binary files to the default/lib directory of the distribution -->
+    <copy todir="${server.forge.dir}/default/lib">
+      <fileset dir="output/funambol-comed.dir/artifacts">
+        <include name="${ds-server.jar}"/>
+        <include name="${ds-server-webapp.war}"/>
+      </fileset>
+      <fileset refid="ds-server.dependency.fileset" />
+      <fileset refid="ds-server-webapp.dependency.fileset" />
+      <mapper type="flatten" />
+    </copy>
+
+    <!-- Deleting useless libraries -->
+    <delete>
+      <fileset dir="${server.forge.dir}/default/lib" includes="geronimo-j2ee_*.jar junit*.* hsqldb*.* simple-jndi*.* servlet*.*"/>
+    </delete>
+    
+  </target>
+  
+  <target name="init-forge-server" 
+          depends="properties-ds-server,upd-admin-dist">
+          
+    <antcall target="prepare-output-dir"/>
+  </target>
+  
+  <target name="prepare-output-dir" depends="properties-ds-server">
+    
+    <tstamp>
+      <format property="TODAY" pattern="MMMM dd, yyyy" locale="en"/>
+    </tstamp>
+      
+    <replace file="${server.forge.dir}/readme.txt" summary="true">
+      <replacefilter token="{server.version}" value="${ds-server.version}"/>
+      <replacefilter token="{server.release.date.text}" value="${TODAY}"/>
+    </replace>
+    
+    <replace file="${server.forge.dir}/default/config/common/beans/Funambol.xml"
+             summary="true">
+      <replacefilter token="{swV.version}" value="${ds-server.version}"/>
+    </replace>
+    
+    <!-- Ensure execution permissions for UNIX/LINX relevant scripts -->
+    <chmod perm="a+x">
+        <fileset dir="${server.forge.dir}/bin">
+            <include name="*.sh"/>
+        </fileset>
+        <fileset dir="${server.forge.dir}/ant/bin">
+            <exclude name="*.cmd"/>
+            <exclude name="*.bat"/>
+        </fileset>
+    </chmod>
+    <!-- Ensure correct line endings -->
+    <fixcrlf eol="lf" eof="remove"
+       srcdir="${server.forge.dir}/bin" includes="**/*.sh"/>
+    <fixcrlf eol="crlf" eof="remove"
+       srcdir="${server.forge.dir}/bin" includes="**/*.cmd"/>
+
+    <!-- Create native library directory -->
+    <mkdir dir="${server.forge.dir}/lib/win32" />
+    <mkdir dir="${server.forge.dir}/lib/linux" />
+    
+    <!-- Create  release.properties files -->
+    <mkdir dir="${server.forge.dir}/docs" />
+    <propertyfile
+        file="${server.forge.dir}/docs/release.properties"
+        comment="Funambol DS Server">
+      <entry  key="version" value="${ds-server.version}"/>
+      <entry  key="build.date" type="date" value="now" pattern="yyyyMMdd"/>
+      <entry  key="module.src.tag" value="serverds_${ds-server.version}" />
+    </propertyfile>
+  </target>
+  
+  <!-- ================================================= -->
+  <!--  Update ds-server dist lib with admin jar         -->
+  <!-- ================================================= -->
+  <target name="upd-admin-dist" depends="init, make-admin,make-autoupdate-dir">
+      <copy todir    ="ds-server/src/dist/lib/" 
+            file     ="admin-suite/output/funambol-admin-dev.jar"
+            overwrite="true"
+      />
+
+      <mkdir dir="output/html/autoupdate" />
+      <copy todir="output/html/autoupdate">
+          <fileset dir="admin-suite/output/autoupdate"/>
+      </copy>      
+      
+  </target>  
+  
+</project>

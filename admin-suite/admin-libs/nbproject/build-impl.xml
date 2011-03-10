@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*** GENERATED FROM project.xml - DO NOT EDIT  ***
+***         EDIT ../build.xml INSTEAD         ***
+-->
+<project xmlns:nbmproject="http://www.netbeans.org/ns/nb-module-project/2" name="com.funambol.admin.libs-impl" basedir="..">
+    <property file="nbproject/private/suite-private.properties"/>
+    <property file="nbproject/suite.properties"/>
+    <property file="admin-libs/nbproject/suite.properties"/>
+    
+    <echo message="Base directory in admin-suite/admin-libs/nbproject/build-impl.xml: ${basedir}"/>
+        
+    <property file="${user.home}/build-admin-diablo.properties"/>
+    
+    <property file="../build.properties"/>
+
+    <property name="nbplatform.default.harness.dir" value="${nbplatform.default.netbeans.dest.dir}/harness"/>
+            
+    <fail unless="suite.dir">You must set 'suite.dir' to point to your containing module suite</fail>
+    <property file="${suite.dir}/nbproject/private/platform-private.properties"/>
+    <property file="${suite.dir}/nbproject/platform.properties"/>
+    <macrodef uri="http://www.netbeans.org/ns/nb-module-project/2" name="property">
+        <attribute name="name"/>
+        <attribute name="value"/>
+        <sequential>
+            <property value="${@{value}}" name="@{name}"/>
+        </sequential>
+    </macrodef>
+    <property file="${user.properties.file}"/>
+        
+    <nbmproject:property value="nbplatform.${nbplatform.active}.harness.dir" name="harness.dir"/>
+    <nbmproject:property value="nbplatform.${nbplatform.active}.netbeans.dest.dir" name="netbeans.dest.dir"/>
+        
+    <fail message="You must define 'nbplatform.${nbplatform.active}.harness.dir'">
+        <condition>
+            <not>
+                <available type="dir" file="${harness.dir}"/>
+            </not>
+        </condition>
+    </fail>
+    <import file="${harness.dir}/build.xml"/>
+</project>

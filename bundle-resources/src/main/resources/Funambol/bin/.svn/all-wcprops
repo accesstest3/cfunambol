@@ -1,0 +1,209 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/core/!svn/ver/36583/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin
+END
+restartall.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/33174/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/restartall.cmd
+END
+stopall.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/33174/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/stopall.cmd
+END
+hypersonic
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/core/!svn/ver/34719/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/hypersonic
+END
+hypersonic.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/34719/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/hypersonic.cmd
+END
+admin-passwd
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/core/!svn/ver/33174/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/admin-passwd
+END
+admin-passwd.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/core/!svn/ver/33174/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/admin-passwd.cmd
+END
+patch
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/core/!svn/ver/33174/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/patch
+END
+patch.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/core/!svn/ver/33174/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/patch.cmd
+END
+funambol
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/core/!svn/ver/36124/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/funambol
+END
+fnblstatus.exe
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/32308/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/fnblstatus.exe
+END
+funambol.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/core/!svn/ver/36124/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/funambol.cmd
+END
+funambol-server
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/core/!svn/ver/36583/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/funambol-server
+END
+wbxml-to-xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/core/!svn/ver/33174/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/wbxml-to-xml
+END
+encrypt-passwords
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/33174/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/encrypt-passwords
+END
+pim-listener
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/core/!svn/ver/36583/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/pim-listener
+END
+funambol-server.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/36583/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/funambol-server.cmd
+END
+wbxml-to-xml.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/core/!svn/ver/33174/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/wbxml-to-xml.cmd
+END
+encrypt-passwords.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/33174/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/encrypt-passwords.cmd
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/log4j.properties
+END
+pim-listener.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/core/!svn/ver/36583/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/pim-listener.cmd
+END
+install-modules
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/core/!svn/ver/33174/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/install-modules
+END
+install-modules.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/33174/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/install-modules.cmd
+END
+startall.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/core/!svn/ver/33174/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/startall.cmd
+END
+ctp-server
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/core/!svn/ver/36583/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/ctp-server
+END
+ctp-server.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/36583/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/ctp-server.cmd
+END
+patch.xml
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/core/!svn/ver/34393/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/patch.xml
+END
+inbox-listener
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/36583/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/inbox-listener
+END
+log-filter
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/core/!svn/ver/34902/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/log-filter
+END
+inbox-listener.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/36583/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/inbox-listener.cmd
+END
+about.properties
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/core/!svn/ver/36301/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/about.properties
+END
+install
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/core/!svn/ver/33174/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/install
+END
+xml-to-wbxml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/core/!svn/ver/33174/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/xml-to-wbxml
+END
+install.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/33174/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/install.cmd
+END
+xml-to-wbxml.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/core/!svn/ver/33174/trunk/funambol/bundle-resources/src/main/resources/Funambol/bin/xml-to-wbxml.cmd
+END

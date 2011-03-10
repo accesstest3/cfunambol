@@ -1,0 +1,549 @@
+2011-03-04
+- matteo: changed NokiaS40in synclet, in the handleLabel method, in order to add 
+          ADR instead of LABEL only when ADR are not present in the VCARD
+
+-------------------------------
+Funambol Phones Support 9.0.0
+-------------------------------
+2010-12-21
+- maria: updated dependencies
+
+-------------------------------
+Funambol Phones Support 8.7.0
+-------------------------------
+2010-07-01
+- morresi: Changed Nokia7610out.bsh in order to fix bug #9264. Nokia 6600 and 7610
+           don't manage email syncsource returned when server sends its capabilies and
+           terminate the sync with errors. The synclet simply remove this datastore
+           from the syncml message.
+           Added a new junit test for modified synclet.
+
+2010-06-13
+- nichele: Fixed NullPointerException in reduceMaxMsgSize.bsh
+
+2010-04-12
+- luigia: Fixed bug #9045 - Exception Sync of contacts with photos with
+          Nokia 3109c and 6111
+          Changed Nokia6111out.bsh and added Nokia3109out.bsh in order to call
+          the command fixCommandSize(message) since some Nokia devices do not
+          handle rightly the item's size declared in the command sent by server.
+          Changed 001.0500.EnablePhoto.xml in order to enable the sync of
+          contact's photo for Nokia6111 and Nokia3109.
+
+-------------------------------
+Funambol Phones Support 8.5.0
+-------------------------------
+2010-03-25
+- gazza: Fixed VALARM for Thunderbird 3 (Mozilla).
+
+2010-02-18
+- luigia: Fixed bug #6725 - the synclet for the N95 doesn't add the
+          EMAIL;INTERNET field.
+          Changed:
+          - NokiaXin.bsh
+          - addVoidTokens.bsh
+
+2010-01-08
+- fabius: fixed bug #7945 SyncLet for Nok S60 3ed - 
+          All day event is shown as 0:00-23:59 calendar
+          Changed:
+              - Nokia7610out.bsh
+              - NokiaS60out.bsh
+          Added:
+              - isInSeries60.bsh
+              - isInSeries60SecondEdition.bsh
+
+-------------------------------
+Funambol Phones Support 8.2.4
+-------------------------------
+2009-12-02
+- maria: updated dependencies
+
+-------------------------------
+Funambol Phones Support 8.2.3
+-------------------------------
+2009-11-13
+- maria: updated dependencies
+
+-------------------------------
+Funambol Phones Support 8.2.2
+-------------------------------
+2009-11-02
+- maria: updated dependencies
+
+-------------------------------
+Funambol Phones Support 8.2.1
+-------------------------------
+2009-10-09
+- maria: updated dependencies
+
+-------------------------------
+Funambol Phones Support 8.2.0
+-------------------------------
+2009-05-22
+- luigia: Added check on MaxMsgSize in reduceMaxMsgSize.bsh in order to avoid an
+          exception in case of this value is null or 0.
+
+2009-05-12
+- scova: fixed bug #7079 -  Anniversaries convention
+         Changed:
+               - NokiaS60out.bsh
+
+2009-04-11
+- nichele: Fixed bug #7038 Unable to sync notes with blackberry
+           Changed:
+               - getSIFNoteBody.bsh,
+               - getSIFNoteSubject.bsh
+               - replaceSIFNoteBody.bsh
+           Added:
+               - getXMLTagContent.bsh
+               - replaceXMLTagContent.bsh
+
+2009-04-11
+- nichele: Added some test cases for bsh files
+
+2009-04-08
+- fabius: MotorolaV8out.bsh:
+          Used LinkedHashMap instead of HashMap in order to keep the same order 
+          in different environments while iterating over tokens
+
+-------------------------------
+Funambol Phones Support 7.1.2
+-------------------------------
+2009-03-24
+- fabius: Bug 6407 - Photo deletion on server side is not interpreted correctly by the device 
+                    (fixed in NokiaS40-5FP1LEout.bsh)
+- machi:  Bug 6730 - Anniversaries conversion
+                    (fixed in NokiaXin.bsh)
+
+2009-03-09
+- paulo: Bug 6828 - Contacts with photos uploaded from the portal are not updated on the device
+                    (fixed in removePhotoType.bsh)
+
+-------------------------------
+Funambol Phones Support 7.1.1
+-------------------------------
+2009-03-07
+- carlo: fixed bug #6887 - Slow sync causes duplicates notes with single line of text
+
+2009-03-05
+- luigia: Fixed bug #6836 Nokia 7510 should use NokiaS40-5FP1LE synclet
+          Added input synclet
+            100.3090.NokiaS40-6.xml
+            NokiaS40-6in.bsh
+          Added output synclet
+            100.3080.NokiaS40-6.xml
+            NokiaS40-6out.bsh
+- luigia: Fixed bug #6837 Nokia 7510 can sync contact with pictures
+- luigia: Fixed bug #6840 Birthdays without reminder are not transferred form Nokia 7510
+
+2009-03-04
+- fabius: fixed bug #6820 - Wrong DTEND for events created on RAZR2
+                            (fixed in MotorolaV8in.bsh)
+
+2009-03-03
+- carlo: fixed bug #6841 - BB Notes Sync: not showing correct subject in Outlook 
+                           if the note is created on the device
+
+2009-02-04
+- luca: fixed bug #6433 - Birthdays without reminder are not transferred form Nokia 5000
+
+-------------------------------
+Funambol Phones Support 7.1.0
+-------------------------------
+2009-01-22
+- scova: fixed bug #4476 - All-day events incorrectly converted
+
+2009-01-15
+- carlo: added synclets for Mozilla Sync Client:
+          - input/200.1000.MozillaSyncClient.xml
+          - output/190.1000.MozillaSyncClient.xml
+         .bsh:
+          - MozillaSyncClientin.bsh
+          - MozillaSyncClientout.bsh
+
+2009-01-14
+- mauro: fixed bug #6591 - Symbian: duplication of all-day events
+- mauro: fixed bug in command deleteOutProperty.bsh
+
+2009-01-12
+- scova: fixed bug #4746 - Nokia E61 - some fields are duplicated during an 
+         update
+
+2009-01-09
+- scova: set Dummy Value for SUMMARY and DESCRIPTION in SonyEricssonXin.bsh
+- scova: added .bsh commands:
+         reduceMaxMsgSize.bsh
+         removeDummyPhoto.bsh
+- scova: bodycmd can be an instance of Results when removing optional 
+         X-SYNCMLREF properties from the Contacts in removeXSYNCMLREFParams.bsh
+- scova: NokiaXin.bsh:
+         - Reduced the MaxMsgSize of the 30 percent
+         - Replaced the property TEL;CAR with TEL;VOICE;CAR
+         - Replaced the property TEL;FAX with TEL;FAX;HOME
+         - Replaced the property ADR with ADR;HOME
+- scova: NokiaS60out.bsh:
+         - Removed TZ: property
+         - added support for: Nokia 5800 XpressMusic, Nokia N78, 
+           Samsung SGH-I400         
+- scova: corrected yearly events recurring rule in Nokia5310in.bsh and
+         Nokia5310out.bsh
+- scova: updated Nokia3110in.bsh and Nokia6111in.bsh for missing card tokens
+- scova: added .bsh synclets:
+         - MotorolaWin.bsh
+         - NokiaS40-5FP1LEin.bsh
+         - NokiaS40-5FP1LEout.bsh
+         - SonyEricssonJP9in.bsh
+         - SonyEricssonJP9out.bsh
+- scova: replaced property SOUND in NICKNAME in MotorolaK1in.bsh
+- scova: added import of java.util.regex.Matcher and java.util.regex.Pattern to
+         handleSonyEricssonName.bsh command
+         
+- scova: improved BlackBerry input synclet for note synchronization:
+         - BlackBerryPIMin.bsh
+         - BlackBerryPIMout.bsh
+         added the following .bsh commands:
+         - getSIFNoteBody.bsh
+         - getSIFNoteSubject.bsh
+         - replaceSIFNoteBody.bsh
+
+- scova: added output synclets:
+         - 120.1100.SonyEricssonJP9.xml
+         - 120.1140.SonyEricssonUIQ30.xml
+         - 180.1000.BlackBerryPIM.xml
+         - 100.3070.NokiaS40-5FP1LE.xml
+         added input synclets:
+         - 120.1130.SonyEricssonJP9.xml
+         - 120.1110.SonyEricssonUIQ30.xml
+         - 190.1000.BlackBerryPIM.xml
+         - 100.3080.NokiaS40-5FP1LE.xml
+         - 110.1100.MotorolaW.xml
+         
+- scova: deleted input synclets:
+         - 120.1010.SonyEricssonM600I.xml
+         - 120.1090.SonyEricssonP1I.xml
+         - 120.1100.SonyEricssonP990I.xml
+         deleted output synclets:
+         - 120.1010.SonyEricssonM600I.xml
+         - 120.1060.SonyEricssonP1I.xml
+         - 120.1070.SonyEricssonP990I.xml
+
+- scova: updated the list of user-agents that use the input synclet
+         100.9000.Nokia.xml:
+         - S60 SyncML HTTP Client
+
+- scova: updated the list of user-agents that use the output synclet
+         100.4000.NokiaS60.xml:
+         - S60 SyncML HTTP Client
+
+- scova: updated the list of user-agents that use the output synclet
+         100.3050.Nokia3110.xml and input synclet 100.3060.Nokia3110.xml:
+         - Nokia6555 
+
+- scova: updated the list of user-agents to enable photo sync 
+        (001.0500.EnablePhoto.xml - input):
+         - S60 SyncML HTTP Client
+         - Nokia5000
+         - Nokia5310XpressMusic
+         - Nokia6555
+         - SonyEricssonC902
+
+-------------------------------
+Funambol Phones Support 7.0.4
+-------------------------------
+2008-07-26
+- nichele: Fixed bug #5611 - All day event are 1-day back shifted on P990i
+           (Updated 120.1010.SonyEricssonM600I.xml input synclet)
+          
+-------------------------------
+Funambol Phones Support 7.0.3
+-------------------------------
+2008-07-18
+- lulu: Added FixV65RecurrentEventout output synclet in order to fix an issue
+        about recurrent events syncing with Funambol clients v6.5.x
+        (001.3000.FunambolV65Client.xml).
+- lulu: Fixed bug #5547 - Recurring meetings appear on the wrong times (by 7
+        hours or so ) but non-recurring events are at the right time.
+- lulu: Added BlackBerry input synclet for note synchronization
+        (180.1000.BlackBerryPIM.xml)
+
+-------------------------------
+Funambol Phones Support 7.0.2
+-------------------------------
+2008-07-04
+- lulu: Added synclet for Sony Ericsson K610i 
+        (SonyEricssonK610Iin - SonyEricssonK610Iout).
+        Improved synclets MotorolaV8in and MotorolaV8out in order to remap 
+        the value of PRIORITY property in the task items.
+        Removed synclet SonyEricssonK550Iin.
+        Changed the xml config 120.1110.SonyEricssonK550I.xml in order to use 
+        SonyEricssonK610Iin.bsh.
+
+2008-06-30
+- lulu: Changed the xml config that contains the list of the devices that are 
+        able to sync the contact's photo adding Nokia3110c, Nokia6125.
+        Added synclet for:
+        - Nokia 5310 XpressMusic (Nokia5310in - Nokia5310out)
+        - Nokia 3110i (Nokia3110i - Nokia3110out)
+        - Motorola Z8 (MotorolaZ8in)
+        - Sony Ericsson W910I (SonyEricssonW910Iin - SonyEricssonW910Iout)
+        Removed synclet for Nokia 7200 (Nokia7200in)
+        Improved synclets for:
+        - Motorola K1 (MotorolaK1in)
+        - Motorola PEBLU6 (MotorolaPEBLU6in - MotorolaPEBLU6out)
+        - Motorola V3xx (MotorolaV3xxin - MotorolaV3xxout)
+        - Motorola V8 (MotorolaV8in - MotorolaV8out)
+        - Nokia 6111 (Nokia6111in - Nokia6111out)
+        - Sony Ericsson K608I (SonyEricssonK608Iin - SonyEricssonK608Iout)
+        - Sony Ericsson K750I (SonyEricssonK750Iin - SonyEricssonK750Iout)
+        - Sony Ericsson K800I (SonyEricssonK800Iin - SonyEricssonK800Iout)
+        - Sony Ericsson M600I (SonyEricssonM600Iin - SonyEricssonM600Iout)
+        - Sony Ericsson V800 (SonyEricssonV800in)
+        - Sony Ericsson W8X (SonyEricssonW8Xin - SonyEricssonW8Xout)
+        Improved synclets:
+        - MotorolaXin and MotorolaXout
+        - NokiaS40in and NokiaS40out
+        - NokiaS60out
+        - NokiaXin
+        - SonyEricssonXin and SonyEricssonXout
+        - SonyEricssonZ52Xin and SonyEricssonZ52Xout
+        - SyncEvolutionin
+        Added commands fixBirthdayRecurrence, fixCommandSize, 
+        removeRecurrenceEndDate and removeXSYNCMLREFParams for general usage.
+        Improved command handleStatusError.
+
+-------------------------------
+Funambol Phones Support 7.0.1
+-------------------------------
+2008-02-25
+- lulu: Changed the xml config that contains the list of the devices that are 
+        able to sync the contact's photo adding SonyEricssonK610i, 
+        SonyEricssonK550i, SonyEricssonW800i, EPOC SyncML Client.
+        Added synclet to detect the SonyEricsson JAM (DetectSonyEricssonJAMin - 
+        DetectSonyEricssonJAMout).
+        Added synclet for Sony Ericsson K550I (SonyEricssonK550Iin).
+        Removed synclet Nokia3220out because the Nokia 3220 now uses the synclet
+        NokiaS40out.
+        Improved synclets for:
+        - Motorola V3xx (MotorolaV3xxin)
+        - Motorola K1 (MotorolaK1in)
+        - Motorola V8 (MotorolaV8in)
+        - Nokia X (NokiaXin)
+
+
+-------------------------------
+Funambol Phones Support 6.5.5
+-------------------------------
+2007-11-30
+- lulu: Changed synclets for Nokia series 60 (NokiaS60out - Nokia7610out) in
+        order to remove TYPE from PHOTO token because the phones of these series
+        are not able to handle PHOTO with specified TYPE.
+        Added command removePhotoType in order to remove TYPE from the token PHOTO.
+
+2007-11-28
+- nichele: Changed license to AGPLv3.
+
+
+-------------------------------
+Funambol Phones Support 6.5.4
+-------------------------------
+
+2007-11-23
+- nichele: Added synclet EnablePhoto used to enable the contact's photo synchronization.
+           This is done replacing './card' and 'card' with 'card?photo=true' and
+           'scard' with 'scard?photo=true'. The PIMContactSyncSource is enable to
+           check the parameter 'photo' and if it is true, the contact's photos are
+           sent to the device.
+           The swap is done only for some devices that support contact's photo
+           synchronization.
+           
+2007-11-21
+- lulu: Added the xml config to handle SonyEricsson P990I
+        Added synclet for SyncEvolution (SyncEvolutionin - SyncEvolutionout)
+        Improved synclets for:
+         - Motorola V8 (MotorolaV8in)
+         - Siemens M55 (SiemensM55out)
+         - Siemens S5X (SiemensS5Xin - SiemensS5Xout)
+         - SonyEricsson K750I (SonyEricssonK750Iout)
+
+
+-------------------------------
+Funambol Phones Support 6.5.3
+-------------------------------
+
+2007-11-14
+- lulu: Added synclet for Nokia 7200 (Nokia7200in)
+        Improved synclets for:
+         - Nokia 6111 (Nokia6111in)
+         - Nokia S40 (NokiaS40in)
+         - Siemens M55 (SiemensM55out)
+
+
+-------------------------------
+Funambol Phones Support 6.5.2
+-------------------------------
+
+2007-10-26
+- lulu: Added command removeDepartmentProperty for general usage.
+        Added the xml config to handle SonyEricsson P1i.
+        Added the following synclets for:
+         - Nokia 7610 (Nokia7610in - Nokia7610out)
+         - Motorola V8 (MotorolaV8in - MotorolaV8out)
+        Removed the following synclets for:
+         - Nokia 6020 (Nokia6020in - Nokia6020out) because this phone is handled
+           by the NokiaS40in and Nokia3220out
+        Improved synclets for:
+         - Motorola K1 (MotorolaK1in)
+         - Motorola PEBLU6 (MotorolaPEBLU6in)
+         - Motorola V3xx (MotorolaV3xxin)
+         - Motorola X (MotorolaXin)
+         - Nokia 3220 (Nokia3220out)
+         - Nokia S40 (NokiaS40in - NokiaS40out)
+         - Nokia S60 (NokiaS60out)
+         - Panasonic X70 (PanasonicX70in - PanasonicX70out)
+         - Siemens M55 (SiemensM55in - SiemensM55out)
+         - Siemens SK65X (SiemensSK65Xin)
+         - SonyEricsson K750I (SonyEricssonK750Iout)
+         - SonyEricsson V800 (SonyEricssonV800in)
+         - SonyEricsson Z52X (SonyEricssonZ52Xin)
+
+
+-------------------------------
+Funambol Phones Support 6.5.1
+-------------------------------
+
+2007-08-31
+- lulu: Added the following commands for general usage:
+         - replaceFirstOutProperty
+         - setMaxMsgSize
+        Added the following commands for EPOC devices:
+         - getEpocClient
+         - setEpocProperties
+        Added the following synclets for:
+         - Motorola EPOC (MotorolaEPOCXin - MotorolaEPOCXout)
+         - Motorola PEBLU6 (MotorolaPEBLU6out)
+         - Motorola V5XX  (MotorolaV5XXin)
+         - Nokia 6020 (Nokia6020in - Nokia6020out)
+         - Panasonic X70 (PanasonicX70in - PanasonicX70out)
+         - Siemens M55 (SiemensM55in - SiemensM55out)
+         - Sony Ericsson EPOC (SonyEricssonEPOCXin - SonyEricssonEPOCXout)
+         - Sony Ericsson M600 (SonyEricssonM600Iout)
+        Removed the following synclets for:
+         - Motorola V3        (MotorolaV3in)
+         - Sony Ericsson EPOC (EPOCXin - EPOCXout)
+        Improved synclets for:
+         - Motorola K1 (MotorolaK1in)
+         - Motorola X  (MotorolaXin)
+         - Nokia S60 (NokiaS60out)
+         - Siemens S5X (SiemensS5Xin)
+         - Siemens SK65X (SiemensSK65Xin - SiemensSK65Xout)
+         - SonyEricsson K750I (SonyEricssonK750Iout)
+         - SonyEricsson M600I (SonyEricssonM600Iin)
+         - SonyEricsson V800 (SonyEricssonV800in)
+
+
+-------------------------------
+Funambol Phones Support 6.5.0
+-------------------------------
+
+2007-07-25
+- lulu: Added the following commands for general usage under commands dir:
+         - deviceCapabilitiesLookup
+         - handleStatusError
+         - keepFirstProperty
+         - movePropertyToTheEnd
+         - removeCommandSize
+         - replaceFirstInProperty
+         - saveDevInf
+         - switchAddressValues
+        Added the following commands for SonyEricsson devices
+         - handleSonyEricssonName
+         - isSonyEricssonDST
+        Added the following synclets for:
+         - Motorola PEBLU6   (MotorolaPEBLU6in)
+         - Motorola V3xx     (MotorolaV3xxin - MotorolaV3xxout)
+         - Motorola V600     (MotorolaV600in)
+         - Nokia 3220        (Nokia3220out)
+         - Nokia 6111        (Nokia6111in - Nokia6111out)
+         - Nokia 6610I       (Nokia6610Iin - Nokia6610Iout)
+         - Nokia 9500        (Nokia9500out)
+         - Nokia S60         (NokiaS60out)
+         - Siemens SK65X     (SiemensSK65Xout)
+         - SonyEricsson K750I(SonyEricssonK750Iin - SonyEricssonK750Iout)
+         - SonyEricsson W8X  (SonyEricssonW8Xin - SonyEricssonW8Xout)
+         - SonyEricsson T610 (SonyEricssonT610in)
+
+2007-06-18
+- lulu: Updated Funambol copyright
+
+
+-------------------------------
+Funambol Phones Support 6.0.6
+-------------------------------
+
+2007-06-04
+- lulu: Added synclets for SonyEricsson K800i, for SonyEricsson K608i and for
+        Sony Ericsson Z525
+
+2007-05-30
+- lulu: Added synclet for Motorola KRZR K1.
+        Changed MotorolaXin/Xout to switch the second with the third value in
+        the address tokens (home, work or other type).
+
+
+-------------------------------
+Funambol Phones Support 6.0.5
+-------------------------------
+
+2007-05-28
+- lulu: Added synclet for SonyEricssonW850i.
+        Called synclets NokiaS40in/out also for Nokia 623x.
+
+
+-------------------------------
+Funambol Phones Support 6.0.4
+-------------------------------
+
+2007-05-18
+- lulu: Added synclets for Motorola V3, Nokia series 40, and SonyEricsson M600i.
+
+
+-------------------------------
+Funambol Phones Support 6.0.3
+-------------------------------
+
+2007-04-19
+- lulu: Fixed issue into Nokia6200in.bsh
+
+
+-------------------------------
+Funambol Phones Support 6.0.2
+-------------------------------
+
+2007-04-13
+- lulu: Added init() to initialize synclet properties
+
+
+-------------------------------
+Funambol Phones Support 6.0.1
+-------------------------------
+
+2007-02-27
+- lulu: Added iPodXout.bsh synclet to remove the empty tokens because the iPod
+        shows also the empty fields.
+
+2007-02-23
+- lulu: Reviewed NokiaXin.bsh synclet to handle calendar event when it is not
+        specified the X-EPOCAGENDAENTRYTYPE token
+
+2007-02-19
+- piter: Now the SynthesisOut.bsh synclet replaces ALREADY_EXISTS (418) status
+         code with 200.
+
+
+-------------------------------
+Funambol Phones Support 6.0.0
+-------------------------------
+
+First release of phones support module.
+It contains the synclets developed to improve the support to some phones.

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/core/!svn/ver/36447/trunk/funambol/admin-suite
+END
+pom-admin.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/core/!svn/ver/36447/trunk/funambol/admin-suite/pom-admin.xml
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/LICENSE.txt
+END
+admin.properties
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin.properties
+END
+changeslog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/core/!svn/ver/36375/trunk/funambol/admin-suite/changeslog.txt
+END
+build.properties
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/core/!svn/ver/36445/trunk/funambol/admin-suite/build.properties
+END
+pom-admin-framework.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/core/!svn/ver/36445/trunk/funambol/admin-suite/pom-admin-framework.xml
+END
+fix-dependency-filename.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/fix-dependency-filename.bsh
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/.cvsignore
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/core/!svn/ver/31355/trunk/funambol/admin-suite/build.xml
+END

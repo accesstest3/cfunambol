@@ -1,0 +1,121 @@
+#!/bin/sh
+
+#
+#  Copyright (C) 2008 Funambol, Inc.  All rights reserved.
+#
+#  Environment Variable prerequisites
+#
+#    JAVA_HOME   (Optional) May point at your jdk/jre installation. If not set,
+#                or not correctly set, the jre embedded in the bundle is used
+#
+#    JAVA_OPTS   (Optional) Java runtime options
+#
+#    MEM_OPTS    (Optional) Memory options, for instance -Xmx256M. It is used only
+#                with start command. Default value -Xmx256M.
+#
+
+# Setting FUNAMBOL_HOME
+# resolving links - $0 could be a softlink
+PRG="$0"
+APPNAME=`basename "$PRG"`
+
+while [ -h "$PRG" ]; do
+  ls=`ls -ld "$PRG"`
+  link=`expr "$ls" : '.*-> \(.*\)$'`
+  if expr "$link" : '/.*' > /dev/null; then
+    PRG="$link"
+  else
+    PRG=`dirname "$PRG"`/"$link"
+  fi
+done
+
+PRGDIR=`dirname "$PRG"`
+FUNAMBOL_HOME=`cd "$PRGDIR/.." ; pwd`
+
+if [ ! -d $FUNAMBOL_HOME/config ]; then
+    #
+    # maybe we are in Funambol/tool/bin
+    #
+    FUNAMBOL_HOME=$FUNAMBOL_HOME/..
+fi
+
+# Setting the JAVA_HOME to the JRE in the bundle if not set or if not correctly set
+if [ -z "$JAVA_HOME" ]; then
+    JAVA_HOME=$FUNAMBOL_HOME/tools/jre-1.6.0/jre
+else
+    if [ ! -f "$JAVA_HOME/bin/java" ]; then
+        JAVA_HOME=$FUNAMBOL_HOME/tools/jre-1.6.0/jre
+    fi
+fi
+
+if [ -z "$JAVA_HOME" ]; then
+  echo "Please, set JAVA_HOME before running this script."
+  exit 1
+fi
+
+if [ ! -f "$JAVA_HOME/bin/java" ]
+then
+    echo "Please set JAVA_HOME to the path of a valid jre."
+    exit;
+fi
+
+export LANG=en_US.utf-8
+
+export CLASSPATH=$FUNAMBOL_HOME/tools/hypersonic/lib/hsqldb.jar
+
+if [ -z "$MEM_OPTS" ]; then
+  MEM_OPTS="-Xmx256M"
+fi
+
+JAVA_OPTS="$JAVA_OPTS $MEM_OPTS"
+JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF-8"
+
+if [ "$1" = "start" ] && [ "$2" = "-debug" -o "$2" = "" ] && [ "$3" = "" ] ; then
+
+  ARGS="-database.0 ${FUNAMBOL_HOME}/tools/hypersonic/data/funambol -dbname.0 funambol"
+
+  # Uncomment the following line to enable remote debug
+  # JAVA_OPTS=$JAVA_OPTS -Xdebug -Xrunjdwp:transport=dt_socket,address=8788,server=y,suspend=n
+
+  echo FUNAMBOL_HOME: $FUNAMBOL_HOME
+  echo JAVA_OPTS: $JAVA_OPTS
+
+  if [ "$2" = "-debug" ] ; then
+    "$JAVA_HOME/bin/java" $JAVA_OPTS \
+    org.hsqldb.Server $ARGS
+  else
+    "$JAVA_HOME/bin/java" $JAVA_OPTS \
+    org.hsqldb.Server $ARGS > /dev/null 2>&1 </dev/zero &
+  fi
+
+elif [ "$1" = "manager" ] ; then
+
+  ARGS="--user sa --url jdbc:hsqldb:hsql://localhost/funambol"
+
+  echo FUNAMBOL_HOME: $FUNAMBOL_HOME
+  echo JAVA_OPTS: $JAVA_OPTS
+
+  "$JAVA_HOME/bin/java" $JAVA_OPTS \
+  org.hsqldb.util.DatabaseManager $ARGS
+
+elif [ "$1" = "stop" ] && [ "$2" = "" ] ; then
+
+  ARGS="-port -user sa -url jdbc:hsqldb:hsql://localhost/funambol -shutdownarg IMMEDIATELY"
+  
+  echo FUNAMBOL_HOME: $FUNAMBOL_HOME
+  echo JAVA_OPTS: $JAVA_OPTS
+
+  "$JAVA_HOME/bin/java" $JAVA_OPTS \
+  org.hsqldb.util.ShutdownServer $ARGS
+
+else
+
+  echo "Usage: $APPNAME command"
+  echo "command:"
+  echo "  start           Start Hypersonic"
+  echo "  start -debug    Start Hypersonic with output console"
+  echo "  manager         Start Hypersonic database manager"
+  echo "  stop            Stop  Hypersonic"
+  exit 1
+
+fi

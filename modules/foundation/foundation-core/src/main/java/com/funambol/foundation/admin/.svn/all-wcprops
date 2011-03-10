@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/admin
+END
+PIMNoteSyncSourceConfigPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/29849/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/admin/PIMNoteSyncSourceConfigPanel.java
+END
+PIMCalendarSyncSourceConfigPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/core/!svn/ver/29810/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/admin/PIMCalendarSyncSourceConfigPanel.java
+END
+FileDataObjectSyncSourceConfigPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/admin/FileDataObjectSyncSourceConfigPanel.java
+END
+SIFSyncSourceConfigPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/admin/SIFSyncSourceConfigPanel.java
+END
+PIMContactSyncSourceConfigPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/core/!svn/ver/29811/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/admin/PIMContactSyncSourceConfigPanel.java
+END
+FileSystemSyncSourceConfigPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/admin/FileSystemSyncSourceConfigPanel.java
+END
+PIMSyncSourceConfigPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/admin/PIMSyncSourceConfigPanel.java
+END

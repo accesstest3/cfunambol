@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/resources/bin
+END
+addUsers.bat
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/resources/bin/addUsers.bat
+END
+startMultiClient.sh
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/resources/bin/startMultiClient.sh
+END
+startMultiClient.bat
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/resources/bin/startMultiClient.bat
+END

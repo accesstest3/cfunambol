@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-mina-codec/src/main/java/com/funambol/ctp/filter/codec
+END
+CTPProtocolConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-mina-codec/src/main/java/com/funambol/ctp/filter/codec/CTPProtocolConstants.java
+END
+CTPProtocolEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-mina-codec/src/main/java/com/funambol/ctp/filter/codec/CTPProtocolEncoder.java
+END
+ProtocolCodecException.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-mina-codec/src/main/java/com/funambol/ctp/filter/codec/ProtocolCodecException.java
+END
+CTPProtocolDecoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-mina-codec/src/main/java/com/funambol/ctp/filter/codec/CTPProtocolDecoder.java
+END
+CTPProtocolCodecFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-mina-codec/src/main/java/com/funambol/ctp/filter/codec/CTPProtocolCodecFactory.java
+END

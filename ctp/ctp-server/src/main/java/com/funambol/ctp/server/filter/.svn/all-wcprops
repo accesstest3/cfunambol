@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/filter
+END
+ClientEventsLoggingFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/filter/ClientEventsLoggingFilter.java
+END
+DumperFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/filter/DumperFilter.java
+END

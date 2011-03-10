@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/30730/trunk/funambol/modules/foundation/phones-support/src/test/java/com/funambol/phonessupport/bsh/commands
+END
+ReplaceSIFNoteBodyTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/core/!svn/ver/30730/trunk/funambol/modules/foundation/phones-support/src/test/java/com/funambol/phonessupport/bsh/commands/ReplaceSIFNoteBodyTest.java
+END
+ReplaceXMLTagContentTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/core/!svn/ver/30730/trunk/funambol/modules/foundation/phones-support/src/test/java/com/funambol/phonessupport/bsh/commands/ReplaceXMLTagContentTest.java
+END
+GetSIFNoteBodyTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/30730/trunk/funambol/modules/foundation/phones-support/src/test/java/com/funambol/phonessupport/bsh/commands/GetSIFNoteBodyTest.java
+END
+GetXMLTagContentTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/30730/trunk/funambol/modules/foundation/phones-support/src/test/java/com/funambol/phonessupport/bsh/commands/GetXMLTagContentTest.java
+END
+GetSIFNoteSubjectTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/core/!svn/ver/30730/trunk/funambol/modules/foundation/phones-support/src/test/java/com/funambol/phonessupport/bsh/commands/GetSIFNoteSubjectTest.java
+END

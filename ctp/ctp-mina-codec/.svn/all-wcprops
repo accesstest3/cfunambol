@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/core/!svn/ver/36445/trunk/funambol/ctp/ctp-mina-codec
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-mina-codec/LICENSE.txt
+END
+changeslog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/core/!svn/ver/36351/trunk/funambol/ctp/ctp-mina-codec/changeslog.txt
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/core/!svn/ver/36445/trunk/funambol/ctp/ctp-mina-codec/pom.xml
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-mina-codec/.cvsignore
+END

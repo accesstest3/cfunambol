@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/core/!svn/ver/33782/trunk/funambol/admin-suite/admin/src/com/funambol/admin/main
+END
+ServerChildren.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/main/ServerChildren.java
+END
+BusinessDelegate.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/33166/trunk/funambol/admin-suite/admin/src/com/funambol/admin/main/BusinessDelegate.java
+END
+DSServerUpdateNotificationPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/main/DSServerUpdateNotificationPanel.java
+END
+Sync4jClassLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/main/Sync4jClassLoader.java
+END
+SyncAdminController.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/33782/trunk/funambol/admin-suite/admin/src/com/funambol/admin/main/SyncAdminController.java
+END
+ServerNode.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/main/ServerNode.java
+END

@@ -1,0 +1,31 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+DTSTART:20070929T120000Z
+DTEND:20070929T130000Z
+SUMMARY:Summary
+
+
+LOCATION;CHARSET=UTF-8;ENCODING=QUOTED-PRINTABLE:Location=
+ 
+CATEGORIES;CHARSET=UTF-8;ENCODING=QUOTED-PRINTABLE:Categories=20=
+written=20=
+on=20several=
+ lines=20and=
+=20using=20Quo=
+ted-Printa=
+ble=20encodi=
+ng=20=
+
+DESCRIPTION:Description 
+ wri
+ tte
+ n o
+ n s
+ eve
+ ral
+  li
+ nes
+ 
+END:VEVENT
+END:VCALENDAR

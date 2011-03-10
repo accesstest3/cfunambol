@@ -1,0 +1,14 @@
+#Funambol Administration Tool
+#Tue Nov 01 16:51:35 CET 2005
+proxyUser=
+port=8080
+server=localhost.localdomain
+user=admin
+useProxy=false
+proxyPassword=
+proxyHost=
+password=sa
+proxyPort=8888
+maxResults=100
+debugEnabled=false
+serverContextPath=/funambol

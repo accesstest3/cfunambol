@@ -1,0 +1,440 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+import java.util.List;
+import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.TimeZone;
+
+import com.funambol.common.pim.utility.*;
+import com.funambol.framework.core.*;
+import com.funambol.framework.engine.pipeline.InputMessageProcessor;
+import com.funambol.framework.engine.pipeline.MessageProcessingContext;
+import com.funambol.framework.logging.FunambolLogger;
+import com.funambol.framework.logging.FunambolLoggerFactory;
+
+import com.funambol.foundation.synclet.PIMItemsHandler;
+
+/**
+ * Events/Tasks:
+ * =========
+ * Processes the incoming iCalendar items: 
+ *  - Replace reminder action value to AUDIO
+ *  - Replace reminder trigger value/type from DURATION to DATE-TIME/DATE
+ *  - Replace DAILY with BYDAY recurrence to WEEKLY recurrence
+ */
+
+private final FunambolLogger log = FunambolLoggerFactory.getLogger("engine.pipeline");
+
+/**
+ * Called initializing the synclet
+ */
+void init() {
+    // do nothing
+}
+
+/**
+ * Process input message and set MessageProcessingContext property.
+ *
+ * @param processingContext the message processing context
+ * @param message the message to be processed
+ *
+ * @throws Sync4jException
+ */
+void preProcessMessage(MessageProcessingContext processingContext, SyncML message)
+                                 throws Sync4jException {
+    if (log.isTraceEnabled()) {
+        log.trace("MozillaSyncClientin.preProcessMessage(...)");
+    }
+    // This map contains the three lists of items separated based on their type
+    PIMItemsHandler pimItemsHandler = new PIMItemsHandler();
+    Map mapItems = pimItemsHandler.extractIncomingPIMItems(processingContext, message);
+    processPIMItems(mapItems, pimItemsHandler);
+}
+
+/**
+ * Processes incoming items.
+ *
+ * @param mapItems the map that contains the three lists of items separated
+ *                 based on their type
+ * @param pimItemsHandler the object to handle the large object
+ *
+ */
+void processPIMItems(Map mapItems, PIMItemsHandler pimItemsHandler) {
+
+    // Cycle on vevent list
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VEVENT)) {
+        preProcessCalendarItem(i);
+        pimItemsHandler.fixLargeObjectSize(i);
+    }
+    // Cycle on vtodo list
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VTODO)) {
+        preProcessCalendarItem(i);
+        pimItemsHandler.fixLargeObjectSize(i);
+    }
+}
+
+/**
+ * Process incoming calendar item.
+ *
+ * @param i the iCalendar item
+ */
+void preProcessCalendarItem(Item i) {
+    i.data.data = fixRecurrence(
+                  fixAlarmTrigger(
+                  fixAlarmAction(i.data.data)));
+}
+
+/**
+ * Fix the recurrence info: 
+ *  - if the FREQ param value is DAILY and the BYDAY param is specified -> 
+ *    change the FREQ param value to WEEKLY (Mozilla handles weekdays 
+ *    recurring events as DAILY recurrence instead of WEEKLY recurrence) 
+ * 
+ * @param cal the icalendar item
+ * @return the fixed item
+ */
+String fixRecurrence(String cal) {
+
+    String rrule = getItemProperty(cal, "RRULE");
+    if(rrule == null) {
+        return cal;
+    }
+    String freq = getRRuleParam(rrule, "FREQ");
+    if(freq == null) {
+        return cal;
+    }
+    if(freq.equals("DAILY") && getRRuleParam(rrule, "BYDAY") != null) {
+        cal = cal.replace("\n" + rrule, "\n" + 
+            rrule.replace("FREQ=DAILY", "FREQ=WEEKLY"));
+    }
+    return cal;
+}
+
+
+/**
+ * Replace the alarm action to AUDIO
+ * @param cal
+ * @return the fixed item
+ */
+String fixAlarmAction(String cal) {
+
+    // If the reminder action property is found replace it with AUDIO action
+    String action = getAlarmAction(cal);
+    if(action != null) {
+        cal = cal.replaceFirst("\n" + action, "\nACTION:AUDIO");
+    }
+    return cal;
+}
+
+/**
+ * Fix the alarm trigger. Convert DURATION trigger to DATE/DATE-TIME trigger
+ * @param cal
+ * @return the fixed item
+ */
+String fixAlarmTrigger(String cal) {
+
+    String trigger = getAlarmTriggerProperty(cal);
+
+    // if the trigger value is a DURATION trigger then convert it to
+    // DATE-TIME trigger
+    String triggerValue = getAlarmTriggerDuration(trigger);
+    if(triggerValue == null) {
+        return cal;
+    }
+    boolean weekDuration = false;
+    if(triggerValue.indexOf("W") >= 0) {
+        //Week duration, change it with day duration
+        triggerValue = triggerValue.replace("W", "D");
+        weekDuration = true;
+    }
+
+    //Get the duration time
+    int duration = TimeUtils.getAlarmInterval(triggerValue);
+    if(weekDuration) {
+        duration *= 7;
+    }
+    String relParam = getAlarmTriggerRelatedParam(trigger);
+    boolean needDTEnd = relParam != null && relParam.equals("END");
+
+    String dtstart = getItemProperty(cal, "DTSTART");
+    String dtend = getItemProperty(cal, "DTEND");
+    if(dtend == null) {
+        dtend = getItemProperty(cal, "DUE");
+    }
+
+    String dateTime = needDTEnd ? getPropertyValue(dtend) 
+                                : getPropertyValue(dtstart);
+    TimeZone timezone = needDTEnd ? getTZFromDTProperty(dtend) 
+                                  : getTZFromDTProperty(dtstart);
+
+    //Set the correct date/date-time pattern
+    String pattern = TimeUtils.PATTERN_UTC_WOZ;
+    switch(dateTime.length() ) {
+        case TimeUtils.PATTERN_YYYYMMDD_LENGTH:
+            pattern = TimeUtils.PATTERN_YYYYMMDD;
+            break;
+        case TimeUtils.PATTERN_UTC_LENGTH:
+            pattern = TimeUtils.PATTERN_UTC;
+            break;
+    }
+    SimpleDateFormat dateFormatter = new SimpleDateFormat(pattern);
+    dateFormatter.setTimeZone(timezone);
+
+    Date d;
+    try {
+        d = dateFormatter.parse(dateTime);
+    } catch (ParseException e) {
+        return cal;
+    }
+    d.setTime(d.getTime()+duration*60*1000);
+
+    dateFormatter.applyPattern(TimeUtils.PATTERN_UTC);
+    dateFormatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+    //Replace the duration value with the date-time value without TZ
+    cal = cal.replace("\n" + trigger, 
+                "\nTRIGGER;VALUE=DATE-TIME:" + dateFormatter.format(d));
+    return cal;
+}
+
+/**
+ * Get the ACTION property from VALARM
+ *
+ * @param cal the iCalendar item
+ * @return the whole action property (e.g. ACTION:DISPLAY)
+ *         null if it's not found in the correct position
+ */
+String getAlarmAction(String cal) {
+
+    int alarmStartPos = cal.indexOf("\nBEGIN:VALARM") + 1;
+    int alarmEndPos = cal.indexOf("\nEND:VALARM") + 1;
+    int actionStartPos = cal.indexOf("\nACTION", alarmStartPos);
+
+    if (actionStartPos < 0 || actionStartPos > alarmEndPos ) {
+        return null;
+    }
+    try {
+        int actionEndpos = cal.indexOf('\n', actionStartPos+1);
+        return (actionEndpos < 0) ? cal.substring(actionStartPos+1).trim()
+                                  : cal.substring(actionStartPos+1, actionEndpos).trim();
+    } catch (Exception e) {
+        return null;
+    }
+}
+
+/**
+ * Get the alarm trigger property
+ * @return the TRIGGER property
+ */
+String getAlarmTriggerProperty(String cal) {
+
+    int alarmStartPos = cal.indexOf("\nBEGIN:VALARM");
+    int alarmEndPos = cal.indexOf("\nEND:VALARM");
+    int triggerStartPos = cal.indexOf("\nTRIGGER", alarmStartPos);
+
+    if (triggerStartPos < 0 || triggerStartPos > alarmEndPos ) {
+        return null;
+    }
+    try {
+        int triggerEndpos = cal.indexOf('\n', triggerStartPos+1);
+        return (triggerEndpos < 0) ? cal.substring(triggerStartPos+1).trim()
+                                   : cal.substring(triggerStartPos+1, triggerEndpos).trim();
+    } catch (Exception e) {
+        return null;
+    }
+}
+
+/**
+ * Get the alarm TRIGGER duration value, return null if the trigger type
+ * differs from DURATION
+ *
+ * @param trigger the trigger property
+ * @return the trigger duration value
+ */
+String getAlarmTriggerDuration(String trigger) {
+
+    if(trigger == null) {
+        return null;
+    }
+    int typeStartPos = trigger.indexOf("VALUE=") + 6;
+    int typeEndPos = trigger.indexOf(';', typeStartPos);
+    if(typeEndPos<0) {
+        typeEndPos = trigger.indexOf(':', typeStartPos);
+    }
+
+    try {
+        String triggerType = trigger.substring(typeStartPos, typeEndPos);
+
+        if(!triggerType.equals("DURATION")) {
+            return null;
+        }
+        int valueStartPos = trigger.indexOf(':') + 1;
+        return trigger.substring(valueStartPos).trim();
+    } catch (Exception e) {
+        return null;
+    }
+}
+
+/**
+ * Get the RELATED trigger param value
+ * @param trigger the trigger property
+ * @return the RELATED param value
+ */
+String getAlarmTriggerRelatedParam(String trigger) {
+
+    if(trigger == null) {
+        return null;
+    }
+    int relStartPos = trigger.indexOf("RELATED=");
+    if(relStartPos<0) {
+        return null;
+    }
+    int relEndPos = trigger.indexOf(';', relStartPos+8);
+    if(relEndPos<0) {
+        relEndPos = trigger.indexOf(':', relStartPos+8);
+    }
+    try {
+        return trigger.substring(relStartPos+8, relEndPos);
+    } catch (Exception e) {
+        return null;
+    }
+}
+
+String getItemProperty(String cal, String propertyName) {
+
+    int calItemStartPos = cal.indexOf("\nBEGIN:VEVENT");
+    if(calItemStartPos < 0) {
+        calItemStartPos = cal.indexOf("\nBEGIN:VTODO");
+    }
+    int calItemEndPos = cal.indexOf("\nEND:VEVENT");
+    if(calItemEndPos < 0) {
+        calItemEndPos = cal.indexOf("\nEND:VTODO");
+    }
+    int propStartPos = cal.indexOf("\n" + propertyName, calItemStartPos);
+
+    if (propStartPos < 0 || propStartPos > calItemEndPos ) {
+        return null;
+    }
+    try {
+        int propEndpos = cal.indexOf('\n', propStartPos+1);
+        return (propEndpos < 0) ? cal.substring(propStartPos+1).trim()
+                                : cal.substring(propStartPos+1, propEndpos).trim();
+    } catch (Exception e) {
+        return null;
+    }
+}
+
+/**
+ * Get a property value
+ * @param the whole property
+ * @return the property value
+ */
+String getPropertyValue(String prop) {
+    if(prop == null) {
+        return null;
+    }
+    try {
+        int propValueStartpos = prop.indexOf(':') + 1;
+        return prop.substring(propValueStartpos).trim();
+    } catch (Exception e) {
+        return null;
+    }
+}
+
+/**
+ * Returns the TimeZone associated to the TZID included in a DTProperty. 
+ * If the TZID is not in the expected form UTC will be returned.
+ *
+ * @return the TimeZone associated to the TZID param; it defaults to UTC
+ * 
+ */
+public TimeZone getTZFromDTProperty(String dt) {
+    TimeZone utc = TimeZone.getTimeZone("UTC");
+
+    if(dt == null || dt.indexOf("TZID")<0) {
+        return utc;
+    }
+    int endpos = dt.indexOf(':');
+    if (endpos < 0) {
+        return utc;
+    }
+    String tzid = dt.substring(8, endpos);
+
+    //
+    // We can expect tzid in two forms:
+    //   TZID=/mozilla.org/20070129_1/Europe/Rome
+    //   TZID=Europe/Rome
+    //
+    int tzpos = -1;
+    if(!(tzid.indexOf("mozilla.org") < 0)) {
+        //TZID=/mozilla.org/20070129_1/Europe/Rome
+        try {
+            tzpos = tzid.indexOf('/', tzid.indexOf('/', tzid.indexOf('/')+1)+1)+1;
+        } catch (Exception e) {
+            return utc;
+        }
+    }
+    else {
+        //TZID=Europe/Rome
+        tzpos = tzid.indexOf('=')+1;
+    }
+    if (tzpos < 0) {
+        return utc;
+    }
+    return TimeZone.getTimeZone(tzid.substring(tzpos));
+}
+
+/**
+ * Get the RRULE parameter value
+ * @param rrule
+ * @param param
+ * @return the param value
+ */
+String getRRuleParam(String rrule, String param) {
+    int paramStartPos = rrule.indexOf(param + "=");
+    if(paramStartPos<0) {
+        return null;
+    }
+    try {
+        int paramEndPos = rrule.indexOf(';', paramStartPos+param.length()+1);
+        return (paramEndPos < 0) ? rrule.substring(paramStartPos+param.length()+1).trim()
+                                 : rrule.substring(paramStartPos+param.length()+1, paramEndPos).trim();
+    } catch (Exception e) {
+        return null;
+    }
+}

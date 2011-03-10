@@ -1,0 +1,5 @@
+BEGIN:VCARD
+VERSION:2.1
+N:Brown;John;;;
+PHOTO;VALUE=URL;TYPE=JPG:http://www.myphotos.com/abc.jpg
+END:VCARD

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/engine/source
+END
+PIMSyncSourceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/engine/source/PIMSyncSourceTest.java
+END
+FileDataObjectSyncSourceConfigTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/core/!svn/ver/35071/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/engine/source/FileDataObjectSyncSourceConfigTest.java
+END
+PIMNoteSyncSourceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/35045/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/engine/source/PIMNoteSyncSourceTest.java
+END
+PIMCalendarSyncSourceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/core/!svn/ver/32653/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/engine/source/PIMCalendarSyncSourceTest.java
+END
+FileDataObjectSyncSourceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/engine/source/FileDataObjectSyncSourceTest.java
+END

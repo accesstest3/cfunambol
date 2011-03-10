@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/plugin/parser
+END
+IUDPMessageParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/plugin/parser/IUDPMessageParser.java
+END
+KeyAccount.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/plugin/parser/KeyAccount.java
+END
+DummyParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/plugin/parser/DummyParser.java
+END
+UDPMessageParserException.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/plugin/parser/UDPMessageParserException.java
+END
+MailboxNameParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/plugin/parser/MailboxNameParser.java
+END
+EmailAddressParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/plugin/parser/EmailAddressParser.java
+END

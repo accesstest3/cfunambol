@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/engine
+END
+InboxListenerManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/engine/InboxListenerManager.java
+END
+ProviderFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/engine/ProviderFactory.java
+END
+IDAccountProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/engine/IDAccountProvider.java
+END
+MailboxnameAccountProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/engine/MailboxnameAccountProvider.java
+END
+EmailAddressAccountProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/engine/EmailAddressAccountProvider.java
+END
+UsernameAccountProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/engine/UsernameAccountProvider.java
+END
+IMailServerAccountProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/engine/IMailServerAccountProvider.java
+END

@@ -1,0 +1,95 @@
+#!/bin/sh
+
+#
+#  Copyright (C) 2007 Funambol, Inc.  All rights reserved.
+#
+#
+
+#
+# Set JDBC_JAR to the absolute path of your jdbc drive jar file(s).
+# That/those files will be added to the CLASSPATH
+#
+JDBC_JAR=
+
+# Setting FUNAMBOL_HOME
+# resolving links - $0 could be a softlink
+PRG="$0"
+
+while [ -h "$PRG" ]; do
+  ls=`ls -ld "$PRG"`
+  link=`expr "$ls" : '.*-> \(.*\)$'`
+  if expr "$link" : '/.*' > /dev/null; then
+    PRG="$link"
+  else
+    PRG=`dirname "$PRG"`/"$link"
+  fi
+done
+
+PRGDIR=`dirname "$PRG"`
+
+FUNAMBOL_HOME=`cd "$PRGDIR/.." ; pwd`
+DS_SERVER_HOME=$FUNAMBOL_HOME/ds-server
+
+if [ ! -d $FUNAMBOL_HOME/config ]; then
+    #
+    # maybe we are in Funambol/tool/bin
+    #
+    FUNAMBOL_HOME=$FUNAMBOL_HOME/..
+    DS_SERVER_HOME=$FUNAMBOL_HOME/ds-server
+fi
+
+# Setting the JAVA_HOME to the bundle one if not set or if not correctly set
+if [ -z "$JAVA_HOME" ] ; then
+    JAVA_HOME="$FUNAMBOL_HOME/tools/jre-1.6.0/jre"
+    export JAVA_HOME
+else
+    if [ ! -f "$JAVA_HOME/bin/java" ] ; then
+        JAVA_HOME="$FUNAMBOL_HOME/tools/jre-1.6.0/jre"
+        export JAVA_HOME
+    fi
+fi
+
+if [ ! -f "$JAVA_HOME/bin/java" ]
+then
+    echo ". =================================================="
+    echo "."
+    echo ". Please, set JAVA_HOME to the path of a valid jdk."
+    echo "."
+    echo ". =================================================="
+    exit;
+fi
+
+# Setting classpath
+cd $DS_SERVER_HOME/default/lib
+for jarfile in *.jar; do export CLASSPATH=$CLASSPATH:$DS_SERVER_HOME/default/lib/$jarfile; done
+cd ../..
+
+# Setting LIB_PATH
+OS=$(uname)
+case ${OS} in
+    Linux*)
+        LIB_PATH=linux
+        MACHINE_HW=$(uname -m 2>/dev/null)
+        case "$MACHINE_HW" in
+            x86_64|ia64)
+                LIB_PATH=x86_64
+            ;;
+        esac
+    ;;
+    Darwin*)
+        LIB_PATH=macosx
+    ;;
+    *)
+        LIB_PATH=linux
+    ;;
+esac
+
+export LANG=en_US.utf-8
+
+JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF-8"
+JAVA_OPTS="$JAVA_OPTS -Dfunambol.home=$FUNAMBOL_HOME"
+JAVA_OPTS="$JAVA_OPTS -Djava.library.path=$DS_SERVER_HOME/lib/$LIB_PATH"
+
+CLASSPATH=$JDBC_JAR:$FUNAMBOL_HOME/bin:$FUNAMBOL_HOME/bin/log4j.properties:$CLASSPATH
+
+"$JAVA_HOME/bin/java" $JAVA_OPTS com.funambol.server.util.PasswordSetter admin

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/35029/trunk/funambol/modules/email/email-core/src/test/java/com/funambol/email/db
+END
+DBHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/35029/trunk/funambol/modules/email/email-core/src/test/java/com/funambol/email/db/DBHelper.java
+END
+MockPartitionCriteria.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/35029/trunk/funambol/modules/email/email-core/src/test/java/com/funambol/email/db/MockPartitionCriteria.java
+END

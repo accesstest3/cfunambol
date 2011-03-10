@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/core/!svn/ver/34831/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/session
+END
+EventHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/core/!svn/ver/34824/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/session/EventHelper.java
+END
+Sync4jEngineMock.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/33301/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/session/Sync4jEngineMock.java
+END
+TestAppender.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/30675/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/session/TestAppender.java
+END
+SyncSessionHandlerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/34831/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/session/SyncSessionHandlerTest.java
+END

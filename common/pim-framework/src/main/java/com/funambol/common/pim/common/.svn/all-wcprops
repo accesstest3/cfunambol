@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/core/!svn/ver/33388/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common
+END
+MergeableWithURI.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/32885/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/MergeableWithURI.java
+END
+Visitor.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/29648/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/Visitor.java
+END
+XTag.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/32897/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/XTag.java
+END
+ConversionException.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/29597/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/ConversionException.java
+END
+VisitorObjectWalk.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/29780/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/VisitorObjectWalk.java
+END
+Converter.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/29598/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/Converter.java
+END
+UpdateCalendar.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/29772/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/UpdateCalendar.java
+END
+PropertyConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/PropertyConverter.java
+END
+VisitorWalk.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/29782/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/VisitorWalk.java
+END
+VisitorException.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/29773/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/VisitorException.java
+END
+VisitorInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/29650/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/VisitorInterface.java
+END
+ReaderException.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/ReaderException.java
+END
+TypifiedProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/29646/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/TypifiedProperty.java
+END
+ReaderInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/ReaderInterface.java
+END
+Property.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/33388/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/Property.java
+END
+VisitorObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/29779/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/VisitorObject.java
+END
+PropertyWithTimeZone.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/29633/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/PropertyWithTimeZone.java
+END
+CreateCalendar.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/29631/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/common/CreateCalendar.java
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/36691/trunk/funambol/common/server-framework/src/test/java/com/funambol/framework/server
+END
+MediaEventTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/34500/trunk/funambol/common/server-framework/src/test/java/com/funambol/framework/server/MediaEventTest.java
+END
+SyncSessionEventTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/34823/trunk/funambol/common/server-framework/src/test/java/com/funambol/framework/server/SyncSessionEventTest.java
+END
+PushSMSEventTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/30513/trunk/funambol/common/server-framework/src/test/java/com/funambol/framework/server/PushSMSEventTest.java
+END
+CapabilitiesTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/30947/trunk/funambol/common/server-framework/src/test/java/com/funambol/framework/server/CapabilitiesTest.java
+END
+PushFlowEventTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/30613/trunk/funambol/common/server-framework/src/test/java/com/funambol/framework/server/PushFlowEventTest.java
+END
+ClientMappingTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/36691/trunk/funambol/common/server-framework/src/test/java/com/funambol/framework/server/ClientMappingTest.java
+END
+ClientMappingEntryTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/java/com/funambol/framework/server/ClientMappingEntryTest.java
+END
+SyncEventTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/34823/trunk/funambol/common/server-framework/src/test/java/com/funambol/framework/server/SyncEventTest.java
+END

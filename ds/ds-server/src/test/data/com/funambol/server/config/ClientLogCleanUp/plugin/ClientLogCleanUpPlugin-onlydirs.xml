@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.6.0" class="java.beans.XMLDecoder">
+    <object class="com.funambol.server.cleanup.ClientLogCleanUpPlugin">
+        <void property="clientsLogBaseDir">
+            <string>clients-log/basedir</string>
+        </void>
+        <void property="clientsLogArchivationDir">
+            <string>clients-log/archivedir</string>
+        </void>
+    </object>
+</java>

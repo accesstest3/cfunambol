@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/core/!svn/ver/29805/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server
+END
+CTPServerMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/CTPServerMBean.java
+END
+BaseThreadFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/BaseThreadFactory.java
+END
+DeviceConnectionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/DeviceConnectionManager.java
+END
+DeviceConnectionHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/DeviceConnectionHandler.java
+END
+CTPServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/CTPServer.java
+END
+DeviceConnectionException.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/DeviceConnectionException.java
+END

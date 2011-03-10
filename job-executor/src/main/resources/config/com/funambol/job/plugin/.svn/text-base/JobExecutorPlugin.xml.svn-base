@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2" class="java.beans.XMLDecoder">
+    <object class="com.funambol.job.plugin.JobExecutorPlugin">
+
+       <!--  enable the entire plug-in -->
+        <void property="enabled">
+            <boolean>true</boolean>
+        </void>
+
+    </object>
+</java>

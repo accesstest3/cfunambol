@@ -1,0 +1,24 @@
+--
+-- Script to create the core engine database.
+--
+-- @version $Id$
+--
+
+create table fnbl_device (
+  id                   varchar(128) not null,
+  description          varchar(255),
+  type                 varchar(255),
+  client_nonce         varchar(255),
+  server_nonce         varchar(255),
+  server_password      varchar(255),
+  timezone             varchar(32) ,
+  convert_date         char(1)     ,
+  charset              varchar(16) ,
+  address              varchar(50) ,
+  msisdn               varchar(50) ,
+  notification_builder varchar(255),
+  notification_sender  varchar(255),
+  id_caps              bigint      ,
+  sent_server_caps     boolean default false,
+  constraint pk_device primary key (id)
+);

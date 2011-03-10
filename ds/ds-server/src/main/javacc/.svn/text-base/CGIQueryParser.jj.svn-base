@@ -1,0 +1,381 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2005 - 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+options {
+    IGNORE_CASE = true;
+    DEBUG_TOKEN_MANAGER = false;
+    STATIC = false;
+    DEBUG_PARSER = false;
+}
+
+PARSER_BEGIN(CGIQueryParser)
+
+
+package com.funambol.server.tools;
+
+
+import java.io.*;
+
+import java.util.*;
+
+import com.funambol.framework.filter.*;
+
+
+/**
+ * This class parses an input string formatted according to
+ * cgi query syntaxt converting the cgi query into a Clause
+ *
+ * @version $Id: CGIQueryParser.jj,v 1.1.1.1 2008-02-21 23:36:04 stefano_fornari Exp $
+ */
+public class CGIQueryParser {
+
+    // --------------------------------------------------------------- Constants
+
+    private static final String OPERATOR_EQUALS_CASE_SENSITIVE               = "&EQ;";
+    private static final String OPERATOR_EQUALS_CASE_INSENSITIVE             = "&iEQ;";
+    private static final String OPERATOR_NOT_EQUALS_CASE_SENSITIVE           = "&NE;";
+    private static final String OPERATOR_NOT_EQUALS_CASE_INSENSITIVE         = "&iNE;";
+
+    private static final String OPERATOR_GT_CASE_SENSITIVE                   = "&GT;";
+    private static final String OPERATOR_GT_CASE_INSENSITIVE                 = "&iGT;";
+    private static final String OPERATOR_GE_CASE_SENSITIVE                   = "&GE;";
+    private static final String OPERATOR_GE_CASE_INSENSITIVE                 = "&iGE;";
+    private static final String OPERATOR_LT_CASE_SENSITIVE                   = "&LT;";
+    private static final String OPERATOR_LT_CASE_INSENSITIVE                 = "&iLT;";
+    private static final String OPERATOR_LE_CASE_SENSITIVE                   = "&LE;";
+    private static final String OPERATOR_LE_CASE_INSENSITIVE                 = "&iLE;";
+
+    private static final String OPERATOR_CONTAINS_VALUE_CASE_SENSITIVE       = "&CON;";
+    private static final String OPERATOR_CONTAINS_VALUE_CASE_INSENSITIVE     = "&iCON;";
+
+    private static final String OPERATOR_NOT_CONTAINS_VALUE_CASE_SENSITIVE   = "&NCON;";
+    private static final String OPERATOR_NOT_CONTAINS_VALUE_CASE_INSENSITIVE = "&iNCON;";
+
+    private static final String OPERATOR_LOGICAL_OR  = "&OR;";
+    private static final String OPERATOR_LOGICAL_AND = "&AND;";
+
+    private static final String LUID_EXPRESSION = "&LUID;";
+
+    private static final String NO_VALUE        = "&NULL;";
+
+
+    // ------------------------------------------------------------ Private data
+    
+    private String keyword          = null;
+    private String value            = null;
+    private String logicalOperator  = null;
+    private String logicalSeparator = null;
+    
+    private Clause clause          = null;
+      
+    
+    /**
+     * Return the clause
+     */
+    public Clause getClause() {
+        return clause;
+    }
+    
+    /*
+     * Returns a clause according with the given operator
+     */
+    private static Clause getClause(boolean isIdClause, String keyword, String value, String logicalOperator) {
+    
+      Clause currentClause  = null;
+      boolean caseSensitive = true;
+      
+      if (isIdClause) {
+          currentClause = new IDClause();
+      } else {
+          currentClause = new WhereClause();   
+          ((WhereClause)currentClause).setProperty(keyword);          
+      }
+      
+      ((WhereClause)currentClause).setValues(new String[] {value});      
+      
+      if (OPERATOR_EQUALS_CASE_SENSITIVE.equalsIgnoreCase(logicalOperator)) {
+                  
+          ((WhereClause)currentClause).setOperator(WhereClause.OPT_EQ);
+          ((WhereClause)currentClause).setCaseSensitive(true);
+          
+      } else if  (OPERATOR_EQUALS_CASE_INSENSITIVE.equalsIgnoreCase(logicalOperator)) {
+
+          ((WhereClause)currentClause).setOperator(WhereClause.OPT_EQ);
+          ((WhereClause)currentClause).setCaseSensitive(false);
+                
+      } else if (OPERATOR_NOT_EQUALS_CASE_SENSITIVE.equalsIgnoreCase(logicalOperator)) {
+
+          ((WhereClause)currentClause).setOperator(WhereClause.OPT_EQ);
+          ((WhereClause)currentClause).setCaseSensitive(true);
+    
+          currentClause = new LogicalClause(LogicalClause.OPT_NOT, new Clause[] {currentClause});
+
+      } else if (OPERATOR_NOT_EQUALS_CASE_INSENSITIVE.equalsIgnoreCase(logicalOperator)) {
+      
+          ((WhereClause)currentClause).setOperator(WhereClause.OPT_EQ);
+          ((WhereClause)currentClause).setCaseSensitive(false);
+
+          currentClause = new LogicalClause(LogicalClause.OPT_NOT, new Clause[] {currentClause});
+          
+      } else if (OPERATOR_GT_CASE_SENSITIVE.equalsIgnoreCase(logicalOperator)) {
+      
+          ((WhereClause)currentClause).setOperator(WhereClause.OPT_GT);
+          ((WhereClause)currentClause).setCaseSensitive(true);
+          
+      } else if (OPERATOR_GT_CASE_INSENSITIVE.equalsIgnoreCase(logicalOperator)) {
+      
+          ((WhereClause)currentClause).setOperator(WhereClause.OPT_GT);
+          ((WhereClause)currentClause).setCaseSensitive(false);
+          
+      } else if (OPERATOR_GE_CASE_SENSITIVE.equalsIgnoreCase(logicalOperator)) {
+      
+          ((WhereClause)currentClause).setOperator(WhereClause.OPT_GE);
+          ((WhereClause)currentClause).setCaseSensitive(true);
+          
+      } else if (OPERATOR_GE_CASE_INSENSITIVE.equalsIgnoreCase(logicalOperator)) {
+      
+          ((WhereClause)currentClause).setOperator(WhereClause.OPT_GE);
+          ((WhereClause)currentClause).setCaseSensitive(false);
+                
+      } else if (OPERATOR_LT_CASE_SENSITIVE.equalsIgnoreCase(logicalOperator)) {
+      
+          ((WhereClause)currentClause).setOperator(WhereClause.OPT_LT);
+          ((WhereClause)currentClause).setCaseSensitive(true);
+                
+      } else if (OPERATOR_LT_CASE_INSENSITIVE.equalsIgnoreCase(logicalOperator)) {
+      
+          ((WhereClause)currentClause).setOperator(WhereClause.OPT_LT);
+          ((WhereClause)currentClause).setCaseSensitive(false);
+                
+      } else if (OPERATOR_LE_CASE_SENSITIVE.equalsIgnoreCase(logicalOperator)) {
+      
+          ((WhereClause)currentClause).setOperator(WhereClause.OPT_LE);
+          ((WhereClause)currentClause).setCaseSensitive(true);
+          
+      } else if (OPERATOR_LE_CASE_INSENSITIVE.equalsIgnoreCase(logicalOperator)) {
+      
+          ((WhereClause)currentClause).setOperator(WhereClause.OPT_LE);
+          ((WhereClause)currentClause).setCaseSensitive(false);
+          
+      } else if (OPERATOR_CONTAINS_VALUE_CASE_SENSITIVE.equalsIgnoreCase(logicalOperator)) {
+
+          ((WhereClause)currentClause).setOperator(WhereClause.OPT_CONTAINS);
+          ((WhereClause)currentClause).setCaseSensitive(true);
+
+      } else if (OPERATOR_CONTAINS_VALUE_CASE_INSENSITIVE.equalsIgnoreCase(logicalOperator)) {
+
+          ((WhereClause)currentClause).setOperator(WhereClause.OPT_CONTAINS);
+          ((WhereClause)currentClause).setCaseSensitive(false);
+          
+      }   
+      
+      return currentClause;
+    }
+
+    
+    /**
+     * Checks if there is already a clause. If this happen, creates a new
+     * LogicalClause
+     */
+    private void checkForAlreadyExistingClause(Clause currentClause) 
+        throws ParseException {
+        
+        // 
+        // We have to check if there is already a clause
+        //
+        if (clause == null) {
+            clause = currentClause;
+        } else {
+            LogicalClause logicalClause = null;
+  
+            if ("&OR;".equalsIgnoreCase(logicalSeparator)) {
+                logicalClause = new LogicalClause(LogicalClause.OPT_OR, new Clause[] {clause, currentClause});
+                clause = logicalClause;
+            } else if ("&AND;".equalsIgnoreCase(logicalSeparator)) {
+                logicalClause = new LogicalClause(LogicalClause.OPT_AND, new Clause[] {clause, currentClause});
+                clause = logicalClause;
+            } else {
+                throw new ParseException("Logical separator '" + logicalSeparator + "' unknown");
+            }
+        }    
+    }
+}
+
+PARSER_END(CGIQueryParser)
+
+
+// We exclude '&' and ';'
+TOKEN : { < VCHAR :  ["!"-"%", "'"-":", "<"-"~"]  > }
+
+TOKEN : { < STRING :  (<VCHAR>)+  > }
+
+TOKEN : { < LOGICAL_EQ :  "&EQ;" | "&iEQ;" | "&NE;" | "&iNE;" > }
+
+TOKEN : { < LOGICAL_OPERATOR : 
+             "&GT;" 
+            |"&iGT;" 
+            |"&GE;" 
+            |"&iGE;" 
+            |"&LT;" 
+            |"&iLT;"
+            |"&LE;"
+            |"&iLE;"           
+            |"&CON;"
+            |"&iCON;"
+            |"&NCON;"
+            |"&iNCON;"
+           >
+        }
+        
+TOKEN : { < LOGICAL_SEPARATOR :  "&OR;" | "&AND;" > }
+
+TOKEN  : { < LUID : "&LUID" > }
+
+SKIP :
+{
+  "\r"
+| "\n"
+| "\t"
+}
+
+
+
+void filterQuery() :
+{}
+{
+  filterExpression() (logicalSeparator() filterExpression())* <EOF>  
+}
+
+void filterExpression() :
+{Token group = null;}
+{
+   ctExpression() | luidExpression()
+}
+
+void ctExpression() :
+{}
+{
+  (
+      ctKeyword()
+      operator() 
+      ctFilterValue()
+  )
+  {
+      Clause currentClause = getClause(false, keyword, value, logicalOperator);      
+      checkForAlreadyExistingClause(currentClause);      
+  }
+
+}
+
+
+void luidExpression() :
+{Token group = null;}
+{
+  (
+      <LUID>
+      equalsOperator()
+      group=string()
+  ) 
+  {
+      value = group.toString();
+      Clause currentClause = getClause(true, null, value, logicalOperator);      
+      checkForAlreadyExistingClause(currentClause);
+  }
+}
+
+
+Token string() :
+{Token group = null;}
+{
+    ((group=<STRING>) | (group=<VCHAR>))
+    {
+        return group; 
+    }
+}
+
+void ctKeyword() :
+{Token group = null;}
+{
+    group=string()
+    {
+        keyword = group.toString();
+    }
+}
+
+void ctFilterValue() :
+{Token group = null;}
+{
+    group=string()
+    {
+        value = group.toString();
+    }
+}
+
+void operator() :
+{}
+{
+   logicalOperator() | equalsOperator()
+    
+}
+
+void logicalOperator() :
+{Token group = null;}
+{
+    group=<LOGICAL_OPERATOR>
+    
+    {
+        logicalOperator = group.toString();
+    }
+}
+
+void equalsOperator() :
+{Token group = null;}
+{
+    group=<LOGICAL_EQ>
+    
+    {
+        logicalOperator = group.toString();
+    }
+}
+
+void logicalSeparator() :
+{Token group = null;}
+{
+    group=<LOGICAL_SEPARATOR>
+    {    
+        logicalSeparator = group.toString();
+    }
+}
+

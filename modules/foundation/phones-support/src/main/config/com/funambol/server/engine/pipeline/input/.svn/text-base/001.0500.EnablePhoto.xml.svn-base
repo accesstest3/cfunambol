@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.5.0_08" class="java.beans.XMLDecoder">
+    <object class="com.funambol.foundation.synclet.ChangeSourceUriSynclet">
+        <void property="sourceNameMapping">
+            <object class="java.util.HashMap">
+                    <void method="put">
+                          <string>card</string>
+                          <string>card?photo=true</string>
+                    </void>
+                    <void method="put">
+                          <string>./card</string>
+                          <string>card?photo=true</string>
+                    </void>
+                    <void method="put">
+                          <string>scard</string>
+                          <string>scard?photo=true</string>
+                    </void>
+            </object>
+        </void>
+
+        <!--
+            This map is used to identify the phones that are able to sync the
+            contact's photo
+        -->
+        <void property="headerPatterns">
+            <object class="java.util.HashMap">
+                <void method="put">
+                    <string>user-agent</string>
+                    <string>Funambol|SyncEvolution|Nokia SyncML HTTP Client|S60 SyncML HTTP Client|Nokia5000|Nokia7510|Nokia 9500 SyncML HTTP Client|Nokia6111|Nokia3109|Nokia3110c|Nokia6125|Nokia5310XpressMusic|Nokia6555|SonyEricssonK608i|SonyEricssonK750i|SonyEricssonK800i|SonyEricssonZ52|SonyEricssonM600i|SonyEricssonP1i|SonyEricssonP990i|SonyEricssonV800|SonyEricssonK550i|SonyEricssonW800i|SonyEricssonW910i|EPOC SyncML Client|SonyEricssonK610i|SonyEricssonC902</string>
+                </void>
+                <void method="put">
+                    <string>x-wap-profile</string>
+                    <string>http://motorola.handango.com/phoneconfig/motorazrV8/Profile/motorazrv8.rdf|http://motorola.handango.com/phoneconfig/k1|http://motorola.handango.com/phoneconfig/razrv3xx/Profile/RAZRV3xx.rdf</string>
+                </void>
+            </object>
+        </void>
+    </object>
+</java>

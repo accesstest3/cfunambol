@@ -1,0 +1,10 @@
+#
+#Fri Oct 15 00:00:41 CEST 2004
+#
+name=Calendars
+sourceDirectory=db/calendar
+sourceClass=com.funambol.syncclient.spds.source.SIFSyncSource
+type=text/x-s4j-sife
+encode=true
+sync=two-way
+sourceURI=scal

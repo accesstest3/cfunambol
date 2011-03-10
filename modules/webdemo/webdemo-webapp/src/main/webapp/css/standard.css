@@ -1,0 +1,141 @@
+/* GLOBAL */
+
+BODY { background-color: #FFFFFF; background-image: none;}
+
+SELECT { border-color: #CCCCCC; border-style: solid; border-width: 1px; }
+
+.form-button { border-color: #6699CC; border-style: solid; border-width: 1px; }
+
+.form-button-hover { border-bottom: solid 1px #6699CC; border-left: solid 1px #FFFFFF; border-right: solid 1px #6699CC; border-top: solid 1px #FFFFFF; }
+
+.form-text { border-color: #CCCCCC; border-style: solid; border-width: 1px; }
+
+/* ALPHA */
+
+A.alpha:active { color: #000000; }
+
+A.alpha:link { color: #000000; }
+
+A.alpha:visited { color: #000000; }
+
+TR.alpha { background-color: #6083A5; }
+
+TD.alpha { background-color: #6083A5; }
+
+FONT.alpha { color: #FFFFFF; font-family: Tahoma, Arial; FONT-SIZE: 12px;}
+
+TEXTAREA.alpha { color: #FFFFFF; font-family: Tahoma, Arial; FONT-SIZE: 12px;}
+
+.alpha-neg-alert { color: #FF0000; }
+
+.alpha-pos-alert { color: #007F00; }
+
+/* BETA */
+
+A.beta:active { color: #000000; }
+
+A.beta:link { color: #000000; }
+
+A.beta:visited { color: #000000; }
+
+TR.beta { background-color: #D1D1D1; }
+
+TD.beta { background-color: #D1D1D1; }
+
+FONT.beta { color: #000000; font-family: Tahoma, Arial; FONT-SIZE: 11px;}
+
+TEXTAREA.beta { color: #000000; font-family: Tahoma, Arial; FONT-SIZE: 11px;}
+
+.beta-neg-alert { color: #FF0000; }
+
+.beta-pos-alert { color: #007F00; }
+
+/* TETA */
+
+A.teta:active { color: #000000; }
+
+A.teta:link { color: #000000; }
+
+A.teta:visited { color: #000000; }
+
+TR.teta { background-color: #DDDDDD; }
+
+TD.teta { background-color: #DDDDDD; }
+
+FONT.teta { color: #000000; font-family: Arial; FONT-SIZE: 12px;}
+
+TEXTAREA.teta  { color: #000000; font-family: Arial; font-size: 12px;}
+
+.teta-neg-alert { color: #FF0000; }
+
+.teta-pos-alert { color: #007F00; }
+
+
+/* GAMMA */
+
+A.gamma:active { color: #000000; }
+
+A.gamma:link { color: #000000; }
+
+A.gamma:visited { color: #000000; }
+
+TR.gamma { background-color: #EEEEEE; }
+
+TD.gamma { background-color: #EEEEEE; }
+
+FONT.gamma { color: #000000; font-family: Tahoma, Arial; FONT-SIZE: 11px;}
+
+FONT.gamma-red { color: #FF0000; font-family: Tahoma, Arial; FONT-SIZE: 11px;}
+
+FONT.gamma-green { color: #6083A5; font-family: Tahoma, Arial; FONT-SIZE: 11px;}
+
+TEXTAREA.gamma { color: #000000; font-family: Tahoma, Arial; FONT-SIZE: 11px;}
+
+.gamma-neg-alert { color: #FF0000; }
+
+.gamma-pos-alert { color: #007F00; }
+
+
+/* DELTA */
+
+A.delta:active { color: #000000; }
+
+A.delta:link { color: #000000; }
+
+A.delta:visited { color: #000000; }
+
+TR.delta{ background-color: #EEEEEE; }
+
+TD.delta{ background-color: #EEEEEE; }
+
+FONT.delta { color: #000000; font-family: Tahoma, Arial; FONT-SIZE: 10px;}
+
+TEXTAREA.delta { color: #000000; font-family: Tahoma, Arial; FONT-SIZE: 10px;}
+
+.delta-neg-alert { color: #FF0000; }
+
+.delta-pos-alert { color: #007F00; }
+
+
+/* BG */
+
+A.bg:active { color: #000000; }
+
+A.bg:link { color: #000000; }
+
+A.bg:visited { color: #000000; }
+
+TR.bg { background-color: #FFFFFF; }
+
+TD.bg { background-color: #FFFFFF; }
+
+FONT.bg { color: #000000; font-family: Tahoma, Arial; }
+
+TEXTAREA.bg { color: #000000; font-family: Tahoma, Arial; }
+
+.bg-neg-alert { color: #FF0000; }
+
+.bg-pos-alert { color: #007F00; }
+
+/* Login Note */
+FONT.darkgrey { color: rgb(128,128,128); font-family: Arial; FONT-SIZE: 11px;}

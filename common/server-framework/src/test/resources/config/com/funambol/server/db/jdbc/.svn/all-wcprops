@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/resources/config/com/funambol/server/db/jdbc
+END
+fnbluser.xml
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/resources/config/com/funambol/server/db/jdbc/fnbluser.xml
+END
+fnbluser-routing-with-partition.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/resources/config/com/funambol/server/db/jdbc/fnbluser-routing-with-partition.xml
+END
+no-xml-file.txt
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/resources/config/com/funambol/server/db/jdbc/no-xml-file.txt
+END
+UPPERCASE.xml
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/resources/config/com/funambol/server/db/jdbc/UPPERCASE.xml
+END
+fnblds.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/resources/config/com/funambol/server/db/jdbc/fnblds.xml
+END
+fnbluser-routing-nopartition.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/resources/config/com/funambol/server/db/jdbc/fnbluser-routing-nopartition.xml
+END
+fnblcore.xml
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/resources/config/com/funambol/server/db/jdbc/fnblcore.xml
+END

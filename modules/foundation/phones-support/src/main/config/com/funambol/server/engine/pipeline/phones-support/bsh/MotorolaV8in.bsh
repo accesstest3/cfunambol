@@ -1,0 +1,395 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+import com.funambol.framework.core.*;
+import com.funambol.framework.core.Sync4jException;
+import com.funambol.framework.engine.pipeline.InputMessageProcessor;
+import com.funambol.framework.engine.pipeline.MessageProcessingContext;
+import com.funambol.framework.engine.pipeline.StopProcessingException;
+import com.funambol.framework.logging.FunambolLogger;
+import com.funambol.framework.logging.FunambolLoggerFactory;
+
+import com.funambol.foundation.synclet.PIMItemsHandler;
+
+/**
+ * Contacts:
+ * =========
+ * Processes the incoming VCARD items and adds the missing properties.
+ * Handles large objects.
+ * Replaces property TEL;WORK with TEL;WORK;PREF only if it's in the 5th slot
+ * (it's put there when synching with the server).
+ * Replaces X-MOT-NICKNAME property with FN.
+ * Replaces X-MOT-CAT custom Motorola property with CATEGORIES.
+ *
+ * Calendars:
+ * ==========
+ * Removes dirty characters at the end of the items.
+ *
+ * . Event
+ *   Processes the incoming VEVENT items and adds the missing properties.
+ *   Handles large objects.
+ *   Replaces DALARM property with AALARM
+ *   Fixes end date time from T240000 to T235900 
+ *   Handles large objects.
+ *
+ * . Task
+ *   Processes the incoming VTODO items and adds the missing properties.
+ *   Handles large objects.
+ *   Fixes ALL-DAY end data.
+ *   Remaps todo priority: 
+ *   - the device sets the tasks priority in a 1-9 range:
+ *       HIGH:   1-3
+ *       NORMAL: 4-6
+ *       LOW:    7-9
+ *     while the server uses a 1-3 range:
+ *       HIGH:   1
+ *       NORMAL: 2
+ *       LOW:    3   
+ *
+ * @version $Id: MotorolaV8in.bsh,v 1.7 2008-07-04 14:22:40 luigiafassina Exp $
+ */
+ 
+// ---------------------------------------------------------------- Private data
+private final FunambolLogger log =
+    FunambolLoggerFactory.getLogger("engine.pipeline");
+
+private Map missingCardTokens;
+private Map missingEventTokens;
+private Map missingTodoTokens;
+
+// ------------------------------------------------------ Synclet implementation
+importCommands("/com/funambol/server/engine/pipeline/phones-support/bsh/commands");
+
+/**
+ * Process input message and set MessageProcessingContext property.
+ *
+ * @param processingContext the message processing context
+ * @param message the message to be processed
+ *
+ * @throws Sync4jException
+ */
+void preProcessMessage(MessageProcessingContext processingContext,
+                       SyncML message                            )
+throws Sync4jException {
+
+    if (log.isTraceEnabled()) {
+        log.trace("MotorolaV8in.preProcessMessage(...)");
+    }
+    
+    cleanVCalendars(message);
+     
+    // This map contains the three lists of items separated based on their type
+    PIMItemsHandler pimItemsHandler = new PIMItemsHandler();
+    Map mapItems =
+        pimItemsHandler.extractIncomingPIMItems(processingContext, message);
+    processPIMItems(mapItems, pimItemsHandler);
+
+    throw new StopProcessingException("MotorolaV8in Synclet finished");
+}
+
+/**
+ * Processes incoming items.
+ *
+ * @param mapItems the map that contains the three lists of items separated
+ *                 based on their type
+ * @param pimItemsHandler the object to handle the large object
+ *
+ */
+void processPIMItems(Map mapItems, PIMItemsHandler pimItemsHandler) {
+
+    //
+    // Cycle on vcard list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VCARD)) {
+        preProcessContact(i);
+        pimItemsHandler.fixLargeObjectSize(i);
+    }
+
+    //
+    // Cycle on vevent list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VEVENT)) {
+        preProcessEvent(i);
+        pimItemsHandler.fixLargeObjectSize(i);
+    }
+    
+    //
+    // Cycle on vtodo list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VTODO)) {
+        preProcessTodo(i);
+        pimItemsHandler.fixLargeObjectSize(i);
+    }
+}
+
+/**
+ * Processes incoming contacts.
+ * Replaces property TEL;WORK with TEL;WORK;PREF only if it's in the 5th slot
+ * (it's put there when synching with the server).
+ * Replaces X-MOT-NICKNAME property with FN.
+ * Replaces X-MOT-CAT custom Motorola property with CATEGORIES.
+ * Adds needed void properties if the item lacks them.
+ *
+ * @param i the Item to process
+ */
+void preProcessContact(Item i) {
+    data = i.data.data;
+    
+    data = replaceInProperty(data, "TEL;CELL;HOME"    , "TEL;CELL"              );
+    data = replaceInProperty(data, "X-MOT-NICKNAME"   , "NICKNAME"              );
+    data = replaceInProperty(data, "X-MOT-CAT"        , "CATEGORIES"            );
+    data = replaceInProperty(data, "X-MOT-MANAGER"    , "X-FUNAMBOL-MANAGER"    );
+    data = replaceInProperty(data, "X-MOT-ASSISTANT"  , "X-FUNAMBOL-ASSISTANT"  ); 
+    data = replaceInProperty(data, "X-MOT-SPOUSE"     , "X-FUNAMBOL-SPOUSE"     );
+    data = replaceInProperty(data, "X-MOT-CHILD"      , "X-FUNAMBOL-CHILDREN"   );
+    data = replaceInProperty(data, "X-MOT-ANNIVERSARY", "X-FUNAMBOL-ANNIVERSARY");
+    data = replaceInProperty(data, "URL;WORK"         , "URL"                   );
+    data = replaceInProperty(data, "X-MOT-IM"         ,
+                               "EMAIL;INTERNET;HOME;X-FUNAMBOL-INSTANTMESSENGER"); 
+    
+    data = data.replaceAll("=\r\n", "");                           
+    //
+    // Adds void tokens if they are missing in VCARD item
+    //
+    data = addVoidTokens(data, "END:VCARD", missingCardTokens);
+    
+    i.data.data = data;
+}
+
+
+/**
+ * Processes incoming events.
+ *
+ * Replaces DALARM property with AALARM
+ * Checks if there is the field AALARM: if not it will be added with empty value.
+ * Fixes end date time from T240000 to T235900 
+ *
+ * @param i the Item to process
+ *
+ */
+void preProcessEvent(Item i) {
+    
+    data = i.data.data;
+    
+    // Replacing Input ALARM property
+    data = replaceInProperty(data, "DALARM:", "AALARM:");
+    
+    // Fix events end date time 
+    data = fixEndDate(data);
+    //
+    // Adds void tokens if they are missing in VEVENT item
+    //
+    data = addVoidTokens(data, "END:VEVENT", missingEventTokens);
+
+    i.data.data = data + "END:VCALENDAR\r\n";
+}
+
+/**
+ * Processes incoming todos.
+ * Remaps todo priority. 
+ * Adds the missing properties.
+ *
+ * @param i the Item to process
+ *
+ */
+void preProcessTodo(Item i) {
+    
+    data = i.data.data;
+
+    data = remapPriority(data);
+    //
+    // Adds void tokens if they are missing in VTODO item
+    //
+    data = addVoidTokens(data, "END:VTODO", missingTodoTokens);
+
+    i.data.data = data + "END:VCALENDAR\r\n";
+}
+
+
+/**
+ * Called initializing the synclet
+ * Empty FN: display name should not be added because 
+ * it creates problems with applications that automatically generate it
+ */
+void init() {
+    missingCardTokens  = new HashMap();
+    missingEventTokens = new HashMap();
+    missingTodoTokens = new HashMap();
+    
+    missingCardTokens.put("\nTEL;VOICE;HOME"        , "TEL;VOICE;HOME:"        );
+    missingCardTokens.put("\nTEL;VOICE;WORK"        , "TEL;VOICE;WORK:"        );
+    missingCardTokens.put("\nTEL;FAX;HOME"          , "TEL;FAX;HOME:"          );
+    missingCardTokens.put("\nEMAIL;HOME"            , "EMAIL;HOME:"            );
+    missingCardTokens.put("\nEMAIL;WORK"            , "EMAIL;WORK:"            );
+    missingCardTokens.put("\nURL"                   , "URL:"                   );
+    missingCardTokens.put("\nORG"                   , "ORG:"                   );
+    missingCardTokens.put("\nNOTE"                  , "NOTE:"                  );
+    missingCardTokens.put("\nTITLE"                 , "TITLE:"                 );
+    missingCardTokens.put("\nNICKNAME"              , "NICKNAME:"              );
+    missingCardTokens.put("\nX-FUNAMBOL-MANAGER"    , "X-FUNAMBOL-MANAGER:"    );
+    missingCardTokens.put("\nX-FUNAMBOL-SPOUSE"     , "X-FUNAMBOL-SPOUSE:"     );
+    missingCardTokens.put("\nX-FUNAMBOL-CHILDREN"   , "X-FUNAMBOL-CHILDREN:"   );
+    missingCardTokens.put("\nCATEGORIES"            , "CATEGORIES:"            );
+    missingCardTokens.put("\nX-FUNAMBOL-ANNIVERSARY", "X-FUNAMBOL-ANNIVERSARY:");
+    missingCardTokens.put("\nADR;HOME"              , "ADR;HOME:"              );
+    missingCardTokens.put("\nADR;WORK"              , "ADR;WORK:"              );
+    missingCardTokens.put("\nEMAIL;INTERNET;HOME;X-FUNAMBOL-INSTANTMESSENGER", 
+                          "EMAIL;INTERNET;HOME;X-FUNAMBOL-INSTANTMESSENGER:"   );
+
+    missingEventTokens.put("\nAALARM"               , "AALARM:;;;"             );
+    
+    missingTodoTokens.put("\nDESCRIPTION"           , "DESCRIPTION:"           );
+    missingTodoTokens.put("\nDUE"                   , "DUE:"                   );
+    
+}
+
+/**
+ * Removes dirty characters at the end of the items.
+ * 
+ * @param message the SyncML message  
+ */ 
+void cleanVCalendars(SyncML message) {
+    
+    ArrayList cmds = message.SyncBody.commands;
+    for (s : cmds) {
+        if (s instanceof Sync) {
+            for (c : s.commands) {
+                //
+                // Skips other commands than Add and Replace
+                //
+                if (!(Replace.COMMAND_NAME.equals(c.name) ||
+                        Add.COMMAND_NAME.equals(c.name))) {
+                    continue;
+                }
+                for (i: c.items) {
+                    
+                    type = null;
+                    
+                    if (i.getMeta() != null) {
+                        type = i.getMeta().getType();                 
+                    }
+                    
+                    if (type == null || type.length() == 0) {
+                        if (c.getMeta() != null) {
+                            type = c.getMeta().getType();
+                        }
+                    }
+                    
+                    if ("text/x-vcalendar".equalsIgnoreCase(type)) {
+                        //
+                        // Removes all characters after "END:VCALENDAR"
+                        //
+                        i.data.data = i.data.data.replaceAll(
+                                "(?s)\\r\\n\\r\\nEND:VCALENDAR(.)*", 
+                                "\r\nEND:VCALENDAR\r\n");
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Fixes ALL-DAY event end date that's expressed as yyyymmddT240000.
+ * 
+ * @param data  
+ */ 
+String fixEndDate(String data){
+	  
+    // The pattern matches the RRULE property
+    Pattern p = Pattern.compile("DTEND:([0-9]{8}T)(240000)(Z)?");
+    Matcher m = p.matcher(data);    
+    
+    if (m.find()) {
+        StringBuffer sb = new StringBuffer();
+        m.appendReplacement(sb, "DTEND:" + m.group(1) + "235900");
+        m.appendTail(sb);
+        data = sb.toString();
+    }
+    
+    return data;
+
+}
+
+/**
+ * Remaps todo priority.
+ * Device sets the tasks priority in a 1-9 range:
+ *  HIGH:   1-3
+ *  NORMAL: 4-6
+ *  LOW:    7-9
+ * while the server uses a 1-3 range:
+ *  HIGH:   1
+ *  NORMAL: 2
+ *  LOW:    3  
+ * 
+ * @param data  
+ */ 
+String remapPriority(String data){
+    
+    // The pattern matches the PRIORITY property
+    Pattern p = Pattern.compile("PRIORITY:(\\d)");
+    Matcher m = p.matcher(data);
+    // The default priority is Normal that corresponds to value 2 for the server
+    String priority = "2";
+    
+    if (m.find()) {
+        
+        // High priority tasks
+        if (Integer.parseInt(m.group(1)) < 4) {
+            priority = "1";
+        }
+        // Normal priority tasks
+        else if (Integer.parseInt(m.group(1)) > 3 && Integer.parseInt(m.group(1)) < 7) {
+            priority = "2";
+        }
+        // Low priority tasks
+        else {
+            priority = "3";
+        }
+        StringBuffer sb = new StringBuffer();
+        m.appendReplacement(sb, "PRIORITY:" + priority);
+        m.appendTail(sb);
+        data = sb.toString();
+    }
+    
+    return data;
+        
+}

@@ -1,0 +1,8 @@
+BEGIN:VCARD
+VERSION:2.1
+N:Smith;John;M.;Mr.;Esq.
+TEL;WORK;VOICE;MSG:+1 (919) 555-1234
+TEL;WORK;FAX:+1 (919) 555-9876
+ADR;WORK;PARCEL;POSTAL;DOM:Suite 101;1 Central St.;Any Town;NC;27654
+PHOTO;VALUE=URL;TYPE=GIF:http://www.abc.com/dir_photos/my_photo.gif
+END:VCARD

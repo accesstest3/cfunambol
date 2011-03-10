@@ -1,0 +1,249 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+import java.util.List;
+import java.util.Map;
+
+import com.funambol.framework.core.*;
+import com.funambol.framework.core.Sync4jException;
+import com.funambol.framework.engine.pipeline.InputMessageProcessor;
+import com.funambol.framework.engine.pipeline.MessageProcessingContext;
+import com.funambol.framework.logging.FunambolLogger;
+import com.funambol.framework.logging.FunambolLoggerFactory;
+import com.funambol.framework.server.Sync4jDevice;
+
+import com.funambol.foundation.synclet.PIMItemsHandler;
+
+/**
+ * Contacts
+ * ========
+ * Replaces field ADR: with ADR:WORK: token (this because the S56 supports just
+ * one address).
+ * Replaces field TEL;FAX: with TEL;FAX;WORK: token.
+ * Handles large objects.
+ *
+ * Calendar
+ * ========
+ * . Event
+ *  Some Siemens Phones have the following bugs: they support UTC, but when they
+ *  convert a date in the local time to UTC, they apply the DST of when the
+ *  conversion is done, instead of the DST of when the date is. In this synclet
+ *  we fix this problem.
+ *  Handles large objects.
+ *
+ * @version $Id: SiemensS5Xin.bsh,v 1.9 2008-03-26 22:22:12 stefano_fornari Exp $
+ */
+ 
+// ------------------------------------------------------------------- Constants
+private final FunambolLogger log =
+    FunambolLoggerFactory.getLogger("engine.pipeline");
+private Map missingCardTokens  = null;
+private Map missingEventTokens  = null;
+
+// ------------------------------------------------------ Synclet implementation
+importCommands("/com/funambol/server/engine/pipeline/phones-support/bsh/commands");
+
+/**
+ * Process input message and set MessageProcessingContext property.
+ *
+ * @param processingContext the message processing context
+ * @param message the message to be processed
+ *
+ * @throws Sync4jException
+ */
+void preProcessMessage(MessageProcessingContext processingContext,
+                       SyncML message                            )
+throws Sync4jException {
+
+    if (log.isTraceEnabled()) {
+        log.trace("SiemensS5Xin.preProcessMessage(...)");
+    }
+
+    //
+    // Retrieves the device from the db
+    //
+    Sync4jDevice device = deviceLookup(message.syncHdr.source.locURI);
+
+    // This map contains the three lists of items separated based on their type
+    PIMItemsHandler pimItemsHandler = new PIMItemsHandler();
+    Map mapItems =
+        pimItemsHandler.extractIncomingPIMItems(processingContext, message);
+    processPIMItems(mapItems, device, pimItemsHandler);
+}
+
+/**
+ * Processes incoming items.
+ *
+ * @param mapItems the map that contains the three lists of items separated
+ *                 based on their type
+ * @param device the Sync4jDevice
+ * @param pimItemsHandler the object to handle the large object
+ *
+ */
+void processPIMItems(Map             mapItems       ,
+                     Sync4jDevice    device         ,
+                     PIMItemsHandler pimItemsHandler) {
+
+    //
+    // Cycle on vcard list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VCARD)) {
+        preProcessContacts(i);
+        pimItemsHandler.fixLargeObjectSize(i);
+    }
+
+    //
+    // If the device was not found, or there was no TZ associated to it,
+    // there is not much we can do...
+    //
+    if ((device == null) || (device.timeZone == null)) {
+        return;
+    }
+    //
+    // Cycle on vevent list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VEVENT)) {
+        preProcessEvents(i, device.timeZone);
+        pimItemsHandler.fixLargeObjectSize(i);
+    }
+}
+
+/**
+ * Fixes the dates so that the DST is applied accordingly to when the date is
+ * created and not when the date is converted to UTC by the phone
+ * Replaces DALARM property with AALARM
+ *
+ * @param i the Item to be processed
+ * @param tz the device timezone
+ *
+ */
+void preProcessEvents(Item i, String tz) {
+    if (log.isTraceEnabled()) {
+        log.trace("SiemensS5X.preProcessEvents(...)");
+    }
+    
+    String data = i.data.data;
+    
+    data = fixField(data, "DTSTART:", tz);
+    data = fixField(data, "DTEND:", tz);
+    
+    // Replacing Input ALARM property
+    data = replaceInProperty(data, "DALARM:", "AALARM:");
+    
+    //
+    // Adds void tokens if they are missing in VEVENT item
+    //
+    content = addVoidTokens(data, "END:VEVENT", missingEventTokens);
+
+    i.data.data = content + "END:VCALENDAR\r\n";
+}
+
+/**
+ * Fixes the date in the field specified by field.
+ *
+ * @param event the event content
+ * @param field the field - DSTART, DEND, ... to process
+ * @param tz device tz
+ *
+ * @return the new event content
+ */
+String fixField(String event, String field, tz) {
+  int s = event.indexOf(field);
+
+  if (s < 0) {
+    return event;
+  } else {
+    s += field.length();
+  }
+
+  int e = event.indexOf("Z", s);
+
+  if (e < 0) {
+    return event;
+  }
+
+  String value = event.substring(s, e);
+
+  return event.substring(0, s) + fixDST(value, tz, 1) + event.substring(e);
+}
+
+/**
+ * Processes incoming contacts.
+ * Replaces field ADR: with ADR:WORK: token.
+ * Replaces field TEL;FAX: with TEL;FAX;WORK: token.
+ *
+ * @param i the Item to be processed
+ *
+ */
+void preProcessContacts(Item i) {
+    if (log.isTraceEnabled()) {
+        log.trace("SiemensS5Xin.preProcessContacts(...)");
+    }
+    
+    String s = i.data.data;
+    
+    //Phone deletes state field from address
+    //address is not sent
+    s = s.replaceAll("\n" + "ADR:" + ".*\n", "\n");
+    
+    s = addVoidTokens(s, "END:VCARD", missingCardTokens);
+    
+    s = s.replaceAll("TEL;FAX:", "TEL;FAX;WORK:");
+    
+    i.data.data = s;
+}
+
+/**
+ * Called initializing the synclet
+ */
+void init() {
+    missingCardTokens  = new HashMap();
+    missingEventTokens = new HashMap();
+    
+    missingCardTokens.put("\r\nN"                  , "N:;;;;"              );
+    missingCardTokens.put("\r\nORG"                , "ORG:"                );
+    missingCardTokens.put("\r\nTEL;HOME"           , "TEL;HOME:"           );
+    missingCardTokens.put("\r\nTEL;WORK"           , "TEL;WORK:"           );
+    missingCardTokens.put("\r\nTEL;CELL"           , "TEL;CELL:"           );
+    missingCardTokens.put("\r\nTEL;FAX"            , "TEL;FAX:"            );
+    missingCardTokens.put("\r\nTEL;FAX;HOME"       , "TEL;FAX;HOME:"       );
+    missingCardTokens.put("\r\nEMAIL;INTERNET"     , "EMAIL;INTERNET:"     );
+    missingCardTokens.put("\r\nEMAIL;HOME;INTERNET", "EMAIL;HOME;INTERNET:");
+    missingCardTokens.put("\r\nURL"                , "URL:"                );
+    missingCardTokens.put("\r\nBDAY"               , "BDAY:"               );
+    
+    missingEventTokens.put("\r\nDALARM", "DALARM:");
+    missingEventTokens.put("\r\nAALARM", "AALARM:");
+}

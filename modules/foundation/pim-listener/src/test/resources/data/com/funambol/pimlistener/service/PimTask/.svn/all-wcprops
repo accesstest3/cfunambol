@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/29840/trunk/funambol/modules/foundation/pim-listener/src/test/resources/data/com/funambol/pimlistener/service/PimTask
+END
+initial-db-dataset-core.xml
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/core/!svn/ver/29840/trunk/funambol/modules/foundation/pim-listener/src/test/resources/data/com/funambol/pimlistener/service/PimTask/initial-db-dataset-core.xml
+END
+db-dataset-core-step-A.xml
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/core/!svn/ver/29840/trunk/funambol/modules/foundation/pim-listener/src/test/resources/data/com/funambol/pimlistener/service/PimTask/db-dataset-core-step-A.xml
+END
+db-dataset-core-step-B.xml
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/core/!svn/ver/29840/trunk/funambol/modules/foundation/pim-listener/src/test/resources/data/com/funambol/pimlistener/service/PimTask/db-dataset-core-step-B.xml
+END
+dataset-core.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/29840/trunk/funambol/modules/foundation/pim-listener/src/test/resources/data/com/funambol/pimlistener/service/PimTask/dataset-core.dtd
+END
+initial-db-dataset-user.xml
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/core/!svn/ver/29840/trunk/funambol/modules/foundation/pim-listener/src/test/resources/data/com/funambol/pimlistener/service/PimTask/initial-db-dataset-user.xml
+END
+dataset-user.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/29840/trunk/funambol/modules/foundation/pim-listener/src/test/resources/data/com/funambol/pimlistener/service/PimTask/dataset-user.dtd
+END
+db-dataset-user-step-B.xml
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/core/!svn/ver/29840/trunk/funambol/modules/foundation/pim-listener/src/test/resources/data/com/funambol/pimlistener/service/PimTask/db-dataset-user-step-B.xml
+END
+db-dataset-user-step-C.xml
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/core/!svn/ver/29840/trunk/funambol/modules/foundation/pim-listener/src/test/resources/data/com/funambol/pimlistener/service/PimTask/db-dataset-user-step-C.xml
+END

@@ -1,0 +1,8 @@
+#deviceids
+#Thu Aug 23 19:49:53 CEST 2007
+DEVICEID_device01=devicepippo
+DEVICEID_device02=deviceid
+DEVICEID_device03=devicepluto
+JGroupsConfigFileName=udp.xml
+GroupName=NotificationChannel
+target=mail

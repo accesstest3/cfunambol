@@ -1,0 +1,553 @@
+<!--
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2005 - 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+-->
+
+<binding name="binding">
+    <format type="java.lang.Boolean" serializer="com.funambol.framework.tools.SyncMLUtil.serializeBoolean"
+            deserializer="com.funambol.framework.tools.SyncMLUtil.deserializeBoolean"
+               label="formatBoolean"/>
+
+    <format type="java.lang.Long" serializer="com.funambol.framework.tools.SyncMLUtil.serializeWrapLong"
+            deserializer="com.funambol.framework.tools.SyncMLUtil.deserializeWrapLong"
+               label="formatWrapLong"/>
+
+    <mapping name="SyncML" class="com.funambol.framework.core.SyncML">
+        <structure field="header"/>
+        <structure field="body"/>
+    </mapping>
+
+    <mapping name="SyncHdr" class="com.funambol.framework.core.SyncHdr" ordered="false">
+        <structure name="VerDTD" field="verDTD" usage="optional">
+            <value field="value" style="text"/>
+        </structure>
+        <structure name="VerProto" field="verProto" usage="optional">
+            <value field="version" style="text"/>
+        </structure>
+        <structure name="SessionID" field="sessionID" usage="optional">
+            <value field="sessionID" style="text"/>
+        </structure>
+        <value name="MsgID"       field="msgID"   usage="optional"/>
+        <structure field="target" usage="optional"/>
+        <structure field="source" usage="optional"/>
+
+        <value name="RespURI"     field="respURI"                       usage="optional"/>
+        <value name="NoResp"      field="noResp" format="formatBoolean" usage="optional"/>
+        <structure field="cred" usage="optional"/>
+        <structure field="meta" usage="optional"/>
+    </mapping>
+
+    <mapping name="SyncBody" class="com.funambol.framework.core.SyncBody">
+        <collection field="commands" item-type="com.funambol.framework.core.AbstractCommand" />
+        <value name="Final" field="finalMsg" format="formatBoolean" usage="optional"/>
+        <collection get-method="getEmptyCommands" set-method="addAllCommands" item-type="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+    </mapping>
+
+    <mapping class="com.funambol.framework.core.AbstractCommand" abstract="true" ordered="false">
+        <structure name="CmdID" field="cmdID" usage="optional">
+            <value field="cmdID" style="text"/>
+        </structure>
+        <value name="NoResp" field="noResp" format="formatBoolean" usage="optional"/>
+        <structure field="credential" usage="optional"/>
+    </mapping>
+
+    <mapping name="Add" class="com.funambol.framework.core.Add" extends="com.funambol.framework.core.AbstractCommand">
+        <structure  map-as="com.funambol.framework.core.AbstractCommand"/>
+        <structure  field="meta" usage="optional"/>
+        <collection field="items" item-type="com.funambol.framework.core.Item" usage="optional"/>
+    </mapping>
+
+    <mapping name="Alert" class="com.funambol.framework.core.Alert" extends="com.funambol.framework.core.AbstractCommand" ordered="false">
+        <structure  map-as="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+        <value      name="Data" field="data" usage="optional"/>
+        <value      name="Correlator" field="correlator" usage="optional"/>
+        <collection field="items" item-type="com.funambol.framework.core.Item" usage="optional"/>
+    </mapping>
+
+    <mapping name="Atomic" class="com.funambol.framework.core.Atomic" extends="com.funambol.framework.core.AbstractCommand" ordered="false">
+        <structure  map-as="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+        <structure  field="meta" usage="optional"/>
+        <collection field="commands" item-type="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+    </mapping>
+
+    <mapping name="Copy" class="com.funambol.framework.core.Copy" extends="com.funambol.framework.core.AbstractCommand" ordered="false">
+        <structure  map-as="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+        <structure  field="meta" usage="optional"/>
+        <collection field="items" item-type="com.funambol.framework.core.Item" usage="optional"/>
+    </mapping>
+
+    <mapping name="Delete" class="com.funambol.framework.core.Delete" extends="com.funambol.framework.core.AbstractCommand" ordered="false">
+        <structure map-as="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+        <value name="Archive" field="archive" format="formatBoolean" usage="optional"/>
+        <value name="SftDel"  field="sftDel"  format="formatBoolean" usage="optional"/>
+        <structure  field="credential" usage="optional"/>
+        <structure  field="meta"       usage="optional"/>
+        <collection field="items" item-type="com.funambol.framework.core.Item" usage="optional"/>
+    </mapping>
+
+    <mapping name="Exec" class="com.funambol.framework.core.Exec" extends="com.funambol.framework.core.AbstractCommand" ordered="false">
+        <structure  map-as="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+        <value      name="Correlator" field="correlator" usage="optional"/>
+        <collection field="items" item-type="com.funambol.framework.core.Item" usage="optional"/>
+    </mapping>
+
+    <mapping name="Get" class="com.funambol.framework.core.Get" extends="com.funambol.framework.core.AbstractCommand" ordered="false">
+        <structure map-as="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+        <value name="Lang" field="lang" usage="optional"/>
+        <structure  field="credential"  usage="optional"/>
+        <structure  field="meta"        usage="optional"/>
+        <collection field="items" item-type="com.funambol.framework.core.Item" usage="optional"/>
+    </mapping>
+
+    <mapping name="Map" class="com.funambol.framework.core.Map" extends="com.funambol.framework.core.AbstractCommand" ordered="false">
+        <structure  map-as="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+        <structure  field="target"     usage="optional"/>
+        <structure  field="source"     usage="optional"/>
+        <structure  field="credential" usage="optional"/>
+        <structure  field="meta"       usage="optional"/>
+        <collection field="mapItems" item-type="com.funambol.framework.core.MapItem" usage="optional"/>
+    </mapping>
+
+    <mapping name="MapItem" class="com.funambol.framework.core.MapItem" ordered="false">
+        <structure field="target" usage="optional"/>
+        <structure field="source" usage="optional"/>
+    </mapping>
+
+    <mapping name="Move" class="com.funambol.framework.core.Move" extends="com.funambol.framework.core.AbstractCommand" ordered="false">
+        <structure  map-as="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+        <structure  field="meta" usage="optional"/>
+        <collection field="items" item-type="com.funambol.framework.core.Item" usage="optional"/>
+    </mapping>
+
+    <mapping name="Put" class="com.funambol.framework.core.Put" extends="com.funambol.framework.core.AbstractCommand" ordered="false">
+        <structure map-as="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+        <value name="Lang" field="lang" usage="optional"/>
+        <structure  field="credential"  usage="optional"/>
+        <structure  field="meta"        usage="optional"/>
+        <collection field="items" item-type="com.funambol.framework.core.DevInfItem" usage="optional"/>
+    </mapping>
+
+    <mapping name="Replace" class="com.funambol.framework.core.Replace" extends="com.funambol.framework.core.AbstractCommand" ordered="false">
+        <structure map-as="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+        <structure  field="meta" usage="optional"/>
+        <collection field="items" item-type="com.funambol.framework.core.Item" usage="optional"/>
+    </mapping>
+
+    <mapping name="Results" class="com.funambol.framework.core.Results" extends="com.funambol.framework.core.AbstractCommand" ordered="false">
+        <structure map-as="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+        <value name="MsgRef" field="msgRef" usage="optional"/>
+        <value name="CmdRef" field="cmdRef" usage="optional"/>
+        <structure  field="meta" usage="optional"/>
+        <collection field="targetRef" item-type="com.funambol.framework.core.TargetRef" usage="optional"/>
+        <collection field="sourceRef" item-type="com.funambol.framework.core.SourceRef" usage="optional"/>
+        <collection field="items"     item-type="com.funambol.framework.core.DevInfItem" usage="optional"/>
+    </mapping>
+
+    <mapping name="Search" class="com.funambol.framework.core.Search" extends="com.funambol.framework.core.AbstractCommand" ordered="false">
+        <structure map-as="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+        <value name="NoResults" field="noResults" format="formatBoolean" usage="optional"/>
+        <structure field="credential" usage="optional"/>
+        <structure field="target"     usage="optional" />
+        <collection field="sources" item-type="com.funambol.framework.core.Source" usage="optional"/>
+        <value name="Lang" field="lang" usage="optional"/>
+        <structure field="meta" usage="optional"/>
+        <structure name="Data"  field="data" usage="optional">
+            <value style="text" field="data"/>
+        </structure>
+    </mapping>
+
+    <mapping name="Sequence" class="com.funambol.framework.core.Sequence" extends="com.funambol.framework.core.AbstractCommand" ordered="false">
+        <structure map-as="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+        <structure  field="meta" usage="optional"/>
+        <collection field="commands" item-type="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+    </mapping>
+
+    <mapping name="Status" class="com.funambol.framework.core.Status" extends="com.funambol.framework.core.AbstractCommand" ordered="false">
+        <structure map-as="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+        <value name="MsgRef" field="msgRef" usage="optional"/>
+        <value name="CmdRef" field="cmdRef" usage="optional"/>
+        <value name="Cmd"    field="cmd"    usage="optional"/>
+        <collection field="targetRef" item-type="com.funambol.framework.core.TargetRef" usage="optional"/>
+        <collection field="sourceRef" item-type="com.funambol.framework.core.SourceRef" usage="optional"/>
+        <structure field="chal"       usage="optional"/>
+        <structure field="data" usage="optional">
+            <value name="Data" field="data"/>
+        </structure>
+        <collection field="items" item-type="com.funambol.framework.core.Item" usage="optional"/>
+    </mapping>
+
+    <mapping class="com.funambol.framework.core.ResponseCommand" abstract="true" ordered="false">
+        <structure name="CmdID" field="cmdID" usage="optional">
+            <value field="cmdID" style="text"/>
+        </structure>
+        <value name="NoResp" field="noResp" format="formatBoolean" usage="optional"/>
+        <structure field="credential" usage="optional"/>
+        <value name="MsgRef" field="msgRef" usage="optional"/>
+        <value name="CmdRef" field="cmdRef" usage="optional"/>
+        <collection field="targetRef" item-type="com.funambol.framework.core.TargetRef" usage="optional"/>
+        <collection field="sourceRef" item-type="com.funambol.framework.core.SourceRef" usage="optional"/>
+    </mapping>
+
+    <mapping name="TargetRef" class="com.funambol.framework.core.TargetRef">
+        <value field="value" style="text" get-method="getValue" set-method="setValue" usage="optional"/>
+    </mapping>
+
+    <mapping name="SourceRef" class="com.funambol.framework.core.SourceRef" >
+        <value field="value" style="text" usage="optional"/>
+    </mapping>
+
+    <mapping class="com.funambol.framework.core.ItemizedCommand" abstract="true" ordered="false">
+        <structure name="CmdID" field="cmdID" usage="optional">
+            <value field="cmdID" style="text"/>
+        </structure>
+        <value name="NoResp" field="noResp" format="formatBoolean" usage="optional"/>
+        <structure field="credential" usage="optional"/>
+        <collection field="items" item-type="com.funambol.framework.core.Item" usage="optional"/>
+        <structure field="meta" usage="optional"/>
+    </mapping>
+
+    <mapping name="Chal" class="com.funambol.framework.core.Chal">
+        <structure field="meta"/>
+    </mapping>
+
+    <mapping name="Source" class="com.funambol.framework.core.Source" ordered="false">
+        <value name="LocURI"  field="locURI"  usage="optional"/>
+        <value name="LocName" field="locName" usage="optional"/>
+    </mapping>
+
+    <mapping name="Target" class="com.funambol.framework.core.Target" ordered="false">
+        <value name="LocURI"  field="locURI"  usage="optional"/>
+        <value name="LocName" field="locName" usage="optional"/>
+        <structure field="filter" usage="optional"/>
+    </mapping>
+
+    <mapping name="Filter" class="com.funambol.framework.core.Filter" ordered="false">
+        <structure field="meta" usage="optional"/>
+        <structure name="Field" usage="optional">
+            <structure field="field" usage="optional"/>
+        </structure>
+        <structure name="Record" usage="optional">
+            <structure field="record" usage="optional"/>
+        </structure>
+        <value name="FilterType" field="filterType" usage="optional"/>
+    </mapping>
+
+    <mapping name="Sync" class="com.funambol.framework.core.Sync" extends="com.funambol.framework.core.AbstractCommand" ordered="false">
+        <structure map-as="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+        <structure field="target" usage="optional"/>
+        <structure field="source" usage="optional"/>
+        <structure field="meta"   usage="optional"/>
+        <value name="NumberOfChanges" field="numberOfChanges" usage="optional"/>
+        <collection field="commands" item-type="com.funambol.framework.core.AbstractCommand" usage="optional"/>
+    </mapping>
+
+    <mapping class="com.funambol.framework.core.Data" abstract="true">
+        <value field="data" style="text" get-method="getData" set-method="setData" usage="optional"/>
+    </mapping>
+
+    <mapping name="Data" class="com.funambol.framework.core.ComplexData" extends="com.funambol.framework.core.Data">
+        <structure map-as="com.funambol.framework.core.Data" usage="optional"/>
+        <structure  field="anchor" usage="optional"/>
+        <structure  field="devInf" usage="optional"/>
+        <collection field="properties" item-type="com.funambol.framework.core.Property" usage="optional"/>
+    </mapping>
+
+
+    <mapping name="Data" class="com.funambol.framework.core.CData" extends="com.funambol.framework.core.ComplexData">
+        <value field="data" style="cdata" get-method="getData" set-method="setData" usage="optional"/>
+    </mapping>
+
+
+    <mapping name="Anchor" class="com.funambol.framework.core.Anchor" ordered="false">
+        <namespace uri="syncml:metinf" default="elements"/>
+        <value name="Last" field="last" usage="optional"/>
+        <value name="Next" field="next" usage="optional"/>
+    </mapping>
+
+    <mapping name="Item" class="com.funambol.framework.core.Item" ordered="false">
+        <structure field="target" usage="optional"/>
+        <structure field="source" usage="optional"/>
+        <structure name="SourceParent" field="sourceParent" usage="optional" ordered="false">
+            <value name="LocURI" field="locURI" usage="optional"/>
+        </structure>
+        <structure name="TargetParent" field="targetParent" usage="optional" ordered="false">
+            <value name="LocURI" field="locURI" usage="optional"/>
+        </structure>
+        <structure field="meta" usage="optional"/>
+        <structure set-method="setData" get-method="getData" usage="optional"/>
+        <value name="MoreData" field="moreData" format="formatBoolean" usage="optional"/>
+    </mapping>
+
+    <mapping name="Item" class="com.funambol.framework.core.DevInfItem" ordered="false">
+        <structure field="target" usage="optional"/>
+        <structure field="source" usage="optional"/>
+        <structure field="meta"   usage="optional"/>
+        <structure field="data"   usage="optional"/>
+    </mapping>
+
+    <mapping name="Data" class="com.funambol.framework.core.DevInfData" extends="com.funambol.framework.core.Data">
+        <structure field="devInf"/>
+    </mapping>
+
+    <mapping name="DevInf" class="com.funambol.framework.core.DevInf" ordered="false" allow-repeats="true">
+        <namespace uri="syncml:devinf" default="elements"/>
+
+        <structure name="VerDTD" field="verDTD" usage="optional">
+            <value style="text"  field="value"/>
+        </structure>
+        <value name="Man"    field="man"    usage="optional"/>
+        <value name="Mod"    field="mod"    usage="optional"/>
+        <value name="OEM"    field="oem"    usage="optional"/>
+        <value name="FwV"    field="fwV"    usage="optional"/>
+        <value name="SwV"    field="swV"    usage="optional"/>
+        <value name="HwV"    field="hwV"    usage="optional"/>
+        <value name="DevID"  field="devID"  usage="optional"/>
+        <value name="DevTyp" field="devTyp" usage="optional"/>
+        <value name="UTC"    field="utc"    format="formatBoolean" usage="optional"/>
+        <value name="SupportLargeObjs"       field="supportLargeObjs"       format="formatBoolean" usage="optional"/>
+        <value name="SupportNumberOfChanges" field="supportNumberOfChanges" format="formatBoolean" usage="optional"/>
+
+        <collection field="dataStores" item-type="com.funambol.framework.core.DataStore" usage="optional"/>
+        <collection field="ctCapsV1"   item-type="com.funambol.framework.core.CTCapV1"   usage="optional"/>
+        <collection field="exts"       item-type="com.funambol.framework.core.Ext"       usage="optional"/>
+    </mapping>
+
+    <mapping name="CTCap" class="com.funambol.framework.core.CTCap">
+        <structure field="ctInfo" type="com.funambol.framework.core.CTInfo" ordered="false">
+            <value name="CTType" field="ctType" usage="optional"/>
+            <value name="VerCT"  field="verCT"  usage="optional"/>
+        </structure>
+        <value name="FieldLevel" field="fieldLevel" format="formatBoolean" usage="optional"/>
+        <collection field="properties" item-type="com.funambol.framework.core.Property" usage="optional"/>
+    </mapping>
+    
+    <mapping name         = "CTCap" 
+             class        = "com.funambol.framework.core.CTCapV1" 
+             marshaller   = "com.funambol.framework.core.CTCapV1Handler"
+             unmarshaller = "com.funambol.framework.core.CTCapV1Handler" 
+     />
+
+    <mapping name="Property" class="com.funambol.framework.core.Property" ordered="false">
+        <value name="PropName"   field="propName" usage="optional"/>
+        <!-- 
+           NOTE: the below ParamName should not be here, but it is added only
+                 for compatibility with some Nokia phones (S40 5th edition such 
+                 as N5610, N6267) that have a bug in the way they create the 
+                 DevInf. All ParamName will be added to as values of a PropParam 
+                 named UNKNOWN.
+        -->
+        <collection usage="optional" add-method="addParamName" iter-method="iterParamName" item-type="java.lang.String">
+            <value name="ParamName"/>
+        </collection>
+        <!-- -->
+        <value name="DataType"   field="dataType" usage="optional"/>
+        <value name="MaxOccur"   field="maxOccur" usage="optional"/>
+        <value name="MaxSize"    field="maxSize"  usage="optional"/>
+        <value name="NoTruncate" field="noTruncate" format="formatBoolean" usage="optional"/>
+        <collection field="valEnums" usage="optional" item-type="java.lang.String">
+            <value name="ValEnum"/>
+        </collection>
+        <value name="DisplayName" field="displayName" usage="optional"/>
+        
+        <collection field="propParams" usage="optional">
+            <structure name="PropParam" value-style="element" type="com.funambol.framework.core.PropParam" ordered="false">
+                <value name="ParamName"   field="paramName" usage="optional"/>
+                <value name="DataType"   field="dataType" usage="optional"/>
+                <collection field="valEnums" usage="optional" item-type="java.lang.String">
+                    <value name="ValEnum"/>
+                </collection>
+                <value name="DisplayName" field="displayName" usage="optional"/>
+            </structure>
+        </collection>
+    </mapping>
+
+    <mapping name="DataStore" class="com.funambol.framework.core.DataStore" ordered="false">
+        <structure field="sourceRef" usage="optional"/>
+
+        <value name="DisplayName" field="displayName" usage="optional"/>
+        <value name="MaxGUIDSize" field="maxGUIDSize" usage="optional"/>
+
+        <structure name="Rx-Pref" field="rxPref" ordered="false" usage="optional">
+            <value name="CTType"  field="ctType" usage="optional"/>
+            <value name="VerCT"   field="verCT"  usage="optional"/>
+        </structure>
+
+        <collection field="rxs" usage="optional">
+            <structure name="Rx" value-style="element" type="com.funambol.framework.core.CTInfo" ordered="false">
+                <value name="CTType" field="ctType" usage="optional"/>
+                <value name="VerCT"  field="verCT"  usage="optional"/>
+            </structure>
+        </collection>
+
+        <structure name="Tx-Pref" field="txPref" ordered="false" usage="optional">
+            <value name="CTType"  field="ctType" usage="optional"/>
+            <value name="VerCT"   field="verCT"  usage="optional"/>
+        </structure>
+
+        <collection field="txs" usage="optional">
+            <structure name="Tx" value-style="element" type="com.funambol.framework.core.CTInfo" ordered="false">
+                <value name="CTType" field="ctType" usage="optional"/>
+                <value name="VerCT"  field="verCT"  usage="optional"/>
+            </structure>
+        </collection>
+
+        <collection field="ctCaps"  item-type="com.funambol.framework.core.CTCap"  usage="optional"/>
+
+        <structure name="DSMem"     field="dsMem"     ordered="false" usage="optional">
+            <value name="SharedMem" field="sharedMem" format="formatBoolean" usage="optional"/>
+            <value name="MaxMem"    field="maxMem"                           usage="optional"/>
+            <value name="MaxID"     field="maxID"                            usage="optional"/>
+        </structure>
+
+        <value name="SupportHierarchicalSync" field="supportHierarchicalSync" format="formatBoolean" usage="optional"/>
+
+        <structure name="SyncCap" field="syncCap" usage="optional">
+            <collection field="syncTypes" item-type="com.funambol.framework.core.SyncType"/>
+        </structure>
+
+        <collection field="filterRxs" usage="optional">
+            <structure name="Filter-Rx" value-style="element" type="com.funambol.framework.core.CTInfo" ordered="false">
+                <value name="CTType" field="ctType" usage="optional"/>
+                <value name="VerCT"  field="verCT"  usage="optional"/>
+            </structure>
+        </collection>
+
+        <collection field="filterCaps"  item-type="com.funambol.framework.core.FilterCap"  usage="optional"/>
+    </mapping>
+
+    <mapping name="FilterCap" class="com.funambol.framework.core.FilterCap">
+        <structure field="ctInfo" type="com.funambol.framework.core.CTInfo" ordered="false">
+            <value name="CTType" field="ctType" usage="optional"/>
+            <value name="VerCT"  field="verCT"  usage="optional"/>
+        </structure>
+        <collection field="filterKeywords" usage="optional" item-type="java.lang.String">
+            <value name="FilterKeyword"/>
+        </collection>
+        <collection field="propNames" usage="optional" item-type="java.lang.String">
+            <value name="PropName"/>
+        </collection>
+    </mapping>
+
+    <mapping name="SyncType" class="com.funambol.framework.core.SyncType">
+        <value field="syncType" style="text"/>
+    </mapping>
+
+    <mapping name="Ext" class="com.funambol.framework.core.Ext" ordered="false">
+        <value name="XNam" field="xNam" usage="optional"/>
+        <collection field="xVal" usage="optional" item-type="java.lang.String">
+            <value name="XVal"/>
+        </collection>
+    </mapping>
+
+    <mapping name="Cred" class="com.funambol.framework.core.Cred">
+        <structure field="authentication" ordered="false">
+            <structure field="meta" usage="optional"/>
+            <value name="Data" field="data" usage="optional"/>
+        </structure>
+    </mapping>
+
+    <mapping name="MetInf" class="com.funambol.framework.core.MetInf" ordered="false">
+        <namespace uri="syncml:metinf" default="elements"/>
+
+        <value name="FieldLevel" field="fieldLevel" format="formatBoolean" usage="optional"/>
+        <value name="Format" field="format" usage="optional"/>
+        <value name="Type"   field="type"   usage="optional"/>
+        <value name="Mark"   field="mark"   usage="optional"/>
+        <value name="Size"   field="size"   format="formatWrapLong" usage="optional"/>
+        <structure name="Anchor" field="anchor" ordered="false" usage="optional">
+            <value name="Last"   field="last"   usage="optional"/>
+            <value name="Next"   field="next"   usage="optional"/>
+        </structure>
+        <value name="Version" field="version"   usage="optional"/>
+        <structure name="NextNonce" field="nextNonce" usage="optional">
+            <value style="text" get-method="getValueAsBase64" set-method="setValueAsString"/>
+        </structure>
+
+        <value name="MaxMsgSize" field="maxMsgSize" format="formatWrapLong" usage="optional"/>
+        <value name="MaxObjSize" field="maxObjSize" format="formatWrapLong" usage="optional"/>
+
+        <collection get-method="getEMI" set-method="setEMI" item-type="com.funambol.framework.core.EMI" usage="optional"/>
+
+        <structure name="Mem" field="mem" usage="optional" ordered="false">
+            <value name="SharedMem" field="sharedMem" usage="optional" format="formatBoolean"/>
+            <value name="FreeMem"   field="freeMem"   usage="optional"/>
+            <value name="FreeID"    field="freeID"    usage="optional"/>
+        </structure>
+    </mapping>
+
+    <mapping name="Meta" class="com.funambol.framework.core.Meta" ordered="false">
+        <structure           get-method="getNullMetInf" set-method="setMetInf" usage="optional"/>
+        <value name="FieldLevel" get-method="getFieldLevel" set-method="setFieldLevel" format="formatBoolean" usage="optional"/>
+        <value name="Format" get-method="getFormat" set-method="setFormat" usage="optional"/>
+        <value name="Type"   get-method="getType"   set-method="setType"   usage="optional"/>
+        <value name="Mark"   get-method="getMark"   set-method="setMark"   usage="optional"/>
+        <value name="Size"   get-method="getSize" set-method="setSize" format="formatWrapLong" usage="optional"/>
+
+        <structure name="Anchor" get-method="getAnchor" set-method="setAnchor" usage="optional" ordered="false">
+            <value name="Last" get-method="getLast" set-method="setLast" usage="optional"/>
+            <value name="Next" get-method="getNext" set-method="setNext" usage="optional"/>
+        </structure>
+
+        <value name="Version" get-method="getVersion" set-method="setVersion" usage="optional"/>
+
+        <structure get-method="getNextNonce" set-method="setNextNonce" usage="optional"/>
+
+        <value name="MaxMsgSize" get-method="getMaxMsgSize" set-method="setMaxMsgSize" format="formatWrapLong" usage="optional"/>
+        <value name="MaxObjSize" get-method="getMaxObjSize" set-method="setMaxObjSize" format="formatWrapLong" usage="optional"/>
+
+        <collection get-method="getEMI" set-method="setEMI" item-type="com.funambol.framework.core.EMI" usage="optional"/>
+
+        <structure get-method="getMem" set-method="setMem" usage="optional" ordered="false"/>
+
+    </mapping>
+
+    <mapping name="EMI" class="com.funambol.framework.core.EMI">
+    <namespace uri="syncml:metinf" default="elements"/>
+        <value style="text" field="value"/>
+    </mapping>
+
+    <mapping name="NextNonce" class="com.funambol.framework.core.NextNonce">
+    <namespace uri="syncml:metinf" default="elements"/>
+        <value style="text" get-method="getValueAsBase64" set-method="setValueAsString"/>
+    </mapping>
+
+    <mapping name="Mem" class="com.funambol.framework.core.Mem" ordered="false">
+    <namespace uri="syncml:metinf" default="elements"/>
+        <value name="SharedMem" field="sharedMem" usage="optional" format="formatBoolean"/>
+        <value name="FreeMem"   field="freeMem"   usage="optional"/>
+        <value name="FreeID"    field="freeID"    usage="optional"/>
+    </mapping>
+
+</binding>

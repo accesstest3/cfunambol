@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/test/resources/sql
+END
+create_user_schema.sql
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/test/resources/sql/create_user_schema.sql
+END
+create_core_schema.sql
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/34875/trunk/funambol/modules/foundation/foundation-core/src/test/resources/sql/create_core_schema.sql
+END

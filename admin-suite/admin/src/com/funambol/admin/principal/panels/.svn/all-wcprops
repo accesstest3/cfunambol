@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/principal/panels
+END
+FormSearchUserPanelForPrincipal.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/principal/panels/FormSearchUserPanelForPrincipal.java
+END
+FormSearchDevicePanelForPrincipal.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/principal/panels/FormSearchDevicePanelForPrincipal.java
+END
+ButtonResultSearchPrincipalPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/principal/panels/ButtonResultSearchPrincipalPanel.java
+END
+CreatePrincipalPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/principal/panels/CreatePrincipalPanel.java
+END
+ResultSearchPrincipalPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/principal/panels/ResultSearchPrincipalPanel.java
+END
+SearchPrincipalPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/principal/panels/SearchPrincipalPanel.java
+END
+LastTimestampsPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/principal/panels/LastTimestampsPanel.java
+END
+FormSearchPrincipalPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/principal/panels/FormSearchPrincipalPanel.java
+END
+ResultSearchUserPanelForPrincipal.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/principal/panels/ResultSearchUserPanelForPrincipal.java
+END
+ResultSearchDevicePanelForPrincipal.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/principal/panels/ResultSearchDevicePanelForPrincipal.java
+END

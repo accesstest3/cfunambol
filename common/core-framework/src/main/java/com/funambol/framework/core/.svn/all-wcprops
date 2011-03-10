@@ -1,0 +1,485 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/33308/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core
+END
+Delete.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Delete.java
+END
+AbstractCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/AbstractCommand.java
+END
+DSMem.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/DSMem.java
+END
+SyncML.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/SyncML.java
+END
+DevInfData.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/DevInfData.java
+END
+Alert.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Alert.java
+END
+CTParameter.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/CTParameter.java
+END
+CTType.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/CTType.java
+END
+Put.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Put.java
+END
+Data.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/33305/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Data.java
+END
+DevInf.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/30935/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/DevInf.java
+END
+Replace.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Replace.java
+END
+Cred.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Cred.java
+END
+SyncType.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/SyncType.java
+END
+Get.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Get.java
+END
+RepresentationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/RepresentationException.java
+END
+CTInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/CTInfo.java
+END
+Filter.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Filter.java
+END
+Meta.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Meta.java
+END
+CTPropParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/CTPropParam.java
+END
+Ext.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Ext.java
+END
+TargetParent.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/TargetParent.java
+END
+ComplexData.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/33307/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/ComplexData.java
+END
+ModificationCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/ModificationCommand.java
+END
+Sequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Sequence.java
+END
+EMI.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/EMI.java
+END
+SyncHdr.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/SyncHdr.java
+END
+CTProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/CTProperty.java
+END
+Atomic.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Atomic.java
+END
+CData.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/33308/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/CData.java
+END
+StatusCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/StatusCode.java
+END
+VerProto.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/VerProto.java
+END
+Exec.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Exec.java
+END
+FilterType.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/FilterType.java
+END
+VerDTD.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/VerDTD.java
+END
+ContentTypeInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/ContentTypeInfo.java
+END
+SyncBody.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/SyncBody.java
+END
+MapItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/MapItem.java
+END
+SyncCap.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/SyncCap.java
+END
+Source.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Source.java
+END
+NextNonce.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/NextNonce.java
+END
+Results.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Results.java
+END
+AlertCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/31084/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/AlertCode.java
+END
+Search.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Search.java
+END
+Chal.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Chal.java
+END
+FilterCap.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/FilterCap.java
+END
+DevTyp.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/DevTyp.java
+END
+Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Constants.java
+END
+Map.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Map.java
+END
+Authentication.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Authentication.java
+END
+CmdID.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/CmdID.java
+END
+MetInf.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/MetInf.java
+END
+Property.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Property.java
+END
+Mark.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Mark.java
+END
+ResponseCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/ResponseCommand.java
+END
+CTCapV1Handler.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/29225/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/CTCapV1Handler.java
+END
+SessionID.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/SessionID.java
+END
+PropParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/PropParam.java
+END
+CTCapV1.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/CTCapV1.java
+END
+Move.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Move.java
+END
+ItemizedCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/ItemizedCommand.java
+END
+SourceParent.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/SourceParent.java
+END
+Copy.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Copy.java
+END
+Anchor.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Anchor.java
+END
+Sync.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Sync.java
+END
+Util.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Util.java
+END
+ContentTypeParameter.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/ContentTypeParameter.java
+END
+Mem.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Mem.java
+END
+CTTypeSupported.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/CTTypeSupported.java
+END
+Status.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Status.java
+END
+TargetRef.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/TargetRef.java
+END
+DataStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/DataStore.java
+END
+Target.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Target.java
+END
+Add.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Add.java
+END
+MessageSizeCalculator.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/MessageSizeCalculator.java
+END
+Sync4jException.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Sync4jException.java
+END
+DevInfItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/DevInfItem.java
+END
+CTCap.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/CTCap.java
+END
+SourceRef.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/SourceRef.java
+END
+Item.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/33294/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/core/Item.java
+END

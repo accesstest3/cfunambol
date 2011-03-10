@@ -1,0 +1,77 @@
+<SyncML><SyncHdr><VerDTD>1.0</VerDTD><VerProto>SyncML/1.0</VerProto><SessionID>353888</SessionID><MsgID>3</MsgID><Target><LocURI>syncml-phone</LocURI></Target><Source><LocURI>http://localhost:8080/funambol/ds</LocURI></Source><RespURI>(IGNORED)</RespURI></SyncHdr><SyncBody><Status><CmdID>1</CmdID><MsgRef>3</MsgRef><CmdRef>0</CmdRef><Cmd>SyncHdr</Cmd><TargetRef>http://localhost:8080/funambol/ds</TargetRef><SourceRef>syncml-phone</SourceRef><Data>200</Data></Status><Status><CmdID>2</CmdID><MsgRef>3</MsgRef><CmdRef>2</CmdRef><Cmd>Alert</Cmd><TargetRef>http://localhost:8080/funambol/ds</TargetRef><SourceRef>syncml-phone</SourceRef><Data>200</Data><Item><Target><LocURI>http://localhost:8080/funambol/ds</LocURI></Target><Source><LocURI>syncml-phone</LocURI></Source></Item></Status><Sync><CmdID>3</CmdID><Target><LocURI>./Cli_DB_Schedule</LocURI></Target><Source><LocURI>./cal</LocURI></Source><Replace><CmdID>4</CmdID><Meta><Type>text/x-vcalendar</Type></Meta><Item><Target><LocURI>./1</LocURI></Target><Data>BEGIN:VCALENDAR
+VERSION:1.0
+BEGIN:VEVENT
+SUMMARY:MT_QA_SUBJECT_1
+DESCRIPTION:MT_QA_BODY_1
+CATEGORIES:
+CLASS:PUBLIC
+DTSTART:20070823T073000Z
+DTEND:20070823T083000Z
+PRIORITY:2
+X-FUNAMBOL-ALLDAY:0
+END:VEVENT
+END:VCALENDAR
+</Data></Item></Replace><Replace><CmdID>5</CmdID><Meta><Type>text/x-vcalendar</Type></Meta><Item><Target><LocURI>./2</LocURI></Target><Data>BEGIN:VCALENDAR
+VERSION:1.0
+BEGIN:VEVENT
+SUMMARY:MT_QA_SUBJECT_21
+DESCRIPTION:MT_QA_BODY_2
+LOCATION:Los Angeles
+CATEGORIES:APPOINTMENT
+CLASS:PUBLIC
+DTSTART:20070826T073000Z
+DTEND:20070826T083000Z
+PRIORITY:2
+X-FUNAMBOL-ALLDAY:0
+END:VEVENT
+END:VCALENDAR
+</Data></Item></Replace><Replace><CmdID>6</CmdID><Meta><Type>text/x-vcalendar</Type></Meta><Item><Target><LocURI>./3</LocURI></Target><Data>BEGIN:VCALENDAR
+VERSION:1.0
+BEGIN:VEVENT
+SUMMARY:Business Meeting
+DESCRIPTION:Meeting about SyncML project
+LOCATION:Miami
+CLASS:PUBLIC
+DTSTART:20070823T073000Z
+DTEND:20070823T083000Z
+PRIORITY:2
+X-FUNAMBOL-ALLDAY:0
+END:VEVENT
+END:VCALENDAR
+</Data></Item></Replace><Replace><CmdID>7</CmdID><Meta><Type>text/x-vcalendar</Type></Meta><Item><Target><LocURI>./4</LocURI></Target><Data>BEGIN:VCALENDAR
+VERSION:1.0
+BEGIN:VEVENT
+SUMMARY:Proposal Review of doc
+DESCRIPTION:Meeting for Proposal Review
+LOCATION:Chicago City
+CLASS:PUBLIC
+DTSTART:20070824T073000Z
+DTEND:20070824T083000Z
+X-FUNAMBOL-ALLDAY:0
+END:VEVENT
+END:VCALENDAR
+</Data></Item></Replace><Replace><CmdID>8</CmdID><Meta><Type>text/x-vcalendar</Type></Meta><Item><Target><LocURI>./5</LocURI></Target><Data>BEGIN:VCALENDAR
+VERSION:1.0
+BEGIN:VEVENT
+SUMMARY:Dinner to the Chinese restaurant
+DESCRIPTION:Dinner with Martin
+LOCATION:Los Angeles
+CLASS:PUBLIC
+DTSTART:20070825T073000Z
+DTEND:20070825T083000Z
+X-FUNAMBOL-ALLDAY:0
+END:VEVENT
+END:VCALENDAR
+</Data></Item></Replace><Replace><CmdID>9</CmdID><Meta><Type>text/x-vcalendar</Type></Meta><Item><Target><LocURI>./6</LocURI></Target><Data>BEGIN:VCALENDAR
+VERSION:1.0
+BEGIN:VEVENT
+SUMMARY:Conference on the weather
+DESCRIPTION:Conference on the weather
+LOCATION:New York NY
+CLASS:PUBLIC
+DTSTART:20070826T073000Z
+DTEND:20070826T083000Z
+X-FUNAMBOL-ALLDAY:0
+END:VEVENT
+END:VCALENDAR
+</Data></Item></Replace></Sync><Final></Final></SyncBody></SyncML>

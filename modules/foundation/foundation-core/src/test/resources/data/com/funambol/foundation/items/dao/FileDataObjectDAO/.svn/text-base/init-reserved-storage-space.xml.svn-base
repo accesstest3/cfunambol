@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+    <FNBL_FILE_DATA_OBJECT id="0" userid="username1" source_uri="fdo" last_update="333" status="N" local_name="filename0" object_size="1234" size_on_storage="1234" />
+    <FNBL_FILE_DATA_OBJECT id="1" userid="username1" source_uri="fdo" last_update="444" status="D" local_name="filename1" object_size="1234" size_on_storage="1234" />
+    <FNBL_FILE_DATA_OBJECT id="2" userid="username1" source_uri="fdo" last_update="000" status="N"                        object_size="1234"                        />
+    <FNBL_FILE_DATA_OBJECT id="3" userid="username1" source_uri="fdo" last_update="333" status="N" local_name="filename3" object_size="1234" size_on_storage="1234" />
+    <FNBL_FILE_DATA_OBJECT id="4" userid="username1" source_uri="fdo" last_update="444" status="D" local_name="filename4" object_size="1234" size_on_storage="1234" />
+    <FNBL_FILE_DATA_OBJECT id="5" userid="username1" source_uri="fdo" last_update="000" status="N"                        object_size="1234"                        />
+</dataset>

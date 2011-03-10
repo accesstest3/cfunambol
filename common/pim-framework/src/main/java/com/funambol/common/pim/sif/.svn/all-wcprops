@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/32798/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/sif
+END
+SIFCParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/28973/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/sif/SIFCParser.java
+END
+SIFCalendarParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/32798/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/sif/SIFCalendarParser.java
+END
+SIFNParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/sif/SIFNParser.java
+END
+XMLParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/sif/XMLParser.java
+END

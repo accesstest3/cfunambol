@@ -1,0 +1,63 @@
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 315DD1EEC06F
+	for <dest@somedest.net>; Fri,  7 Dec 2007 01:45:47 -0800 (PST)
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Score: -2.346
+X-Spam-Level: 
+X-Spam-Status: No, score=-2.346 tagged_above=-10 required=5 tests=[AWL=0.252,
+	BAYES_00=-2.599, HTML_MESSAGE=0.001]
+Received: from a.mail.sonomait.com ([127.0.0.1])
+	by localhost (a.mail.sonomait.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id EdtWDyaU+2l8 for <dest@somedest.net>;
+	Fri,  7 Dec 2007 01:45:36 -0800 (PST)
+Received: from [127.0.0.1] (85-18-37-27.ip.fastwebnet.it [85.18.37.27])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 8278C1EEC063
+	for <dest@somedest.net>; Fri,  7 Dec 2007 01:45:35 -0800 (PST)
+Message-ID: <4759163D.4010508@somesource.com>
+Date: Fri, 07 Dec 2007 10:45:33 +0100
+From: piter <source@somesource.com>
+User-Agent: Thunderbird 2.0.0.9 (Windows/20071031)
+MIME-Version: 1.0
+To: fabio <dest@somedest.net>
+Subject: text and html parts
+Content-Type: multipart/alternative;
+ boundary="------------090902070902080103070406"
+
+This is a multi-part message in MIME format.
+--------------090902070902080103070406
+Content-Type: text/plain; charset=ISO-8859-15; format=flowed
+Content-Transfer-Encoding: 7bit
+
+
+  Title
+
+This is an /html /_content
+_
+
+    * first
+    * second
+    * third
+
+
+--------------090902070902080103070406
+Content-Type: text/html; charset=ISO-8859-15
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+</head>
+<body bgcolor="#ffffff" text="#000000">
+<h1>Title</h1>
+<p>This is an <i>html </i><u>content<br>
+
+</u></p>
+<ul>
+  <li>first</li>
+  <li>second</li>
+  <li>third</li>
+</ul>
+</body>
+</html>
+
+--------------090902070902080103070406--

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset-user.dtd">
+<dataset>
+
+  <FNBL_PIM_CONTACT id="10" userid="user1"  last_update="1226317537593" first_name="Mary"/>
+  <FNBL_PIM_CONTACT id="11" userid="user1"  last_update="1006317535000" first_name="Sarah"/>
+  <FNBL_PIM_CONTACT id="12" userid="user1"  last_update="1116317537670" first_name="Brad"/>
+  <FNBL_PIM_CONTACT id="13" userid="user1"  last_update="1226317537670" first_name="Johnny"/>
+  <FNBL_PIM_CALENDAR id="20" userid="user1" last_update="1226317537670" type="1" dstart="2010-01-31 19:00:00.0" dend="2010-01-31 21:00:00.0" />
+  <FNBL_PIM_CALENDAR id="21" userid="user1" last_update="1226317537670" type="2" dstart="2010-01-31 19:00:00.0" dend="2010-01-31 21:00:00.0" />
+  <FNBL_PIM_NOTE id="30" userid="user1" last_update="1226317537670" subject="Note 1"/>
+  <FNBL_PIM_NOTE id="31" userid="user1" last_update="1006317535000" subject="Note 2"/>
+  <FNBL_PIM_NOTE id="32" userid="user1" last_update="1116317537670" subject="Note 3"/>
+  <FNBL_PIM_NOTE id="33" userid="user1" last_update="1776317537670" subject="Note 4"/>
+
+</dataset>

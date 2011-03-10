@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/tools/codec
+END
+QuotedPrintableCodec.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/tools/codec/QuotedPrintableCodec.java
+END
+CodecException.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/tools/codec/CodecException.java
+END
+CodecInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/tools/codec/CodecInterface.java
+END

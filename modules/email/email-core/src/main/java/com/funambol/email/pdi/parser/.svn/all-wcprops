@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/pdi/parser
+END
+XMLMailParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/pdi/parser/XMLMailParser.java
+END
+XMLFolderParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/pdi/parser/XMLFolderParser.java
+END

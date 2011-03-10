@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/logging/logger
+END
+funambol.push.xml
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/logging/logger/funambol.push.xml
+END
+funambol.auth.xml
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/logging/logger/funambol.auth.xml
+END
+funambol.xml
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/logging/logger/funambol.xml
+END
+funambol.engine.source.xml
+K 25
+svn:wc:ra_dav:version-url
+V 184
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/logging/logger/funambol.engine.source.xml
+END
+funambol.engine.xml
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/logging/logger/funambol.engine.xml
+END
+funambol.server.xml
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/logging/logger/funambol.server.xml
+END
+funambol.engine.pipeline.xml
+K 25
+svn:wc:ra_dav:version-url
+V 186
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/logging/logger/funambol.engine.pipeline.xml
+END
+funambol.server.notification.xml
+K 25
+svn:wc:ra_dav:version-url
+V 190
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/logging/logger/funambol.server.notification.xml
+END
+funambol.transport.xml
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/logging/logger/funambol.transport.xml
+END
+funambol.handler.xml
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/logging/logger/funambol.handler.xml
+END

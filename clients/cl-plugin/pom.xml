@@ -1,0 +1,103 @@
+<?xml version="1.0" ?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>funambol</groupId>
+  <artifactId>cl-plugin</artifactId>
+  <packaging>jar</packaging>
+  <version>9.1.0-SNAPSHOT</version>
+  <name>Funambol Command Line Tool</name>
+  <url>http://www.funambol.com</url>
+
+  <parent>
+    <groupId>funambol</groupId>
+    <artifactId>funambol</artifactId>
+    <version>9.1.0</version>
+  </parent>
+
+  <dependencies>
+    <!--
+        Internal dependencies
+    -->
+    <dependency>
+      <groupId>funambol</groupId>
+      <artifactId>jse-sdk</artifactId>
+      <version>9.0.0</version>
+    </dependency>
+
+    <!-- 
+        Unit testing dependencies
+    -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <scm>
+    <connection>scm:svn:https://guest@core.forge.funambol.org/svn/core/trunk/funambol/clients/cl-plugin</connection>
+    <developerConnection>scm:svn:https://core.forge.funambol.org/svn/core/trunk/funambol/clients/cl-plugin</developerConnection>
+    <url>https://core.forge.funambol.org/svn/core/trunk/funambol/clients/cl-plugin</url>
+  </scm>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
+    <plugins>
+      <plugin>
+        <!--
+            The Funambol Maven Plugin enables the use of the following
+            goals:
+            - funambol:properties
+        -->
+        <groupId>funambol</groupId>
+        <artifactId>funambol-plugin</artifactId>
+        <version>1.0.8</version>
+        <executions>
+          <execution>
+            <id>prepare-resources</id>
+            <phase>package</phase>
+            <goals>
+              <goal>resources</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <descriptors>
+            <descriptor>src/assembly/bin.xml</descriptor>
+          </descriptors>
+          <appendAssemblyId>true</appendAssemblyId>
+          <finalName>${project.groupId}-${project.artifactId}-${project.version}</finalName>
+        </configuration>
+
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>attached</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      
+    </plugins>
+    
+  </build>
+  
+</project>

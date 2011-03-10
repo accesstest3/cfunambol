@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/test/resources/config/com/funambol/email/inboxlistener/task
+END
+InboxListenerDummyTask.xml
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/test/resources/config/com/funambol/email/inboxlistener/task/InboxListenerDummyTask.xml
+END
+InboxListenerTask.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/test/resources/config/com/funambol/email/inboxlistener/task/InboxListenerTask.xml
+END
+InboxListenerOneShotTask.xml
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/test/resources/config/com/funambol/email/inboxlistener/task/InboxListenerOneShotTask.xml
+END

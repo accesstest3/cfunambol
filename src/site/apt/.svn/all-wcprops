@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/core/!svn/ver/36208/trunk/funambol/src/site/apt
+END
+tools.apt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/core/!svn/ver/35152/trunk/funambol/src/site/apt/tools.apt
+END
+index.apt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/core/!svn/ver/35077/trunk/funambol/src/site/apt/index.apt
+END
+core.apt
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/core/!svn/ver/36208/trunk/funambol/src/site/apt/core.apt
+END
+jme.apt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/core/!svn/ver/36205/trunk/funambol/src/site/apt/jme.apt
+END

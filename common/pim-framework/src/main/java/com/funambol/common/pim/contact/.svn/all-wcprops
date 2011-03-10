@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/33388/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/contact
+END
+Name.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/contact/Name.java
+END
+Title.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/contact/Title.java
+END
+SIFC.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/32913/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/contact/SIFC.java
+END
+Address.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/29785/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/contact/Address.java
+END
+Note.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/contact/Note.java
+END
+PersonalDetail.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/32958/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/contact/PersonalDetail.java
+END
+Email.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/contact/Email.java
+END
+Phone.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/contact/Phone.java
+END
+Photo.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/30757/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/contact/Photo.java
+END
+WebPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/contact/WebPage.java
+END
+IMPPAddress.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/32895/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/contact/IMPPAddress.java
+END
+Contact.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/33388/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/contact/Contact.java
+END
+BusinessDetail.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/33388/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/contact/BusinessDetail.java
+END
+ContactDetail.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/32885/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/contact/ContactDetail.java
+END

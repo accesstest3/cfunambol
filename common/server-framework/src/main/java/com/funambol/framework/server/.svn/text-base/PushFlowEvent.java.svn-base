@@ -1,0 +1,363 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2009 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+package com.funambol.framework.server;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
+
+/**
+ * This class represents a logging event for push flow events.
+ *
+ * @version $Id$
+ */
+public class PushFlowEvent extends Event implements Serializable {
+
+    // --------------------------------------------------------------- Constants
+    public static final String IL_CHECK     = "IL_CHECK"    ;
+    public static final String IL_NEW_MAIL  = "IL_NEW_MAIL" ;
+    public static final String IL_PUSH      = "IL_PUSH"     ;
+    public static final String DS_PUSH_REQ  = "DS_PUSH_REQ" ;
+    public static final String DS_PUSH_SENT = "DS_PUSH_SENT";
+
+    public static final String DS_ORIGINATOR = "DS-SERVICE";
+    public static final String IL_ORIGINATOR = "IL"        ;
+
+    // ------------------------------------------------------------ Constructors
+    /** Creates a new instance of PushFlowEvent */
+    public PushFlowEvent() {
+    }
+
+    /**
+     * Creates a new instance of PushFlowEvent.
+     *
+     * @param eventType the event type
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param originator the component that produced the event
+     * @param message the error message
+     * @param error is true if an error occurred
+     */
+    public PushFlowEvent(String  eventType ,
+                         String  userName  ,
+                         String  deviceId  ,
+                         String  sessionId ,
+                         String  originator,
+                         String  message   ,
+                         boolean error     ) {
+
+        super(null, eventType, null, userName, deviceId, sessionId, null,
+              message, null, 0, 0, 0, 0, 0, originator, null, error);
+    }
+
+    /**
+     * Creates a new instance of PushFlowEvent.
+     *
+     * @param eventType the event type
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param originator the component that produced the event
+     * @param source the uri of the sync source involved in the event
+     * @param message the error message
+     * @param error is true if an error occurred
+     */
+    public PushFlowEvent(String  eventType ,
+                         String  userName  ,
+                         String  deviceId  ,
+                         String  sessionId ,
+                         String  originator,
+                         String  source    ,
+                         String  message   ,
+                         boolean error     ) {
+
+        super(null, eventType, null, userName, deviceId, sessionId, source,
+              message, null, 0, 0, 0, 0, 0, originator, null, error);
+    }
+
+    /**
+     * Creates a new instance of PushFlowEvent.
+     *
+     * @param eventTime the time in which the event is happened
+     * @param eventType the event type
+     * @param userName the user involved in the event
+     * @param loggerName the logger name
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param originator the component that produced the event
+     * @param source the uri of the sync source involved in the event
+     * @param message the error message
+     * @param error is true if an error occurred
+     */
+    public PushFlowEvent(Timestamp eventTime ,
+                         String    eventType ,
+                         String    loggerName,
+                         String    userName  ,
+                         String    deviceId  ,
+                         String    sessionId ,
+                         String    source    ,
+                         String    message   ,
+                         String    originator,
+                         boolean   error     ) {
+
+        super(eventTime, eventType, loggerName, userName, deviceId, sessionId,
+              source, message, null, 0, 0, 0, 0, 0, originator, null, error);
+    }
+
+    // ---------------------------------------------------------- Public methods
+
+    /**
+     * Creates an event of type IL_CHECK.
+     *
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param message the error message
+     * @return the event of type IL_CHECK
+     */
+    public static Event createILCheckEvent(String userName  ,
+                                           String deviceId  ,
+                                           String sessionId ,
+                                           String message   ) {
+        return new PushFlowEvent(IL_CHECK, userName, deviceId, sessionId,
+                                 IL_ORIGINATOR, message, false);
+    }
+
+    /**
+     * Creates an event of type IL_CHECK when an error occurred.
+     *
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param message the error message
+     * @return the event of type IL_CHECK when an error occurred
+     */
+    public static Event createILCheckEventOnError(String userName  ,
+                                                  String deviceId  ,
+                                                  String sessionId ,
+                                                  String message   ) {
+        return new PushFlowEvent(IL_CHECK, userName, deviceId, sessionId,
+                                IL_ORIGINATOR, message, true);
+    }
+
+    /**
+     * Creates an event of type IL_NEW_MAIL.
+     *
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param message the error message
+     * @return the event of type IL_NEW_MAIL
+     */
+    public static Event createILNewEmailEvent(String userName  ,
+                                              String deviceId  ,
+                                              String sessionId ,
+                                              String message   ) {
+        return new PushFlowEvent(IL_NEW_MAIL, userName, deviceId, sessionId,
+                                 IL_ORIGINATOR, message, false);
+    }
+
+    /**
+     * Creates an event of type IL_NEW_MAIL when an error occurred.
+     *
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param message the error message
+     * @return the event of type PUSH_CLP when an error occurred
+     */
+    public static Event createILNewEmailEventOnError(String userName  ,
+                                                     String deviceId  ,
+                                                     String sessionId ,
+                                                     String message   ) {
+        return new PushFlowEvent(IL_NEW_MAIL, userName, deviceId, sessionId,
+                                 IL_ORIGINATOR, message, true);
+    }
+
+    /**
+     * Creates an event of type IL_PUSH.
+     *
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param message the error message
+     * @return the event of type IL_PUSH
+     */
+    public static Event createILPushEvent(String userName  ,
+                                          String deviceId  ,
+                                          String sessionId ,
+                                          String message   ) {
+        return new PushFlowEvent(IL_PUSH, userName, deviceId, sessionId,
+                                 IL_ORIGINATOR, message, false);
+    }
+
+    /**
+     * Creates an event of type IL_PUSH when an error occurred.
+     *
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param message the error message
+     * @return the event of type IL_PUSH when an error occurred
+     */
+    public static Event createILPushEventOnError(String userName  ,
+                                                 String deviceId  ,
+                                                 String sessionId ,
+                                                 String message   ) {
+        return new PushFlowEvent(IL_PUSH, userName, deviceId, sessionId,
+                                 IL_ORIGINATOR, message, true);
+    }
+
+    /**
+     * Creates an event of type DS_PUSH_REQ.
+     *
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param source the uri of the sync source involved in the event
+     * @param message the error message
+     * @return the event of type DS_PUSH_REQ
+     */
+    public static Event createDSPushReqEvent(String userName  ,
+                                             String deviceId  ,
+                                             String sessionId ,
+                                             String source    ,
+                                             String message   ) {
+        return new PushFlowEvent(DS_PUSH_REQ, userName, deviceId, sessionId,
+                                 DS_ORIGINATOR, source, message, false);
+    }
+
+    /**
+     * Creates an event of type DS_PUSH_REQ when an error occurred.
+     *
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param source the uri of the sync source involved in the event
+     * @param message the error message
+     * @return the event of type DS_PUSH_REQ when an error occurred
+     */
+    public static Event createDSPushReqEventOnError(String userName  ,
+                                                    String deviceId  ,
+                                                    String sessionId ,
+                                                    String source    ,
+                                                    String message   ) {
+        return new PushFlowEvent(DS_PUSH_REQ, userName, deviceId, sessionId,
+                                 DS_ORIGINATOR, source, message, true);
+    }
+
+    /**
+     * Creates an event of type DS_PUSH_SENT.
+     *
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param source the uri of the sync source involved in the event
+     * @param message the error message
+     * @return the event of type DS_PUSH_SENT
+     */
+    public static Event createDSPushSentEvent(String userName  ,
+                                              String deviceId  ,
+                                              String sessionId ,
+                                              String source    ,
+                                              String message   ) {
+        return new PushFlowEvent(DS_PUSH_SENT, userName, deviceId, sessionId,
+                                 DS_ORIGINATOR, source, message, false);
+    }
+
+    /**
+     * Creates an event of type DS_PUSH_SENT when an error occurred.
+     *
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param source the uri of the sync source involved in the event
+     * @param message the error message
+     * @return the event of type DS_PUSH_SENT when an error occurred
+     */
+    public static Event createDSPushSentEventOnError(String userName  ,
+                                                     String deviceId  ,
+                                                     String sessionId ,
+                                                     String source    ,
+                                                     String message   ) {
+        return new PushFlowEvent(DS_PUSH_SENT, userName, deviceId, sessionId,
+                                 DS_ORIGINATOR, source, message, true);
+    }
+
+
+   /**
+    * @return true if the event is related to the InboxListener activity,
+    * false otherwise.
+    */
+    public boolean isIlCheckEvent() {
+        return IL_CHECK.equals(getEventType());
+    }
+
+   /**
+    * @return true if the event is related to the finding of new emails by the
+    * InboxListener, false otherwise.
+    */
+
+    public boolean isIlNewMailEvent() {
+        return IL_NEW_MAIL.equals(getEventType());
+    }
+
+   /**
+    * @return true if the event is related to a push sent by the InboxListener,
+    * false otherwise.
+    */
+
+    public boolean isIlPushEvent() {
+        return IL_PUSH.equals(getEventType());
+    }
+
+   /**
+    * @return true if the event is related to a push request prepared by the
+    * ds server, false otherwise.
+    */
+
+    public boolean isDsPushReqEvent() {
+        return DS_PUSH_REQ.equals(getEventType());
+    }
+
+   /**
+    * @return true if the event is related to the sending of the push by the 
+    * ds server, false otherwise.
+    */
+
+    public boolean isDsPushSentEvent() {
+        return DS_PUSH_SENT.equals(getEventType());
+    }
+}

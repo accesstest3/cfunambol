@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/31061/trunk/funambol/common/core-framework/src/test/java/com/funambol/framework/core
+END
+TestSensitiveData.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/test/java/com/funambol/framework/core/TestSensitiveData.java
+END
+DataStoreTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/31061/trunk/funambol/common/core-framework/src/test/java/com/funambol/framework/core/DataStoreTest.java
+END
+TestDevInf.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/30935/trunk/funambol/common/core-framework/src/test/java/com/funambol/framework/core/TestDevInf.java
+END
+TestMsgSizeCalculator.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/test/java/com/funambol/framework/core/TestMsgSizeCalculator.java
+END

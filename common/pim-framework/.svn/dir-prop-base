@@ -1,0 +1,16 @@
+K 10
+svn:ignore
+V 24
+target
+nbproject
+output
+
+K 13
+svn:mergeinfo
+V 294
+/branches/us4756/funambol/common/pim-framework:34252-34292
+/branches/us4836/funambol/common/pim-framework:34488-34610
+/branches/us5417/funambol/common/pim-framework:36647-36683
+/branches/us5418/funambol/common/pim-framework:36602-36659
+/branches/us5422/funambol/common/pim-framework:35155-35929
+END

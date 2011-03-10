@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/32646/trunk/funambol/modules/content-provider/content-provider-webapp/src/main/java/com/funambol/email/content
+END
+ContentProviderManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/core/!svn/ver/32646/trunk/funambol/modules/content-provider/content-provider-webapp/src/main/java/com/funambol/email/content/ContentProviderManager.java
+END
+ContentProviderUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/core/!svn/ver/30244/trunk/funambol/modules/content-provider/content-provider-webapp/src/main/java/com/funambol/email/content/ContentProviderUtil.java
+END
+ContentProviderException.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/core/!svn/ver/27993/trunk/funambol/modules/content-provider/content-provider-webapp/src/main/java/com/funambol/email/content/ContentProviderException.java
+END
+ContentProviderServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/core/!svn/ver/32646/trunk/funambol/modules/content-provider/content-provider-webapp/src/main/java/com/funambol/email/content/ContentProviderServlet.java
+END

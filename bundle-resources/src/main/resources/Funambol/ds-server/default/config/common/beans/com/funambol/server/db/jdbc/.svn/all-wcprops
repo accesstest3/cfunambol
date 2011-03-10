@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/db/jdbc
+END
+fnbluser.xml
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/db/jdbc/fnbluser.xml
+END
+fnblds.xml
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/db/jdbc/fnblds.xml
+END
+fnblcore.xml
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/db/jdbc/fnblcore.xml
+END

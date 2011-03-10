@@ -1,0 +1,25 @@
+<!--
+    Copyright (C) 2007 Funambol, Inc.  All rights reserved.
+-->
+<assembly>
+  <formats>
+    <format>tar.gz</format>
+    <format>zip</format>
+  </formats>
+  <fileSets>
+    <fileSet>
+      <includes>
+        <include>*.txt</include>
+        <include>LICENSE.txt</include>
+        <include>LICENSES/</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>target</directory>
+      <outputDirectory></outputDirectory>
+      <includes>
+        <include>*.jar</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</assembly>

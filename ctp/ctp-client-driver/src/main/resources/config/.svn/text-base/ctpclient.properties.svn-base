@@ -1,0 +1,16 @@
+#Authenticated user
+#Thu Aug 30 18:16:13 CEST 2007
+HOST=
+PORT=4745
+NONCE_user02=-G/^Y\#-7"".BwT4F
+NONCE_user03=user03
+DEVICEID_user02=deviceuser02
+NONCE_user01=*vEB220YFPmt1rOe
+DEVICEID_user01=deviceuser01
+DEVICEID_user03=deviceuser03
+PASSWORD_user02=user02
+PASSWORD_user01=user01
+PASSWORD_user03=user03
+USERNAME_user02=user02
+USERNAME_user01=user01
+USERNAME_user03=user03

@@ -1,0 +1,3 @@
+# Funambol Java Command Line Plug-in
+release.version=${funambol:jse-sdk.version}
+build.date=${today}

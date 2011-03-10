@@ -1,0 +1,10 @@
+#
+#Thu Aug 30 18:16:13 CEST 2007
+jdbc.driver=org.hsqldb.jdbcDriver
+jdbc.url=jdbc:hsqldb:hsql://localhost/funambol
+jdbc.user=sa
+jdbc.password=
+prefix=client01
+principal.first.id=50000
+first.id=1
+last.id=100

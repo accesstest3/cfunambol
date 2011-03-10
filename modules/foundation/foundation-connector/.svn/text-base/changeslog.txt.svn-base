@@ -1,0 +1,1009 @@
+2011-03-
+- matteo: delete propagation from client to server under configuration control
+
+2011-03-07
+- matteo: Fixed bug 10695 - Device stops syncing pictures even if max quota is 
+          not reached
+          
+2011-03-04
+- matteo: Fixed bug 10654 - DS Server - Contacts duplication
+
+2011-02-24
+- matteo: Merged from branch us5417 in order to support rotation on online storage
+
+2011-02-17
+- lulu: Merged from branch us5418 in order to support online storage
+
+2011-01-03 (2010-12-21 in branch us5484)
+- lulu: Added junits for testing contact's twin search.
+
+2011-01-03 (2010-11-24 in branch us5484)
+- lulu: Fixed unnamed contact twin search.
+        Added some junits on PIMContactDAO.class.
+
+2011-01-03 (2010-11-11 in branch us5484)
+- morresi: Changed twin detection algorithm according to guidelines in the 
+           KillDupes wikka page
+
+------------------------------------
+Funambol Foundation Connector 9.0.0
+------------------------------------
+2010-12-15
+- testa: Fixed bug #10460 - ERROR message logged when the quota is reached but
+         it is not an error. Added parameter 'silent' to Exception
+
+2010-10-15
+- lulu: Removed SizeConverter class and added converterStringSizeInBytes(..)
+        method in StringTools class in order to converter a String that
+        represents a size into bytes.
+
+2010-09-21
+- machi: Implemented resume media upload.
+         Added upload_status column into fnbl_file_data_object table to store
+         the status of the media upload.
+
+2010-08-02
+- testa: avoid to compute the user directory path more than once for session
+
+2010-07-20
+- testa: Moved property fileSysDirDepth and method getQuotaPerUser to the
+         FileDatObjectSyncSourceConfig class
+
+2010-07-16
+- morresi: Removed idspace property from FileDatObjectSyncSource xml
+           configuration file.
+
+2010-07-15
+- morresi: Reattacched separate syncsource configuration file to the main
+           SyncSource file
+
+2010-07-14
+- morresi: Detached configuration of FileDataObjectSyncSource in a separate
+           xml file
+
+2010-07-09
+- morresi: Improved PIMCalendarDaoTest and PIMNoteDaoTest junit in
+           order to use the DBHelper class.
+
+2010-07-08
+- testa: Improved PIMContactDAOTest junit in order to use the DBHelper class.
+
+2010-07-08
+- lulu: Improved FoundationContactProviderTest and ConfigManagerTest junit in
+        order to use the DBHelper class.
+
+------------------------------------
+Funambol Foundation Connector 8.7.0
+------------------------------------
+2010-07-05
+- testa: Fixed bug 9637 - during the sync, the free size displayed on the portal
+         refers to the value that will be available at the end of the sync and
+         not to the current free size.
+
+- lulu: Added SyncSourceUtil.class that contains usefull methods to call in the
+        SyncSources.
+        Fixed bug #9627 - Calendars and Tasks first sync, after upgrade from
+        v8.5, fails if items are received from server.
+        Changed PIMContactSyncSource class in order to call
+        SyncSourceUtil.getContactPreferredType(..) to retrieve the preferred
+        content type.
+        Changed PIMNoteSyncSource class in order to call
+        SyncSourceUtil.getNotePreferredType(..) to retrieve the preferred
+        content type.
+
+2010-07-01
+- testa: Fixed bug 9588 - Pictures deleted on the portal are not readded when a 
+         reset is performed on the client.
+
+2010-06-14
+- testa: In the file data object config file the max file sizes for quota can 
+         be expressed as 1G, 3.4M ecc.
+
+2010-06-13
+- testa: In the file data object admin panel sizes for quota can be expressed 
+         as 1G, 3.4M ecc.
+
+2010-06-11
+- nichele: Renamed fnbl_file_data_object.size in fnbl_file_data_object.object_size
+           since "size" is a keyword in oracle
+
+2010-06-11
+- testa: If the quota has been already exceeded, the free space sent to the client 
+         is set to zero evan if actually it is negative.
+
+2010-06-10
+- morresi: Added the role quota management in the file data object admintool panel
+
+2010-06-03
+- nichele: PIMContactDAO: removed "AS" used in the queries to specify table alias
+           since Oracle doesn't support it.
+- nichele: Reviewed query used to perform contact twins search
+
+2010-06-02
+- nichele: Removed in the DAOs some clauses "limit 1" since they don't work
+           with Oracle and since they are not needed (queries done specifying
+           the id always return or 0 or 1 record)
+2010-06-01
+- testa: The storage quota refers to the user's role
+
+2010-05-28
+- machi: Refactored the logic that provides logging upon the creation of the folder
+         where user's pictures are stored. 
+         Added some junits about the log handling upon the creation of the folder
+         where user's pictures are stored.
+
+2010-05-27
+- testa: The File Data Object Sync Source sends to the desktop client only
+         items with a coherent size and size_on_storage.
+
+------------------------------------
+Funambol Foundation Connector 8.5.3
+------------------------------------
+2010-05-27
+- machi: Corrected a typo in the copyright
+- machi: fixed Bug 8813  - First user signup receives 'Unknown exception in 
+         picture handling' error popup.
+         The bug was caused by an exception thrown upon the failure in the creation
+         of the user directory used to store pictures. In order to avoid that,
+         - the path of the user directory is normalized (removing properly '..' 
+         and '.') before proceeding to create it.
+         - if the directory doesn't exist, the creation call of mkdirs method is 
+         performed inside a block synchronized using a ReentrantLock.
+         - if the creation of the directory fails, an exception is thrown if and
+         only if the directory doesn't exist.
+         Added multithread junit in order to test concurrent creation of user
+         directory.  
+         Removed dependencies from the commons-io api since the sapi don't have
+         the right jar version in the classpath.
+ 
+2010-05-26
+- testa: Added new field 'size_on_storage' in the fnbl_file_data_object table
+         Changed filed 'size' to bigint
+
+2010-05-20
+- machi: Added rootPath normalization in the FileSystemDAOHelper in order to avoid
+         issues caused by the presence of '..' in the folder path
+         Added some logs to the FileSystemDAOHelper class in order to log information
+         before throwing an exception when failing to create the user dir.
+
+2010-05-07
+- testa: Added an overloaded method saveTmpFile in the FileSystemDAOHelper with
+         a check on the fileSize. 
+
+2010-04-27
+- testa: Added parameter id to the FileDataObjectManager's addItemBody method.        
+
+2010-04-15
+- testa: Added the method to remove expired incomplete items inserted by
+         sync of only file data object metadata.
+ 
+2010-04-14
+- alfredo: Metadata sync for improved file data object sync:
+           - split the responsability of metadata and body management in 
+             updateItem and addItem methods.
+           - exclude from sync the incomplete items
+
+2010-02-17 (2010-02-17 in branch us1680)
+- testa: The user folder path creation is more robust for user names with
+         special characters.
+
+------------------------------------
+Funambol Foundation Connector 8.5.2
+------------------------------------
+2010-04-12
+- maria: Updated Dependencies
+
+------------------------------------
+Funambol Foundation Connector 8.5.1
+------------------------------------
+2010-03-30
+- maria: Updated Dependencies
+
+------------------------------------
+Funambol Foundation Connector 8.5.0
+------------------------------------
+2010-02-17 
+- machi: Fixed the checking on twin search feasibility for events/tasks since
+         for events we need at least one among dtStart and dtEnd to perform the 
+         twin search while for task we only consider summary and dueDate.
+
+2010-02-11 (2010-02-11 in branch us1680)
+- testa: The file data object items idSpace name is configurable.
+
+2010-02-10
+- testa: Set the default dir depth to 8
+
+2010-02-08 (2010-02-08 in branch us1680)
+- testa: Added method getFreeStorageSpace to FileDataObjectManager class.
+         Added methods getFileRelativePath and getEXTFolderRelativePath to
+         FileSystemDAOHelper class.
+
+2010-02-05 (2010-02-03 in branch us1680)
+- testa: Remove the tmp files still present at the end of the sync
+         Remove tmp files older than 24h at the and of the sync.
+
+2010-01-28 (2010-01-28 in branch us1680)
+- testa: Added releaseResources() method in FilaDataObjectManager class.
+
+2010-01-21 (2010-01-20 in branch us1680)
+- nichele: Improved FileDataObjectSyncSource in order to use OPAQUE DATA (embedded
+           in a CData section by the server).
+           Reviewed FDO classes in order to use new SyncItem implementations.
+           
+2010-01-21 (2010-01-17 in branch us1680)
+- nichele: Added "ext" dir support. Ext dir can be used to store additional information
+           about a synchronized file.
+
+2010-01-21 (2010-01-06 in branch us1680)
+- testa: Refactoring: moved the CRC management from class
+         DataBaseFileDataObjectMetadataDAO to FileDataObjectBody.
+         Refactoring: extracted and moved the readData method from class
+         FileSystemFileDataObjectBodyDAO to FileSystemDAOHelper
+
+2010-01-21 (2010-01-05 in branch us1680)
+- testa: The FileSystemDAOHelper constructor creates the user directory and
+         throws an IOException if it is unamble to create it.
+         Also the FileSystemFileDataObjectBodyDAO, FileDataObjectDAO,
+         FileDataObjectManager and FDOStreamingSyncItemFactory constructors
+         throw an IOException if the FileSystemDAOHelper is not created.
+         Refactoring: renamed method fileHandler in getFile, method
+         userFolder in getFolder, method userFilePath in getPath, method
+         createPath in computeUserFolderPath and added method getUserFolderPath.
+         Removed method checkFolderReady from FileSystemFileDataObjectBodyDAO.
+
+2009-12-26 (2009-12-23 in branch us1680)
+- testa: Changed the error message in case the quota has been exceeded to
+         "free/max".
+
+2009-12-26 (2009-12-22 in branch us1680)
+- testa: A DeviceFullException is thrown if the user's quota has been exceeded
+
+2009-12-23
+- machi: Fixed Bug 8257 - During a sync, items not acceptable for twins search must
+         be rejected.
+         Reviewed the PIMCalendarDAO class in order to handle differences between
+         Event and Task, to consider properties without applying any conversion and
+         to handle empty properties.
+         Added/fixed junit methods according to changes to the dao class.
+         Fixed documentation on the PIMNoteDAO.
+
+2009-12-22
+- machi: Fixed Bug 8257 - During a sync, items not acceptable for twins search 
+         must be rejected 
+         Updated the PIMNoteSyncSource, PIMContactSyncSource and 
+         PIMCalendarSyncSource in order to reject the adding of items that don't 
+         contain any field used for the twin search.
+         Updated the manager and dao layer to skip the twin search for items that
+         don't contain any field used for the twin search and for checking if
+         an item can be added at the sync source level.
+         Added JUnit tests for the new added methods.
+         Fixed some JUnit of the note sync source.
+
+
+2009-12-18 (2009-12-07 in branch us1680)
+- testa: Extracted class FileSysetmDAOHelper from FileSystemFileDataObjectBodyDAO
+         Use the FDOStreamingSyncItemFactory to create SyncItems.
+
+2009-12-18 (2009-11-29 in branch us1680)
+- testa: Added methods cloneItem and copy to FDOStreamingSyncItem.
+
+2009-12-18 (2009-11-24 in branch us1680)
+- testa: Added FDOStreamingSyncItem and FDOStreamingSyncItemFactory
+         The method getRawContentFromSyncItem in FileDataObjectSyncSource manage
+         StreamingSyncItems.
+
+2009-12-18 (2009-11-19 in branch us1680)
+- testa: FileDataObjectSyncSource implements StreamingSyncSource.
+         Added FDOSyncItemOutputStream class.
+
+------------------------------------
+Funambol Foundation Connector 8.2.6
+------------------------------------
+2009-12-04
+- maria: Updated dependencies
+
+------------------------------------
+Funambol Foundation Connector 8.2.5
+------------------------------------
+2009-11-23
+- maria: Updated dependencies
+
+------------------------------------
+Funambol Foundation Connector 8.2.4
+------------------------------------
+2009-11-19
+- machi: Fixed the PIMEntityDAO in order to avoid to set the mileage to null
+         when updating a Task/Event
+         Added the handling of the Status property for the Task object in the
+         PIMEntityDAO, it will be stored as meetingStatus value.
+         Moved the test resources inside the proper directory.
+         UPdatet the PIMCalendarDAO in order to avoid to save 0 as default for
+         the meetingStatus 
+
+------------------------------------
+Funambol Foundation Connector 8.2.3
+------------------------------------
+2009-11-11
+- testa: Fixed bug 8079 - exception during "one way from server" sync of the
+         file data object sync source.
+         Removed from the parent class PIMEntityManager the reference to the
+         PIMEntityDAO and use instead the abstract method getEntityDAO()
+         implemented by each child PIMContactManager, PIMCalendarManager,
+         PIMNoteManager and FileDataObjectManager.
+         Changed the default max file size to 50 Mb.
+         Reviewed queries to get changed items forcing an order
+         (added order by id) in DataBaseFileDataObjectMetadataDAO since
+         otherwise automatic tests could fail
+
+2009-11-10
+- nichele: Reviewed queries to get changed items forcing an order
+           (added order by id) in PIMContactDAO, PIMCalendarDAO, PIMNoteDAO since
+           otherwise automatic tests could fail
+           
+------------------------------------
+Funambol Foundation Connector 8.2.2
+------------------------------------
+2009-11-02
+- maria: Updated dependencies
+
+------------------------------------
+Funambol Foundation Connector 8.2.1
+------------------------------------
+2009-10-09
+- maria: Updated dependencies
+
+------------------------------------
+Funambol Foundation Connector 8.2.0
+------------------------------------
+2009-09-20
+- nichele: Merged improvements from v8 branch:
+           Improved modification lists handling. Instead of performing 3 different
+           queries to get NEW, UPDATED, DELETED items, just one query is performed.
+           This approach is better since:
+           - in any case the server asks for NEW, UPDATED, DELETED items in a row
+             keeping the lists in memory
+           - usually a sync is performed with just few modifications
+           - 1 query is better than 3 since DB load
+
+2009-09-01
+- lulu: Fixed bug #7745 - MySQL issue: it seems is not using some of the indexes
+
+2009-06-12
+- lulu: Moved default queries from PSDeviceInventory.xml to 
+        ConfigPersistentStore class (this xml configuration file exists in more
+        components for testing and so it's difficult to handle it rightly).
+
+2009-06-11
+- lulu: Updated ConfigManager class since now the ConfigItem object is based on
+        username besides the sync4jPrincipal.
+
+2009-06-05
+- mauro: Implemented storage quota per user (equal for all users of the sync 
+         source).
+
+2009-06-05
+- testa: The nested directories depth is configurable between 0 and 8.
+
+2009-06-05
+- mauro: Implemented management of file size limit.
+
+2009-06-05
+- testa: The data object syncsource files are stored in nested directories.
+
+2009-06-05
+- mauro: Moved local-time-to-UTC conversion into the file data object parser.
+
+2009-05-19
+- fabius: Fixed bug #7021 Contacts with just display name and phone number
+          are duplicated at every slow sync
+          (added display name in twin search)
+
+2009-04-30
+- testa: bug fix: retrieve the local file name while updating the item
+         bug fix: convert the local time dates in UTC using the device timezone
+         Added index ind_file_data_object on table fnbl_file_data_object
+
+2009-04-17
+- mauro: Random generation of file names in FileSystemFileDataObjectBodyDAO.
+
+2009-04-16
+- mauro: Refactoring:
+         - renamed FileDataObjectDataBaseDAO into
+           DataBaseFileDataObjectMetadataDAO as implementation of
+           FileDataObjectMetadataDAO
+         - renamed FileDataObjectFilesystemDAO into
+           FileSystemFileDataObjectBodyDAO as implementation of
+           FileDataObjectBodyDAO
+
+2009-04-16
+- testa: Refactoring:
+         - renamed PIMDBAccessException into DAOException
+         - renamed PIMEntityDAO in EntityDAO
+         - substituted call to method EntityDAO truncate with stringUtils.left
+         - moved methods from EntityDAO to Properties
+         - moved methods: getAllItems, removeItem, removeAllItems,
+         - getItemState and getItemsHavingStatus to the parent class EntityDAO
+
+2009-04-06
+- mauro: Extended FileDataObject to include all data prescribed by the OMA
+         specification.
+
+2009-04-02
+- piter: Added file data object syncsource. This source stores:
+         - in the database table fnbl_file_data_object all the synchronization data
+         - in the filesystem the whole xml file data object document
+
+         Database modifications:
+         - added table fnbl_file_data_object
+         - added source type for file data object (fdo-foundation) to the foundation
+           connector
+
+- piter: Refactoring:
+         - moved common properties pim wrapper classes to the new
+           parent class EntityWrapper.
+         - added DBAccessException to represent exception thrown by generic sync
+           sources not strictly related to pim (eg: file data object sync source).
+           Now PIMDBAccessException inherits from DBAccessException.
+         - added EntityDAO used by sources not strictly related to pim (eg: file
+           data object sync source).
+           Now PIMEntityDAO inherits from EntityDAO.
+
+2009-03-09
+- lulu: Added support for extended address field of the contacts item.
+        Changed fnbl_pim_address table adding the new column extended_address.
+
+------------------------------------
+Funambol Foundation Connector 7.1.0
+------------------------------------
+2009-01-30
+- nichele: Fixed bug #6742: Missing database index on fnbl_pim_calendar
+
+------------------------------------
+Funambol Foundation Connector 7.1.0
+------------------------------------
+2009-01-25
+- nichele: Fixed bug #6701: Missing database indexes:
+               - fnbl_push_listener_registry(status)
+               - fnbl_push_listener_registry(last_update, status)
+               - fnbl_pim_listener_registry(username)
+
+2009-01-05
+- lulu: Fixed bug #6592 - Failed to install the Funambol Server ComEd with MySQL
+       (Failed to execute: create table fnbl_pim_note)
+
+2008-12-19
+- mauro: Fixed bug #6549 (OW 310951): The server doesn't support week days
+         recurring events
+
+2008-12-18
+- mauro: Implemented automatic search of preferred type (SIF-N/plain text) on the
+         basis of DevInf.
+
+2008-12-10
+- mauro: Implemented automatic search of preferred type (vCalendar/iCalendar/SIF-T/
+         SIF-E) on the basis of DevInf.
+
+2008-12-05
+- mauro: Implemented automatic search of preferred type (vCard/SIF-C) on the
+         basis of DevInf.
+- mauro: Minor layout change in PIM Contact Sync Source config panel:
+         "Type" is now "Default type".
+
+2008-11-10
+- mauro: Fixed bug #6230: Not all fields in SIF-C have an equivalent vCard property.
+
+2008-10-14
+- mauro: Minor layout change in PIM Calendar Sync Source config panel:
+         "Type" is now "Default type".
+
+2008-10-09
+- lulu: Fixed bug #6069 - Contacts with only work or home email get duplicated
+        at each slow sync.
+        Changed the policy to search contact twins when a contact has first name,
+        last name, company and email null or empty but it has email home address
+        and/or email work address set. In this case, email home and/or email work
+        will be used to find twin in order to avoid duplicated.
+
+2008-10-08
+- mauro: Implemented automatic search of preferred type (vCalendar/iCalendar) on the
+         basis of DevInf.
+
+2008-09-25
+- mauro: Added iCalendar 2.0 sync sources (cal20, event20, task20)
+
+2008-09-23
+- nichele: Updated dependencies.
+
+2008-09-05
+- testa: Fixed bug #5933: Error while synching notes containing a null character.
+         Changed column name in table fnlb_pim_note from "hash" to crc.
+         Changed crc column type from varchar to bigint.
+         Use SourceUtils.computeCRC() method to calculate crc.
+
+2008-08-22
+- piter: improved twin detection by using an hash calculated on the body of the note.
+         Added column hash (varchar(255)) to fnbl_pim_note to support twin detection.
+- piter: in PIMNoteDaoIMPL added limitation on the size of the following columns
+         of table fnbl_pim_note: subject, textdescription, folder, categories.
+         Changed types of corresponding columns in table fnbl_pim_note
+         (subject varchar(255), textdescription varchar(65535), categories varchar(255),
+         folder  varchar(255)).
+
+
+------------------------------------
+Funambol Foundation Connector 7.0.6
+------------------------------------
+- nichele: Fixed bug #5685: Merge occurs for two contacts with no FirstName,
+           LastName, Email or CompanyName.
+
+------------------------------------
+Funambol Foundation Connector 7.0.5
+------------------------------------
+2008-07-18
+- nichele: Updated to pim-framework 7.0.5.
+
+------------------------------------
+Funambol Foundation Connector 7.0.4
+------------------------------------
+2008-07-15
+- nichele: Updated to pim-framework 7.0.4.
+- nichele: Fixed bug #5585 - duplicate SIFNoteSource.xml under config directory
+
+2008-07-14
+- piter: If one of the following properties of a note: color, height, width,
+         top, left is empty then the null value is inserted into corresponding
+         column of the fnbl_pim_note table.
+
+------------------------------------
+Funambol Foundation Connector 7.0.3
+------------------------------------
+2008-06-30
+- testa: The twin search into the db for Events with an empty EndDate use the
+         Start Date value as per fix for Siemens S56 in updateItem method
+
+------------------------------------
+Funambol Foundation Connector 7.0.2
+------------------------------------
+2008-06-26
+- testa: Removed the start date from the fields used to detect and retrieve the
+         twins for task items.
+
+2008-06-18
+- lulu: Changed the policy to search contact twins. Now, if the first name and
+        last name are empty (or null), also the company value is used together
+        with the email address.
+        If first and last name are not empty (or not null), then the company
+        field is not considered.
+
+2008-06-17
+- lulu: Changed the policy to search contact twins: used also company field.
+
+2008-06-11
+- lulu: Added junit test cases for ConfigManager.
+- lulu: Fixed NumberFormatException during the getting of ConfigItem with the
+        given state and updated between since and to timestamp.
+
+2008-06-04
+- lulu: Added convertDateToLocal property in the PIMSyncSource in order to
+        handle the convertion of the dates in local time based on the
+        convert date policy and not only if the timezone is set for the device.
+- lulu: Updated PIMCalendarSyncSource.calendar2webCalendar(..) in order
+        to use the new constructor of the VCalendarConverter that required as
+        parameter the convertDateToLocal to convert the Calendar object model
+        into a VCalendar string.
+        Updated the junit test cases for PIMCalendarSyncSource.
+- lulu: Updated PIMCalendarDAO in order to set the RecurrencePattern timezone
+        in the item gets from the datastore.
+
+2008-05-28
+- piter: renamed sources used in notes synchronization (and their uri); for sif
+         format from sifnote to snote, for plain format from plainnote to note
+         (old note and snote sources has been removed).
+- piter: only if funambol is in debug mode it is possible to log messages with
+         sensitive data during notes synchronization.
+
+2008-05-17
+- nichele: Merged with v6.6 code
+- nichele: Introduced new database architecture in v7
+- nichele: Reviewed test cases in order to support new database architecture
+
+------------------------------------
+Funambol Foundation Connector 7.0.1
+------------------------------------
+2008-05-06
+- diogo: Fixed SQL_GET_NOTE_TWIN_ID_LIST query in Notes DAO,
+         it wasn't compatible with PostgreSQL
+
+2008-05-05
+- piter: Updated mysql and postgres create_schema.sql
+
+2008-05-02
+- diogo: Fixed bug: Notes are duplicated on PPc and on
+         Server after slow sync
+
+- diogo: Fixed bug: Notes are not correctly displayed on PPc,
+         now while creating syncitem to send to the client, now we also set the subject
+         with the 1st line of the description field
+
+2008-04-30
+- piter: Added handling of empty fields for plain text notes devices: when a note
+         with empty body is sent to a device, body content is replaced with the
+         string EMPTY_BODY_STRING; when a note is received from a device and its
+         body is the EMPTY_BODY_STRING then body content is replaced wiht the
+         empty string
+
+2008-04-28
+- piter: Implemented merging of the notes
+
+2008-04-24
+- piter: Added synchronization of the following outlook specific fields: Folder,
+         Categories, Color, Height, Width, Left, Top.
+         Updated create table statement for hsql database, with the addition of
+         the following columns to the fnbl_pim_note table to support synchronization
+         of the previous fields: folder, categories, color, height, width, top,
+         leftmargin
+- piter: Added support for notes in pim listener. Added column push_notes to the
+         create table statement for table fnbl_pim_listener_registry
+
+2008-04-09
+- paulo: Added notes synchronization with database, for plain/text and sif-n formats
+
+2008-04-08
+- diogo: Fixed bug: Task duplicates after slow sync
+
+2008-01-25
+- lulu: Now, only if funambol is in debug mode it is possible to log messages
+        with sensitive data.
+
+2008-02-21
+- testa: Updated to funambol:ds-server:7.0.0-SNAPSHOT
+
+2008-02-20
+- piter: Added constructors to the PIMContactManager, PIMContactDAO, PIMEntityDAO
+         classes that accept a DataSource object as a parameter
+- piter: Added com.funambol.foundation.provider.ContactProvider interface and
+         FoundationContactProvider to provide convenient methods to be used by
+         connectors filtering
+
+------------------------------------
+Funambol Foundation Connector 6.6.0
+------------------------------------
+
+2008-04-04
+- nichele: Set in the AbstractFileSystemSyncSource 'jdbc/fnblcore' as default jndi datasource name.
+- nichele: Reviewed database access to support core and user database separation.
+- nichele: Deprecated almost all the constructors with the jndiDataSourceName as parameter.
+
+2008-03-27
+- nichele: Reviewed DAOs in order to mark as read-only the connections used to
+           perform only 'select'.
+
+
+------------------------------------
+Funambol Foundation Connector 6.5.12
+------------------------------------
+
+2008-02-19
+- nichele: Updated to funambol:ds-server:6.5.14 and to funambol:pim-framework:6.5.8
+
+
+------------------------------------
+Funambol Foundation Connector 6.5.11
+------------------------------------
+
+2008-02-05
+- nichele: Updated to funambol:ds-server:6.5.13
+
+2008-01-21
+- lulu: Now, only if funambol is in debug mode it is possible to log messages with
+        sensitive data.
+
+
+------------------------------------
+Funambol Foundation Connector 6.5.10
+------------------------------------
+
+2007-12-07
+- nichele: Updated to funambol:ds-server:6.5.12
+
+
+-----------------------------------
+Funambol Foundation Connector 6.5.9
+-----------------------------------
+
+2007-11-29
+- nichele: Changed VCard converter in order to avoid to exclude the CHARSET in the
+           PHOTO.
+
+2007-11-28
+- nichele: Changed license to AGPLv3.
+
+
+
+-----------------------------------
+Funambol Foundation Connector 6.5.8
+-----------------------------------
+
+2007-11-23
+- nichele: Modified PIMContactSyncSource in order to avoid sending contacts with
+           photo as default behavior. The photos are sent just if the sourceQuery
+           contains 'photo=true'. This is done since a lot of phones are not able
+           to perform a sync if the server sends back the contacts with the photo
+           since the contacts are too big and:
+           1. or the phone is not able to  handle in the right way the large object
+           2. or the contacts are discharged by the server since the phone doesn't
+              support large object and the max msg size is too small.
+
+2007-11-21
+- nichele: Updated dependencies
+
+
+-----------------------------------
+Funambol Foundation Connector 6.5.7
+-----------------------------------
+
+2007-11-14
+- nichele: Updated dependencies
+
+
+-----------------------------------
+Funambol Foundation Connector 6.5.6
+-----------------------------------
+
+2007-10-25
+- lulu: Fixed PIMContactManager.mergeItems() in order to handle also the
+        contact's photo.
+
+
+-----------------------------------
+Funambol Foundation Connector 6.5.5
+-----------------------------------
+
+2007-10-19
+- nichele: Added support to photos in the contacts reviewing also the db in order
+           to store them (added table fnbl_pim_contact_photo and changed fnbl_pim_contact)
+
+2007-10-18
+- nichele: Upgraded to funambol:pim-framework:6.5.3
+
+
+-----------------------------------
+Funambol Foundation Connector 6.5.4
+-----------------------------------
+
+2007-10-15
+- nichele: Downgraded to funambol:pim-framework:6.5.3
+
+2007-10-11
+- lulu: Fixed issue updating recurring events
+
+2007-10-10
+- nichele: Reviewed PIMSyncSource in order to change the policy about conversion
+           dates. These are the followed roles:
+            - if device.getConvertDate is equal to ConvertDatePolicy.CONVERT_DATE, and the
+              timezone is not null, the dates are converted;
+            - if device.getConvertDate is equal to ConvertDatePolicy.UNSPECIFIED, the device
+              doesn't support UTC (from its capabilities), and the timezone is not null,
+              the dates are converted;
+            - otherwise no conversion is performed.
+
+2007-10-07
+- nichele: Upgraded to funambol:pim-framework:6.5.3
+
+
+-----------------------------------
+Funambol Foundation Connector 6.5.3
+-----------------------------------
+
+2007-10-07
+- nichele: Upgraded to funambol:ds-server:6.5.4
+
+
+-----------------------------------
+Funambol Foundation Connector 6.5.2
+-----------------------------------
+
+2007-09-25
+- nichele: Increased fnbl_pim_listener_registry.username to varchar(255)
+- nichele: Fixed a log message in PIMContactSyncSource.createSyncItem
+
+2007-09-22
+- nichele: Upgraded to:
+           - funambol:pim-framework:6.5.2
+           - funambol:core-framework:6.5.2
+           - funambol:server-framework:6.5.3
+           - funambol:ds-server:6.5.3
+
+
+-----------------------------------
+Funambol Foundation Connector 6.5.1
+-----------------------------------
+
+2007-08-29
+- nichele: Removed field 'id_push_listener' from 'fnbl_push_listener_registry'
+           because with the new cluster architecture is not used anymore
+
+2007-08-17
+- ste: Removed use of deprecated API in com.funambol.server.tools.id
+- ste: Replaced use of ProtocolUtil with CoreUtil
+- ste: Renamed 'bean' in 'config'
+- ste: Mavenized
+
+
+-----------------------------------
+Funambol Foundation Connector 6.5.0
+-----------------------------------
+
+2007-07-25
+- lulu: Now the Reminder time follows the start and end dates convention
+        relative to the all day calendar. So if the all day flag is on then it
+        has to be interpreted as a local time (else it is interpreted in UTC).
+
+2007-07-19
+- lulu: Added support to MySQL
+
+2007-06-26
+- piter: Changed drop_schema.sql script for postgres for compatibility with
+         database version 8.1
+
+2007-06-25
+- lulu: Changed PIMContactDAO in order to save IMAddress field.
+- lulu: Added the handling of the tasks without both description and subject.
+
+2007-06-22
+- piter: Changed drop_schema.sql scripts in order to avoid errors during first
+         time installation.
+
+2007-06-22
+- lulu: Added trim before converting a string in date
+
+2007-06-21
+- lulu: Renamed VCal into vCalendar and ICal into iCalendar in the type list of
+        the calendar sync sources admin panel.
+
+2007-06-20
+- lulu: Changed PIMItemsHandler to handle the Item size. It has been also
+        modified to log the dimension of the items lists at the end of the
+        input/output cycle used to extract items from message.
+
+2007-06-18
+- lulu: Updated Funambol copyright
+
+
+-----------------------------------
+Funambol Foundation Connector 6.0.6
+-----------------------------------
+
+2007-06-11
+- mauro: Changed behaviour with empty PIM data: zero-length contact and
+         calendar items are not saved as empty items on the DB; they raise
+         a "No data" exception instead, thus letting the server skip them
+         and process only the other ones.
+
+
+-----------------------------------
+Funambol Foundation Connector 6.0.5
+-----------------------------------
+
+2007-06-04
+- mauro: Improved the update of task completion percentage to deal correctly with
+         tasks lacking the percentComplete property.
+
+2007-05-31
+- mauro: Corrected the task update method to match the add method in the treatment
+         of tasks lacking the percentComplete property.
+
+
+-----------------------------------
+Funambol Foundation Connector 6.0.4
+-----------------------------------
+
+2007-05-28
+- nichele: Upgraded to common-pim 6.0.4
+2007-05-28
+- mauro: Fixed case bug in the calendar update SQL query.
+
+
+-----------------------------------
+Funambol Foundation Connector 6.0.3
+-----------------------------------
+
+2007-04-18
+- mauro: Fixed usage of character sets while converting calendar items.
+- mauro: Fixed usage of time zones while converting contact items.
+
+
+-----------------------------------
+Funambol Foundation Connector 6.0.2
+-----------------------------------
+
+2007-04-13
+- lulu: Added method into BeanShellSynclet to evaluate init() method of the
+        synclets: the init() is used to initialize Map used to add empty tokens.
+- nichele: Changed wrong module description from "Funambol Foundation Connector"
+           to "Foundation" (in the init_schema.sql script files)
+
+2007-04-10
+- mauro: Changed the policy of the contact DAO about the reminder time triggers:
+         when a start date is set, the relative time trigger prevails over the
+         absolute time trigger at add and update time.
+
+2007-04-06
+- mauro: Fixed order of fields in the contact update query.
+
+2007-04-05
+- mauro: Made the DTEND roll-back more robust for all-day events ending the
+         same day they start. In that case, a DTEND being the same as the
+         DSTART will be accepted, even though it should have been set to
+         the day after according to the vCalendar/iCalendar specifications.
+
+-----------------------------------
+Funambol Foundation Connector 6.0.1
+-----------------------------------
+
+2007-03-21
+- mauro: Introduced lenient twin search for tasks in the DAO.
+
+2007-03-20
+- mauro: Added correct management of field OtherTelephoneNumber,
+         RadioTelephoneNumber and TelexNumber in the contact DAO.
+- mauro: Implemented empty-record check on the contact address items at add and
+         update time.
+
+2007-03-17
+- nichele: Changed policy used in event twins search: used subject instead of
+           location field
+
+2007-03-16
+- mauro: Added support of the OtherFaxNumber contact item in the DAO.
+
+2007-03-14
+- mauro: Added support of a few other contact items in the DAO.
+
+2007-03-11
+- nichele: Increased fnbl_pim_contact.userid and fnbl_pim_calendar.userid size
+           (to 255 like fnbl_user.username)
+- nichele: Added index on fnbl_pim_contact (userid, last_update, status)
+- nichele: Added index on fnbl_pim_calendar (userid, last_update, status)
+- nichele: Added index on fnbl_push_listener_registry (id_push_listener, last_update, status)
+
+2007-03-05
+- nichele: Fixed an issue with task twins search using postgresql
+
+2007-03-02
+- lulu: Modified updateItem method to handle the "" date
+
+2007-02-23
+- mauro: Implemented full support of sensitivity in the DAO for calendar data.
+
+2007-02-20
+- mauro: Changed PIMCalendarSyncSource behaviour: a new unified VComponentWriter
+         is used to produce all vCalendar/iCalendar data.
+- mauro: Added parameter CHARSET in QP-encoded fields when producing
+         vCalendar/iCalendar data.
+
+2007-02-19
+- mauro: Added field "folder" also for calendar data (in the DAO and in the DB).
+
+2007-02-15
+- lulu: Removed wrong instance variable from SourceUriPrefixSynclet and
+        ChangeSourceUriSynclet because there is just one PipelineManager so the
+        synclets can not store their state in instance variables. They must use
+        MessageProcessingContext as "repository"
+- mauro: Changed DAO behaviour: contact address items are no more added when
+         empty, although they're still set to an empty string if they were
+         already present in the DB but have been deleted.
+
+2007-02-13
+- mauro: Fixed bug 306274 Bug in com.funambol.foundation.pdi.event.RecurrencePattern
+
+
+-----------------------------------
+Funambol Foundation Connector 6.0.0
+-----------------------------------
+
+Main features:
+- Used database as datastore for contact and calendar pim data
+- Added support to vTodo
+- Improved vCard/vCal/iCal support with the new common pim library
+- Added support to recurrence exceptions

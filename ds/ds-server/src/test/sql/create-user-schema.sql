@@ -1,0 +1,5 @@
+--
+-- Script to create the user engine database.
+--
+-- @version $Id: create-user-schema.sql 34393 2010-05-04 16:45:30Z luigiafassina $
+--

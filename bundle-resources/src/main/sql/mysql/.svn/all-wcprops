@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/core/!svn/ver/36124/trunk/funambol/bundle-resources/src/main/sql/mysql
+END
+init_engine.sql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/core/!svn/ver/29684/trunk/funambol/bundle-resources/src/main/sql/mysql/init_engine.sql
+END
+create_engine.ddl
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/core/!svn/ver/36124/trunk/funambol/bundle-resources/src/main/sql/mysql/create_engine.ddl
+END
+drop_engine.ddl
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/core/!svn/ver/29683/trunk/funambol/bundle-resources/src/main/sql/mysql/drop_engine.ddl
+END

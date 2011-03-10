@@ -1,0 +1,73 @@
+10
+
+dir
+36744
+https://core.forge.funambol.org/svn/core/trunk/funambol/ctp/ctp-server/src/main/resources/LICENSES
+https://core.forge.funambol.org/svn/core
+
+
+
+2007-11-28T14:36:23.000000Z
+21424
+nichele
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+e8e8ed6c-164c-0410-afcf-9e9a7c7d8c10
+
+pmd
+dir
+
+Ant
+dir
+
+slf4j
+dir
+
+mina
+dir
+
+jdom
+dir
+
+JGroups
+dir
+
+xpp3
+dir
+
+BouncyCastle
+dir
+
+Jibx
+dir
+
+vmtools
+dir
+
+axis
+dir
+
+bcel
+dir
+
+joda-time
+dir
+
+bsf
+dir
+
+Commons
+dir
+

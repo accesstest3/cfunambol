@@ -1,0 +1,41 @@
+Received: by 10.82.116.13 with SMTP id o13cs8615buc;
+        Thu, 1 Feb 2007 04:34:50 -0800 (PST)
+Date: Thu, 1 Feb 2007 13:23:22 +0100
+From: Jhon Hazewinkel <dest2@gmail.com>
+Reply-To: GroupName@yahoogroups.com
+To: GroupName@yahoogroups.com
+Message-ID: <08303906-F1D7-442A-A13F-AC2DAAB0FC9D@gmail.com>
+Subject: Re: [GroupName] Re: Pim 2 DB help?
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+HI,
+
+On Jan 31, 2007, at 3:39 PM, ramorius wrote:
+> --- In GroupName@yahoogroups.com, Jhon Hazewinkel <dest2@...>
+> wrote:
+>> On Jan 30, 2007, at 11:34 PM, ramorius wrote:
+>>> --- In GroupName@yahoogroups.com, Jhon Hazewinkel <dest2@>
+>>> wrote:
+>>>> On Jan 30, 2007, at 10:23 PM, Robin wrote:
+>>> Part of my problem is that the application stores crucial data
+>>> not specified by the SyncML standards.
+>>
+>> Which kind of data is this? Is that data that is
+>> part of a VCARD or something alike?
+>
+> The database keeps track of meetings and attendees.
+
+OK, that means you are talking of a calendar object.
+
+> As such, in the
+> meeting table, it has a field to track the id of the attendees,
+> whose information, such as name, phone number, etc. is in another
+> table.
+
+As far as I know, vcalendar uses some specific way of referencing
+such users. It does not include information like phone number of
+that attendee.
+
+> Since SIF-E and iCal formats as supported by mycompa

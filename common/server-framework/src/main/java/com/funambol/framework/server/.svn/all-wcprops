@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/36691/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server
+END
+SyncTimestamp.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/SyncTimestamp.java
+END
+PushSMSEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/34107/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/PushSMSEvent.java
+END
+PushFlowEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/34107/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/PushFlowEvent.java
+END
+Sync4jUser.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/Sync4jUser.java
+END
+ClientMappingEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/36294/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/ClientMappingEntry.java
+END
+CommandDescriptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/CommandDescriptor.java
+END
+SyncEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/34823/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/SyncEvent.java
+END
+Sync4jModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/Sync4jModule.java
+END
+Event.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/34823/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/Event.java
+END
+MediaEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/34826/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/MediaEvent.java
+END
+SyncSessionEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/34823/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/SyncSessionEvent.java
+END
+ConfigItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/31136/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/ConfigItem.java
+END
+Sync4jConnector.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/Sync4jConnector.java
+END
+LastTimestamp.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/LastTimestamp.java
+END
+Capabilities.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/30936/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/Capabilities.java
+END
+Sync4jDevice.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/33298/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/Sync4jDevice.java
+END
+ClientMapping.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/36691/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/ClientMapping.java
+END
+SyncResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/SyncResponse.java
+END
+Sync4jSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/Sync4jSource.java
+END
+ID.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/ID.java
+END
+Sync4jSourceType.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/Sync4jSourceType.java
+END
+ConvertDatePolicy.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/ConvertDatePolicy.java
+END

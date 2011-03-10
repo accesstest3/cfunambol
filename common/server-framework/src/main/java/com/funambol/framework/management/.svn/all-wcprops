@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/management
+END
+AbstractStatusMXBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/management/AbstractStatusMXBean.java
+END
+SimpleStatusMXBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/management/SimpleStatusMXBean.java
+END
+StatusMXBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/management/StatusMXBean.java
+END

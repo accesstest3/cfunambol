@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+  <FNBL_DEVICE
+    ID                   ="fwm-123456789"
+    DESCRIPTION          ="windows mobile"
+    TYPE                 ="phone"
+    CLIENT_NONCE         =""
+    SERVER_NONCE         =""
+    SERVER_PASSWORD      =""
+    TIMEZONE             ="UTC"
+    CONVERT_DATE         ="N"
+    CHARSET              ="UTF-8"
+    ADDRESS              =""
+    MSISDN               =""
+    NOTIFICATION_BUILDER =""
+    NOTIFICATION_SENDER  =""
+    ID_CAPS              ="-1"
+    SENT_SERVER_CAPS     ="false"/>
+</dataset>

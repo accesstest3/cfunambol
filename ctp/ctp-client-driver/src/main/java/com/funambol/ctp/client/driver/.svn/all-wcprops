@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-client-driver/src/main/java/com/funambol/ctp/client/driver
+END
+SimpleCTPClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-client-driver/src/main/java/com/funambol/ctp/client/driver/SimpleCTPClient.java
+END
+MinaClientHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-client-driver/src/main/java/com/funambol/ctp/client/driver/MinaClientHandler.java
+END
+CTPClientDriver.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-client-driver/src/main/java/com/funambol/ctp/client/driver/CTPClientDriver.java
+END
+MinaClientException.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-client-driver/src/main/java/com/funambol/ctp/client/driver/MinaClientException.java
+END
+MinaClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-client-driver/src/main/java/com/funambol/ctp/client/driver/MinaClient.java
+END
+Storager.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-client-driver/src/main/java/com/funambol/ctp/client/driver/Storager.java
+END
+MainMenu.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-client-driver/src/main/java/com/funambol/ctp/client/driver/MainMenu.java
+END

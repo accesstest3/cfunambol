@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/mailservers
+END
+MailServerDetailsPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/mailservers/MailServerDetailsPanel.java
+END
+SearchMailServerPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/mailservers/SearchMailServerPanel.java
+END
+FormSearchMailServerPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/mailservers/FormSearchMailServerPanel.java
+END
+ResultSearchMailServerPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/mailservers/ResultSearchMailServerPanel.java
+END

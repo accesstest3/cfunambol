@@ -1,0 +1,337 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2009 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.funambol.framework.core.*;
+import com.funambol.framework.core.Sync4jException;
+import com.funambol.framework.engine.pipeline.InputMessageProcessor;
+import com.funambol.framework.engine.pipeline.MessageProcessingContext;
+import com.funambol.framework.engine.pipeline.StopProcessingException;
+import com.funambol.framework.logging.FunambolLogger;
+import com.funambol.framework.logging.FunambolLoggerFactory;
+import com.funambol.framework.server.Sync4jDevice;
+
+import com.funambol.foundation.synclet.PIMItemsHandler;
+
+/**
+ * Contacts:
+ * =========
+ * Processes the incoming vcard items and adds the missing tokens.
+ * Handles large objects.
+ * Replaces field TEL: with TEL;VOICE: token.
+ * Replaces field TEL;FAX: with TEL;FAX;HOME: token.
+ * Replaces field TEL;CELL;HOME: with TEL;VOICE;PREF: token.
+ * Replaces field TEL;CELL;WORK: with TEL;WORK;PREF: token.
+ *
+ * Calendars:
+ * ==========
+ * . Event
+ *   Processes the incoming vevent items and adds the missing tokens.
+ *   Handles large objects.
+ *   Removes the dummy values.
+ *   Fixes wrong summer time conversions by the device.
+ *   
+ * . Todo
+ *   Processes the incoming vtodo items and adds the missing tokens.
+ *   Handles large objects.
+ *   Removes the dummy values.   
+ *
+ * @version $Id: SonyEricssonJP9in.bsh,v 1.2 2008/10/21 04:13:15 luca Exp $
+ */
+// ------------------------------------------------------------------- Constants
+private Map missingCardTokens  = null;
+private Map missingEventTokens = null;
+private Map missingTodoTokens = null;
+
+// ---------------------------------------------------------------- Private data
+private final FunambolLogger log =
+    FunambolLoggerFactory.getLogger("engine.pipeline");
+
+// ------------------------------------------------------ Synclet implementation
+importCommands("/com/funambol/server/engine/pipeline/phones-support/bsh/commands");
+importCommands("/com/funambol/server/engine/pipeline/phones-support/bsh/sonyericsson");
+
+/**
+ * Process input message and set MessageProcessingContext property.
+ *
+ * @param processingContext the message processing context
+ * @param message the message to be processed
+ *
+ * @throws Sync4jException
+ */
+void preProcessMessage(MessageProcessingContext processingContext,
+                       SyncML message                            )
+throws Sync4jException {
+
+    if (log.isTraceEnabled()) {
+        log.trace("SonyEricssonJP9in.preProcessMessage(...)");
+    }
+
+    // This map contains the three lists of items separated based on their type
+    PIMItemsHandler pimItemsHandler = new PIMItemsHandler();
+    Map mapItems =
+        pimItemsHandler.extractIncomingPIMItems(processingContext, message);
+
+    //
+    // Retrieves the device from the db
+    //
+    Sync4jDevice device = deviceLookup(message.syncHdr.source.locURI);
+    
+    processPIMItems(mapItems, pimItemsHandler, device);
+
+    throw new StopProcessingException("SonyEricssonJP9in Synclet finished");
+}
+
+/**
+ * Processes incoming items.
+ *
+ * @param mapItems the map that contains the three lists of items separated
+ *                 based on their type
+ * @param pimItemsHandler the object to handle the large object
+ * @param device the device information
+ *
+ */
+void processPIMItems(Map             mapItems       ,
+                     PIMItemsHandler pimItemsHandler,
+                     Sync4jDevice    device         ) {
+
+    //
+    // Cycle on vcard list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VCARD)) {
+        preProcessContact(i);
+        pimItemsHandler.fixLargeObjectSize(i);
+    }
+
+    TimeZone tz = null;
+    if ((device != null) && (device.timeZone != null)) {
+        tz = TimeZone.getTimeZone(device.timeZone);
+    } else {
+        tz = null;
+    }
+    
+    //
+    // Cycle on vevent list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VEVENT)) {
+        preProcessEvent(i, tz);
+        pimItemsHandler.fixLargeObjectSize(i);
+    }
+    
+    //
+    // Cycle on vtodo list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VTODO)) {
+        preProcessTodo(i);
+        pimItemsHandler.fixLargeObjectSize(i);
+    } 
+}
+
+/**
+ * Processes incoming contacts.
+ *
+ * Replaces field TEL: with TEL;VOICE: token.
+ * Replaces field TEL;FAX: with TEL;FAX;HOME: token.
+ * Replaces field TEL;CELL;HOME: with TEL;VOICE;PREF: token.
+ * Replaces field TEL;CELL;WORK: with TEL;WORK;PREF: token.
+ * Adds missing fields
+ *
+ * @param i the item to process
+ */
+void preProcessContact(Item i) {
+    data = i.data.data;
+    
+    data = replaceInProperty(data, "TEL:"          , "TEL;VOICE:"     );
+    data = replaceInProperty(data, "TEL;FAX:"      , "TEL;FAX;HOME:"  );
+    data = replaceInProperty(data, "TEL;CELL;HOME:", "TEL;VOICE;PREF:");
+	  data = replaceInProperty(data, "TEL;CELL;WORK:", "TEL;WORK;PREF:" );
+
+    //
+    // Adds void tokens if they are missing in VCARD item
+    //
+    i.data.data = addVoidTokens(data, "END:VCARD", missingCardTokens);
+}
+
+/**
+ * Processes incoming events.
+ *
+ * Fixes wrong summer time conversions by the device.
+ * Removes the dummy values.
+ * Adds missing fields.
+ *
+ * @param i the item content
+ * @param tz device timezone
+ */
+void preProcessEvent(Item i, TimeZone tz) {
+    data = i.data.data;
+
+    //
+    // The "summerTime" is true if the conversion is on: this conversion is not
+    // properly implemented by these devices, since they convert all times into
+    // DST (Daylight Saving Time) or standard time irrespective of the
+    // corresponding date.
+    //
+    boolean summerTime = isSonyEricssonDST(data);
+
+    if (log.isTraceEnabled()) {
+        log.trace("Using device time zone " + tz);
+    }
+
+    if ((tz != null) && (tz.useDaylightTime())) {
+        data = fixSummerTime(data, "DTSTART"      , summerTime, tz);
+        data = fixSummerTime(data, "DTEND"        , summerTime, tz);
+        data = fixSummerTime(data, "LAST-MODIFIED", summerTime, tz);
+        data = fixSummerTime(data, "AALARM"       , summerTime, tz);
+        data = fixSummerTime(data, "DALARM"       , summerTime, tz);
+    }
+    
+    data = replaceDummyProperties(data);
+
+    //
+    // Adds void tokens if they are missing in VEVENT item
+    //
+    content = addVoidTokens(data, "END:VEVENT", missingEventTokens);
+
+    i.data.data = content + "END:VCALENDAR\r\n";
+}
+
+/**
+ * Processes incoming vtodo.
+ * 
+ * Removes the dummy value.
+ *
+ * Adds missing fields. 
+ *
+ * @param i the item to be processed
+ */
+void preProcessTodo(Item i) {    
+    
+    data = i.data.data;
+    
+    //
+    // Removes the dummy value.
+    //
+    data = removeDummyValue(data, "SUMMARY;CHARSET=UTF-8:"    ,
+                                  "SUMMARY:"    );
+    data = removeDummyValue(data, "DESCRIPTION;CHARSET=UTF-8:",
+                                  "DESCRIPTION:");
+
+    //
+    // Adds void tokens if they are missing in VTODO item
+    //
+    data = addVoidTokens(data, "END:VTODO", missingTodoTokens);
+    
+    i.data.data = data + "END:VCALENDAR\r\n";
+}
+
+/**
+ * Removes the dummy value for the specified tokens.
+ *
+ * For example:
+ *     the device sends LOCATION:-\r\n
+ *     that will be replaced with LOCATION:\r\n without dummy value
+ *
+ * This is a conseguence of the workaround done because the device is not able
+ * to delete the information when the server sends an empty token. For example,
+ * if the server sends LOCATION:, the phone doesn't delete the location. To fix
+ * this phone bug, the server sends LOCATION:- and so, when phone sends the
+ * item is needs to remove the dummy value.
+ *
+ * @param String data the data item
+ *
+ * @return the modified data
+ */
+String replaceDummyProperties(String data) {
+    HashMap mapTokens = new HashMap();
+    mapTokens.put("DESCRIPTION:", "DESCRIPTION:");
+    mapTokens.put("LOCATION:"   , "LOCATION:"   );
+    mapTokens.put("SUMMARY:"    , "SUMMARY:"    );
+
+    data = removeDummyValues(data, mapTokens);
+    return data;
+}
+
+/**
+ * Initializes hashmap of contact and event properties.
+ */
+void init() {
+    missingCardTokens  = new HashMap();
+    missingEventTokens = new HashMap();
+    missingTodoTokens = new HashMap();
+
+    missingCardTokens.put("\r\nN"                   , "N:;;;;"              );
+    missingCardTokens.put("\r\nTITLE"               , "TITLE:"              );
+    missingCardTokens.put("\r\nORG"                 , "ORG:;"               );
+    missingCardTokens.put("\r\nTEL;CELL:"           , "TEL;CELL:"           );
+    missingCardTokens.put("\r\nTEL;HOME:"           , "TEL;HOME:"           );
+    missingCardTokens.put("\r\nTEL;WORK:"           , "TEL;WORK:"           );
+    missingCardTokens.put("\r\nTEL;VOICE;PREF:"     , "TEL;VOICE;PREF:"     );
+    missingCardTokens.put("\r\nTEL;WORK;PREF:"      , "TEL;WORK;PREF:"      );
+    missingCardTokens.put("\r\nTEL;FAX;HOME:"       , "TEL;FAX;HOME:"       );
+    missingCardTokens.put("\r\nTEL;VOICE:"          , "TEL;VOICE:"          );
+    missingCardTokens.put("\r\nEMAIL;INTERNET;PREF" , "EMAIL;INTERNET:"     );
+	missingCardTokens.put("\r\nEMAIL;INTERNET;HOME" , "EMAIL;INTERNET;HOME:");
+	missingCardTokens.put("\r\nEMAIL;INTERNET;WORK" , "EMAIL;INTERNET;WORK:");
+    missingCardTokens.put("\r\nURL"                 , "URL:"                );
+    missingCardTokens.put("\r\nADR;HOME"            , "ADR;HOME:;;;;;;"     );
+    missingCardTokens.put("\r\nADR;WORK"            , "ADR;WORK:;;;;;;"     );
+    missingCardTokens.put("\r\nNOTE"                , "NOTE:"               );
+    missingCardTokens.put("\r\nBDAY:"               , "BDAY:"               );
+	missingCardTokens.put("\r\nPHOTO"               , "PHOTO:"               );
+
+	
+    missingEventTokens.put("\r\nDTSTART:"      , "DTSTART:"      );
+    missingEventTokens.put("\r\nDTEND:"        , "DTEND:"        );
+    missingEventTokens.put("\r\nDESCRIPTION"   , "DESCRIPTION:"  );
+    missingEventTokens.put("\r\nSUMMARY"       , "SUMMARY:"      );
+    missingEventTokens.put("\r\nLOCATION"      , "LOCATION:"     );
+    missingEventTokens.put("\r\nDALARM:"       , "DALARM:"       );
+    missingEventTokens.put("\r\nAALARM:"       , "AALARM:"       );
+    missingEventTokens.put("\r\nLAST-MODIFIED:", "LAST-MODIFIED:");
+
+    missingTodoTokens.put("\r\nSUMMARY"    , "SUMMARY:"    );
+    missingTodoTokens.put("\r\nDESCRIPTION", "DESCRIPTION:");
+    missingTodoTokens.put("\r\nDTSTART:"   , "DTSTART:"    );
+    missingTodoTokens.put("\r\nDTEND:"     , "DTEND:"      );
+    missingTodoTokens.put("\r\nCATEGORIES" , "CATEGORIES:" );
+    missingTodoTokens.put("\r\nPRIORITY"   , "PRIORITY:"   );
+    missingTodoTokens.put("\r\nSTATUS"     , "STATUS:"     );
+    missingTodoTokens.put("\r\nCLASS"      , "CLASS:"      );
+    missingTodoTokens.put("\r\nAALARM:"    , "AALARM:"     );
+    missingTodoTokens.put("\r\nDALARM:"    , "DALARM:"     );       
+}

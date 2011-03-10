@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/32632/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/tools/beans
+END
+BeanNotFoundException.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/tools/beans/BeanNotFoundException.java
+END
+BeanClassLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/tools/beans/BeanClassLoader.java
+END
+BeanTool.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/32008/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/tools/beans/BeanTool.java
+END
+BeanException.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/tools/beans/BeanException.java
+END
+CloneBeanException.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/31944/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/tools/beans/CloneBeanException.java
+END
+LazyInitBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/tools/beans/LazyInitBean.java
+END
+BeanCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/32632/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/tools/beans/BeanCache.java
+END
+BeanInstantiationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/tools/beans/BeanInstantiationException.java
+END
+CloneableBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/31944/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/tools/beans/CloneableBean.java
+END
+BeanExceptionListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/tools/beans/BeanExceptionListener.java
+END
+BeanInitializationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/tools/beans/BeanInitializationException.java
+END
+BeanFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/32030/trunk/funambol/common/core-framework/src/main/java/com/funambol/framework/tools/beans/BeanFactory.java
+END

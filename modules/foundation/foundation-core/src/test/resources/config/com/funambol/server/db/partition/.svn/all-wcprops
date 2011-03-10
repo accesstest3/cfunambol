@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/test/resources/config/com/funambol/server/db/partition
+END
+user_part1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/test/resources/config/com/funambol/server/db/partition/user_part1.xml
+END
+user_part2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/test/resources/config/com/funambol/server/db/partition/user_part2.xml
+END
+user_part3.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/test/resources/config/com/funambol/server/db/partition/user_part3.xml
+END

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/core/!svn/ver/36696/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/store
+END
+PrincipalPersistentStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/store/PrincipalPersistentStore.java
+END
+ConfigPersistentStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/31156/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/store/ConfigPersistentStore.java
+END
+LastTimestampPersistentStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/store/LastTimestampPersistentStore.java
+END
+ModulesPersistentStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/store/ModulesPersistentStore.java
+END
+CapabilitiesPersistentStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/32167/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/store/CapabilitiesPersistentStore.java
+END
+PersistentStoreManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/store/PersistentStoreManager.java
+END
+ClientMappingPersistentStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/36696/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/store/ClientMappingPersistentStore.java
+END
+IDPersistentStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/store/IDPersistentStore.java
+END
+SyncSourcePersistentStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/34393/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/store/SyncSourcePersistentStore.java
+END
+DevicePersistentStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/33301/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/store/DevicePersistentStore.java
+END
+UtilsPersistentStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/store/UtilsPersistentStore.java
+END

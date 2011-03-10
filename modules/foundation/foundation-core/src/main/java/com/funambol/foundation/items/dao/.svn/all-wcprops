@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/36704/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/dao
+END
+PIMNoteDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/34671/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/dao/PIMNoteDAO.java
+END
+EntityDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/dao/EntityDAO.java
+END
+FileDataObjectBodyDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/dao/FileDataObjectBodyDAO.java
+END
+PIMCalendarDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/core/!svn/ver/34667/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/dao/PIMCalendarDAO.java
+END
+FileDataObjectDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/dao/FileDataObjectDAO.java
+END
+PIMContactDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/36698/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/dao/PIMContactDAO.java
+END
+FileDataObjectMetadataDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/34867/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/dao/FileDataObjectMetadataDAO.java
+END
+JcloudsFileDataObjectBodyDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/dao/JcloudsFileDataObjectBodyDAO.java
+END
+DataBaseFileDataObjectMetadataDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/36704/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/dao/DataBaseFileDataObjectMetadataDAO.java
+END

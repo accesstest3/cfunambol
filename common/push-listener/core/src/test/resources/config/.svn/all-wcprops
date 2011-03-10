@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/core/!svn/ver/35958/trunk/funambol/common/push-listener/core/src/test/resources/config
+END
+jgroups-jobexecutor-request-group.xml
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/35958/trunk/funambol/common/push-listener/core/src/test/resources/config/jgroups-jobexecutor-request-group.xml
+END
+log4j-job-executor.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/35930/trunk/funambol/common/push-listener/core/src/test/resources/config/log4j-job-executor.xml
+END

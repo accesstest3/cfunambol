@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/tools/id
+END
+DBIDGeneratorFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/tools/id/DBIDGeneratorFactory.java
+END
+DBIDGeneratorException.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/tools/id/DBIDGeneratorException.java
+END
+DBIDGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/tools/id/DBIDGenerator.java
+END

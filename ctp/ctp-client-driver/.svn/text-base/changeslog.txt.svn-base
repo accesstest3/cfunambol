@@ -1,0 +1,116 @@
+
+---------------------------------
+Funambol CTP  Client Driver 9.0.0
+---------------------------------
+2010-12-21
+- maria: Updated dependencies.
+
+---------------------------------
+Funambol CTP  Client Driver 8.7.0
+---------------------------------
+2010-07-13
+- maria: Updated dependencies.
+
+---------------------------------
+Funambol CTP  Client Driver 8.5.0
+---------------------------------
+2010-03-25
+- maria: Updated dependencies.
+
+---------------------------------
+Funambol CTP  Client Driver 8.2.4
+---------------------------------
+2010-02-02
+- maria: Updated dependencies.
+
+---------------------------------
+Funambol CTP  Client Driver 8.2.3
+---------------------------------
+2009-12-04
+- maria: Updated dependencies.
+
+---------------------------------
+Funambol CTP Client Driver 8.2.2
+---------------------------------
+2009-12-04
+- maria: Updated dependencies.
+
+---------------------------------
+Funambol CTP Client Driver 8.2.1
+---------------------------------
+2009-10-09
+- maria: Updated dependencies.
+
+---------------------------------
+Funambol CTP Client Driver 8.2.0
+---------------------------------
+2009-09-25
+- maria: Updated dependencies.
+
+---------------------------------
+Funambol CTP Client Driver 7.1.0
+---------------------------------
+2008-10-11
+- nichele: Updated dependencies.
+
+---------------------------------
+Funambol CTP Client Driver 7.0.0
+---------------------------------
+
+2008-06-26
+- nichele: Updated dependencies.
+
+
+---------------------------------
+Funambol CTP Client Driver 6.6.0
+---------------------------------
+
+2008-03-30
+- nichele: Updated dependencies.
+
+
+---------------------------------
+Funambol CTP Client Driver 6.5.5
+---------------------------------
+
+2008-02-05
+- nichele: Updated dependencies
+
+
+---------------------------------
+Funambol CTP Client Driver 6.5.4
+---------------------------------
+
+2007-12-07
+- nichele: Updated dependencies
+
+
+---------------------------------
+Funambol CTP Client Driver 6.5.3
+---------------------------------
+
+2007-11-28
+- nichele: Changed license to AGPLv3.
+
+
+---------------------------------
+Funambol CTP Client Driver 6.5.2
+---------------------------------
+
+2007-11-14
+- nichele: Updated dependencies
+
+
+---------------------------------
+Funambol CTP Client Driver 6.5.1
+---------------------------------
+
+2007-09-22
+- nichele: Updated ctp-core dependency to 6.5.1
+
+
+---------------------------------
+Funambol CTP Client Driver 6.5.0
+---------------------------------
+
+First Release

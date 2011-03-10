@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<project name="Funambol Content Provider Installation" default="install"
+         basedir=".">
+
+    <!-- Pick up the environment variables -->
+    <property environment="ENV"/>
+    
+    <!-- =================================================================== -->
+    <!-- install - custom module installation                                -->
+    <!-- =================================================================== -->
+    <target name="install">
+        <antcall target="install-tomcat60"/>
+        <echo message="Content Provider installation successfully completed"/>
+    </target>
+        
+    <target name="install-tomcat60">
+        <antcall target="install-tomcat"/>
+    </target>
+    
+    <target name="install-tomcat">
+        <echo message="Install Funambol Content Provider on Tomcat (${basedir})"/>
+        <echo message="Funambol home: (${funambol-home})"/>
+        
+        <copy todir="${ENV.J2EE_HOME}/webapps/content" overwrite="true">
+            <fileset dir="exclude">
+                <include name="content-*.war"/>
+            </fileset>
+        </copy>
+        <unwar dest="${ENV.J2EE_HOME}/webapps/content/">
+            <fileset dir="${ENV.J2EE_HOME}/webapps/content">
+                <include name="**/*.war"/>
+            </fileset>
+        </unwar>
+    </target>
+</project>

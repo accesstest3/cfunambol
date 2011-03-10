@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/core/!svn/ver/36142/trunk/funambol/common/core-framework/src/test/resources/data/com/funambol/framework/tools/FileArchiver/multileveltree/first/second
+END
+secondlog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/core/!svn/ver/36142/trunk/funambol/common/core-framework/src/test/resources/data/com/funambol/framework/tools/FileArchiver/multileveltree/first/second/secondlog.txt
+END
+secondlog.zip
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/core/!svn/ver/36142/trunk/funambol/common/core-framework/src/test/resources/data/com/funambol/framework/tools/FileArchiver/multileveltree/first/second/secondlog.zip
+END

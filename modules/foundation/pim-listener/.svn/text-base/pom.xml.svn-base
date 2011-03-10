@@ -1,0 +1,137 @@
+<?xml version="1.0" ?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>funambol</groupId>
+    <artifactId>pim-listener</artifactId>
+    <name>Funambol PIM Listener</name>
+    <packaging>jar</packaging>
+    <url>http://www.funambol.com</url>
+    
+    <version>9.1.0-SNAPSHOT</version>
+    
+    <parent>
+        <artifactId>funambol</artifactId>
+        <groupId>funambol</groupId>
+        <version>9.1.0</version>
+    </parent>
+    
+    <dependencies>
+
+        <!--
+            Internal dependencies
+        -->
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>push-framework</artifactId>
+            <version>9.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>test-addons</artifactId>
+            <version>1.0.6</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--
+            External dependencies
+        -->
+
+        <dependency>
+            <groupId>hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>1.8.0.7</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.dbunit</groupId>
+            <artifactId>dbunit</artifactId>
+            <version>2.2</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+    
+    <scm>
+        <connection>scm:svn:https://guest@core.forge.funambol.org/svn/core/trunk/funambol/modules/foundation/pim-listener</connection>
+        <developerConnection>scm:svn:https://core.forge.funambol.org/svn/core/trunk/funambol/modules/foundation/pim-listener</developerConnection>
+        <url>https://core.forge.funambol.org/svn/core/trunk/funambol/modules/foundation/pim-listener</url>
+    </scm>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <targetPath>../resources</targetPath>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <!--
+            The Funambol Maven Plugin enables the use of the following
+            goals:
+            - funambol:properties
+        -->
+                <groupId>funambol</groupId>
+                <artifactId>funambol-plugin</artifactId>
+                <version>1.0.8</version>
+                <executions>
+                    <execution>
+                        <id>prepare-resources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>resources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/assembly/bin.xml</descriptor>
+                    </descriptors>
+                    <appendAssemblyId>true</appendAssemblyId>
+                    <finalName>${project.groupId}-${project.artifactId}-${project.version}</finalName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attached</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <systemProperties>
+                        <property>
+                            <name>file.encoding</name>
+                            <value>UTF-8</value>
+                        </property>
+                        <property>
+                            <name>funambol.home</name>
+                            <value>src/test/resources</value>
+                        </property>
+                        <property>
+                            <name>funambol.pushlistener.config.bean</name>
+                            <value>com/funambol/pimlistener/PIMListenerConfiguration.xml</value>
+                        </property>
+                    </systemProperties>
+                </configuration>
+            </plugin>            
+        </plugins>
+    </build>
+    
+    
+</project>

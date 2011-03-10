@@ -1,0 +1,219 @@
+
+--------------------------------
+Funambol Core Framework 9.0.0
+--------------------------------
+2010-11-09
+- machi: Added a new proper method to get the expiration and next expiration time 
+         in the FileSystemLock class. 
+         Fixed the handling of errors when parsing lock information
+
+2010-11-10
+- lulu: Deprecated IOTools.FileTypeFilter class: to use
+        org.apache.commons.io.filefilter.SuffixFileFilter filter.
+
+2010-11-09
+- machi: Added the FileSystemLockTestMain.java process that can be used to 
+         test FileSystemLock using different processes.
+         Added the listFilesSortingByTime method to the IOTools class with
+         needed junits.
+         Fixed the check to call external event handlers.
+         Updated the pom in order to use a new version of the commons-io artifact.
+
+2010-11-08
+- machi: Improved the FileSystemLock class in order to expose quietly methods avoiding
+         to raise exceptions when the lock file doesn't exist at all.
+         Improved the tests in order to run quietly under Vista.
+
+2010-11-05
+- machi: Updated FileSystemLockTest class in order to work on linux environments
+         Fixed the FileSystemLock class in order to expose right methods for
+         expiration time and last modified time
+- lulu: Added junits for FileArchiver class.
+
+2010-11-04
+- machi: Added FileSystemLock class to synchronize different processes.
+         Added FileArchiver class to compress recursively a directories tree
+         Updated the IOTools in order to recursively delete a directories tree
+         Update the StreamCopy class in order not to close used streams
+
+2010-10-07
+- machi: Added the StreamCopy class and methods into the IOTools class that can
+         be used to copy bytes from an InputStream to an OutputStream
+
+--------------------------------
+Funambol Core Framework 8.7.1
+--------------------------------
+2010-08-02
+- testa: Fixed bug 9888, wrong generation of path of fdo object cause errors 
+         retrieving FDO items stored on the file system (MD5 thread safe)
+
+--------------------------------
+Funambol Core Framework 8.7.0
+--------------------------------
+2010-05-27
+- machi:   Added a synchronized method to create directory in order to avoid
+           mkdirs unpredictable behaviour.
+
+2010-01-15
+- nichele: Reviewed Item/Data handling adding class CData that represents data
+           that must be included in a CData section.
+- nichele: Added Base64.encode(InputStream in, OutputStream out) in order to encode
+           data incoming on an Inputstream and writing the result on an OutputStream.
+
+--------------------------------
+Funambol Core Framework 8.2.2
+--------------------------------
+2009-11-06
+- nichele: Fixed concurrent issue in BeanCache
+
+--------------------------------
+Funambol Core Framework 8.2.1
+--------------------------------
+2009-10-06
+- nichele: Added SyncMLUtils.fromXML(String xml)
+
+--------------------------------
+Funambol Core Framework 8.2.0
+--------------------------------
+2009-09-24
+- nichele: Readded BeanFactory.unmarshall and BeanFactory.marshall with classloader
+           since they are used by the admin tool.
+
+2009-09-19
+- nichele: Reviewed BeanFactory, BeanCache and BeanTool implementation removing
+           classloader usage.
+
+2009-09-16
+- nichele: Improved DataSourceTools performance adding a cache
+- nichele: Removed synchronized blocks in BeanFactory
+           (they were need since bug #  4822050:
+           http://developer.java.sun.com/developer/bugParade/bugs/4822050.html)
+- nichele: Reviewed BeanCache implementation in order to avoid synchronized methods
+           (using ReentrantReadWriteLock lock).
+           Moreover CloneableBean interface has been introduced in order to have a
+           way to create new bean instances without to parse xml file
+           (that in any case is cached).
+
+2009-05-27
+- testa: Added "smart one way from client" alert code
+
+2009-05-17
+- testa: Added method containsDataStore to the DevInf class.
+
+2009-05-15
+- mauro: Reimplemented the map of properties in MergeResult as a linked hashmap
+         which makes the ordering predictable.
+
+2009-04-24
+- lulu: Added SourceUtils.xmlToHashMap(String content, boolean removeTagCData)
+        since some xml content could not be included between CDATA tag.
+
+2009-04-08
+- nichele: Fixed OW bug #313572 DataSourceTools.java fails to find objects from JNDI
+
+--------------------------------
+Funambol Core Framework 8.0.0
+--------------------------------
+2009-02-22
+-stefano_fornari: Added replace(String, String, Map<String, Object>) which allows to replace null values 
+                  with a given string; updated replace(String, Map<String, Object>) to use the new one.
+
+2009-02-15
+-stefano_fornari: Test class for StringTools
+                  Using Map instead og HashMap
+                  Added replace(String, Map<String, Object>)
+
+--------------------------------
+Funambol Core Framework 7.0.1
+--------------------------------
+2008-10-09
+- nichele: Fixed bug #307939 (bugzilla #4693): Expected "CTCap" end tag, found "Size" end tag
+
+
+--------------------------------
+Funambol Core Framework 7.0.0
+--------------------------------
+2008-05-01
+- nichele: Reviewed exception handling in DBTools.close(...)
+
+
+--------------------------------
+Funambol Core Framework 6.6.0
+--------------------------------
+2008-04-11
+- nichele: Added clientAddress to Authetication class.
+
+2008-03-30
+- nichele: Improved error message in DataSourceTools.lookupDataSource.
+
+2008-03-10
+- nichele: Reviewed DBTools.close in order to set the connection as not read-only
+           when it is closed since it is not really closed but just released and
+           for future uses it must be not read-only.
+
+
+--------------------------------
+Funambol Core Framework 6.5.5
+--------------------------------
+2008-01-21
+- lulu: Added bindingHiddenData.xml in order to hide the sensitive data 
+        contained in the credential and in the data's item of command like Add, 
+        Replace and Exec. 
+        Changed the SyncMLUtil adding toXML(..., boolean showSensitiveData) 
+        methods: if the boolean is true, the sensitive data are shown, otherwise
+        they are hidden. The old methods toXML() without the boolean, invoke the
+        respective toXML method with true as default. In this case, the 
+        sensitive data are always shown (for backward compatibility).
+
+2008-01-11
+- lulu: Changed binding.xml and Property.java in order to accept a collection of 
+        ParamName. This is added only for compatibility with some Nokia phones 
+        (S40 5th edition such as N5610, N6267) that have a bug in the way they 
+        create the DevInf.
+
+
+--------------------------------
+Funambol Core Framework 6.5.4
+--------------------------------
+2007-11-28
+- nichele: Changed license to AGPLv3.
+
+
+--------------------------------
+Funambol Core Framework 6.5.3
+--------------------------------
+2007-11-14
+- nichele: Upgraded to funambol:ext:6.5.2
+
+
+--------------------------------
+Funambol Core Framework 6.5.2
+--------------------------------
+2007-09-12
+- ste: modified binding.xml to support more DataStore-CTCap in DevInf and
+       added a test case to test it
+
+2007-09-07
+- lulu: Added getItemSize method in com.funambol.framework.tools.CoreUtil
+
+2007-09-03
+- nichele: Changed dependencies. It must depend on the ext and not on the jibx-run
+           that is inherited by the ext. Moreover the ext can not be "provided"
+           because it is provided in the ds-server but not in other contexts
+
+
+--------------------------------
+Funambol Core Framework 6.5.1
+--------------------------------
+2007-08-17
+- ste: Added com.funambol.framework.tools.CoreUtil as a subset of the methods
+       before in com.funambol.framework.protocol.ProtocolUtil. Methods that
+       required server classes remained in ProtocolUtil. ProtocolUtil now
+       inherits from CoreUtil
+- ste: Fixed a bug in CmdID.equals()
+
+2007-08-13
+- lulu: Changed the method to convert XML in WBXML: now the SyncML DTD version is needed
+
+2007-08-03
+- nichele: Added method getBeanNames in com.funambol.framework.tool.bean.BeanTools

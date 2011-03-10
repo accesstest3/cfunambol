@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/core/!svn/ver/36693/trunk/funambol/bundle-resources
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/LICENSE.txt
+END
+changeslog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/core/!svn/ver/36693/trunk/funambol/bundle-resources/changeslog.txt
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/core/!svn/ver/36445/trunk/funambol/bundle-resources/pom.xml
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/.cvsignore
+END

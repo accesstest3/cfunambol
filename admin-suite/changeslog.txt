@@ -1,0 +1,630 @@
+-----------------------------------
+Funambol Administration Tool 9.0.0
+-----------------------------------
+
+2010-12-16
+- machi: Updated Copyright in About panel and Readme.txt files.
+         Updated documentation link.
+         Updated the server supported version constant.
+
+-----------------------------------
+Funambol Administration Tool 8.7.0
+-----------------------------------
+2010-07-12
+- maria: updated dependencies
+
+-----------------------------------
+Funambol Administration Tool 8.5.2
+-----------------------------------
+2010-06-04
+- maria: updated dependencies
+
+-----------------------------------
+Funambol Administration Tool 8.5.1
+-----------------------------------
+2010-03-30
+- maria: updated dependencies
+
+-----------------------------------
+Funambol Administration Tool 8.5.0
+-----------------------------------
+2010-02-17
+- lulu: Added SyncAdminController.isCarrierEditionServer() method in order to
+        know if the ServerConfiguration corresponds to a carried edition ds-server.
+
+-----------------------------------
+Funambol Administration Tool 8.2.7
+-----------------------------------
+2010-02-17
+- maria: updated dependencies
+
+-----------------------------------
+Funambol Administration Tool 8.2.6
+-----------------------------------
+2010-12-16
+- maria: updated dependencies
+
+-----------------------------------
+Funambol Administration Tool 8.2.5
+-----------------------------------
+2010-01-29
+- lulu: Updated Copyright in About panel and Readme.txt.
+        Updated documentation link.
+        
+2010-01-27
+- lulu: Fixed Copyright date into Readme file and About panel.
+
+2010-01-01
+- nichele: Updated supported server version list (added 8.5)
+- nichele: Fixed wrong error message shown during login with wrong credentials.
+
+-----------------------------------
+Funambol Administration Tool 8.2.4
+-----------------------------------
+
+- maria: updated dependencies
+
+-----------------------------------
+Funambol Administration Tool 8.2.3
+-----------------------------------
+2009-11-08
+- nichele: Updated documentation link
+- nichele: Updated supported server version list (added 8.2)
+
+-----------------------------------
+Funambol Administration Tool 8.2.2
+-----------------------------------
+2009-11-02
+- maria: updated dependencies
+
+-----------------------------------
+Funambol Administration Tool 8.2.1
+-----------------------------------
+2009-10-09
+- maria: updated dependencies
+
+-----------------------------------
+Funambol Administration Tool 8.2.0
+-----------------------------------
+2009-09-25
+-maria: Updated Dependencies
+
+-----------------------------------
+Funambol Administration Tool 7.1.0
+-----------------------------------
+2009-01-10
+- lulu: Updated documentation path
+
+2008-12-18
+- lulu: Fixed Copyright date into Readme file and About panel.
+
+2008-09-23
+- piter: Updated class com.funambol.admin.main.BusinessDelegate to use 
+         com.funambol.server.admin.ws.client.AdminWSClient to access web services
+         exposed by the ds-server.
+
+- lulu: Fixed bug #5084 - a null config panel in the connector configuration is not handled
+        Fixed bug #5807 - Clicking on funambol.event-db-appender in the admin console causes an error
+        Fixed bug #5808 - Clicking on configuration syncsource\configuration in the admin console causes an error
+
+2008-08-08
+- lulu: Fixed bug #5462 - Appender list too small
+
+-----------------------------------
+Funambol Administration Tool 7.0.2
+-----------------------------------
+2008-07-13
+- nichele: Fixed bug #5563 - Wrong build.date in docs/release.properties file
+
+-----------------------------------
+Funambol Administration Tool 7.0.1
+-----------------------------------
+2008-07-02
+- nichele: Fixed bug #5352 - Admin guide and test drive guide must be updated on our website
+
+2008-06-30
+- nichele: Added SMS service property in the Server settings configuration panel
+
+-----------------------------------
+Funambol Administration Tool 7.0.0
+-----------------------------------
+2008-06-19
+- piter: Updated copyright dates in the about panel
+
+2008-02-21
+- testa: Updated to funambol:ds-server:7.0.0-SNAPSHOT
+
+-----------------------------------
+Funambol Administration Tool 6.6.0
+-----------------------------------
+
+2008-03-30
+- nichele: Updated dependencies
+
+
+-----------------------------------
+Funambol Administration Tool 6.5.14
+-----------------------------------
+
+2008-02-19
+- nichele: Updated to funambol:ds-server:6.5.14
+
+
+-----------------------------------
+Funambol Administration Tool 6.5.13
+-----------------------------------
+
+2008-02-05
+- nichele: Updated to funambol:ds-server:6.5.13
+
+
+-----------------------------------
+Funambol Administration Tool 6.5.12
+-----------------------------------
+
+2007-12-07
+- nichele: Updated to funambol:ds-server:6.5.12
+
+
+-----------------------------------
+Funambol Administration Tool 6.5.11
+-----------------------------------
+
+2007-11-28
+- nichele: Changed license to AGPLv3.
+- lulu: Changed About panel according to the AGPLv3 license.
+
+
+-----------------------------------
+Funambol Administration Tool 6.5.10
+-----------------------------------
+
+2007-11-23
+- lulu: Fixed an installation issue on Windows Vista
+
+2007-11-21
+- nichele: Upgraded to funambol:ds-server:6.5.10
+
+
+-----------------------------------
+Funambol Administration Tool 6.5.9
+-----------------------------------
+
+2007-11-14
+- nichele: Upgraded to funambol:ds-server:6.5.9 and to funambol:ext:6.5.2
+
+
+-----------------------------------
+Funambol Administration Tool 6.5.8
+-----------------------------------
+2007-11-08
+- nichele: Upgraded to funambol:ds-server:6.5.8 and to funambol:server-framework:6.5.5
+
+
+-----------------------------------
+Funambol Administration Tool 6.5.7
+-----------------------------------
+
+2007-11-01
+- nichele: Upgraded to ds-server 6.5.7
+
+
+-----------------------------------
+Funambol Administration Tool 6.5.6
+-----------------------------------
+
+2007-10-15
+- nichele: Increased size of the "Convertion to current TZ" field in CreateDevicePanel
+
+
+-----------------------------------
+Funambol Administration Tool 6.5.5
+-----------------------------------
+
+2007-10-15
+- nichele: Changed CreateDevicePanel removing the convert date checkbox and adding
+           two new radio buttons about "Conversion to current TZ":
+           - Enabled: to enable the conversion
+           - Disabled: to disable the conversion
+           The values of those radio buttons is based on the values in the db and
+           on the device capabilities (if the device supports UTC, 'Disabled' is
+           the default value othewise the default one is 'Enabled').
+
+2007-10-11
+- lulu: Fixed issue with Cancel button. In some case the cancel button 
+        redirected at a wrong panel.
+
+2007-10-07
+- nichele: Fixed javadoc in MainTopComponent
+
+
+-----------------------------------
+Funambol Administration Tool 6.5.4
+-----------------------------------
+
+2007-10-04
+- nichele: Upgraded to ds-server 6.5.4
+
+
+-----------------------------------
+Funambol Administration Tool 6.5.3
+-----------------------------------
+
+2007-09-23
+- nichele: Minor fix in logger edit panel in order to handle lower case level
+
+2007-09-20
+- lulu: Added a validation check on the email field in the user panel.
+
+
+-----------------------------------
+Funambol Administration Tool 6.5.2
+-----------------------------------
+
+2007-09-07
+- lulu: Added a check on the serverUri: it must start with http:// or https:// 
+        in order to be used as a valid URL.
+                
+2007-09-05
+- nichele: Corrected LAST_TIMESTAMP_QUESTION_RESET message
+- nichele: Corrected ABOUT_COPYRIGHT message
+
+
+-----------------------------------
+Funambol Administration Tool 6.5.1
+-----------------------------------
+
+2007-08-28
+- nichele: Updated documentation link
+
+
+-----------------------------------
+Funambol Administration Tool 6.5.0
+-----------------------------------
+
+2007-06-27
+- lulu: Used URL instead of URI to check if the serverURI is a well formed URI.
+- lulu: Set the range of the accepted value for Min. value for the max. msg size
+        between 1 to 100000.
+
+2007-06-21
+- lulu: Unchecked the 'Show Readme' option at the end of the Administration Tool
+        installation.
+
+2007-06-18
+- lulu: Updated Funambol copyright
+
+
+-----------------------------------
+Funambol Administration Tool 6.0.7
+-----------------------------------
+
+2007-05-23
+- testa: Doesn't display the Users, Devices and Principals nodes if the 
+         connected ds-server is a carrier edition.
+
+
+-----------------------------------
+Funambol Administration Tool 6.0.6
+-----------------------------------
+
+2007-05-09
+- nichele: Upgraded to DS Server 6.0.6
+
+
+-----------------------------------
+Funambol Administration Tool 6.0.5
+-----------------------------------
+
+2007-04-20
+- nichele: Improved Option panel and DS Server update notification panel in
+           order to have a correct visualization with large font.
+
+
+-----------------------------------
+Funambol Administration Tool 6.0.4
+-----------------------------------
+
+2007-04-17
+- nichele: Made the device capabilities panels not editable
+
+2007-04-16
+- nichele: Added notification for DS Server updates
+
+
+-----------------------------------
+Funambol Administration Tool 6.0.3
+-----------------------------------
+
+2007-03-30
+- nichele: Fixed issue in the strategy configuration panel (the syncsource types
+           were not correctly detected so the conflict resolutions were wrong)
+
+
+-----------------------------------
+Funambol Administration Tool 6.0.2
+-----------------------------------
+
+2007-03-28
+- nichele: Fixed issue updating a device (some data was lost)
+
+2007-03-27
+- lulu: Updated logo and icons
+
+
+-----------------------------------
+Funambol Administration Tool 6.0.1
+-----------------------------------
+
+2007-03-21
+- nichele: Reviewed panel used to create/update a device (basically removing the
+           notification sender)
+
+2007-03-21
+- lulu: Reviewed installation directory and menu structure
+
+2007-03-20
+- lulu: Updated documentation link
+
+2007-03-18
+- nichele: Reviewed panel used to add/edit a device in order to make easy the
+           notification builder/sender setting.
+           Removed check on device type and description that now are not mandatory
+           
+2007-02-14
+- piter: Changed log levels shown in the logger configuration panel according to
+         the available levels in log4j
+         
+
+-----------------------------------
+Funambol Administration Tool 6.0.0
+-----------------------------------
+
+2007-02-07
+- nichele: Updated logo and icons
+
+2007-02-05
+- nichele: Porting on Netbeans 5.5
+
+2007-02-04
+- nichele: Added panel to edit a DailyRollingFileAppender
+
+2007-01-09
+- nichele: Updated to HPL 1.1
+
+2006-12-16
+- nichele: Reviewed logging configuration according to the new server architecture
+
+2006-11-29
+- lulu: Renamed adminConfig.properties in admin.properties
+- lulu: Changed forge for Unix/Linux to overwrite the funamboladmin file to save 
+        the admin.properties in the bin directory.
+- lulu: Moved the handling of jdkhome from funamboladmin into funamboladmin.conf
+        for the Unix/Linux bundle.
+
+2006-11-28
+- lulu: Added a new adminConfig.properties file. This file contains all configuration
+        properties of the administration tool and replaces serverConfig.properties.
+        Moreover, also the properties that were handled as system properties (and 
+        configured in funamboladmin.conf) now are stored in the adminConfig.properties. 
+- lulu: Added a new class AdminConfig (singleton class) to handle the 
+        adminConfig.properties.
+- lulu: Added menu Tools/Options to configure the server context path, maxResults
+        and the admin debug.
+- lulu: Removed HostConfiguration and ConfigTools because now the configuration
+        is handled by the AdminConfig.
+
+2006-09-15
+- lulu: Fixed an "Unexpected exception" with java.lang.NullPointerException when
+        click on "-" button in the "CTCap Properties" window for "Parameters" 
+        panel.
+
+2006-09-12
+- dragota: Upgraded libraries:
+               - axis (version 1.4)
+               - jaas (version 1.2)
+
+
+-----------------------------------
+Funambol Administration Tool 3.0.9
+-----------------------------------
+
+2006-09-07
+- nichele: Changed COPYING file to Honest public License
+
+
+-----------------------------------
+Funambol Administration Tool 3.0.8
+-----------------------------------
+
+2006-08-10
+- nichele: Added new panels to edit the device capabilities
+
+2006-08-08
+- nichele: Changed the license.
+
+2006-08-06
+- nichele: Improved error log when the admin is unable to load the configuration panel of a
+           connector/sync source
+
+2006-07-24
+- nichele: Changed the behaviour showing the users. Now the roles are loaded the first
+           time a "users search" is performed
+
+2006-07-24
+- nichele: Fixed a wrong "Name" shown in the users list adding a principal when the first name 
+           or the last name are null.
+
+2006-07-24
+- nichele: Changed the text shown resetting the last timestamp removing a double "the"
+
+2006-07-19
+- lulu: Added "Refresh" button into Last Synchronization Timestamps panel
+
+2006-07-18
+- Lorenzo Boiocchi: Changed the preferredSize of the Server Settings Panel in order to manage 
+                    correctly the horizontal scrolling bar
+
+
+-----------------------------------
+Funambol Administration Tool 3.0.7
+-----------------------------------
+
+2006-07-11
+- Lorenzo Boiocchi: Improved the management of the exceptions if the user is no more authorized
+
+2006-07-11
+- Lorenzo Boiocchi: Changed the method getColumnClass in the search panel of user,device and principal
+
+2006-07-05
+- nichele: Added double click handling in the principals list to show the principal's details
+
+2006-06-26
+- lulu: Fixed Copyright into Readme file
+
+
+-----------------------------------
+Funambol Administration Tool 3.0.6
+-----------------------------------
+
+2006-05-26
+- Lorenzo Boiocchi: Reviewed the About panel
+
+2006-05-22
+- Mircea Bodog: Fixed bug 304586 server side logging not sufficient - admin side of SS error
+
+2006-05-22
+- Lorenzo Boiocchi: Fixed an issue on the logger panel when "Output to file" option is unmarked
+
+2006-05-19
+- Lorenzo Boiocchi: Fixed bug 305311 The 'Edit/Delete' buttons should be disabled in the 'Search users'
+                    panel when no users are displayed in the list
+
+
+-----------------------------------
+Funambol Administration Tool 3.0.5
+-----------------------------------
+
+2006-05-11
+- Lorenzo Boiocchi: changed the "Help Contents" action in the Help menu
+
+2006-05-08
+- Mircea Bodog: disabled default value/client wins/server wins radio buttons in resolution table for mergeable syncSources on strategy Panel
+- Lulu: Fixed bug 305184 Wrong value displayed for the "Device inventory" field in "Server Settings" panel
+
+2006-05-05
+- Mircea Bodog: Recentered the Save and Cancel buttons on Strategy panel
+
+2006-05-04
+- Mircea Bodog: Fixed bug 305137 Admin Tool - Problems Adding a New Entry in the Data Transformations Table
+
+2006-05-03
+- Lorenzo Boiocchi: Add control to the admin.sis to check if it's already installed
+
+2006-05-02
+- Mircea Bodog: Fixed bug 305118 "Description" field issue in the "Device Details" panel
+
+2006-04-27
+- Lorenzo Boiocchi: Add a control if the mainpanel is shown 
+                    Add cancel button to the strategy panel 
+                    Add cancel button to the server configuration panel
+                    Add cancel button to the data transformer manager panel
+                    Add cancel button to the create principal panel
+                    Add cancel button to the create device panel
+                    Add cancel button to the user create panel
+
+2006-04-27
+- Mircea Bodog: Fixed bug 305078 You shouldn't be allowed to delete the user you logged in with 
+                Fixed bug 305077 The options from the Logging sub-menu are editable 
+                Fixed bug 305082 Truncated text in the Logger settings for funambol.engine.source 
+
+2006-04-24
+- Lorenzo Boiocchi: Fixed bug 305049 Message error when the explorer window is minimized
+
+2006-04-21
+- Lorenzo Boiocchi: Correct the value of LAST_TIMESTAMP_MESSAGE_RESET_OK in 
+                    admin-suite\admin\src\com\funambol\admin\util bundle.properties
+
+
+-----------------------------------
+Funambol Administration Tool 3.0.4
+-----------------------------------
+
+2006-04-12
+- nichele: Fixed bug 304965 In the Server Setting Strategy Configuration, 
+           it appears you can add multiple entries for the same source name.
+
+2006-04-12
+- Lorenzo Boiocchi: Fixed bug 304961 Login option is disabled after closing the Login tab from the system close button
+
+2006-04-11
+- nichele: Fixed bug 304964 Error message displayed when entering "1234567" in the "Rotation file count" field
+
+2006-04-05
+- Mircea Bodog: Changed the title of the Strategy configuration panel
+
+
+-----------------------------------
+Funambol Administration Tool 3.0.3
+-----------------------------------
+
+2006-03-24
+- Mircea Bodog: Changed the WS url to services/admin
+
+2006-03-22
+- Mircea Bodog: Fixed bug 304804 The logging bean should not be modifiable in the sync engine admin panel
+
+2006-03-21
+- Mircea Bodog: Fixed bug 304842 Wrong label in the DataTransformerManager configuration panel
+
+
+-----------------------------------
+Funambol Administration Tool 3.0.2
+-----------------------------------
+
+2006-03-18
+- nichele: Porting on Netbeans 5.0
+
+2006-03-17
+- Mircea Bodog: Added a space between name and (uri) in the Sync4jStrategy display table
+
+2006-03-13
+- Mircea Bodog: In Search device screen replaced column Timezone of devices table with column Address
+
+2006-03-07
+- Mircea Bodog: Added the Sync4jStrategy configuration screen
+
+2006-03-02
+- Mircea Bodog: Added DeepObjectCloner class
+
+2006-02-19
+- harrie: The Sync4jPrincipal is not constructed directly from a
+          String username and String device id, but has a factory method.
+
+2006-02-17
+- nichele: Changed the methods to handle the principal because now the
+           principalId is a long
+
+2006-02-16
+- Mircea Bodog: Fixed bug 304661 Focus lost isn't handled correctly in the DataTransformer Manager panel
+
+2006-02-07
+- Mircea Bodog: Fixed bug 304662 Switching from a textfield to another pressing "TAB" doesn't work
+
+2006-02-06
+- Mircea Bodog: Fixed bug 304627 The module description is not shown
+
+-----------------------------------
+Funambol Administration Tool 3.0.1
+-----------------------------------
+
+2006-02-01
+- lulu: Made compliant with Funambol DS Server 5.0.1
+- lulu: Made compliant with Foundation 3.0.1
+
+
+-----------------------------------
+Funambol Administration Tool 3.0.0
+-----------------------------------
+
+New Major Release

@@ -1,0 +1,39 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VTIMEZONE
+TZID:Eastern
+BEGIN:STANDARD
+DTSTART:19501105T020000
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+RRULE:FREQ=YEARLY;INTERVAL=1;BYMINUTE=0;BYHOUR=2;BYDAY=1SU;BYMONTH=11
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19500312T020000
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+RRULE:FREQ=YEARLY;INTERVAL=1;BYMINUTE=0;BYHOUR=2;BYDAY=2SU;BYMONTH=3
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+CREATED:20080613T090708Z
+LAST-MODIFIED:20080613T090708Z
+DTSTAMP:20080925T094829Z
+UID:89A1CC7C4245BF9665257458002EECAE-Lotus_Notes_Generated
+SUMMARY:Webinar - "Agile made us Better, but we signed up for Great!" 
+CLASS:PUBLIC
+ATTENDEE;RSVP=FALSE;CN=ThoughtWorks Webinars/US/ThoughtWorks;PARTSTAT=ACCEPTED;ROLE=CHAIR:MAILTO:studios@thoughtworks.com
+ATTENDEE;RSVP=FALSE;PARTSTAT=NEEDS-ACTION;ROLE=NON-PARTICIPANT:MAILTO:nk@thoughtworks.com
+DTSTART;TZID=Eastern:20080626T105500
+DTEND;TZID=Eastern:20080626T120000
+TRANSP:OPAQUE
+SEQUENCE:0
+DESCRIPTION:ThoughtWorks Webinar with Ross Pettit.\\n\\n\\nTo join the online meeting (WebEx)\\n------------------------------------------------------- \\n1. Go to \\nhttps://thoughtworks.webex.com/thoughtworks/j.php?ED=97881862&UID=0&PW=044c59525858455b \\n\\n2. Enter your name and email address. \\n3. Enter the meeting password: 654321 \\n4. Click "Join Now". \\n5. Follow the instructions that appear on your screen. \\n\\nWebEx will automatically setup Meeting Manager for Windows the first time \\nyou join a meeting. To save time, you can setup prior to the meeting by \\nclicking this link: \\nhttps://thoughtworks.webex.com/thoughtworks/meetingcenter/mcsetup.php \\n\\nAudio Component\\n------------------------------------------------------- \\nUS Toll free: 1 866 268 3606 \\nInternational: 1 952 352 7800 \\nMeeting ID: 54321 \\n
+X-LOTUS-BROADCAST:FALSE
+X-LOTUS-UPDATE-SEQ:1
+X-LOTUS-UPDATE-WISL:$S:1;$L:1;$B:1;$R:1;$E:1
+X-LOTUS-NOTESVERSION:2
+X-LOTUS-NOTICETYPE:I
+X-LOTUS-CHILD_UID:89A1CC7C4245BF9665257458002EECAE
+END:VEVENT
+END:VCALENDAR

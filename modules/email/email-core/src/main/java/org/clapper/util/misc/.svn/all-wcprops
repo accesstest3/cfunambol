@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/misc
+END
+LRUMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/misc/LRUMap.java
+END
+NestedException.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/misc/NestedException.java
+END
+ObjectRemovalListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/misc/ObjectRemovalListener.java
+END
+BundleUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/misc/BundleUtil.java
+END
+ObjectRemovalEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/misc/ObjectRemovalEvent.java
+END

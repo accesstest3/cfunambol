@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/core/!svn/ver/29768/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model
+END
+VCalendar.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model/VCalendar.java
+END
+TzStandardComponent.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model/TzStandardComponent.java
+END
+TzDaylightComponent.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model/TzDaylightComponent.java
+END
+VEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model/VEvent.java
+END
+CreateVComponent.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model/CreateVComponent.java
+END
+Parameter.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model/Parameter.java
+END
+VTimezone.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model/VTimezone.java
+END
+VAlarm.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model/VAlarm.java
+END
+Property.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model/Property.java
+END
+ParameterSemantics.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model/ParameterSemantics.java
+END
+VComponent.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/28787/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model/VComponent.java
+END
+ValueDateTime.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model/ValueDateTime.java
+END
+VCalendarContent.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model/VCalendarContent.java
+END
+PropertySemantics.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model/PropertySemantics.java
+END
+VNote.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model/VNote.java
+END
+VTodo.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model/VTodo.java
+END
+ValueInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/29768/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/model/ValueInterface.java
+END

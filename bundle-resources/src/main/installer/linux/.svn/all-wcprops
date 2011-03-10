@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/core/!svn/ver/33929/trunk/funambol/bundle-resources/src/main/installer/linux
+END
+head
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/installer/linux/head
+END
+tail
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/installer/linux/tail
+END

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/exception
+END
+MaxFileSizeException.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/34614/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/exception/MaxFileSizeException.java
+END
+DAOException.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/30768/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/exception/DAOException.java
+END
+FileDataObjecyUtilsException.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/exception/FileDataObjecyUtilsException.java
+END
+FileDataObjecySyncSourceConfigException.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/core/!svn/ver/35045/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/exception/FileDataObjecySyncSourceConfigException.java
+END
+EntityException.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/exception/EntityException.java
+END
+QuotaOverflowException.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/34776/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/exception/QuotaOverflowException.java
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/core/!svn/ver/34007/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/protocol
+END
+ProtocolUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/protocol/ProtocolUtil.java
+END
+ProtocolException.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/protocol/ProtocolException.java
+END
+SyncInitialization.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/34007/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/protocol/SyncInitialization.java
+END
+SyncModifications.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/32887/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/protocol/SyncModifications.java
+END
+SyncMapping.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/protocol/SyncMapping.java
+END
+SyncPackage.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/protocol/SyncPackage.java
+END
+Flags.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/protocol/Flags.java
+END
+SyncSuspend.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/protocol/SyncSuspend.java
+END

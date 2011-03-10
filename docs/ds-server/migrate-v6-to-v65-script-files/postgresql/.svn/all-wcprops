@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/core/!svn/ver/28212/trunk/funambol/docs/ds-server/migrate-v6-to-v65-script-files/postgresql
+END
+migrate_public_mailservers_postgresql.sql
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/28212/trunk/funambol/docs/ds-server/migrate-v6-to-v65-script-files/postgresql/migrate_public_mailservers_postgresql.sql
+END
+migrate_v6_to_v65_postgresql.sql
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/28212/trunk/funambol/docs/ds-server/migrate-v6-to-v65-script-files/postgresql/migrate_v6_to_v65_postgresql.sql
+END

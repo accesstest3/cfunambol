@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/36684/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/util
+END
+FileDataObjectHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/util/FileDataObjectHelper.java
+END
+MediaUtilsTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/36684/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/util/MediaUtilsTest.java
+END
+FileAssert.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/util/FileAssert.java
+END
+FileSystemDAOHelperTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/util/FileSystemDAOHelperTest.java
+END
+SyncSourceUtilTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/34865/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/util/SyncSourceUtilTest.java
+END
+FileDataObjectNamingStrategyTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/util/FileDataObjectNamingStrategyTest.java
+END
+TestDef.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/util/TestDef.java
+END

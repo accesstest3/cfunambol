@@ -1,0 +1,76 @@
+#!/bin/sh
+
+# Setting FUNAMBOL_HOME
+# resolving links - $0 could be a softlink
+PRG="$0"
+APPNAME=`basename "$PRG"`
+
+while [ -h "$PRG" ]; do
+  ls=`ls -ld "$PRG"`
+  link=`expr "$ls" : '.*-> \(.*\)$'`
+  if expr "$link" : '/.*' > /dev/null; then
+    PRG="$link"
+  else
+    PRG=`dirname "$PRG"`/"$link"
+  fi
+done
+
+PRGDIR=`dirname "$PRG"`
+
+FUNAMBOL_HOME=`cd "$PRGDIR/.." ; pwd`
+DS_SERVER_HOME=$FUNAMBOL_HOME/ds-server
+
+if [ ! -d $FUNAMBOL_HOME/config ]; then
+    #
+    # maybe we are in Funambol/tool/bin
+    #
+    FUNAMBOL_HOME=$FUNAMBOL_HOME/..
+    DS_SERVER_HOME=$FUNAMBOL_HOME/ds-server
+fi
+
+# Setting the JAVA_HOME to the bundle one if not set or if not correctly set
+if [ -z "$JAVA_HOME" ] ; then
+    JAVA_HOME="$FUNAMBOL_HOME/tools/jre-1.6.0/jre"
+    export JAVA_HOME
+else
+    if [ ! -f "$JAVA_HOME/bin/java" ] ; then
+        JAVA_HOME="$FUNAMBOL_HOME/tools/jre-1.6.0/jre"
+        export JAVA_HOME
+    fi
+fi
+
+if [ ! -f "$JAVA_HOME/bin/java" ]
+then
+    echo ". =================================================="
+    echo "."
+    echo ". Please, set JAVA_HOME to the path of a valid jdk."
+    echo "."
+    echo ". =================================================="
+    exit;
+fi
+
+# Setting the J2EE_HOME to the bundle one if not set
+if [ -z "$J2EE_HOME" ] ; then
+    J2EE_HOME="$FUNAMBOL_HOME/tools/tomcat"
+    export J2EE_HOME
+fi
+
+cd $DS_SERVER_HOME
+
+# just in case...
+chmod +x ./ant/bin/*
+unset ANT_HOME
+
+# the bundle version uses Tomcat 6.0
+export APPSRV="tomcat60"
+
+./ant/bin/ant -Ddo.install-modules-only=true -Ddo.install-db=true --noconfig -buildfile ./install/install.xml -q install $*
+
+# In case the installation created new scripts
+if [ -d "$FUNAMBOL_HOME/bin" ] ; then
+    chmod -R +x $FUNAMBOL_HOME/bin
+fi
+
+if [ -d "$DS_SERVER_HOME/bin" ] ; then
+    chmod -R +x $DS_SERVER_HOME/bin
+fi

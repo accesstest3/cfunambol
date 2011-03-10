@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/36032/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/registry
+END
+RegistryMonitorExecutor.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/registry/RegistryMonitorExecutor.java
+END
+RegistryMonitor.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/31180/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/registry/RegistryMonitor.java
+END
+RegistryMonitorHealthStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/registry/RegistryMonitorHealthStatus.java
+END
+RegistryEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/31187/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/registry/RegistryEntry.java
+END
+RegistryEntryStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/registry/RegistryEntryStatus.java
+END

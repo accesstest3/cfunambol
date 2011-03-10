@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/engine/source
+END
+EmailFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/engine/source/EmailFactory.java
+END
+HelperForGetter.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/29371/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/engine/source/HelperForGetter.java
+END
+HelperForIOConversion.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/engine/source/HelperForIOConversion.java
+END
+EmailGeneric.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/engine/source/EmailGeneric.java
+END
+EmailSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/engine/source/EmailSyncSource.java
+END
+EmailPop.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/engine/source/EmailPop.java
+END
+EmailSyncSourceWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/engine/source/EmailSyncSourceWrapper.java
+END
+CacheDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/engine/source/CacheDAO.java
+END
+EmailConnectorConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/28653/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/engine/source/EmailConnectorConfig.java
+END
+HelperForFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/engine/source/HelperForFilter.java
+END
+IEmailGeneric.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/engine/source/IEmailGeneric.java
+END
+EmailImap.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/engine/source/EmailImap.java
+END

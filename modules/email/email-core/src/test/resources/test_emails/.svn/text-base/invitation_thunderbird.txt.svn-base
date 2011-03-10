@@ -1,0 +1,149 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: pit.may.imap.2@gmail.com
+Received: by 10.150.139.10 with SMTP id m10cs349822ybd;
+        Wed, 29 Oct 2008 04:31:02 -0700 (PDT)
+Received: by 10.114.170.1 with SMTP id s1mr7190562wae.161.1225279859233;
+        Wed, 29 Oct 2008 04:30:59 -0700 (PDT)
+Return-Path: <piter@funambol.com>
+Received: from a.mail.sonomait.com (a.mail.sonomait.com [64.142.123.30])
+        by mx.google.com with ESMTP id q18si5376691pog.11.2008.10.29.04.30.57;
+        Wed, 29 Oct 2008 04:30:59 -0700 (PDT)
+Received-SPF: neutral (google.com: 64.142.123.30 is neither permitted nor denied by best guess record for domain of piter@funambol.com) client-ip=64.142.123.30;
+Authentication-Results: mx.google.com; spf=neutral (google.com: 64.142.123.30 is neither permitted nor denied by best guess record for domain of piter@funambol.com) smtp.mail=piter@funambol.com
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 3C56B16448B
+	for <pit.may.imap.2@gmail.com>; Wed, 29 Oct 2008 04:30:57 -0700 (PDT)
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Flag: NO
+X-Spam-Score: -1.747
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.747 tagged_above=-10 required=5 tests=[AWL=0.752,
+	BAYES_00=-2.599, RDNS_DYNAMIC=0.1]
+Received: from a.mail.sonomait.com ([127.0.0.1])
+	by localhost (a.mail.sonomait.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id aSF1StBH5z62 for <pit.may.imap.2@gmail.com>;
+	Wed, 29 Oct 2008 04:30:52 -0700 (PDT)
+Received: from [192.168.0.88] (89-96-142-253.ip12.fastwebnet.it [89.96.142.253])
+	by a.mail.sonomait.com (Postfix) with ESMTP id C737C164487
+	for <pit.may.imap.2@gmail.com>; Wed, 29 Oct 2008 04:30:51 -0700 (PDT)
+MIME-version: 1.0
+From: piter@funambol.com
+To: pit.may.imap.2@gmail.com
+Subject: Invito evento: evento, thunderbird
+Content-type: multipart/mixed; boundary="Boundary_(ID_qyG4ZdjoAsiZ+Jo19dCbWQ)"
+Message-Id: <20081029113051.C737C164487@a.mail.sonomait.com>
+Date: Wed, 29 Oct 2008 04:30:51 -0700 (PDT)
+
+
+--Boundary_(ID_qyG4ZdjoAsiZ+Jo19dCbWQ)
+Content-type: multipart/alternative;
+ boundary="Boundary_(ID_ryU4ZdJoASiZ+Jo21dCbwA)"
+
+
+--Boundary_(ID_ryU4ZdJoASiZ+Jo21dCbwA)
+Content-type: text/plain; charset=UTF-8
+Content-transfer-encoding: 8BIT
+
+Si è stati invitati da piter <piter@funambol.com> a evento, thunderbird
+
+
+--Boundary_(ID_ryU4ZdJoASiZ+Jo21dCbwA)
+Content-type: text/calendar; method=REQUEST; charset=UTF-8
+Content-transfer-encoding: 8BIT
+
+BEGIN:VCALENDAR
+PRODID:-//Mozilla.org/NONSGML Mozilla Calendar V1.1//EN
+VERSION:2.0
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+X-LIC-LOCATION:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=3
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=10
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+CREATED:20081029T112954Z
+LAST-MODIFIED:20081029T113158Z
+DTSTAMP:20081029T113158Z
+UID:b988a410-af2e-412e-a94f-0d7bbf822064
+SUMMARY:evento\, thunderbird
+ORGANIZER;RSVP=TRUE;CN=piter;PARTSTAT=ACCEPTED;ROLE=CHAIR:mailto:
+ piter@funambol.com
+ATTENDEE;RSVP=TRUE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT:mailto:
+ pit.may.imap.2@gmail.com
+RRULE:FREQ=WEEKLY;INTERVAL=1
+CATEGORIES:Idee
+DTSTART;TZID=Europe/Berlin:20081029T130000
+DTEND;TZID=Europe/Berlin:20081029T140000
+LOCATION:location of the event
+DESCRIPTION:this is an event defined by thunderbird
+TRANSP:OPAQUE
+SEQUENCE:0
+END:VEVENT
+END:VCALENDAR
+
+
+--Boundary_(ID_ryU4ZdJoASiZ+Jo21dCbwA)--
+
+--Boundary_(ID_qyG4ZdjoAsiZ+Jo19dCbWQ)
+Content-type: application/ics; name=invite.ics
+Content-transfer-encoding: 8BIT
+Content-disposition: attachment; filename=invite.ics
+
+BEGIN:VCALENDAR
+PRODID:-//Mozilla.org/NONSGML Mozilla Calendar V1.1//EN
+VERSION:2.0
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+X-LIC-LOCATION:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=3
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=10
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+CREATED:20081029T112954Z
+LAST-MODIFIED:20081029T113158Z
+DTSTAMP:20081029T113158Z
+UID:b988a410-af2e-412e-a94f-0d7bbf822064
+SUMMARY:evento\, thunderbird
+ORGANIZER;RSVP=TRUE;CN=piter;PARTSTAT=ACCEPTED;ROLE=CHAIR:mailto:
+ piter@funambol.com
+ATTENDEE;RSVP=TRUE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT:mailto:
+ pit.may.imap.2@gmail.com
+RRULE:FREQ=WEEKLY;INTERVAL=1
+CATEGORIES:Idee
+DTSTART;TZID=Europe/Berlin:20081029T130000
+DTEND;TZID=Europe/Berlin:20081029T140000
+LOCATION:location of the event
+DESCRIPTION:this is an event defined by thunderbird
+TRANSP:OPAQUE
+SEQUENCE:0
+END:VEVENT
+END:VCALENDAR
+
+
+--Boundary_(ID_qyG4ZdjoAsiZ+Jo19dCbWQ)--

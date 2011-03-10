@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tc-ref version="2.0">
+    <module name="com.funambol.admin" spec="1.0" />
+    <tc-id id="server" />
+    <state opened="true" />
+</tc-ref>

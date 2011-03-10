@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/core/!svn/ver/29225/trunk/funambol/common/core-framework/src/test/data
+END
+twods.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/test/data/twods.xml
+END
+sonyericsson-W910i.xml
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/core/!svn/ver/29225/trunk/funambol/common/core-framework/src/test/data/sonyericsson-W910i.xml
+END
+syncml1.1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/test/data/syncml1.1.xml
+END
+syncml1.2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/test/data/syncml1.2.xml
+END
+msg1WithSensitiveData.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/test/data/msg1WithSensitiveData.xml
+END
+msg1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/test/data/msg1.xml
+END
+msg1WithoutSensitiveData.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/test/data/msg1WithoutSensitiveData.xml
+END
+nokia-wrong-syncml1.2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/core/!svn/ver/27993/trunk/funambol/common/core-framework/src/test/data/nokia-wrong-syncml1.2.xml
+END

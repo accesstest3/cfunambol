@@ -1,0 +1,13 @@
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 909DA1EEC064
+	for <fabio@funambol.net>; Thu, 10 Jan 2008 03:11:34 -0800 (PST)
+Date: Thu, 10 Jan 2008 12:11:07 +0100
+From: piter <piter@funambol.com>
+To: fabio <fabio@funambol.net>
+Message-ID: <4785FD4B.8010002@funambol.com>
+Subject: text mail and big attachments
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This a mai

@@ -1,0 +1,62 @@
+Return-Path: testa@funambol.com
+Received: from a.mail.sonomait.com (LHLO a.mail.sonomait.com)
+ (64.142.123.30) by a.mail.sonomait.com with LMTP; Mon, 23 Jun 2008 05:13:57
+ -0700 (PDT)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 7B7CA17A4013
+	for <testa@funambol.com>; Mon, 23 Jun 2008 05:13:57 -0700 (PDT)
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Flag: NO
+X-Spam-Score: 2.134
+X-Spam-Level: **
+X-Spam-Status: No, score=2.134 tagged_above=-10 required=5
+	tests=[BAYES_40=-0.185, RDNS_DYNAMIC=0.1, TVD_SPACE_RATIO=2.219]
+Received: from a.mail.sonomait.com ([127.0.0.1])
+	by localhost (a.mail.sonomait.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Cbb+2i80V8C8 for <testa@funambol.com>;
+	Mon, 23 Jun 2008 05:13:56 -0700 (PDT)
+Received: from morfans (85-18-37-27.ip.fastwebnet.it [85.18.37.27])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 9EE8C17A400B
+	for <testa@funambol.com>; Mon, 23 Jun 2008 05:13:54 -0700 (PDT)
+From: "Marco Testa01" <testa01@monocromo.funambol.intra>
+Sender: "Marco Testa" <testa@funambol.com>
+To: "Marco Testa" <testa@funambol.com>
+Subject: Prova appuntamento
+Date: Mon, 23 Jun 2008 14:13:54 +0200
+MIME-Version: 1.0
+Content-Type: text/calendar; method=REQUEST;
+	charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: Microsoft Office Outlook, Build 11.0.5510
+Thread-Index: AcjVKprFlyQ1hyKBSnW6HJ9/rFNdWw==
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.3198
+Message-Id: <20080623121354.9EE8C17A400B@a.mail.sonomait.com>
+
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 11.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:REQUEST
+BEGIN:VEVENT
+ATTENDEE;ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:testa@funambol.com
+DTSTART:20080623T140000Z
+DTEND:20080623T143000Z
+TRANSP:OPAQUE
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E00800000000B054495E3BD5C8010000000000000000100
+ 000002EDFE8F1B948B140BFC837D19C771E67
+DTSTAMP:20080623T121354Z
+DESCRIPTION:When: lun 23 giugno 2008 16:00-16:30 (GMT + 1.00 h)
+  Amsterdam\, Berlino\, Berna\, Roma\, Stoccolma\,
+  Vienna.\n\n*~*~*~*~*~*~*~*~*~*\n\n\n
+SUMMARY:Prova appuntamento
+PRIORITY:5
+X-MICROSOFT-CDO-IMPORTANCE:1
+CLASS:PUBLIC
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR
+

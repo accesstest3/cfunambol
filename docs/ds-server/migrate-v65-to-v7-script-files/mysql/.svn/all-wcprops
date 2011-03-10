@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/core/!svn/ver/28212/trunk/funambol/docs/ds-server/migrate-v65-to-v7-script-files/mysql
+END
+migrate_v65_to_v7_mysql.sql
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/28212/trunk/funambol/docs/ds-server/migrate-v65-to-v7-script-files/mysql/migrate_v65_to_v7_mysql.sql
+END

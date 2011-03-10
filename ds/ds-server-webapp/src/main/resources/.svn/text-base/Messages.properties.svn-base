@@ -1,0 +1,2 @@
+server-version=@{funambol:ds-server.version}
+

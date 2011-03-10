@@ -1,0 +1,66 @@
+#
+# Calendar messages/labels
+#
+msg.titleCal=Calendars list
+msg.subtitleCal=Select a calendar or create a <a href="{0}">new</a> one.
+msg.detailsCal=Calendar details
+msg.dtendCal=Ending date (dd/mm/yyyy)
+msg.typeCal=Calendar type
+msg.confirmDeleteCal=Are you sure you want to delete the calendar?
+msg.notfoundCal=The selected calendar does not exist anymore
+msg.alldayCal=All Day Calendar
+
+
+#
+# Task messages/labels
+#
+msg.titleTask=Tasks list
+msg.subtitleTask=Select a task or create a <a href="{0}">new</a> one.
+msg.detailsTask=Task details
+msg.dtendTask=Due date (dd/mm/yyyy)
+msg.percentcomplete=Percent complete (%)
+msg.dtcompleted=Date completed (dd/mm/yyyy)
+msg.confirmDeleteTask=Are you sure you want to delete the task?
+msg.notfoundTask=The selected task does not exist anymore
+
+#
+# Common messages/labels
+#
+msg.desc=Description
+msg.summary=Summary
+msg.dtstart=Starting date (dd/mm/yyyy)
+msg.timestart=Starting time (hh:mm)
+msg.timeend=Ending time (hh:mm)
+msg.location=Location
+msg.attention=* These fields are mandatory
+lbl.update=Update
+lbl.back=Back
+lbl.delete=Delete
+lbl.add=Add
+
+#
+# Error messages
+#
+msg.erroremptystart=Starting date is mandatory
+msg.errorformatstart=Starting date must be in this format dd/mm/yyyy
+msg.erroremptyend=Ending date is mandatory
+msg.errorformatendCal=Ending date must be in this format dd/mm/yyyy
+msg.errorformatendTask=Due date must be in this format dd/mm/yyyy
+msg.errorstart=Starting date is not valid
+msg.errorendCal=Ending date is not valid
+msg.errorendTask=Due date is not valid
+msg.errorstarttime=Start time is not valid
+msg.errorendtime=End time is not valid
+msg.errorcompareCal=The end date occurs before the start date
+msg.errorcompareTask=The due date occurs before the start date
+msg.errorzeros=Invalid year for Starting Date. Please enter a valid date
+msg.errorzeroeCal=Invalid year for Ending Date. Please enter a valid date
+msg.errorzeroeTask=Invalid year for Due Date. Please enter a valid date
+msg.erroryears=Starting date is not valid (the year must be between 1900 and 2100)
+msg.erroryeareCal=Ending date is not valid (the year must be between 1900 and 2100)
+msg.erroryeareTask=Due date is not valid (the year must be between 1900 and 2100)
+msg.errorcompleted=Date completed is not valid
+msg.errorformatcompleted=Date completed must be in this format dd/mm/yyyy
+msg.errorzeroc=Invalid year for Date Completed. Please enter a valid date
+msg.errorperccomp=Percent complete must be a valid number between 0 and 100
+msg.errorsummary=Summary is mandatory

@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/31139/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/store/ConfigPersistentStore
+END
+dataset.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/31139/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/store/ConfigPersistentStore/dataset.dtd
+END
+store-item-2-db-dataset-part-2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/31139/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/store/ConfigPersistentStore/store-item-2-db-dataset-part-2.xml
+END
+initial-db-dataset-part-1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/core/!svn/ver/31139/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/store/ConfigPersistentStore/initial-db-dataset-part-1.xml
+END
+store-item-3-db-dataset-part-2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/31139/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/store/ConfigPersistentStore/store-item-3-db-dataset-part-2.xml
+END
+initial-db-dataset-part-2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/core/!svn/ver/31139/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/store/ConfigPersistentStore/initial-db-dataset-part-2.xml
+END
+initial-db-dataset-part-3.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/core/!svn/ver/31139/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/store/ConfigPersistentStore/initial-db-dataset-part-3.xml
+END
+delete-item-1-db-dataset-part-1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/31139/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/store/ConfigPersistentStore/delete-item-1-db-dataset-part-1.xml
+END
+delete-item-2-db-dataset-part-1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/31139/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/store/ConfigPersistentStore/delete-item-2-db-dataset-part-1.xml
+END
+remove-configs-db-dataset-part-3.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/31139/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/store/ConfigPersistentStore/remove-configs-db-dataset-part-3.xml
+END
+store-item-1-db-dataset-part-2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/31139/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/store/ConfigPersistentStore/store-item-1-db-dataset-part-2.xml
+END

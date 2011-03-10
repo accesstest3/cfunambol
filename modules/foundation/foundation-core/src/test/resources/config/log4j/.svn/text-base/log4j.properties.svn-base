@@ -1,0 +1,18 @@
+log4j.rootCategory=ALL,A
+
+# raising DBUNIT log level avoiding plenty of log
+log4j.logger.org.dbunit=ERROR
+# raising JavaMail Mock log level avoiding plenty of log
+log4j.logger.com.funambol=ALL
+log4j.logger.funambol=ALL
+
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+log4j.appender.console.layout=org.apache.log4j.PatternLayout
+log4j.appender.console.layout.ConversionPattern=[%c] [%t] [%d{HH:mm:ss}] %-5p (%13F:%L) %3x - %m%n
+
+
+log4j.appender.A=org.apache.log4j.FileAppender
+log4j.appender.A.File=target/logs/tests.log
+log4j.appender.A.Append=false
+log4j.appender.A.layout=org.apache.log4j.PatternLayout
+log4j.appender.A.layout.ConversionPattern=[%c] [%t] [%d{HH:mm:ss}] %-5p (%13F:%L) %3x - %m%n

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/core/!svn/ver/33583/trunk/funambol/modules/foundation/pim-listener/src/main/resources/config
+END
+jgroups-pimlistener.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/pim-listener/src/main/resources/config/jgroups-pimlistener.xml
+END
+log4j-pimlistener.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/33583/trunk/funambol/modules/foundation/pim-listener/src/main/resources/config/log4j-pimlistener.xml
+END

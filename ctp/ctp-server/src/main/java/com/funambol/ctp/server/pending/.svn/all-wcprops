@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/29804/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/pending
+END
+WSPendingNotificationManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/29804/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/pending/WSPendingNotificationManager.java
+END
+PendingNotificationManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/29804/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/pending/PendingNotificationManager.java
+END
+PendingNotificationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/29700/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/pending/PendingNotificationException.java
+END

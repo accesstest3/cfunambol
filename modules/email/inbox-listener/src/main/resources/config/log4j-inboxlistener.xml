@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+	
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[%d{yyyy-MM-dd HH:mm:ss,SSS}] [%c] [%p] [%t] [%X{username}] [%X{ms_login}] %m%n" />
+        </layout>
+    </appender>
+
+    <appender name="daily-log-file" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="../logs/inbox-listener/inbox-listener.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.txt'"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[%d{yyyy-MM-dd HH:mm:ss,SSS}] [%c] [%p] [%t] [%X{username}] [%X{ms_login}] %m%n" />
+        </layout>
+    </appender>
+    
+    <appender name="hourly-log-file" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="../logs/inbox-listener/inbox-listener.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd.HH'.txt'"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="[%d{yyyy-MM-dd HH:mm:ss,SSS}] [%c] [%p] [%t] %m%n" />
+        </layout>
+    </appender>
+
+    <appender name="rolling-log-file" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="../logs/inbox-listener/inbox-listener.log"/>
+            <param name="MaxFileSize" value="100MB"/>
+            <param name="MaxBackupIndex" value="5"/>
+            <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="[%d{yyyy-MM-dd HH:mm:ss,SSS}] [%c] [%p] [%t] [%X{username}] [%X{ms_login}] %m%n" />
+            </layout>
+    </appender>
+    
+    <logger name="org">
+        <level value="error"/>
+    </logger>
+
+    <logger name="funambol">
+        <level value="INFO"/>
+    </logger>
+    
+    <!--
+    <logger name="funambol.email">
+        <level value="ALL"/>
+    </logger>
+    -->
+    
+    <logger name="funambol.push">
+        <level value="OFF"/>
+    </logger>
+    
+    <root>
+        <level value="error"/>
+        <appender-ref ref="console" />
+        <appender-ref ref="rolling-log-file" />
+        <!--appender-ref ref="daily-log-file" /-->
+    </root>
+
+</log4j:configuration>
+

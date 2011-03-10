@@ -1,0 +1,381 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2010 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+package com.funambol.common.media.file.parser;
+
+import com.funambol.common.media.file.FileDataObject;
+import com.funambol.common.media.file.UploadStatus;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
+import java.util.TimeZone;
+
+
+/**
+ *
+ * @version $Id: FileDataObjectStreamingUnmarshaller.java 35942 2010-09-09 17:08:30Z filmac $
+ */
+public class FileDataObjectStreamingUnmarshaller {
+
+    // --------------------------------------------------------------- Constants
+    private static final short STATE_STARTED = 0;
+    private static final short STATE_BODY_START_FOUND = 1;
+    private static final short STATE_BODY_END_FOUND = 2;
+
+    private static final String ENC_BASE_64 = "base64";
+
+    // ------------------------------------------------------------ Private data
+    /**
+     * The stream where to write the body content
+     */
+    private FileDataObjectDecoder decodedStream = null;
+
+    /**
+     * The FileDataObject resulting from the parsing
+     */
+    private FileDataObject fileDataObject = null;
+
+    /**
+     * The time zone to be used to convert local times into UTC.
+     */
+    private TimeZone timeZone;
+
+    /**
+     * The buffer where to stream the xml message without the body element
+     * content.
+     */
+    private ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+
+    /**
+     * Used looking for &lt;body&gt;
+     * Holds the &lt;body&gt; tag parsing status.
+     * Since the &lt;body&gt; tag can be splitted in different chunck, the
+     * parsing status must be persistent throgh different calls.
+     *
+     */
+    private char readingBodyTagState;
+
+    /**
+     * Holds the encoding parameter value, while it is parsed
+     */
+    private StringBuilder sbEncoding = new StringBuilder();
+
+    /**
+     * Holds the encoding parameter value once it has been completely parsed
+     */
+    private String encoding = null;
+
+    // Used parsing file data object
+    private short state = STATE_STARTED;
+
+    /**
+     * Holds the crc computed once the body content has been completely parsed
+     */
+    private long crc = FileDataObject.CRC_NOT_DEFINED;
+
+    /**
+     * Holds the file where the body content has to be written
+     */
+    private File bodyFile = null;
+
+    // ------------------------------------------------------------- Constructor
+
+    public FileDataObjectStreamingUnmarshaller(TimeZone timeZone, File bodyFile) {
+        this.timeZone = timeZone;
+        this.fileDataObject = null;
+        this.bodyFile = bodyFile;
+
+        if (this.bodyFile != null) {
+            if (this.bodyFile.exists()) {
+                this.bodyFile.delete();
+            }
+        }
+    }
+
+    // ---------------------------------------------------------- Public Methods
+
+    public void unmarshall(byte[] chunkData)
+    throws FileDataObjectParsingException {
+
+        if (chunkData == null) {
+            return ;
+        }
+
+        int index = -1;
+
+        while (true) {
+
+            if (state == STATE_STARTED) {
+                //
+                // index is the end of the tag <body> !
+                //
+                index = getBodyIndex(chunkData);
+                if (index == -1) {
+                    // body not found yet
+                    try {
+                        buffer.write(chunkData);
+                    } catch (IOException ex) {
+                        throw new FileDataObjectParsingException("Error buffering chunk", ex);
+                    }
+                    return;
+
+                } else {
+                    // body found
+                    state = STATE_BODY_START_FOUND;
+                    encoding = sbEncoding.toString();
+
+                    // buffering chunk before body
+                    buffer.write(chunkData, 0, index + 1);
+                }
+            } else if (state == STATE_BODY_END_FOUND) {
+
+                // buffering until the end
+                buffer.write(chunkData, index, chunkData.length - index);
+                return;
+
+            } else if (state == STATE_BODY_START_FOUND) {
+
+                OutputStream bodyOutputStream;
+                try {
+                    bodyOutputStream = new FileOutputStream(bodyFile, true);
+                } catch (FileNotFoundException ex) {
+                    throw new FileDataObjectParsingException("Unable to create output stream on file: " + bodyFile, ex);
+                }
+
+                try {
+
+                    if (decodedStream == null) {
+                        if (ENC_BASE_64.equalsIgnoreCase(encoding)) {
+                            decodedStream = new Base64Decoder(bodyOutputStream);
+                        } else {
+                            throw new FileDataObjectParsingException("Encoding '" + encoding + "' not supported");
+                        }
+                    }
+                    decodedStream.setBodyOutputStream(bodyOutputStream);
+
+                    for (int i=index + 1; i<chunkData.length; i++) {
+                        if (chunkData[i] != '<') {
+                            try {
+                                decodedStream.write(chunkData[i]);
+                            } catch (IOException ex) {
+                                throw new FileDataObjectParsingException("Error writing file body in the body output stream", ex);
+                            }
+                        } else {
+                            // body ended
+
+                            // this is the final CRC value
+                            crc = decodedStream.getCRC();
+
+                            index = i;
+                            state = STATE_BODY_END_FOUND;
+                            break;
+                        }
+                    }
+                } finally {
+                    if (bodyOutputStream != null) {
+                        try {
+                            bodyOutputStream.close();
+                        } catch (IOException ex) {
+                            // nothing to do
+                        }
+                    }
+                }
+
+
+                if (state == STATE_BODY_START_FOUND) {
+                    //
+                    // It means we have handled all the chunkData without finding </body>
+                    //
+                    break;
+                }
+            }
+        }
+    }
+
+    public FileDataObject getFileDataObject() throws FileDataObjectParsingException {
+        if (fileDataObject != null) {
+            return fileDataObject;
+        }
+
+        //
+        // now we can parse the xml file without body part
+        //
+        FileDataObjectXMLParser parser = new FileDataObjectXMLParser(timeZone);
+        String xml = new String(buffer.toByteArray());
+        fileDataObject = parser.parse(xml);
+        if (state == STATE_STARTED) {
+            bodyFile = null;
+        }
+        fileDataObject.setBodyFile(bodyFile);
+        // when the body is parsed from the syncml message, the whole media is
+        // uploaded so the uploaded status must be set U
+        if(bodyFile!=null) {
+              fileDataObject.setUploadStatus(UploadStatus.UPLOADED);
+        }
+        fileDataObject.setCrc(crc);
+
+        if (!fileDataObject.checkSize()) {
+            throw new FileDataObjectParsingException("Size declared in metadata" +
+                " does not match with the actual size.");
+        }
+
+        return fileDataObject;
+    }
+
+    // --------------------------------------------------------- Private Methods
+
+    private int getBodyIndex(byte[] chunkData) {
+
+        if (chunkData == null) {
+            return -1;
+        }
+        int chunkLen = chunkData.length;
+        if (chunkLen == 0) {
+            return -1;
+        }
+        for (int i=0; i<chunkLen; i++) {
+            if (readingBodyTagState == 0) {
+                if (chunkData[i] == '<') {
+                    readingBodyTagState = '<';
+                    continue;
+                }
+            } else if (readingBodyTagState == '<') {
+                if (chunkData[i] == 'b') {
+                    readingBodyTagState = 'b';
+                    continue;
+                }
+            } else if (readingBodyTagState == 'b') {
+                if (chunkData[i] == 'o') {
+                    readingBodyTagState = 'o';
+                    continue;
+                }
+            } else if (readingBodyTagState == 'o') {
+                if (chunkData[i] == 'd') {
+                    readingBodyTagState = 'd';
+                    continue;
+                }
+            } else if (readingBodyTagState == 'd') {
+                if (chunkData[i] == 'y') {
+                    readingBodyTagState = 'y';
+                    continue;
+                }
+            } else if (readingBodyTagState == 'y') {
+                if (chunkData[i] == ' ') {
+                    readingBodyTagState = ' ';
+                    continue;
+                } else if (chunkData[i] == '>') {
+                    // end found !
+                    readingBodyTagState = '>';
+                    return i;
+                } else {
+                    readingBodyTagState = 0;
+                    continue;
+                }
+            } else if (readingBodyTagState == ' ') {
+                // looking for ENC
+                if (chunkData[i] == 'e') {
+                    readingBodyTagState = 'e';
+                    continue;
+                } else if (chunkData[i] == ' ') {
+                    // ignoring whitespaces
+                    // no state changes
+                    continue;
+                } else {
+                    readingBodyTagState = 0;
+                    continue;
+                }
+            } else if (readingBodyTagState == 'e') {
+                if (chunkData[i] == 'n') {
+                    readingBodyTagState = 'n';
+                    continue;
+                }
+            } else if (readingBodyTagState == 'n') {
+                if (chunkData[i] == 'c') {
+                    readingBodyTagState = 'c';
+                    continue;
+                }
+            } else if (readingBodyTagState == 'c') {
+                if (chunkData[i] == ' ') {
+                    // ignoring whitespaces
+                    // no state changes
+                    continue;
+                } else if (chunkData[i] == '=') {
+                    readingBodyTagState = '=';
+                    continue;
+                }
+            } else if (readingBodyTagState == '=') {
+                if (chunkData[i] == ' ') {
+                    // ignoring whitespaces
+                    // no state changes
+                    continue;
+                } else if (chunkData[i] == '"') {
+                    readingBodyTagState = '"';
+                    continue;
+                }
+            } else if (readingBodyTagState == '"') {
+                if (chunkData[i] == '"') {
+                    // ENC ended
+                    readingBodyTagState = '!';
+                    continue;
+                } else {
+                    sbEncoding.append((char)chunkData[i]);
+                    continue;
+                }
+            } else if (readingBodyTagState == '!') {
+                if (chunkData[i] == ' ') {
+                    // ignoring whitespaces
+                    continue;
+                } else  if (chunkData[i] == '>') {
+                    // BODY without END found !
+                    readingBodyTagState = '>';
+                    return i;
+                } else {
+                    readingBodyTagState = 0;
+                    continue;
+                }
+            }
+
+            readingBodyTagState = 0;
+        }
+        return -1;
+    }
+
+}
+

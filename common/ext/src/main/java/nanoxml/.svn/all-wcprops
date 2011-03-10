@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/nanoxml
+END
+kXMLStringWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/nanoxml/kXMLStringWriter.java
+END
+kXMLPrintWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/nanoxml/kXMLPrintWriter.java
+END
+kXMLElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/nanoxml/kXMLElement.java
+END
+kXMLParseException.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/nanoxml/kXMLParseException.java
+END
+readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/nanoxml/readme.txt
+END

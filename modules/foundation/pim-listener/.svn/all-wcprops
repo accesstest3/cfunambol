@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/core/!svn/ver/36445/trunk/funambol/modules/foundation/pim-listener
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/pim-listener/LICENSE.txt
+END
+changeslog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/core/!svn/ver/36371/trunk/funambol/modules/foundation/pim-listener/changeslog.txt
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/core/!svn/ver/36445/trunk/funambol/modules/foundation/pim-listener/pom.xml
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/pim-listener/.cvsignore
+END

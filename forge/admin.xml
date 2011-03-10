@@ -1,0 +1,184 @@
+<?xml version="1.0" ?>
+
+<!--
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2005 - 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+-->
+
+<!-- $Id: admin.xml,v 1.22 2008-03-27 21:32:22 stefano_fornari Exp $ -->
+
+<!-- ====================================================================== -->
+<!--     Build and packaging the admintool                                  -->
+<!-- ====================================================================== -->
+<project name="Funambol Administration Tool" default="make-admin" xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+
+    <!-- ================================================= -->
+    <!--  Setup the admin code                             -->
+    <!-- ================================================= -->
+    <target name="init-admin" depends="init">
+
+    </target>
+
+    <!-- ================================================= -->
+    <!--  Build the admin                                  -->
+    <!-- ================================================= -->
+    <target name="make-admin" depends="init, init-admin">
+        <ant antfile   ="admin-suite/build-admin.xml"
+             inheritAll="false"
+             target    ="make-admin-suite">
+          <property name="ext.version" value="${ext.version}"/>
+        </ant>
+
+        <ant antfile   ="admin-suite/build-admin.xml"
+             inheritAll="false"
+             target    ="make-autoupdate-dir">
+          <property name="ext.version" value="${ext.version}"/>
+        </ant>
+    </target>
+
+    <target name="make-admin-dev">
+        <ant antfile   ="admin-suite/build-admin.xml"
+             inheritAll="false"
+             target    ="make-admin-dev"
+        >
+        </ant>
+    </target>
+
+    <!-- ================================================= -->
+    <!--  Build the autoupdate dir                         -->
+    <!-- ================================================= -->
+    <target name="make-autoupdate-dir" depends="init, init-admin">
+        <ant antfile   ="admin-suite/build-admin.xml"
+             inheritAll="false"
+             target    ="make-autoupdate-dir"
+        >
+          <property name="ext.version" value="${ext.version}"/>
+        </ant>
+    </target>
+
+
+    <!-- ================================================= -->
+    <!--  Initialize admin properties                      -->
+    <!-- ================================================= -->
+    <target name="init-admin-dist">
+        <property name="adm.top.dir" value="admin-suite"/>
+        <property name="adm.out.dir" value="${adm.top.dir}/output"/>
+        <property name="adm.installer.dir"
+                  value="${adm.top.dir}/Installer"/>
+        <property name="branding-file"
+                  value="${adm.installer.dir}/Netbeans/lib/branding.jar"/>
+        <property name="module-file"
+                  value="${adm.installer.dir}/Netbeans/modules/syncadmin.jar"/>
+        <property name="forge-file" value="${admin.name}-${admin.version}"/>
+        <property file="${user.home}/syncadmin-forge.properties"/>
+
+        <mkdir dir="output"/>
+        <mkdir dir="${adm.installer.dir}"/>
+    </target>
+
+    <!-- ================================================= -->
+    <!--  Forge the admin                                  -->
+    <!-- ================================================= -->
+    <target name="forge-admin" depends="init, init-admin">
+        <ant antfile   ="admin-suite/build-admin.xml"
+             target    ="forge-admin"
+             inheritAll="false"
+        >
+          <property name="ext.version" value="${ext.version}"/>
+          <property name="jre.pkg"     value="${jre.pkg}"/>
+          <property name="jre.name"    value="${jre.name}"/>
+        </ant>
+    </target>
+
+    <!-- ================================================= -->
+    <!--  Forge the admin for Windows                      -->
+    <!-- ================================================= -->
+    <target name="forge-admin-win" depends="init, init-admin">
+        <ant antfile   ="admin-suite/build-admin.xml"
+             target    ="forge-admin-win"
+             inheritAll="false"
+        >
+          <property name="ext.version" value="${ext.version}"/>
+          <property name="jre.pkg"     value="${jre.pkg}"/>
+          <property name="jre.name"    value="${jre.name}"/>
+        </ant>
+
+    </target>
+
+    <!-- ================================================= -->
+    <!--  Forge the admin for Unix                         -->
+    <!-- ================================================= -->
+    <target name="forge-admin-unix" depends="init, init-admin">
+        <ant antfile   ="admin-suite/build-admin.xml"
+             target    ="forge-admin-unix"
+             inheritAll="false"
+        >
+          <property name="ext.version" value="${ext.version}"/>
+          <property name="jre.pkg"     value="${jre.pkg}"/>
+          <property name="jre.name"    value="${jre.name}"/>
+        </ant>
+
+    </target>
+
+    <!-- ================================================= -->
+    <!--  Forge the zip of the admin                       -->
+    <!-- ================================================= -->
+    <target name="forge-admin-zip" depends="init, init-admin">
+        <ant antfile   ="admin-suite/build-admin.xml"
+             target    ="forge-admin-zip"
+             inheritAll="false"
+        >
+          <property name="ext.version" value="${ext.version}"/>
+        </ant>
+
+        <copy file="admin-suite/output/funamboladmin.zip"
+              tofile="output/funamboladmin.zip" />
+    </target>
+
+    <!-- ================================================= -->
+    <!--  Clean the admin dirs                             -->
+    <!-- ================================================= -->
+    <target name="clean-admin">
+        <ant antfile   ="admin-suite/build-admin.xml"
+             target    ="clean"
+             inheritAll="false"
+        >
+          <property name="ext.version" value="${ext.version}"/>
+        </ant>
+
+    </target>
+
+
+</project>

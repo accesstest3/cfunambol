@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/config
+END
+ConfigClassLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/config/ConfigClassLoader.java
+END
+ConfigurationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/config/ConfigurationException.java
+END
+LoggerConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/config/LoggerConfiguration.java
+END
+LoggingConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/config/LoggingConfiguration.java
+END

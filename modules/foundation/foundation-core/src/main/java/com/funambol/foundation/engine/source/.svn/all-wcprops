@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/36710/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/engine/source
+END
+PIMContactSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/36001/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/engine/source/PIMContactSyncSource.java
+END
+SIFSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/engine/source/SIFSyncSource.java
+END
+FileSystemSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/engine/source/FileSystemSyncSource.java
+END
+ConfigSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/engine/source/ConfigSyncSource.java
+END
+PIMSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/core/!svn/ver/33136/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/engine/source/PIMSyncSource.java
+END
+AbstractSIFSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/engine/source/AbstractSIFSyncSource.java
+END
+FileDataObjectSyncSourceConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/core/!svn/ver/36710/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/engine/source/FileDataObjectSyncSourceConfig.java
+END
+AbstractFileSystemSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/engine/source/AbstractFileSystemSyncSource.java
+END
+FDOPictureSyncSourceConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/engine/source/FDOPictureSyncSourceConfig.java
+END
+PIMNoteSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/36001/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/engine/source/PIMNoteSyncSource.java
+END
+FilterableSIFSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/engine/source/FilterableSIFSyncSource.java
+END
+PictureSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/engine/source/PictureSyncSource.java
+END
+PIMCalendarSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/36001/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/engine/source/PIMCalendarSyncSource.java
+END
+FileDataObjectSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/core/!svn/ver/36710/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/engine/source/FileDataObjectSyncSource.java
+END

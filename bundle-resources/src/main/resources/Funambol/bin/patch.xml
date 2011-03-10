@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+
+<!--
+ * <FUNAMBOLCOPYRIGHT>
+ * Copyright (C) 2009 Funambol.
+ * All Rights Reserved.  No use, copying or distribution of this
+ * work may be made except in accordance with a valid license
+ * agreement from Funambol.  This notice must be
+ * included on all copies, modifications and derivatives of this
+ * work.
+ *
+ * Funambol MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY
+ * OF THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+ * PURPOSE, OR NON-INFRINGEMENT. Funambol SHALL NOT BE LIABLE FOR ANY DAMAGES
+ * SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING
+ * THIS SOFTWARE OR ITS DERIVATIVES.
+ * </FUNAMBOLCOPYRIGHT>
+ -->
+
+<!--
+  =============================================================================
+    Targets for patches installation
+  =============================================================================
+-->
+<project name="Patches installation" default="patch-file">
+
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+      <classpath>
+        <pathelement location="${funambol.home}/ds-server/default/lib/ant-contrib.jar"/>
+      </classpath>
+    </taskdef>
+    
+    <target name="patch-file" description="Patch Funambol server with a given file">
+        <fail message="File ${new-file} not found" >
+            <condition>
+                <not>
+                    <available file="${new-file}" />
+                </not>
+            </condition>
+        </fail>
+
+        <script language="beanshell">
+            String fileName = project.getProperty("new-file");
+            int index = fileName.lastIndexOf(".");
+            if (index != -1 &amp;&amp; index != fileName.length()) {
+                String ext = fileName.substring(index + 1, fileName.length());
+                project.setProperty("ext", "." + ext);
+            } else {
+                project.setProperty("ext", "");
+            }
+        </script>
+
+        <property name="filePattern" value="**/${old-file}*${ext}" />
+        
+        <echo message="" />
+        <echo message="Replacing all occurrencies of ${old-file}*${ext} with ${new-file} in ${dir}" />
+        <echo message="" />
+       
+        <antcall target="-do-you-want-to-continue" />
+
+        <echo message="" />
+        <antcall target="replace-all-occurrencies" />
+    </target>
+    
+    <target name="replace-all-occurrencies">
+	    <!-- Defining the fileset to be deleted -->
+        <path id="fileset-to-delete">
+	        <fileset dir="${dir}" followsymlinks="false">
+	            <include name="**/${filePattern}" />
+                <exclude name="patch/**"/>
+            </fileset>
+        </path>
+
+        <!-- Extracting file set to a colon separated values string -->
+        <property name="filesToDelete" refid="fileset-to-delete"/>
+
+        <!-- Iterating through all occurrencies -->
+	    <foreach target    = "-replace-occurrency"
+                 list      = "${filesToDelete}"
+                 param     = "old-file-to-replace"
+                 delimiter = "${path.separator}"
+        />
+    </target>
+
+    <target name="-replace-occurrency">
+
+        <dirname property="target-directory" file="${old-file-to-replace}"/>
+        <basename property="old-file-name" file="${old-file-to-replace}"/>
+
+        <dirname property="new-file-dir" file="${new-file}"/>
+        <basename property="new-file-name" file="${new-file}"/>
+
+        <!-- Avoiding to replace the new file since otherwise we will delete it -->
+        <if>
+            <not>
+                <and>
+                    <equals arg1="${target-directory}" arg2="${new-file-dir}" />
+                    <equals arg1="${old-file-name}" arg2="${new-file-name}" />
+                </and>
+            </not>
+            <then>
+                <echo message="Replacing ${old-file-to-replace}"/>
+                <delete failonerror="true" file="${old-file-to-replace}"/>
+                <echo message="Copying ${new-file} to ${target-directory}" level="debug"/>
+                <copy file="${new-file}" todir="${target-directory}"/>
+            </then>
+
+        </if>
+    
+    </target>
+    
+    <!-- =================================================================== -->
+    <!-- write-installation-log -                                            -->
+    <!-- =================================================================== -->
+    <target name="-write-installation-log">
+
+      <if>
+        <not>
+          <available property="is.available.installation.log"
+                     file="${funambol.home}/docs/installation.log"/>
+        </not>
+        <then>
+          <mkdir dir="${funambol.home}/docs"/>
+        </then>
+      </if>
+      <tstamp>
+        <format property="now" pattern="dd/MM/yyyy HH.mm.ss" locale="en"/>
+      </tstamp>
+      <concat destfile="${funambol.home}/docs/installation.log" force="yes" append="true">
+      =====================================================================
+      Installed patch:
+      Date           : ${now}
+      =====================================================================
+      </concat>
+    </target>
+
+    <target name="-do-you-want-to-continue">
+      <if>
+        <or>
+          <equals arg1="${no-questions}" arg2="y" />
+          <equals arg1="${no-questions}" arg2="true" />
+        </or>
+        <then>
+        </then>
+        <else>
+          <input
+             message="Do you want to continue? "
+             validargs="y,n"
+             addproperty="continue"/>
+    	  <if>
+    	    <equals arg1="n" arg2="${continue}"/>
+    	    <then>
+                  <script language="beanshell">
+                      System.exit(1);
+                  </script>
+             </then>
+          </if>
+        </else>
+      </if>
+    </target>
+
+</project>
+

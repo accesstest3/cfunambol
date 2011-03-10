@@ -1,0 +1,10 @@
+K 10
+svn:ignore
+V 7
+target
+
+K 13
+svn:mergeinfo
+V 56
+/branches/us5422/funambol/common/pim-parsers:35155-35929
+END

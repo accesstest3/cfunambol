@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/common/sms/carrier
+END
+SMSMessageCarrier.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/common/sms/carrier/SMSMessageCarrier.java
+END
+SMSMessageCarrierException.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/common/sms/carrier/SMSMessageCarrierException.java
+END

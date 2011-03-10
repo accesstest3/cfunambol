@@ -1,0 +1,71 @@
+Return-Path: piter@funambol.com
+Received: from a.mail.sonomait.com (LHLO a.mail.sonomait.com)
+ (64.142.123.30) by a.mail.sonomait.com with LMTP; Wed, 29 Oct 2008 07:31:24
+ -0700 (PDT)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by a.mail.sonomait.com (Postfix) with ESMTP id B1D3A1B9C005
+	for <fabio@funambol.net>; Wed, 29 Oct 2008 07:31:24 -0700 (PDT)
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Flag: NO
+X-Spam-Score: -1.754
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.754 tagged_above=-10 required=5 tests=[AWL=0.745,
+	BAYES_00=-2.599, RDNS_DYNAMIC=0.1]
+Received: from a.mail.sonomait.com ([127.0.0.1])
+	by localhost (a.mail.sonomait.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id KW5KnwOpVODX for <fabio@funambol.net>;
+	Wed, 29 Oct 2008 07:31:18 -0700 (PDT)
+Received: from [192.168.0.88] (89-96-142-253.ip12.fastwebnet.it [89.96.142.253])
+	by a.mail.sonomait.com (Postfix) with ESMTP id F41A21B9C006
+	for <fabio@funambol.net>; Wed, 29 Oct 2008 07:31:17 -0700 (PDT)
+MIME-version: 1.0
+From: piter@funambol.com
+To: fabio@funambol.net
+Subject: Invito evento: event thunderbird 2 with compatibility
+Content-class: urn:content-classes:calendarmessage
+Content-type: text/calendar; method=REQUEST; charset=UTF-8
+Content-transfer-encoding: 8BIT
+Message-Id: <20081029143117.F41A21B9C006@a.mail.sonomait.com>
+Date: Wed, 29 Oct 2008 07:31:17 -0700 (PDT)
+
+
+BEGIN:VCALENDAR
+PRODID:-//Mozilla.org/NONSGML Mozilla Calendar V1.1//EN
+VERSION:2.0
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+X-LIC-LOCATION:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=3
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=10
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+CREATED:20081029T143128Z
+LAST-MODIFIED:20081029T143223Z
+DTSTAMP:20081029T143223Z
+UID:e1838eea-c905-411a-8ca6-8a079996f019
+SUMMARY:event thunderbird 2 with compatibility
+ORGANIZER;RSVP=TRUE;CN=piter;PARTSTAT=ACCEPTED;ROLE=CHAIR:mailto:
+ piter@funambol.com
+ATTENDEE;RSVP=TRUE;CN=fabio;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT:
+ mailto:fabio@funambol.net
+DTSTART;TZID=Europe/Berlin:20081029T160000
+DTEND;TZID=Europe/Berlin:20081029T170000
+LOCATION:location of the event
+DESCRIPTION:description for the event
+SEQUENCE:0
+END:VEVENT
+END:VCALENDAR
+

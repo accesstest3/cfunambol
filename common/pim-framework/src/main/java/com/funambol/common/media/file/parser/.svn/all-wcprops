@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/35942/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/media/file/parser
+END
+FileDataObjectXMLTags.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/33362/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/media/file/parser/FileDataObjectXMLTags.java
+END
+FileDataObjectParsingException.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/30938/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/media/file/parser/FileDataObjectParsingException.java
+END
+FileDataObjectDecoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/33362/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/media/file/parser/FileDataObjectDecoder.java
+END
+FileDataObjectStreamingUnmarshaller.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/35942/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/media/file/parser/FileDataObjectStreamingUnmarshaller.java
+END
+Base64Decoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/33362/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/media/file/parser/Base64Decoder.java
+END
+FileDataObjectMarshaller.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/core/!svn/ver/34613/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/media/file/parser/FileDataObjectMarshaller.java
+END
+FileDataObjectXMLParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/34613/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/media/file/parser/FileDataObjectXMLParser.java
+END

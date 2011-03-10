@@ -1,0 +1,263 @@
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/36698/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands
+END
+setDummyValue.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/setDummyValue.bsh
+END
+addProperties.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/addProperties.bsh
+END
+removeDummyValue.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/removeDummyValue.bsh
+END
+handleStatusError.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/handleStatusError.bsh
+END
+fixCommandSize.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/fixCommandSize.bsh
+END
+replaceSIFNoteBody.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/core/!svn/ver/30730/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/replaceSIFNoteBody.bsh
+END
+removeDummyPhoto.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/removeDummyPhoto.bsh
+END
+getSIFNoteBody.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/core/!svn/ver/30730/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/getSIFNoteBody.bsh
+END
+removeDepartmentProperty.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/removeDepartmentProperty.bsh
+END
+getSIFNoteSubject.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/core/!svn/ver/30730/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/getSIFNoteSubject.bsh
+END
+setDummyValues.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/setDummyValues.bsh
+END
+deviceLookup.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/deviceLookup.bsh
+END
+removeDummyValues.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/removeDummyValues.bsh
+END
+saveDevInf.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/saveDevInf.bsh
+END
+handleLabel.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/core/!svn/ver/36698/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/handleLabel.bsh
+END
+addProperty.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/addProperty.bsh
+END
+deleteOutProperty.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/deleteOutProperty.bsh
+END
+fixDST.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/fixDST.bsh
+END
+deviceCapabilitiesLookup.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/deviceCapabilitiesLookup.bsh
+END
+movePropertyToTheEnd.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/movePropertyToTheEnd.bsh
+END
+replaceInProperty.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/replaceInProperty.bsh
+END
+replaceOutProperty.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/replaceOutProperty.bsh
+END
+switchAdrValues.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/switchAdrValues.bsh
+END
+removePhotoType.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/core/!svn/ver/30469/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/removePhotoType.bsh
+END
+getDevInf.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/getDevInf.bsh
+END
+removeXSYNCMLREFParams.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/removeXSYNCMLREFParams.bsh
+END
+replaceFirstInProperty.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/replaceFirstInProperty.bsh
+END
+reduceMaxMsgSize.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/core/!svn/ver/34792/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/reduceMaxMsgSize.bsh
+END
+replaceFirstOutProperty.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/replaceFirstOutProperty.bsh
+END
+isInSeries60.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/core/!svn/ver/33227/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/isInSeries60.bsh
+END
+replaceXMLTagContent.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/core/!svn/ver/30730/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/replaceXMLTagContent.bsh
+END
+getXMLTagContent.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/core/!svn/ver/30730/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/getXMLTagContent.bsh
+END
+removeCommandSize.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/removeCommandSize.bsh
+END
+switchAddressValues.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/switchAddressValues.bsh
+END
+fixBirthdayRecurrence.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/fixBirthdayRecurrence.bsh
+END
+isInSeries60SecondEdition.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 183
+/svn/core/!svn/ver/33227/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/isInSeries60SecondEdition.bsh
+END
+getUserAgent.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/getUserAgent.bsh
+END
+deleteInProperty.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/deleteInProperty.bsh
+END
+addVoidTokens.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/core/!svn/ver/33861/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/addVoidTokens.bsh
+END
+fixSummerTime.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/fixSummerTime.bsh
+END
+removeRecurrenceEndDate.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/removeRecurrenceEndDate.bsh
+END
+keepFirstProperty.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/keepFirstProperty.bsh
+END
+setMaxMsgSize.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/commands/setMaxMsgSize.bsh
+END

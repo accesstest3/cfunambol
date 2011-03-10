@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task>
+<SIFVersion>1.1</SIFVersion>
+<ActualWork>600</ActualWork>
+<BillingInformation>billing</BillingInformation>
+<Body>Task description</Body>
+<Categories>Holiday</Categories>
+<Companies>companies</Companies>
+<Complete>0</Complete>
+<DateCompleted/>
+<DueDate>2009-10-14</DueDate>
+<Folder>DEFAULT_FOLDER</Folder>
+<Importance>2</Importance>
+<IsRecurring>0</IsRecurring>
+<Mileage>mileage</Mileage>
+<PercentComplete>25</PercentComplete>
+<ReminderSet>1</ReminderSet>
+<ReminderSoundFile>C:\Requiem aeternam.wma</ReminderSoundFile>
+<ReminderTime>20091014T080000</ReminderTime>
+<Sensitivity>0</Sensitivity>
+<StartDate>2009-10-13</StartDate>
+<Status>0</Status>
+<Subject>Task subject</Subject>
+<TeamTask>0</TeamTask>
+<TotalWork>1800</TotalWork>
+</task>

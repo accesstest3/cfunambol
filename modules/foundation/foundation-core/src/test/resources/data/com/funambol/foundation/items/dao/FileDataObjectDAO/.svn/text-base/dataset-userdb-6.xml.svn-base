@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+    <FNBL_FILE_DATA_OBJECT id="0"    userid="username1" source_uri="fdo" last_update="2" status="N" local_name="filename"  upload_status="U" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="1"    userid="username1" source_uri="fdo" last_update="2" status="N" local_name="filename1" upload_status="U" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="1001" userid="username1" source_uri="fdo" last_update="2" status="N"/>
+    <FNBL_FILE_DATA_OBJECT id="2001" userid="username1" source_uri="fdo" last_update="2" status="N" local_name="filename1" object_size="100" size_on_storage="50" />
+    <FNBL_FILE_DATA_OBJECT id="2"    userid="username1" source_uri="fdo" last_update="2" status="U" local_name="filename2" upload_status="U" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="3"    userid="username1" source_uri="fdo" last_update="2" status="U" local_name="filename3" upload_status="U" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="1003" userid="username1" source_uri="fdo" last_update="2" status="U"/>
+    <FNBL_FILE_DATA_OBJECT id="2003" userid="username1" source_uri="fdo" last_update="2" status="U" local_name="filename3" object_size="100" size_on_storage="50" />
+    <FNBL_FILE_DATA_OBJECT id="4"    userid="username1" source_uri="fdo" last_update="2" status="D" local_name="filename4" object_size="100" upload_status="U" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="5"    userid="username1" source_uri="fdo" last_update="2" status="D" local_name="filename5" object_size="100" upload_status="U" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="1005" userid="username1" source_uri="fdo" last_update="2" status="D"/>
+    <FNBL_FILE_DATA_OBJECT id="2005" userid="username1" source_uri="fdo" last_update="2" status="D" upload_status="U" local_name="filename5" object_size="100" size_on_storage="50" />
+
+    <FNBL_FILE_DATA_OBJECT id="6"  userid="username1" source_uri="fdo" last_update="4" status="N" local_name="filename" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="7"  userid="username1" source_uri="fdo" last_update="4" status="N"/>
+    <FNBL_FILE_DATA_OBJECT id="8"  userid="username1" source_uri="fdo" last_update="4" status="U" local_name="filename2" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="9"  userid="username1" source_uri="fdo" last_update="4" status="U" local_name="filename3" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="10" userid="username1" source_uri="fdo" last_update="4" status="D" local_name="filename4" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="11" userid="username1" source_uri="fdo" last_update="4" status="D" local_name="filename5" object_size="100" size_on_storage="100" />
+
+    <FNBL_FILE_DATA_OBJECT id="20" userid="username1" source_uri="anothersource" last_update="2" status="N" local_name="filename" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="21" userid="username1" source_uri="anothersource" last_update="2" status="N"/>
+    <FNBL_FILE_DATA_OBJECT id="22" userid="username1" source_uri="anothersource" last_update="2" status="U" local_name="filename2" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="23" userid="username1" source_uri="anothersource" last_update="2" status="U" local_name="filename3" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="24" userid="username1" source_uri="anothersource" last_update="2" status="D" local_name="filename4" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="25" userid="username1" source_uri="anothersource" last_update="2" status="D" local_name="filename5" object_size="100" size_on_storage="100" />
+
+    <FNBL_FILE_DATA_OBJECT id="26" userid="username1" source_uri="anothersource" last_update="4" status="N" local_name="filename" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="27" userid="username1" source_uri="anothersource" last_update="4" status="N"/>
+    <FNBL_FILE_DATA_OBJECT id="28" userid="username1" source_uri="anothersource" last_update="4" status="U" local_name="filename2" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="29" userid="username1" source_uri="anothersource" last_update="4" status="U" local_name="filename3" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="30" userid="username1" source_uri="anothersource" last_update="4" status="D" local_name="filename4" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="31" userid="username1" source_uri="anothersource" last_update="4" status="D" local_name="filename5" object_size="100" size_on_storage="100" />
+
+    <FNBL_FILE_DATA_OBJECT id="40" userid="username2" source_uri="fdo" last_update="2" status="N" local_name="filename" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="41" userid="username2" source_uri="fdo" last_update="2" status="N"/>
+    <FNBL_FILE_DATA_OBJECT id="42" userid="username2" source_uri="fdo" last_update="2" status="U" local_name="filename2" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="43" userid="username2" source_uri="fdo" last_update="2" status="U" local_name="filename3" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="44" userid="username2" source_uri="fdo" last_update="2" status="D" local_name="filename4" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="45" userid="username2" source_uri="fdo" last_update="2" status="D" local_name="filename5" object_size="100" size_on_storage="100" />
+
+    <FNBL_FILE_DATA_OBJECT id="46" userid="username2" source_uri="fdo" last_update="4" status="N" local_name="filename" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="47" userid="username2" source_uri="fdo" last_update="4" status="N"/>
+    <FNBL_FILE_DATA_OBJECT id="48" userid="username2" source_uri="fdo" last_update="4" status="U" local_name="filename2" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="49" userid="username2" source_uri="fdo" last_update="4" status="U" local_name="filename3" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="50" userid="username2" source_uri="fdo" last_update="4" status="D" local_name="filename4" object_size="100" size_on_storage="100" />
+    <FNBL_FILE_DATA_OBJECT id="51" userid="username2" source_uri="fdo" last_update="4" status="D" local_name="filename5" object_size="100" size_on_storage="100" />
+
+</dataset>

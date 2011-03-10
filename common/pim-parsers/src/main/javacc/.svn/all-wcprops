@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/core/!svn/ver/36118/trunk/funambol/common/pim-parsers/src/main/javacc
+END
+VCardSyntaxParser.jj
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/core/!svn/ver/36118/trunk/funambol/common/pim-parsers/src/main/javacc/VCardSyntaxParser.jj
+END
+ICalendarSyntaxParser.jj
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/core/!svn/ver/35930/trunk/funambol/common/pim-parsers/src/main/javacc/ICalendarSyntaxParser.jj
+END
+XVCalendarSyntaxParser.jj
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/31188/trunk/funambol/common/pim-parsers/src/main/javacc/XVCalendarSyntaxParser.jj
+END

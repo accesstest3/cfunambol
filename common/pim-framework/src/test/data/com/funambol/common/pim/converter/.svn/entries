@@ -1,0 +1,46 @@
+10
+
+dir
+36744
+https://core.forge.funambol.org/svn/core/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter
+https://core.forge.funambol.org/svn/core
+
+
+
+2010-05-27T13:43:46.737436Z
+34633
+derose
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+e8e8ed6c-164c-0410-afcf-9e9a7c7d8c10
+
+vcalendar-converter
+dir
+
+contact-to-vcard
+dir
+
+sift-to-calendar
+dir
+
+sife-to-calendar
+dir
+
+contact-to-sifc
+dir
+
+calendar-to-sife
+dir
+

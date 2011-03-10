@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/core/!svn/ver/36445/trunk/funambol/common/ext
+END
+changeslog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/core/!svn/ver/32208/trunk/funambol/common/ext/changeslog.txt
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/core/!svn/ver/36445/trunk/funambol/common/ext/pom.xml
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/.cvsignore
+END

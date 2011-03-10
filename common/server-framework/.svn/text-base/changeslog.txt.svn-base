@@ -1,0 +1,470 @@
+2011-02-25
+- nichele: Improved client mapping (this allows the server to optimize queries)
+
+2011-02-01
+- nichele: Added classes from cluster-framework artifact (it has been deleted)
+
+-------------------------------------------^M
+Funambol Common Server Framework 9.0.0
+-------------------------------------------^M
+2010-12-15
+- testa: Fixed bug #10460 - ERROR message logged when the quota is reached but
+         it is not an error. Added Exception constructors with parameter 'silent'
+
+2010-08-27
+- lulu: Added PartialContentException associated to the status code 206 that can
+        be used to alert that only a partial content has been received.
+        Added a flag in the SyncException in order to log the exception to error
+        level only when required.
+
+-------------------------------------------
+Funambol Common Server Framework 8.7.0
+-------------------------------------------
+2010-06-24
+- lulu: Fixed bug #9520 - getExceptionCode() returns quite often 'null'
+        Deprecated the exceptionCode field in the Event object in favor of
+        statusCode.
+        Added the statusCode attribute to the method used to create a new
+        SyncEvent object.
+        Added the statusCode attribute to the method used to create a new
+        SyncSessionEvent object.
+        Fixed junit tests.
+
+2010-06-08
+- lulu: Added the handling of defaultRoles and mandatoryRoles properties in the
+        UserManager implementation classes.
+        The manadatory roles are the roles that a user must have set if he want
+        to sync for instance; the default roles are the roles that are set for
+        any user.
+
+2010-05-19
+- lulu: Added MediaEvent class that represents a logging event for media events
+        (like upload media content).
+
+2010-04-25
+- nichele: Extended LogContext adding 'remoteAddress' property
+
+2010-03-26
+- machi: Updated SyncSessionEvent, PushSMSEvent, PushFlowEvent in order to expose
+         is...() methods that can be easily used to understand which type of event
+         the object represents. 
+
+2010-03-24
+- machi: Updated SyncEvent factory methods in order to store all the information
+         needed by the NSN callback feature. 
+
+2010-02-16 (2010-02-15 in branch us1680)
+- testa: Fixed bug #8478 - Wrong Item size should be trapped and logged as a
+         SyncML error.
+
+2010-01-21 (2010-01-21 in branch us1680)
+- nichele: Removed allNewSyncItems, allUpdatedSyncItems and allDeletedSyncItems
+           in MemorySyncSource since they are not used and cause useless memory
+           usage
+
+2010-01-21 (2010-01-20 in branch us1680)
+- nichele: Reviewed SyncItem implementations adding:
+           - AbstractSyncItem: represents an item without content
+           - InMemorySyncItem: represents an item with content in memory
+           - StreamingSyncItem: represents an item ables to write content
+             without to keep it in memory.
+           Deprecated SyncItemImpl (instead InMemorySyncItem should be used).
+           Reviewed MemorySyncSource in order to use new SyncItem implementations
+           and to optimize memory usage using StreamingSyncItem.
+
+2010-01-21 (2010-01-12 in branch us1680)
+- nichele: Reviewed and simplified StreamingSyncItem interface removing methods
+           about outgoing streaming items
+
+2010-01-21 (2010-01-06 in branch us1680)
+- testa: Refactoring: moved the CRC management from class
+         DataBaseFileDataObjectMetadataDAO to FileDataObjectBody.
+
+2010-01-21 (2010-01-05 in branch us1680)
+- testa: The getSyncItemFactory method of class StreamingSyncSource throws a
+         SyncSourceException.
+
+2010-01-15
+- lulu: Changed Sync4jDevice adding sent_server_caps property and added
+        setSentServerCaps(..) method into DeviceInventory in order to support
+        the Put command on server side. Now, the server is able to send its
+        capabilities even if the client does not require them sending a Get
+        command.
+
+2009-12-26 (2009-12-22 on branch us1680)
+- testa: Added the DeviceFullException
+
+2009-12-26 (2009-12-22 on branch us1680)
+- testa: Fixed Large Object item order in add/update item list
+
+2009-12-22
+- lulu: Fixed bug #8250 - Suboptimal mapping handling implementation in the
+        ds-server
+
+2009-12-18 (2009-12-09 on branch us1680)
+- testa: Added methods mark, reset and release to StreamingSyncItem abstract 
+         class.
+
+2009-12-18 (2009-12-01 on branch us1680)
+- testa: Added methods read and available to StreamingSyncItem abstract class.
+         Added methods fillItemFromStreamingSyncItemContent and 
+         getStreamingSyncItemContentSize to SyncEngine interface.
+
+2009-12-18 (2009-11-27 on branch us1680)
+- testa: Added methods cloneInstance and copy to SyncItemImpl
+         Removed unused methods getSyncItemsFromTwins and newSyncItemFromLO from
+         MemorySyncSource.
+
+2009-12-18 (2009-11-24 on branch us1680)
+- testa: Added StreamingSyncItem and StreamingSyncItemFactory classes.
+         Refactored method addingItems and mergeLOChunk of MemorySyncSource to
+         use the StreamingSyncItem and remove the dependency to
+         ModificationCommand.
+
+2009-12-18 (2009-11-19 on branch us1680)
+- testa: Added method "setMappedKey" in SyncItemImpl.
+         Added interface StreamingSyncSource.
+         Added abstract class StreamingSyncItem.
+         MemorySyncSource method "addingItems" manage the "StreamingSyncItem",
+         streaming the LO chunks to the syncsource.
+
+2009-12-18 (2009-11-16 on branch us1680)
+- testa: fix bug 7877 "Syncs may fail when new large object and replaces are
+         sent from clients"
+         Added an other "addingItems" method in order to preserve the command
+         order.
+
+2009-12-12
+- nichele: Made Event, PushFlowEvent, SyncEvent, SyncSessionEvent serializable
+- nichele: Added ThreadTools and ThreadToolsMBean classes with some useful
+           methods for threads handling (for instance to stop a thread via JMX)
+           
+-------------------------------------------
+Funambol Common Server Framework 8.2.3
+-------------------------------------------
+2009-11-13
+- maria: updated dependencies
+
+-------------------------------------------
+Funambol Common Server Framework 8.2.2
+-------------------------------------------
+2009-10-07
+- testa: Added the duration field in the Event class to log the event's duration
+
+-------------------------------------------
+Funambol Common Server Framework 8.2.0
+-------------------------------------------
+2009-09-16
+- nichele: Changed DBUserManager to implement CloneableBean interface
+
+2009-07-31
+- gibi: added the changes about the configuration of the ds server engine and
+        strategy
+
+2009-06-11
+- lulu: Changed ConfigItem class adding username and encrypted properties.
+
+2009-05-27
+- testa: Added method prepareSmartOneWayFromClient declaration in SyncStrategy.
+
+-------------------------------------------
+Funambol Common Server Framework 8.0.0
+-------------------------------------------
+2009-05-17
+- testa: Added method containsDataStore to the Capabilities class.
+
+2009-03-26
+- lulu: Changed DeviceInventory class adding get/set methods to handle the 
+        DEFAULT_SERVER_PASSWORD.
+
+2009-03-25
+- lulu: Added PushFlowEvent class that represents a logging event for push flow
+        events.
+
+2009-03-13
+- lulu: Added SyncSessionEvent class that represents a logging event for start
+        sync session and end sync session events.
+        Added SyncEvent class that represents a logging event for start and end
+        synchronization events.
+        Added PushSMSEvent class that represents a logging event for push and
+        SMS events.
+
+2009-03-11
+- lulu: Added in the LogContext the property PARAMETER_COMPONENT = component. It
+        is used to set the component name that triggers an event.
+- lulu: Added in the Event the following properties:
+        - syncType the synchronization type
+        - numTransferredItems the number of items transferred during sync
+        - numAddedItems the number of items added during sync
+        - numDeletedItems the number of items deleted during sync
+        - numUpdatedItems the number of items updated during sync
+        - component the component name that triggers an event 
+        - exceptionCode the excpetion code (exception means both errors and 
+          warnings)
+
+-------------------------------------------
+Funambol Common Server Framework 7.1.0
+-------------------------------------------
+2009-01-18
+- nichele: Replaced StringBuffer with StringBuilder in ClientMappingEntry.toString()
+
+2008-12-16
+- nichele: Added a new parameter 'instanceKey' to RoutingDataSource used when an
+           instance is registered as MBean. In this way, navigation in the JMX tree
+           is simpler and feasibler.
+
+2008-12-03
+- lulu: Fixed bug #6432 Error when sending a pending notification via COP.
+       Changed the signature of deletePendingNotifications method and the
+       Message object in order to use String[] instead of a java.util.List
+       since there is an issue using List via web services.
+
+2008-11-17
+- testa: Added constructor with parameter type:int.
+        Deprecated constructors with parameter type:Type.
+        Changed setType method setting also the messageType:Type value for
+        backward compatibility.
+
+2008-11-15
+- lulu: Deprecated get/setMessageType in the Message class replaced by
+       get/setType since there is an issue to send a Message via Web Services
+       if the messageType is not null.
+       Added in the Message the list of SyncSources to notify in order to
+       handle also the pending push notifications.
+       Reviewed NotificationEngine interface adding getMessageFromPendingNotifications
+       and deletePendingNotifications in order to handle the pending push
+       notifications.
+
+2008-10-23
+- testa: Added RefusedItemException used by the connectors to refuse an add for
+        an item ask deletion for it on clinet side.
+
+2008-10-15
+- nichele: Reviewed NotificationEngine interface adding sendNotificationMessage
+           with the user name as parameter deprecating the old one.
+
+2008-09-13
+- lulu: Fixed bug #5971: Memory usage handling LO
+        Renamed method initialize(..) in addingItems(..) into MemorySyncSource.
+
+2008-08-07
+- ste: Changed ClientMappingEntry.toString() to return [guid=<GUID>,luid=<LUID>,anchor=<ANCHOR>]
+
+
+-------------------------------------------
+Funambol Common Server Framework 7.0.4
+-------------------------------------------
+
+2008-06-30
+- nichele: Added SMSService and SMSProvider interfaces.
+- nichele: Deprecated SMSMessageCarrier replaced by SMSService and SMSProvider.
+- nichele: Added BinarySMSMessage, TextualSMSMessage, DeliveryDetail, DeliveryStatus.
+
+
+-------------------------------------------
+Funambol Common Server Framework 7.0.3
+-------------------------------------------
+
+Released just for testing
+
+
+-------------------------------------------
+Funambol Common Server Framework 7.0.2
+-------------------------------------------
+
+2008-06-26
+- nichele: Reviewed RoutingDatasource replacing locked variable with a ReentrantLock.
+           In this way any requests for a locked datasource wait at least 20 s
+           before to throw an exception. This case can occurs during startup
+           phase when the first getRoutedConnection starts the configuration
+           and the other ones must wait.
+
+2008-06-23
+- piter: Retrieve of a user by DBUserManager.getUser is now case insensitive.
+
+2008-06-15
+- nichele: Fixed bug in RoutingDataSource reloading partitions configuration.
+
+2008-06-14
+- nichele: Reviewed RoutingDataSource and datasource configuration loading in order
+           to use the default configuration in the partition configuration too.
+
+2008-06-05
+- nichele: Added Plugin interface (com.funambol.framework.server.plugin)
+
+2008-05-14
+- nichele: Copied com.funambol.server.admin.AdminException from ds-server
+- nichele: Reviewed UserManager interface in order to declare AdminException in
+           the throws clause of all methods
+- nichele: Improved error handling in EncryptionTool initialization
+- nichele: Reviewed all method declarations in DBUserManager to throw an AdminException
+- nichele: Reviewed DBUserManager to support core and user database separation
+- nichele: Reviewed BasePersistentStore to support core and user database separation
+- nichele: Added new database access/configuration framework.
+- nichele: In the LogContext:
+           - added property PARAMETER_USER_NAME_LOWERCASE = username. It
+             is used to set the user name as userName and as username (since the
+             IL uses username we need to store it for backward compatibility).
+           - added methods:
+                - removeUserName()
+                - removeThreadId()
+                - removeDeviceId()
+                - removeSessionId()
+                - removeSourceURI()
+                - remove(String key)
+- nichele: Reviewed DBUserManager in order to mark as read-only the connections
+           used to perform only readings.
+
+
+-------------------------------------------
+Funambol Common Server Framework 7.0.1
+-------------------------------------------
+
+2008-04-17
+- gibi: Added clean-up query in order to remove the info in the fnbl_device_config
+        for a given principal  
+
+2008-04-15
+- gibi: Added the properties: since and to in the SyncContext class
+
+2008-02-25
+- lulu: Changed PipelineManager class in order to read the system property 
+        funambol.debug and added the isDebugMode() method invoked before 
+        logging messages that could contain sensitive data.
+
+2008-02-21
+- testa: Added the ConfigItem class and the config items management 
+         into the DeviceInventory interface
+
+2008-02-21
+- testa: Updated to version 7.0.0-SNAPSHOT
+
+
+-------------------------------------------
+Funambol Common Server Framework 6.6.1
+-------------------------------------------
+
+2008-05-12
+- nichele: Copied com.funambol.server.admin.AdminException from ds-server
+- nichele: Reviewed UserManager interface in order to declare AdminException in
+           the throws clause of all methods
+- nichele: Improved error handling in EncryptionTool initialization
+- nichele: Reviewed all method declarations in DBUserManager to throw an AdminException
+
+2008-05-01
+- nichele: Renamed MockPartitioningCriteria in DummyPartitioningCriteria
+
+
+-------------------------------------------
+Funambol Common Server Framework 6.6.0
+-------------------------------------------
+
+2008-04-05
+- nichele: Reviewed DBUserManager to support core and user database separation
+- nichele: Reviewed BasePersistentStore to support core and user database separation
+
+2008-04-04
+- nichele: Added new database access/configuration framework.
+
+2008-03-10
+- nichele: In the LogContext:
+           - added property PARAMETER_USER_NAME_LOWERCASE = username. It
+             is used to set the user name as userName and as username (since the
+             IL uses username we need to store it for backward compatibility).
+           - added methods:
+                - removeUserName()
+                - removeThreadId()
+                - removeDeviceId()
+                - removeSessionId()
+                - removeSourceURI()
+                - remove(String key)
+- nichele: Reviewed DBUserManager in order to mark as read-only the connections
+           used to perform only readings.
+
+
+-------------------------------------------
+Funambol Common Server Framework 6.5.8
+-------------------------------------------
+
+2008-01-21
+- lulu: Changed PipelineManager class in order to read the system property
+        funambol.debug and added the isDebugMode() method invoked before
+        logging messages that could contain sensitive data.
+
+
+-------------------------------------------
+Funambol Common Server Framework 6.5.7
+-------------------------------------------
+
+2007-11-28
+- nichele: Changed license to AGPLv3.
+
+
+-------------------------------------------
+Funambol Common Server Framework 6.5.6
+-------------------------------------------
+
+2007-11-14
+- nichele: Upgraded to funambol:core-framework:6.5.3
+
+
+-------------------------------------------
+Funambol Common Server Framework 6.5.5
+-------------------------------------------
+
+2007-11-07
+- nichele: Added SecurityContants.AUTH_NOT_AUTHORIZED
+
+
+-------------------------------------------
+Funambol Common Server Framework 6.5.4
+-------------------------------------------
+
+2007-10-07
+- nichele: Modified Sync4jDevice class. The property convertDate has been changed
+           from boolean to short (see interface ConvertDatePolicy) that can have
+           one between these values:
+           - Sync4jDevice.CONVERT_DATE
+           - Sync4jDevice.NO_CONVERT_DATE
+           - Sync4jDevice.UNSPECIFIED
+           Deprecated methods in the Sync4jDevice that expect the convertDate boolean
+           property.
+
+
+-------------------------------------------
+Funambol Common Server Framework 6.5.3
+-------------------------------------------
+
+2007-09-23
+- nichele: Fixed a minor issue in AbstractStatusMXBean (the status was incorrectly formatted)
+
+
+-------------------------------------------
+Funambol Common Server Framework 6.5.2
+-------------------------------------------
+
+2007-09-12
+- nichele: Added com.funambol.framework.notification.NotificationNotSentException
+
+2007-09-05
+- lulu: Added com.funambol.framework.security.AuthorizationResponse
+              com.funambol.framework.security.AuthorizationStatus
+              com.funambol.framework.security.Credential
+
+2007-09-04
+- nichele: Removed dependency from javax.servlet:servlet-api and changed core-framework
+           scope
+- nichele: Introduced AbstractStatusMXBean class (abstract implementation of
+           StatusMXBean interface)
+
+
+-------------------------------------------
+Funambol Common Server Framework 6.5.1
+-------------------------------------------
+
+2007-08-27
+- ste: added com.funambol.framework.management.StatusMXBean
+- ste: added com.funambol.framework.management.SimpleStatusMXBean
+
+2007-08-12
+- ste: moved cmmon sms classes under server framework

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/user/panels
+END
+ButtonSearchUserPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/user/panels/ButtonSearchUserPanel.java
+END
+CreateUserPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/user/panels/CreateUserPanel.java
+END
+ResultSearchUserPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/user/panels/ResultSearchUserPanel.java
+END
+SearchUserPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/user/panels/SearchUserPanel.java
+END
+FormSearchUserPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/user/panels/FormSearchUserPanel.java
+END

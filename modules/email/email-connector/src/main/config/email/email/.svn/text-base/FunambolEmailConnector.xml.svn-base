@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.5.0" class="java.beans.XMLDecoder">
+
+<object class="com.funambol.email.engine.source.EmailConnectorConfig">
+    
+  <void property="dataSource">
+    <string>jdbc/fnblds</string>
+  </void>
+    
+  <void property="saveOnlyHeader">
+    <boolean>true</boolean>
+  </void>  
+
+  <!-- timeout for mail server reads (in ms) -->
+  <void property="timeoutStore">
+    <string>300000</string>
+  </void>  
+
+  <!-- timeout for mail server connection (in ms) -->
+  <void property="timeoutConnection">
+    <string>15000</string>
+  </void>  
+
+  <!-- account registry table -->
+  <void property="pushRegistryTableName">
+    <string>fnbl_email_push_registry</string>
+  </void>  
+  
+  <!-- must ssl certificates be validated ? -->
+  <void property="checkCertificates">
+    <boolean>false</boolean>
+  </void>  
+
+</object>
+</java>

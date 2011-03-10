@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/log4j-webdemo
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/log4j-webdemo/log4j.properties
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/log4j-webdemo/.cvsignore
+END

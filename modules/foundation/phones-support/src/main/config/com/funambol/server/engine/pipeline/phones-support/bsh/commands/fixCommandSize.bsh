@@ -1,0 +1,80 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2008 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+import java.util.ArrayList;
+
+import com.funambol.framework.core.Sync;
+import com.funambol.framework.core.Add;
+import com.funambol.framework.core.SyncML;
+import com.funambol.framework.core.Meta;
+import com.funambol.framework.core.AbstractCommand;
+
+/**
+ * This command increments of 1 the size of the item because there is an issue
+ * syncing photo with some Nokia S40 (like 3110).
+ *
+ * @param message the SyncML message
+ *
+ * @version $Id: fixCommandSize.bsh,v 1.1 2008-06-30 08:42:44 luigiafassina Exp $
+ */
+
+public static void fixCommandSize(SyncML message) {
+
+    List cmds = message.getSyncBody().getCommands();    
+    for (AbstractCommand bodyc : cmds) {
+
+        if (bodyc instanceof Sync) {
+
+            //
+            // Processes incoming commands to identifier and separate the items.
+            //
+            List syncCmds = ((Sync)bodyc).getCommands();
+            for (ItemizedCommand c : syncCmds) {
+
+                //
+                // Skip other commands than Add and Replace
+                //
+                if (!(Replace.COMMAND_NAME.equals(c.getName()) ||
+                    Add.COMMAND_NAME.equals(c.getName()))      ) {
+                    continue;
+                }
+                
+                if (c.meta.getSize() != null && c.meta.getSize() != 0) {
+                    c.meta.setSize(c.meta.getSize() + 1L);
+                }                    
+            }
+        }
+    }
+}

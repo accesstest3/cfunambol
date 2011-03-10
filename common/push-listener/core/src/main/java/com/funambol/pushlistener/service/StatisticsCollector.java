@@ -1,0 +1,162 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2009 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+package com.funambol.pushlistener.service;
+
+import org.apache.log4j.Logger;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+import com.funambol.pushlistener.service.ws.NotificationWrapper;
+
+/**
+ * Runnable class that collects some statistic information
+ * @version $Id: StatisticsCollector.java 29975 2009-01-19 08:43:35Z nichele $
+ */
+public class StatisticsCollector {
+    
+    /** The logger */
+    private static final Logger log = Logger.getLogger("funambol.pushlistener.statistics");
+
+    private PushListener listener = null;
+
+    /**
+     * Instant load: number of tasks executed in the last minute
+     */
+    private long instantLoad = 0;
+
+    /**
+     * Instant number of notifications: number of notifications in the last minute
+     */
+    private long instantNumberOfNotifications = 0;
+
+    /**
+     * Instant number of executions out-of-period: number of warnings in the last minute
+     */
+    private long instantNumberOfExecutionsOutOfPeriod = 0;
+
+    private Timer timer = null;
+    
+    private long previouslyCompletedTask = 0;
+    private long previouslyNumberOfNotifications = 0;
+    private long previouslyNumberOfExecutionsOutOfPeriod = 0;
+
+    // ------------------------------------------------------------- Constructor
+    public StatisticsCollector(PushListener listener) {
+        this.listener = listener;
+        timer = new Timer("PushListener-statistics-collector-" +
+                Integer.toHexString(this.hashCode()));
+    }
+
+    // ---------------------------------------------------------- Public methods
+
+    public void start() {
+        timer.schedule(new TimerTask() {
+
+            @Override
+            public void run() {
+                exec();
+            }
+        }, 0, 60000);
+    }
+
+    public void stop() {
+        timer.cancel();
+    }
+
+    /**
+     * Returns the instant load
+     * @return the instant load
+     */
+    public long getInstantLoad() {
+        return instantLoad;
+    }
+
+    /**
+     * Return the number of notifications in the last minute
+     * @return the number of notifications in the last minute
+     */
+    public long getInstantNumberOfNotifications() {
+        return instantNumberOfNotifications;
+    }
+
+    /**
+     * Return the number of executions out-of-period in the last minute
+     * @return the number of executions out-of-period in the last minute
+     */
+    public long getInstantNumberOfExecutionsOutOfPeriod() {
+        return instantNumberOfExecutionsOutOfPeriod;
+    }
+
+    /**
+     * Resets statistic information
+     */
+    public void resetStatistics() {
+        previouslyNumberOfNotifications = 0;
+        previouslyCompletedTask = 0;
+        previouslyNumberOfExecutionsOutOfPeriod = 0;
+    }
+
+    public void resetExecutorInformation() {
+        //
+        // This is required since when the cluster changes, a new executor is created
+        // so the completedTaskCount restarts from 0 and so also the previouslyCompletedTask
+        // must be set to 0. We don't reset previouslyNumberOfNotifications since
+        // it doesn't change when the cluster changes
+        //
+        previouslyCompletedTask = 0;
+        previouslyNumberOfExecutionsOutOfPeriod = 0;
+    }
+
+    // --------------------------------------------------------- Private methods
+    private void exec() {
+
+        long completedTask = listener.getCompletedTaskCount();
+        long numberOfNotifications = NotificationWrapper.getInstance().getNumberOfNotifications();
+        long executionsOutOfPeriod = listener.getNumberOfExecutionsOutOfPeriod();
+
+        instantLoad = completedTask - previouslyCompletedTask;
+        instantNumberOfNotifications =
+                numberOfNotifications - previouslyNumberOfNotifications;
+        instantNumberOfExecutionsOutOfPeriod =
+                executionsOutOfPeriod - previouslyNumberOfExecutionsOutOfPeriod;
+
+        previouslyCompletedTask = completedTask;
+        previouslyNumberOfNotifications = numberOfNotifications;
+        previouslyNumberOfExecutionsOutOfPeriod = executionsOutOfPeriod;
+    }
+
+}

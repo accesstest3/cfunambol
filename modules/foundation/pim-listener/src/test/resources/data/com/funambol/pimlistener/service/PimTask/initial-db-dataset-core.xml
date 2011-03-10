@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset-core.dtd">
+<dataset>
+
+  <FNBL_LAST_SYNC principal="100" sync_source="cal"  start_sync="1226317537593" />
+  <FNBL_LAST_SYNC principal="100" sync_source="note" start_sync="1226317537670" />
+
+  <FNBL_PIM_LISTENER_REGISTRY id="1" 
+      username="user1"
+      push_contacts="Y"
+      push_calendars="N"
+      push_notes="N"/>
+
+  <FNBL_PUSH_LISTENER_REGISTRY id="1"
+      period="6000"
+      active="Y"
+      last_update="0"
+      status="N"
+      task_bean_file="com/funambol/pimlistener/task/PimListenerTask.xml" />
+
+</dataset>

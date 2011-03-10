@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/core/!svn/ver/36698/trunk/funambol/modules/foundation/phones-support
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/phones-support/LICENSE.txt
+END
+changeslog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/core/!svn/ver/36698/trunk/funambol/modules/foundation/phones-support/changeslog.txt
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/core/!svn/ver/36445/trunk/funambol/modules/foundation/phones-support/pom.xml
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/phones-support/.cvsignore
+END

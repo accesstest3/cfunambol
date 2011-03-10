@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/pdi/converter
+END
+FolderToXML.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/pdi/converter/FolderToXML.java
+END
+MailToXML.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/pdi/converter/MailToXML.java
+END

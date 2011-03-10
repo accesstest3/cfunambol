@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/core/!svn/ver/28981/trunk/funambol/modules/email/inbox-listener/src/test/resources/config
+END
+log4j-inboxlistener.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/test/resources/config/log4j-inboxlistener.xml
+END
+jgroups-inboxlistener.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/test/resources/config/jgroups-inboxlistener.xml
+END

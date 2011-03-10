@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+  <FNBL_SMS id="0" time="123454563" sender="snd" recipient="rcpt" format="binary" udh="A306" body="1A16F4AA0A1214BB56F3FF"/>
+  <FNBL_OTHER_SMS />
+</dataset>

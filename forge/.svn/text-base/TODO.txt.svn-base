@@ -1,0 +1,14 @@
+x rename back modules/foundation-module to modules/foundation
+x admin tool
+x add cl-plugin
+x remove ds-server build
+x remove javademo build
+x remove ipod build
+- remove admin build
+x remove wedemo build
+x remove bundle-files build
+x remove docs from the top level
+- site-deploy
+- windows build
+- windows based clients
+- update admin tool version

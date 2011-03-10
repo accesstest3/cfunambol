@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/36298/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source
+END
+DeviceFullException.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/36298/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/DeviceFullException.java
+END
+MergeableSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/MergeableSyncSource.java
+END
+FilterInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/FilterInfo.java
+END
+SyncSourceErrorDescriptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/SyncSourceErrorDescriptor.java
+END
+ObjectSizeMismatchException.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/core/!svn/ver/33160/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/ObjectSizeMismatchException.java
+END
+PartialContentException.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/35623/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/PartialContentException.java
+END
+StreamingSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/33359/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/StreamingSyncSource.java
+END
+SyncSourceInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/SyncSourceInfo.java
+END
+SyncSourceException.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/36298/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/SyncSourceException.java
+END
+ContentType.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/ContentType.java
+END
+AbstractSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/AbstractSyncSource.java
+END
+SyncContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/SyncContext.java
+END
+ServerWinsSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/ServerWinsSyncSource.java
+END
+FilterSpecification.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/FilterSpecification.java
+END
+MemorySyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/33860/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/MemorySyncSource.java
+END
+FilterableSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/FilterableSyncSource.java
+END
+RefusedItemException.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/29374/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/RefusedItemException.java
+END
+ClientWinsSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/ClientWinsSyncSource.java
+END
+SyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/source/SyncSource.java
+END

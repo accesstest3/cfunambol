@@ -1,0 +1,73 @@
+From - Mon Nov 03 16:10:40 2008
+X-Account-Key: account2
+X-UIDL: 50354.FmpWS1RHJwqWZHOiaX7778Pe9Xk=
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 10000000
+X-Mozilla-Keys:                                                                                 
+Return-Path: michele.rallo@funambol.com
+Received: from a.mail.sonomait.com (LHLO a.mail.sonomait.com)
+ (64.142.123.30) by a.mail.sonomait.com with LMTP; Mon, 3 Nov 2008 07:09:00
+ -0800 (PST)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 199811644A2
+	for <maggi@funambol.com>; Mon,  3 Nov 2008 07:09:00 -0800 (PST)
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Flag: NO
+X-Spam-Score: -2.484
+X-Spam-Level: 
+X-Spam-Status: No, score=-2.484 tagged_above=-10 required=5 tests=[AWL=0.015,
+	BAYES_00=-2.599, RDNS_DYNAMIC=0.1]
+Received: from a.mail.sonomait.com ([127.0.0.1])
+	by localhost (a.mail.sonomait.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id pbgPyn5qrrdt for <maggi@funambol.com>;
+	Mon,  3 Nov 2008 07:08:58 -0800 (PST)
+Received: from [192.168.0.68] (89-96-142-253.ip12.fastwebnet.it [89.96.142.253])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 100A4164488
+	for <piter@funambol.com>; Mon,  3 Nov 2008 07:08:57 -0800 (PST)
+Mime-Version: 1.0 (Apple Message framework v752.3)
+To: piter <piter@funambol.com>
+Message-Id: <F1BCEE09-DA9F-4961-B5A0-49959CB94F2D@funambol.com>
+Content-Type: multipart/mixed; boundary=Apple-Mail-27-457102136
+From: Michele Rallo <michele.rallo@funambol.com>
+Subject: iCal event invitation: Weekly call
+Date: Mon, 3 Nov 2008 16:08:41 +0100
+X-Mailer: Apple Mail (2.752.3)
+
+
+--Apple-Mail-27-457102136
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain;
+	charset=US-ASCII;
+	delsp=yes;
+	format=flowed
+
+Michele Rallo has invited you to the iCal event: Weekly call,  
+scheduled for November 4, 2008 at 11:00 AM (Europe/Rome). To accept  
+or decline this invitation, click the link below.
+
+--Apple-Mail-27-457102136
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/calendar;
+	x-unix-mode=0644;
+	name=iCal-20081103-160841.ics
+Content-Disposition: attachment;
+	filename=iCal-20081103-160841.ics
+
+BEGIN:VCALENDAR=0D=0APRODID:-//Apple=20Computer\,=20Inc//iCal=202.0//EN=0D=
+=0AMETHOD:REQUEST=0D=0ACALSCALE:GREGORIAN=0D=0AVERSION:2.0=0D=0A=
+BEGIN:VTIMEZONE=0D=0ATZID:Europe/Rome=0D=0A=
+LAST-MODIFIED:20081103T150841Z=0D=0ABEGIN:STANDARD=0D=0A=
+DTSTART:20081026T010000=0D=0ATZOFFSETTO:+0100=0D=0ATZOFFSETFROM:+0000=0D=0A=
+TZNAME:CET=0D=0AEND:STANDARD=0D=0ABEGIN:DAYLIGHT=0D=0A=
+DTSTART:20090329T030000=0D=0ATZOFFSETTO:+0200=0D=0ATZOFFSETFROM:+0100=0D=0A=
+TZNAME:CEST=0D=0AEND:DAYLIGHT=0D=0AEND:VTIMEZONE=0D=0ABEGIN:VEVENT=0D=0A=
+DURATION:PT1H=0D=0AATTENDEE;CN=3D"piter":mailto:piter@funambol.com=0D=0A=
+DTSTAMP:20081103T150830Z=0D=0AUID:C0CC3539-B339-447A-B490-38B96CE199E2=0D=
+=0ASEQUENCE:7=0D=0ADTSTART;TZID=3DEurope/Rome:20081104T110000=0D=0A=
+SUMMARY:Weekly=20call=0D=0AORGANIZER;CN=3D"Michele=20=
+Rallo":mailto:michele.rallo@funambol.com=0D=0AEND:VEVENT=0D=0A=
+END:VCALENDAR=0D=0A=
+
+--Apple-Mail-27-457102136--
+
+

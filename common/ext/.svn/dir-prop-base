@@ -1,0 +1,12 @@
+K 10
+svn:ignore
+V 24
+nbproject
+output
+target
+
+K 13
+svn:mergeinfo
+V 48
+/branches/us5422/funambol/common/ext:35155-35929
+END

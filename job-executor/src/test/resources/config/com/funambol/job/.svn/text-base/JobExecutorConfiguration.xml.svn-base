@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2" class="java.beans.XMLDecoder">
+    <object class="com.funambol.job.config.JobExecutorConfigBean">
+        <void property="maxThreadPoolSize">
+            <int>50</int>
+        </void>
+
+        <void property="healthThreadPollingTime">
+            <!-- values expressed in milliseconds -->
+            <long>600000</long>
+        </void>
+
+        <void property="registryMonitorPollingTime">
+            <!-- values expressed in milliseconds -->
+            <long>60000</long>
+        </void>
+        <void property="registryEntriesIdSpace">
+            <string>fb.registryid</string>
+        </void>
+        <void property="taskPeriodTolerance">
+            <double>0.1</double>
+        </void>
+
+        <void property="registryTableName">
+            <string>fnbl_fb_listener_registry</string>
+        </void>
+
+        <void property="pluginDirectory">
+            <string>com/funambol/job/plugin</string>
+        </void>
+
+        <void property="serverInformation">
+            <object class="com.funambol.server.admin.ws.client.ServerInformation">
+                <void property="url">
+                    <string>http://localhost:8080/funambol/services/admin</string>
+                </void>
+                <void property="username">
+                    <string>admin</string>
+                </void>
+                <void property="password">
+                    <string>sa</string>
+                </void>
+            </object>
+        </void>
+
+             <!--
+             The name of the JGroups configuration file used to configure the group
+             of nodes of the job-executor service
+         -->
+        <void property="notificationGroupConfigFileName">
+            <string>jgroups-jobexecutor-request-group.xml</string>
+        </void>
+
+        <!--
+             The name of the JGroups channel between the nodes of the job-executor service
+         -->
+        <void property="notificationGroupName">
+            <string>jobexecutor-request</string>
+        </void>
+
+        <!--
+                Time while the job executor should wait for response, milliseconds
+        -->
+        <void property="waitForResponseTimeout">
+            <int>1000</int>
+        </void>
+        <!--
+                Map of the classes to be executed given a name
+        -->
+        <void property="jobList">
+            <!-- Existent task -->
+            <void method="put">
+                <string>job1</string>
+                <string>com.funambol.job.task.HelloWorldTask</string>
+            </void>
+            <void method="put">
+                <string>uploadPictureJob</string>
+                <string>com.funambol.job.task.PictureUploadTask</string>
+            </void>
+            <!-- non-existent task in classpath -->
+            <void method="put">
+                <string>job2</string>
+                <string>com.funambol.job.task.idontexist</string>
+            </void>
+            <!-- mock'ed task -->
+            <void method="put">
+                <string>job4</string>
+                <string>com.funambol.MockJobExecutorTask</string>
+            </void>
+        </void>
+
+
+        <!--
+             Define a cluster with name pimlistener using the file jgroups.xml
+             under config directory
+        -->
+        <void property="clusterConfiguration">
+            <object class="com.funambol.framework.cluster.ClusterConfiguration">
+                <void property="clusterName">
+                    <string>jobexecutor</string>
+                </void>
+                <void property="configurationFile">
+                    <string>jgroups-jobexecutor.xml</string>
+                </void>
+            </object>
+        </void>
+    </object>
+</java>

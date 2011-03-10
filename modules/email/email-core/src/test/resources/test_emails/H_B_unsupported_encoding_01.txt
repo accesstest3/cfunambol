@@ -1,0 +1,770 @@
+Return-Path: events@thevpf.com
+Received: from a.mail.sonomait.com (LHLO a.mail.sonomait.com)
+ (64.142.123.30) by a.mail.sonomait.com with LMTP; Wed, 30 Apr 2008 14:18:55
+ -0700 (PDT)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by a.mail.sonomait.com (Postfix) with ESMTP id CBF6F17A4035
+	for <ata@funambol.com>; Wed, 30 Apr 2008 14:18:55 -0700 (PDT)
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Flag: NO
+X-Spam-Score: -1.142
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.142 tagged_above=-10 required=5
+	tests=[BAYES_00=-2.599, HTML_MESSAGE=0.001, MIME_HTML_ONLY=1.457,
+	SPF_PASS=-0.001]
+Received: from a.mail.sonomait.com ([127.0.0.1])
+	by localhost (a.mail.sonomait.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 9ULy4ZHexakt for <ata@funambol.com>;
+	Wed, 30 Apr 2008 14:18:54 -0700 (PDT)
+Received: from millennium.stealth.net (millennium.stealth.net [207.251.84.132])
+	by a.mail.sonomait.com (Postfix) with ESMTP id D67D217A401F
+	for <ata.rasekhi@funambol.com>; Wed, 30 Apr 2008 14:18:53 -0700 (PDT)
+Received: by millennium.stealth.net (Postfix, from userid 0)
+	id E14612B0952E; Wed, 30 Apr 2008 17:17:24 -0400 (EDT)
+Date: Wed, 30 Apr 2008 17:17:24 -0400
+To: ata.rasekhi@funambol.com
+From: Voice Peering Forum <events@thevpf.com>
+Subject: Final Call for Speakers & Topics @ Summer 2008 Voice Peering Forum
+Message-ID: <08faa1d4abb7c086de77643894058696@localhost.localdomain>
+X-Priority: 3
+X-Mailer: PHPMailer [version 1.73]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/html; charset="uft-8"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style type="text/css">
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,code,del,dfn,em,img,q,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {
+border:0;
+font-weight:inherit;
+font-style:inherit;
+font-size:100%;
+font-family:inherit;
+vertical-align:baseline;
+margin:0;
+padding:0;
+}
+
+body {
+line-height:1.5;
+background:#fff;
+font-size:75%;
+color:#222;
+font-family: Arial, "Helvetica Neue", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+margin:0 em 0;
+}
+
+p {
+line-height: 18px;
+}
+
+table {
+text-align:left;
+}
+
+caption,th,td {
+text-align:left;
+font-weight:400;
+}
+
+blockquote:before,blockquote:after,q:before,q:after {
+content:"";
+}
+
+blockquote,q {
+quotes:;
+}
+
+a img {
+border:none;
+}
+
+img {
+border:none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+color:#111;
+font-family: Arial, "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-weight:400;
+}
+
+h1 {
+font-size:3em;
+line-height:1;
+margin-bottom:.5em;
+}
+
+h2 {
+font-size:2em;
+margin-bottom:.75em;
+}
+
+h3 {
+font-size:1.5em;
+line-height:1;
+margin-bottom:1em;
+}
+
+h4 {
+font-size:1.2em;
+line-height:1.25;
+margin-bottom:1.25em;
+color: #3f89e2;
+font-weight: bold;
+}
+
+h5 {
+font-size:1em;
+font-weight:700;
+margin-bottom:1.5em;
+color: #3f89e2;
+font-weight: bold;
+}
+
+h6 {
+font-size:1em;
+font-weight:700;
+color: #3f89e2;
+font-weight: bold;
+}
+
+p.last {
+margin-bottom:0;
+}
+
+p img {
+float:left;
+/*margin:1.5em 1.5em 1.5em 0;*/
+margin:0;
+padding:0;
+}
+
+p img.top {
+margin-top:0;
+}
+
+ul,ol {
+margin:0 1.5em 1.5em;
+}
+
+ul {
+list-style-type:circle;
+}
+
+ol {
+list-style-type:decimal;
+}
+
+dd {
+margin-left:1.5em;
+}
+
+a:focus,a:hover {
+color:#000;
+}
+
+a {
+color:#009;
+text-decoration:underline;
+}
+
+blockquote {
+color:#666;
+font-style:italic;
+margin:1.5em;
+}
+
+em,dfn {
+font-style:italic;
+background:#ffc;
+}
+
+pre,code {
+white-space:pre;
+margin:1.5em 0;
+}
+
+pre,code,tt {
+font:1em 'andale mono', monotype.com, 'lucida console', monospace;
+line-height:1.5;
+}
+
+tt {
+display:block;
+line-height:1.5;
+margin:1.5em 0;
+}
+
+th {
+padding:4px 10px 4px 10px;
+font-weight:bold;
+text-decoration: underline;
+text-align:left;
+}
+
+td {
+padding:4px 10px 4px 10px;
+font-size: 8pt;
+}
+
+tfoot {
+font-style:italic;
+}
+
+caption {
+background:#ffc;
+}
+
+.small {
+font-size:.8em;
+margin-bottom:1.875em;
+line-height:1.875em;
+}
+
+.large {
+font-size:1.2em;
+line-height:2.5em;
+margin-bottom:1.25em;
+}
+
+.highlight {
+background:#ff0;
+}
+
+.added {
+color:#060;
+}
+
+.removed {
+color:#900;
+}
+
+.top {
+margin-top:0;
+padding-top:0;
+}
+
+.bottom {
+margin-bottom:0;
+padding-bottom:0;
+}
+
+.container {
+width:710px;
+margin:0 auto;
+}
+
+.column {
+float:left;
+margin-right:10px;
+}
+
+.last {
+margin-right:0;
+}
+
+.span-1 {
+width:30px;
+}
+
+.span-2 {
+width:70px;
+}
+
+.span-3 {
+width:110px;
+}
+
+.span-4 {
+width:150px;
+}
+
+.span-5 {
+width:190px;
+}
+
+.span-6 {
+width:230px;
+}
+
+.span-7 {
+width:270px;
+}
+
+.span-8 {
+width:310px;
+}
+
+.span-9 {
+width:350px;
+}
+
+.span-10 {
+width:390px;
+}
+
+.span-11 {
+width:430px;
+}
+
+.span-12 {
+width:470px;
+}
+
+.span-13 {
+width:510px;
+}
+
+.span-14 {
+width:550px;
+}
+
+.span-15 {
+width:590px;
+}
+
+.span-16 {
+width:630px;
+}
+
+.span-17 {
+width:670px;
+}
+
+.span-18 {
+width:710px;
+}
+
+.append-1 {
+padding-right:40px;
+}
+
+.append-2 {
+padding-right:80px;
+}
+
+.append-3 {
+padding-right:120px;
+}
+
+.append-4 {
+padding-right:160px;
+}
+
+.append-5 {
+padding-right:200px;
+}
+
+.append-6 {
+padding-right:240px;
+}
+
+.append-7 {
+padding-right:280px;
+}
+
+.append-8 {
+padding-right:320px;
+}
+
+.append-9 {
+padding-right:360px;
+}
+
+.append-10 {
+padding-right:400px;
+}
+
+.append-11 {
+padding-right:440px;
+}
+
+.append-12 {
+padding-right:480px;
+}
+
+.append-13 {
+padding-right:520px;
+}
+
+.append-14 {
+padding-right:560px;
+}
+
+.append-15 {
+padding-right:600px;
+}
+
+.append-16 {
+padding-right:640px;
+}
+
+.append-17 {
+padding-right:680px;
+}
+
+.append-18 {
+padding-right:720px;
+}
+
+.prepend-1 {
+padding-left:40px;
+}
+
+.prepend-2 {
+padding-left:80px;
+}
+
+.prepend-3 {
+padding-left:120px;
+}
+
+.prepend-4 {
+padding-left:160px;
+}
+
+.prepend-5 {
+padding-left:200px;
+}
+
+.prepend-6 {
+padding-left:240px;
+}
+
+.prepend-7 {
+padding-left:280px;
+}
+
+.prepend-8 {
+padding-left:320px;
+}
+
+.prepend-9 {
+padding-left:360px;
+}
+
+.prepend-10 {
+padding-left:400px;
+}
+
+.prepend-11 {
+padding-left:440px;
+}
+
+.prepend-12 {
+padding-left:480px;
+}
+
+.prepend-13 {
+padding-left:520px;
+}
+
+.prepend-14 {
+padding-left:560px;
+}
+
+.prepend-15 {
+padding-left:600px;
+}
+
+.prepend-16 {
+padding-left:640px;
+}
+
+.prepend-17 {
+padding-left:680px;
+}
+
+.prepend-18 {
+padding-left:720px;
+}
+
+.pull-1 {
+margin-left:-40px;
+}
+
+.pull-2 {
+margin-left:-80px;
+}
+
+.pull-3 {
+margin-left:-120px;
+}
+
+.pull-4 {
+margin-left:-160px;
+}
+
+.push-0 {
+margin:0 0 0 18px;
+}
+
+.push-1 {
+margin:0 -40px 0 18px;
+}
+
+.push-2 {
+margin:0 -80px 0 18px;
+}
+
+.push-3 {
+margin:0 -120px 0 18px;
+}
+
+.push-4 {
+margin:0 -160px 0 18px;
+}
+
+.push-0,.push-1,.push-2,.push-3,.push-4 {
+float:right;
+}
+
+.box {
+margin-bottom:1.5em;
+background:#eee;
+color:#000;
+margin:0 auto;
+padding:1.5em;
+}
+
+hr {
+background:#ddd;
+color:#ddd;
+clear:both;
+float:none;
+width:100%;
+height:.1em;
+border:none;
+margin:0 0 1.4em;
+}
+
+hr.space {
+background:#fff;
+color:#fff;
+}
+
+.clear {
+display:block;
+}
+
+.clear:after,.container:after {
+content:".";
+display:block;
+height:0;
+clear:both;
+visibility:hidden;
+}
+
+* html .clear {
+height:1%;
+}
+
+fieldset {
+border:1px solid #ccc;
+margin:0 0 1.5em;
+padding:1.4em;
+}
+
+legend {
+font-weight:700;
+font-size:1.2em;
+}
+
+input.text,input.title {
+border:1px solid #bbb;
+background:#f6f6f6;
+margin:0.0em .5em .5em 0;
+padding:5px;
+}
+
+input.title {
+font-size:1.5em;
+}
+
+textarea {
+border:1px solid #bbb;
+background:#eee;
+margin:0.0em .5em .5em 0;
+padding:5px;
+}
+
+select {
+border:1px solid #ccc;
+background:#f6f6f6;
+width:200px;
+}
+
+p,dl {
+margin:0 0 1.5em;
+}
+
+dl dt,strong,dfn,label {
+font-weight:700;
+}
+
+del,.quiet {
+color:#666;
+}
+
+.footer {
+font-size: 7pt;
+font-color: gray;
+margin-bottom:1em;
+}
+
+.bubble_bg1 { background: #ddf8cc; margin-bottom: 0.6em;}
+.bubble_bg2 { background: #e5ecf9; margin-bottom: 0.6em;}
+.bubble_bg3 { background: #f2f5f8; margin-bottom: 0.6em;}
+.rounded_ul { background: url(http://www.voicepeeringforum.com/images/ul.gif) no-repeat top left; border:none; }
+.rounded_ur { background: url(http://www.voicepeeringforum.com/images/ur.gif) no-repeat top right; border:none; }
+.rounded_ll { background: url(http://www.voicepeeringforum.com/images/ll.gif) no-repeat bottom left; border:none; }
+.rounded_lr { background: url(http://www.voicepeeringforum.com/images/lr.gif) no-repeat bottom right; border:none; }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="column span-18 first last header">
+<a href="http://www.voicepeeringforum.com"><img src="http://www.voicepeeringforum.com/invite/S/S08_Header_Email.png" border="0"></a>
+
+</div>
+
+<div class="column span-18 first last content">
+
+<br>
+<h3>Final Call for Partipication at Voice Peering Forum Summer 2008</h3>
+
+  <div class="column span-12 first content">
+<p>Today is the last day to formally submit speaker and topic suggestions for the Voice Peering Forum Summer 2008. Suggestions can be made online at <a href="http://www.voicepeeringforum.com/call">www.voicepeeringforum.com/call</a>.
+
+  <p><h4 style="margin-bottom: 2px;">Confirmed Topics of Summer 2008 Forum are:</h4>
+  <ul>
+<li>Telecoms in Uncertain Times 
+<li>The Anatomy of Session Border Controllers
+<li>Update from Key International Carrier Hotels
+<li>What's the Next Big Thing? 
+
+<li>Software-based Telecoms
+<li>VoIP Security Roundtable
+<li>Bandwidth Demand: Increasing Faster than Moore's Law
+<li>Telco 2.0 and Web 2.0: Making Money Together?
+<li>International LD Trends and Traffic Volumes Q1 2008 Report
+<li>P4P: Adding Peering Intelligence to P2P
+<li>Voice Mashups and their Business Models
+<li>Open Networks, Open Platforms
+<li>To Couple or Decouple Routing Intelligence from SBC?
+<li>Growth and Trends from Internet Exchange Point [IXP] Operators
+<li>Federating Social Networks
+<li>The Drivers & Strategies Behind Voice Peering
+<li>IPv6: Impact on Peering & Interconnection
+<li>Threat analysis on key interconnection points and systems
+<li>Transitioning Carrier Wholesale Least-Cost-Routing Systems to ENUM
+
+<li>Re-architecting the Internet for Sustainability: Photonic & Ethernet Core
+<li>Service Delivery Platforms: The intersect of Web 2.0 and Telecom
+<li>State of the Industry and What's Next
+  </ul>
+  </p>
+
+  <hr>
+
+  <p>Hosted by <b>Stealth Communications</b>, owner and operator of the <b>Voice Peering Fabric</b>, the Voice Peering Forum is a biannual conference that brings together over one hundred unique organizations from all segments of the information technology and telecommunications industry to network and discuss the latest in peering, routing and interconnection of networks and the applications they support.</p>
+
+  <p>For further information on the Forum, visit <a href="http://www.voicepeeringforum.com">http://www.voicepeeringforum.com</a>.</p>
+
+</div> <!-- span-12 -->
+
+<div class="column span-6 last nav">
+<center>
+<a href="http://www.voicepeeringforum.com/registration">
+<img src="http://www.voicepeeringforum.com/invite/S/buttons_RegisterNow.png" border="0">
+</a>
+<a href="http://www.voicepeeringforum.com">
+<img src="http://www.voicepeeringforum.com/invite/S/buttons_VisitWebSite.png" border="0">
+</a>
+<a href="http://www.voicepeeringforum.com/sponsor">
+<img src="http://www.voicepeeringforum.com/invite/S/buttons_Sponsorship.png" border="0">
+</a>
+<a href="http://www.voicepeeringforum.com/agenda">
+<img src="http://www.voicepeeringforum.com/invite/S/buttons_SpeakerTopcis.png" border="0">
+</a>
+
+<div style="float:center; width:15em; margin:1em 0 1em 2em">
+ <div class=bubble_bg3><div class=rounded_ul><div class=rounded_ur><div class=rounded_ll><div class=rounded_lr>
+ <table cellpadding=5>
+ <tr><th><a href="http://www.voicepeeringforum.com/quote">Hear what others are saying about the Voice Peering Forum.</a></th></tr>
+ </td></tr>
+ </table>
+
+</div></div></div></div></div></div>
+
+<div style="float:center; width:15em; margin:1em 0 1em 2em">
+ <div class=bubble_bg3><div class=rounded_ul><div class=rounded_ur><div class=rounded_ll><div class=rounded_lr>
+ <table cellpadding=5>
+ <tr><th><a href="http://www.voicepeeringforum.com/video">View 2007 Videos</a></th></tr>
+ </td></tr>
+ </table>
+
+</div></div></div></div></div></div>
+
+<div style="float:center; width:15em; margin:1em 0 1em 2em">
+ <div class=bubble_bg3><div class=rounded_ul><div class=rounded_ur><div class=rounded_ll><div class=rounded_lr>
+ <table cellpadding=5>
+ <tr><th>Hotel & Venue Information</th></tr>
+ <tr><td>
+Hotel Nikko San Francisco<br>
+222 Mason Street, 3rd Floor<br>
+San Francisco, CA 94102 USA<br/>
++1-415-394-1111<br><br/>
+Group Rate: $239/night<br>
+Reservations deadline: May 30<br>
+
+<a href="http://www.voicepeeringforum.com/venue">View details</a>
+ </td></tr>
+ </table>
+</div></div></div></div></div></div>
+
+<div style="float:center; width:15em; margin:1em 0 1em 2em">
+ <div class=bubble_bg3><div class=rounded_ul><div class=rounded_ur><div class=rounded_ll><div class=rounded_lr>
+ <table cellpadding=5>
+ <tr><th>JetBlue Airfare Discounts</th></tr>
+ <tr><td>
+JetBlue, the offical airline partner of the Summer 2008 Voice Peering Forum, is offering a 5% discount for all attendees.<br><br/>
+Code: <u>vpfsummer2008</u><br>
+Cities: Any City to SFO,OAK<br>
+Dates: Outbound: 6/19-6/23<br>
+Dates: Return: 6/24-6/26<br>
+Reservation deadline: June 22<br>
+
+<a href="http://www.voicepeeringforum.com/venue">View details</a>
+ </td></tr>
+ </table>
+</div></div></div></div></div></div>
+
+<div style="float:center; width:15em; margin:1em 0 1em 2em">
+ <div class=bubble_bg3><div class=rounded_ul><div class=rounded_ur><div class=rounded_ll><div class=rounded_lr>
+ <table cellpadding=5>
+ <tr><th colspan="2">2007 Forum Demographics</th></tr>
+ <tr><td style="text-align:right; border-bottom: 0px solid gray">58%<br>21%<br>15%<br>6%</td><td style="  border-bottom: 0px solid gray">Service Providers<br>Enterprises<br>Tech Companies<br>Press/Analysis<br></td></tr>
+
+ <tr><td style="text-align:right;">49%<br>31%<br>20%</td><td>Senior-Level Execs<br>Managers & Directors<br>Line-Level</td></tr>
+ </table>
+
+</div></div></div></div></div></div>
+
+</center>
+</div> <!-- span-6 -->
+
+</div> <!-- span-18 -->
+
+<div class="column span-18 first last footer">
+Having difficulty viewing this HTML email? <a href="http://www.voicepeeringforum.com/invite/S/S08_4.html">Click here to see it online.</a><br><br/>If you no longer wish to receive e-mail from us, please  send an e-mail to events@thevpf.com with the subject "REMOVE".
+</div>
+
+</body>
+</html>

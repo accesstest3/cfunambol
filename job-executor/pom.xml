@@ -1,0 +1,161 @@
+<?xml version="1.0" ?><project xmlns="htt://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>funambol</groupId>
+    <artifactId>job-executor</artifactId>
+    <version>9.1.0-SNAPSHOT</version>
+    <name>Funambol Job Executor </name>
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>funambol</groupId>
+        <artifactId>funambol</artifactId>
+        <version>9.1.0</version>
+    </parent>
+
+    <dependencies>
+
+        <!--
+            Internal dependencies
+        -->
+
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>ds-server</artifactId>
+            <version>9.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>server-framework</artifactId>
+            <version>9.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>pim-framework</artifactId>
+            <version>9.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>push-framework</artifactId>
+            <version>9.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--
+            External dependencies
+        -->       
+        <dependency>
+            <groupId>org.apache.axis</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.axis</groupId>
+            <artifactId>axis-jaxrpc</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.3</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.14</version>
+            <!--scope>provided</scope-->
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>
+    </dependencies>
+
+    <scm>
+        <connection>scm:svn:https://guest@core.forge.funambol.org/svn/core/trunk/funambol/job-executor</connection>
+        <developerConnection>scm:svn:https://core.forge.funambol.org/svn/core/trunk/funambol/job-executor</developerConnection>
+        <url>https://core.forge.funambol.org/svn/core/trunk/funambol/job-executor</url>
+    </scm>
+
+    <!--
+        Build plug-ins
+    -->
+    <build>
+
+        <resources>
+        </resources>
+
+        <plugins>
+
+            <plugin>
+                <groupId>funambol</groupId>
+                <artifactId>funambol-plugin</artifactId>
+                <version>1.0.8</version>
+                <executions>
+                    <execution>
+                        <id>prepare-resources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>resources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/assembly/bin.xml</descriptor>
+                    </descriptors>
+                    <appendAssemblyId>true</appendAssemblyId>
+                    <finalName>${project.groupId}-${project.artifactId}-${project.version}</finalName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attached</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+</project>

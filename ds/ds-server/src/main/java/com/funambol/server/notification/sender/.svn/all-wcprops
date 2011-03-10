@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/36293/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/sender
+END
+TCPIPSender.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/sender/TCPIPSender.java
+END
+WSPHeader.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/36293/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/sender/WSPHeader.java
+END
+WDPHeader.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/sender/WDPHeader.java
+END
+SimpleWAPSenderImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/sender/SimpleWAPSenderImpl.java
+END
+SMSMessageCreator.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/sender/SMSMessageCreator.java
+END
+WAPSender.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/sender/WAPSender.java
+END

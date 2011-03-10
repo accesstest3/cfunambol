@@ -1,0 +1,127 @@
+#!/bin/sh
+
+#
+#  Copyright (C) 2005-2007 Funambol, Inc.  All rights reserved.
+#
+#  Environment Variable prerequisites
+#
+#    JAVA_HOME   (Optional) May point at your jdk/jre installation. If not set,
+#                or not correctly set, the jre embedded in the bundle is used
+#
+#    JAVA_OPTS   (Optional) Java runtime options
+#
+#    MEM_OPTS    (Optional) Memory options, for instance -Xmx256M. It is used only
+#                with start command. Default value -Xmx256M.
+#
+#
+#  Set the JMX_PORT variable below to a different value if the one specified is
+#  already in use.
+#
+
+JMX_PORT=7101
+
+# Setting CTP_SERVER_HOME
+# resolving links - $0 could be a softlink
+PRG="$0"
+APPNAME=`basename "$PRG"`
+
+while [ -h "$PRG" ]; do
+  ls=`ls -ld "$PRG"`
+  link=`expr "$ls" : '.*-> \(.*\)$'`
+  if expr "$link" : '/.*' > /dev/null; then
+    PRG="$link"
+  else
+    PRG=`dirname "$PRG"`/"$link"
+  fi
+done
+
+PRGDIR=`dirname "$PRG"`
+
+FUNAMBOL_HOME=`cd "$PRGDIR/.." ; pwd`
+CTP_SERVER_HOME=$FUNAMBOL_HOME/ctp-server
+
+if [ ! -d $FUNAMBOL_HOME/config ]; then
+    #
+    # maybe we are in Funambol/tool/bin
+    #
+    FUNAMBOL_HOME=$FUNAMBOL_HOME/..
+    CTP_SERVER_HOME=$FUNAMBOL_HOME/ctp-server
+fi
+
+# Setting the JAVA_HOME to the JRE in the bundle if not set or if not correctly set
+if [ -z "$JAVA_HOME" ]; then
+    JAVA_HOME=$FUNAMBOL_HOME/tools/jre-1.6.0/jre
+else
+    if [ ! -f "$JAVA_HOME/bin/java" ]; then
+        JAVA_HOME=$FUNAMBOL_HOME/tools/jre-1.6.0/jre
+    fi
+fi
+
+if [ -z "$JAVA_HOME" ]; then
+  echo "Please, set JAVA_HOME before running this script."
+  exit 1
+fi
+
+if [ ! -f "$JAVA_HOME/bin/java" ]
+then
+    echo "Please set JAVA_HOME to the path of a valid jre."
+    exit;
+fi
+
+# Setting classpath
+cd $CTP_SERVER_HOME/lib
+for jarfile in *.jar; do export CLASSPATH=$CLASSPATH:lib/$jarfile; done
+cd ..
+
+export LANG=en_US.utf-8
+
+JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF-8"
+JAVA_OPTS="$JAVA_OPTS -Dfunambol.home=$FUNAMBOL_HOME"
+JAVA_OPTS="$JAVA_OPTS -Djava.net.preferIPv4Stack=true"
+
+if [ "$1" = "start" ] && [ "$2" = "-debug" -o "$2" = "" ] && [ "$3" = "" ] ; then
+
+  if [ -z "$MEM_OPTS" ]; then
+    MEM_OPTS="-Xmx256M"
+  fi
+
+  JAVA_OPTS="$JAVA_OPTS $MEM_OPTS"
+  JAVA_OPTS="$JAVA_OPTS -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=$JMX_PORT -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false"
+  JAVA_OPTS="$JAVA_OPTS -Djava.rmi.server.hostname=$HOSTNAME"
+
+
+  # Uncomment the following line to enable remote debug
+  # JAVA_OPTS="$JAVA_OPTS -Xdebug -Xrunjdwp:transport=dt_socket,address=7777,server=y,suspend=n"
+  
+  echo CTP_SERVER_HOME: $CTP_SERVER_HOME
+  echo JAVA_OPTS: $JAVA_OPTS
+
+  if [ "$2" = "-debug" ] ; then
+    "$JAVA_HOME/bin/java" $JAVA_OPTS com.funambol.ctp.server.CTPServer
+  else
+    "$JAVA_HOME/bin/java" $JAVA_OPTS com.funambol.ctp.server.CTPServer  > /dev/null 2>&1 </dev/zero &
+  fi
+
+elif [ "$1" = "stop" ] && [ "$2" = "" ] ; then
+
+  echo CTP_SERVER_HOME: $CTP_SERVER_HOME
+  echo JAVA_OPTS: $JAVA_OPTS
+
+  "$JAVA_HOME/bin/java" $JAVA_OPTS \
+  com.funambol.ctp.server.management.ManagementTools localhost $JMX_PORT stop
+
+elif [ "$1" = "license" ] && [ "$2" = "" ] ; then
+
+  less "$CTP_SERVER_HOME/LICENSE.txt"
+
+else
+
+  echo "Usage: $APPNAME command"
+  echo "command:"
+  echo "  start           Start CTPServer"
+  echo "  start -debug    Start CTPServer with output console"
+  echo "  stop            Stop CTPServer"
+  echo "  license         Show the license"
+  exit 1
+
+fi

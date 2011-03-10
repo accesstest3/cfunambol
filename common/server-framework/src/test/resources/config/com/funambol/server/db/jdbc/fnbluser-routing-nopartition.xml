@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.6.0" class="java.beans.XMLDecoder">
+ <object class="com.funambol.server.db.RoutingDataSourceConfiguration">
+   <void method="setProperty">>
+    <string>driverClassName</string>
+    <string>org.fnbluser</string>
+   </void>
+   <void method="setProperty">>
+    <string>username</string>
+    <string>fnbluserpwd</string>
+   </void>
+   <void method="setProperty">>
+    <string>password</string>
+    <string>fnblpwd</string>
+   </void>
+   <void method="setProperty">>
+    <string>url</string>
+    <string>jdbc:hsqldb:hsql://localhost/user</string>
+   </void>
+ </object>
+</java>

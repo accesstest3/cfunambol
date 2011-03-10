@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+ <!--
+    FNBL_PUSH_REGISTRY_COMPLEX
+    ***************************
+  -->
+  <FNBL_PUSH_REGISTRY_COMPLEX    period          ="20455383"
+                                 active          ="Y"
+                                 last_update     ="1234556666226"
+                                 status          ="N"
+                                 task_bean_file  ="com.funambol.task.ScheduledTask"
+                                 VAR_FIELD       ="string fields"
+                                 BOOL_FIELD      ="false"
+                                 OLD_BOOL_FIELD  ="N"
+                                 LONG_FIELD      ="435245435235"
+                                 DECIMAL_FIELD   ="1234567899876543221"
+                                 DOUBLE_FIELD    ="225.67"
+                                 INTEGER_FIELD   ="2267"
+                                 DATE_FIELD      ="2009-06-06"
+                                 TIME_FIELD      ="09:42:12"
+                                 TIMESTAMP_FIELD ="2009-12-20 12:34:34"
+  />
+
+
+<FNBL_PUSH_REGISTRY_COMPLEX    period         ="12000000"
+                               active         ="N"
+                               last_update    ="3294857323495"
+                               status         ="N"
+                               task_bean_file ="com.funambol.task.ScheduledTask"
+                               BOOL_FIELD      ="false"
+                               OLD_BOOL_FIELD  ="N"
+                               LONG_FIELD      ="435245435235"
+                               DECIMAL_FIELD   ="1234567899876543221"
+                               DOUBLE_FIELD    ="225.67"
+                               INTEGER_FIELD   ="2267"
+                               DATE_FIELD      ="2009-06-17"
+                               TIMESTAMP_FIELD ="2009-07-22 19:30:14"
+                               
+/>
+  
+<FNBL_PUSH_REGISTRY_COMPLEX    period         ="9999999"
+                               active         ="N"
+                               last_update    ="3294857323495"
+                               status         ="N"
+                               task_bean_file ="com.funambol.task.OneShotTask"
+/>
+</dataset>

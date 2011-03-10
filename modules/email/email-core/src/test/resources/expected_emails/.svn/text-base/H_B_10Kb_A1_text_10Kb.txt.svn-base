@@ -1,0 +1,24 @@
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by a.mail.sonomait.com (Postfix) with ESMTP id C8E331EEC067
+	for <dest@mycompany.net>; Wed, 17 Oct 2007 06:29:50 -0700 (PDT)
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Score: -0.298
+X-Spam-Level: 
+X-Spam-Status: No, score=-0.298 tagged_above=-10 required=5 tests=[AWL=-1.488,
+	BAYES_00=-2.599, LONGWORDS=3.789]
+Received: from a.mail.sonomait.com ([127.0.0.1])
+	by localhost (a.mail.sonomait.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 4fhqP-oV8md1 for <dest@mycompany.net>;
+	Wed, 17 Oct 2007 06:29:38 -0700 (PDT)
+Received: from [127.0.0.1] (85-18-37-27.ip.anotherprovidernet.it [85.18.37.27])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 947821EEC064
+	for <dest@mycompany.net>; Wed, 17 Oct 2007 06:29:36 -0700 (PDT)
+Message-ID: <47160E51.30600@mycompany.net>
+Date: Wed, 17 Oct 2007 15:29:53 +0200
+From: dest <dest@mycompany.net>
+User-Agent: Thunderbird 2.0.0.6 (Windows/20070728)
+MIME-Version: 1.0
+To: dest <dest@mycompany.net>
+Subject: HB size equals10Kb Attachment1 size equals 10Kb
+Content-Type: text/plain; charset=ISO-8859-15; format=flowed
+Content-Transfer-Encoding: 7bit

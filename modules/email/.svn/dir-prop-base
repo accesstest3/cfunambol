@@ -1,0 +1,12 @@
+K 10
+svn:ignore
+V 17
+nbproject
+target
+
+K 13
+svn:mergeinfo
+V 99
+/branches/us5422/funambol/modules/email:35155-35926
+/branches/v8/funambol/modules/email:30845-32611
+END

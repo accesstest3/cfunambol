@@ -1,0 +1,43 @@
+10
+
+dir
+36744
+https://core.forge.funambol.org/svn/core/trunk/funambol/modules/email/email-core/src/test/resources
+https://core.forge.funambol.org/svn/core
+
+
+
+2010-02-05T09:54:39.975938Z
+33587
+filmac
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+e8e8ed6c-164c-0410-afcf-9e9a7c7d8c10
+
+config
+dir
+
+org
+dir
+
+test_emails
+dir
+
+data
+dir
+
+expected_emails
+dir
+

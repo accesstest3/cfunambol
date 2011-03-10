@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/error
+END
+NotImplementedException.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/error/NotImplementedException.java
+END
+ServiceUnavailableException.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/error/ServiceUnavailableException.java
+END
+InvalidCredentialsException.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/error/InvalidCredentialsException.java
+END
+ServerException.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/error/ServerException.java
+END
+MappingException.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/error/MappingException.java
+END
+ServerFailureException.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/error/ServerFailureException.java
+END
+BadRequestException.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/error/BadRequestException.java
+END

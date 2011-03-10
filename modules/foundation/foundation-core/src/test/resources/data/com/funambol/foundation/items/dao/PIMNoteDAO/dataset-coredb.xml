@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <!--
+        fnbl_id
+    -->
+    <fnbl_id
+        idspace="pim.id"
+        counter="200"
+        increment_by="100"
+    />
+</dataset>

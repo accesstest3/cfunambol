@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/module/actions
+END
+EditConnector.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/module/actions/EditConnector.java
+END
+UpdateSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/module/actions/UpdateSyncSource.java
+END
+DeleteSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/module/actions/DeleteSyncSource.java
+END
+InsertSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/module/actions/InsertSyncSource.java
+END
+ShowSyncSourceException.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/module/actions/ShowSyncSourceException.java
+END

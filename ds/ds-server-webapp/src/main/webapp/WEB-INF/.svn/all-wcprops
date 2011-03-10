@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/core/!svn/ver/36094/trunk/funambol/ds/ds-server-webapp/src/main/webapp/WEB-INF
+END
+server-config.wsdd
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/29697/trunk/funambol/ds/ds-server-webapp/src/main/webapp/WEB-INF/server-config.wsdd
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/core/!svn/ver/36094/trunk/funambol/ds/ds-server-webapp/src/main/webapp/WEB-INF/web.xml
+END

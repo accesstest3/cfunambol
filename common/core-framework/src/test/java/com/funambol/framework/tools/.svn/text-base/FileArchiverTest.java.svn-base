@@ -1,0 +1,755 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2010 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+package com.funambol.framework.tools;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
+
+import junit.framework.TestCase;
+import junitx.util.PrivateAccessor;
+
+import org.apache.commons.io.filefilter.DirectoryFileFilter;
+import org.apache.commons.io.filefilter.SuffixFileFilter;
+
+/**
+ * Test cases for FileArchiver class.
+ *
+ * @version $Id$
+ */
+public class FileArchiverTest extends TestCase {
+
+    // --------------------------------------------------------------- Constants
+    private static final String BASE_SOURCE_DIR =
+        "src/test/resources/data/com/funambol/framework/tools/FileArchiver/";
+    private static final String BASE_TARGET_DIR =
+        "target/test-classes/data/com/funambol/framework/tools/FileArchiver/";
+
+    private static final String ONELEVELTREE = BASE_TARGET_DIR + "oneleveltree";
+    private static final String MULTILEVELTREE = BASE_TARGET_DIR + "multileveltree";
+    
+    // ------------------------------------------------------------ Constructors
+    public FileArchiverTest(String testName) {
+        super(testName);
+    }
+
+    // ------------------------------------------------------- Protected methods
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+    }
+
+    @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+    }
+
+    // -------------------------------------------------------------- Test cases
+    public void testCompress_OneLevelExcludedRoot() throws Exception {
+
+        String rootPath = ONELEVELTREE;
+        String archiveName = BASE_TARGET_DIR + "onelevelexcludedroot.zip";
+        File expected = new File(archiveName);
+        if (expected.exists()) {
+            assertTrue("Unable to delete destination file", expected.delete());
+        }
+
+        // recursively = includeRoot = false
+        FileArchiver instance = new FileArchiver(rootPath, archiveName);
+        instance.compress();
+
+        assertCounters(instance, 0, 2, 0, 0);
+        assertDestFile(expected, true);
+        List<String> expContent = new ArrayList<String>();
+        expContent.add("synclog.txt");
+        expContent.add("synclog.zip");
+        assertDestFileContent(expected, expContent);
+    }
+
+    public void testCompress_OneLevelIncludedRoot() throws Exception {
+
+        String rootPath = ONELEVELTREE;
+        String archiveName = BASE_TARGET_DIR + "onelevelincludedroot.zip";
+        File expected = new File(archiveName);
+        if (expected.exists()) {
+            assertTrue("Unable to delete destination file", expected.delete());
+        }
+
+        // recursively = false, includeRoot = true
+        FileArchiver instance = new FileArchiver(rootPath, archiveName, false, true);
+        instance.compress();
+
+        assertCounters(instance, 1, 2, 0, 0);
+        assertDestFile(expected, true);
+
+        List<String> expContent = new ArrayList<String>();
+        expContent.add("oneleveltree/");
+        expContent.add("oneleveltree/synclog.txt");
+        expContent.add("oneleveltree/synclog.zip");
+        assertDestFileContent(expected, expContent);
+    }
+
+    public void testCompress_MultiLevelExcludedRoot() throws Exception {
+
+        String rootPath = MULTILEVELTREE;
+        String archiveName = BASE_TARGET_DIR + "multilevelexcludedroot.zip";
+        File expected = new File(archiveName);
+        if (expected.exists()) {
+            assertTrue("Unable to delete destination file", expected.delete());
+        }
+
+        // recursively = includeRoot = false
+        FileArchiver instance = new FileArchiver(rootPath, archiveName);
+        instance.compress();
+
+        assertCounters(instance, 0, 1, 0, 0);
+        assertDestFile(expected, true);
+
+        List<String> expContent = new ArrayList<String>();
+        expContent.add("multilog.txt");
+        assertDestFileContent(expected, expContent);
+    }
+
+    public void testCompress_MultiLevelIncludedRoot() throws Exception {
+
+        String rootPath = MULTILEVELTREE;
+        String archiveName = BASE_TARGET_DIR + "multilevelincludedroot.zip";
+        File expected = new File(archiveName);
+        if (expected.exists()) {
+            assertTrue("Unable to delete destination file", expected.delete());
+        }
+
+        // recursively = false, includeRoot = true
+        FileArchiver instance =
+            new FileArchiver(rootPath, archiveName, false, true);
+        instance.compress();
+
+        assertCounters(instance, 1, 1, 0, 0);
+        assertDestFile(expected, true);
+
+        List<String> expContent = new ArrayList<String>();
+        expContent.add("multileveltree/");
+        expContent.add("multileveltree/multilog.txt");
+        assertDestFileContent(expected, expContent);
+    }
+
+    public void testCompress_MultiLevelRecursiveExcludedRoot() throws Exception {
+
+        String rootPath = MULTILEVELTREE;
+        String archiveName = BASE_TARGET_DIR + "multilevelrecursiveexcludedroot.zip";
+        File expected = new File(archiveName);
+        if (expected.exists()) {
+            assertTrue("Unable to delete destination file", expected.delete());
+        }
+
+        // recursively = true, includeRoot = false
+        FileArchiver instance =
+            new FileArchiver(rootPath, archiveName, true, false);
+        instance.compress();
+
+        assertCounters(instance, 2, 4, 0, 0);
+        assertDestFile(expected, true);
+
+        List<String> expContent = new ArrayList<String>();
+        expContent.add("multilog.txt");
+        expContent.add("first/");
+        expContent.add("first/firstlog.zip");
+        expContent.add("first/second/");
+        expContent.add("first/second/secondlog.txt");
+        expContent.add("first/second/secondlog.zip");
+        assertDestFileContent(expected, expContent);
+    }
+
+    public void testCompress_MultiLevelRecursiveIncludedRoot() throws Exception {
+
+        String rootPath = MULTILEVELTREE;
+        String archiveName = BASE_TARGET_DIR + "multilevelrecursiveincludedroot.zip";
+        File expected = new File(archiveName);
+        if (expected.exists()) {
+            assertTrue("Unable to delete destination file", expected.delete());
+        }
+
+        // recursively = true, includeRoot = true
+        FileArchiver instance =
+            new FileArchiver(rootPath, archiveName, true, true);
+        instance.compress();
+
+        assertCounters(instance, 3, 4, 0, 0);
+        assertDestFile(expected, true);
+
+        List<String> expContent = new ArrayList<String>();
+        expContent.add("multileveltree/");
+        expContent.add("multileveltree/multilog.txt");
+        expContent.add("multileveltree/first/");
+        expContent.add("multileveltree/first/firstlog.zip");
+        expContent.add("multileveltree/first/second/");
+        expContent.add("multileveltree/first/second/secondlog.txt");
+        expContent.add("multileveltree/first/second/secondlog.zip");
+        assertDestFileContent(expected, expContent);
+    }
+
+    public void testCompress_EmptyTreeExcludedRoot() throws Exception {
+
+        String EMPTYTREE = BASE_TARGET_DIR + "emptytree";
+        File f = new File(EMPTYTREE);
+        if (f.exists()) {
+            assertTrue("Unable to delete an empty dir", f.delete());
+        }
+        assertTrue("Unable to create an empty dir", f.mkdir());
+
+        String rootPath = EMPTYTREE;
+        String archiveName = BASE_TARGET_DIR + "emptyexcludedroot.zip";
+        File expected = new File(archiveName);
+        if (expected.exists()) {
+            assertTrue("Unable to delete destination file", expected.delete());
+        }
+
+        FileArchiver instance = null;
+        try {
+            // recursively = includeRoot = false
+            instance = new FileArchiver(rootPath, archiveName);
+            instance.compress();
+            
+            fail("A FileArchiverException was expected");
+        } catch(FileArchiverException e) {
+            assertTrue("A FileArchiverException was thrown", true);
+        }
+
+        assertCounters(instance, 0, 0, 0, 0);
+        assertDestFile(expected, false);
+    }
+
+    public void testCompress_EmptyTreeIncludedRoot() throws Exception {
+
+        String EMPTYTREE = BASE_TARGET_DIR + "emptytree";
+        File f = new File(EMPTYTREE);
+        if (f.exists()) {
+            assertTrue("Unable to delete an empty dir", f.delete());
+        }
+        assertTrue("Unable to create an empty dir", f.mkdir());
+        
+        String rootPath = EMPTYTREE;
+        
+        String archiveName = BASE_TARGET_DIR + "emptyincludedroot.zip";
+        File expected = new File(archiveName);
+        if (expected.exists()) {
+            assertTrue("Unable to delete destination file", expected.delete());
+        }
+
+        // recursively = false, includeRoot = true
+        FileArchiver instance =
+            new FileArchiver(rootPath, archiveName, false, true);
+        instance.compress();
+
+        assertCounters(instance, 1, 0, 0, 0);
+        assertDestFile(expected, true);
+
+        List<String> expContent = new ArrayList<String>();
+        expContent.add("emptytree/");
+        assertDestFileContent(expected, expContent);
+    }
+
+    public void testCompress_FileObjMultiLevelRecursiveIncludedRoot() throws Exception {
+
+        File rootFile = new File(MULTILEVELTREE);
+        File archiveFile =
+            new File(BASE_TARGET_DIR + "objmultilevelrecursiveincludedroot.zip");
+        File expected = archiveFile;
+        if (expected.exists()) {
+            assertTrue("Unable to delete destination file", expected.delete());
+        }
+
+        // recursively = true, includeRoot = true
+        FileArchiver instance = new FileArchiver(rootFile, archiveFile, true, true);
+        instance.compress();
+
+        assertCounters(instance, 3, 4, 0, 0);
+        assertDestFile(expected, true);
+
+        List<String> expContent = new ArrayList<String>();
+        expContent.add("multileveltree/");
+        expContent.add("multileveltree/multilog.txt");
+        expContent.add("multileveltree/first/");
+        expContent.add("multileveltree/first/firstlog.zip");
+        expContent.add("multileveltree/first/second/");
+        expContent.add("multileveltree/first/second/secondlog.txt");
+        expContent.add("multileveltree/first/second/secondlog.zip");
+        assertDestFileContent(expected, expContent);
+    }
+
+    public void testCompress_SourceNotExist() throws Exception {
+
+        String rootPath = MULTILEVELTREE + File.separator + "notexist";
+        String archiveName = BASE_TARGET_DIR + "multilevelrecursiveincludedroot.zip";
+        File expected = new File(rootPath);
+        if (expected.exists()) {
+            assertTrue("Unable to delete destination file", expected.delete());
+        }
+
+        FileArchiver instance = null;
+
+        try {
+            instance = new FileArchiver(rootPath, archiveName);
+            instance.compress();
+
+            fail("A FileArchiverException was expected");
+        } catch(FileArchiverException e) {
+            assertTrue("A FileArchiverException was thrown", true);
+        }
+
+        assertCounters(instance, 0, 0, 0, 0);
+        assertDestFile(expected, false);
+    }
+
+    public void testAddFile() throws Throwable {
+
+        String sourceFilename = MULTILEVELTREE + File.separator + "multilog.txt";
+        String destFilename   = BASE_TARGET_DIR + "addedFile.zip";
+
+        File destFile = new File(destFilename);
+        if (destFile.exists()) {
+            assertTrue("Unable to delete destination file", destFile.delete());
+        }
+        
+        // recursively = true, includeRoot = true
+        FileArchiver instance = 
+            new FileArchiver(sourceFilename, destFilename, true, true);
+
+        FileOutputStream outputStream = null;
+        ZipOutputStream zipOutputStream = null;
+
+        try {
+
+            outputStream = new FileOutputStream(destFile, false);
+            zipOutputStream = new ZipOutputStream(outputStream);
+
+            PrivateAccessor.invoke(
+                instance,
+                "addFile",
+                new Class[] {ZipOutputStream.class, String.class, File.class},
+                new Object[]{zipOutputStream, "", new File(sourceFilename)}
+            );
+
+            assertCounters(instance, 0, 1, 0, 0);
+            assertDestFile(destFile, true);
+
+        } finally {
+
+            if (zipOutputStream != null) {
+                zipOutputStream.flush();
+            }
+            if (outputStream != null) {
+                outputStream.flush();
+            }
+        }
+
+        try {
+            sourceFilename = MULTILEVELTREE + File.separator
+                         + "first" + File.separator
+                         + "firstlog.zip";
+
+            PrivateAccessor.setField(instance, "sourceFile", new File(sourceFilename));
+
+            PrivateAccessor.invoke(
+                instance,
+                "addFile",
+                new Class[] {ZipOutputStream.class, String.class, File.class},
+                new Object[]{zipOutputStream, "", new File(sourceFilename)}
+            );
+
+            assertCounters(instance, 0, 2, 0, 0);
+            assertDestFile(destFile, true);
+
+        } finally {
+            if (zipOutputStream != null) {
+                zipOutputStream.flush();
+                zipOutputStream.close();
+            }
+            if (outputStream != null) {
+                outputStream.flush();
+                outputStream.close();
+            }
+        }
+
+        List<String> expContent = new ArrayList<String>();
+        expContent.add("multilog.txt");
+        expContent.add("firstlog.zip");
+        assertDestFileContent(destFile, expContent);
+    }
+
+    public void testAddFile_WithFilter() throws Throwable {
+
+        String sourceFilename = MULTILEVELTREE + File.separator + "multilog.txt";
+        String destFilename   = BASE_TARGET_DIR + "addedFile.zip";
+
+        File destFile = new File(destFilename);
+        if (destFile.exists()) {
+            assertTrue("Unable to delete destination file", destFile.delete());
+        }
+
+        // recursively = true, includeRoot = true
+        FileArchiver instance =
+            new FileArchiver(sourceFilename, destFilename, true, true);
+
+        // applies a filter based on a suffix
+        SuffixFileFilter fileFilter = new SuffixFileFilter("txt");
+        instance.setFilter(fileFilter);
+
+        FileOutputStream outputStream = null;
+        ZipOutputStream zipOutputStream = null;
+
+        try {
+
+            outputStream = new FileOutputStream(destFile, false);
+            zipOutputStream = new ZipOutputStream(outputStream);
+
+            PrivateAccessor.invoke(
+                instance,
+                "addFile",
+                new Class[] {ZipOutputStream.class, String.class, File.class},
+                new Object[]{zipOutputStream, "", new File(sourceFilename)}
+            );
+
+            assertCounters(instance, 0, 1, 0, 0);
+            assertDestFile(destFile, true);
+
+        } finally {
+
+            if (zipOutputStream != null) {
+                zipOutputStream.flush();
+            }
+            if (outputStream != null) {
+                outputStream.flush();
+            }
+        }
+
+        try {
+            sourceFilename = MULTILEVELTREE + File.separator
+                         + "first" + File.separator
+                         + "firstlog.zip";
+
+            PrivateAccessor.setField(instance, "sourceFile", new File(sourceFilename));
+
+            PrivateAccessor.invoke(
+                instance,
+                "addFile",
+                new Class[] {ZipOutputStream.class, String.class, File.class},
+                new Object[]{zipOutputStream, "", new File(sourceFilename)}
+            );
+
+            assertCounters(instance, 0, 1, 0, 1);
+            assertDestFile(destFile, true);
+        } finally {
+            if (zipOutputStream != null) {
+                zipOutputStream.flush();
+                zipOutputStream.close();
+            }
+            if (outputStream != null) {
+                outputStream.flush();
+                outputStream.close();
+            }
+        }
+
+        List<String> expContent = new ArrayList<String>();
+        expContent.add("multilog.txt");
+        assertDestFileContent(destFile, expContent);
+    }
+
+    public void testAddDirectory() throws Throwable {
+
+        String sourceDirname = MULTILEVELTREE + File.separator + "first";
+        String destFilename   = BASE_TARGET_DIR + "addedDir.zip";
+
+        File destFile = new File(destFilename);
+        if (destFile.exists()) {
+            assertTrue("Unable to delete destination file", destFile.delete());
+        }
+
+        // recursively = true, includeRoot = true
+        FileArchiver instance =
+            new FileArchiver(sourceDirname, destFilename, true, true);
+
+        FileOutputStream outputStream = null;
+        ZipOutputStream zipOutputStream = null;
+
+        try {
+
+            outputStream = new FileOutputStream(destFile, false);
+            zipOutputStream = new ZipOutputStream(outputStream);
+
+            PrivateAccessor.invoke(
+                instance,
+                "addDirectory",
+                new Class[] {ZipOutputStream.class, String.class, File.class},
+                new Object[]{zipOutputStream, "", new File(sourceDirname)}
+            );
+
+            assertCounters(instance, 2, 3, 0, 0);
+            assertDestFile(destFile, true);
+
+        } finally {
+
+            if (zipOutputStream != null) {
+                zipOutputStream.flush();
+            }
+            if (outputStream != null) {
+                outputStream.flush();
+            }
+        }
+
+        try {
+            sourceDirname = ONELEVELTREE;
+
+            PrivateAccessor.setField(instance, "sourceFile", new File(sourceDirname));
+
+            PrivateAccessor.invoke(
+                instance,
+                "addDirectory",
+                new Class[] {ZipOutputStream.class, String.class, File.class},
+                new Object[]{zipOutputStream, "", new File(sourceDirname)}
+            );
+
+            assertCounters(instance, 3, 5, 0, 0);
+            assertDestFile(destFile, true);
+
+        } finally {
+            if (zipOutputStream != null) {
+                zipOutputStream.flush();
+                zipOutputStream.close();
+            }
+            if (outputStream != null) {
+                outputStream.flush();
+                outputStream.close();
+            }
+        }
+
+        List<String> expContent = new ArrayList<String>();
+        expContent.add("first/");
+        expContent.add("first/firstlog.zip");
+        expContent.add("first/second/");
+        expContent.add("first/second/secondlog.txt");
+        expContent.add("first/second/secondlog.zip");
+        expContent.add("oneleveltree/");
+        expContent.add("oneleveltree/synclog.txt");
+        expContent.add("oneleveltree/synclog.zip");
+        assertDestFileContent(destFile, expContent);
+    }
+
+    public void testAddDirectory_NotRecursive() throws Throwable {
+
+        String sourceDirname = MULTILEVELTREE + File.separator + "first";
+        String destFilename   = BASE_TARGET_DIR + "addedDir.zip";
+
+        File destFile = new File(destFilename);
+        if (destFile.exists()) {
+            assertTrue("Unable to delete destination file", destFile.delete());
+        }
+
+        // recursively = false, includeRoot = true
+        FileArchiver instance =
+            new FileArchiver(sourceDirname, destFilename, false, true);
+
+        FileOutputStream outputStream = null;
+        ZipOutputStream zipOutputStream = null;
+
+        try {
+
+            outputStream = new FileOutputStream(destFile, false);
+            zipOutputStream = new ZipOutputStream(outputStream);
+
+            PrivateAccessor.invoke(
+                instance,
+                "addDirectory",
+                new Class[] {ZipOutputStream.class, String.class, File.class},
+                new Object[]{zipOutputStream, "", new File(sourceDirname)}
+            );
+
+            assertCounters(instance, 1, 1, 0, 0);
+            assertDestFile(destFile, true);
+        } finally {
+
+            if (zipOutputStream != null) {
+                zipOutputStream.flush();
+                zipOutputStream.close();
+            }
+            if (outputStream != null) {
+                outputStream.flush();
+                outputStream.close();
+            }
+        }
+
+        List<String> expContent = new ArrayList<String>();
+        expContent.add("first/");
+        expContent.add("first/firstlog.zip");
+        assertDestFileContent(destFile, expContent);
+    }
+
+    public void testAddDirectory_WithFilter() throws Throwable {
+
+        String sourceDirname = MULTILEVELTREE + File.separator + "first";
+        String destFilename   = BASE_TARGET_DIR + "addedDir.zip";
+
+        File destFile = new File(destFilename);
+        if (destFile.exists()) {
+            assertTrue("Unable to delete destination file", destFile.delete());
+        }
+
+        // recursively = true, includeRoot = true
+        FileArchiver instance =
+            new FileArchiver(sourceDirname, destFilename, true, true);
+
+        // add only directories
+        instance.setFilter(DirectoryFileFilter.DIRECTORY);
+
+        FileOutputStream outputStream = null;
+        ZipOutputStream zipOutputStream = null;
+
+        try {
+
+            outputStream = new FileOutputStream(destFile, false);
+            zipOutputStream = new ZipOutputStream(outputStream);
+
+            PrivateAccessor.invoke(
+                instance,
+                "addDirectory",
+                new Class[] {ZipOutputStream.class, String.class, File.class},
+                new Object[]{zipOutputStream, "", new File(sourceDirname)}
+            );
+
+            assertCounters(instance, 2, 0, 0, 3);
+            assertDestFile(destFile, true);
+        } finally {
+
+            if (zipOutputStream != null) {
+                zipOutputStream.flush();
+            }
+            if (outputStream != null) {
+                outputStream.flush();
+            }
+        }
+
+        try {
+            sourceDirname = ONELEVELTREE;
+
+            PrivateAccessor.setField(instance, "sourceFile", new File(sourceDirname));
+
+            PrivateAccessor.invoke(
+                instance,
+                "addDirectory",
+                new Class[] {ZipOutputStream.class, String.class, File.class},
+                new Object[]{zipOutputStream, "", new File(sourceDirname)}
+            );
+
+            assertCounters (instance, 3, 0, 0, 5);
+            assertDestFile(destFile, true);
+            
+        } finally {
+            if (zipOutputStream != null) {
+                zipOutputStream.flush();
+                zipOutputStream.close();
+            }
+            if (outputStream != null) {
+                outputStream.flush();
+                outputStream.close();
+            }
+        }
+
+        List<String> expContent = new ArrayList<String>();
+        expContent.add("first/");
+        expContent.add("first/second/");
+        expContent.add("oneleveltree/");
+        assertDestFileContent(destFile, expContent);
+    }
+
+    // --------------------------------------------------------- Private methods
+    private void assertCounters(FileArchiver instance,
+                                long expectedNumArchivedDirs,
+                                long expectedNumArchivedFiles,
+                                long expectedNumSkippedDirs,
+                                long expectedNumSkippedFiles) {
+
+        long numArchivedDirs = instance.getNumberOfArchivedDirectories();
+        assertEquals("Wrong number of archived directories",
+                     expectedNumArchivedDirs, numArchivedDirs);
+        long numArchivedFiles = instance.getNumberOfArchivedFiles();
+        assertEquals("Wrong number of archived files",
+                     expectedNumArchivedFiles, numArchivedFiles);
+        long numSkippedDirs = instance.getNumberOfSkippedDirectories();
+        assertEquals("Wrong number of skipped directories",
+                     expectedNumSkippedDirs, numSkippedDirs);
+        long numSkippedFiles = instance.getNumberOfSkippedFiles();
+        assertEquals("Wrong number of skipped files",
+                     expectedNumSkippedFiles, numSkippedFiles);
+
+    }
+
+    private void assertDestFile(File destFile, boolean destFileMustExist) {
+        if (destFileMustExist) {
+            assertTrue("The destination archive does not exist", destFile.exists());
+            assertTrue("The destination archive is not a file", destFile.isFile());
+        } else {
+            assertFalse("The destination archive exist", destFile.exists());
+        }
+    }
+
+    private void assertDestFileContent(File destFile, List<String> expContent)
+    throws IOException {
+
+        ZipFile archive = null;
+        try {
+            archive = new ZipFile(destFile);
+            Enumeration<? extends ZipEntry> entries = archive.entries();
+
+            assertEquals(expContent.size(), archive.size());
+
+            while(entries.hasMoreElements()) {
+                ZipEntry entry = entries.nextElement();
+                assertTrue(expContent.contains(entry.getName()));
+            }
+        } finally {
+            if (archive != null) {
+                archive.close();
+                archive = null;
+            }
+        }
+    }
+
+}

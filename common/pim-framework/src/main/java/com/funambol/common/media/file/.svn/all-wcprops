@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/core/!svn/ver/36684/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/media/file
+END
+FileDataObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/36684/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/media/file/FileDataObject.java
+END
+FileDataObjectMetadata.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/36661/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/media/file/FileDataObjectMetadata.java
+END
+UploadStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/35942/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/media/file/UploadStatus.java
+END
+FileDataObjectBody.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/34293/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/media/file/FileDataObjectBody.java
+END

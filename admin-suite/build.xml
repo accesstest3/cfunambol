@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See harness/README in the NetBeans platform -->
+<!-- for some information on what you could do (e.g. targets to override). -->
+<!-- If you delete this file and reopen the project it will be recreated. -->
+<project name="com-funambol-admin-suite" basedir="." default="build" xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+
+    <description>Builds the module suite com-funambol-admin-suite.</description>
+
+    <property file="${user.home}/build-admin-diablo.properties"/>
+    
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties" />
+    
+    <!--
+        In ${user.home}/funambol-maven-repositories.properties you can specify additional
+        maven repositories.
+        You can set max 5 repositories using these properties:
+        maven.repository.1
+        maven.repository.2
+        maven.repository.3
+        maven.repository.4
+        maven.repository.5
+    -->
+    <property file="${user.home}/funambol-maven-repositories.properties"/>
+
+    <property file="build.properties" />
+    	
+    <property name="nbplatform.default.harness.dir" 
+              value="${nbplatform.default.netbeans.dest.dir}/harness"/>
+
+    <import file="nbproject/build-impl.xml"/>
+
+
+    <artifact:remoteRepository id="funambol.remote.repository" url="${funambol-maven-repository}">
+      <snapshots updatePolicy="always" />
+    </artifact:remoteRepository>
+
+    <artifact:remoteRepository id="maven.repository.1" url="${maven.repository.1}" >
+      <snapshots updatePolicy="always" />
+    </artifact:remoteRepository>
+
+    <artifact:remoteRepository id="maven.repository.2" url="${maven.repository.2}" >
+      <snapshots updatePolicy="always" />
+    </artifact:remoteRepository>
+
+    <artifact:remoteRepository id="maven.repository.3" url="${maven.repository.3}" >
+      <snapshots updatePolicy="always" />
+    </artifact:remoteRepository>
+
+    <artifact:remoteRepository id="maven.repository.4" url="${maven.repository.4}" >
+      <snapshots updatePolicy="always" />
+    </artifact:remoteRepository>
+
+    <artifact:remoteRepository id="maven.repository.5" url="${maven.repository.5}" >
+      <snapshots updatePolicy="always" />
+    </artifact:remoteRepository>
+
+    <target name="forge-admin-zip" depends="init-build" >
+        <antcall target="build-zip" />
+        <copy file="dist/funamboladmin.zip" tofile="output/funambol-admin-${admin.version}.zip" />
+    </target>
+    
+    <target name="make-admin-suite" depends="init-build, build" >
+        <copy file="build/cluster/modules/com-funambol-admin.jar" 
+              tofile="output/com-funambol-admin.jar" />
+        <copy file="build/cluster/modules/com-funambol-admin-libs.jar" 
+              tofile="output/com-funambol-admin-libs.jar" />
+               
+        <antcall target="make-admin-dev" />
+    </target>
+        
+    <target name="make-admin-dev" depends="init-build">
+	
+        <mkdir dir="admin/build/classes"/>
+        <mkdir dir="output"/>
+
+        <javac debug="on" deprecation="true" 
+               destdir="admin/build/classes"
+               includeAntRuntime="no" 
+               source="1.4" 
+               srcdir="admin/src"
+			   includes="com/funambol/admin/AdminException.java,
+                         com/funambol/admin/ui/ConnectorManagementPanel.java,
+                         com/funambol/admin/ui/ManagementObjectPanel.java,
+                         com/funambol/admin/ui/SourceManagementPanel.java,
+                         com/funambol/admin/mo/ConnectorManagementObject.java,
+                         com/funambol/admin/mo/ManagementObject.java,
+                         com/funambol/admin/mo/SyncSourceManagementObject.java">
+            <classpath>
+                <fileset dir="admin-libs/release/modules/ext">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <fileset dir="${nbplatform.default.netbeans.dest.dir}/platform6/lib">
+                    <include name="**/*.jar"/>
+                </fileset>		
+		        <fileset dir="${nbplatform.default.netbeans.dest.dir}/platform6/modules">
+                    <include name="**/*.jar"/>
+                </fileset>	
+            </classpath>
+			
+        </javac>
+		
+        <jar destfile="output/funambol-admin-dev.jar">
+            <fileset dir="admin/build/classes">
+                <include name="com/funambol/admin/AdminException.class" />
+                <include name="com/funambol/admin/ui/ConnectorManagementPanel.class" />
+                <include name="com/funambol/admin/ui/ManagementObjectPanel.class" />
+                <include name="com/funambol/admin/ui/SourceManagementPanel.class" />
+                <include name="com/funambol/admin/mo/ConnectorManagementObject.class" />
+                <include name="com/funambol/admin/mo/ManagementObject.class" />
+                <include name="com/funambol/admin/mo/SyncSourceManagementObject.class" />
+            </fileset>
+        </jar>
+
+        <!--
+            after building admin-dev we publish it as a maven artifact so that other
+            components can create dependencies on it.
+
+            We deploy always the same file
+            but by default we deploy it as snapshot (version-to-deploy: ${admin.version}-SNAPSHOT)
+            in the snapshot repository
+        -->
+        <property name="version-to-install" value="${admin.version}-SNAPSHOT" />
+        
+        <echo message="Installing output/funambol-admin-dev.jar in local repository" />
+        <echo message="Version: ${version-to-install} "/>
+
+        <antcall target="run-maven"  inheritAll="true">
+            <param name="params"
+                   value="install:install-file
+                          -DgroupId=funambol
+                          -DartifactId=admin-framework
+                          -Dversion=${version-to-install}
+                          -DuniqueVersion=false
+                          -Dpackaging=jar
+                          -Dfile=output/funambol-admin-dev.jar" />
+        </antcall>
+        
+    </target>
+    
+    <!-- ======================================================== -->
+    <!-- MAKE-NBM: create the nbm files for admin and admin-libs  --> 
+    <!-- ======================================================== -->    
+    <target name="make-nbms" depends="init-build" >
+        <ant antfile="nbproject/build-impl.xml"
+             dir="admin" target="nbm"/>
+             
+        <ant antfile="nbproject/build-impl.xml"
+             dir="admin-libs" target="nbm"/>
+             
+    </target>    
+    
+    <!-- ======================================================== -->
+    <!-- MAKE-AUTOUPDATE-DIR: create the autoupdate directoryn    -->
+    <!--                      with the nbm files and the info.jsp -->
+    <!-- ======================================================== -->    
+    <target name="make-autoupdate-dir" depends="make-nbms">
+
+        <mkdir dir="output/autoupdate" />             
+
+        <copy file="admin/build/com-funambol-admin.nbm" tofile="output/autoupdate/funambol-admin.nbm" />             
+        <copy file="admin-libs/build/com-funambol-admin-libs.nbm" tofile="output/autoupdate/funambol-admin-libs.nbm" />                     
+
+        <length file="output/autoupdate/funambol-admin.nbm"      property="LENGTH_ADMIN_NBM" />
+        <length file="output/autoupdate/funambol-admin-libs.nbm" property="LENGTH_ADMIN_LIBS_NBM" />        
+
+        <tstamp>
+           <format property="UPDATES_TIMESTAMP" pattern="HH/mm/ss/dd/MM/yyyy"/>
+        </tstamp>        
+
+        <tstamp>
+           <format property="RELEASE_DATE" pattern="yyyy/MM/dd"/>
+        </tstamp>        
+
+        <tstamp>
+           <format property="IMPLEMENTATION_VERSION" pattern="yyMMdd"/>
+        </tstamp>        
+        
+        <copy file="admin/src/jsp/info.jsp" tofile="output/autoupdate/info.jsp" />             
+        
+        <replace file="output/autoupdate/info.jsp" 
+                 token="%RELEASE_DATE%" value="${RELEASE_DATE}"/>
+
+        <replace file="output/autoupdate/info.jsp" 
+                 token="%IMPLEMENTATION_VERSION%" value="${IMPLEMENTATION_VERSION}"/>
+        
+        <replace file="output/autoupdate/info.jsp" 
+                 token="%RELEASE_DATE%" value="${RELEASE_DATE}"/>
+
+        <replace file="output/autoupdate/info.jsp" 
+                 token="%LENGTH_ADMIN_NBM%" value="${LENGTH_ADMIN_NBM}"/>
+
+        <replace file="output/autoupdate/info.jsp" 
+                 token="%LENGTH_ADMIN_LIBS_NBM%" value="${LENGTH_ADMIN_LIBS_NBM}"/>
+
+        <replace file="output/autoupdate/info.jsp" 
+                 token="%ADMIN_VERSION%" value="${admin.version}"/>
+
+        <replace file="output/autoupdate/info.jsp" 
+                 token="%UPDATES_TIMESTAMP%" value="${UPDATES_TIMESTAMP}"/>
+
+    </target>    
+    
+    <target name="clean" >
+        <ant inheritAll="true" 
+             antfile="nbproject/build-impl.xml"
+             target="clean"> 
+        </ant>   
+        <delete dir="output" />
+    </target>
+  
+    <target name="init-directories">
+        <mkdir dir="output" />    
+    </target>
+
+    <!-- =============================================== -->
+    <!-- INIT-BUILD: creates the files used by Netbeans  --> 
+    <!--             ant task to create the admin        -->
+    <!-- =============================================== -->
+    <target name="init-build" depends="init-admin, init-directories">
+    
+        <antcall target="download-dependencies" />
+            
+        <copy file="admin/manifest.mf-master" 
+              tofile="admin/manifest.mf" 
+              overwrite="true"/>
+        <replace file="admin/manifest.mf" 
+                 token="%VERSION%" value="${admin.version}"/>
+
+        <copy file="admin-libs/manifest.mf-master" 
+              tofile="admin-libs/manifest.mf" 
+              overwrite="true"/>
+        <replace file="admin-libs/manifest.mf" 
+                 token="%VERSION%" value="${admin.version}"/>  
+              
+        <copy file="branding/core/core.jar/org/netbeans/core/startup/Bundle.properties-master" 
+              tofile="branding/core/core.jar/org/netbeans/core/startup/Bundle.properties" 
+              overwrite="true"/>
+        <replace file="branding/core/core.jar/org/netbeans/core/startup/Bundle.properties" 
+                 token="%VERSION%" value="${admin.version}"/>               
+
+        <copy file="admin-libs/nbproject/project.xml-master" 
+              tofile="admin-libs/nbproject/project.xml" 
+              overwrite="true"/>            
+
+        <replace file="admin-libs/nbproject/project.xml">
+            <replacefilter token="%EXT.JAR%" value="${ext.jar}"/>
+        </replace>
+        
+        <replace file="admin-libs/nbproject/project.xml">
+            <replacefilter token="%CORE-FRAMEWORK.JAR%" value="${core-framework.jar}"/>
+        </replace>
+        
+        <replace file="admin-libs/nbproject/project.xml">
+            <replacefilter token="%SERVER-FRAMEWORK.JAR%" value="${server-framework.jar}"/>
+        </replace>
+        
+        <replace file="admin-libs/nbproject/project.xml">
+            <replacefilter token="%DS-SERVER.JAR%" value="${ds-server.jar}"/>
+        </replace>
+        
+        <copy file  ="admin/src/com/funambol/admin/Funambol.xml-master" 
+              tofile="admin/src/com/funambol/admin/Funambol.xml" 
+              overwrite="true"/>
+              
+        <replace file="admin/src/com/funambol/admin/Funambol.xml">
+            <replacefilter token="%CORE-FRAMEWORK.JAR%" value="${core-framework.jar}"/>
+        </replace>
+
+        <replace file="admin/src/com/funambol/admin/Funambol.xml">
+            <replacefilter token="%SERVER-FRAMEWORK.JAR%" value="${server-framework.jar}"/>
+        </replace>
+        
+        <replace file="admin-libs/nbproject/project.xml">
+            <replacefilter token="%EXT-VERSION%" value="${ext.version}"/>
+        </replace>
+                 
+        <copy file="admin/src/com/funambol/admin/util/Bundle-master.properties" 
+              tofile="admin/src/com/funambol/admin/util/Bundle.properties" 
+              overwrite="true"/>
+        <replace file="admin/src/com/funambol/admin/util/Bundle.properties" 
+                 token="%VERSION%" value="${admin.version}"/>
+                 
+    </target>
+
+    <target name="init-admin">
+        <property name="adm.bin.dir"       value="${basedir}/forge/bin"/>
+        <property name="adm.out.dir"       value="${basedir}/output"/>
+        <property name="adm.outfunadm.dir" value="${adm.out.dir}/funamboladmin"/>
+        <property name="adm.installer.dir" value="${basedir}/forge/installer"/>
+        <property name="adm.txt.dir"       value="${basedir}/forge/txt"/>
+        
+        <artifact:pom id="admin.project" file="pom-admin.xml" />
+        <property name="admin.version"
+                  value="${admin.project.version}"/>
+        
+        <property name="forge-file"        value="${admin.name}-${admin.version}"/>
+
+        <mkdir dir="${adm.out.dir}"/>
+    </target>    
+        
+    <!-- =============================================== -->
+    <!-- Forge                                           -->
+    <!-- =============================================== -->
+    <target name="forge-admin" depends="clean, 
+                                        build,
+                                        forge-admin-win, 
+                                        forge-admin-unix"/>
+
+    <target name="forge-admin-setup" depends="init-build">
+
+        <antcall target="build-zip"/>
+        <antcall target="make-admin-dev"/>
+        
+        <unzip src ="dist/funamboladmin.zip"
+               dest="${adm.out.dir}"/>
+
+        <copy todir="${adm.outfunadm.dir}" overwrite="true">
+            <fileset dir="${adm.installer.dir}">
+                <filename name="icons/*.*"/>
+            </fileset>
+        </copy>
+    
+        <copy todir="${adm.outfunadm.dir}" file="LICENSE.txt" />
+        <copy todir="${adm.outfunadm.dir}" file="${adm.installer.dir}/funambol.url"/>
+    
+        <tstamp>
+           <format property="TODAY" pattern="MMMM dd, yyyy" locale="en"/>
+        </tstamp>
+
+        <mkdir dir="${adm.outfunadm.dir}/docs" />
+        <propertyfile file="${adm.outfunadm.dir}/docs/release.properties"
+                      comment="Funambol Administration Tool">
+            <entry key="version" value="${admin.version}"/>
+            <entry key="build.date" value="${TODAY}"/>
+        </propertyfile>
+        
+        <copy file="${adm.txt.dir}/Readme.txt"
+              tofile="${adm.installer.dir}/presetup/Readme.txt"
+        />
+
+        <copy todir="${adm.outfunadm.dir}">
+            <fileset dir="${adm.txt.dir}" includes="*.txt"/> 
+        </copy>
+
+        <replace dir="${adm.installer.dir}/presetup" summary="true">
+            <replacefilter token="{admin.version}" value="${admin.version}"/>
+            <replacefilter token="{admin.release.date.text}" value="${TODAY}"/>
+        </replace>
+
+        <replace file="${adm.outfunadm.dir}/Readme.txt" summary="true">
+            <replacefilter token="{admin.version}" value="${admin.version}"/>
+            <replacefilter token="{admin.release.date.text}" value="${TODAY}"/>
+        </replace>
+        <replace file="${adm.outfunadm.dir}/Readme.unix.txt" summary="true">
+            <replacefilter token="{admin.version}" value="${admin.version}"/>
+            <replacefilter token="{admin.release.date.text}" value="${TODAY}"/>
+        </replace>
+
+    </target>
+
+    <target name="forge-admin-win" 
+            depends="init-admin,forge-admin-setup" 
+            if="nsis.home">
+    
+        <copy todir="${adm.outfunadm.dir}/etc" 
+              file="${adm.bin.dir}/win/funamboladmin.conf" 
+              overwrite="true"
+        />
+
+        <unzip src="${jre.pkg}" dest="${adm.outfunadm.dir}/jre"/>
+        <move todir="${adm.outfunadm.dir}/jre/jre">
+            <fileset dir="${adm.outfunadm.dir}/jre/${jre.name}"/>
+        </move>
+        
+        <exec executable="${nsis.home}/makensis.exe" dir="${adm.installer.dir}">
+            <arg line="/DPRODUCT_VERSION=${admin.version}
+                       /DPRODUCT_NAME='Funambol Administration Tool'
+                       /DDIR_OUTPUT='${adm.out.dir}\funamboladmin'
+                       /DPK_NAME=funambol-admin-${admin.version}
+                       /DINSTALL_DIR='Funambol\admin'
+                       admin.nsi"/>
+        </exec>    
+
+        <copy todir     = "${adm.out.dir}"
+              file      = "${adm.installer.dir}/${forge-file}.exe"
+              overwrite = "true">
+        </copy>
+
+        <delete file="${adm.installer.dir}/${forge-file}.exe"/>
+
+    </target>
+    
+
+    <target name="forge-admin-unix" depends="init-admin,forge-admin-setup">
+
+        <copy todir="${adm.outfunadm.dir}/etc" 
+              file="${adm.bin.dir}/unix/funamboladmin.conf" 
+              overwrite="true"
+        />
+
+        <copy todir="${adm.outfunadm.dir}/bin" 
+              file="${adm.bin.dir}/unix/funamboladmin" 
+              overwrite="true"
+        />
+                
+        <!-- Ensure correct line endings -->
+        <fixcrlf eol="unix" eof="remove" 
+                srcdir="${adm.outfunadm.dir}/bin" 
+                 includes="funamboladmin"/>
+        <fixcrlf eol="unix" eof="remove" 
+                 srcdir="${adm.outfunadm.dir}/etc" 
+                 includes="*.conf"/>
+        <fixcrlf eol="unix" eof="remove" 
+                 srcdir="${adm.outfunadm.dir}/platform6/lib" 
+                 includes="nbexec"/>
+        
+        <!-- Ensure execution permissions for UNIX/LINX relevant scripts -->
+        <chmod perm="a+x">
+            <fileset dir="${adm.outfunadm.dir}/bin">
+                <include name="funamboladmin"/>
+            </fileset>
+            <fileset dir="${adm.outfunadm.dir}/bin">
+                <exclude name="*.cmd"/>
+                <exclude name="*.bat"/>
+                <exclude name="*.exe"/>
+            </fileset>
+        </chmod>
+        
+        <tar destfile    = "${adm.out.dir}/${forge-file}.tgz"
+             compression = "gzip">
+            <tarfileset dir      ="${adm.outfunadm.dir}"
+                        includes = "**/*"
+                        excludes = "bin/funamboladmin.sh, jre/**/*"
+                        prefix   = "Funambol/admin/"
+            />
+            <tarfileset dir      = "${adm.outfunadm.dir}"
+                        includes = "bin/funamboladmin"
+                        mode     = "755"
+                        prefix   = "Funambol/admin/"
+            />    
+        </tar>
+
+        <copy todir="../output" file="${adm.out.dir}/${forge-file}.tgz" overwrite="true"/>
+
+        <antcall target="install-admin-tgz" />
+
+    </target>
+
+    <target name="download-dependencies">
+
+        <mkdir dir="admin-libs/release/modules/ext" />
+    
+        <artifact:pom id="admin.project" file="pom-admin.xml" />
+
+        <artifact:dependencies filesetId="dependency.fileset">
+            <pom refid="admin.project"/>
+            <remoteRepository refid="funambol.remote.repository" />
+            <remoteRepository refid="maven.repository.1" />
+            <remoteRepository refid="maven.repository.2" />
+            <remoteRepository refid="maven.repository.3" />
+            <remoteRepository refid="maven.repository.4" />
+            <remoteRepository refid="maven.repository.5" />
+        </artifact:dependencies>
+
+        <copy todir="admin-libs/release/modules/ext" overwrite="true">
+          <fileset refid="dependency.fileset" />
+          <mapper type="flatten" />
+        </copy>
+
+        <!--
+            Using snapshot version, the downloaded jars can have these names:
+                - ds-server-7.0.4-20080630.162205-5.jar
+                - server-framework-7.0.4-20080630.144002-3.jar
+            Since netbeans requires to know the exact file name, we rename it using
+            the values specified in the build.properties file.
+        -->
+        <script language="beanshell" src="${basedir}/fix-dependency-filename.bsh">
+            renameJARFile("admin-libs/release/modules/ext", "core-framework.jar");
+        </script>
+        <script language="beanshell" src="${basedir}/fix-dependency-filename.bsh">
+            renameJARFile("admin-libs/release/modules/ext", "server-framework.jar");
+        </script>
+        <script language="beanshell" src="${basedir}/fix-dependency-filename.bsh">
+            renameJARFile("admin-libs/release/modules/ext", "ds-server.jar");
+        </script>
+        <script language="beanshell" src="${basedir}/fix-dependency-filename.bsh">
+            renameJARFile("admin-libs/release/modules/ext", "ext.jar");
+        </script>
+
+    </target>
+
+
+    <!--
+        INSTALL ADMIN TOOL IN THE LOCAL REPOSITORY. IT IS INSTALLED ALWAYS AS
+        SNAPSHOT. RELEASED VERSIONS ARE NEVER INSTALLED LOCALLY BUT ALWAYS
+        DOWNLOADED FROM REMOTE REPOSITORY.
+    -->
+    <target name="install-admin-tgz">
+
+        <property name="version-to-install" value="${admin.version}-SNAPSHOT" />
+        
+        <echo message="Installing admin tool in local repository" />
+        <echo message="Version: ${version-to-install} "/>
+        
+        <antcall target="run-maven"  inheritAll="true">
+            <param name="params"
+                   value="install:install-file
+                          -DgroupId=funambol
+                          -DartifactId=admin
+                          -Dversion=${version-to-install}
+                          -DuniqueVersion=false
+                          -Dpackaging=tgz
+                          -Dfile=output/funambol-admin-${admin.version}.tgz" />
+        </antcall>
+    </target>
+
+    <!--
+        FORGE AND DEPLOY RELEASE VERSION
+    -->
+    <target name="forge-and-deploy-release" depends="forge-admin-unix">
+
+        <property name="maven-repository-url" value="${maven-artifact-repository-url}" />
+        <property name="maven-repository-id" value="${maven-artifact-repository-id}" />
+        <property name="version-to-deploy" value="${admin.version}" />
+
+        <antcall target="deploy-admin-artifacts" />
+        
+    </target>
+
+    <!--
+        FORGE AND DEPLOY SNAPSHOT VERSION
+    -->
+    <target name="forge-and-deploy-snapshot" depends="forge-admin-unix">
+
+        <property name="maven-repository-url" value="${maven-snapshot-repository-url}" />
+        <property name="maven-repository-id" value="${maven-snapshot-repository-id}" />
+        <property name="version-to-deploy" value="${admin.version}-SNAPSHOT" />
+
+        <antcall target="deploy-admin-artifacts" />
+        
+    </target>
+
+    <!--
+        DEPLOY ADMIN ARTIFACTS
+    -->
+    <target name="deploy-admin-artifacts">
+        <antcall target="deploy-admin-artifact"  inheritAll="true">
+            <param name="maven-repository-url" value="${maven-repository-url}" />
+            <param name="maven-repository-id" value="${maven-repository-id}" />
+
+            <param name="file-to-deploy" value="output/funamboladmin/funamboladmin/modules/com-funambol-admin.jar" />
+            <param name="packaging" value="jar" />
+            <param name="artifactId" value="admin" />
+            <param name="version-to-deploy" value="${version-to-deploy}" />
+        </antcall>
+
+        <antcall target="deploy-admin-artifact"  inheritAll="true">
+            <param name="maven-repository-url" value="${maven-repository-url}" />
+            <param name="maven-repository-id" value="${maven-repository-id}" />
+
+            <param name="file-to-deploy" value="output/funambol-admin-${admin.version}.tgz" />
+            <param name="packaging" value="tgz" />
+            <param name="artifactId" value="admin" />
+            <param name="version-to-deploy" value="${version-to-deploy}" />
+        </antcall>
+
+        <!-- This is done in order to build and install the admin-framework artifact -->
+        <antcall target="make-admin-dev" />
+
+        <antcall target="deploy-admin-artifact"  inheritAll="true">
+            <param name="maven-repository-url" value="${maven-repository-url}" />
+            <param name="maven-repository-id" value="${maven-repository-id}" />
+
+            <param name="file-to-deploy" value="output/funambol-admin-dev.jar" />
+            <param name="packaging" value="jar" />
+            <param name="artifactId" value="admin-framework" />
+            <param name="version-to-deploy" value="${version-to-deploy}" />
+        </antcall>
+    </target>
+    
+    <!--
+        DEPLOY ADMIN ARTIFACT
+    -->
+    <target name="deploy-admin-artifact">
+
+        <fail message="
+It seems there are issues in deploying ${file-to-deploy}.
+Are you sure you run 'forge-and-deploy-snapshot' or 'forge-and-deploy-release' target (you can not
+call 'deploy-admin-artifact' directly) ?">
+            <condition>
+                <not>
+                    <isset property="version-to-deploy"/>
+                </not>
+            </condition>
+        </fail>
+
+        <echo message="Deploying ${file-to-deploy} in ... ${maven-repository-url}/funambol/${artifactId}" />
+        <echo message="Version: ${version-to-deploy} "/>
+
+        <!--
+            We deploy always the same file
+            but by default we deploy it as snapshot (version-to-deploy: ${admin.version}-SNAPSHOT)
+            in the snapshot repository
+        -->
+        <antcall target="run-maven"  inheritAll="true">
+            <param name="params"
+                   value="deploy:deploy-file
+                          -DgroupId=funambol
+                          -DartifactId=${artifactId}
+                          -Dversion=${version-to-deploy}
+                          -DuniqueVersion=false
+                          -Dpackaging=${packaging}
+                          -Dfile=${file-to-deploy}
+                          -Durl=${maven-repository-url}
+                          -DrepositoryId=${maven-repository-id}" />
+        </antcall>
+    </target>
+
+    <target name="run-maven">
+      <condition property="isWindowsOS">
+          <and>
+              <os family="windows"/>
+          </and>
+      </condition>
+
+      <antcall target="run-maven-win"  inheritAll="true"/>
+      <antcall target="run-maven-linux" inheritAll="true"/>
+
+    </target>
+
+    <target name="run-maven-win" if="isWindowsOS">
+      <exec dir="${basedir}" executable="mvn.bat" searchpath="true" failonerror="true">
+        <arg line="${params}"/>
+      </exec>
+    </target>
+
+    <target name="run-maven-linux" unless="isWindowsOS">
+      <exec dir="${basedir}" executable="mvn" searchpath="true"  failonerror="true">
+        <arg line="${params}"/>
+      </exec>
+    </target>
+
+</project>

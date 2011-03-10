@@ -1,0 +1,37 @@
+10
+
+dir
+36744
+https://core.forge.funambol.org/svn/core/trunk/funambol/common/pim-framework/src/test/resources/data/com/funambol/common/media/file/parser
+https://core.forge.funambol.org/svn/core
+
+
+
+2010-01-21T10:37:12.669769Z
+33362
+testa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+e8e8ed6c-164c-0410-afcf-9e9a7c7d8c10
+
+FileDataObjecStreamingUnmarshallerTest
+dir
+
+FileDataObjectMarshallerTest
+dir
+
+FileDataObjectXMLParserTest
+dir
+

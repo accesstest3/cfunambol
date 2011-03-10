@@ -1,0 +1,445 @@
+/*
+ * Copyright (c) 2004 Harrie Hazewinkel. All rights reserved.
+ */
+
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2003 - 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+
+/*
+{} 0 or more
+[] 0 or 1
+start           ::= <daily> [<enddate>] |
+                    <weekly> [<enddate>] |
+                    <monthlybypos> [<enddate>] |
+                    <monthlybyday> [<enddate>] |
+                    <yearlybymonth> [<enddate>] |
+                    <yearlybyday> [<enddate>]
+digit           ::= <0|1|2|3|4|5|6|7|8|9>
+digits          ::= <digit> {<digits>}
+enddate         ::= ISO 8601_date_time value(e.g., 19940712T101530Z)
+interval        ::= <digits>
+duration        ::= #<digits>
+lastday         ::= LD
+plus            ::= +
+minus           ::= -
+daynumber       ::= <1-31> [<plus>|<minus>]| <lastday>
+daynumberlist   ::= daynumber {<daynumberlist>}
+month           ::= <1-12>
+monthlist       ::= <month> {<monthlist>}
+day             ::= <1-366>
+daylist         ::= <day> {<daylist>}
+occurrence      ::= <1-5><plus> | <1-5><minus>
+occurrencelist  ::= <occurrence> {<occurrencelist>}
+weekday         ::= <SU|MO|TU|WE|TH|FR|SA>
+weekdaylist     ::= <weekday> {<weekdaylist>}
+daily           ::= D<interval> [<duration>]
+weekly          ::= W<interval> [<weekdaylist>] [<duration>]
+monthlybypos    ::= MP<interval> [<occurrencelist> <weekdaylist>] [<duration>]
+monthlybyday    ::= MD<interval> [<daynumberlist>] [<duration>]
+yearlybymonth   ::= YM<interval> [<monthlist>] [<duration>]
+yearlybyday     ::= YD<interval> [<daylist>] [<duration>]
+*/
+
+options {
+    STATIC           = false;
+    UNICODE_INPUT    = true;
+}
+
+PARSER_BEGIN(RRule10Parser)
+
+package com.funambol.common.pim.xvcalendar.rrule;
+
+import com.funambol.common.pim.model.Property;
+
+public class RRule10Parser {
+}
+
+PARSER_END(RRule10Parser)
+
+/*
+start           ::= <daily> [<enddate>] |
+                    <weekly> [<enddate>] |
+                    <monthlybypos> [<enddate>] |
+                    <monthlybyday> [<enddate>] |
+                    <yearlybymonth> [<enddate>] |
+                    <yearlybyday> [<enddate>]
+*/
+
+Property iCalendarRRule () : {
+    StringBuffer buffer = new StringBuffer ();
+    String rruleValue   = null;
+    String untilValue   = null;
+}
+{
+    (
+        rruleValue = daily ()
+        |
+        rruleValue = weekly ()
+        |
+        rruleValue = monthlybypos ()
+        |
+        rruleValue = monthlybyday ()
+        |
+        rruleValue = yearlybymonth ()
+        |
+        rruleValue = yearlybyday ()
+    )
+    ( untilValue = enddate () ) ?
+    <EOF>
+    {
+        buffer.append ( rruleValue );
+        if ( untilValue != null && ( buffer.toString ().indexOf ( ";COUNT=" ) == -1 ) ) {
+            buffer.append ( ";UNTIL=" ).append ( untilValue );
+        }
+
+        return new Property ( "RRULE", buffer.toString () );
+    }
+}
+
+/* daily           ::= D<interval> [<duration>] */
+String daily () : {
+    StringBuffer buffer = new StringBuffer ();
+    String interval = null;
+    String duration = null;
+}
+{
+    "D" interval = interval () ( duration = duration () )?
+    {
+        buffer.append ( "FREQ=DAILY;INTERVAL=" ).append ( interval );
+        if ( duration != null )
+            buffer.append ( ";COUNT=" ).append ( duration );
+
+        return buffer.toString ();
+    }
+}
+
+/* weekly          ::= W<interval> [<weekdaylist>] [<duration>] */
+String weekly () : {
+    StringBuffer buffer = new StringBuffer ();
+    String interval = null;
+    String weekdays = null;
+    String duration = null;
+}
+{
+    "W" interval = interval () ( weekdays = weekdaylist () )? ( duration = duration () )?
+    {
+        buffer.append ( "FREQ=WEEKLY;INTERVAL=" ).append ( interval );
+        if ( weekdays != null )
+            buffer.append ( ";BYDAY=" ).append ( weekdays );
+        if ( duration != null )
+            buffer.append ( ";COUNT=" ).append ( duration );
+
+        return buffer.toString ();
+    }
+}
+
+/* monthlybypos    ::= MP<interval> [<occurrencelist> <weekdaylist>] [<duration>] */
+String monthlybypos () : {
+    StringBuffer buffer = new StringBuffer ();
+    String interval         = null;
+    String occurrencelist   = null;
+    String weekdaylist      = null;
+    String duration         = null;
+}
+{
+    "MP" interval = interval () ( occurrencelist = occurrencelist () weekdaylist = weekdaylist () )? ( duration = duration () )?
+    {
+        buffer.append ( "FREQ=MONTHLY;INTERVAL=" ).append ( interval );
+        if ( occurrencelist !=null && weekdaylist != null ) {
+            buffer.append ( ";BYDAY=" ).append ( weekdaylist );
+            buffer.append ( ";BYSETPOS=" ).append ( occurrencelist );
+        }
+        if ( duration != null ) {
+            buffer.append ( ";COUNT=" ).append ( duration );
+        }
+
+        return buffer.toString ();
+    }
+}
+
+/* monthlybyday    ::= MD<interval> [<daynumberlist>] [<duration>] */
+String monthlybyday () : {
+    StringBuffer buffer = new StringBuffer ();
+    String interval         = null;
+    String daynumberlist    = null;
+    String duration         = null;
+}
+{
+    "MD" interval = interval() ( daynumberlist = daynumberlist () )? ( duration = duration () )?
+    {
+        buffer.append ( "FREQ=MONTHLY;INTERVAL=" ).append ( interval );
+        if ( daynumberlist != null )
+            buffer.append ( ";BYMONTHDAY=" ).append ( daynumberlist );
+        if ( duration != null )
+            buffer.append ( ";COUNT=" ).append ( duration );
+
+        return buffer.toString ();
+    }
+}
+
+/* yearlybymonth   ::= YM<interval> [<monthlist>] [<duration>] */
+String yearlybymonth () : {
+    StringBuffer buffer = new StringBuffer ();
+    String interval     = null;
+    String monthlist    = null;
+    String duration     = null;
+}
+{
+    "YM" interval = interval () ( monthlist = monthlist () )? ( duration = duration () )?
+    {
+        if ( monthlist != null )
+            buffer.append ( "FREQ=YEARLY;BYMONTH=" ).append ( monthlist );
+        if ( duration != null )
+            buffer.append ( ";COUNT=" ).append ( duration );
+
+        return buffer.toString ();
+    }
+}
+
+/* yearlybyday     ::= YD<interval> [<daylist>] [<duration>] */
+String yearlybyday () : {
+    StringBuffer buffer = new StringBuffer ();
+    String interval     = null;
+    String daylist      = null;
+    String duration     = null;
+}
+{
+    "YD" interval = interval () ( daylist = daylist () )? ( duration = duration () )?
+    {
+        if ( daylist != null )
+            buffer.append ( "FREQ=YEARLY;BYYEARDAY=" ).append ( daylist );
+        if ( duration != null )
+            buffer.append ( ";COUNT=" ).append ( duration );
+
+        return buffer.toString ();
+    }
+}
+
+/* daynumberlist   ::= daynumber {<daynumberlist>} */
+
+String daynumberlist () : {
+    StringBuffer buffer = new StringBuffer ();
+    String daynumber    = null;
+}
+{
+    ( daynumber = daynumber () { buffer.append ( buffer.length () > 0 ? "," + daynumber : daynumber ); } )+
+    {
+        return buffer.toString ();
+    }
+}
+
+/* occurrencelist  ::= <occurrence> {<occurrencelist>} */
+String occurrencelist () : {
+    StringBuffer buffer = new StringBuffer ();
+    String occurrence   = null;
+}
+{
+    ( occurrence = occurrence () { buffer.append ( buffer.length () > 0 ? "," + occurrence : occurrence ); } )+
+    {
+        return buffer.toString ();
+    }
+}
+
+/* weekdaylist     ::= <weekday> {<weekdaylist>} */
+String weekdaylist () : {
+    StringBuffer buffer = new StringBuffer ();
+    String weekday      = null;
+}
+{
+    ( weekday = weekday () { buffer.append ( buffer.length () > 0 ? "," + weekday : weekday ); } )+
+    {
+        return buffer.toString ();
+    }
+}
+
+/* daylist         ::= <day> {<daylist>} */
+String daylist () : {
+    StringBuffer buffer = new StringBuffer ();
+    String day  = null;
+}
+{
+    ( day = day () { buffer.append ( buffer.length () > 0 ? "," + day : day ); } )+
+    {
+        return buffer.toString ();
+    }
+}
+
+/* monthlist       ::= <month> {<monthlist> */
+String monthlist () : {
+    StringBuffer buffer = new StringBuffer ();
+    String month = null;
+}
+{
+    ( month = month () { buffer.append ( buffer.length () > 0 ? "," + month : month ); } )+
+    {
+        return buffer.toString ();
+    }
+}
+
+/* weekday         ::= <SU|MO|TU|WE|TH|FR|SA> */
+String weekday () : {
+    Token weekday = null;
+}
+{
+    (
+        weekday = "SU"
+        |
+        weekday = "MO"
+        |
+        weekday = "TU"
+        |
+        weekday = "WE"
+        |
+        weekday = "TH"
+        |
+        weekday = "FR"
+        |
+        weekday = "SA"
+    )
+
+    { return weekday.image; }
+}
+
+/*
+    daynumber       ::= <1-31> [<plus>|<minus>]| <lastday>
+    lastday         ::= LD
+*/
+String daynumber () : {
+    Token value;
+}
+{
+    /* xxx: we don't handle +/- modifiers here */
+    (
+        value = <DIGITS> ( <PLUS> | <MINUS> )?
+        |
+        value = "LD"
+    )
+    { return value.image; }
+}
+
+/* day             ::= <1-366> */
+String day () : {
+    Token value;
+}
+{
+    value = <DIGITS>
+    { return value.image; }
+}
+
+/* occurrence      ::= <1-5><plus> | <1-5><minus> */
+
+String occurrence () : {
+    Token   value;
+    String  result = null;
+}
+{
+    (
+        value = <DIGITS>
+        (
+            <PLUS>    { result = "+" + value.image; }
+            |
+            <MINUS>   { result = "-" + value.image; }
+        )
+    )
+    { return result; }
+}
+
+
+/* enddate         ::= ISO 8601_date_time value(e.g., 19940712T101530Z) */
+String enddate () : {
+    Token value;
+}
+{
+    value = <ISO_8601_DATE_TIME>
+    { return value.image; }
+}
+
+/* interval        ::= <digits> */
+String interval () : {
+    Token value;
+}
+{
+    value = <DIGITS>
+    { return value.image; }
+}
+
+/* duration        ::= #<digits> */
+String duration () : {
+    Token value;
+}
+{
+    "#" value = <DIGITS>
+    { return value.image; }
+}
+
+/* month           ::= <1-12> */
+String month () : {
+    Token value;
+}
+{
+    value = <DIGITS>
+    { return value.image; }
+}
+
+/*
+digit           ::= <0|1|2|3|4|5|6|7|8|9>
+digits          ::= <digit> {<digits>}
+*/
+TOKEN : {
+    <DIGITS: (["0"-"9"])+>
+}
+
+/*
+plus            ::= +
+minus           ::= -
+*/
+TOKEN : {
+    <PLUS : "+">
+    |
+    <MINUS : "-">
+}
+
+TOKEN : {
+    <ISO_8601_DATE_TIME:
+        ["0"-"9"]["0"-"9"]["0"-"9"]["0"-"9"]["0"-"9"]["0"-"9"]["0"-"9"]["0"-"9"]
+        "T"
+        ["0"-"9"]["0"-"9"]["0"-"9"]["0"-"9"]["0"-"9"]["0"-"9"]
+        ( "Z" )?>
+}
+
+SKIP : {
+    < [" ", "\t"] >
+}

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/core/!svn/ver/28914/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/panels
+END
+ComboBoxRenderer.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/panels/ComboBoxRenderer.java
+END
+DataTransformerManagerTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/panels/DataTransformerManagerTableModel.java
+END
+DataTransformerColumnsNames.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/panels/DataTransformerColumnsNames.java
+END
+EditServerConfigurationPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/panels/EditServerConfigurationPanel.java
+END
+EditLoggerPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/panels/EditLoggerPanel.java
+END
+DataTransformerManagerPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/panels/DataTransformerManagerPanel.java
+END
+EditConsoleAppender.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/panels/EditConsoleAppender.java
+END
+DefaultAppenderConfigPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/28914/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/panels/DefaultAppenderConfigPanel.java
+END
+EditRollingFileAppender.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/panels/EditRollingFileAppender.java
+END
+ResolutionTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/panels/ResolutionTableModel.java
+END
+Sync4jStrategyPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/panels/Sync4jStrategyPanel.java
+END
+EditDailyRollingFileAppender.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/28901/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/panels/EditDailyRollingFileAppender.java
+END

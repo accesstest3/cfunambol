@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/core/!svn/ver/35931/trunk/funambol/job-executor/src/main/java/com/funambol/job/plugin
+END
+NotificationProviderException.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/35931/trunk/funambol/job-executor/src/main/java/com/funambol/job/plugin/NotificationProviderException.java
+END
+NotificationManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/35931/trunk/funambol/job-executor/src/main/java/com/funambol/job/plugin/NotificationManager.java
+END
+ReceiverException.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/35931/trunk/funambol/job-executor/src/main/java/com/funambol/job/plugin/ReceiverException.java
+END
+JobExecutorPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/35931/trunk/funambol/job-executor/src/main/java/com/funambol/job/plugin/JobExecutorPlugin.java
+END
+NotificationReceiver.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/35931/trunk/funambol/job-executor/src/main/java/com/funambol/job/plugin/NotificationReceiver.java
+END
+ChannelReceiver.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/core/!svn/ver/35931/trunk/funambol/job-executor/src/main/java/com/funambol/job/plugin/ChannelReceiver.java
+END

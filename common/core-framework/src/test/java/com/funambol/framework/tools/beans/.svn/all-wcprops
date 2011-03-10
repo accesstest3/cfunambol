@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/34632/trunk/funambol/common/core-framework/src/test/java/com/funambol/framework/tools/beans
+END
+BeanUsingBeanTool.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/32009/trunk/funambol/common/core-framework/src/test/java/com/funambol/framework/tools/beans/BeanUsingBeanTool.java
+END
+SimpleLazyInitBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/32003/trunk/funambol/common/core-framework/src/test/java/com/funambol/framework/tools/beans/SimpleLazyInitBean.java
+END
+BeanToolTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/32009/trunk/funambol/common/core-framework/src/test/java/com/funambol/framework/tools/beans/BeanToolTest.java
+END
+SimpleCloneableBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/31944/trunk/funambol/common/core-framework/src/test/java/com/funambol/framework/tools/beans/SimpleCloneableBean.java
+END
+SimpleNotCloneableBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/31944/trunk/funambol/common/core-framework/src/test/java/com/funambol/framework/tools/beans/SimpleNotCloneableBean.java
+END
+SimpleLazyInitCloneableBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/32003/trunk/funambol/common/core-framework/src/test/java/com/funambol/framework/tools/beans/SimpleLazyInitCloneableBean.java
+END
+BeanCacheTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/34632/trunk/funambol/common/core-framework/src/test/java/com/funambol/framework/tools/beans/BeanCacheTest.java
+END
+BeanFactoryTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/32003/trunk/funambol/common/core-framework/src/test/java/com/funambol/framework/tools/beans/BeanFactoryTest.java
+END

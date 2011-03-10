@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/core/!svn/ver/33358/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/engine
+END
+Sync4jEngineTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/33358/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/engine/Sync4jEngineTest.java
+END
+FakeSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/33127/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/engine/FakeSyncSource.java
+END
+FakeStreamingSyncItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/33358/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/engine/FakeStreamingSyncItem.java
+END
+Sync4jStrategyTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/33358/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/engine/Sync4jStrategyTest.java
+END
+SyncAdapterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/engine/SyncAdapterTest.java
+END
+FakeStreamingSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/33358/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/engine/FakeStreamingSyncSource.java
+END

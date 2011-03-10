@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.6.0" class="java.beans.XMLDecoder">
+ <object class="com.funambol.server.db.RoutingDataSourceConfiguration">
+   <void property="partitioningCriteria">
+     <object class="com.funambol.server.db.MockPartitioningCriteria" >
+     </object>
+   </void>
+   <void property="partitionConfigurationLoader">
+     <object class="com.funambol.server.db.DataSourceConfigurationHelper" >
+     </object>
+   </void>
+ </object>
+</java>

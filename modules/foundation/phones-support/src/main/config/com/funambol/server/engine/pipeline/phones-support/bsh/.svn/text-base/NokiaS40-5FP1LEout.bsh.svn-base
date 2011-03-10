@@ -1,0 +1,514 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2009 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+import java.util.List;
+import java.util.Map;
+
+import com.funambol.framework.core.*;
+import com.funambol.framework.core.Sync4jException;
+import com.funambol.framework.engine.pipeline.OutputMessageProcessor;
+import com.funambol.framework.engine.pipeline.MessageProcessingContext;
+import com.funambol.framework.engine.pipeline.StopProcessingException;
+import com.funambol.framework.logging.FunambolLogger;
+import com.funambol.framework.logging.FunambolLoggerFactory;
+
+import com.funambol.foundation.synclet.PIMItemsHandler;
+
+/**
+ * Fixes command size to avoid device sending a 424 response due to size
+ * mismatch when the server sends a large object (e.g. a vcard containing a
+ * picture).
+ * Handles Status commands with data 500. When on server side there is an error
+ * on Item sent by client, the server responses at the client command with a
+ * Status 500 that contains an Item in which the data explain the cause of the
+ * error. The Nokia series 40 are not able to understand this Status command and
+ * so these phones interrupt the sync. It needs to remove the data and to add
+ * the SourceRef into Status command.
+ * Note: the device is not able to understand also a Status with Item in which
+ * the data is empty, but it is able to send commands with empty data (that are
+ * the cause of the Status 500 server side). 
+ * 
+ * Contacts:
+ * =========
+ * Removes all information from N token except for the first name and last name
+ * because the device is not able to handle a N token in the format
+ * N:Firstname;Lastname;;; .
+ * Handles the address tokens in order to send always three address (in the case
+ * in which exists almost one address) at the device. The address tokens must be
+ * sorted: first ADR:HOME, then ADR:WORK and then ADR: . In the phone is
+ * not possible to specify the addresses type, and so this is a workaround in
+ * order not to lose the information. In the phone is only possible to insert
+ * one address.
+ * Reduces the phone numbers to one for each of five different number types
+ * used by the device (main phone, cell phone, home phone, work phone, fax),
+ * removing all TEL properties but the first one for each supported type.
+ * Fixes the BDAY token format.
+ *
+ * Calendars:
+ * ==========
+ * Removes all information from AALARM token except the date/time because the
+ * device is not able to understand an AALARM in the format
+ * AALARM:20070601T084500;;; (the device ignores the token in this format).
+ * Adds property CATEGORIES:SPECIAL OCCASION after the DTEND property. 
+ *
+ * @version $Id: NokiaS40-5FP1LEout.bsh,v 1.1 2008/11/19 16:17:09 scova Exp $
+ */
+ 
+// ---------------------------------------------------------------- Private data
+private final FunambolLogger log =
+    FunambolLoggerFactory.getLogger("engine.pipeline");
+
+private final String ANNIVERSARY = "CATEGORIES:ANNIVERSARY";
+private final String SPECIAL_OCCASION = "CATEGORIES:SPECIAL OCCASION";
+
+// ------------------------------------------------------ Synclet implementation
+importCommands("/com/funambol/server/engine/pipeline/phones-support/bsh/commands");
+
+/**
+ * Process and manipulate the output message.
+ *
+ * @param mpc the message processing context
+ * @param message the message to be processed
+ *
+ * @throws Sync4jException
+ */
+void postProcessMessage(MessageProcessingContext mpc,
+                        SyncML message              )
+throws Sync4jException {
+
+    if (log.isTraceEnabled()) {
+        log.trace("NokiaS40-5FP1LEout.postProcessMessage(...)");
+    }
+    
+    fixCommandSize(message);
+    
+    // This map contains the three lists of items separated based on their type
+    PIMItemsHandler pimItemsHandler = new PIMItemsHandler();
+    Map mapItems = pimItemsHandler.extractOutgoingPIMItems(message);
+    
+    processPIMItems(mapItems);
+
+    //
+    // Handle Status commands with data 500.
+    //
+    AbstractCommand[] cmds =
+        (AbstractCommand[])message.syncBody.commands.toArray(new AbstractCommand[0]);
+    handleStatusError(message, cmds);
+    
+	  throw new StopProcessingException("NokiaS40-5FP1LEout Synclet finished");
+}
+
+/**
+ * Processes outgoing items.
+ *
+ * @param mapItems the map that contains the three lists of items separated
+ *                 based on their type
+ */
+void processPIMItems(Map mapItems) {
+
+    //
+    // Cycle on vcard list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VCARD)) {
+        postProcessVCard(i);
+    }
+    
+    //
+    // Cycle on vevent list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VEVENT)) {
+        postProcessVEvent(i);
+    }
+ 
+    //
+    // Cycle on vtodo list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VTODO)) {
+        postProcessVTodo(i);
+    }   
+}
+
+/**
+ * Processes outgoing contacts.
+ * 
+ * Handles fax tokens.
+ * Handles N token.
+ * Handles ADR tokens.
+ * Fixes BDAY token format.
+ *
+ * @param i the item to be processed
+ */
+void postProcessVCard(Item i) {
+    
+    data = i.data.data;
+    
+    data = handleName(data);
+    data = handleAdr (data);
+    
+    data = deleteOutProperty(data, "TEL;CAR;VOICE:");
+    data = deleteOutProperty(data, "TEL;FAX:");
+    data = deleteOutProperty(data, "TEL;FAX;WORK:");
+    data = deleteOutProperty(data, "TEL;PAGER:");
+    data = deleteOutProperty(data, "TEL;PREF;VOICE:");
+    data = deleteOutProperty(data, "TEL;WORK;PREF:");
+    data = keepFirstProperty(data, "TEL;VOICE;HOME");
+    data = keepFirstProperty(data, "TEL;VOICE;WORK");
+    
+    //
+    // Work-around for a bug in device.
+    // Right sequence in VCARD
+    // to not create a wrong image
+    // in contact device address book is:
+    // PHOTO:
+    // NOTE;ENCODING=QUOTED-PRINTABLE;CHARSET=UTF-8
+    // TEL;VOICE;WORK
+    // ADR;HOME
+    // ADR;WORK    
+    data = movePropertyToTheEnd(data, "PHOTO");
+    data = movePropertyToTheEnd(data, "NOTE;ENCODING=QUOTED-PRINTABLE;CHARSET=UTF-8");
+    data = movePropertyToTheEnd(data, "TEL;VOICE;WORK");
+    data = movePropertyToTheEnd(data, "ADR;HOME");
+    data = movePropertyToTheEnd(data, "ADR;WORK");    
+    
+    i.data.data = fixBDay(data);
+}
+
+/**
+ * Processes outgoing vevent.
+ *
+ * Handles AALARM token.
+ *
+ * @param i the item to be processed
+ *
+ */
+void postProcessVEvent(Item i) {
+    i.data.data = handleAAlarm(i.data.data);
+    
+    i.data.data = fixBirthdayRecurrence(i.data.data);
+    
+    i.data.data = replaceOutProperty(i.data.data, "CATEGORIES:ANNIVERSARY", 
+                                                  "CATEGORIES:SPECIAL OCCASION"); 
+    handleAnniversary(i);
+    
+}
+
+/**
+ * Processes outgoing vtodo.
+ *
+ * Handles AALARM token.
+ *
+ * @param i the item to be processed
+ *
+ */
+void postProcessVTodo(Item i) {
+    i.data.data = handleAAlarm(i.data.data);
+}
+
+
+/**
+ * Handles the ADR tokens.
+ *
+ * If at least one address exists then all 3 addresses (home, work, other)
+ * must be present in the data item into established order (home, work, other).
+ * The order of the ADR tokens is more important because there are some phones
+ * (like Nokia 61xx) that handle only one address and this address must be the
+ * ADR;HOME.
+ * If at least one address is not specified then it must be added with an
+ * empty value.
+ *   
+ * @param data the data item
+ *
+ * @return the data with adr (if needs)
+ */
+String handleAdr(String data) {
+    int found = data.indexOf("\r\nADR");
+    if (found != -1) {
+
+        StringBuffer sb =
+            new StringBuffer(data.substring(0, data.indexOf("\r\nEND:VCARD")));
+
+        addToken(sb, "ADR;HOME");
+        addToken(sb, "ADR;WORK");
+
+        String[] exclude = {"HOME", "WORK"};         
+        addOtherToken(sb, "ADR", exclude);
+
+        sb.append("\r\nEND:VCARD\r\n");
+        data = sb.toString();
+    }
+    return data;
+}
+
+/**
+ * Adds or moves at the end of data item the token specified in input.
+ * If the token doesn't exist into data, adding it else move it at the end of
+ * data.
+ *
+ * @param data the data item
+ * @param token the token to search
+ */
+void addToken(StringBuffer data, String token) {
+    start = data.indexOf("\r\n" + token);
+    if (start != -1) {
+        end   = data.indexOf("\r\n", start + 2);
+        value = data.substring(start, end);
+
+        data.delete(start, end);
+        data.append(value);
+    } else {
+        data.append("\r\n")
+            .append(token )
+            .append(token.charAt(token.length() - 1) == ':' ? "" : ":");
+    }
+}
+
+/**
+ * Adds or moves at the end of item data the token specified in input. Token
+ * specified in input is intended to be of type "other".
+ * If the token doesn't exists into data, adding it else move it at the end of
+ * data.
+ *
+ * @param data the data item
+ * @param token the token to search
+ * @param exclude string array which contains the non-other tokens to be excluded 
+ */    
+void addOtherToken(StringBuffer data, String token, String[] exclude){
+    start = data.indexOf("\r\n" + token);
+    
+    boolean isAdr = true;
+    if (start != -1) {
+        
+        startParam = start + 2 + token.length();
+        endParam   = data.indexOf(":", startParam);
+        
+        if (data.charAt(startParam) == ';'){
+            
+            params = data.substring(startParam, endParam);                       
+            
+            for (int i = 0; i < exclude.length; i++) {
+                if (params.indexOf(exclude[i]) != -1){
+                    isAdr = false;
+                    break;
+                }
+            }
+        }
+        
+        if (isAdr){
+            end   = data.indexOf("\r\n", start + 2);
+            value = data.substring(start, end);                
+            data.delete(start, end);
+            data.append(value);
+        }
+    }
+    
+    if (start != -1 && isAdr == false){
+        data.append("\r\n")
+            .append(token )
+            .append(':'   );
+    }
+}
+
+/**
+ * Called initializing the synclet
+ */
+void init() {
+    // do nothing
+}
+
+/**
+ * Removes information from N token except for the first name and last name 
+ * since device is not able to handle correctly a token in the format
+ * N:Firstname;Lastname;;; 
+ *
+ * @param data item data to process
+ *
+ * @return new item data  
+ *
+ */    
+String handleName(String data) {
+
+    int nameTokenStart = data.indexOf("\nN");
+    if (nameTokenStart != -1) {
+        
+        nameTokenValueStart = data.indexOf(':', nameTokenStart) + 1; 
+
+        nameTokenParams =
+            data.substring(nameTokenStart, nameTokenValueStart - 1);
+        nameTokenValueEnd = data.indexOf('\r', nameTokenStart);
+        nameTokenValue = data.substring(nameTokenValueStart, nameTokenValueEnd);
+        tail = data.substring(nameTokenValueEnd);
+
+        n   = 0;
+        end = 0;
+        String newNameTokenValue = null;
+        
+        for (int i = 0; i < nameTokenValue.length(); i++) {
+            if (nameTokenValue.charAt(i) == ';'){
+                /**
+                 * The first value for N: token could be the empty value.
+                 *                  
+                 * Example:
+                 * N:Someone;Something;;; <-- first value is "Someone"
+                 * N:;Something;;;        <-- first value is the empty value
+                 * 
+                 * In this case the counter for the values to be passed to the 
+                 * device (that is: the variable n) must be immediatly increased.                                                                                     
+                 */                                                                   
+                if (i == 0){
+                    ++n;
+                    continue;
+                }
+            
+                if (nameTokenValue.charAt(i - 1) != '\\'){
+                    if (++n == 2){
+                        newNameTokenValue = 
+                                data.substring(nameTokenValueStart, nameTokenValueStart + i);
+                        break;
+                    }
+                }
+            }
+        }
+        
+        newData = new StringBuffer();
+        newData.append(data.substring(0, nameTokenStart))
+               .append(nameTokenParams                  )
+               .append(':'                              )
+               .append(newNameTokenValue                )
+               .append(tail                             );
+        return newData.toString();
+    }
+    return data;
+}
+
+/**
+ * Removes information from AALARM token except the date/time because the
+ * device is not able to understand an AALARM in the format
+ * AALARM:20070601T084500;;; (the device ignores the token in this format).
+ *
+ * @param data the item data to process
+ * 
+ * @return the modified item data
+ */  
+String handleAAlarm(String data){
+
+    startAlarm = data.indexOf("\nAALARM");
+    
+    if (startAlarm != -1){
+        
+        endAlarm        = data.indexOf("\r", startAlarm);
+        alarmValueStart = data.indexOf(":" , startAlarm) + 1;
+        alarmValue      = data.substring(alarmValueStart, endAlarm);
+        alarmNewValue   = alarmValue.substring(0, alarmValue.indexOf(';'));
+                    
+        StringBuffer newData = new StringBuffer();
+                
+        newData.append(data.substring(0, startAlarm))
+               .append("\nAALARM:"                  )
+               .append(alarmNewValue                )
+               .append(data.substring(endAlarm)     )
+               ;
+        
+        return newData.toString();
+    }
+    
+    return data;
+}
+
+/**
+ * Fixes the BDAY token format.
+ * The server sends BDAY:yyyy-mm-dd but the device is not able to understand it.
+ * So, it is necessary to remove the - from BDAY token.
+ *
+ * @param data the item data to process
+ *
+ * @return the modified item data
+ */
+String fixBDay(String data) {
+
+    startBDay = data.indexOf("\nBDAY");
+
+    if (startBDay != -1) {
+        endBDay   = data.indexOf("\r", startBDay);
+        bdayValue = data.substring(startBDay, endBDay);
+        fixedBDayValue = bdayValue.replaceAll("-", "");
+        data = data.replace(bdayValue, fixedBDayValue);
+    }
+    return data;
+}
+
+/**
+ * Processes ALL-DAY annual recurring events.
+ * Adds property CATEGORIES:SPECIAL OCCASION after the DTEND property.
+ *
+ * @param i the item to be processed
+ */
+void handleAnniversary(Item i) {
+
+    data = i.data.data;
+    
+    // Checks if the event is an ALL-DAY event
+    if (data.indexOf("X-FUNAMBOL-ALLDAY:1") == - 1) {
+        return;
+    }
+    
+    //
+    //Checks if the event is an anniversary (i.e. if it occurs every year)
+    //
+    if (data.indexOf("\r\nRRULE:YD1") == - 1) {
+        return;
+    }
+    
+    if (data.indexOf("\r\nDTEND:") == - 1) {
+        return;
+    }
+    
+    //
+    //Checks if the event is already listed in a category otherwise adds the 
+    //CATEGORIES:SPECIAL OCCASION token
+    //
+    if (data.indexOf("\r\nCATEGORIES:") > - 1) {
+        return;
+    }
+
+    indEnd = data.indexOf("\r\nDTEND:");
+
+    newData = new StringBuffer(data.substring(0, indEnd + 8))
+            .append(data.substring(indEnd + 8, indEnd + 25))
+            .append(ANNIVERSARY)
+            .append(data.substring(data.indexOf("\r\n", indEnd + 23)))
+            ;
+
+    i.data.setData(newData.toString());
+}

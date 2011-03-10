@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/core/!svn/ver/33581/trunk/funambol/ctp/ctp-server/src/main/resources/config
+END
+jgroups-ctpserver.xml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/resources/config/jgroups-ctpserver.xml
+END
+log4j-ctpserver.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/33581/trunk/funambol/ctp/ctp-server/src/main/resources/config/log4j-ctpserver.xml
+END
+jgroups-ctp-notification-group.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/resources/config/jgroups-ctp-notification-group.xml
+END

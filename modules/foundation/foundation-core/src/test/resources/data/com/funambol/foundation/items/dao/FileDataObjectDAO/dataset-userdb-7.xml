@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+    <FNBL_FILE_DATA_OBJECT id="0" userid="username1" source_uri="fdo" last_update="123456" status="U" upload_status="P" local_name="localname1updated" crc="4274335913" true_name="truename1updated.png" created="2009-04-26 09:19:42.0" modified="2009-04-26 10:42:32.0" accessed="2009-04-26 23:24:00.0" h="0" s="1" a="0" d="1" w="0" r="1" x="0" cttype="image/png" object_size="5678"/>
+    <FNBL_FILE_DATA_OBJECT id="1" userid="username1" source_uri="fdo" last_update="789000" status="N" upload_status="P" crc="-1" true_name="truename2.jpg" h="0" s="0" a="0" d="0" w="0" r="0" x="0" />
+</dataset>

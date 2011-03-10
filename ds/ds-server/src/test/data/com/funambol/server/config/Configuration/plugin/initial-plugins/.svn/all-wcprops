@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/config/Configuration/plugin/initial-plugins
+END
+dummy-plugin-1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/config/Configuration/plugin/initial-plugins/dummy-plugin-1.xml
+END
+dummy-plugin-2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/config/Configuration/plugin/initial-plugins/dummy-plugin-2.xml
+END
+dummy-plugin-3.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/config/Configuration/plugin/initial-plugins/dummy-plugin-3.xml
+END

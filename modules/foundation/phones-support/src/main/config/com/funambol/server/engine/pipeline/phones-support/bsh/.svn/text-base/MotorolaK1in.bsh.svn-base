@@ -1,0 +1,309 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+import java.util.List;
+import java.util.Map;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import com.funambol.framework.core.*;
+import com.funambol.framework.core.Sync4jException;
+import com.funambol.framework.engine.pipeline.InputMessageProcessor;
+import com.funambol.framework.engine.pipeline.MessageProcessingContext;
+import com.funambol.framework.engine.pipeline.StopProcessingException;
+import com.funambol.framework.logging.FunambolLogger;
+import com.funambol.framework.logging.FunambolLoggerFactory;
+
+import com.funambol.foundation.synclet.PIMItemsHandler;
+
+/**
+ * Contacts:
+ * =========
+ * Processes the incoming vcard items and adds the missing tokens.
+ * Handles large objects.
+ * Replaces all occurrences of TEL;CELL; following by WORK, HOME or whatever
+ * other param (like X-MOT-RINGID=18446744073709551615;X-MOT-POSITION), with
+ * TEL;CELL:.
+ * Switches the second with the third value in the address tokens (home, work or
+ * other type).
+ * Replaces the EMAIL: token with EMAIL;INTERNET: token when its value is '-'.
+ *
+ * Calendars:
+ * ==========
+ * . Event
+ *   Processes the incoming vevent items and adds the missing tokens.
+ *   Handles large objects.
+ *
+ * @version $Id: MotorolaK1in.bsh,v 1.9 2008-06-30 09:00:03 luigiafassina Exp $
+ */
+// ------------------------------------------------------------------- Constants
+private Map missingCardTokens  = null;
+private Map missingEventTokens = null;
+
+// ---------------------------------------------------------------- Private data
+private final FunambolLogger log =
+    FunambolLoggerFactory.getLogger("engine.pipeline");
+
+// ------------------------------------------------------ Synclet implementation
+importCommands("/com/funambol/server/engine/pipeline/phones-support/bsh/commands");
+
+/**
+ * Process input message and set MessageProcessingContext property.
+ *
+ * @param processingContext the message processing context
+ * @param message the message to be processed
+ *
+ * @throws Sync4jException
+ */
+void preProcessMessage(MessageProcessingContext processingContext,
+                       SyncML message                            )
+throws Sync4jException {
+
+    if (log.isTraceEnabled()) {
+        log.trace("MotorolaK1in.preProcessMessage(...)");
+    }
+
+    // This map contains the three lists of items separated based on their type
+    PIMItemsHandler pimItemsHandler = new PIMItemsHandler();
+    Map mapItems =
+        pimItemsHandler.extractIncomingPIMItems(processingContext, message);
+    processPIMItems(mapItems, pimItemsHandler);
+
+    throw new StopProcessingException("MotorolaK1in Synclet finished");
+}
+
+/**
+ * Processes incoming items.
+ *
+ * @param mapItems the map that contains the three lists of items separated
+ *                 based on their type
+ * @param pimItemsHandler the object to handle the large object
+ *
+ */
+void processPIMItems(Map mapItems, PIMItemsHandler pimItemsHandler) {
+
+    //
+    // Cycle on vcard list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VCARD)) {
+        preProcessContact(i);
+        pimItemsHandler.fixLargeObjectSize(i);
+    }
+
+    //
+    // Cycle on vevent list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VEVENT)) {
+        preProcessEvent(i);
+        pimItemsHandler.fixLargeObjectSize(i);
+    }
+}
+
+/**
+ * Processes incoming contacts.
+ *
+ * Replaces all occurrences of TEL;CELL; following by WORK, HOME or whatever
+ * other param (like X-MOT-RINGID=18446744073709551615;X-MOT-POSITION), with
+ * TEL;CELL:.
+ * Switches the second with the third value in the address tokens (home, work or
+ * other type).
+ * Adds missing tokens.
+ *
+ * @param i the item to process
+ */
+void preProcessContact(Item i) {
+    data = i.data.data;
+    
+    data = replaceMobilePhone(data);
+    data = switchAdrValues   (data, true);
+    data = replaceEmailOther (data);
+    data = replaceCharset    (data);
+	
+	//
+	//Replace property SOUND in NICKNAME
+    //
+	data = replaceInProperty(data, "SOUND:", "NICKNAME:");
+    //
+    // Adds void standard tokens if they are missing in VCARD item
+    //
+    data = addVoidTokens(data, "END:VCARD", missingCardTokens);
+    i.data.data = data;
+}
+
+/**
+ * Processes incoming events.
+ *
+ * Adds missing tokens.
+ *
+ * @param i the item to process
+ */
+void preProcessEvent(Item i) {
+
+    data = i.data.data;
+
+    data = replaceCharset(data);
+    
+    //
+    // Avoid parser exception when processing quoted printable "=" (=3D)
+    //
+    data = checkQuotedPrintableEquals(data, "SUMMARY;ENCODING=QUOTED-PRINTABLE");
+    data = checkQuotedPrintableEquals(data, "LOCATION;ENCODING=QUOTED-PRINTABLE");
+
+    //
+    // Adds void tokens if they are missing in VEVENT item
+    //
+    content = addVoidTokens(data, "END:VEVENT", missingEventTokens);
+
+    i.data.data = content + "END:VCALENDAR\r\n";
+}
+
+/**
+ * Checks whether the given string contains equals symbols:
+ * If the encoding of SUMMARY or SUBJECT is quoted printable encoded and the 
+ * given argument contains a strings like this: "=\\" the "=" is replaced with 
+ * its quoted printable related encoding    
+ */ 
+String checkQuotedPrintableEquals(String data, String property) {
+    
+    Matcher m = Pattern.compile("=([0-9,A-F]{2})?").matcher(data);
+    
+    StringBuffer sb = new StringBuffer();
+    
+    while(m.find()) {
+        //replace lonely equals signs
+        if (m.group().length()==1) {
+            m.appendReplacement(sb, "=3D");
+        }
+    }
+    
+    m.appendTail(sb);
+    
+    data = sb.toString();
+
+    return data;
+}
+
+/**
+ * Initializes the hashmaps with the properties for contact and event.
+ * Empty FN: display name should not be added because 
+ * it creates problems with applications that automatically generate it
+ */
+void init() {
+    missingCardTokens  = new HashMap();
+    missingEventTokens = new HashMap();
+
+    missingCardTokens.put("\r\nN"             , "N:;"            );
+    missingCardTokens.put("\r\nTEL;CELL"      , "TEL;CELL:"      );
+    missingCardTokens.put("\r\nTEL;VOICE;HOME", "TEL;HOME;VOICE:");
+    missingCardTokens.put("\r\nTEL;VOICE;WORK", "TEL;WORK;VOICE:");
+    missingCardTokens.put("\r\nTEL;VOICE;X-"  , "TEL;VOICE:"     );
+    missingCardTokens.put("\r\nTEL;FAX;HOME"  , "TEL;FAX;HOME:"  );
+    missingCardTokens.put("\r\nTEL;PAGER"     , "TEL;PAGER:"     );
+    missingCardTokens.put("\r\nBDAY:"         , "BDAY:"          );
+    missingCardTokens.put("\r\nADR;HOME"      , "ADR;HOME:;;;;;;");
+    missingCardTokens.put("\r\nADR"           , "ADR:;;;;;;"     );
+    missingCardTokens.put("\r\nEMAIL;HOME"    , "EMAIL;HOME:"    );
+    missingCardTokens.put("\r\nEMAIL;WORK"    , "EMAIL;WORK:"    );
+    missingCardTokens.put("\r\nEMAIL"         , "EMAIL:"         );
+    missingCardTokens.put("\r\nURL"           , "URL:"           );
+    missingCardTokens.put("\r\nURL;WORK"      , "URL;WORK:"      );
+	missingCardTokens.put("\r\nNICKNAME"      , "NICKNAME:"      );
+	
+    missingEventTokens.put("\r\nSUMMARY"    , "SUMMARY:"    );
+    missingEventTokens.put("\r\nDESCRIPTION", "DESCRIPTION:");
+    missingEventTokens.put("\r\nLOCATION"   , "LOCATION:"   );
+    missingEventTokens.put("\r\nDTSTART"    , "DTSTART:"    );
+    missingEventTokens.put("\r\nDTEND"      , "DTEND:"      );
+    missingEventTokens.put("\r\nAALARM"     , "AALARM:"     );
+    missingEventTokens.put("\r\nCATEGORIES" , "CATEGORIES:" );
+    missingEventTokens.put("\r\nRRULE"      , "RRULE:"      );
+}
+
+/**
+ * Replaces all occurrences of TEL;CELL; following by WORK, HOME or whatever
+ * other param (like X-MOT-RINGID=18446744073709551615;X-MOT-POSITION), with
+ * TEL;CELL:. This because, from the user interface of the phone, it is possible
+ * to set only the Mobile phone (without specified the type HOME or WORK) even
+ * if the phone sends the first mobile as TEL;CELL;HOME, the second mobile as
+ * TEL;CELL;WORK and the other mobiles as TEL;CELL. Moreover, server side,
+ * mobile home and mobile work numbers are not handled.
+ *
+ * @param String data the data item
+ *
+ * @return the modified data
+ */
+String replaceMobilePhone(String data) {
+    data = data.replaceAll("\nTEL;CELL.*:", "\nTEL;CELL:");
+    return data;
+}
+
+/**
+ * Replaces the EMAIL: token with EMAIL;INTERNET: token when its value is '-'.
+ *
+ * For example:
+ *     the device sends EMAIL:-\r\n
+ *     this synclet replaces it with EMAIL;INTERNET:\r\n
+ *
+ * On the phone is not possible to create a contact without almoust one tel or
+ * one email: so, if the server sends a contact without phones and emails, the
+ * phone is not able to save it. As workaround of this, the server sends a
+ * contact with EMAIL:- token.
+ *
+ * @param String data the data item
+ *
+ * @return the modified data
+ */
+String replaceEmailOther(String data) {
+    data = data.replaceAll("\nEMAIL:-", "\nEMAIL;INTERNET:");
+    return data;
+}
+
+/**
+ * Removes the blank space after the CHARSET= 
+ *
+ * For example:
+ *     the device sends CHARSET= UTF-8:
+ *     this synclet replaces it with CHARSET=UTF-8:
+ *
+ * @param String data the data item
+ *
+ * @return the modified data
+ */
+String replaceCharset(String data) {
+    data = data.replaceAll("CHARSET= UTF-8:","CHARSET=UTF-8:");
+    
+    return data;
+}

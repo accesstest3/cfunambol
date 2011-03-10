@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/epoc
+END
+getEpocClient.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/epoc/getEpocClient.bsh
+END
+setEpocProperties.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/epoc/setEpocProperties.bsh
+END

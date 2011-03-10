@@ -1,0 +1,522 @@
+From - Thu Feb 01 13:36:23 2007
+X-Account-Key: account5
+X-UIDL: GmailId1107d4cc9b347181
+X-Mozilla-Status: 0011
+X-Mozilla-Status2: 00000000
+Delivered-To: source2@gmail.com
+Received: by 10.82.116.13 with SMTP id o13cs8615buc;
+        Thu, 1 Feb 2007 04:34:50 -0800 (PST)
+Received: by 10.90.34.3 with SMTP id h3mr3079917agh.1170333288960;
+        Thu, 01 Feb 2007 04:34:48 -0800 (PST)
+Return-Path: <sentto-9125383-7007-1170333227-source2=gmail.com@returns.groups.yahoo.com>
+Received: from n12a.bullet.sp1.yahoo.com (n12a.bullet.sp1.yahoo.com [69.147.64.109])
+        by mx.google.com with SMTP id 32si2874217agc.2007.02.01.04.34.48;
+        Thu, 01 Feb 2007 04:34:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of sentto-9125383-7007-1170333227-source2=gmail.com@returns.groups.yahoo.com designates 69.147.64.109 as permitted sender)
+DomainKey-Status: bad
+Comment: DomainKeys? See http://antispam.yahoo.com/domainkeys
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws; s=lima; d=yahoogroups.com;
+	b=lI7bVXzEtpXELIQ6ny0rpTjUjc/XOgAY9IfAV1fWPoyGPO3cTtV+LyxPx1ex602qp58WkN/iIq0k1X1E0e8eb+w+QjyMNKYUBQw6vgEIeviXV1TvhgC0nEv5vqUxzZv0;
+Received: from [216.252.122.217] by n12.bullet.sp1.yahoo.com with NNFMP; 01 Feb 2007 12:33:47 -0000
+Received: from [66.218.69.3] by t2.bullet.sp1.yahoo.com with NNFMP; 01 Feb 2007 12:33:47 -0000
+Received: from [66.218.67.108] by t3.bullet.scd.yahoo.com with NNFMP; 01 Feb 2007 12:33:47 -0000
+X-Yahoo-Newman-Id: 9125383-m7007
+X-Sender: dest2@gmail.com
+X-Apparently-To: GroupName@yahoogroups.com
+Received: (qmail 53313 invoked from network); 1 Feb 2007 12:33:45 -0000
+Received: from unknown (66.218.67.34)
+  by m44.grp.scd.yahoo.com with QMQP; 1 Feb 2007 12:33:45 -0000
+Received: from unknown (HELO ug-out-1314.google.com) (66.249.92.170)
+  by mta8.grp.scd.yahoo.com with SMTP; 1 Feb 2007 12:33:44 -0000
+Received: by ug-out-1314.google.com with SMTP id c2so467624ugf
+        for <GroupName@yahoogroups.com>; Thu, 01 Feb 2007 04:33:33 -0800 (PST)
+Received: by 10.67.19.17 with SMTP id w17mr2696989ugi.1170332613643;
+        Thu, 01 Feb 2007 04:23:33 -0800 (PST)
+Received: from ?192.168.1.56? ( [89.251.0.64])
+        by mx.google.com with ESMTP id k30sm3152796ugc.2007.02.01.04.23.32;
+        Thu, 01 Feb 2007 04:23:32 -0800 (PST)
+In-Reply-To: <epq9ms+e7ba@eGroups.com>
+References: <epq9ms+e7ba@eGroups.com>
+Message-Id: <08303906-F1D7-442A-A13F-AC2DAAB0FC9D@gmail.com>
+To: GroupName@yahoogroups.com
+X-Mailer: Apple Mail (2.752.3)
+X-Originating-IP: 66.249.92.170
+X-eGroups-Msg-Info: 1:0:0:0
+From: Jhon Hazewinkel <dest2@gmail.com>
+X-Yahoo-Profile: dest2
+Sender: GroupName@yahoogroups.com
+MIME-Version: 1.0
+Mailing-List: list GroupName@yahoogroups.com; contact GroupName-owner@yahoogroups.com
+Delivered-To: mailing list GroupName@yahoogroups.com
+List-Id: <GroupName.yahoogroups.com>
+Precedence: bulk
+List-Unsubscribe: <mailto:GroupName-unsubscribe@yahoogroups.com>
+Date: Thu, 1 Feb 2007 13:23:22 +0100
+Subject: Re: [GroupName] Re: Pim 2 DB help?
+Reply-To: GroupName@yahoogroups.com
+X-Yahoo-Newman-Property: groups-email-ff
+Content-Type: multipart/alternative;
+ boundary="a-scfLmC0ZyvD0mw3rISel114qiyys7IEtPJ3jd"
+
+--a-scfLmC0ZyvD0mw3rISel114qiyys7IEtPJ3jd
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+
+HI,
+
+On Jan 31, 2007, at 3:39 PM, ramorius wrote:
+> --- In GroupName@yahoogroups.com, Jhon Hazewinkel <dest2@...>
+> wrote:
+>> On Jan 30, 2007, at 11:34 PM, ramorius wrote:
+>>> --- In GroupName@yahoogroups.com, Jhon Hazewinkel <dest2@>
+>>> wrote:
+>>>> On Jan 30, 2007, at 10:23 PM, Robin wrote:
+>>> Part of my problem is that the application stores crucial data
+>>> not specified by the SyncML standards.
+>>
+>> Which kind of data is this? Is that data that is
+>> part of a VCARD or something alike?
+>
+> The database keeps track of meetings and attendees.
+
+OK, that means you are talking of a calendar object.
+
+> As such, in the
+> meeting table, it has a field to track the id of the attendees,
+> whose information, such as name, phone number, etc. is in another
+> table.
+
+As far as I know, vcalendar uses some specific way of referencing
+such users. It does not include information like phone number of
+that attendee.
+
+> Since SIF-E and iCal formats as supported by mycompany do not allow
+> tracking attendees,
+
+
+ICAL does support them. See section "4.8.4.1 Attendee"
+of RFC 2445.
+
+> my intention was to put the names in the
+> Description field and do a lookup. Additionally, the Attendee id
+> tracked in the database is not very user-friendly. It needs to be
+> converted to the name(s) for presentation.
+>
+> So, I guess the question is, How do I maintain a relationship
+> between multiple tables using the Pim2DB SyncSource?
+
+
+BEGIN:VCALENDAR
+VERSION:2.0
+METHOD:REQUEST
+BEGIN:VEVENT
+ATTENDEE;ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:jhon@mycompany.com
+ORGANIZER:MAILTO:paul@mycompany.com
+DTSTART:20070201T090000Z
+DTEND:20070201T093000Z
+LOCATION:skype
+TRANSP:OPAQUE
+SEQUENCE:0
+DTSTAMP:20070131T140908Z
+DESCRIPTION:Data....
+SUMMARY:My Presentation
+PRIORITY:5
+X-MICROSOFT-CDO-IMPORTANCE:1
+CLASS:PUBLIC
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR
+
+Above you have an ICAL event with an attendee property. I am the
+attendee. As you see there is no 'real name' just the email.
+The calendar application I use presents this in the calendar
+with my 'real name', but that is a conversion on the using calendar
+application side based on the local address book.
+
+
+
+Jhon
+------------------------------------------------------------------
+MyCompany - Professional Services, Netherlands
+http://www.mycompany.com/
+Visit MyCompany @ 3GSM in Barcelona, Feb 12-15, Booth 1J46 (Hall 1)
+
+
+--a-scfLmC0ZyvD0mw3rISel114qiyys7IEtPJ3jd
+Content-Type: text/html; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+</head>
+
+<!-- Network content -->
+
+
+<body style="background-color: #ffffff;">
+
+<!--~-|**|PrettyHtmlStartT|**|-~-->
+<div id="ygrp-mlmsg" style="width:655px; position:relative;">
+  <div id="ygrp-msg" style="width: 490px; padding: 0 15px 0 0; float:left;  z-index:1;">
+<!--~-|**|PrettyHtmlEndT|**|-~-->
+
+    <div id="ygrp-text">
+            <p>HI,<br>
+<br>
+On Jan 31, 2007, at 3:39 PM, ramorius wrote:<br>
+&gt; --- In <a href="mailto:GroupName%40yahoogroups.com">GroupName@yahoogroups.<wbr>com</a>, Jhon Hazewinkel &lt;dest2@<wbr>...&gt;<br>
+
+&gt; wrote:<br>
+&gt;&gt; On Jan 30, 2007, at 11:34 PM, ramorius wrote:<br>
+&gt;&gt;&gt; --- In <a href="mailto:GroupName%40yahoogroups.com">GroupName@yahoogroups.<wbr>com</a>, Jhon Hazewinkel &lt;dest2@<wbr>&gt;<br>
+&gt;&gt;&gt; wrote:<br>
+
+&gt;&gt;&gt;&gt; On Jan 30, 2007, at 10:23 PM, Robin wrote:<br>
+&gt;&gt;&gt; Part of my problem is that the application stores crucial data<br>
+&gt;&gt;&gt; not specified by the SyncML standards.<br>
+&gt;&gt;<br>
+&gt;&gt; Which kind of data is this? Is that data that is<br>
+
+&gt;&gt; part of a VCARD or something alike?<br>
+&gt;<br>
+&gt; The database keeps track of meetings and attendees.<br>
+<br>
+OK, that means you are talking of a calendar object.<br>
+<br>
+&gt; As such, in the<br>
+&gt; meeting table, it has a field to track the id of the attendees,<br>
+&gt; whose information, such as name, phone number, etc. is in another<br>
+&gt; table.<br>
+
+<br>
+As far as I know, vcalendar uses some specific way of referencing<br>
+such users. It does not include information like phone number of<br>
+that attendee.<br>
+<br>
+&gt; Since SIF-E and iCal formats as supported by mycompany do not allow<br>
+&gt; tracking attendees,<br>
+<br>
+ICAL does support them. See section &quot;4.8.4.1 Attendee&quot;<br>
+of RFC 2445.<br>
+<br>
+&gt; my intention was to put the names in the<br>
+
+&gt; Description field and do a lookup. Additionally, the Attendee id<br>
+&gt; tracked in the database is not very user-friendly. It needs to be<br>
+&gt; converted to the name(s) for presentation.<br>
+&gt;<br>
+&gt; So, I guess the question is, How do I maintain a relationship<br>
+&gt; between multiple tables using the Pim2DB SyncSource?<br>
+<br>
+BEGIN:VCALENDAR<br>
+VERSION:2.0<br>
+METHOD:REQUEST<br>
+BEGIN:VEVENT<br>
+ATTENDEE;ROLE=<wbr>REQ-PARTICIPANT;<wbr>RSVP=TRUE:<wbr>MAILTO:<a href="mailto:jhon%40mycompany.com">jhon@mycompany.<wbr>com</a><br>
+ORGANIZER:MAILTO:<a href="mailto:paul%40mycompany.com">paul@mycompany.<wbr>com</a><br>
+DTSTART:20070201T09<wbr>0000Z<br>
+DTEND:20070201T0930<wbr>00Z<br>
+LOCATION:skype<br>
+TRANSP:OPAQUE<br>
+SEQUENCE:0<br>
+DTSTAMP:20070131T14<wbr>0908Z<br>
+DESCRIPTION:<wbr>Data....<br>
+SUMMARY:Presentazio<wbr>ne MyCompany<br>
+PRIORITY:5<br>
+X-MICROSOFT-<wbr>CDO-IMPORTANCE:<wbr>1<br>
+CLASS:PUBLIC<br>
+BEGIN:VALARM<br>
+TRIGGER:-PT30M<br>
+ACTION:DISPLAY<br>
+DESCRIPTION:<wbr>Reminder<br>
+END:VALARM<br>
+END:VEVENT<br>
+END:VCALENDAR<br>
+
+<br>
+Above you have an ICAL event with an attendee property. I am the<br>
+attendee. As you see there is no 'real name' just the email.<br>
+The calendar application I use presents this in the calendar<br>
+with my 'real name', but that is a conversion on the using calendar<br>
+application side based on the local address book.<br>
+<br>
+Jhon<br>
+------------<wbr>---------<wbr>---------<wbr>---------<wbr>---------<wbr>---------<wbr>-<br>
+MyCompany - Professional Services, Netherlands<br>
+<a href="http://www.mycompany.com/">http://www.mycompany<wbr>.com/</a><br>
+Visit MyCompany @ 3GSM in Barcelona, Feb 12-15, Booth 1J46 (Hall 1)<br>
+
+<br>
+</p>
+    </div>
+
+    <!--~-|**|PrettyHtmlStart|**|-~-->
+    <span width="1" style="color: white;">__._,_.___</span>
+    <!-- Start the section with Message In topic -->
+    <div id="ygrp-actbar">
+              <span class="left">
+          <a href="http://groups.yahoo.com/group/GroupName/message/6962;_ylc=X3oDMTM0amliY3N2BF9TAzk3MzU5NzE0BGdycElkAzkxMjUzODMEZ3Jwc3BJZAMxNzA3MjgxOTQyBG1zZ0lkAzY5NzYEc2VjA2Z0cgRzbGsDdnRwYwRzdGltZQMxMTcwMzMzMjI3BHRwY0lkAzY5NjI-">
+            Messages in this topic          </a> (<span class="bld">6</span>)
+        </span>
+        <a href="http://groups.yahoo.com/group/GroupName/post;_ylc=X3oDMTJwdTV0N3ZwBF9TAzk3MzU5NzE0BGdycElkAzkxMjUzODMEZ3Jwc3BJZAMxNzA3MjgxOTQyBG1zZ0lkAzY5NzYEc2VjA2Z0cgRzbGsDcnBseQRzdGltZQMxMTcwMzMzMjI3?act=reply&messageNum=6976">
+          <span class="bld">
+            Reply          </span> (via web post)
+        </a>  |
+        <a href="http://groups.yahoo.com/group/GroupName/post;_ylc=X3oDMTJlMHFzbHFmBF9TAzk3MzU5NzE0BGdycElkAzkxMjUzODMEZ3Jwc3BJZAMxNzA3MjgxOTQyBHNlYwNmdHIEc2xrA250cGMEc3RpbWUDMTE3MDMzMzIyNw--" class="bld">
+          Start a new topic        </a>
+          </div>
+    <!-------     Start Nav Bar  ------>
+    <!-- |**|begin egp html banner|**| -->
+    <div id="ygrp-vitnav">
+                <a href="http://groups.yahoo.com/group/GroupName/messages;_ylc=X3oDMTJlaGQxNGl1BF9TAzk3MzU5NzE0BGdycElkAzkxMjUzODMEZ3Jwc3BJZAMxNzA3MjgxOTQyBHNlYwNmdHIEc2xrA21zZ3MEc3RpbWUDMTE3MDMzMzIyNw--">Messages</a>
+            |    <a href="http://groups.yahoo.com/group/GroupName/files;_ylc=X3oDMTJmYWNiamcxBF9TAzk3MzU5NzE0BGdycElkAzkxMjUzODMEZ3Jwc3BJZAMxNzA3MjgxOTQyBHNlYwNmdHIEc2xrA2ZpbGVzBHN0aW1lAzExNzAzMzMyMjc-">Files</a>
+            |    <a href="http://groups.yahoo.com/group/GroupName/photos;_ylc=X3oDMTJlM2ptY2l1BF9TAzk3MzU5NzE0BGdycElkAzkxMjUzODMEZ3Jwc3BJZAMxNzA3MjgxOTQyBHNlYwNmdHIEc2xrA3Bob3QEc3RpbWUDMTE3MDMzMzIyNw--">Photos</a>
+
+
+            |    <a href="http://groups.yahoo.com/group/GroupName/polls;_ylc=X3oDMTJmMnBhOThwBF9TAzk3MzU5NzE0BGdycElkAzkxMjUzODMEZ3Jwc3BJZAMxNzA3MjgxOTQyBHNlYwNmdHIEc2xrA3BvbGxzBHN0aW1lAzExNzAzMzMyMjc-">Polls</a>
+            |    <a href="http://groups.yahoo.com/group/GroupName/members;_ylc=X3oDMTJlbnM2dHZuBF9TAzk3MzU5NzE0BGdycElkAzkxMjUzODMEZ3Jwc3BJZAMxNzA3MjgxOTQyBHNlYwNmdHIEc2xrA21icnMEc3RpbWUDMTE3MDMzMzIyNw--">Members</a>
+
+    </div>
+    <!-- |**|end egp html banner|**| -->
+
+    <!-- Do not have place to put it yet -->
+    <div id="ygrp-grft">
+          </div>
+
+    <!-- yahoo logo -->
+    <!-- |**|begin egp html banner|**| -->
+    <div id="ygrp-ft">
+      <a href="http://groups.yahoo.com/;_ylc=X3oDMTJkNXRqdTU5BF9TAzk3MzU5NzE0BGdycElkAzkxMjUzODMEZ3Jwc3BJZAMxNzA3MjgxOTQyBHNlYwNmdHIEc2xrA2dmcARzdGltZQMxMTcwMzMzMjI3">
+      <img src="http://us.i1.yimg.com/us.yimg.com/i/yg/img/logo/ma_grp_160.gif" height="15" width="106" border="0" alt="Yahoo! Groups"></a> <br>
+      <a href="http://groups.yahoo.com/group/GroupName/join;_ylc=X3oDMTJmMWc3Nmc2BF9TAzk3MzU5NzE0BGdycElkAzkxMjUzODMEZ3Jwc3BJZAMxNzA3MjgxOTQyBHNlYwNmdHIEc2xrA3N0bmdzBHN0aW1lAzExNzAzMzMyMjc-">Change settings via the Web</a> (Yahoo! ID required) <br>
+      Change settings via email: <a href="mailto:GroupName-digest@yahoogroups.com?subject=Email Delivery: Digest">Switch delivery to Daily Digest</a> | <a href = "mailto:GroupName-traditional@yahoogroups.com?subject=Change Delivery Format: Traditional">Switch format to Traditional</a> <br>
+
+      <a href="http://groups.yahoo.com/group/GroupName;_ylc=X3oDMTJkcGJqZ3BjBF9TAzk3MzU5NzE0BGdycElkAzkxMjUzODMEZ3Jwc3BJZAMxNzA3MjgxOTQyBHNlYwNmdHIEc2xrA2hwZgRzdGltZQMxMTcwMzMzMjI3">
+        Visit Your Group
+      </a> |
+      <a href="http://docs.yahoo.com/info/terms/">
+        Yahoo! Groups Terms of Use      </a> |
+      <a href="mailto:GroupName-unsubscribe@yahoogroups.com?subject=">
+        Unsubscribe      </a>
+    </div>     <!-- |**|end egp html banner|**| -->
+  </div> <!-- ygrp-msg -->
+
+
+  <!-- Sponsor -->
+  <!-- |**|begin egp html banner|**| -->
+  <div id="ygrp-sponsor" style="width:140px;float: left; clear: none; margin-left: 5px; background:white; margin-bottom:25px ;position:absolute; top:0; right: 0;">
+    <!-- Network content -->
+
+    <!-- Start vitality -->
+    <div id="ygrp-vital">
+              <div id="vithd">Recent Activity</div>
+        <ul style="list-style-type:none; padding: 0; margin: 2px 0;">
+                <li style="clear: both;">
+      <div class="ct" style="float: right;"><span style="display:none">&nbsp;</span>22</div>
+      <div class="cat"><a href="http://groups.yahoo.com/group/GroupName/members;_ylc=X3oDMTJmanJsbG5zBF9TAzk3MzU5NzE0BGdycElkAzkxMjUzODMEZ3Jwc3BJZAMxNzA3MjgxOTQyBHNlYwN2dGwEc2xrA3ZtYnJzBHN0aW1lAzExNzAzMzMyMjc-">New Members</a></div>
+    </li>
+
+
+
+
+
+
+        </ul>
+            <a href="http://groups.yahoo.com/group/GroupName;_ylc=X3oDMTJlMHFkNnRpBF9TAzk3MzU5NzE0BGdycElkAzkxMjUzODMEZ3Jwc3BJZAMxNzA3MjgxOTQyBHNlYwN2dGwEc2xrA3ZnaHAEc3RpbWUDMTE3MDMzMzIyNw--">
+        Visit Your Group      </a>
+    </div>
+
+    <!-- Network content -->
+                <div id="nc">
+              <div class="ad">
+                        <div id="hd1">Give Back</div>
+  <p><a href="http://us.lrd.yahoo.com/_ylc=X3oDMTJtZGYwMXE1BF9TAzk3MzU5NzE0BF9wAzEEZ3JwSWQDOTEyNTM4MwRncnBzcElkAzE3MDcyODE5NDIEc2VjA25jbW9kBHNsawNicmFuZARzdGltZQMxMTcwMzMzMjI3;_ylg=1/SIG=11314uv3k/**http%3A//brand.yahoo.com/forgood">Yahoo! for Good</a></p>
+  <p>Get inspired</p>
+  <p>by a good cause.</p>
+                  </div>
+                    <div class="ad">
+                        <div id="hd1">Y! Toolbar</div>
+  <p><a href="http://us.lrd.yahoo.com/_ylc=X3oDMTJvdTY5Z2w2BF9TAzk3MzU5NzE0BF9wAzIEZ3JwSWQDOTEyNTM4MwRncnBzcElkAzE3MDcyODE5NDIEc2VjA25jbW9kBHNsawN0b29sYmFyBHN0aW1lAzExNzAzMzMyMjc-;_ylg=1/SIG=11c6dvmk9/**http%3A//toolbar.yahoo.com/%3F.cpdl=ygrps">Get it Free!</a></p>
+  <p>easy 1-click access</p>
+  <p>to your groups.</p>
+                  </div>
+                    <div class="ad">
+                        <div id="hd1">Yahoo! Groups</div>
+  <p><a href="http://groups.yahoo.com/start;_ylc=X3oDMTJvbnVvNzJzBF9TAzk3MzU5NzE0BF9wAzMEZ3JwSWQDOTEyNTM4MwRncnBzcElkAzE3MDcyODE5NDIEc2VjA25jbW9kBHNsawNncm91cHMyBHN0aW1lAzExNzAzMzMyMjc-">Start a group</a></p>
+  <p>in 3 easy steps.</p>
+  <p>Connect with others.</p>
+                  </div>
+          </div>
+
+  </div>   <!-- |**|end egp html banner|**| -->
+  <div style="clear:both; color: #FFF; font-size:1px;">.</div>
+
+</div> <img src="http://geo.yahoo.com/serv?s=97359714/grpId=9125383/grpspId=1707281942/msgId=6976/stime=1170333227/nc1=1/nc2=2/nc3=3" width="1" height="1"> <br>
+<span  style="color: white;">__,_._,___</span>
+<!--~-|**|PrettyHtmlEnd|**|-~-->
+</body>
+<!--~-|**|PrettyHtmlStart|**|-~-->
+<head>
+<style type="text/css">
+<!--
+#ygrp-mlmsg {font-size:13px; font-family: arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}
+#ygrp-mlmsg table {font-size:inherit;font:100%;}
+#ygrp-mlmsg select, input, textarea {font:99% arial,helvetica,clean,sans-serif;}
+#ygrp-mlmsg pre, code {font:115% monospace;*font-size:100%;}
+#ygrp-mlmsg * {line-height:1.22em;}
+#ygrp-text{
+    font-family: Georgia;
+}
+#ygrp-text p{
+    margin: 0 0 1em 0;
+}
+#ygrp-tpmsgs{
+    font-family: Arial;
+    clear: both;
+}
+#ygrp-vitnav{
+	padding-top: 10px;
+	font-family: Verdana;
+	font-size: 77%;
+	margin: 0;
+}
+#ygrp-vitnav a{
+	padding: 0 1px;
+}
+#ygrp-actbar{
+	clear: both;
+	margin: 25px 0;
+	white-space:nowrap;
+	color: #666;
+	text-align: right;
+}
+#ygrp-actbar .left{
+	float: left;
+	white-space:nowrap;
+}
+.bld{font-weight:bold;}
+#ygrp-grft{
+	font-family: Verdana;
+	font-size: 77%;
+	padding: 15px 0;
+}
+#ygrp-ft{
+  font-family: verdana;
+  font-size: 77%;
+  border-top: 1px solid #666;
+  padding: 5px 0;
+}
+#ygrp-mlmsg #logo{
+  padding-bottom: 10px;
+}
+
+#ygrp-vital{
+	background-color: #e0ecee;
+	margin-bottom: 20px;
+	padding: 2px 0 8px 8px;
+}
+#ygrp-vital #vithd{
+	font-size: 77%;
+	font-family: Verdana;
+	font-weight: bold;
+	color: #333;
+	text-transform: uppercase;
+}
+#ygrp-vital ul{
+	padding: 0;
+	margin: 2px 0;
+}
+#ygrp-vital ul li{
+  list-style-type: none;
+  clear: both;
+  border: 1px solid #e0ecee;
+}
+#ygrp-vital ul li .ct{
+  font-weight: bold;
+  color: #ff7900;
+  float: right;
+  width: 2em;
+  text-align:right;
+  padding-right: .5em;
+}
+#ygrp-vital ul li .cat{
+  font-weight: bold;
+}
+#ygrp-vital a {
+	text-decoration: none;
+}
+
+#ygrp-vital a:hover{
+  text-decoration: underline;
+}
+
+#ygrp-sponsor #hd{
+	color: #999;
+	font-size: 77%;
+}
+#ygrp-sponsor #ov{
+	padding: 6px 13px;
+	background-color: #e0ecee;
+	margin-bottom: 20px;
+}
+#ygrp-sponsor #ov ul{
+	padding: 0 0 0 8px;
+	margin: 0;
+}
+#ygrp-sponsor #ov li{
+	list-style-type: square;
+	padding: 6px 0;
+	font-size: 77%;
+}
+#ygrp-sponsor #ov li a{
+	text-decoration: none;
+	font-size: 130%;
+}
+#ygrp-sponsor #nc {
+  background-color: #eee;
+  margin-bottom: 20px;
+  padding: 0 8px;
+}
+#ygrp-sponsor .ad{
+	padding: 8px 0;
+}
+#ygrp-sponsor .ad #hd1{
+	font-family: Arial;
+	font-weight: bold;
+	color: #628c2a;
+	font-size: 100%;
+	line-height: 122%;
+}
+#ygrp-sponsor .ad a{
+	text-decoration: none;
+}
+#ygrp-sponsor .ad a:hover{
+	text-decoration: underline;
+}
+#ygrp-sponsor .ad p{
+	margin: 0;
+}
+o {font-size: 0; }
+.MsoNormal {
+   margin: 0 0 0 0;
+}
+#ygrp-text tt{
+  font-size: 120%;
+}
+blockquote{margin: 0 0 0 4px;}
+.replbq {margin:4}
+-->
+</style>
+</head>
+<!--~-|**|PrettyHtmlEnd|**|-~-->
+</html><!--End group email -->
+
+
+--a-scfLmC0ZyvD0mw3rISel114qiyys7IEtPJ3jd--
+

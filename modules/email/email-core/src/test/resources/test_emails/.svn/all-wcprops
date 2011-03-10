@@ -1,0 +1,323 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/core/!svn/ver/33587/trunk/funambol/modules/email/email-core/src/test/resources/test_emails
+END
+028_Email_html_yahoo.txt
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/028_Email_html_yahoo.txt
+END
+H_B_2Kb_html_A_no.txt
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/H_B_2Kb_html_A_no.txt
+END
+H_B_unsupported_encoding_01.txt
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/H_B_unsupported_encoding_01.txt
+END
+attachment20Kb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/attachment20Kb.txt
+END
+body_pic_tmp.txt
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/body_pic_tmp.txt
+END
+sign_H_B.txt
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/sign_H_B.txt
+END
+fake_message.eml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/29599/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/fake_message.eml
+END
+038_Email_image_inside_apple_7_original.txt
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/038_Email_image_inside_apple_7_original.txt
+END
+gibi.txt
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/gibi.txt
+END
+H_B_10Kb_A1_text_10Kb_A2_text_20Kb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/H_B_10Kb_A1_text_10Kb_A2_text_20Kb.txt
+END
+text_calendar.txt
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/29585/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/text_calendar.txt
+END
+invitation_thunderbird.txt
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/29587/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/invitation_thunderbird.txt
+END
+multipart_alternative_plain_html_calendar.txt
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/33587/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/multipart_alternative_plain_html_calendar.txt
+END
+027_Email_body_with_calendar.txt
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/027_Email_body_with_calendar.txt
+END
+body_text_tmp.txt
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/body_text_tmp.txt
+END
+picture1.gif
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/picture1.gif
+END
+H_B_text_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/H_B_text_A1_pdf_A2_pic.txt
+END
+pdf1.pdf
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/pdf1.pdf
+END
+038_Email_image_inside_apple_7.txt
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/038_Email_image_inside_apple_7.txt
+END
+pdf2.pdf
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/pdf2.pdf
+END
+email_with_blocked_signature.txt
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/email_with_blocked_signature.txt
+END
+H_B_2Kb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/H_B_2Kb.txt
+END
+sign_H_B_txt_html.txt
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/sign_H_B_txt_html.txt
+END
+sign_H_B_html.txt
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/sign_H_B_html.txt
+END
+picture2.bmp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/picture2.bmp
+END
+H_P1_text_P2_html_P3_empty.txt
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/H_P1_text_P2_html_P3_empty.txt
+END
+test1.txt
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/test1.txt
+END
+invitation_outlook.txt
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/29587/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/invitation_outlook.txt
+END
+H_B_10Kb_A_no.txt
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/H_B_10Kb_A_no.txt
+END
+test2.txt
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/test2.txt
+END
+H_B_html_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/H_B_html_A1_pdf_A2_pic.txt
+END
+H_B_10Kb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/H_B_10Kb.txt
+END
+020_Email_greg_error_grand_estate.txt
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/020_Email_greg_error_grand_estate.txt
+END
+invitation_apple.txt
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/29587/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/invitation_apple.txt
+END
+attachment10Kb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/attachment10Kb.txt
+END
+H_B_10Kb_A1_text_10Kb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/H_B_10Kb_A1_text_10Kb.txt
+END
+029_Email_two_inline.txt
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/029_Email_two_inline.txt
+END
+invitation_outlook2007.txt
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/29587/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/invitation_outlook2007.txt
+END
+thunderbird_ics_picture_attachment.txt
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/29587/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/thunderbird_ics_picture_attachment.txt
+END
+H_B_html.txt
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/H_B_html.txt
+END
+sign_H_B_A_from_PDA.txt
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/sign_H_B_A_from_PDA.txt
+END
+sign_H_B_from_PDA.txt
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/sign_H_B_from_PDA.txt
+END
+H_B_part1_text_part2_text.txt
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/H_B_part1_text_part2_text.txt
+END
+H_B_2Kb_A_no.txt
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/H_B_2Kb_A_no.txt
+END
+H_B_text_A1_pic_1Mb_A2_pdf.txt
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/H_B_text_A1_pic_1Mb_A2_pdf.txt
+END
+H_B_2Kb_A_no_UNIX.txt
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/H_B_2Kb_A_no_UNIX.txt
+END
+H_B_2Kb_text_A_no.txt
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/H_B_2Kb_text_A_no.txt
+END
+H_B_2Kb_part1_text_part2_html_A_no.txt
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/H_B_2Kb_part1_text_part2_html_A_no.txt
+END
+invitation_thunderbird_outlook_compatible.txt
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/29587/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/invitation_thunderbird_outlook_compatible.txt
+END
+sign_H_B_from_CELL.txt
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/sign_H_B_from_CELL.txt
+END
+030_Email_calendar_attendee_1.txt
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/030_Email_calendar_attendee_1.txt
+END
+html_body_and_slash.txt
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/html_body_and_slash.txt
+END
+invalidEmail.txt
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/29382/trunk/funambol/modules/email/email-core/src/test/resources/test_emails/invalidEmail.txt
+END

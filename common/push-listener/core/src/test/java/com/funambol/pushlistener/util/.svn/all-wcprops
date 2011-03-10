@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/35029/trunk/funambol/common/push-listener/core/src/test/java/com/funambol/pushlistener/util
+END
+DBHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/35029/trunk/funambol/common/push-listener/core/src/test/java/com/funambol/pushlistener/util/DBHelper.java
+END
+DBUnitHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/35029/trunk/funambol/common/push-listener/core/src/test/java/com/funambol/pushlistener/util/DBUnitHelper.java
+END
+DatabaseTester.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/35029/trunk/funambol/common/push-listener/core/src/test/java/com/funambol/pushlistener/util/DatabaseTester.java
+END

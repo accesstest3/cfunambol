@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/store
+END
+ConfigPersistentStoreException.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/store/ConfigPersistentStoreException.java
+END
+BasePersistentStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/store/BasePersistentStore.java
+END
+NotFoundException.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/store/NotFoundException.java
+END
+PersistentStoreException.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/store/PersistentStoreException.java
+END
+SQLHelperClause.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/store/SQLHelperClause.java
+END
+PreparedWhere.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/store/PreparedWhere.java
+END
+PersistentStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/server/store/PersistentStore.java
+END

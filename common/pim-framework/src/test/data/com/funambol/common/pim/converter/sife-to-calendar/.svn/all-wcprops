@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/32318/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/sife-to-calendar
+END
+sife-without-sensitivity-expected-ical.ics
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/32315/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/sife-to-calendar/sife-without-sensitivity-expected-ical.ics
+END
+sife-with-reminder.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/32315/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/sife-to-calendar/sife-with-reminder.xml
+END
+sife-with-reminder-expected-ical.ics
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/core/!svn/ver/32315/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/sife-to-calendar/sife-with-reminder-expected-ical.ics
+END
+sife-with-recurrence-expected-vcal.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/core/!svn/ver/32315/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/sife-to-calendar/sife-with-recurrence-expected-vcal.vcs
+END
+sife-with-recurrence.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/32315/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/sife-to-calendar/sife-with-recurrence.xml
+END
+sife-without-sensitivity-expected-vcal.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/32315/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/sife-to-calendar/sife-without-sensitivity-expected-vcal.vcs
+END
+sife-with-recurrence-expected-ical.ics
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/core/!svn/ver/32315/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/sife-to-calendar/sife-with-recurrence-expected-ical.ics
+END
+sife-with-reminder-expected-vcal.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/core/!svn/ver/32315/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/sife-to-calendar/sife-with-reminder-expected-vcal.vcs
+END
+sife-without-sensitivity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/core/!svn/ver/32315/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/sife-to-calendar/sife-without-sensitivity.xml
+END

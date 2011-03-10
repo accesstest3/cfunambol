@@ -1,0 +1,9 @@
+#
+#Thu Nov 04 22:55:34 CET 2004
+name=briefcase
+sourceClass=com.funambol.syncclient.spds.source.FileSystemSyncSource
+sourceDirectory=db/briefcase
+type=application/*
+sync=two-way
+encode=true
+sourceURI=briefcase

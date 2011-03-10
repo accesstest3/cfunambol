@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/core/!svn/ver/28212/trunk/funambol/docs/ds-server/migrate-v6-to-v65-script-files/mysql
+END
+migrate_public_mailservers_mysql.sql
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/28212/trunk/funambol/docs/ds-server/migrate-v6-to-v65-script-files/mysql/migrate_public_mailservers_mysql.sql
+END
+migrate_v6_to_v65_mysql.sql
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/28212/trunk/funambol/docs/ds-server/migrate-v6-to-v65-script-files/mysql/migrate_v6_to_v65_mysql.sql
+END

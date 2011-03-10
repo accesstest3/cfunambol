@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/core/!svn/ver/34393/trunk/funambol/ds/ds-server/src/test/sql
+END
+create-core-schema.sql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/core/!svn/ver/34393/trunk/funambol/ds/ds-server/src/test/sql/create-core-schema.sql
+END
+create-user-schema.sql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/core/!svn/ver/34393/trunk/funambol/ds/ds-server/src/test/sql/create-user-schema.sql
+END

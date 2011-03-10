@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/34885/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/PIMNoteDAO
+END
+dataset-coredb.xml
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/core/!svn/ver/34354/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/PIMNoteDAO/dataset-coredb.xml
+END
+dataset-userdb.xml
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/core/!svn/ver/34885/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/PIMNoteDAO/dataset-userdb.xml
+END

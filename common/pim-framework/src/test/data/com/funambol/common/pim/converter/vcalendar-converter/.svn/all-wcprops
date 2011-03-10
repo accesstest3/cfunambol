@@ -1,0 +1,407 @@
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/34633/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter
+END
+icalendar-25-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/32872/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-25-input.ics
+END
+icalendar-16-output.ics
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/32633/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-16-output.ics
+END
+vcalendar-4-output.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-4-output.vcs
+END
+icalendar-1-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-1-input.ics
+END
+icalendar-3-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-3-input.ics
+END
+vcalendar-8-output.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/34633/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-8-output.vcs
+END
+icalendar-4-output.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-4-output.ics
+END
+icalendar-5-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-5-input.ics
+END
+icalendar-7-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-7-input.ics
+END
+icalendar-8-output.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/32316/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-8-output.ics
+END
+icalendar-9-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-9-input.ics
+END
+vcalendar-22-output.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/32872/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-22-output.vcs
+END
+icalendar-11-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/29057/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-11-input.ics
+END
+icalendar-11-output.ics
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/29057/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-11-output.ics
+END
+icalendar-13-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/28790/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-13-input.ics
+END
+icalendar-15-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/29029/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-15-input.ics
+END
+icalendar-15-output.ics
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/29068/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-15-output.ics
+END
+icalendar-17-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/29627/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-17-input.ics
+END
+icalendar-19-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/32872/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-19-input.ics
+END
+vcalendar-2-input.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-2-input.vcs
+END
+vcalendar-3-output.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-3-output.vcs
+END
+vcalendar-4-input.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-4-input.vcs
+END
+vcalendar-6-input.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-6-input.vcs
+END
+vcalendar-7-output.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/28893/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-7-output.vcs
+END
+vcalendar-8-input.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/34633/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-8-input.vcs
+END
+icalendar-3-output.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-3-output.ics
+END
+icalendar-7-output.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-7-output.ics
+END
+vcalendar-21-output.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/32872/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-21-output.vcs
+END
+icalendar-20-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/32872/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-20-input.ics
+END
+icalendar-10-output.ics
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/29057/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-10-output.ics
+END
+vcalendar-25-output.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/32872/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-25-output.vcs
+END
+icalendar-22-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/32872/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-22-input.ics
+END
+vcalendar-19-output.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/32872/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-19-output.vcs
+END
+icalendar-14-output.ics
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/32633/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-14-output.ics
+END
+icalendar-24-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/32872/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-24-input.ics
+END
+vcalendar-2-output.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-2-output.vcs
+END
+vcalendar-6-output.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-6-output.vcs
+END
+icalendar-2-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-2-input.ics
+END
+icalendar-2-output.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-2-output.ics
+END
+icalendar-4-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-4-input.ics
+END
+icalendar-6-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-6-input.ics
+END
+icalendar-6-output.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-6-output.ics
+END
+icalendar-8-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-8-input.ics
+END
+vcalendar-20-output.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/32872/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-20-output.vcs
+END
+vcalendar-24-output.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/32872/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-24-output.vcs
+END
+icalendar-10-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/29057/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-10-input.ics
+END
+icalendar-12-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/28790/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-12-input.ics
+END
+vcalendar-18-output.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/32860/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-18-output.vcs
+END
+icalendar-13-output.ics
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/28790/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-13-output.ics
+END
+icalendar-14-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/29027/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-14-input.ics
+END
+icalendar-16-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/29028/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-16-input.ics
+END
+icalendar-18-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/32860/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-18-input.ics
+END
+icalendar-17-output.ics
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/29627/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-17-output.ics
+END
+vcalendar-1-input.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-1-input.vcs
+END
+vcalendar-1-output.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-1-output.vcs
+END
+vcalendar-3-input.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-3-input.vcs
+END
+vcalendar-5-output.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-5-output.vcs
+END
+vcalendar-7-input.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/28893/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-7-input.vcs
+END
+icalendar-1-output.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-1-output.ics
+END
+vcalendar-9-input.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/34633/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-9-input.vcs
+END
+vcalendar-9-output.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/34633/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-9-output.vcs
+END
+icalendar-5-output.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-5-output.ics
+END
+icalendar-9-output.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/32316/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-9-output.ics
+END
+vcalendar-23-output.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/32872/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/vcalendar-23-output.vcs
+END
+icalendar-21-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/32872/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-21-input.ics
+END
+icalendar-12-output.ics
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/28790/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-12-output.ics
+END
+icalendar-23-input.ics
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/32872/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/vcalendar-converter/icalendar-23-input.ics
+END

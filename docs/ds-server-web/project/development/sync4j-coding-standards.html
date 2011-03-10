@@ -1,0 +1,699 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Sync4j Coding Standards</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.0.1  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Stefano Fornari">
+	<META NAME="CREATED" CONTENT="20021217;10532900">
+	<META NAME="CHANGEDBY" CONTENT="Stefano Fornari">
+	<META NAME="CHANGED" CONTENT="20030125;19132044">
+	<META NAME="KEYWORDS" CONTENT="development java coding standards">
+	<STYLE>
+	<!--
+		H1 { margin-bottom: 0.11cm; color: #000000; text-align: justify; widows: 2; orphans: 2 }
+		H1.western { font-family: "Arial", sans-serif; font-size: 16pt; so-language: en-US }
+		H1.cjk { font-family: "Times New Roman", serif; font-size: 16pt }
+		H1.ctl { font-family: "Arial Unicode MS"; font-size: 12pt; font-weight: medium }
+		H2 { margin-bottom: 0.11cm; color: #000000; text-align: justify; widows: 2; orphans: 2 }
+		H2.western { font-family: "Arial", sans-serif; font-size: 14pt; so-language: en-US }
+		H2.cjk { font-family: "Times New Roman", serif; font-size: 14pt }
+		H2.ctl { font-family: "Arial Unicode MS"; font-size: 12pt; font-weight: medium }
+		H3 { margin-bottom: 0.11cm; color: #000000; text-align: justify; widows: 2; orphans: 2 }
+		H3.western { font-family: "Arial", sans-serif; font-size: 12pt; so-language: en-US }
+		H3.cjk { font-family: "Times New Roman", serif; font-size: 12pt }
+		H3.ctl { font-family: "Arial Unicode MS"; font-size: 12pt; font-weight: medium }
+		A:link { color: #0000ff }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" LINK="#0000ff">
+<CENTER>
+	<TABLE WIDTH=591 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0 RULES=NONE>
+		<COL WIDTH=575>
+		<TR>
+			<TD WIDTH=575 VALIGN=TOP>
+				<P ALIGN=RIGHT><IMG SRC="sync4j-coding-standards_html_1a50f7f8.png" NAME="Immagine2" ALIGN=BOTTOM WIDTH=219 HEIGHT=90 BORDER=0></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=575 VALIGN=TOP>
+				<P STYLE="margin-bottom: 0cm"><BR><BR><BR><BR><BR><BR><BR><BR><B><FONT SIZE=4 STYLE="font-size: 16pt"><FONT FACE="Arial, sans-serif"><SDFIELD TYPE=DOCINFO SUBTYPE=TITLE>Sync4j Coding Standards</SDFIELD></FONT></FONT></B></P>
+				<P STYLE="margin-bottom: 0cm">October 05, 2002<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0cm; page-break-before: always">
+<FONT FACE="Arial, sans-serif"><FONT SIZE=4 STYLE="font-size: 16pt"><U><B>Change
+History</B></U></FONT></FONT></P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<CENTER>
+	<TABLE WIDTH=591 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0>
+		<COL WIDTH=93>
+		<COL WIDTH=72>
+		<COL WIDTH=318>
+		<COL WIDTH=50>
+		<TR VALIGN=TOP>
+			<TD WIDTH=93 BGCOLOR="#000080">
+				<P><B>Date</B></P>
+			</TD>
+			<TD WIDTH=72 BGCOLOR="#000080">
+				<P><B>Author</B></P>
+			</TD>
+			<TD WIDTH=318 BGCOLOR="#000080">
+				<P><B>Description</B></P>
+			</TD>
+			<TD WIDTH=50 BGCOLOR="#000080">
+				<P><B>Rev #</B></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=93>
+				<P>05 Oct 2002</P>
+			</TD>
+			<TD WIDTH=72>
+				<P>Stefano Fornari</P>
+			</TD>
+			<TD WIDTH=318>
+				<P>Initial revision</P>
+			</TD>
+			<TD WIDTH=50 SDVAL="0,0416666666666667" SDNUM="1040;0;@">
+				<P ALIGN=LEFT>1.0</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=93>
+				<P>17 Dec 2002</P>
+			</TD>
+			<TD WIDTH=72>
+				<P>Stefano Fornari</P>
+			</TD>
+			<TD WIDTH=318>
+				<P>Formatting</P>
+			</TD>
+			<TD WIDTH=50 SDVAL="0,0423611111111111" SDNUM="1040;0;@">
+				<P ALIGN=LEFT>1.1</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=93>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=72>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=318>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=50>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=93>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=72>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=318>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=50>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0cm; page-break-before: always">
+<FONT FACE="Arial, sans-serif"><FONT SIZE=4 STYLE="font-size: 16pt"><U><B>Table
+of Content</B></U></FONT></FONT></P>
+<DIV ID="Indice generale1">
+	<P STYLE="margin-bottom: 0cm">1.Sync4j Coding Standards	4</P>
+	<P STYLE="margin-bottom: 0cm">2.Why Have Code Conventions	4</P>
+	<P STYLE="margin-bottom: 0cm">3.Creating a Source File	4</P>
+	<P STYLE="margin-bottom: 0cm">4.Naming Java Constructs	5</P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm">4.1.Classes	5</P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm">4.2.Method Names	5</P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm">4.3.Member
+	Variables	5</P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm">4.4.Constants	5</P>
+	<P STYLE="margin-bottom: 0cm">5.Commenting	6</P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm">5.1.Creating
+	Javadoc Comments	6</P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm">5.2.Meaningful
+	Comments	6</P>
+	<P STYLE="margin-bottom: 0cm">6.Style	7</P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm">6.1.Choosing
+	Declarations	7</P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm">6.2.Incomplete
+	code	7</P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm">6.3.Delete
+	Commented-out Code	7</P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm">6.4.Imports	7</P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm">6.5.Member
+	variables	7</P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm">6.6.Constructor	7</P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm">6.7.Line length	8</P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm">6.8.Spaces	8</P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm">6.9.Logging	8</P>
+	<P STYLE="margin-left: 1cm; margin-bottom: 0cm">6.9.1.No
+	System.out.println()	8</P>
+	<P STYLE="margin-left: 1cm; margin-bottom: 0cm">6.9.2.Log Debug
+	Information	8</P>
+	<P STYLE="margin-left: 1cm; margin-bottom: 0cm">6.9.3.Log Errors	8</P>
+	<P STYLE="margin-left: 1cm; margin-bottom: 0cm">6.9.4.Log Infos	9</P>
+	<P STYLE="margin-left: 1cm; margin-bottom: 0cm">6.9.5.Log Warnings	9</P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm">6.10.Developing	9</P>
+	<P STYLE="margin-left: 1cm; margin-bottom: 0cm">6.10.1.Constants as
+	Static Finals	9</P>
+	<P STYLE="margin-left: 1cm; margin-bottom: 0cm">6.10.2.Use
+	Properties instead of Constant Strings	9</P>
+	<P STYLE="margin-left: 1cm; margin-bottom: 0cm">6.10.3.Warnings	9</P>
+	<P STYLE="margin-left: 0.5cm; margin-bottom: 0cm">6.11.Error
+	handling	9</P>
+	<P STYLE="margin-left: 1cm; margin-bottom: 0cm">6.11.1.Never ignore
+	Caught  Exceptions	10</P>
+	<P STYLE="margin-bottom: 0cm">7.Sync4j Coding Templates	10</P>
+</DIV>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<H1 CLASS="western" STYLE="page-break-before: always">1.Sync4j Coding
+Standards</H1>
+<P STYLE="margin-bottom: 0cm">This document provides a standard for
+coding for the Sync4j project. At the end of the document a template
+that follows the standards here presented is provided.</P>
+<P LANG="it-IT" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><B>Note:</B> All Sync4j developers are
+requested to follow these coding standards for they help in writing
+more readable and manageble code in a multi developer environments.
+</P>
+<H1 CLASS="western">2.Why Have Code Conventions</H1>
+<P STYLE="margin-bottom: 0cm">Code conventions are important to
+programmers for a number of reasons:
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">80% of the lifetime
+	cost of a piece of software goes to maintenance.
+	</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Sync4j as open source
+	software will never be maintained for its whole life by the original
+	author.
+	</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Code conventions
+	improve readability of the software, allowing engineers to
+	understand new code more quickly and thoroughly.
+	</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">It is much easier
+	produce clean code.
+	</P>
+</UL>
+<H1 CLASS="western">3.Creating a Source File</H1>
+<P STYLE="margin-bottom: 0cm">Use the following structure for source
+files. See Template.java at the end of the documen for an example.</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Begin the source file
+	with the Sync4j copyright notice.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Put the package
+	statement after the Sync4j copyright notice.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Include the import
+	statements next, followed by a single blank line. Organize import
+	statements by type of package: <FONT FACE="Courier New, monospace">sync4j</FONT>,
+	<FONT FACE="Courier New, monospace">java</FONT>, or third party. For
+	example:<BR><BR><FONT FACE="Courier New, monospace">import
+	java.io.*;<BR>import java.text.MessageFormat;<BR><BR>import
+	sync4j.core.SyncHeader;<BR>import
+	sync4j.framework.engine.SyncEngine;<BR><BR>import
+	com.objectspace.jgl.*;</FONT><BR><BR>
+	</P>
+</UL>
+<P STYLE="margin-bottom: 0cm">Write a comment that explains what this
+class is all about. Here are a few guidelines:</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Don&rsquo;t include the
+	name of the class in the beginning of the comment. Javadoc will
+	automatically take care of that for you.</P>
+</UL>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Everything inside the
+	comment is HTML, so use HTML for formatting.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Use HTML paragraph tags
+	to separate paragraphs, so the paragraphs won&rsquo;t run together
+	in Javadoc.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">To provide a cross-link
+	to another class in the Javadoc, use the @see tag. When referring to
+	another class within the same package, use only the class name: @see
+	ClassName. To refer to a class in a different package, use the fully
+	qualified name: @see java.utils.Hashtable.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">To include your name to
+	the file, use the @author tag.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Include an @version tag
+	which contains the CVS expansion macro $Id:
+	Sync4j/Coding/Standards.doc,v 1.1 2002/11/02 13:22:13
+	stefano_fornari Exp $.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Add a blank line under
+	the class header, then declare your class or interface.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Group together your
+	constants, member variables and property definitions.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">If your class is not an
+	interface, define your class constructors</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Define your class
+	methods.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Group together any
+	methods that override the methods of a subclass implement an
+	interface.</P>
+</UL>
+<H1 CLASS="western">4.Naming Java Constructs</H1>
+<P STYLE="margin-bottom: 0cm">This section describes the conventions
+used for naming classes, methods, member variables and parameters.</P>
+<H2 CLASS="western">4.1.Classes</H2>
+<P STYLE="margin-bottom: 0cm">Consider the following guidelines when
+naming classes:</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Take the time to create
+	descriptive names that help users determine what the class does.
+	Names like <FONT FACE="Courier New, monospace">KillerObject</FONT>
+	don&rsquo;t provide much insight into the purpose of the class.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Capitalize the first
+	letter of each word; for example, <FONT FACE="Courier New, monospace">UsefulThingy</FONT>.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Often, a class will
+	include its superclass or base class in its name; for example,
+	<FONT FACE="Courier New, monospace">DataOutputStream</FONT> is based
+	on the name of its base class, <FONT FACE="Courier New, monospace">OutputStream</FONT>.
+	Use this convention when appropriate.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Use long names if
+	appropriate and avoid abbreviations.
+	<FONT FACE="Courier New, monospace">AuditTrailDatasetChoiceExpression</FONT>
+	is more easily understood than an abbreviated name like
+	<FONT FACE="Courier New, monospace">AuthConstraintElem</FONT>.</P>
+</UL>
+<H2 CLASS="western">4.2.Method Names</H2>
+<P STYLE="margin-bottom: 0cm">The first word in a method name is
+lowercase. Capitalize the first letter of each successive word in the
+method; for example, <FONT FACE="Courier New, monospace">getCurrentStatus</FONT>,
+<FONT FACE="Courier New, monospace">setCurrentStatus</FONT>,
+<FONT FACE="Courier New, monospace">formatSuccessBody</FONT>.</P>
+<H2 CLASS="western">4.3.Member Variables</H2>
+<P STYLE="margin-bottom: 0cm">Except for variables, all instance,
+class, and class constants are in mixed case with a lowercase first
+letter. Internal words start with capital letters. Variable names
+should not start with underscore _ or dollar sign $ characters, even
+though both are allowed.
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Variable names should be short yet
+meaningful. The choice of a variable name should be mnemonic- that
+is, designed to indicate to the casual observer the intent of its
+use. One-character variable names should be avoided except for
+temporary &quot;throwaway&quot; variables. Common names for temporary
+variables are i, j, k, m, and n for integers; c, d, and e for
+characters.
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><B>Never prefix variable names with
+characters to indicate visibility or type</B>.</P>
+<H2 CLASS="western">4.4.Constants</H2>
+<P STYLE="margin-bottom: 0cm">The names of variables declared class
+constants should be all uppercase with words separated by underscores
+(&quot;_&quot;). Examples are:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-left: 1.27cm; margin-bottom: 0cm"><FONT FACE="Courier New, monospace">static
+final int MIN_WIDTH = 4; </FONT>
+</P>
+<P STYLE="margin-left: 1.27cm; margin-bottom: 0cm"><FONT FACE="Courier New, monospace">static
+final int MAX_WIDTH = 999; </FONT>
+</P>
+<P STYLE="margin-left: 1.27cm; margin-bottom: 0cm"><FONT FACE="Courier New, monospace">static
+final int GET_THE_CPU = 1; </FONT>
+</P>
+<H1 CLASS="western">5.Commenting</H1>
+<H2 CLASS="western">5.1.Creating Javadoc Comments</H2>
+<P STYLE="margin-bottom: 0cm">Include comments in all of your Java
+files. If you don&rsquo;t include a comment, the Javadoc description
+will be blank. Comments help the readers to understand the code,
+provide useful information for documentation, and give helpful clues
+to both internal and external people who need to understand what the
+code is supposed to do. Here are some guidelines for Javadoc
+comments:</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Comment every public,
+	protected and private member variable, static variable, method, and
+	constructor.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Add comments to your
+	functions as you write them, or as soon as possible afterwards. You
+	may forget to comment if you wait to write them.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">To comment a function,
+	use the <FONT FACE="Courier New, monospace">@param</FONT>, <FONT FACE="Courier New, monospace">@return</FONT>,
+	and <FONT FACE="Courier New, monospace">@exception</FONT> tags. For
+	example:<BR><BR><FONT FACE="Courier New, monospace">/** <BR>  * This
+	is a comment for my function <BR>  * @param pArg1 the first argument
+	<BR>  * @return a useless value <BR>  * @exception MyException a
+	problem occured while accessing the data store<BR>  */</FONT></P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0cm"></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Group together logical
+	methods, such as specific methods that you override from a
+	superclass or methods that define an interface.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Add to the class
+	comment the version expansion keywords for CVS: <BR><BR><FONT FACE="Courier New, monospace">/**
+	@version $Id: Sync4j/Coding/Standards.doc,v 1.1 2002/11/02 13:22:13
+	stefano_fornari Exp $ */</FONT></P>
+</UL>
+<H2 CLASS="western">5.2.Meaningful Comments</H2>
+<P STYLE="margin-bottom: 0cm">Always ensure that comments are
+meaningful - this ensures that comments add to the understanding of
+the code rather than distract or, worse, cause confusion. Be
+particularly careful when cutting and pasting code as this can often
+lead to comments that are in direct contradiction to the code.
+Comments always use // instead of /* when placed in the code.
+Multiple lines each contain a //.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Always write comments in English
+language and with the base ASCII character set. Do not use stressed
+characters or special characters available only in localized
+keyboards.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">A comment should add information to the
+code not just rewrite in natural language what the code already
+states.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">This is an example of meaningless
+comment:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-left: 1.27cm; margin-bottom: 0cm">/<FONT FACE="Courier New, monospace">/
+set the name<BR>profile.setName(name);<BR>// set the
+login<BR>profile.setAge(age);<BR>// create a new
+user<BR>profile.createNewUser();</FONT></P>
+<P STYLE="margin-left: 1.27cm; margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Consider this instead:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-left: 1.27cm; margin-bottom: 0cm"><FONT FACE="Courier New, monospace">//
+In order to register a new profile a new user must be <BR>// created
+with the given data </FONT>
+</P>
+<P STYLE="margin-left: 1.27cm; margin-bottom: 0cm"><FONT FACE="Courier New, monospace">profile.setName(name);<BR>profile.setAge(age);<BR>profile.createNewUser();</FONT></P>
+<H1 CLASS="western">6.Style</H1>
+<P STYLE="margin-bottom: 0cm">The following style rules apply.</P>
+<H2 CLASS="western">6.1.Choosing Declarations</H2>
+<P STYLE="margin-bottom: 0cm">In most cases, you will declare methods
+private. Consider other declarations carefully.</P>
+<H2 CLASS="western">6.2.Incomplete code</H2>
+<P STYLE="margin-bottom: 0cm">Incomplete code, or code using test
+parameters at this moment should be marked with &ldquo;@todo&rdquo;
+and a description what is missing.</P>
+<H2 CLASS="western">6.3.Delete Commented-out Code</H2>
+<P STYLE="margin-bottom: 0cm">Don&rsquo;t leave in commented out code
+- this is distracting and confusing for developers maintaining the
+code. Use CVS as a mechanism for retrieving or looking at old code.
+If the commented-out code is dysfunctional now, but is needed in the
+future, mark it with &ldquo;@todo&rdquo; and an explanation why it&rsquo;s
+left out now.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Classes and methods that are no longer
+preferred must be marked with &ldquo;@deprecated&rdquo; including a
+message describing why they have become deprecated and their
+alternative if available.</P>
+<H2 CLASS="western">6.4.Imports</H2>
+<P STYLE="margin-bottom: 0cm">Whenever possible import classes
+explicitly, this slightly reduces the compile time and prevents name
+clashes (for example <FONT FACE="Courier New, monospace">java.util.*</FONT>
+and<FONT FACE="Courier New, monospace"> java.sql.*</FONT> both
+contain class <FONT FACE="Courier New, monospace">Date</FONT>). Group
+imports from similar packages, and leave white space between them.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">All classes used in the code must be
+imported explicitly in the header of the file.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><B>Note:</B> Importing classes from
+<FONT FACE="Courier New, monospace">java.lang</FONT> is not
+necessary, as they are imported automatically.</P>
+<H2 CLASS="western">6.5.Member variables</H2>
+<P STYLE="margin-bottom: 0cm">Declare all class-local variables at
+the top, before any constructors. This gives a complete overview of
+all variables. Group getters and setters methods for the same
+property just next the variable declaration.</P>
+<H2 CLASS="western">6.6.Constructor</H2>
+<P STYLE="margin-bottom: 0cm">If a class does not need a constructor
+(ie. default constructor suffices), don&rsquo;t write one.</P>
+<H2 CLASS="western">6.7.Line length</H2>
+<P STYLE="margin-bottom: 0cm">As a general rule, respect the maximum
+line length of 80 characters. Break longer lines in two, and add an
+extra indent to show that the lines belong together.</P>
+<H2 CLASS="western">6.8.Spaces</H2>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm"><B>Never use tabs!</B>,
+	always use spaces. Tabs do not show well on the printer and are
+	treated in different ways by different editors. <B>Do not
+	understimate this point. An open source software is by definition
+	written by many people with the most disparate tools and editors.
+	The only way to not corrupt the existing indentation and spacing is
+	to use only spaces.</B></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Remove tailing spaces</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Indent always uses 4
+	spaces.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Use a space after each
+	comma in parameter lists.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Use a space before and
+	after a binary operator</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">No space between a
+	unary operator and its argument</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Don't put spaces
+	immediately before '(' in a function call</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0cm">Put a single space
+	before '(' in a control statement (if, while, for, &hellip;)</P>
+</UL>
+<H2 CLASS="western">6.9.Logging</H2>
+<H3 CLASS="western">6.9.1.No System.out.println()</H3>
+<P STYLE="margin-bottom: 0cm">Never call System.out.println() in a
+method - println() messages can&rsquo;t be turned on and off
+selectively. See Log Debug Information and Log Errors for
+alternatives.</P>
+<H3 CLASS="western">6.9.2.Log Debug Information</H3>
+<P STYLE="margin-bottom: 0cm">Always call <FONT FACE="Courier New, monospace">fine()</FONT>,
+<FONT FACE="Courier New, monospace">finer()</FONT>, <FONT FACE="Courier New, monospace">finest()</FONT>
+on a <FONT FACE="Courier New, monospace">java.util.logging.Logger</FONT>
+to output debug information; not optional, debug information is
+necessary for debugging the server - this provides a configurable
+mechanism for debugging. Consider to wrap calls in a check to see if
+logging is required when the string to log is the result of an
+expression:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-left: 1.27cm; margin-bottom: 0cm"><FONT FACE="Courier New, monospace">if
+(log.isLoggable(Level.FINEST)) {<BR>	log.finest(&ldquo;A debug
+string&rdquo; + hashMap.toString());<BR>}</FONT><BR><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">In fact, even if the logging methods
+check if the specified logging level is on, the time spent in built
+the string to pass to the method can be significant.</P>
+<H3 CLASS="western">6.9.3.Log Errors</H3>
+<P STYLE="margin-bottom: 0cm">Always call <FONT FACE="Courier New, monospace">sever()</FONT>
+to output an error message - this provides a configurable mechanism
+for error logging.
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-left: 1.27cm; margin-bottom: 0cm"><FONT FACE="Courier New, monospace">log.sever(&ldquo;An
+error occurred&rdquo;);</FONT><BR><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">If the error is the result of an
+exception, consider using <FONT FACE="Courier New, monospace">server(string,
+throwable)</FONT> to log it.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><B>Note:</B> when detecting an error,
+logging a message using <FONT FACE="Courier New, monospace">log.xxx()</FONT>
+does not suffice! Often after logging, appropriate handling is needed
+to avoid problems.</P>
+<H3 CLASS="western">6.9.4.Log Infos</H3>
+<P STYLE="margin-bottom: 0cm">Always call <FONT FACE="Courier New, monospace">info()</FONT>
+to output general information. Note they differ from debug and error
+messages since they can be useful to administer the application or
+detect what is going on from a non-technical audience. Not
+necessarily they are addressed to developers.
+</P>
+<H3 CLASS="western">6.9.5.Log Warnings</H3>
+<P STYLE="margin-bottom: 0cm">Always call <FONT FACE="Courier New, monospace">warning()</FONT>
+to output general information. This are used to trace uncommon
+conditions or conditions that can couse errors.</P>
+<H2 CLASS="western">6.10.Developing</H2>
+<H3 CLASS="western">6.10.1.Constants as Static Finals</H3>
+<P STYLE="margin-bottom: 0cm">Don&rsquo;t inline static strings or
+integers that affect system functionality (e.g. parameter names) -
+this makes it harder to discover the names required and to maintain
+the code. Use static final strings declared against the class (or
+interface):</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.27cm; margin-bottom: 0cm"><SPAN STYLE="font-weight: medium"><FONT FACE="Courier New, monospace">//
+use this<BR>public static final String MIMETYPE_SYNCML_XML =
+&quot;application/vnd.syncml+xml&quot;;<BR>&hellip;<BR>if
+(mimeType.equals(MIMETYPE_SYNCML_XML)) {<BR>&hellip;<BR>}</FONT></SPAN><BR><FONT FACE="Courier New, monospace"><BR>//
+rather than<BR>if (mimeType.equals(&ldquo;application/vnd.syncml+xml&rdquo;))
+{<BR>&hellip;<BR>}</FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.27cm; margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Give all constants of an enumeration a
+prefix. For example the user type:
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.27cm; margin-bottom: 0cm"><FONT FACE="Courier New, monospace">//
+The user types<BR>public static final int USER_TYPE_B2C = 0;<BR>public
+static final int USER_TYPE_B2B = 1; </FONT>
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<H3 CLASS="western">6.10.2.Use Properties instead of Constant Strings</H3>
+<P STYLE="margin-bottom: 0cm">If a static string is likely to be
+changed in response to other changes to the system (e.g. a URL or the
+name of a server), don&rsquo;t hard code it as static - this is hard
+to maintain and can&rsquo;t be changed at runtime. Create a property
+to hold the value and set the value using a properties file or a
+XML-serialized instance of the class.</P>
+<H3 CLASS="western">6.10.3.Warnings</H3>
+<P STYLE="margin-bottom: 0cm">Your code should compile without
+warnings (deprecation and others). If using deprecated code, you must
+look for an alternative.</P>
+<H2 CLASS="western">6.11.Error handling</H2>
+<H3 CLASS="western">6.11.1.Never ignore Caught  Exceptions</H3>
+<P STYLE="margin-bottom: 0cm">Don&rsquo;t catch an exception and
+ignore it - this can lead to a system with unpredictable failures. At
+least log an error containing the exception message. Better, recast
+the exception to something more meaningful and throw it again.
+</P>
+<H1 CLASS="western">7.Sync4j Coding Templates</H1>
+<P STYLE="margin-bottom: 0cm">This chapter contains the template of a
+Sync4j class.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><FONT SIZE=3><B>Template.java</B></FONT></P>
+<P STYLE="margin-bottom: 0cm">The template below follows all the
+conventions outlined in this document. Extra line breaks are included
+to emphasize the structure discussed above.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P LANG="it-IT" ALIGN=LEFT STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 9pt">/*</FONT></FONT></P>
+<P LANG="it-IT" ALIGN=LEFT STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 9pt">
+
+Copyright (C) 2003-2004 Funambol<BR><BR>
+This program is free software; you can redistribute it and/or modify<BR>
+it under the terms of the GNU General Public License as published by<BR>
+the Free Software Foundation; either version 2 of the License, or<BR>
+(at your option) any later version.<BR><BR>
+This program is distributed in the hope that it will be useful, <BR>
+but WITHOUT ANY WARRANTY; without even the implied warranty of<BR>
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the<BR>
+GNU General Public License for more details.<BR>
+You should have received a copy of the GNU General Public License<BR>
+along with this program; if not, write to the Free Software<BR>
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA<BR>*/<BR>
+<BR>package sync4j;<BR><BR>import
+java.io.IOException;<BR><BR>/**<BR> * This is the template for Sync4j
+Java source files.  This section <BR> * is in HTML, so separate any
+paragraphs with HTML paragraph tags.<BR> *<BR> * &lt;P&gt;<BR> *<BR>
+* For example, this is a new paragraph.<BR> *<BR> * &lt;P&gt;<BR> *<BR>
+* @see AnotherClass<BR> * @author Your name<BR> * @version $Id:
+Sync4j\040Coding\040Standards.doc,v 1.1.1.1 2002/11/02 13:22:13
+stefano_fornari Exp $<BR> *<BR> **/<BR><BR>public class Template {<BR>
+ // ---------------------------------------------------------------
+Constants<BR>  /** A constant */<BR>  public static final String
+A_CONSTANT = &quot;a constant value&quot;;</FONT></FONT></P>
+<P LANG="it-IT" ALIGN=LEFT STYLE="margin-bottom: 0cm"><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 9pt"><BR>
+ // ------------------------------------------------------------
+Private data<BR> <BR>  /** A member variable */<BR>  private String
+member;<BR>  /** A static member variable /<BR>  private String
+staticMemberVariable;<BR><BR>  //
+--------------------------------------------------------------
+Properties<BR> <BR>  /**<BR>   * a property<BR>   */<BR>  String
+SomeProperty;<BR><BR>  /**<BR>   * Sets property SomeProperty<BR>   *
+@beaninfo<BR>   *   description: (description of the purpose of this
+property)<BR>   *   displayName: (user-readable English name of this
+property)<BR>   **/<BR>  public void setSomeProperty(String
+someProperty) {<BR>    this.someProperty = someProperty;<BR>  }<BR><BR>
+ /**<BR>   * Returns property SomeProperty<BR>   **/<BR>  public
+String getSomeProperty() {<BR>    return someProperty;<BR>  }<BR><BR>
+ /**<BR>   * a boolean property<BR>   */<BR>  boolean
+booleanProperty;<BR><BR>  /**<BR>   * Sets property BooleanProperty<BR>
+  *<BR>   * @beaninfo<BR>   *   description: (description of the
+purpose of this property)<BR>   *   displayName: (user-readable
+English name of this property)<BR>   **/<BR>  public void
+setBooleanProperty(boolean booleanProperty) {<BR>
+this.booleanProperty = bBooleanProperty;<BR>  }<BR><BR>  /**<BR>   *
+Returns property BooleanProperty<BR>   **/<BR>  public boolean
+isBooleanProperty() {<BR>    return booleanProperty;<BR>  }<BR><BR>
+// ------------------------------------------------------------
+Constructors<BR><BR>  /**<BR>   * Constructs a null Template.<BR>
+*/<BR>  public Template (String someParameter)  {<BR>  }<BR><BR>  //
+---------------------------------------------------------- Public
+methods<BR><BR>  /**<BR>   *<BR>   * A sample function<BR>   *<BR>
+* @param pArg and argument<BR>   * @return a string value<BR>   *
+@exception IOException if something went wrong<BR>   **/<BR>  public
+String myFunction (int pArg)<BR>    throws IOException<BR>  {<BR>
+return &quot;something&quot;;<BR>  }<BR><BR>
+//-------------------------------------<BR>  // Overrides
+java.lang.Object method<BR>  //-------------------------------------<BR>
+ /**<BR>   * @return a String representation of this object<BR>   */<BR>
+ public String toString ()<BR>  {<BR>    StringBuffer buf = new
+StringBuffer ();<BR>    buf.append (getClass ().getName ());<BR>
+buf.append ('[');<BR>    buf.append (&quot;this object's value, as a
+String&quot;);<BR>    buf.append (']');<BR>    return buf.toString
+();<BR>  }<BR><BR>  //
+--------------------------------------------------------- Private
+methods<BR>  /**<BR>   *<BR>   * A sample private function<BR>   * <BR>
+  **/<BR>  private void aPrivateMethod(){<BR>  }<BR>}</FONT></FONT></P>
+<P LANG="it-IT" ALIGN=LEFT STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0cm"><BR>
+</P>
+</BODY>
+</HTML>

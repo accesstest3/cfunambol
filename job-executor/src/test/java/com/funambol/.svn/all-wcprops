@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/core/!svn/ver/35931/trunk/funambol/job-executor/src/test/java/com/funambol
+END
+MockPushListenerInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/35931/trunk/funambol/job-executor/src/test/java/com/funambol/MockPushListenerInterface.java
+END
+MockJobExecutorTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/core/!svn/ver/35931/trunk/funambol/job-executor/src/test/java/com/funambol/MockJobExecutorTask.java
+END

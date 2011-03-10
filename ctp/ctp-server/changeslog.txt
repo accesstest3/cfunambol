@@ -1,0 +1,307 @@
+2011-02-01
+- nichele: Removed cluster-framework dependency
+
+----------------------------
+Funambol CTP Server 9.0.0
+----------------------------
+2010-12-21
+- maria: Updated dependencies
+
+----------------------------
+Funambol CTP Server 8.7.0
+----------------------------
+2010-07-12
+- maria: Updated dependencies
+
+----------------------------
+Funambol CTP Server 8.5.2
+----------------------------
+2010-05-12
+- maria: Updated dependencies
+
+----------------------------
+Funambol CTP Server 8.5.1
+----------------------------
+2010-03-30
+- maria: Updated dependencies
+
+----------------------------
+Funambol CTP Server 8.5.0
+----------------------------
+2010-03-25
+- maria: Updated dependencies
+
+----------------------------
+Funambol CTP Server 8.2.7
+----------------------------
+2010-02-17
+- maria: Updated dependencies
+
+----------------------------
+Funambol CTP Server 8.2.6
+----------------------------
+2010-02-16
+- maria: Updated dependencies
+
+----------------------------
+Funambol CTP Server 8.2.5
+----------------------------
+2010-02-04
+- nichele: Added in log4j configuration file a new hourly appender
+
+----------------------------
+Funambol CTP Server 8.2.4
+----------------------------
+2009-12-04
+- maria: Updated dependencies
+
+----------------------------
+Funambol CTP Server 8.2.3
+----------------------------
+2009-11-13
+- maria: Updated dependencies
+
+----------------------------
+Funambol CTP Server 8.2.2
+----------------------------
+2009-11-02
+- maria: Updated dependencies
+
+----------------------------
+Funambol CTP Server 8.2.1
+----------------------------
+2009-10-09
+- maria: Updated dependencies
+
+----------------------------
+Funambol CTP Server 8.2.0
+----------------------------
+2009-09-25
+- maria: Updated dependencies
+
+----------------------------
+Funambol CTP Server 7.1.0
+----------------------------
+2008-12-03
+- lulu: Fixed bug #6432 Error when sending a pending notification via COP.
+        Changed the signature of deletePendingNotifications method in order to
+        use String[] instead of a java.util.List since there is an issue using
+        List via web services.
+
+2008-11-20
+- testa: Changed log message logged when an incoming message is ignored. 
+
+2008-11-16
+- testa: Added pending notification management: once the client connects to the 
+         cop-service, the pending notifications are requested from the ds-server 
+         via web service and if present are sent to the client.
+2008-10-16
+- piter: Added logging of web service call id when authorization is requested to
+         the data synchronization service.
+
+2008-09-22
+- nichele: Updated dependencies
+
+----------------------------
+Funambol CTP Server 7.0.4
+----------------------------
+2008-07-13
+- nichele: Fixed wrong version number in docs/release.properties file (using
+           funambol:funambol-plugin:1.0.8)
+
+----------------------------
+Funambol CTP Server 7.0.3
+----------------------------
+2008-07-08
+- testa: Improved logging messages adding the user name (when available)
+
+2008-07-02
+- nichele: Updated dependencies
+- paulo: Changed the packaging, now sources and javadoc artifacts are not included
+
+----------------------------
+Funambol CTP Server 7.0.2
+----------------------------
+2008-04-27
+- nichele: Fixed bug #SC11 - Typo in the default jgroups-ctp-notification-group.xml
+
+2008-04-22
+- nichele: Reviewed starting script files in order to set funambol.home option
+           instead of funambol.ctp-server.home
+           
+2008-02-21
+- testa: Updated to funambol:ds-server:7.0.0-SNAPSHOT
+
+----------------------------
+Funambol CTP Server 6.6.0
+----------------------------
+
+2008-03-31
+- nichele: Changed log4j configuration adding a new
+           RollingFileAppender and using it instead of the DailyRollingFileAppender.
+
+2008-03-26
+- nichele: Renamed log4j.xml in log4j-ctpserver.xml
+- nichele: Renamed jgroups-ctp-server-group.xml in jgroups-ctpserver.xml; reviewed
+           also the CTPServerConfiguration.xml in order to use the new jgroups-ctpserver.xml
+           file.
+
+
+----------------------------
+Funambol CTP Server 6.5.10
+----------------------------
+
+2008-02-19
+- nichele: Updated to DS Server 6.5.14
+
+
+----------------------------
+Funambol CTP Server 6.5.9
+----------------------------
+
+2007-12-07
+- nichele: Updated to DS Server 6.5.13
+
+
+----------------------------
+Funambol CTP Server 6.5.8
+----------------------------
+
+2007-12-07
+- nichele: Updated to DS Server 6.5.12
+
+
+----------------------------
+Funambol CTP Server 6.5.7
+----------------------------
+
+2007-11-29
+- nichele: Added 'license' option to the starting script files in order to show
+           the AGPLv3 license.
+
+2007-11-28
+- nichele: Changed license to AGPLv3.
+
+
+----------------------------
+Funambol CTP Server 6.5.6
+----------------------------
+
+2007-11-26
+- nichele: Changed in CTPServerConfiguration.xml configuration file, the
+           minaIdleTime value from 600 seconds to 60 seconds.
+           
+2007-11-19
+- nichele: Minor changes in log4j configuration:
+           - set the root level to error
+           - added a new funambol.ctp.server logger (it is commented by default)
+           
+2007-11-19
+- testa: Removed unnecessary log messages
+
+
+----------------------------
+Funambol CTP Server 6.5.5
+----------------------------
+
+2007-11-14
+- nichele: Updated dependencies
+
+
+----------------------------
+Funambol CTP Server 6.5.4
+----------------------------
+
+2007-10-31
+- lulu: Fixed comments in CTPServerConfiguration.xml
+
+2007-10-28
+- nichele: Improved script files
+
+2007-10-23
+- testa: Stop CTP-Server if it is unable to connect to the notification group
+
+2007-10-23
+- nichele: Added docs/release.properties file in the distribution
+
+
+----------------------------
+Funambol CTP Server 6.5.3
+----------------------------
+
+2007-10-10
+- testa: Added system property funambol.ctp-server.home in pom.xml and removed
+         ugly static method used to set the property.
+         Added log messages for authentication result.
+
+2007-10-09
+- testa: Removed log message regarding changes in the group when the group is
+         empty.
+         Rearranged log messages for subscription end unsubscription of
+         notification messages.
+
+
+----------------------------
+Funambol CTP Server 6.5.2
+----------------------------
+
+2007-10-02
+- testa: Added log messages at info level, logging when a new connection to a
+         device is ready (established and authenticated), when a connection
+         closes and when a notification message is sent to a connected device.
+
+2007-10-02
+- testa: Removed verification of configured port number in order to allowed port
+         numbers less then 1024.
+         Creates a session id as a UUID (Universally Unique Identifier) instead
+         of a sequence number.
+
+2007-09-30
+- nichele: Removed the version from the configuration file because now it is read
+           from META-INF/maven/funambol/ctp-server/pom.properties. This file is
+           automatically created by the maven-jar-plugin when the jar file is
+           built.
+
+2007-09-29
+- nichele: Uncommented cluster configuration
+
+2007-09-28
+- testa: Log messages for events related to a communication session are
+         identifiable by the device id, the device ip address and the session id.
+
+2007-09-27
+- testa: Increased clientHeartBeatExpectedTime in the configuration file to 15 minutes.
+
+
+----------------------------
+Funambol CTP Server 6.5.1
+----------------------------
+2007-09-25
+- testa:   Added loadFactor parameter for attribute status of JMX Monitoring.
+           Added maxConnections parameter into CTPServerConfiguration.xml.
+
+2007-09-25
+- nichele: Added -Dfile.encoding=UTF-8 in the script files
+- nichele: Changed JMX port to 7101
+
+2007-09-22
+- nichele: Updated ctp-core dependency to 6.5.1
+
+2007-09-18
+- testa:   Created new artifact funambol:ctp-mina-codec.
+           Moved classes from package com.funambol.ctp.server.filter.codec to
+           package com.funambol.ctp.filter in funambol:ctp-mina-codec.
+           Moved class AuthenticationUtils from package
+           com.funambol.ctp.server.authentication to package
+           com.funambol.ctp.util in funambol:ctp-core
+
+2007-09-17
+- nichele: Reviewed assembly descriptor (bin.xml) and pom file in order to avoid
+           hard-coded version number in CTPServerConfiguration.xml file.
+
+
+----------------------------
+Funambol CTP Server 6.5.0
+----------------------------
+
+First Release

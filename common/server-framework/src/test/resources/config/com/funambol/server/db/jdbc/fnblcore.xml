@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.6.0" class="java.beans.XMLDecoder">
+ <object class="com.funambol.server.db.DataSourceConfiguration">
+   <void method="setProperty">
+    <string>password</string>
+    <string>ss</string>
+   </void>
+   <void method="setProperty">
+    <string>url</string>
+    <string>jdbc:hsqldb:hsql://localhost/funambol</string>
+   </void>
+ </object>
+</java>

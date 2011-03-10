@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/test/java/com/funambol/ctp/core
+END
+AuthTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/test/java/com/funambol/ctp/core/AuthTest.java
+END
+MessageTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/test/java/com/funambol/ctp/core/MessageTest.java
+END
+SyncTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/test/java/com/funambol/ctp/core/SyncTest.java
+END

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+    <FNBL_FILE_DATA_OBJECT id="0" userid="username1" source_uri="fdo" status="N" local_name="filename" crc="4274335913"/>
+    <FNBL_FILE_DATA_OBJECT id="1" userid="username1" source_uri="fdo" status="N" local_name="filename" crc="4274335913"/>
+    <FNBL_FILE_DATA_OBJECT id="2" userid="username1" source_uri="fdo" status="N" local_name="filename" crc="740831691"/>
+    <FNBL_FILE_DATA_OBJECT id="3" userid="username1" source_uri="fdo" status="N" local_name="filename" crc="-1"/>
+    <FNBL_FILE_DATA_OBJECT id="4" userid="username1" source_uri="fdo" status="N" local_name="filename" crc="-1"/>
+
+    <FNBL_FILE_DATA_OBJECT id="5" userid="username2" status="N" local_name="filename" crc="4274335913"/>
+    <FNBL_FILE_DATA_OBJECT id="6" userid="username2" status="N" local_name="filename" crc="4274335913"/>
+    <FNBL_FILE_DATA_OBJECT id="7" userid="username2" status="N" local_name="filename" crc="740831691"/>
+    <FNBL_FILE_DATA_OBJECT id="8" userid="username2" status="N" local_name="filename" crc="-1"/>
+    <FNBL_FILE_DATA_OBJECT id="9" userid="username2" status="N" local_name="filename" crc="-1"/>
+</dataset>

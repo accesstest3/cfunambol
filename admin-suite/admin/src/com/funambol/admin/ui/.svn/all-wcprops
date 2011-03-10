@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/ui
+END
+ManagementObjectPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/ui/ManagementObjectPanel.java
+END
+MainPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/ui/MainPanel.java
+END
+MiniStatusBar.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/ui/MiniStatusBar.java
+END
+NodeTools.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/ui/NodeTools.java
+END
+ConnectorManagementPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/ui/ConnectorManagementPanel.java
+END
+ServerExplorer.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/ui/ServerExplorer.java
+END
+PanelManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/ui/PanelManager.java
+END
+MainTopComponent.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/ui/MainTopComponent.java
+END
+GuiFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/ui/GuiFactory.java
+END
+SourceManagementPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/ui/SourceManagementPanel.java
+END
+HREFJLabel.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/ui/HREFJLabel.java
+END
+ExplorerUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/ui/ExplorerUtil.java
+END
+TimeZonesComboModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/ui/TimeZonesComboModel.java
+END

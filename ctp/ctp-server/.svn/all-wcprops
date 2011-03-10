@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/core/!svn/ver/36597/trunk/funambol/ctp/ctp-server
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/LICENSE.txt
+END
+changeslog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/core/!svn/ver/36597/trunk/funambol/ctp/ctp-server/changeslog.txt
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/core/!svn/ver/36596/trunk/funambol/ctp/ctp-server/pom.xml
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/.cvsignore
+END

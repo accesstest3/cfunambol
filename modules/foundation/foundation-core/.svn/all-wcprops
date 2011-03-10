@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/core/!svn/ver/36710/trunk/funambol/modules/foundation/foundation-core
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/LICENSE.txt
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/core/!svn/ver/36684/trunk/funambol/modules/foundation/foundation-core/pom.xml
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/.cvsignore
+END

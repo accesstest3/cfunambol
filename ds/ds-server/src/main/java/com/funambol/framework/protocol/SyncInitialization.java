@@ -1,0 +1,1042 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2003 - 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+package com.funambol.framework.protocol;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Hashtable;
+import java.util.Properties;
+
+import com.funambol.framework.core.*;
+import com.funambol.framework.database.Database;
+
+import com.funambol.framework.protocol.v11.InitializationRequirements;
+
+import com.funambol.framework.security.Sync4jPrincipal;
+
+/**
+ * Represents the Initialization package of the SyncML protocol.
+ *
+ * Example:
+ * <pre>
+ *   SyncInitialization syncInit = new SyncInitialization(header, body);
+ *   ... do something ...
+ *   syncInit.setServerCapabilities(serverCapabilities);
+ *   syncInit.setAuthorizedStatusCode(StatusCode.AUTHENTICATION_ACCEPTED);
+ *   syncInit.setClientCapabilitiesStatusCode(StatusCode.OK);
+ *   ... other initializations ...
+ *   Message response = syncInit.getResponse();
+ * </pre>
+ *
+ * @version $Id: SyncInitialization.java 34007 2010-03-17 17:57:38Z luigiafassina $
+ *
+ * @see SyncPackage
+ */
+public class SyncInitialization extends SyncPackage {
+
+    private static final String POM_PROPERTIES_FILE =
+            "META-INF/maven/funambol/ds-server/pom.properties";
+
+    private static final String DS_VERSION     = initVersion();
+    private static final String DS_VERSION_MSG = initVersionMessage();
+    private static final String UNKNOWN_DS_VERSION = "unknown";
+
+    /**
+     * Contains the request for server capabilities sent by the client
+     * (null means capabilities not required)
+     */
+    private Get serverCapabilitiesRequest = null;
+    public boolean isServerCapabilitiesRequested() {
+        return this.serverCapabilitiesRequest != null;
+    }
+
+    private String contentTypeDevInf = Constants.MIMETYPE_SYNCML_DEVICEINFO_XML;
+    /**
+     * Sets content-type to use into request capabilities by server
+     *
+     * @param contentType The content type to use into request capabilities
+     */
+    public void setContentType(String contentType) {
+        if (Constants.MIMETYPE_SYNCMLDS_WBXML.equals(contentType)) {
+            this.contentTypeDevInf = Constants.MIMETYPE_SYNCML_DEVICEINFO_WBXML;
+        } else {
+            this.contentTypeDevInf = Constants.MIMETYPE_SYNCML_DEVICEINFO_XML;
+        }
+    }
+
+    /**
+     * The device capabilities sent by the client.
+     */
+    private Put clientCapabilities = null;
+
+    public DevInf getClientDeviceInfo() throws ProtocolException {
+        if (clientCapabilities != null) {
+            DevInfItem item = (DevInfItem)this.clientCapabilities.getItems().get(0);
+            return item.getDevInfData().getDevInf();
+        }
+        return null;
+    }
+
+    /**
+     * Caches the commands sent by the client.It is set during the
+     * checking of the requirements.
+     */
+    private AbstractCommand[] clientCommands = null;
+
+    public AbstractCommand[] getClientCommands() {
+        return clientCommands;
+    }
+
+    /**
+     * Caches the alert command sent by the client. It is set during the
+     * checking of the requirements.
+     */
+    private Alert[] clientAlerts = null;
+
+    public Alert[] getClientAlerts() {
+        return clientAlerts;
+    }
+
+    /**
+     * Caches the sync command sent by the client to create Status in the case
+     * of client is not authenticated
+     */
+    private Sync[] clientSyncs = null;
+
+    /**
+     * Client Capabilities status code
+     */
+    private int clientCapabilitiesStatusCode = -1;
+
+    public int getClientCapabilitiesStatusCode() {
+        return this.clientCapabilitiesStatusCode;
+    }
+
+    public void setClientCapabilitiesStatusCode(int clientCapabilitiesStatusCode) {
+        this.clientCapabilitiesStatusCode = clientCapabilitiesStatusCode;
+    }
+
+    /**
+     * Server capabilities
+     */
+    private DevInf serverCapabilities = null;
+
+    public void setServerCapabilities(DevInf capabilities) {
+        this.serverCapabilities = capabilities;
+    }
+
+    public DevInf getServerCapabilities() {
+        return this.serverCapabilities;
+    }
+
+    /**
+     * Has the server caps already been sent to the client?
+     */
+    private boolean sentServerCaps = false;
+    public void setSentServerCaps(boolean sentServerCaps) {
+        this.sentServerCaps = sentServerCaps;
+    }
+
+    /**
+     * If the response commands list contains a Results or a Put command, this
+     * flag has to be set to true since the SessionHandler check it in order
+     * to update the sent_server_caps field into db. The SessionHandler has to
+     * set it to false after the updating in order to store the info only once
+     * during the sync since this check will be repeate for each message.
+     */
+    private boolean serverCapsContainedInList = false;
+    public void setServerCapsContainedInList(boolean serverCapsContainedInList) {
+        this.serverCapsContainedInList = serverCapsContainedInList;
+    }
+    public boolean isServerCapsContainedInList() {
+        return this.serverCapsContainedInList;
+    }
+
+    /**
+     * Databases that the server wants to synchronized. They can be differnt
+     * from the databases the client has requested to be synchronized.
+     */
+    private Database[] databases = null;
+
+    public void setDatabases(Database[] databases) {
+        this.databases = databases;
+    }
+
+    public Database[] getDatabases() {
+        return this.databases;
+    }
+
+    /**
+     * Does the server require client capabilities?
+     */
+    private boolean clientCapabilitiesRequired = false;
+
+    public void setClientCapabilitiesRequired(boolean clientCapabilitiesRequired) {
+        this.clientCapabilitiesRequired = clientCapabilitiesRequired;
+    }
+
+    public boolean isClientCapabilitiesRequired() {
+        return this.clientCapabilitiesRequired;
+    }
+
+    /**
+     * Authorized status code - used in building response message
+     */
+    private int authorizedStatusCode = -1;
+
+    public void setAuthorizedStatusCode(int authorizedStatusCode) {
+        this.authorizedStatusCode = authorizedStatusCode;
+    }
+
+    /**
+     * Did the client challenge for authentication? If so, this property contains
+     * client Chal
+     */
+    private Chal clientChal = null;
+
+    /**
+     * Gets clientChal
+     *
+     * @return the given client Chal
+     */
+    public Chal getClientChal() {
+        return clientChal;
+    }
+
+    /**
+     * Server authentication type
+     */
+    private String clientAuth = null;
+
+    /**
+     * Sets server authentication type required to the client to authenticate it
+     *
+     * @param clientAuth server authentication type
+     */
+    public void setClientAuth(String clientAuth) {
+        this.clientAuth = clientAuth;
+    }
+
+    /**
+     * Next nonce for MD5 authentication
+     */
+    private NextNonce nextNonce = null;
+
+    /**
+     * Sets nextNonce
+     *
+     * @param nextNonce the next nonce
+     */
+    public void setNextNonce(NextNonce nextNonce) {
+        this.nextNonce = nextNonce;
+    }
+
+    /**
+     * Did the client challenge for authentication? If so, this property must
+     * contain server credentials.
+     */
+    private Cred serverCredentials;
+
+    /**
+     * Sets serverCredentials
+     *
+     * @param serverCredentials the new server credentials
+     */
+    public void setServerCredentials(Cred serverCredentials) {
+        this.serverCredentials = serverCredentials;
+    }
+
+    /**
+     * Gets serverCredentials
+     */
+    public Cred getServerCredentials() {
+        return serverCredentials;
+    }
+
+    // ---------------------------------------------------------- Command status
+
+    /**
+     * The map containing the status of the commands
+     */
+    private Hashtable commandStatus = new Hashtable();
+
+    /**
+     * Sets the status code for the given command.
+     *
+     * @param cmd the command
+     * @param statusCode the status code
+     */
+    public void setStatusCodeForCommand(AbstractCommand cmd, int statusCode) {
+        setStatusCodeForCommand(cmd.getCmdID().getCmdID(), statusCode);
+    }
+
+    /**
+     * Sets the status code for the command identified by the given id.
+     *
+     * @param cmdId the command id
+     * @param statusCode the status code
+     */
+    public void setStatusCodeForCommand(String cmdId, int statusCode) {
+        commandStatus.put(cmdId, new Integer(statusCode));
+    }
+
+    /**
+     * Returns the status code for the given command. The status code must be
+     * previously set with <i>setStatusCodeForCommand()</i>. If no status code
+     * is associated to the given command, the default status code is returned.
+     *
+     * @param cmd the command
+     * @param defaultCode the default status code
+     *
+     * @return the status code for the command if previously set, the default
+     *         status code otherwise
+     */
+    public int getStatusCodeForCommand(AbstractCommand cmd, int defaultCode) {
+        String cmdId = cmd.getCmdID().getCmdID();
+
+        return getStatusCodeForCommand(cmdId, defaultCode);
+
+    }
+
+    /**
+     * The same as <i>getStatusCodeForCommand(AbstractCommand, int) but passing
+     * in the command id instead of the command.
+     *
+     * @param cmdId the command id
+     * @param defaultCode
+     *
+     * @return the status code for the command if previously set, the default
+     *         status code otherwise
+     */
+    public int getStatusCodeForCommand(String cmdId, int defaultCode) {
+        Integer statusCode = (Integer)commandStatus.get(cmdId);
+
+        return (statusCode == null) ? defaultCode : statusCode.intValue();
+    }
+
+
+    // ------------------------------------------------------------ Constructors
+
+    /**
+      *
+      *  @param syncHeader the header of the syncronization packet
+      *  @param syncBody   the body of the syncronization packet
+      *
+      *  @throws ProtocolException
+      */
+    public SyncInitialization(final SyncHdr  syncHeader,
+                              final SyncBody syncBody  )
+    throws ProtocolException {
+        super(syncHeader, syncBody);
+        checkRequirements();
+    }
+
+    // ------------------------------------------------------ Public methods
+
+    /**
+     * Alerts specifying the database to be synchronized could be more
+     * then one. Each can contains more than one item, which specifies
+     * a single database. This method selects the items containing the
+     * databases regardless in what alert command they where included.
+     *
+     * @param principal the principal for which we want the databases
+     *
+     * @return an array of Database objects
+     */
+    public Database[] getDatabasesToBeSynchronized(Sync4jPrincipal principal) {
+        List dbList = new ArrayList();
+
+        Database db     = null;
+        Item[]   items  = null;
+        Meta     meta   = null;
+        Anchor   anchor = null;
+        for (int i=0; ((clientAlerts != null) && (i < clientAlerts.length)); ++i) {
+            //
+            // Only database synchronization alerts are selected
+            //
+            if (!AlertCode.isInitializationCode(clientAlerts[i].getData())) {
+                continue;
+            }
+
+            items = (Item[])clientAlerts[i].getItems().toArray(new Item[0]);
+            for (int j=0; ((items != null) && (j<items.length)); ++j) {
+                meta = items[j].getMeta();
+                anchor = meta.getAnchor();
+
+                //
+                // If the anchor does not exists, the alert does not represent
+                // a database to be synchronized.
+                //
+                if (anchor == null) {
+                    continue;
+                }
+
+                //
+                // NOTE: the target becomes the database source and vice-versa
+                //
+                db = new Database(
+                         items[j].getTarget().getLocURI()                ,
+                         null /* type */                                 ,
+                         ProtocolUtil.source2Target(items[j].getSource()),
+                         ProtocolUtil.target2Source(items[j].getTarget()),
+                         anchor                                          ,
+                         principal
+                     );
+                db.setMethod(clientAlerts[i].getData());
+                db.setAlertCommand(clientAlerts[i]);
+
+                dbList.add(db);
+            }  // next j
+        }  // next i
+
+        int dbSize = dbList.size();
+        Database[] dbArray = new Database[dbSize];
+        for (int i=0; i<dbSize; i++) {
+            dbArray[i] = (Database)dbList.get(i);
+        }
+        return dbArray;
+    }
+
+    // -------------------------------------------------------------------------
+
+    /**
+     * Checks that all requirements regarding the header of the initialization
+     * packet are respected.
+     *
+     * @throws ProtocolException
+     */
+    public void checkHeaderRequirements()
+    throws ProtocolException {
+        InitializationRequirements.checkDTDVersion     (syncHeader.getVerDTD()   );
+        InitializationRequirements.checkProtocolVersion(syncHeader.getVerProto());
+        InitializationRequirements.checkSessionId      (syncHeader.getSessionID());
+        InitializationRequirements.checkMessageId      (syncHeader.getMsgID()    );
+        InitializationRequirements.checkTarget         (syncHeader.getTarget()   );
+        InitializationRequirements.checkSource         (syncHeader.getSource()   );
+    }
+
+    /**
+     * Checks that all requirements regarding the body of the initialization
+     * packet are respected.
+     *
+     * @throws ProtocolException
+     */
+    public void checkBodyRequirements()
+    throws ProtocolException {
+        ArrayList listAlerts = new ArrayList();
+        ArrayList mergedClientCommands = new ArrayList();
+
+        AbstractCommand[] allClientCommands =
+            (AbstractCommand[])syncBody.getCommands().toArray(
+                                                        new AbstractCommand[0]);
+
+        //
+        // Extracts and checks alert commands
+        //
+        ArrayList alertList = ProtocolUtil.filterCommands(allClientCommands    ,
+                                                          Alert.class);
+        int size = alertList.size();
+        Alert[] alerts = new Alert[size];
+        for (int i=0; i < size; i++) {
+            alerts[i] = (Alert)alertList.get(i);
+
+            if (isRevAlertData(alerts[i].getData())) {
+                listAlerts.add(alerts[i]);
+                continue;
+            }
+
+            InitializationRequirements.checkAlertCommand(alerts[i]);
+
+            //
+            // Check if there are more Alert commands for the same syncsource because
+            // it must have a single Alert for SyncSource.
+            //
+            String locURI = ((Item)(alerts[i].getItems().get(0))).getTarget().getLocURI();
+            int sizeLA = listAlerts.size();
+            boolean isPresent = false;
+            for (int y=0; y < sizeLA; y++) {
+                String locURICached =
+                    ((Item)(((Alert)listAlerts.get(y)).getItems().get(0))).getTarget().getLocURI();
+
+                if (locURICached.equals(locURI)) {
+                    isPresent = true;
+                    //
+                    // This is not a client Alert to process into sync, but
+                    // its Status command must be created.
+                    //
+                    mergedClientCommands.add(alerts[i]);
+                    break;
+                }
+            }
+            if (!isPresent) {
+            listAlerts.add(alerts[i]);
+         }
+         }
+
+        //
+        // All alerts are OK => they can be cached
+        //
+        clientAlerts = (Alert[])listAlerts.toArray(new Alert[0]);
+        mergedClientCommands.addAll(listAlerts);
+
+        //
+        // Client can send the capabilities into Put command
+        //
+        ArrayList clientCapabilitiesList =
+            ProtocolUtil.filterCommands(allClientCommands, Put.class);
+
+        if ((clientCapabilities == null) && (clientCapabilitiesList.size()>0)) {
+            InitializationRequirements.checkCapabilities((Put)clientCapabilitiesList.get(0)     ,
+                                                         InitializationRequirements.CLIENT_CAPABILITIES);
+            clientCapabilities = (Put)clientCapabilitiesList.get(0);
+        }
+        mergedClientCommands.addAll(clientCapabilitiesList);
+
+        ArrayList capabilitiesRequest =
+            ProtocolUtil.filterCommands(allClientCommands, Get.class);
+
+        if ((capabilitiesRequest != null) && (capabilitiesRequest.size()>0)) {
+            InitializationRequirements.checkCapabilitiesRequest((Get)capabilitiesRequest.get(0));
+            serverCapabilitiesRequest = (Get)capabilitiesRequest.get(0);
+        }
+        mergedClientCommands.addAll(capabilitiesRequest);
+
+        //
+        // Extracts Sync commands
+        //
+        ArrayList listSync = ProtocolUtil.filterCommands(allClientCommands, Sync.class);
+        clientSyncs = (Sync[])listSync.toArray(new Sync[0]);
+
+        clientCommands =
+            (AbstractCommand[])mergedClientCommands.toArray(new AbstractCommand[0]);
+    }
+
+    /**
+     * Constructs a proper response message.<br>
+     * NOTES
+     * <ul>
+     *  <li> If server capabilities are not required, they are not sent (in
+     *       the SyncML protocol the server MAY send not required capabilities)
+     * </ul>
+     *
+     * @param msgId the msg id of the response
+     * @return the response message
+     *
+     * @throws ProtocolException in case of error or inconsistency
+     */
+    public SyncML getResponseMessage(String msgId) throws ProtocolException {
+        SyncHdr  responseHeader = getResponseHeader(msgId);
+        AbstractCommand[] commands =
+            (AbstractCommand[]) getResponseCommands(msgId).toArray(new AbstractCommand[0]);
+        SyncBody responseBody = new SyncBody(
+            commands,
+            isFlag(Flags.FLAG_FINAL_MESSAGE)
+        );
+
+        try {
+            return new SyncML(responseHeader, responseBody);
+        } catch (RepresentationException e) {
+            //
+            // It should never happen !!!!
+            //
+            throw new ProtocolException("Unexpected error", e);
+        }
+    }
+
+    /**
+     * Returns the response commands in response to the incoming initialization
+     * message.
+     *
+     * @param msgId the message id to use
+     *
+     * @return an array of AbstractCommand
+     *
+     * @throws ProtocolException in case of errors
+     */
+    public List getResponseCommands(String msgId)
+    throws ProtocolException {
+        ArrayList statusList  = new ArrayList();
+        ArrayList commandList = new ArrayList();
+
+        //
+        // Constructs all required response commands.
+        //
+        // NOTE: if NoResp is specified in the header element, than no
+        //       response commands must be returned regardless NoResp is
+        //       specified or not in subsequent commands
+        //
+
+        if (syncHeader.isNoResp() == false) {
+            //
+            // Session authorization
+            //
+            TargetRef[] targetRefs = new TargetRef[] { new TargetRef(syncHeader.getTarget().getLocURI()) };
+            SourceRef[] sourceRefs = new SourceRef[] { new SourceRef(syncHeader.getSource().getLocURI()) };
+
+            //
+            // If the session is not authenticated, a Chal element must be returned
+            //
+            Chal chal = null;
+            if (authorizedStatusCode != StatusCode.AUTHENTICATION_ACCEPTED) {
+                if (clientAuth.equalsIgnoreCase(Cred.AUTH_TYPE_BASIC)) {
+                    chal = Chal.getBasicChal();
+                }
+            }
+
+            //
+            // The MD5 authentication always requires the chal element
+            //
+            if (clientAuth.equalsIgnoreCase(Cred.AUTH_TYPE_MD5)) {
+                chal = Chal.getMD5Chal();
+                chal.setNextNonce(nextNonce);
+            }
+            Status statusCommand = new Status(
+                                    idGenerator.next()                            ,
+                                    syncHeader.getMsgID()                         ,
+                                    "0" /* command ref */                         ,
+                                    "SyncHdr" /* see SyncML specs */              ,
+                                    targetRefs                                    ,
+                                    sourceRefs                                    ,
+                                    null /* credential */                         ,
+                                    chal                                          ,
+                                    new Data(String.valueOf(authorizedStatusCode)),
+                                    new Item[0]
+                                   );
+
+            statusList.add(statusCommand);
+
+            //
+            // Status for each command that requested it (it is supposed each
+            // command has bean already checked).
+            //
+            for (int i=0; ((clientCommands != null) && (i < clientCommands.length)); ++i) {
+                if (clientCommands[i].isNoResp()) {
+                    continue;
+                }
+
+                targetRefs = null;
+                sourceRefs = null;
+                if (clientCommands[i] instanceof ItemizedCommand) {
+                    Item[] items = (Item[])((ItemizedCommand)clientCommands[i]).getItems().toArray(new Item[0]);
+
+                    ArrayList trefs = new ArrayList();
+                    ArrayList srefs = new ArrayList();
+                    Target t;
+                    Source s;
+                    for (int j=0; j<items.length; ++j) {
+                        t = items[j].getTarget();
+                        s = items[j].getSource();
+
+                        if (t != null) {
+                            trefs.add(new TargetRef(t));
+                        }
+                        if (s != null) {
+                            srefs.add(new SourceRef(s));
+                        }
+                    }  // next j
+
+                    if (trefs.size() > 0) {
+                        targetRefs = (TargetRef[])trefs.toArray(new TargetRef[trefs.size()]);
+                    }
+                    if (srefs.size() > 0) {
+                        sourceRefs = (SourceRef[])srefs.toArray(new SourceRef[srefs.size()]);
+                    }
+                }
+
+                String commandReference = clientCommands[i].getCmdID().getCmdID();
+                String status =
+                    String.valueOf(getStatusCodeForCommand(clientCommands[i], StatusCode.OK));
+
+                Item[] items = new Item[0];
+
+                //
+                // Within Response of Alert, Item must contain the NEXT Anchor.
+                // NOTE: a database represents the server point of view so that
+                //       the target is the client database and the source the
+                //       server database.
+                //
+                if (clientCommands[i] instanceof Alert) {
+                    for(int j=0; (databases != null) && (j<databases.length) ; ++j) {
+                        if((databases[j].getSource().getLocURI()).equals(targetRefs[0].getValue())){
+                            items = new Item[1];
+
+                            Anchor alertAnchor =
+                                       new Anchor(null, databases[j].getNext());
+
+                            ComplexData data = new ComplexData();
+                            data.setAnchor(alertAnchor);
+
+                            items[0] = new Item(
+                               null,  // target
+                               null,  // source
+                               null, // meta
+                               data,
+                               false //MoreData
+                            );
+
+                            break;
+                        }
+                    }
+                }
+
+                if (clientCommands[i] instanceof Alert) {
+                    if (isRevAlertData(((Alert)clientCommands[i]).getData())) {
+                        status = DS_VERSION_MSG;
+                    }
+                }
+                statusCommand = new Status(
+                                    idGenerator.next()          ,
+                                    syncHeader.getMsgID()       ,
+                                    commandReference            ,
+                                    clientCommands[i].getName() ,
+                                    targetRefs                  ,
+                                    sourceRefs                  ,
+                                    null /* credential */       ,
+                                    null /* challenge */        ,
+                                    new Data(status)            ,
+                                    items
+                                );
+
+                statusList.add(statusCommand);
+            }  // next i
+
+            //
+            // If status is not Authorized then create status for all commands
+            // even if Sync command
+            //
+            if (authorizedStatusCode != StatusCode.AUTHENTICATION_ACCEPTED) {
+                if (clientSyncs != null && clientSyncs.length > 0) {
+                    for (int y=0; y<clientSyncs.length; y++) {
+                        Sync sync = (Sync)clientSyncs[y];
+                        ArrayList al = sync.getCommands();
+
+                        String cmdRef = clientSyncs[y].getCmdID().getCmdID();
+                        TargetRef[] tRefs = null;
+                        if (clientSyncs[y].getTarget() != null) {
+                            tRefs = new TargetRef[] { new TargetRef(clientSyncs[y].getTarget().getLocURI()) };
+                        }
+
+                        SourceRef[] sRefs = null;
+                        if (clientSyncs[y].getSource() != null) {
+                            sRefs = new SourceRef[] { new SourceRef(clientSyncs[y].getSource().getLocURI()) };
+                        }
+
+                        statusCommand = new Status(
+                                            idGenerator.next()              ,
+                                            syncHeader.getMsgID()           ,
+                                            cmdRef                          ,
+                                            clientSyncs[y].getName()        ,
+                                            tRefs                           ,
+                                            sRefs                           ,
+                                            null /* credential */           ,
+                                            null /* challenge */            ,
+                                            new Data(authorizedStatusCode)  ,
+                                            new Item[0]
+                                        );
+
+                        statusList.add(statusCommand);
+
+                        if (al != null) {
+                            AbstractCommand[] absCmd = (AbstractCommand[])sync.getCommands().toArray(new AbstractCommand[0]);
+
+                            for (int z=0; absCmd != null && z<absCmd.length; z++) {
+                                cmdRef = absCmd[z].getCmdID().getCmdID();
+
+                                statusCommand = new Status(
+                                                idGenerator.next()            ,
+                                                syncHeader.getMsgID()         ,
+                                                cmdRef                        ,
+                                                absCmd[z].getName()           ,
+                                                tRefs                         ,
+                                                sRefs                         ,
+                                                null /* credential */         ,
+                                                null /* challenge */          ,
+                                                new Data(authorizedStatusCode),
+                                                new Item[0]
+                                            );
+
+                                statusList.add(statusCommand);
+                            }
+                        }
+                    }
+                }
+            }
+        }  // end if syncHeader.getNoResponse() == false
+
+        //
+        // sorting statuses by cmdref and adding the sorted statuses to commandList
+        //
+        AbstractCommand[] cmds =
+            (AbstractCommand[])statusList.toArray(new AbstractCommand[0]);
+        ProtocolUtil.sortStatusCommand(cmds);
+        commandList.addAll(Arrays.asList(cmds));
+
+        //
+        // Server capabilities
+        //
+        if ((authorizedStatusCode == StatusCode.AUTHENTICATION_ACCEPTED)) {
+            if (serverCapabilitiesRequest != null) {
+                if (serverCapabilities == null) {
+                    throw new ProtocolException("Error in creating a response: " +
+                       "server capabilities not set (use setServerCapabilities())");
+                }
+
+                String commandReference =
+                    serverCapabilitiesRequest.getCmdID().getCmdID();
+
+                Meta meta = serverCapabilitiesRequest.getMeta();
+                if (meta == null) {
+                    meta = new Meta();
+                    meta.setType(contentTypeDevInf);
+                }
+
+                DevInfData data = new DevInfData(serverCapabilities);
+
+                Source source   = ProtocolUtil.target2Source(
+                                      ((Item)(serverCapabilitiesRequest.getItems().get(0))).getTarget()
+                                  );
+
+                DevInfItem[] capabilities = new DevInfItem[] {new DevInfItem(null, source, null, data)};
+                Results resultsCommand = new Results(idGenerator.next()   ,
+                                                     syncHeader.getMsgID(),
+                                                     commandReference     ,
+                                                     meta /* meta */      ,
+                                                     null /* target ref */,
+                                                     null /* source ref */,
+                                                     capabilities         );
+                commandList.add(resultsCommand);
+                setServerCapsContainedInList(true);
+            } else {
+                if (sentServerCaps == false) {
+                    if (serverCapabilities == null) {
+                        throw new ProtocolException("Error in creating a response: " +
+                           "server capabilities not set (use setServerCapabilities())");
+                    }
+
+                    Meta meta = new Meta();
+                    meta.setType(contentTypeDevInf);
+
+                    String capabilitiesSource = null;
+                    if (Constants.PROT_1_2.equals(getProtocolVersion().getVersion())) {
+                        capabilitiesSource = InitializationRequirements.CAPABILITIES_TARGET_12;
+                    } else if(Constants.PROT_1_0.equals(getProtocolVersion().getVersion())) {
+                        capabilitiesSource = InitializationRequirements.CAPABILITIES_TARGET_10;
+                    } else {
+                        capabilitiesSource = InitializationRequirements.CAPABILITIES_TARGET_11;
+                    }
+
+                    Source source = new Source(capabilitiesSource);
+
+                    DevInfData data = new DevInfData(serverCapabilities);
+                    DevInfItem[] capabilities = new DevInfItem[] {new DevInfItem(null, source, null, data)};
+
+                    Put putCommand = new Put(idGenerator.next(),
+                                             false, // NoResp since client has to
+                                                    // send the Status for this
+                                                    // command
+                                             null,  // Lang
+                                             null,  // Cred
+                                             meta,
+                                             capabilities);
+
+                    commandList.add(putCommand);
+                    setServerCapsContainedInList(true);
+
+                }
+            }
+        }
+
+        //
+        // Alerts for each database to be synchronized
+        //
+        for (int i=0; (databases != null) && (i<databases.length); ++i ) {
+
+            if (databases[i].isOkStatusCode()) {
+
+                Alert alertCommand =
+                ProtocolUtil.createAlertCommand(idGenerator.next(),
+                                                false             ,
+                                                null              ,
+                                                databases[i]      );
+                        Item item =
+                            (Item)databases[i].getAlertCommand().getItems().get(0);
+                        Long maxObjSize = item.getMeta().getMaxObjSize();
+                        ((Item)alertCommand.getItems().get(0)).getMeta().setMaxObjSize(maxObjSize);
+
+                commandList.add(alertCommand);
+            }
+        }
+
+        //
+        // If client capabilities are required but not provided, a get command
+        // must be added.
+        //
+        if (clientCapabilitiesRequired && (clientCapabilities == null)) {
+            Meta meta = new Meta();
+            meta.setType(contentTypeDevInf);
+
+            String capabilitiesTarget = null;
+            if (Constants.PROT_1_2.equals(getProtocolVersion().getVersion())) {
+                capabilitiesTarget = InitializationRequirements.CAPABILITIES_TARGET_12;
+            } else if(Constants.PROT_1_0.equals(getProtocolVersion().getVersion())) {
+                capabilitiesTarget = InitializationRequirements.CAPABILITIES_TARGET_10;
+            } else {
+                capabilitiesTarget = InitializationRequirements.CAPABILITIES_TARGET_11;
+            }
+            Target target =
+                new Target(capabilitiesTarget,
+                           capabilitiesTarget);
+
+            Item[] items = new Item[1];
+            items[0] = new Item(
+                           null  , /* source */
+                           target,
+                           null  , /* meta   */
+                           null  , /* data   */
+                           false   /* moreData*/
+                           );
+
+            Get getCommand = new Get(
+                                idGenerator.next()     ,
+                                false /* no response */,
+                                null  /* language    */,
+                                null  /* credentials */,
+                                meta                   ,
+                                items
+                             );
+            commandList.add(getCommand);
+        }
+
+        Iterator i = commandList.iterator();
+        while (i.hasNext()) {
+            AbstractCommand c = (AbstractCommand)i.next();
+            if (authorizedStatusCode != StatusCode.AUTHENTICATION_ACCEPTED) {
+                if (c instanceof Status) {
+                    if (isRevStatusData(((Status)c).getData())) {
+                        continue;
+                    }
+
+                    ((Status)c).setData(new Data(String.valueOf(authorizedStatusCode)));
+                }
+            }
+        }
+
+        return commandList;
+    }
+
+    /**
+     * Returns the response SyncHdr to return in response of the incoming SyncML
+     * message.
+     *
+     * @param msgId the message id to use
+     *
+     * @return the SyncHdr object
+     *
+     * @thorws ProtocolException in case of errors
+     */
+    public SyncHdr getResponseHeader(String msgId)
+    throws ProtocolException {
+        //
+        // Constructs return message
+        //
+        Target target = new Target(syncHeader.getSource().getLocURI(),
+                                   syncHeader.getSource().getLocName());
+        Source source = new Source(syncHeader.getTarget().getLocURI(),
+                                   syncHeader.getTarget().getLocName());
+        return new SyncHdr (
+                   getDTDVersion()          ,
+                   getProtocolVersion()     ,
+                   syncHeader.getSessionID(),
+                   msgId                    ,
+                   target                   ,
+                   source                   ,
+                   null  /* response URI */ ,
+                   false                    ,
+                   serverCredentials        ,
+                   null
+                );
+    }
+
+    private boolean isRevAlertData(int data) {
+        return data == AlertCode.HEART_BEAT;
+    }
+
+    private boolean isRevStatusData(Data data) {
+        return data.getData().equals(DS_VERSION_MSG);
+    }
+
+    /**
+     * Sets the version reading POM_PROPERTIES_FILE
+     * @return the version reading POM_PROPERTIES_FILE
+     */
+    private static String initVersion() {
+        InputStream resourceAsStream = null;
+        try {
+            Properties properties = new Properties();
+            
+            resourceAsStream =
+                    SyncInitialization.class.getClassLoader().getResourceAsStream(POM_PROPERTIES_FILE);
+
+            if ( resourceAsStream == null ) {
+                return UNKNOWN_DS_VERSION;
+            }
+            properties.load( resourceAsStream );
+            return properties.getProperty( "version", UNKNOWN_DS_VERSION);
+        } catch (IOException e ) {
+            return UNKNOWN_DS_VERSION;
+        } finally {
+            try {
+                if (resourceAsStream != null) {
+                    resourceAsStream.close();
+                }
+            } catch (IOException ex) {
+                // nothing to do
+            }
+        }
+    }
+
+    /**
+     * Initializes the version message
+     * @return the version message
+     */
+    private static String initVersionMessage() {
+        return DS_VERSION + " (revision:  $Revision: 34007 $)";
+    }
+}

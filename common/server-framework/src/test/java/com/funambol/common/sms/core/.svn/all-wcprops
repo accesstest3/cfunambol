@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/java/com/funambol/common/sms/core
+END
+SMSRecipientTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/java/com/funambol/common/sms/core/SMSRecipientTest.java
+END
+BinarySMSMessageTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/java/com/funambol/common/sms/core/BinarySMSMessageTest.java
+END

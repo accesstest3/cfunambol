@@ -1,0 +1,376 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2009 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+package com.funambol.email.db;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.sql.DataSource;
+
+import com.funambol.email.util.Def;
+import com.funambol.framework.tools.DBTools;
+import com.funambol.framework.tools.DataSourceTools;
+import com.funambol.server.db.RoutingDataSource;
+
+/**
+ * 
+ * This class provides some methods to operate on database.
+ *
+ * @version $Id$
+ */
+public class DBHelper {
+
+    // --------------------------------------------------------------- Constants
+     //
+    // It is not very nice we duplicate here the SQL to create the database.
+    // It would be better to use in some way the scripts in the connector.
+    // For now we keep these scripts.
+    //
+
+    /**
+     * It's the query to create the fnbl_email_inbox table.
+     * (user db)
+     */
+
+    public final static String CREATE_FNBL_EMAIL_INBOX =
+        "create table fnbl_email_inbox ("+
+        "guid           varchar(200) not null,"+
+        "username       varchar(50)  not null,"+
+        "protocol       varchar(4)   not null,"+
+        "last_crc       numeric,"+
+        "invalid        char,"+
+        "internal       char," +
+        "messageid      varchar(700),"+
+        "headerdate     varchar(20),"+
+        "received       varchar(20),"+
+        "subject        varchar(700),"+
+        "sender         varchar(300),"+
+        "token          varchar(200),"+
+        "status         char,"+
+        "constraint pk_cache_inbox primary key (guid, username, protocol)"+
+        ")";
+
+    /**
+     * It's the query to create the fnbl_email_enable_account table.
+     * (core db)
+     */
+
+    public final static String CREATE_FNBL_EMAIL_ENABLE_ACCOUNT =
+        "create table fnbl_email_enable_account ("+
+        "account_id    bigint       not null,"+
+        "username      varchar(50)  not null,"+
+        "constraint pk_enable_account primary key (account_id, username)"+
+        ");";
+
+    /**
+     * It's the query to create the fnbl_email_push_registry table.
+     * (core db)
+     */
+
+
+    public final static String CREATE_FNBL_PUSH_REGISTRY =
+            "CREATE TABLE fnbl_email_push_registry ("+
+            "id bigint NOT NULL,"+
+            "period bigint,"+
+            "active character(1),"+
+            "last_update bigint,"+
+            "status character varying(1),"+
+            "task_bean_file character varying(255),"+
+        "CONSTRAINT fnbl_email_push_registry_pkey PRIMARY KEY (id)"+
+        ")";
+
+    /**
+     * It's the query to create the fnbl_id table.
+     * (core db)
+     */
+
+    public final static String CREATE_FNBL_ID =
+        "CREATE TABLE fnbl_id ("+
+        "idspace character varying(30) NOT NULL,"+
+        "counter bigint NOT NULL,"+
+        "increment_by integer DEFAULT 100,"+
+        "CONSTRAINT pk_id PRIMARY KEY (idspace)"+
+        ")";
+
+    public final static String CREATE_FNBL_ACCOUNT = "create table fnbl_email_account ("+
+        "account_id    bigint       not null,"+
+        "username      varchar(50)  not null,"+
+        "ms_login      varchar(50)  not null,"+
+        "ms_password   varchar(50)  not null,"+
+        "ms_address    varchar(70)  not null,"+
+        "ms_mailboxname   varchar(64),"+
+        "push          char,"+
+        "soft_delete   char,"+
+        "max_num_email integer,"+
+        "max_imap_email integer,"+
+        "mailserver_id varchar(20)  not null,"+
+        "server_public char,"+
+        "server_type   varchar(20),"+
+        "description   varchar(50),"+
+        "protocol      varchar(5),"+
+        "out_server    varchar(30),"+
+        "out_port      integer,"+
+        "out_auth      char,"+
+        "in_server     varchar(30),"+
+        "in_port       integer,"+
+        "sslin         char,"+
+        "sslout        char,"+
+        "inbox_name    varchar(30),"+
+        "inbox_active  char,"+
+        "outbox_name   varchar(30),"+
+        "outbox_active char,"+
+        "sent_name     varchar(30),"+
+        "sent_active   char,"+
+        "drafts_name   varchar(30),"+
+        "drafts_active char,"+
+        "trash_name    varchar(30),"+
+        "trash_active  char,"+
+        "out_login     varchar(50),"+
+        "out_password  varchar(50),"+
+        "constraint pk_user_account primary key (account_id, username)" +
+        ");";
+
+
+    public static final String USER_PART1 = "username1";
+
+    public static final String USER_PART2 = "username2";
+
+    public static final String USER_PART3 = "username3";
+
+    public static final String[] users = new String[]{USER_PART1,USER_PART2,USER_PART3};
+
+
+    // ---------------------------------------------------------- Static methods
+
+    /**
+     *
+     * A connection taken from the core datasource.
+     *
+     * @return a jdbc connection.
+     *
+     * @throws java.lang.Exception if any error occurs.
+     */
+    public static Connection getCoreConnection() throws Exception {
+        DataSource ds  = DataSourceTools.lookupDataSource(Def.JNDI_FNBL_CORE);
+        Connection conn = null;
+        try {
+            conn = ds.getConnection();
+            return conn;
+        } catch (Exception e) {
+            DBTools.close(conn, null, null);
+            throw new Exception("An error occurred while obtaining core connection.",e);
+        }
+
+
+    }
+
+    /**
+     * A connection taken from the user datasource
+     *
+     * @param connectionKey is the key used to search for the right connection.
+     *
+     * @return a jdbc connection
+     *
+     * @throws java.lang.Exception if any error occurs
+     */
+    public static Connection getUserConnection(String connectionKey) throws Exception {
+       RoutingDataSource routingDataSource = (RoutingDataSource) DataSourceTools.lookupDataSource(Def.JNDI_FNBL_USER);
+       Connection conn = null;
+        try {
+            conn = routingDataSource.getRoutedConnection(connectionKey);
+            return conn;
+        } catch (Exception e) {
+            DBTools.close(conn, null, null);
+            throw new Exception("An error occurred while obtaining connection for key ["+connectionKey+"].",e);
+        }
+    }
+
+
+    /**
+     * Create the fnbl_email_inbox table using the connection to the user database
+     * obtained using the given key.
+     * 
+     * @param user is the key used to access to a particular user database
+     * @throws java.lang.Exception if any error occurs.
+     */
+    public static void createEmailInboxTable(String user)  throws Exception {
+        executePreparedStatement(user,
+            CREATE_FNBL_EMAIL_INBOX
+        );
+    }
+
+    /**
+     * Create the fnbl_email_push_registry table using a connection to the core
+     * database.
+     *
+     * @throws java.lang.Exception if any error occurs.
+     */
+    public static void createEmailPushRegistryTable()  throws Exception {
+        executePreparedStatement(
+            CREATE_FNBL_PUSH_REGISTRY
+        );
+    }
+
+    /**
+     * Create the fnbl_email_enable_account table using a connection to the core
+     * database.
+     *
+     * @throws java.lang.Exception if any error occurs.
+     */
+
+    public static void createEmailEnableAccountTable()  throws Exception {
+        executePreparedStatement(
+            CREATE_FNBL_EMAIL_ENABLE_ACCOUNT
+        );
+    }
+    
+    /**
+     * Create the fnbl_id table using a connection to the core
+     * database.
+     *
+     * @throws java.lang.Exception if any error occurs.
+     */
+
+    public static void createIdTable()  throws Exception {
+        executePreparedStatement(CREATE_FNBL_ID);
+    }
+
+
+    /**
+     * Create the fnbl_email_account table using a connection to the core
+     * database.
+     *
+     * @throws java.lang.Exception if any error occurs.
+     */
+
+    public static void createEmailAccountTable()  throws Exception {
+        // Dropping & Creating fnbl cache
+        //executeStatement(DROP_FNBL_ACCOUNT);
+        executePreparedStatement(CREATE_FNBL_ACCOUNT);
+    }
+
+    /**
+     * Execute the given prepared statement using a connection to the user database
+     * obtained using the given key.
+     * If any object is passed to the method, it will be set to the prepared
+     * statement before executing the query.
+     * After executing the statement, the connection and the statement will be
+     * closed using DBTools.
+     *
+     * @param userName is the key used to obtain a connection to the user database.
+     * @param statement it's the statement.
+     * @param params are the parameters that will be set to the statement.
+     * @throws java.lang.Exception if any error occurs
+     */
+
+    public static void executePreparedStatement(String userName, String statement, Object... params) throws Exception {
+       executePreparedStatement(DBHelper.getUserConnection(userName), statement, params);
+    }
+
+    /**
+     * Execute the given prepared statement using the given connection.
+     * If any object is passed to the method, it will be set to the prepared
+     * statement before executing the query.
+     * After executing the statement, the connection and the statement will be
+     * closed using DBTools.
+     *
+     * @param connection the connection that must be used.
+     * @param statement it's the statement.
+     * @param params are the parameters that will be set to the statement.
+     * @throws java.lang.Exception if any error occurs
+     */
+    public static void executePreparedStatement(Connection connection, 
+                                                String statement,
+                                                Object... params) throws Exception {
+       PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement(statement);
+            for (int i=0; i<params.length; ++i) {
+                stmt.setObject(i, params[i]);
+            }
+            stmt.execute();
+        } catch (Exception e) {
+            throw new Exception("An error occurred while executing the statement ["+statement+"].",e);
+        } finally {
+            DBTools.close(connection, stmt, null);
+        }
+
+    }
+
+    /**
+     * Execute the given prepared statement using a connection to the core
+     * database.
+     * If any object is passed to the method, it will be set to the prepared
+     * statement before executing the query.
+     * After executing the statement, the connection and the statement will be
+     * closed using DBTools.
+     *
+     * @param statement it's the statement.
+     * @param params are the parameters that will be set to the statement.
+     * @throws java.lang.Exception if any error occurs
+     */
+    public static void executePreparedStatement(String statement, Object... params) throws Exception {
+        executePreparedStatement(DBHelper.getCoreConnection(), statement, params);
+    }
+
+    /**
+     * This method allows to create all the tables of the email connector
+     * belonging to the user database.
+     *
+     * @throws java.lang.Exception if any error occurs.
+     */
+    
+    public static void creareUserPartitionedEmailTables() throws Exception {
+           for(String user:users) {
+                createEmailInboxTable(user);
+           }
+    }
+
+    /**
+     * This method allows to create all the tables of the email connector
+     * belonging to the core database.
+     *
+     * @throws java.lang.Exception if any error occurs.
+     */
+
+    public static void createCoreEmailTables()  throws Exception {
+        createIdTable();
+        createEmailPushRegistryTable();
+        createEmailAccountTable();
+        createEmailEnableAccountTable();
+    }
+
+
+}

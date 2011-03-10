@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+    <FNBL_FILE_DATA_OBJECT id="0" userid="username1" source_uri="picture" last_update="123456" status="N" upload_status="N" crc="4274335913" true_name="truename1.jpg" created="2009-04-22 09:19:42.0" modified="2009-04-22 10:42:32.0" accessed="2009-04-22 23:24:00.0" h="1" s="0" a="1" d="0" w="1" r="0" x="1" cttype="image/jpeg" object_size="1234" />
+    <FNBL_FILE_DATA_OBJECT id="1" cttype="text/plain" userid="username1" source_uri="picture" last_update="985432" status="U" upload_status="P" local_name="partially_uploaded.tmp" crc="-1" true_name="testPicture.png" created="2010-09-17 14:18:30.0" modified="2010-09-17 14:18:30.0" accessed="2010-09-17 14:18:30.0" h="0" s="0" a="1" d="0" w="1" r="1" x="0" object_size="26364" size_on_storage="2238" />
+    <FNBL_FILE_DATA_OBJECT id="1000" userid="username1" source_uri="fdo" last_update="99989000" status="D" upload_status="U" crc="-1" true_name="truename2.jpg" h="0" s="0" a="0" d="0" w="0" r="0" x="0" />
+    <FNBL_FILE_DATA_OBJECT id="1001" userid="username1" source_uri="fdo" last_update="4444444444" status="D" upload_status="U" local_name="notexisting" crc="-1" true_name="truename2.jpg" h="0" s="0" a="0" d="0" w="0" r="0" x="0" />
+    <FNBL_FILE_DATA_OBJECT id="1002" userid="username1" source_uri="fdo" last_update="4444444444" status="D" upload_status="U" local_name="target/test-classes/data/com/funambol/foundation/items/dao/FileDataObjectDAO/existingfile" crc="-1" true_name="truename2.jpg" h="0" s="0" a="0" d="0" w="0" r="0" x="0" />
+    <FNBL_FILE_DATA_OBJECT id="2" cttype="text/plain" userid="username1" source_uri="picture" last_update="9854324444" status="U" upload_status="P" local_name="completely_uploaded" crc="-1" true_name="testPicture.png" created="2010-09-17 14:18:30.0" modified="2010-09-17 14:18:30.0" accessed="2010-09-17 14:18:30.0" h="0" s="0" a="1" d="0" w="1" r="1" x="0" object_size="26364" size_on_storage="2238"/>
+</dataset>

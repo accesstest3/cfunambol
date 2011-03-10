@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/forge/installer/icons
+END
+install.ico
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/forge/installer/icons/install.ico
+END
+uninstall.ico
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/forge/installer/icons/uninstall.ico
+END
+icon_admin.ico
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/forge/installer/icons/icon_admin.ico
+END

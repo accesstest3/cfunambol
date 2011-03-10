@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2" class="java.beans.XMLDecoder">
+    <object class="com.funambol.pushlistener.service.config.PushListenerConfigBean">
+
+        <void property="maxThreadPoolSize">
+            <int>50</int>
+        </void>
+
+        <void property="healthThreadPollingTime">
+            <!-- 10 minutes -->
+            <long>600000</long>
+        </void>
+
+        <void property="registryMonitorPollingTime">
+             <!-- 1 minute -->
+            <long>60000</long>
+        </void>
+
+        <void property="taskPeriodTolerance">
+            <double>0.1</double>
+        </void>
+
+        <void property="registryTableName">
+            <string>fnbl_email_push_registry</string>
+        </void>
+
+        <void property="registryEntriesIdSpace">
+            <string>email.registryid</string>
+        </void>
+
+        <void property="pluginDirectory">
+            <string>com/funambol/email/inboxlistener/plugin</string>
+        </void>
+        
+        <!-- 
+           db properties 
+        -->   
+        <void property="basicDataSource">
+            <object class="org.apache.commons.dbcp.BasicDataSource">
+                <void property="driverClassName">
+                    <string>org.hsqldb.jdbcDriver</string>
+                </void>
+                <void property="username">
+                    <string>sa</string>
+                </void>
+                <void property="password">
+                    <string></string>
+                </void>
+                <void property="url">
+                    <string>jdbc:hsqldb:hsql://localhost/funambol</string>
+                </void>
+                <void property="maxActive">
+                    <int>50</int>
+                </void>
+            </object>
+        </void>
+        
+        <void property="serverInformation">
+            <object class="com.funambol.server.admin.ws.client.ServerInformation">
+                <void property="url">
+                    <string>http://localhost:8080/funambol/services/admin</string>
+                </void>
+                <void property="username">
+                    <string>admin</string>
+                </void>
+                <void property="password">
+                    <string>sa</string>
+                </void>
+            </object>
+        </void>
+
+        <!--
+             Defines a cluster with name inboxlistener using the file jgroups.xml
+             under config directory
+        -->
+        <void property="clusterConfiguration">
+            <object class="com.funambol.framework.cluster.ClusterConfiguration">
+                <void property="clusterName">
+                    <string>inboxlistener</string>
+                </void>
+                <void property="configurationFile">
+                    <string>jgroups-inboxlistener.xml</string>
+                </void>
+            </object>
+        </void>
+        
+    </object>
+</java>

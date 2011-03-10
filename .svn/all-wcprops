@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/core/!svn/ver/36744/trunk/funambol
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/core/!svn/ver/27993/trunk/funambol/LICENSE.txt
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/core/!svn/ver/36445/trunk/funambol/pom.xml
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/core/!svn/ver/27993/trunk/funambol/.cvsignore
+END

@@ -1,0 +1,1857 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Sync4j Requirements for Data Synchronization</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.0.1  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Stefano Fornari">
+	<META NAME="CREATED" CONTENT="20021111;17030000">
+	<META NAME="CHANGEDBY" CONTENT="Stefano Fornari">
+	<META NAME="CHANGED" CONTENT="20021217;10291100">
+	<STYLE>
+	<!--
+		H1 { margin-bottom: 0.11cm; color: #000000; text-align: justify; widows: 2; orphans: 2 }
+		H1.western { font-family: "Arial", sans-serif; font-size: 16pt; so-language: en-US }
+		H1.cjk { font-family: "Times New Roman", serif; font-size: 16pt }
+		H1.ctl { font-family: "Arial Unicode MS"; font-size: 12pt; font-weight: medium }
+		H2 { margin-bottom: 0.11cm; color: #000000; text-align: justify; widows: 2; orphans: 2 }
+		H2.western { font-family: "Arial", sans-serif; font-size: 14pt; so-language: en-US }
+		H2.cjk { font-family: "Times New Roman", serif; font-size: 14pt }
+		H2.ctl { font-family: "Arial Unicode MS"; font-size: 12pt; font-weight: medium }
+		H3 { margin-bottom: 0.11cm; color: #000000; text-align: justify; widows: 2; orphans: 2 }
+		H3.western { font-family: "Arial", sans-serif; font-size: 12pt; so-language: en-US }
+		H3.cjk { font-family: "Times New Roman", serif; font-size: 12pt }
+		H3.ctl { font-family: "Arial Unicode MS"; font-size: 12pt; font-weight: medium }
+		A:link { color: #0000ff }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" LINK="#0000ff">
+<CENTER>
+	<TABLE WIDTH=591 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0 RULES=NONE>
+		<COL WIDTH=575>
+		<TR>
+			<TD WIDTH=575 VALIGN=TOP>
+				<P ALIGN=RIGHT><IMG SRC="sync4j-ds-req_html_1a50f7f8.png" NAME="Immagine2" ALIGN=BOTTOM WIDTH=219 HEIGHT=90 BORDER=0></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=575 VALIGN=TOP>
+				<P STYLE="margin-bottom: 0cm"><BR><BR><BR><BR><BR><BR><BR><BR><B><FONT SIZE=5><FONT FACE="Arial, sans-serif"><SDFIELD TYPE=DOCINFO SUBTYPE=TITLE>Sync4j Requirements for Data Synchronization</SDFIELD></FONT></FONT></B></P>
+				<P STYLE="margin-bottom: 0cm">David Buchmann, Stefano Fornari</P>
+				<P STYLE="margin-bottom: 0cm">22 Nov 2002</P>
+				<P STYLE="margin-bottom: 0cm"><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P STYLE="margin-bottom: 0cm"><BR>
+				</P>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0cm; page-break-before: always">
+<FONT FACE="Arial, sans-serif"><FONT SIZE=4 STYLE="font-size: 16pt"><U><B>Change
+History</B></U></FONT></FONT></P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<CENTER>
+	<TABLE WIDTH=591 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0>
+		<COL WIDTH=93>
+		<COL WIDTH=73>
+		<COL WIDTH=317>
+		<COL WIDTH=50>
+		<TR VALIGN=TOP>
+			<TD WIDTH=93 BGCOLOR="#000080">
+				<P><B>Date</B></P>
+			</TD>
+			<TD WIDTH=73 BGCOLOR="#000080">
+				<P><B>Author</B></P>
+			</TD>
+			<TD WIDTH=317 BGCOLOR="#000080">
+				<P><B>Description</B></P>
+			</TD>
+			<TD WIDTH=50 BGCOLOR="#000080">
+				<P><B>Rev #</B></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=93>
+				<P>22 Nov 2002</P>
+			</TD>
+			<TD WIDTH=73>
+				<P>David Buchmann</P>
+			</TD>
+			<TD WIDTH=317>
+				<P>Initial version</P>
+			</TD>
+			<TD WIDTH=50>
+				<P>1.0</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=93>
+				<P>02 Dec 2002</P>
+			</TD>
+			<TD WIDTH=73>
+				<P>Stefano Fornari</P>
+			</TD>
+			<TD WIDTH=317>
+				<P>Revision</P>
+			</TD>
+			<TD WIDTH=50>
+				<P>1.1</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=93>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=73>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=317>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=50>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=93>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=73>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=317>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=50>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=93>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=73>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=317>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=50>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P ALIGN=CENTER STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0cm; page-break-before: always">
+<FONT FACE="Arial, sans-serif"><FONT SIZE=4 STYLE="font-size: 16pt"><U><B>Table
+of Content</B></U></FONT></FONT></P>
+<DIV ID="Indice generale1">
+	<P STYLE="margin-bottom: 0cm">1Introduction	4</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	1.1 Purpose of this Document 	4</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	1.2 Related Documents	4</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	1.3 Business Context	4</P>
+	<P STYLE="margin-bottom: 0cm">2General Description 	5</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	2.1 Product Features	5</P>
+	<P STYLE="margin-left: 0.78cm; text-indent: 0cm; margin-bottom: 0cm">
+	2.1.1 Client	5</P>
+	<P STYLE="margin-left: 0.78cm; text-indent: 0cm; margin-bottom: 0cm">
+	2.1.2 Server	5</P>
+	<P STYLE="margin-left: 0.78cm; text-indent: 0cm; margin-bottom: 0cm">
+	2.1.3 Framework	5</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	2.2 Similar System Information	6</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	2.3 User Problem Statement	6</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	2.4 User Objectives	6</P>
+	<P STYLE="margin-bottom: 0cm">3Functional Requirements	7</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	3.1 SyncML Data Sync (DS)	7</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	3.2 SyncML Device Management (DM)	8</P>
+	<P STYLE="margin-left: 0.78cm; text-indent: 0cm; margin-bottom: 0cm">
+	3.2.1 Accessing External Data Sources	9</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	3.3 Sync4j Server	9</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	3.4 Sync4j Framework	10</P>
+	<P STYLE="margin-bottom: 0cm">4User Requirements	11</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.1 User Roles	11</P>
+	<P STYLE="margin-left: 0.78cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.1.1 Administrator Role	11</P>
+	<P STYLE="margin-left: 0.78cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.1.2 Manager Role	11</P>
+	<P STYLE="margin-left: 0.78cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.1.3 Client Role	12</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.2 User Interfaces	12</P>
+	<P STYLE="margin-left: 0.78cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.2.1 Command Line Interface	12</P>
+	<P STYLE="margin-left: 0.78cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.2.2 Diagnostics	12</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.3 Hardware Interfaces	12</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.4 Communications Interfaces	12</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.5 Software Interfaces	12</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.6 Security	13</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.7 Documentation	13</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.8 Maintainability	13</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.9 Portability	13</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.10 Extensibility	13</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	4.11 Packaging and Installation	14</P>
+	<P STYLE="margin-bottom: 0cm">5Technical Requirements	14</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	5.1 Standards Compliance	14</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	5.2 Hardware Limitations	14</P>
+	<P STYLE="margin-bottom: 0cm">6Roadmap	14</P>
+	<P STYLE="margin-bottom: 0cm">7Appendix	14</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	7.1 Definitions, Acronyms, Abbreviations	14</P>
+	<P STYLE="margin-left: 0.39cm; text-indent: 0cm; margin-bottom: 0cm">
+	7.2 References	15</P>
+</DIV>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<OL>
+	<LI><H1 CLASS="western" STYLE="page-break-before: always">Introduction</H1>
+</OL>
+<H2 CLASS="western">1.1 Purpose of this Document 
+</H2>
+<P STYLE="margin-bottom: 0cm">This document describes the
+requirements for the Sync4j SyncML server and framework. It
+represents the basis for the development of the Sync4j project and
+the description of the features and functionality end users, IT
+managers and developers can expect from Sync4j.</P>
+<H2 CLASS="western">1.2 Related Documents</H2>
+<P STYLE="margin-bottom: 0cm">The following documents are related to
+this work:</P>
+<UL>
+	<LI><P LANG="fr-FR" STYLE="margin-bottom: 0cm">SyncML protocol
+	specifications</P>
+	<LI><P LANG="fr-FR" STYLE="margin-bottom: 0cm">Sync4j DM
+	Requirements document (available soon)</P>
+	<LI><P LANG="fr-FR" STYLE="margin-bottom: 0cm">Sync4j Architecture
+	document</P>
+	<LI><P STYLE="margin-bottom: 0cm">Sync4j Implemented Requirements</P>
+	<LI><P STYLE="margin-bottom: 0cm">Sync4j Coding Standards</P>
+</UL>
+<P STYLE="margin-bottom: 0cm">Overview of Sync4j 
+</P>
+<P STYLE="margin-bottom: 0cm">Sync4j is a java implementation of a
+Synchronization Markup Language (SyncML [1]) server and framework. 
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">SyncML is defined on the SyncML website
+as:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><I>SyncML is the open standard that
+drives data mobility by establishing a common language for
+communications between devices, applications and networks. The
+foundation of the SyncML open standard, SyncML Data Sync (SyncML DS)
+ensures a consistent set of data that is always available on any
+device or application, any time. SyncML Device Management (SyncML DM)
+enables OTA administration of devices and applications, simplifying
+configuration, updates and support.</I></P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">For further information on SyncML in
+general, please refer to http://www.syncml.org/.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Sync4j provides a framework to create,
+send, receive and process the messages that make up a SyncML session.
+Together with a simple example, the framework can directly be used
+for synchronization. By providing classes that implement the Sync4j
+interfaces, you make Sync4j use any data source and type, solve
+conflicts between local and remote data as you like etc.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Sync4j is at the same time a complete
+product (the SyncML server) and a framework that developers can
+extend or reuse in order to implement their own server and
+synchronization service.</P>
+<P STYLE="margin-bottom: 0cm">Sync4j aims to implement the two main
+SyncML protocol families: SyncML Data Sync (SyncML DS) and SyncML
+Device Management (SyncML DM).</P>
+<H2 CLASS="western"><FONT SIZE=4>1.3 Business Context</FONT></H2>
+<P STYLE="margin-bottom: 0cm">Sync4j is an open source project
+developed under the BSD license (see
+http://www.opensource.org/licenses/bsd-license.php). This means you
+can use the code in any application you like, modify and redistribute
+it, as long as you leave the copyright notice and warranty
+disclaimer.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">As an open source project, there is no
+guarantee for anything to work as intended. This said, we will work
+hard to make Sync4j as stable as possible and consider any bug
+reports, security considerations etc. submitted by users.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Sync4j is hosted at sourceforge.net
+(http://sync4j.sourceforge.net).</P>
+<OL START=2>
+	<LI><H1 CLASS="western">General Description 
+	</H1>
+</OL>
+<P STYLE="margin-bottom: 0cm">This section describes in detail what
+Sync4j is.</P>
+<H2 CLASS="western">2.1 Product Features</H2>
+<P STYLE="margin-bottom: 0cm">Sync4j is at the same time a SyncML
+server implementation and a framework that users and developers can
+use to build their own synchronization services. It will implement
+both the data synchronization and device management parts described
+in the SyncML standard.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Sync4j currently supports only HTTP as
+transport protocol. Other protocols may be added in the future if the
+Sync4j user community will require it.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Being 100% java, Sync4j can be used on
+any platform with java support as soon as a JVM ver. 1.4 or later is
+available.</P>
+<H3 CLASS="western">2.1.1 Client</H3>
+<P STYLE="margin-bottom: 0cm">Developing a complete SyncML client
+supported on the most different devices is out of the scope of
+Sync4j. As a standard developed, proposed and adopted by a consortium
+of the most important mobile manufacturer companies, SyncML will be
+directly implemented in the majority of mobile devices such as
+mobile/smart phones, PDA, etc. Therefore, trying to create a generic
+client working from devices with a very constrained footprint (few
+Kilobytes) to powerful pocket and tablet pc, would be an effort
+wasted as soon as the device will support directly SyncML. Due to the
+limited available resources, Sync4j focuses on the server-side
+aspects. Nevertheless, a basic thick-client SyncML will be
+implemented as part of the project for the sake of testing and
+integration with other systems.</P>
+<P STYLE="margin-bottom: 0cm">However the support of different Java
+platform and capability might be added in the future, based on the
+requests of the Sync4j community (See also section <I>General Constraints</I>).
+If you would like to implement such a thin client with Sync4j, please
+contact the Sync4j team.</P>
+<H3 CLASS="western">2.1.2 Server</H3>
+<P STYLE="margin-bottom: 0cm">Sync4j will implement a SyncML DS/DM
+full featured server. It is designed to run inside any Java 2
+Enterprise Edition (J2EE) application server such as the open source
+JBoss or commercial Bea Weblogic, SunOne, etc. 
+</P>
+<P STYLE="margin-bottom: 0cm">The transport protocol is implemented
+as a servlet used to get the HTTP POST message and pass it into the
+protocol framework, which in turn, runs inside an Enterprise Java
+Bean. This architecture takes advantage of the Quality of Service
+(QoS) features provided by the hosting application server in order to
+guarantee high scalability and reliability.</P>
+<H3 CLASS="western">2.1.3 Framework</H3>
+<P STYLE="margin-bottom: 0cm">The Sync4j server is built on top of a
+framework developed with modularity and extensibility in mind. The
+goal is that each module should be replaceable, pluggable and
+extensible. The most important modules are:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">client</P>
+	<LI><P STYLE="margin-bottom: 0cm">core</P>
+	<LI><P STYLE="margin-bottom: 0cm">engine</P>
+	<LI><P STYLE="margin-bottom: 0cm">protocol</P>
+	<LI><P STYLE="margin-bottom: 0cm">server</P>
+</UL>
+<P STYLE="margin-bottom: 0cm">These modules are described in more
+detail in the following sections.</P>
+<H2 CLASS="western">2.2 Similar System Information</H2>
+<P STYLE="margin-bottom: 0cm">Sync4j is based on Java technologies
+and platforms. 
+</P>
+<P STYLE="margin-bottom: 0cm">The framework in itself can be used in
+any J2SE version 1.4 or later environment as a standalone program.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">The server, instead, is designed to be
+deployed in a J2EE version 1.3 or later application server. This is
+for the following reasons:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">It avoids to care about
+	server-side collateral services such as multithreading, tcp/ip
+	connections, data marshalling and unmarshalling, transactions,
+	session management, etc.</P>
+	<LI><P STYLE="margin-bottom: 0cm">The J2EE platform has gained a
+	wide acceptance in the enterprise IT infrastructure, thus Sync4j can
+	be plugged in existing environments with a minimal impact.</P>
+	<LI><P STYLE="margin-bottom: 0cm">It does not require the
+	development of a standalone server that IT managers are forced to
+	install, deploy and maintain.</P>
+</UL>
+<P STYLE="margin-bottom: 0cm">User Characteristics</P>
+<P STYLE="margin-bottom: 0cm">From the users standpoint, Sync4j can
+be viewed as a complete synchronization solution whenever it meets
+their requirements of data synchronization. If features are missing
+or need customization, programmers can use the framework to extend or
+build concrete applications on top of it. Developers can eventually
+decide to use only the framework, developing from scratch an entire
+SyncML server.</P>
+<P STYLE="margin-bottom: 0cm">Programmers need no detailed knowledge
+about SyncML. It can be used for any application needing to
+synchronize data of a record-like structure with a server and for any
+server that needs to offer synchronization functionality.</P>
+<H2 CLASS="western">2.3 User Problem Statement</H2>
+<P STYLE="margin-bottom: 0cm">Many applications need to synchronize
+data records. Some servers or clients operate on standard formats
+like contact information (vCard), calendars (vCalendar) or emails;
+others on custom formats for time reports, stock updates or whatever.</P>
+<P STYLE="margin-bottom: 0cm">Developing a new synchronization
+protocol for every application is not desirable. While for
+applications with proprietary servers and clients, this could be an
+option, for standard services this is not possible at all. This is
+where SyncML comes into play. Any device with SyncML and knowledge of
+the data type can synchronize with any server supporting SyncML.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Sync4j is designed to run on any java
+enabled device. It allows to implement SyncML clients and servers
+with little knowledge about the caveats of synchronization. Further,
+programs will be interoperable with all other SyncML services.</P>
+<H2 CLASS="western">2.4 User Objectives</H2>
+<P STYLE="margin-bottom: 0cm">Sync4j is easy to use. Developers can
+look at the implementation and get a running application for their
+purposes very quickly. For SyncML servers, all that needs to be
+written is data access (persistent storage). For the client, the data
+access mostly is not enough, as probably the application will also
+offer a user interface. How the data is generated (user inputs,
+sensor read etc.) is out of the scope of Sync4j.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Generally speaking the goals that
+Sync4j wants to achieve are:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">Provide a full featured and ready
+	to use SyncML DS/DM server.</P>
+	<LI><P STYLE="margin-bottom: 0cm">Support the major data format used
+	by today's mobile applications (i.e. vCard, vCal and other PIM
+	data).</P>
+	<LI><P STYLE="margin-bottom: 0cm">Support for any kind of data
+	business mobile applications may require (by a concept of pluggable
+	data access).</P>
+	<LI><P STYLE="margin-bottom: 0cm">Provide an easy to use
+	synchronization system for the final user.</P>
+	<LI><P STYLE="margin-bottom: 0cm">Provide easy integration with
+	existing systems, especially in the telecommunications field.</P>
+	<LI><P STYLE="margin-bottom: 0cm">Provide a flexible, pluggable and
+	easy to use framework for the development of synchronization
+	services.</P>
+</UL>
+<P STYLE="margin-bottom: 0cm"><A NAME="_Ref26617190"></A><A NAME="_Ref26616918"></A>
+General Constraints</P>
+<P STYLE="margin-bottom: 0cm">One of the aspects debated in the
+Sync4j community was how much to rank the support of java SyncML
+clients for limited devices based on the Java 2 Micro Edition
+technology. Some work was also done in order to make the core classes
+J2ME compliant. Some people supported the vision that Sync4j should
+provide a client implementation working on existing J2ME mobile
+devices, whilst others had the opinion that the Sync4j client
+framework should address thick java clients.</P>
+<P STYLE="margin-bottom: 0cm">At the present time, the choice has
+fallen on the latter option. In fact, even if J2ME clients must be
+kept in consideration for future releases, the constraints imposed by
+the todays implementation of J2ME (essentially based on the Mobile
+Information Device Profile - MIDP) do not permit the development of a
+reasonable SyncML client framework. J2ME/MIDP is targeted to tiny
+devices, with a very limited memory and resource footprint, which
+never could meet the requirements of an even limited SyncML client.
+To give an idea of the limitations the MIDP profile imposes to any
+compliant program, it is sufficient to remark that a midlet suite
+should not be bigger than 30Kb. 
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">However, the discussion is still open,
+since J2ME is evolving from supporting very thin and light devices
+(based on the MIDP profile), to more complete and powerful platforms
+based on the Foundation and Personal profiles. In addition, many more
+powerful devices will implement the SyncML client in the firmware or
+in the operating system, exposing a proper API to custom
+applications. For example, Symbian 7.0 [2] includes a SyncML client
+agent and API.</P>
+<P STYLE="margin-bottom: 0cm">The issue is even more true in the case
+of SyncML DM. Device management will be tightly integrated in the
+device firmware/operating system and manufactures will implement a
+SyncML DM client agent customized to expose each device's specific
+features.</P>
+<P STYLE="margin-bottom: 0cm">Thus, given the limited development
+resources, the priority for Sync4j is currently to provide a fully
+featured SyncML server and a SyncML framework for J2SE clients.
+However, Sync4j is open to contributions of any volunteer and the
+addition of a version of the client agent framework targeted to
+limited devices is welcome.</P>
+<OL START=3>
+	<LI><H1 CLASS="western">Functional Requirements</H1>
+</OL>
+<P STYLE="margin-bottom: 0cm">This section contains the main
+functional requirements for Sync4j. Each requirement is identified by
+a unique code so that it can be uniquely referred from other
+documents and from comments inside the code. Each code is prefixed by
+one of the following prefixes:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<CENTER>
+	<TABLE WIDTH=591 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0>
+		<COL WIDTH=52>
+		<COL WIDTH=509>
+		<TR VALIGN=TOP>
+			<TD WIDTH=52>
+				<P>CR</P>
+			</TD>
+			<TD WIDTH=509>
+				<P>core framework</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=52>
+				<P>EG</P>
+			</TD>
+			<TD WIDTH=509>
+				<P>synchronization engine</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=52>
+				<P>QA</P>
+			</TD>
+			<TD WIDTH=509>
+				<P>quality assurance</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=52>
+				<P>SR</P>
+			</TD>
+			<TD WIDTH=509>
+				<P>sync4j server</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=52>
+				<P>SV</P>
+			</TD>
+			<TD WIDTH=509>
+				<P>horizontal services</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=52>
+				<P>PK</P>
+			</TD>
+			<TD WIDTH=509>
+				<P>packaging and deployment</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=52>
+				<P>MG</P>
+			</TD>
+			<TD WIDTH=509>
+				<P>Management</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=52>
+				<P>FK</P>
+			</TD>
+			<TD WIDTH=509>
+				<P>framework (other than the code)</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<H2 CLASS="western">3.1 SyncML Data Sync (DS)</H2>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<TABLE WIDTH=583 BORDER=0 CELLPADDING=7 CELLSPACING=0>
+	<COL WIDTH=98>
+	<COL WIDTH=457>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Description</P>
+		</TD>
+		<TD WIDTH=457>
+			<P ALIGN=LEFT>Data synchronization using XML as described under
+			<FONT COLOR="#0000ff"><U><A HREF="http://www.syncml.org/docs/syncml_sync_protocol_v111_20021002.pdf">http://www.syncml.org/docs/syncml_sync_protocol_v111_20021002.pdf</A></U></FONT>.</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Critically</P>
+		</TD>
+		<TD WIDTH=457>
+			<P>This is one of the main purpose of Sync4j.</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Technical issues:</P>
+		</TD>
+		<TD WIDTH=457>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Risks:</P>
+		</TD>
+		<TD WIDTH=457>
+			<P>The specifications change over the time.</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P ALIGN=LEFT>Dependencies with other requirements:</P>
+		</TD>
+		<TD WIDTH=457>
+			<P>The core of Sync4j must be working correctly.</P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0cm">   
+</P>
+<P STYLE="margin-bottom: 0cm">   
+</P>
+<CENTER>
+	<TABLE WIDTH=591 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0>
+		<COL WIDTH=88>
+		<COL WIDTH=473>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>CR0001</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Two-way full synchronization</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>CR0002</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>No secured access</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>CR0003</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Login/Password security authentication (basic auth)</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>CR0004</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>HTTP binding</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>CR0005</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Session handling (with HTTP binding)</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>CR0005</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Sync anchors (differences since the last synchronization)</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>CR0006</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Id mappings</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>CR0007</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Basic authentication</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>CR0008</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>MD5 authentication</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>CR0009</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Database authorization</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>CR0010</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Large objects handling</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>CR0011</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Multiple message packets</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>CR0012</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Sync without separate initialization</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>CR0013</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>One way syncs (client-&gt;server)</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>CR0014</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>One way syncs (server-&gt;client)</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>CR0015</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Server alerted sync</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>CR0016</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Busy signaling</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>SV0008</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>vCard support</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>SV0009</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>vCal suport</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<H2 CLASS="western">3.2 SyncML Device Management (DM)</H2>
+<P STYLE="margin-bottom: 0cm">A dedicated requirement document is
+under development.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<TABLE WIDTH=583 BORDER=0 CELLPADDING=7 CELLSPACING=0>
+	<COL WIDTH=98>
+	<COL WIDTH=457>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Description</P>
+		</TD>
+		<TD WIDTH=457>
+			<P ALIGN=LEFT>Device management using XML as described under
+			http://www.syncml.org/docs/syncml_dm_protocol_v111_20021002.pdf</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Critically</P>
+		</TD>
+		<TD WIDTH=457>
+			<P>Data synchronization works without this</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Technical issues:</P>
+		</TD>
+		<TD WIDTH=457>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Risks:</P>
+		</TD>
+		<TD WIDTH=457>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P ALIGN=LEFT>Dependencies with other requirements:</P>
+		</TD>
+		<TD WIDTH=457>
+			<P STYLE="margin-bottom: 0cm">The core of Sync4j must be working
+			correctly</P>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">If the SyncML DS/DM modules implement
+the SyncML protocol, the Synchronization Engine is the core of the
+synchronization process. It decides, based on the registered data
+sources (called SyncSources) which items should be compared for
+changes and how, which items must be created/updated/deleted on each
+source and how detect and resolve conflicts.</P>
+<P STYLE="margin-bottom: 0cm">   
+</P>
+<TABLE WIDTH=582 BORDER=0 CELLPADDING=7 CELLSPACING=0>
+	<COL WIDTH=98>
+	<COL WIDTH=456>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Description</P>
+		</TD>
+		<TD WIDTH=456>
+			<P ALIGN=LEFT>Implementation of the synchronization engine</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Critically</P>
+		</TD>
+		<TD WIDTH=456>
+			<P>Core of the Sync4j server</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Technical issues:</P>
+		</TD>
+		<TD WIDTH=456>
+			<P ALIGN=LEFT>Even if this component is of course integrated into
+			Sync4j, it should be  independent by the protocol implementation.
+			The idea is that it should be possible reuse the same
+			synchronization logic with a different protocol and, vice versa, a
+			completely different synchronization logic should be pluggable
+			into Sync4j.</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Risks:</P>
+		</TD>
+		<TD WIDTH=456>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P ALIGN=LEFT>Dependencies with other requirements:</P>
+		</TD>
+		<TD WIDTH=456>
+			<P>The Sync4j framework</P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0cm">   
+</P>
+<CENTER>
+	<TABLE WIDTH=591 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0>
+		<COL WIDTH=88>
+		<COL WIDTH=473>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>EG0001</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Synchronization process implementation</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>EG0002</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>SyncSource architecture</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>EG0003</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>File system SyncSource</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>EG0004</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Conflicts resolution</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>EG0005</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>DB SyncSource</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<H3 CLASS="western">3.2.1 Accessing External Data Sources</H3>
+<P STYLE="margin-bottom: 0cm">The requirement EG0002 needs a bit more
+specification. It is a main intent of Sync4j to be a very flexible
+and modular server, easy to integrate in and with existing systems.
+One key aspect of this strategy is to be able to access data to
+synchronize wherever they are and in whatever form they are.</P>
+<P STYLE="margin-bottom: 0cm">Sync4j should be able to work with the
+most disparate synchronization sources (SyncSources), in a completely
+transparent way, provided an appropriate connector to the data. This
+connector should provide at least the following operations:</P>
+<P STYLE="margin-bottom: 0cm">   
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">Retrieve all items for a given
+	user</P>
+	<LI><P STYLE="margin-bottom: 0cm">Retrieve the new items for a given
+	user since the last synchronization</P>
+	<LI><P STYLE="margin-bottom: 0cm">Retrieve the updated items for a
+	given user since the last synchronization</P>
+	<LI><P STYLE="margin-bottom: 0cm">Retrieve the deleted items for a
+	given user since the last synchronization</P>
+	<LI><P STYLE="margin-bottom: 0cm">Add new items for a given user</P>
+	<LI><P STYLE="margin-bottom: 0cm">Update items for a given user</P>
+	<LI><P STYLE="margin-bottom: 0cm">Delete items for a given user</P>
+</UL>
+<P STYLE="margin-bottom: 0cm">   
+</P>
+<TABLE WIDTH=583 BORDER=0 CELLPADDING=7 CELLSPACING=0>
+	<COL WIDTH=98>
+	<COL WIDTH=457>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Description</P>
+		</TD>
+		<TD WIDTH=457>
+			<P ALIGN=LEFT>Access to persistent storage must be encapsulated
+			with a simple interface. Having specified the data access classes
+			and authentication classes (see point 5), Sync4j should be able to
+			run with no further programming. Standard cases like JDBC and
+			filesystem are implemented as example and as quick start.</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Critically</P>
+		</TD>
+		<TD WIDTH=457>
+			<P ALIGN=LEFT>Developers don't want to dig deep into Sync4j and
+			SyncML protocol specifications. The easier this feature is, the
+			better Sync4j is usable. Not needing to fuss with Sync4j more deep
+			also helps getting stable sycn4j applications as a programmer
+			quickly hacking a working app together could make errors if he
+			would need in-deep knowledge of SyncML</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Technical issues:</P>
+		</TD>
+		<TD WIDTH=457>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Risks:</P>
+		</TD>
+		<TD WIDTH=457>
+			<P ALIGN=LEFT>To get this work, the interface must be at the same
+			time simple but also complete. For properly configuring the
+			framework and easy instantiation of the access classes, design
+			patterns (e.g. factory) could be used.</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P ALIGN=LEFT>Dependencies with other requirements:</P>
+		</TD>
+		<TD WIDTH=457>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<H2 CLASS="western">3.3 Sync4j Server</H2>
+<P STYLE="margin-bottom: 0cm">The Sync4j server is a J2EE
+application. Developers should not need to re-implement the server as
+the only thing that varies is the (configurable) data access.
+However, the framework will allow it if someone wants to do it
+anyway.</P>
+<P STYLE="margin-bottom: 0cm">As a result of basing Sync4j on the
+J2EE architecture, the server will inherit the &quot;quality of
+service&quot; features provided by the application server. Moreover,
+IT managers and administrators will not have to install and manage a
+separate server in a different infrastructure; they can instead reuse
+the existing infrastructure. Plus Sync4j may take advantage of the
+AS's manageability functions such as SNMP and JMX support.</P>
+<P STYLE="margin-bottom: 0cm">   
+</P>
+<P STYLE="margin-bottom: 0cm">Sync4j will fully support HTTP as
+transport protocol. It is the widest adopted protocol and it is
+available from mobile phones to enterprise servers. Other transport
+protocols may be taken into consideration in the future if the Sync4j
+community will require it.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Both XML and WBXML message formats will
+be supported.</P>
+<P STYLE="margin-bottom: 0cm">   
+</P>
+<P STYLE="margin-bottom: 0cm">The Syn4j server will be able to manage
+users and roles as described in a following section.</P>
+<P STYLE="margin-bottom: 0cm">   
+</P>
+<P STYLE="margin-bottom: 0cm">From a configuration point of view,
+Sync4j uses as final configuration repository a set of XML and
+properties files. It should be possible to change the configuration
+of the server without interrupting the service.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<TABLE WIDTH=583 BORDER=0 CELLPADDING=7 CELLSPACING=0>
+	<COL WIDTH=98>
+	<COL WIDTH=457>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Description</P>
+		</TD>
+		<TD WIDTH=457>
+			<P ALIGN=LEFT>The implementation of the Sync4j server</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Critically</P>
+		</TD>
+		<TD WIDTH=457>
+			<P ALIGN=LEFT>It is important to select and support the most
+			significant J2EE application servers on the markets. The J2EE
+			specifications should guarantee that Sync4j would work properly
+			also under the not officially supported servers.</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Technical issues:</P>
+		</TD>
+		<TD WIDTH=457>
+			<P ALIGN=LEFT>The server must be easy to configure and
+			reconfiguration should happen as much as possible without
+			restarting.</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Risks:</P>
+		</TD>
+		<TD WIDTH=457>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P ALIGN=LEFT>Dependencies with other requirements:</P>
+		</TD>
+		<TD WIDTH=457>
+			<P ALIGN=LEFT>Many parts of the Sync4j framework.</P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<CENTER>
+	<TABLE WIDTH=591 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0>
+		<COL WIDTH=88>
+		<COL WIDTH=473>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P LANG="de-DE">SR0001</P>
+			</TD>
+			<TD WIDTH=473>
+				<P LANG="de-DE">J2EE integration</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P LANG="de-DE">SR0002</P>
+			</TD>
+			<TD WIDTH=473>
+				<P LANG="de-DE">HTTP transport protocol support</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P LANG="de-DE">SR0003</P>
+			</TD>
+			<TD WIDTH=473>
+				<P LANG="de-DE">XML messages</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P LANG="de-DE">SR0004</P>
+			</TD>
+			<TD WIDTH=473>
+				<P LANG="de-DE">WBXML messages</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P LANG="de-DE">SR0005</P>
+			</TD>
+			<TD WIDTH=473>
+				<P LANG="de-DE">Manageability (SMNP/JMX support ?)</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P LANG="de-DE">SR0006</P>
+			</TD>
+			<TD WIDTH=473>
+				<P LANG="de-DE">User management</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>SR0007</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Configuration architecture</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<H2 CLASS="western">3.4 Sync4j Framework</H2>
+<P STYLE="margin-bottom: 0cm">The goal of the framework is to provide
+an extensible set of ready-to-use functionality to be used in
+developing a synchronization service, from a simple client to a
+complex server.</P>
+<P STYLE="margin-bottom: 0cm">The Sync4j framework includes the
+following features:   
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">Basic SyncML DS/DM APIs</P>
+	<LI><P STYLE="margin-bottom: 0cm">Protocol verification and
+	implementation</P>
+	<LI><P STYLE="margin-bottom: 0cm">Synchronization engine
+	architecture</P>
+	<LI><P STYLE="margin-bottom: 0cm">Horizontal services (logging,
+	security, tools)</P>
+	<LI><P STYLE="margin-bottom: 0cm">Transport protocol services</P>
+	<LI><P STYLE="margin-bottom: 0cm">User management</P>
+</UL>
+<P STYLE="margin-bottom: 0cm">   
+</P>
+<TABLE WIDTH=583 BORDER=0 CELLPADDING=7 CELLSPACING=0>
+	<COL WIDTH=98>
+	<COL WIDTH=457>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Description</P>
+		</TD>
+		<TD WIDTH=457>
+			<P ALIGN=LEFT>The Sync4j framework is the foundation of a
+			synchronization service developed with Sync4j</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Critically</P>
+		</TD>
+		<TD WIDTH=457>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Technical issues:</P>
+		</TD>
+		<TD WIDTH=457>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Risks:</P>
+		</TD>
+		<TD WIDTH=457>
+			<P ALIGN=LEFT>Changes in this area may involve many other
+			components and modules.</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P ALIGN=LEFT>Dependencies with other requirements:</P>
+		</TD>
+		<TD WIDTH=457>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0cm">This is the base of the
+			rest.</P>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<CENTER>
+	<TABLE WIDTH=591 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0>
+		<COL WIDTH=88>
+		<COL WIDTH=473>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>FK0001</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Extensibility</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>FK0002</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Pluggability</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>FK0003</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Client</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>FK0004</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Server</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>FK0005</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Engine</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>FK0006</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Core</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>FK0007</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Device management</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>FK0008</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Logging</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>FK0009</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Security</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>FK0010</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Protocol</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>FK0011</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Transport</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>FK0012</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>User management</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<OL START=4>
+	<LI><H1 CLASS="western">User Requirements</H1>
+</OL>
+<P STYLE="margin-bottom: 0cm">In the first version of Sync4j, users
+are divided in three main categories: Administrator, Manager and
+Client. These are represented by the roles &quot;Administrator&quot;,
+&quot;Manager&quot;, &quot;Client&quot;. Sync4j will support many
+storage media for users through the features FK0012 and SR0006. The
+goal is that the server, after a simple reconfiguration, should be
+able to work with users stored in the database, in a directory
+server, in a file located on the file system, etc. 
+</P>
+<P STYLE="margin-bottom: 0cm">The following information is collected
+for every user:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">Unique id</P>
+	<LI><P STYLE="margin-bottom: 0cm">First name</P>
+	<LI><P STYLE="margin-bottom: 0cm">Last name</P>
+	<LI><P STYLE="margin-bottom: 0cm">Email</P>
+</UL>
+<P STYLE="margin-bottom: 0cm">Additional information depends on the
+user role.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">The following users are created at the
+installation of Sync4j:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<CENTER>
+	<TABLE WIDTH=591 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0>
+		<COL WIDTH=88>
+		<COL WIDTH=473>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88 BGCOLOR="#000080">
+				<P><B>userid</B></P>
+			</TD>
+			<TD WIDTH=473 BGCOLOR="#000080">
+				<P><B>Role</B></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>admin</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Administrator</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>manager</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Manager</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">These users must be authenticated with
+the services described in <I>Security</I>.</P>
+<H2 CLASS="western">4.1 User Roles</H2>
+<P STYLE="margin-bottom: 0cm">Three user roles are identified at this
+stage: &quot;Administrator&quot;, &quot;Manager&quot; and &quot;Client&quot;.</P>
+<H3 CLASS="western">4.1.1 Administrator Role</H3>
+<P STYLE="margin-bottom: 0cm">Users with role Administrator have the
+right of administering the Sync4j server. They will have access to
+all the server configuration, administration and monitoring
+interfaces and tools. They will not have the rights to see and manage
+other users, but they can create new managers.</P>
+<H3 CLASS="western">4.1.2 Manager Role</H3>
+<P STYLE="margin-bottom: 0cm">Users with role Manager are able to
+create new users and to see and update user characteristics. They can
+also delete users.</P>
+<H3 CLASS="western">4.1.3 Client Role</H3>
+<P STYLE="margin-bottom: 0cm">Users with role Client are the final
+users. They are able to access the synchronization services user
+managers allow them. For each user the following information is
+additionally recorded:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">Devices in use (a list of device
+	id)</P>
+</UL>
+<P STYLE="margin-bottom: 0cm">Interface Requirements</P>
+<H2 CLASS="western">4.2 User Interfaces</H2>
+<P STYLE="margin-bottom: 0cm">The first release of Sync4j will not
+provide a configuration user interface. The configuration of the
+server will be done via properties and configuration files.</P>
+<H3 CLASS="western">4.2.1 Command Line Interface</H3>
+<P STYLE="margin-bottom: 0cm">None.</P>
+<H3 CLASS="western">4.2.2 Diagnostics</H3>
+<P STYLE="margin-bottom: 0cm">The Sync4j server will provide the
+capability to log various levels of system detail for integration,
+performance tuning and debugging purposes. Statistical data will be
+provided to support performance tuning. Logging is based on the
+logging subsystem of the J2SE 1.4 platform.</P>
+<H2 CLASS="western">4.3 Hardware Interfaces</H2>
+<P STYLE="margin-bottom: 0cm">Sync4j is 100% pure java. It must not
+depend on the hardware, only on a working java implementation for
+this hardware.</P>
+<H2 CLASS="western">4.4 Communications Interfaces</H2>
+<P STYLE="margin-bottom: 0cm">The device running a Sycn4j client or
+server must be able to offer some sort of communication port. This is
+encapsulated in a generic connection framework, thus independent of
+the connection. Typical case is a HTTP connection.</P>
+<H2 CLASS="western">4.5 Software Interfaces</H2>
+<P STYLE="margin-bottom: 0cm">Sync4j and especially the Sync4j
+framework define numerous interfaces:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">Interface for persistent storage
+	access (id mapping, sync anchor, server specific data)</P>
+	<LI><P STYLE="margin-bottom: 0cm">Interface for the synchronization
+	engine</P>
+	<LI><P STYLE="margin-bottom: 0cm">Interface for sync sources</P>
+	<LI><P STYLE="margin-bottom: 0cm">Interface for
+	authentication/authorization</P>
+</UL>
+<P STYLE="margin-bottom: 0cm">Non-functional Requirements</P>
+<P STYLE="margin-bottom: 0cm">These requirements are not well
+specified but required. They are not related to a particular
+functionality, but to the overall system and to the entire
+architecture.</P>
+<P STYLE="margin-bottom: 0cm">The following requirements are coded in
+this context:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<CENTER>
+	<TABLE WIDTH=591 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0>
+		<COL WIDTH=88>
+		<COL WIDTH=473>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>SV0001</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Multi-tier logging</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>SV0002</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>User authentication</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>SV0003</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>User authorization (at db level)</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>SV0004</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>JAAS security adapter</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>SV0005</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Dummy security adapter</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>SV0006</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Database security adapter</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>SV0007</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>LDAP security adapter</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>SV0010</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>database logging</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>SV0011</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>performance tracing</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<H2 CLASS="western"><A NAME="_Ref26618854"></A>4.6 Security</H2>
+<P STYLE="margin-bottom: 0cm">User authentication in Sync4j is
+encapsulated with a simple interface. It allows to use any
+authentication back-end and any desired system like md5 or basic (see
+SyncML specifications).</P>
+<P STYLE="margin-bottom: 0cm">The following authentication adapters
+are provided:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">no authentication</P>
+	<LI><P STYLE="margin-bottom: 0cm">db authentication</P>
+	<LI><P STYLE="margin-bottom: 0cm">JAAS authentication</P>
+</UL>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<TABLE WIDTH=582 BORDER=0 CELLPADDING=7 CELLSPACING=0>
+	<COL WIDTH=98>
+	<COL WIDTH=456>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Description</P>
+		</TD>
+		<TD WIDTH=456>
+			<P ALIGN=LEFT>Sync4j security services</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Critically</P>
+		</TD>
+		<TD WIDTH=456>
+			<P ALIGN=LEFT>The preferred way to approach
+			authentication/authorization in Sync4j is by the mean of the JAAS
+			adapter. This represents the standard way a java application
+			accesses security services. It is already a pluggable and
+			configurable architecture that seamlessly integrate in Sync4j.</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Technical issues:</P>
+		</TD>
+		<TD WIDTH=456>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P>Risks:</P>
+		</TD>
+		<TD WIDTH=456>
+			<P ALIGN=LEFT>Additional and stronger security requirements may
+			arise in the future, since real applications might show additional
+			security restrictions.</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=98>
+			<P ALIGN=LEFT>Dependencies with other requirements:</P>
+		</TD>
+		<TD WIDTH=456>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0cm">See Risks.</P>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<H2 CLASS="western">4.7 Documentation</H2>
+<P STYLE="margin-bottom: 0cm">As an open source project, readable
+code and useful comments are essential. Details for writing code and
+comments are in
+http://Sync4j.sourceforge.net/project/development/Sync4j%20Coding%20Standards.pdf</P>
+<P STYLE="margin-bottom: 0cm">All available documentation will be
+provided on line on the project web site [3] and in a downloadable
+form from CVS. Moreover, the project development site [4] contains
+many additional information such as mailing list archives,
+discussions, bugs, tasks, project status, etc.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<CENTER>
+	<TABLE WIDTH=591 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0>
+		<COL WIDTH=88>
+		<COL WIDTH=473>
+		<TR VALIGN=TOP>
+			<TD WIDTH=88>
+				<P>PK0002</P>
+			</TD>
+			<TD WIDTH=473>
+				<P>Documentation</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<H2 CLASS="western">4.8 Maintainability</H2>
+<P STYLE="margin-bottom: 0cm">Since one of the main design goals of
+Sync4j is modularity and flexibility, it is foreseeable that will
+require lot of configuration files. In order to keep the
+configuration of Sync4j manageable, a configuration architecture will
+be provided. It will furnish a standard and homogenous way of reading
+configuration files.</P>
+<H2 CLASS="western">4.9 Portability</H2>
+<P STYLE="margin-bottom: 0cm">Portability is guaranteed by the
+adoption of the J2SE v1.4 (or later) and J2EE v1.3 (or later)
+platforms.</P>
+<H2 CLASS="western">4.10 Extensibility</H2>
+<P STYLE="margin-bottom: 0cm">One of the most important goal of
+Sync4j is to provide a modular and extensible framework that users
+can use out of the box or easily adapt to their needs. It must be
+very simple to extend it to synchronize any type of data and sources
+and to integrate in the existing Information Technology
+infrastructure.</P>
+<H2 CLASS="western">4.11 Packaging and Installation</H2>
+<P STYLE="margin-bottom: 0cm">A quick and easy to use installation
+procedure must be provided. A GUI is not strictly required; a command
+line installation is sufficient as soon it is composed of very few
+and necessary steps. The installation package must include everything
+required to start the Sync4j server. This includes:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">- Database</P>
+<P STYLE="margin-bottom: 0cm">- Application Server</P>
+<P STYLE="margin-bottom: 0cm">- Required libraries</P>
+<P STYLE="margin-bottom: 0cm">- JRE</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">A guide for the installation and
+deployment on the supported application servers and databases will be
+provided.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">PK0001	Installation and set up</P>
+<OL START=5>
+	<LI><H1 CLASS="western">Technical Requirements</H1>
+</OL>
+<H2 CLASS="western">5.1 Standards Compliance</H2>
+<P STYLE="margin-bottom: 0cm">Sync4j should be completely compatible
+with the SyncML standard. If possible, it should be tested for SyncML
+compliance.</P>
+<H2 CLASS="western">5.2 Hardware Limitations</H2>
+<P STYLE="margin-bottom: 0cm">None.</P>
+<OL START=6>
+	<LI><H1 CLASS="western">Roadmap</H1>
+</OL>
+<P STYLE="margin-bottom: 0cm">This is a tentative roadmap:</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<CENTER>
+	<TABLE WIDTH=591 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0>
+		<COL WIDTH=112>
+		<COL WIDTH=322>
+		<COL WIDTH=112>
+		<TR VALIGN=TOP>
+			<TD WIDTH=112 BGCOLOR="#000080">
+				<P ALIGN=LEFT><B>Code name</B></P>
+			</TD>
+			<TD WIDTH=322 BGCOLOR="#000080">
+				<P ALIGN=LEFT><B>     Major features                </B>
+				</P>
+			</TD>
+			<TD WIDTH=112 BGCOLOR="#000080">
+				<P ALIGN=LEFT><B>Milestone date</B></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=112>
+				<P ALIGN=LEFT>Culhwch       
+				</P>
+			</TD>
+			<TD WIDTH=322>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-left: -0.13cm; margin-bottom: 0cm">
+					Protocol basics</P>
+					<LI><P ALIGN=LEFT STYLE="margin-left: -0.13cm">Possibly vCard
+					and vCal</P>
+				</UL>
+			</TD>
+			<TD WIDTH=112>
+				<P ALIGN=LEFT>31 Dec 2002</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=112>
+				<P ALIGN=LEFT>Cuneglas      
+				</P>
+			</TD>
+			<TD WIDTH=322>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-left: -0.13cm; margin-bottom: 0cm">
+					Deployment on BEA, JBoss, SunOne</P>
+					<LI><P ALIGN=LEFT STYLE="margin-left: -0.13cm">Advanced Improved
+					protocol features  
+					</P>
+				</UL>
+			</TD>
+			<TD WIDTH=112>
+				<P ALIGN=LEFT>31 Jan 2003</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=112>
+				<P ALIGN=LEFT>Derfel        
+				</P>
+			</TD>
+			<TD WIDTH=322>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-left: -0.13cm; margin-bottom: 0cm">
+					Administration interface</P>
+					<LI><P ALIGN=LEFT STYLE="margin-left: -0.13cm; margin-bottom: 0cm">
+					SyncML DM support</P>
+					<LI><P ALIGN=LEFT STYLE="margin-left: -0.13cm">Protocol
+					improvements</P>
+				</UL>
+			</TD>
+			<TD WIDTH=112>
+				<P ALIGN=LEFT>Q1 2003</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<OL START=7>
+	<LI><H1 CLASS="western">Appendix</H1>
+</OL>
+<H2 CLASS="western">7.1 Definitions, Acronyms, Abbreviations</H2>
+<P STYLE="margin-bottom: 0cm">SyncML: Synchronization Markup Language</P>
+<P STYLE="margin-bottom: 0cm">DS: Data Synchronization</P>
+<P LANG="fr-FR" STYLE="margin-bottom: 0cm">DM: Device Management</P>
+<P LANG="fr-FR" STYLE="margin-bottom: 0cm">J2EE: Java 2 Enterprise
+Edition [5]</P>
+<P STYLE="margin-bottom: 0cm">J2SE: Java 2 Standard Edition [6]</P>
+<P STYLE="margin-bottom: 0cm">J2ME: Java 2 Micro Edition [7]</P>
+<H2 CLASS="western">7.2 References</H2>
+<P STYLE="margin-bottom: 0cm">[1] http://www.syncml.org</P>
+<P STYLE="margin-bottom: 0cm">[2] http://www.symbian.com</P>
+<P STYLE="margin-bottom: 0cm">[3] http://sync4j.sourceforge.net</P>
+<P STYLE="margin-bottom: 0cm">[4]
+http://sourceforge.net/projects/sync4j</P>
+<P STYLE="margin-bottom: 0cm">[5] http://java.sun.com/j2ee</P>
+<P STYLE="margin-bottom: 0cm">[6] http://java.sun.com/j2se</P>
+<P STYLE="margin-bottom: 0cm">[7] http://java.sun.com/j2me</P>
+</BODY>
+</HTML>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/manager
+END
+FDOPictureManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/manager/FDOPictureManager.java
+END
+ConfigManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/core/!svn/ver/31158/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/manager/ConfigManager.java
+END
+PIMNoteManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/core/!svn/ver/33136/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/manager/PIMNoteManager.java
+END
+PIMCalendarManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/33136/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/manager/PIMCalendarManager.java
+END
+FileDataObjectManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/manager/FileDataObjectManager.java
+END
+PIMContactManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/36296/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/manager/PIMContactManager.java
+END
+PIMEntityManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/32653/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/manager/PIMEntityManager.java
+END

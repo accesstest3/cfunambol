@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2" class="java.beans.XMLDecoder">
+    <object class="com.funambol.job.config.JobExecutorConfigBean">
+        <void property="maxThreadPoolSize">
+            <int>50</int>
+        </void>
+
+        <void property="healthThreadPollingTime">
+            <!-- values expressed in milliseconds -->
+            <long>600000</long>
+        </void>
+
+        <void property="registryMonitorPollingTime">
+            <!-- values expressed in milliseconds -->
+            <long>60000</long>
+        </void>
+        <void property="registryEntriesIdSpace">
+            <string>pushlistener.id</string>
+        </void>
+        <void property="taskPeriodTolerance">
+            <double>0.1</double>
+        </void>
+
+        <void property="registryTableName">
+            <string>fnbl_job</string>
+        </void>
+
+        <void property="pluginDirectory">
+            <string>com/funambol/job/plugin</string>
+        </void>
+             <!--
+             The name of the JGroups configuration file used to configure the group
+           of nodes of the job-executor service
+         -->
+        <void property="notificationGroupConfigFileName">
+            <string>jgroups-jobexecutor-request-group.xml</string>
+        </void>
+
+        <!--
+             The name of the JGroups channel between the nodes of the job-executor service
+         -->
+        <void property="notificationGroupName">
+            <string>jobexecutor-request</string>
+        </void>
+
+        <!--
+                Time while the job executor should wait for response, milliseconds
+        -->
+        <void property="waitForResponseTimeout">
+            <int>1000</int>
+        </void>
+        <!--
+                Map of the classes to be executed given a name
+        -->
+        <void property="jobList">
+            <void method="put">
+                <string>job1</string>
+                <string>com.funambol.job.task.HelloWorldTask</string>
+            </void>
+        </void>
+
+        <!--
+             Define a cluster with name jobexecutor using the file jgroups.xml
+             under config directory
+        -->
+        <void property="clusterConfiguration">
+            <object class="com.funambol.framework.cluster.ClusterConfiguration">
+                <void property="clusterName">
+                    <string>jobexecutor</string>
+                </void>
+                <void property="configurationFile">
+                    <string>jgroups-jobexecutor.xml</string>
+                </void>
+            </object>
+        </void>
+
+    </object>
+</java>

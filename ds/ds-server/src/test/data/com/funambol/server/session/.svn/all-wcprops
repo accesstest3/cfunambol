@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/core/!svn/ver/33300/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/session
+END
+start-sync-session-event.xml
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/33300/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/session/start-sync-session-event.xml
+END

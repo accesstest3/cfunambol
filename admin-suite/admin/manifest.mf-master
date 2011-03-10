@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+OpenIDE-Module: com.funambol.admin/1
+OpenIDE-Module-Layer: com/funambol/admin/layer.xml
+OpenIDE-Module-Localizing-Bundle: com/funambol/admin/util/Bundle.properties
+OpenIDE-Module-Requires: org.openide.windows.IOProvider
+OpenIDE-Module-Specification-Version: %VERSION%
+OpenIDE-Module-Short-Description: Funambol Administration Tool %VERSION%
+OpenIDE-Module-Install: com/funambol/admin/SyncAdminInstaller.class

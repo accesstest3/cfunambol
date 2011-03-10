@@ -1,0 +1,23 @@
+Funambol artifacts site
+
+    This is the Funambol artifacts web site. This site contains all sites generated
+    by {{{http://maven.apache.org}Maven}} on a nightly basis as the result of our 
+    continuos build server.
+
+    You can find the V8 artifacts {{{http://m2.funambol.com/sites/v8}here}}
+
+    You can find the V8.5 artifacts {{{http://m2.funambol.com/sites/v85}here}}
+
+    You can find the V8.7 artifacts {{{http://m2.funambol.com/sites/v87}here}}    
+
+    The snapshots v9 available under this sites are:
+
+    * {{{core.html}Core components}}
+
+    * {{{tools.html}Tools}}
+
+    * {{{jme.html}JME}}
+
+User stories
+
+    You can find v9 user stories {{{http://m2.funambol.com/index.html/lanciadelta-export/userstories-report.html}here}}

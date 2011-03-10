@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/29964/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/sender/tcp
+END
+TCPSender.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/sender/tcp/TCPSender.java
+END

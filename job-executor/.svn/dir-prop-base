@@ -1,0 +1,10 @@
+K 10
+svn:ignore
+V 7
+target
+
+K 13
+svn:mergeinfo
+V 40
+/trunk/funambol/job-executor:35155-35925
+END

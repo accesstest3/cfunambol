@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/35930/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/job/config
+END
+JobExecutorConfigurationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/core/!svn/ver/35930/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/job/config/JobExecutorConfigurationException.java
+END
+JobExecutorConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/35930/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/job/config/JobExecutorConfiguration.java
+END
+JobExecutorConfigBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/35930/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/job/config/JobExecutorConfigBean.java
+END

@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "src/test/resources/data/com/funambol/email/console/dao/ConsoleDAO/dataset.dtd">
+<dataset>
+
+<!--
+    FNBL_EMAIL_INBOX
+    ****************
+-->
+<FNBL_EMAIL_INBOX   guid     ="6"
+                    username ="username5"
+                    protocol ="imap"
+                    received ="20090220T135331Z"
+                    last_crc ="123554433"
+                    />
+
+
+<FNBL_EMAIL_INBOX   guid     ="1011"
+                    username ="username101"
+                    protocol ="imap"
+                    received ="20090406T153303Z"
+                    last_crc ="123456789"
+                    />
+
+<FNBL_EMAIL_INBOX   guid     ="1012"
+                    username ="username101"
+                    protocol ="imap"
+                    received ="20090406T152303Z"
+                    last_crc ="93782092"
+                    />
+
+<FNBL_EMAIL_INBOX   guid     ="1013"
+                    username ="username101"
+                    protocol ="imap"
+                    received ="20090406T150303Z"
+                    last_crc ="2038348370"
+                    />
+
+<FNBL_EMAIL_INBOX   guid     ="1014"
+                    username ="username101"
+                    protocol ="pop"
+                    received ="20090406T050303Z"
+                    last_crc ="3441281626"
+                    />
+
+<FNBL_EMAIL_INBOX   guid     ="1015"
+                    username ="username101"
+                    protocol ="imap"
+                    received ="20090405T050303Z"
+                    last_crc ="200862478"
+                    />
+
+<FNBL_EMAIL_INBOX   guid     ="1016"
+                    username ="username101"
+                    protocol ="imap"
+                    received ="20090402T063303Z"
+                    last_crc ="93782092"
+                    />
+
+<FNBL_EMAIL_INBOX   guid     ="1017"
+                    username ="username101"
+                    protocol ="imap"
+                    received ="20090402T060303Z"
+                    last_crc ="2038348370"
+                    />
+
+<FNBL_EMAIL_INBOX   guid     ="1018"
+                    username ="username101"
+                    protocol ="pop"
+                    received ="20090402T050303Z"
+                    last_crc ="123456789"
+                    />
+
+<FNBL_EMAIL_INBOX   guid     ="1019"
+                    username ="username101"
+                    protocol ="imap"
+                    received ="20090401T050303Z"
+                    last_crc ="3441281626"
+                    />
+
+<FNBL_EMAIL_INBOX   guid     ="10110"
+                    username ="username101"
+                    protocol ="pop"
+                    received ="20090401T030303Z"
+                    last_crc ="123456789"
+                    />
+
+</dataset>

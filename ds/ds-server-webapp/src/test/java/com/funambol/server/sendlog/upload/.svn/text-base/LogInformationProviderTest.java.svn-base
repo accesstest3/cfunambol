@@ -1,0 +1,645 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2010 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+package com.funambol.server.sendlog.upload;
+
+import com.funambol.framework.tools.IOTools;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.File;
+import java.io.FilenameFilter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+
+import junit.framework.TestCase;
+import junitx.util.PrivateAccessor;
+
+import com.funambol.server.sendlog.Constants;
+import java.io.OutputStream;
+
+
+/**
+ * Test cases for LogInformationProvider class.
+ * 
+ * @version $Id$
+ */
+public class LogInformationProviderTest extends TestCase implements Constants {
+    // --------------------------------------------------------------- Constants
+    private static final String USERNAME  = "guest";
+    private static final String DEVICE_ID = "fwm-1233211";
+    private static final String SOURCE_DIR   =
+        new StringBuilder("src").append(File.separator)
+        .append("test").append(File.separator)
+        .append("resources").append(File.separator)
+        .append("data").append(File.separator)
+        .append("com").append(File.separator)
+        .append("funambol").append(File.separator)
+        .append("server").append(File.separator)
+        .append("sendlog").append(File.separator)
+        .append("provider").append(File.separator)
+        .append("LogInformationProvider").toString();
+    private static final String TARGET_DIR   =
+        new StringBuilder("target").append(File.separator)
+        .append("test-classes").append(File.separator)
+        .append("data").append(File.separator)
+        .append("com").append(File.separator)
+        .append("funambol").append(File.separator)
+        .append("server").append(File.separator)
+        .append("sendlog").append(File.separator)
+        .append("provider").append(File.separator)
+        .append("LogInformationProvider").toString();
+    private static final String BASEDIR_GUEST =
+        TARGET_DIR + File.separator + "guest";
+    private static final long DIM_MAX_FILE_SIZE = -1L;
+
+    // ------------------------------------------------------------ Constructors
+    public LogInformationProviderTest(String testName) {
+        super(testName);
+    }
+
+    // ------------------------------------------------------- Protected methods
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+        
+        //
+        // since there are some tests about removing tmp file, it's
+        // needed to copy the source dir under the working dir (target)
+        // before running each tests.
+        //
+        copySourceInTarget(new File(SOURCE_DIR), new File(TARGET_DIR));
+    }
+
+    @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+    }
+
+    // -------------------------------------------------------------- Test cases
+    public void testLogInformationProvider_NullInputStream() throws Exception {
+        try {
+            new LogInformationProvider(null, 
+                                       USERNAME,
+                                       DEVICE_ID,
+                                       MimeTypeDictionary.TEXT_PLAIN,
+                                       TARGET_DIR,
+                                       DIM_MAX_FILE_SIZE);
+            fail("Exception expected on null input parameter");
+        } catch(UploadFileException e) {
+            assertEquals("Wrong exception message raised upon null input stream.",
+                         ACCESS_REQUEST_AS_INPUT_STREAM_ERRMSG,
+                         e.getMessage());
+        }
+    }
+
+    /**
+     * Test of getFileName method, of class LogInformationProvider.
+     * @throws Exception
+     */
+    public void testGetFileName() throws Exception {
+
+        InputStream is = new ByteArrayInputStream("content".getBytes());
+
+        LogInformationProvider instance =
+            new LogInformationProvider(is,
+                                       USERNAME,
+                                       DEVICE_ID,
+                                       MimeTypeDictionary.TEXT_PLAIN,
+                                       TARGET_DIR,
+                                       DIM_MAX_FILE_SIZE);
+
+        String result = instance.getFileName();
+        assertTrue("Returned file name does not start properly", 
+                   result.startsWith(DEVICE_ID + '_'));
+        assertTrue("Returned file name does not end properly",
+                   result.endsWith(".log"));
+    }
+
+    /**
+     * Test of getTargetFileName method, of class LogInformationProvider.
+     * @throws Exception
+     */
+    public void testGetTargetFileName_TextPlain() throws Exception {
+        InputStream is = new ByteArrayInputStream("textplain content".getBytes());
+
+        LogInformationProvider instance =
+            new LogInformationProvider(is,
+                                       USERNAME,
+                                       DEVICE_ID,
+                                       MimeTypeDictionary.TEXT_PLAIN,
+                                       TARGET_DIR,
+                                       DIM_MAX_FILE_SIZE);
+
+        String result = instance.getTargetFileName();
+
+        StringBuilder expected = new StringBuilder(TARGET_DIR)
+            .append(File.separator)
+            .append(USERNAME)
+            .append(File.separator)
+            .append(DEVICE_ID)
+            .append('_');
+
+        assertTrue("Wrong target path returned",
+                   result.contains(expected.toString()));
+        assertTrue("Returned target path does not end properly",
+                   result.endsWith(".zip"));
+    }
+
+    /**
+     * Test of getTargetFileName method, of class LogInformationProvider.
+     * @throws Exception 
+     */
+    public void testGetTargetFileName_Zip() throws Exception {
+        InputStream is = new ByteArrayInputStream("zip stream".getBytes());
+
+        LogInformationProvider instance =
+            new LogInformationProvider(is,
+                                       USERNAME,
+                                       DEVICE_ID,
+                                       MimeTypeDictionary.APPLICATION_ZIP,
+                                       TARGET_DIR,
+                                       DIM_MAX_FILE_SIZE);
+
+        String result = instance.getTargetFileName();
+
+        StringBuilder expected = new StringBuilder(TARGET_DIR)
+            .append(File.separator)
+            .append(USERNAME)
+            .append(File.separator)
+            .append(DEVICE_ID)
+            .append('_');
+
+        assertTrue("Wrong target path returned",
+                   result.contains(expected.toString()));
+        assertTrue("Returned target path does not end properly",
+                   result.endsWith(".zip"));
+    }
+
+    public void testGetTargetFileName_UsernameNull() throws Exception {
+        InputStream is = new ByteArrayInputStream("content a".getBytes());
+
+        LogInformationProvider instance =
+            new LogInformationProvider(is,
+                                       USERNAME,
+                                       DEVICE_ID,
+                                       MimeTypeDictionary.APPLICATION_ZIP,
+                                       TARGET_DIR,
+                                       DIM_MAX_FILE_SIZE);
+
+        PrivateAccessor.setField(instance, "username", null);
+        try {
+
+            instance.getTargetFileName();
+            fail("Exception expected when username null");
+
+        } catch (IllegalArgumentException e) {
+            assertEquals("Wrong exception message when username null",
+                         NULL_USERNAME_TARGET_FILENAME_ERRMSG, e.getMessage());
+
+        }
+    }
+    
+    public void testGetTargetFileName_DeviceIdNull() throws Exception {
+        InputStream is = new ByteArrayInputStream("device content".getBytes());
+
+        LogInformationProvider instance =
+            new LogInformationProvider(is,
+                                       USERNAME,
+                                       null,
+                                       MimeTypeDictionary.APPLICATION_ZIP,
+                                       TARGET_DIR,
+                                       DIM_MAX_FILE_SIZE);
+
+        try {
+
+            instance.getTargetFileName();
+            fail("Exception expected when device id null");
+
+        } catch (IllegalArgumentException e) {
+            assertEquals("Wrong exception message when device id null",
+                         NULL_DEVICEID_TARGET_FILENAME_ERRMSG, e.getMessage());
+
+        }
+    }
+
+    public void testGuessExtension_ContentTypeNull() throws Throwable {
+        try {
+            InputStream is = new ByteArrayInputStream("log content".getBytes());
+
+            LogInformationProvider instance =
+                new LogInformationProvider(is,
+                                           USERNAME,
+                                           DEVICE_ID,
+                                           MimeTypeDictionary.TEXT_PLAIN,
+                                           TARGET_DIR,
+                                           DIM_MAX_FILE_SIZE);
+            
+            PrivateAccessor.invoke(instance,
+                                   "guessExtension",
+                                   new Class[] {String.class},
+                                   new Object[] {null});
+            fail("Exception expected when content-type is null");
+
+        } catch (UploadFileException e) {
+            assertTrue("Catched the expected exception", 1==1);
+        }
+    }
+    
+    public void testGuessExtension_ContentTypeEmpty() throws Throwable {
+        try {
+            InputStream is = new ByteArrayInputStream("empty one".getBytes());
+
+            LogInformationProvider instance =
+                new LogInformationProvider(is,
+                                           USERNAME,
+                                           DEVICE_ID,
+                                           MimeTypeDictionary.TEXT_PLAIN,
+                                           TARGET_DIR,
+                                           DIM_MAX_FILE_SIZE);
+            
+            PrivateAccessor.invoke(instance,
+                                   "guessExtension",
+                                   new Class[] {String.class},
+                                   new Object[] {""});
+            fail("Exception expected when content-type is empty");
+
+        } catch (UploadFileException e) {
+            assertTrue("Catched the expected exception", 1==1);
+        }
+    }
+
+    public void testGuessExtension_ContentTypeCompressible() throws Throwable {
+
+        InputStream is = new ByteArrayInputStream("compressible ct".getBytes());
+
+        LogInformationProvider instance =
+            new LogInformationProvider(is,
+                                       USERNAME,
+                                       DEVICE_ID,
+                                       MimeTypeDictionary.TEXT_PLAIN,
+                                       TARGET_DIR,
+                                       DIM_MAX_FILE_SIZE);
+
+        String result = (String)PrivateAccessor.invoke(
+            instance,
+            "guessExtension",
+            new Class[] {String.class},
+            new Object[] {MimeTypeDictionary.TEXT_PLAIN});
+        assertEquals("Wrong extension", DEFAULT_TARGET_FILEEXTENSION, result);
+    }
+
+    public void testGuessExtension_ContentTypeTgz() throws Throwable {
+
+        InputStream is = new ByteArrayInputStream("tgz content".getBytes());
+
+        LogInformationProvider instance =
+            new LogInformationProvider(is,
+                                       USERNAME,
+                                       DEVICE_ID,
+                                       MimeTypeDictionary.APPLICATION_TGZ,
+                                       TARGET_DIR,
+                                       DIM_MAX_FILE_SIZE);
+
+        String result = (String)PrivateAccessor.invoke(
+            instance,
+            "guessExtension",
+            new Class[] {String.class},
+            new Object[] {MimeTypeDictionary.APPLICATION_TGZ});
+        String expected = '.' + MimeTypeDictionary.APPLICATION_TGZ_EXTENSION;
+        assertEquals("Wrong extension",  expected, result);
+    }
+    
+    public void testGuessExtension_ContentTypeTar() throws Throwable {
+
+        InputStream is = new ByteArrayInputStream("tar content".getBytes());
+
+        LogInformationProvider instance =
+            new LogInformationProvider(is,
+                                       USERNAME,
+                                       DEVICE_ID,
+                                       MimeTypeDictionary.APPLICATION_TAR,
+                                       TARGET_DIR,
+                                       DIM_MAX_FILE_SIZE);
+
+        String result = (String)PrivateAccessor.invoke(
+            instance,
+            "guessExtension",
+            new Class[] {String.class},
+            new Object[] {MimeTypeDictionary.APPLICATION_TAR});
+        String expected = '.' + MimeTypeDictionary.APPLICATION_TAR_EXTENSION;
+        assertEquals("Wrong extension",  expected, result);
+    }
+    
+    public void testGuessExtension_ContentTypeUnknown() throws Throwable {
+
+        InputStream is = new ByteArrayInputStream("unknown input".getBytes());
+
+        LogInformationProvider instance =
+            new LogInformationProvider(is,
+                                       USERNAME,
+                                       DEVICE_ID,
+                                       "ct-unknown",
+                                       TARGET_DIR,
+                                       DIM_MAX_FILE_SIZE);
+
+        try {
+            PrivateAccessor.invoke(instance,
+                                  "guessExtension",
+                                  new Class[] {String.class},
+                                  new Object[] {"ct-unknown"});
+            fail("Exception expected when content-type is unknown");
+
+        } catch (UploadFileException e) {
+            assertTrue("Catched the expected exception", 1==1);
+        }
+    }
+
+    public void testRemoveTmpTargetFiles() throws Exception {
+        InputStream is = new ByteArrayInputStream("zip stream".getBytes());
+
+        LogInformationProvider instance =
+            new LogInformationProvider(is,
+                                       USERNAME,
+                                       DEVICE_ID,
+                                       MimeTypeDictionary.APPLICATION_ZIP,
+                                       TARGET_DIR,
+                                       DIM_MAX_FILE_SIZE);
+
+        File f = new File(BASEDIR_GUEST);
+        File[] files = f.listFiles();
+        assertTrue(files.length == 4);
+
+        FilenameFilter filenameFilter = new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                return name.endsWith(".tmp");
+            }
+        };
+        File[] tmpFiles = f.listFiles(filenameFilter);
+        assertTrue(tmpFiles.length == 3);
+
+        instance.removeTmpTargetFiles();
+
+        assertTrue(f.listFiles().length == 2);
+        assertTrue(f.listFiles(filenameFilter).length == 1);
+    }
+
+    public void testRemoveTmpTargetFiles_NotExistUserDir() {
+        try {
+            InputStream is = new ByteArrayInputStream("zip stream".getBytes());
+
+            LogInformationProvider instance =
+                new LogInformationProvider(is,
+                                           "notexist",
+                                           DEVICE_ID,
+                                           MimeTypeDictionary.APPLICATION_ZIP,
+                                           TARGET_DIR,
+                                           DIM_MAX_FILE_SIZE);
+
+            instance.removeTmpTargetFiles();
+            
+        } catch(Exception e) {
+            fail("An exception occurred");
+        }
+    }
+
+    public void testRemoveTmpTargetFiles_NotExistDeviceId() {
+        try {
+            InputStream is = new ByteArrayInputStream("zip stream".getBytes());
+
+            LogInformationProvider instance =
+                new LogInformationProvider(is,
+                                           USERNAME,
+                                           "notdevice",
+                                           MimeTypeDictionary.APPLICATION_ZIP,
+                                           TARGET_DIR,
+                                           DIM_MAX_FILE_SIZE);
+
+            instance.removeTmpTargetFiles();
+
+            File f = new File(BASEDIR_GUEST);
+            File[] files = f.listFiles();
+            assertTrue(files.length == 4);
+
+        } catch(Exception e) {
+            fail("An exception occurred");
+        }
+    }
+
+    public void testRemoveTmpTargetFiles_NotTmpForDeviceId() {
+        try {
+            InputStream is = new ByteArrayInputStream("zip stream".getBytes());
+
+            LogInformationProvider instance =
+                new LogInformationProvider(is,
+                                           USERNAME,
+                                           "fwm-2345",
+                                           MimeTypeDictionary.APPLICATION_ZIP,
+                                           TARGET_DIR,
+                                           DIM_MAX_FILE_SIZE);
+
+            instance.removeTmpTargetFiles();
+
+            File f = new File(BASEDIR_GUEST);
+            File[] files = f.listFiles();
+            assertTrue(files.length == 4);
+
+        } catch(Exception e) {
+            fail("An exception occurred");
+        }
+    }
+
+    public void testEscape_NullDeviceId() throws  Throwable {
+            
+        
+          InputStream is = new ByteArrayInputStream("zip stream".getBytes());
+          LogInformationProvider instance =
+                new LogInformationProvider(is,
+                                           USERNAME,
+                                           "fwm-2345",
+                                           MimeTypeDictionary.APPLICATION_ZIP,
+                                           TARGET_DIR,
+                                           DIM_MAX_FILE_SIZE);
+
+          String deviceId         = null;
+
+          String result = invoke(instance,deviceId);
+          assertNull("Expected e null escaped deviceId",result);
+    }
+
+    public void testEscape_EmptyDeviceId() throws  Throwable {
+
+
+          InputStream is = new ByteArrayInputStream("zip stream".getBytes());
+          LogInformationProvider instance =
+                new LogInformationProvider(is,
+                                           USERNAME,
+                                           "fwm-2345",
+                                           MimeTypeDictionary.APPLICATION_ZIP,
+                                           TARGET_DIR,
+                                           DIM_MAX_FILE_SIZE);
+
+          String deviceId         = "";
+          String expectedDeviceId = null;
+
+          String result = invoke(instance,deviceId);
+          assertEquals("Wrong escaped deviceId",expectedDeviceId,result);
+    }
+
+
+    public void testEscape_NothingToEscape() throws  Throwable {
+
+
+          InputStream is = new ByteArrayInputStream("zip stream".getBytes());
+          LogInformationProvider instance =
+                new LogInformationProvider(is,
+                                           USERNAME,
+                                           "fwm-2345",
+                                           MimeTypeDictionary.APPLICATION_ZIP,
+                                           TARGET_DIR,
+                                           DIM_MAX_FILE_SIZE);
+
+          String deviceId         = "fwm-2345";
+          String expectedDeviceId = "fwm-2345";
+
+          String result = invoke(instance,deviceId);
+          assertEquals("Wrong escaped deviceId",expectedDeviceId,result);
+    }
+
+       public void testEscape_Escaping_1() throws  Throwable {
+
+
+          InputStream is = new ByteArrayInputStream("zip stream".getBytes());
+          LogInformationProvider instance =
+                new LogInformationProvider(is,
+                                           USERNAME,
+                                           "fwm-2345",
+                                           MimeTypeDictionary.APPLICATION_ZIP,
+                                           TARGET_DIR,
+                                           DIM_MAX_FILE_SIZE);
+
+          String deviceId         = "fwm/2345";
+          String expectedDeviceId = "fwm-2345";
+
+          String result = invoke(instance,deviceId);
+          assertEquals("Wrong escaped deviceId",expectedDeviceId,result);
+    }
+
+    public void testEscape_Escaping_2() throws  Throwable {
+
+
+          InputStream is = new ByteArrayInputStream("zip stream".getBytes());
+          LogInformationProvider instance =
+                new LogInformationProvider(is,
+                                           USERNAME,
+                                           "fwm-2345",
+                                           MimeTypeDictionary.APPLICATION_ZIP,
+                                           TARGET_DIR,
+                                           DIM_MAX_FILE_SIZE);
+
+          String deviceId         = "fwm//2345";
+          String expectedDeviceId = "fwm--2345";
+
+          String result = invoke(instance,deviceId);
+          assertEquals("Wrong escaped deviceId",expectedDeviceId,result);
+    }
+
+    public void testEscape_Escaping_3() throws  Throwable {
+
+          InputStream is = new ByteArrayInputStream("zip stream".getBytes());
+          LogInformationProvider instance =
+                new LogInformationProvider(is,
+                                           USERNAME,
+                                           "fwm-2345",
+                                           MimeTypeDictionary.APPLICATION_ZIP,
+                                           TARGET_DIR,
+                                           DIM_MAX_FILE_SIZE);
+
+          String deviceId         = "f\\wm//23?45*edfds?3:4";
+          String expectedDeviceId = "f-wm--23-45-edfds-3-4";
+
+          String result = invoke(instance,deviceId);
+          assertEquals("Wrong escaped deviceId",expectedDeviceId,result);
+    }
+
+     // --------------------------------------------------------- Private methods
+    private void copySourceInTarget(File source, File target)
+    throws IOException {
+
+        if (source.isDirectory()) {
+            if (!source.getName().startsWith(".svn")) {
+                if (!target.exists()) {
+                    boolean made = target.mkdir();
+                    if (!made) {
+                        return;
+                    }
+                }
+
+                String[] children = source.list();
+                for (int i=0; i<children.length; i++) {
+                    copySourceInTarget(new File(source, children[i]),
+                                       new File(target, children[i]));
+                }
+            }
+        } else {
+
+            InputStream  in  = null;
+            OutputStream out = null;
+            try {
+                
+                in  = new FileInputStream(source);
+                out = new FileOutputStream(target);
+                long copied = IOTools.copyStream(in, out);
+                if (copied == -1) {
+                    return;
+                }
+            } finally {
+                if (in != null) {
+                    in.close();
+                }
+                if (out != null) {
+                    out.close();
+                }
+            }
+        }
+    }
+
+    private String invoke(LogInformationProvider instance, String deviceId) throws Throwable {
+        Object result = PrivateAccessor.invoke(instance,
+                                               "escape",
+                                                new Class[]{String.class},
+                                                new Object[]{deviceId});
+        return result!=null?result.toString():null;
+    }
+}

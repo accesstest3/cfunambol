@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appointment>
+<Start>20070101T120000Z</Start>
+<End>20070101T130000Z</End>
+<Attendees>
+    <Attendee>
+        <AttendeeName>OneOne</AttendeeName>
+        <AttendeeEmail>name@email.dom</AttendeeEmail>
+        <AttendeeStatus>1</AttendeeStatus>
+        <AttendeeType>1</AttendeeType>
+    </Attendee>
+    <Attendee>
+        <AttendeeName>TwoTwo</AttendeeName>
+        <AttendeeEmail>name@email.dom</AttendeeEmail>
+        <AttendeeStatus>2</AttendeeStatus>
+        <AttendeeType>2</AttendeeType>
+    </Attendee>
+    <Attendee>
+        <AttendeeName>ThreeThree</AttendeeName>
+        <AttendeeEmail>name@email.dom</AttendeeEmail>
+        <AttendeeStatus>3</AttendeeStatus>
+        <AttendeeType>3</AttendeeType>
+    </Attendee>
+    <Attendee>
+        <AttendeeName>FourOne</AttendeeName>
+        <AttendeeEmail>name@email.dom</AttendeeEmail>
+        <AttendeeStatus>4</AttendeeStatus>
+        <AttendeeType>1</AttendeeType>
+    </Attendee>
+</Attendees>
+</appointment>

@@ -1,0 +1,40 @@
+<assembly>
+  <id>dir</id>
+  <formats>
+    <format>dir</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+
+  <!-- 
+      This will generate the whole repository with all artifacts. Even if this will contain
+      both jars and poms, in order to access each artifact the version number
+      must be known. We do not want this, because we want to use artifact 
+      poms to determine the versions of each components. For this reason,
+      in addition to the repository, we extract with the dependencySet
+      section all poms, stripping out the version number. See the dependency
+      set section.
+  -->
+  <repositories>
+    <repository>
+      <includeMetadata>true</includeMetadata>
+      <outputDirectory>artifacts</outputDirectory>
+    </repository>
+  </repositories>
+  <!-- 
+      In order to strip out the version number from pom filenames, we specify
+      <outputFileNameMapping>. Please not that this does not work (for a bug)
+      in maven-assembly-plugin:2.2-beta-1
+  -->
+  <dependencySets>
+    <dependencySet>
+      <outputDirectory>poms</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <useTransitiveDependencies>false</useTransitiveDependencies>
+      <outputFileNameMapping>${artifact.artifactId}.pom</outputFileNameMapping>
+      <includes>
+        <include>*:pom:*</include>
+      </includes>
+    </dependencySet>
+  </dependencySets>
+</assembly>
+

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/36094/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/tomcat/xml
+END
+funambol-tomcat5.5.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/tomcat/xml/funambol-tomcat5.5.xml
+END
+funambol-tomcat6.0.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/tomcat/xml/funambol-tomcat6.0.xml
+END

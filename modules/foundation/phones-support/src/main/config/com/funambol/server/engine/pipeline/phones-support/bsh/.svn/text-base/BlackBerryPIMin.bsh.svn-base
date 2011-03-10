@@ -1,0 +1,257 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2008 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+import com.funambol.framework.core.*;
+import com.funambol.framework.core.Sync4jException;
+import com.funambol.framework.engine.pipeline.InputMessageProcessor;
+import com.funambol.framework.engine.pipeline.MessageProcessingContext;
+import com.funambol.framework.engine.pipeline.StopProcessingException;
+import com.funambol.framework.logging.FunambolLogger;
+import com.funambol.framework.logging.FunambolLoggerFactory;
+import com.funambol.framework.tools.Base64;
+
+import com.funambol.foundation.synclet.PIMItemsHandler;
+
+/**
+ * 1.
+ *  
+ * Each tag of a SIF note that shuold contains a numeric data but is empty have
+ * to be removed. 
+ * Those tags are: "Color", "Height", "Left", "Top", "Width". 
+ * 
+ * 2. (only for BlackBerry plugin version prior to the 7.x.x)
+ *  
+ * Value of body tag of the outgoing SIF note is created as follows:
+ * - the first row is the value of the tag Subject
+ * - then, the value of the tag Body of the incoming item is appended.   
+ *   
+ * @version $Id: BlackBerryPIMin.bsh,v 1.2 2008/07/30 23:53:59 scova Exp $  
+ */ 
+// ------------------------------------------------------------------- Constants
+
+/** Names of the tags to remove, if empty */
+private static final String[] tagNames = {
+    "Color", "Height", "Left", "Top", "Width"
+};
+private String patternString = null;
+
+// ---------------------------------------------------------------- Private data
+private final FunambolLogger log =
+    FunambolLoggerFactory.getLogger("engine.pipeline");
+
+// ------------------------------------------------------ Synclet implementation
+importCommands("/com/funambol/server/engine/pipeline/phones-support/bsh/commands");
+
+/**
+ * Processes input message and set MessageProcessingContext property.
+ *
+ * @param mpc the message processing context
+ * @param message the message to be processed
+ *
+ * @throws Sync4jException
+ */
+void preProcessMessage(MessageProcessingContext mpc,
+                       SyncML message              )
+throws Sync4jException {
+
+    if (log.isTraceEnabled()) {
+        log.trace("BlackBerryPIMin.preProcessMessage(...)");
+    }
+    
+    userAgent = getUserAgent(mpc);
+        
+    processIncomingSIFNotes(mpc, message, userAgent);
+    
+    throw new StopProcessingException("BlackBerryPIMin Synclet finished");
+}
+
+/**
+ * Processes incoming SIF notes.
+ */
+void processIncomingSIFNotes(MessageProcessingContext pContext,
+                             SyncML message,
+                             String userAgent)
+throws Sync4jException {
+
+    if (log.isTraceEnabled()) {
+        log.trace("Start processing incoming SIF notes...");
+    }
+
+    cmds = message.syncBody.commands;
+    for (AbstractCommand bodyc : cmds) {
+
+        if (bodyc instanceof Sync) {
+
+            syncCmds = bodyc.commands;
+            for (ItemizedCommand c : syncCmds) {
+
+                //
+                // Skip other commands than Add and Replace
+                //
+                if (!(Replace.COMMAND_NAME.equals(c.name) ||
+                    Add.COMMAND_NAME.equals(c.name))      ) {
+                    continue;
+                }
+                
+                //
+                // Gets the format from command, if any
+                //
+                meta   = c.meta;
+                String format = null;
+                if (meta != null){
+                    format = meta.format;
+                }
+                
+                items = c.items;
+                for (Item item: items) {                        
+                    processSIFNote(item, format, userAgent);                    
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Process a single item. If format of data within the item is b64, then item's
+ * data must be decoded before processing.
+ * 
+ * @param item note to be processed
+ * @param format format of the data. If format is <code>null</code>, then try to 
+ * get the format of the data from the item itself      
+ */ 
+void processSIFNote(Item item, String format, String userAgent){
+    
+    String data = item.data.data;
+    
+    //
+    // Gets the format from the item, if any
+    //    
+    meta = item.meta;
+
+    if (meta != null) {
+        String itemFormat = item.meta.format;
+        if (itemFormat != null){
+            format = itemFormat;
+        }
+    }
+
+    String SIFNote = null;
+    if (format != null && format.equals("b64")){
+        SIFNote = new String(Base64.decode(data));            
+    } else {
+        SIFNote = data;
+    }
+    
+    //
+    // Do not process the item if it is not a note.
+    //
+    if(SIFNote != null && !SIFNote.contains("<note>")){
+        return;
+    }
+    
+    // see point 1. fron the synclet description 
+    String newNote = removeEmptyTags(SIFNote);
+
+    // see point 2. from the synclet description. 
+    newNote = mergeSubjectBody(newNote);
+    
+    if (format != null && format.equals("b64")){
+        newNote = new String(Base64.encode(newNote.getBytes()));
+    }
+    
+    item.data.data = newNote;
+}
+
+/**
+ * Removes the tags within tagNames list if they are empty.
+ * 
+ * @param SIFNote the SIF note to process  
+ */ 
+String removeEmptyTags(String SIFNote){
+    return SIFNote.replaceAll(patternString, "");
+}
+
+/**
+ * Merge the subject with the body as first line
+ * 
+ * @param SIFNote the SIF note to process  
+ */ 
+String mergeSubjectBody(String SIFNote){
+
+    String subject = getSIFNoteSubject(SIFNote);
+    String body    = getSIFNoteBody   (SIFNote);
+    
+    //
+    // merge subject and body
+    //
+    StringBuilder newBody = new StringBuilder();
+    newBody.append(subject).append('\n').append(body);
+    
+    //
+    // replace body value with the new one
+    //
+    return replaceSIFNoteBody(SIFNote, newBody.toString());
+}
+
+
+/**
+ * Creates the pattern to match giving the list of the tags to handle.
+ */
+void init(){
+    
+    if (patternString != null){
+        return;
+    }
+    
+    if (tagNames != null && tagNames.length != 0) {
+        patternString = "";
+        
+        for (String tagName : tagNames) {
+            patternString +=
+                    "(<" + tagName + "/>\\n*)|" +
+                    "(<" + tagName + "></" + tagName + ">\\n*)|";
+        }
+        if (patternString.charAt(patternString.length() - 1) == '|') {
+            patternString = patternString.substring(0, patternString.length() - 1);
+        }
+    }
+}

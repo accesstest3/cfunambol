@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/java/com/funambol/ctp/client/driver/session
+END
+StateDiconnected.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/java/com/funambol/ctp/client/driver/session/StateDiconnected.java
+END
+State.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/java/com/funambol/ctp/client/driver/session/State.java
+END
+StateAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/java/com/funambol/ctp/client/driver/session/StateAdapter.java
+END
+StateAuthenticated.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/java/com/funambol/ctp/client/driver/session/StateAuthenticated.java
+END
+StateConnected.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/java/com/funambol/ctp/client/driver/session/StateConnected.java
+END
+StateReady.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/java/com/funambol/ctp/client/driver/session/StateReady.java
+END
+SessionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/java/com/funambol/ctp/client/driver/session/SessionManager.java
+END

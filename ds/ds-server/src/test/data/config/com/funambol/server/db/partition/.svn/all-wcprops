@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/test/data/config/com/funambol/server/db/partition
+END
+user_part1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/test/data/config/com/funambol/server/db/partition/user_part1.xml
+END
+user_part2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/test/data/config/com/funambol/server/db/partition/user_part2.xml
+END
+user_part3.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/test/data/config/com/funambol/server/db/partition/user_part3.xml
+END

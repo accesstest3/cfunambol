@@ -1,0 +1,332 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+import java.util.List;
+import java.util.Map;
+
+import java.text.SimpleDateFormat;
+
+import com.funambol.framework.core.*;
+import com.funambol.framework.core.Sync4jException;
+import com.funambol.framework.engine.pipeline.OutputMessageProcessor;
+import com.funambol.framework.engine.pipeline.MessageProcessingContext;
+import com.funambol.framework.engine.pipeline.StopProcessingException;
+import com.funambol.framework.logging.FunambolLogger;
+import com.funambol.framework.logging.FunambolLoggerFactory;
+import com.funambol.framework.server.Capabilities;
+
+import com.funambol.foundation.synclet.PIMItemsHandler;
+
+/**
+ * IMPORTANT: in order to guarantee support to all new Symbian devices, it's 
+ * necessary to add them constantly in the isInSeries60() method. Tha hashtable
+ * contains the list of all supported Symbian S60 devices.  
+ * 
+ * Contacts:
+ * =========
+ * Moved some TEL properties to the end of the VCARD in a special order because 
+ * the devices don't behave properly at update time, otherwise.
+ * Removed TYPE information from PHOTO token because the phones of the series 60
+ * are not able to understand this information rightly.
+ * Replaces the TEL;CAR;VOICE token into TEL;VOICE;CAR.
+ * Replace  the property NICKNAME with X-EPOCSECONDNAME 
+ *
+ * Calendars:
+ * ==========
+ * Anniversaries: ALL-DAY annual recurring events need to be processed as
+ * anniversaries. The property X-EPOCAGENDAENTRYTYPE:ANNIVERSARY is added
+ * after the DTEND property in order to let S60 devices recognize the event
+ * as an anniversary and place the correct icon on it.
+ * 
+ * Memos: ALL-DAY non recurring events need to be processed as memos. The 
+ * property X-EPOCAGENDAENTRYTYPE:EVENT is added after DTEND property in order
+ * to let S60 devices recognize the event as a memo and place the correct icon
+ * on it.      
+ *
+ * @version $Id$
+ */
+ 
+// ---------------------------------------------------------------- Private data
+private final FunambolLogger log =
+    FunambolLoggerFactory.getLogger("engine.pipeline");
+
+private final String ANNIVERSARY = "X-EPOCAGENDAENTRYTYPE:ANNIVERSARY";
+private final String EVENT       = "X-EPOCAGENDAENTRYTYPE:EVENT";
+
+// ------------------------------------------------------ Synclet implementation
+importCommands("/com/funambol/server/engine/pipeline/phones-support/bsh/commands");
+
+/**
+ * Process and manipulate the output message.
+ *
+ * @param mpc the message processing context
+ * @param message the message to be processed
+ *
+ * @throws Sync4jException
+ */
+void postProcessMessage(MessageProcessingContext mpc,
+                        SyncML message              )
+throws Sync4jException {
+
+    if (log.isTraceEnabled()) {
+        log.trace("NokiaS60out.postProcessMessage(...)");
+    }
+
+    // Retrieves the device model from the DB
+    Capabilities capabilities = 
+        deviceCapabilitiesLookup(message.syncHdr.target.locURI);
+    
+    String model = null;
+    String manufacturer = null;
+    
+    if (capabilities != null) {
+        DevInf devInf = capabilities.getDevInf();
+        
+        if (devInf != null) {
+            model = devInf.getMod();
+            manufacturer = devInf.getMan();
+        }
+    }
+    
+    if (isInSeries60(manufacturer, model)) {
+    
+        if (log.isTraceEnabled()) {
+            if (model != null) {
+                log.trace(model + " belongs to the Series 60");
+            }
+            else {
+                log.trace("Funambol Symbian Sync Client works on the Series 60");
+            }
+        }
+    
+        // This map contains the three lists of items separated based on their type
+        PIMItemsHandler pimItemsHandler = new PIMItemsHandler();
+        Map mapItems = pimItemsHandler.extractOutgoingPIMItems(message);
+
+        processPIMItems(mapItems);
+    } else {
+        if (log.isTraceEnabled()) {
+            log.trace(model + " does not belong to the Series 60");
+        }
+    }
+	
+    throw new StopProcessingException("NokiaS60out Synclet finished");
+}
+
+/**
+ * Processes outgoing items.
+ *
+ * @param mapItems the map that contains the three lists of items separated
+ *                 based on their type
+ */
+void processPIMItems(Map mapItems) {
+
+    //
+    // Cycle on vcard list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VCARD)) {
+        postProcessVCard(i);
+    }
+    
+    //
+    // Cycle on vcal list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VEVENT)) {
+        postProcessVEvent(i);
+    }
+}
+
+/**
+ * Processes outgoing contacts.
+ * 
+ * @param i the item to be processed
+ */
+void postProcessVCard(Item i) {
+
+    data = i.data.data;
+
+    data = movePropertyToTheEnd(data, "TEL;VOICE;HOME");
+    data = movePropertyToTheEnd(data, "TEL;VOICE;HOME");
+    data = movePropertyToTheEnd(data, "TEL;PREF;VOICE");
+    data = movePropertyToTheEnd(data, "TEL;VOICE;WORK");
+    data = movePropertyToTheEnd(data, "TEL;VOICE;WORK");
+    data = movePropertyToTheEnd(data, "TEL;WORK;PREF");
+    data = movePropertyToTheEnd(data, "TEL;VOICE");
+    
+    //Replaces the TEL;CAR;VOICE token into TEL;CAR.
+	  data = replaceOutProperty(data, "TEL;CAR;VOICE", "TEL;CAR");
+    //   
+    // Replace  the property Nickname with X-EpocSecondName 
+    //
+	  data = replaceOutProperty (data,"NICKNAME","X-EPOCSECONDNAME");
+    //
+    // Removes TYPE information from PHOTO token because the phones of the 
+    // series 60 are not able to understand this information rightly.
+    //
+    data = removePhotoType(data);
+    
+    i.data.data = data;
+}
+
+/**
+ * Processes outgoing calendar.
+ * 
+ * @param i the item to be processed
+ */
+void postProcessVEvent(Item i) {
+            
+    handleAnniversary(i);
+    handleMemo(i);
+   
+}
+
+/**
+ * Processes ALL-DAY annual recurring events.
+ * Adds property X-EPOCAGENDAENTRYTYPE:ANNIVERSARY after the DTEND property.
+ * Removes TZ and DAYLIGHT property that cause issues for anniversary events.
+ *
+ * @param i the item to be processed
+ */
+void handleAnniversary(Item i) {
+
+    data = i.data.data;
+    
+    // Checks if the event is an ALL-DAY event
+    if (data.indexOf("X-FUNAMBOL-ALLDAY:1") == - 1) {
+        return;
+    }
+    
+    //
+    //Checks if the event is an anniversary (i.e. if it occurs every year)
+    //
+    if (data.indexOf("\r\nRRULE:YM1") == - 1 &&
+        data.indexOf("\r\nRRULE:MD12") == - 1) {
+        return;
+    }
+    
+    if (data.indexOf("\r\nDTEND:") == - 1) {
+        return;
+    }
+    
+    data = deleteOutProperty(data, "TZ:"      );
+    data = deleteOutProperty(data, "DAYLIGHT" );
+    
+    indStart =  data.indexOf("\r\nDTSTART:");
+    startDate = data.substring(indStart + 10, data.indexOf("\r\n", indStart + 10));
+    indEnd = data.indexOf("\r\nDTEND:");
+    indNextProperty = data.indexOf("\r\n", indEnd + 8);
+    
+
+    newData = new StringBuffer(data.substring(0, indEnd))
+            .append("\r\nDTEND:").append(startDate)
+            .append("\r\n").append(ANNIVERSARY)
+            .append(data.substring(indNextProperty));
+            
+    i.data.setData(newData.toString());
+}
+
+/**
+ * Processes ALL-DAY non recurring events.
+ * Adds property X-EPOCAGENDAENTRYTYPE:EVENT after the DTEND property.
+ * Fixes the end date.  
+ *
+ * @param i the item to be processed
+ */
+void handleMemo(Item i) {
+
+    data = i.data.data;
+    
+    // Checks if the event is an ALL-DAY event
+    if (data.indexOf("X-FUNAMBOL-ALLDAY:1") == - 1) {
+        return;
+    }    
+    
+    //
+    //Checks that the event is not a recurring event 
+    //
+    if (data.indexOf("\r\nRRULE:") != - 1) {
+        return;
+    }
+    
+    if (data.indexOf("\r\nDTEND:") == - 1) {
+        return;
+    }
+
+    indEnd = data.indexOf("\r\nDTEND:");
+    
+    dtEnd = data.substring(indEnd + 8                    ,
+                           data.indexOf("\r\n", indEnd + 8));
+    
+    dtEnd = fixEndDate(dtEnd);
+    
+    newData = new StringBuffer(data.substring(0, indEnd + 8))
+            .append(dtEnd)
+            .append("\r\n")
+            .append(EVENT)
+            .append(data.substring(data.indexOf("\r\n", indEnd + 23)))
+            ;
+
+    i.data.setData(newData.toString());
+}
+
+/**
+ * Corrects ALL-DAY event end dates for Memo event type that need to be sent
+ * as following in order to be understood correctly by Nokia S60 devices:
+ * 
+ * DTSTART:20080522T000000
+ * DTEND:20080526T000000  
+ *
+ * @return the data item
+ */
+
+String fixEndDate(String dtEnd) {    
+    SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd'T'HHmmss");
+    
+    // Adding 1 minute time difference to the End Date
+    diff = +60000;
+    
+    date = format.parse(dtEnd);
+
+    return format.format(date.time + diff);
+}
+
+
+/**
+ * Called at synclet's initialization time.
+ */
+void init() {
+    // do nothing
+}
+

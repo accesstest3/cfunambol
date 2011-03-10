@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+
+<!--
+    FNBL_PUSH_REGISTRY_USERNAME
+    ***************************
+-->
+
+                                           
+<FNBL_PUSH_REGISTRY_BASIC    period         ="1000"
+                             active         ="Y"
+                             last_update    ="1234556666226"
+                             status         ="D"
+                             task_bean_file =""com.funambol.task.ScheduledTask""
+/>                                         
+                                           
+<FNBL_PUSH_REGISTRY_USERNAME period         ="1000"
+                             active         ="Y"
+                             last_update    ="1234556666226"
+                             status         ="D"
+                             task_bean_file ="com.funambol.task.ScheduledTask"
+                             USERNAME       ="angelina"
+/>                                         
+</dataset>

@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/31493/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui
+END
+DemoContact.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/DemoContact.java
+END
+ContactModify.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/ContactModify.java
+END
+ContactNew.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/ContactNew.java
+END
+CalendarList.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/CalendarList.java
+END
+FieldsHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/FieldsHelper.java
+END
+Configuration.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/Configuration.java
+END
+About.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/31493/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/About.java
+END
+MainWindow.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/MainWindow.java
+END
+Client.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/Client.java
+END
+DemoCalendar.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/DemoCalendar.java
+END
+ContactForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/ContactForm.java
+END
+CheckContactFields.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/CheckContactFields.java
+END
+CalendarModify.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/CalendarModify.java
+END
+CalendarNew.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/CalendarNew.java
+END
+ContactComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/ContactComparator.java
+END
+Language.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/Language.java
+END
+ContactList.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/ContactList.java
+END
+ConfigurationParameters.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/31492/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/ConfigurationParameters.java
+END
+CalendarForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/CalendarForm.java
+END
+DemoMenuBar.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/DemoMenuBar.java
+END
+CheckCalendarFields.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/src/main/java/com/funambol/syncclient/javagui/CheckCalendarFields.java
+END

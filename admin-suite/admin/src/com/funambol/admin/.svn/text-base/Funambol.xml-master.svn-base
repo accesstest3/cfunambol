@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE library PUBLIC "-//NetBeans//DTD Library Declaration 1.0//EN" "http://www.netbeans.org/dtds/library-declaration-1_0.dtd">
+<library version="1.0">
+    <name>Funambol</name>
+    <type>j2se</type>
+    <localizing-bundle>com.funambol.admin.Bundle</localizing-bundle>
+    <volume>
+        <type>classpath</type>
+        <resource>jar:nbinst:///libs/%CORE-FRAMEWORK.JAR%!/</resource>
+        <resource>jar:nbinst:///libs/%SERVER-FRAMEWORK.JAR%!/</resource>
+        <resource>jar:nbinst:///libs/funambol-server.jar!/</resource>
+    </volume>
+    <volume>
+        <type>src</type>
+        
+    </volume>
+    <volume>
+        <type>javadoc</type>            
+        
+    </volume>
+</library>

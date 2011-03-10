@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/ant/bin
+END
+runant.pl
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/ant/bin/runant.pl
+END
+antRun.pl
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/ant/bin/antRun.pl
+END
+ant
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/ant/bin/ant
+END
+complete-ant-cmd.pl
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/ant/bin/complete-ant-cmd.pl
+END
+lcp.bat
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/ant/bin/lcp.bat
+END
+ant.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/ant/bin/ant.cmd
+END
+envset.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/ant/bin/envset.cmd
+END
+ant.bat
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/ant/bin/ant.bat
+END
+antRun
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/ant/bin/antRun
+END
+runrc.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/ant/bin/runrc.cmd
+END
+antRun.bat
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/ant/bin/antRun.bat
+END
+antenv.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/ant/bin/antenv.cmd
+END
+runant.py
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/ant/bin/runant.py
+END

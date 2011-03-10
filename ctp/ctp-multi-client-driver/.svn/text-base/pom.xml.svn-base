@@ -1,0 +1,157 @@
+<?xml version="1.0" ?><!--
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+--><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>funambol</groupId>
+  <artifactId>ctp-multi-client-driver</artifactId>
+  <packaging>jar</packaging>
+  <version>9.1.0-SNAPSHOT</version>
+  <name>Funambol CTP Multi Client Driver</name>
+  <url>http://www.funambol.com</url>
+
+  <parent>
+    <groupId>funambol</groupId>
+    <artifactId>funambol</artifactId>
+    <version>9.1.0</version>
+  </parent>
+
+  <dependencies>
+    <!--
+        Internal dependencies
+    -->
+
+    <dependency>
+        <groupId>funambol</groupId>
+        <artifactId>core-framework</artifactId>
+        <version>9.1.0-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+        <groupId>funambol</groupId>
+        <artifactId>ctp-core</artifactId>
+        <version>9.1.0-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+        <groupId>funambol</groupId>
+        <artifactId>ctp-mina-codec</artifactId>
+        <version>9.1.0-SNAPSHOT</version>
+    </dependency>
+
+    <!--
+        External dependencies
+    -->
+
+    <dependency>
+        <groupId>org.apache.mina</groupId>
+        <artifactId>mina-core</artifactId>
+        <version>1.1.2</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>1.4.2</version>
+        <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+        <artifactId>log4j</artifactId>
+        <groupId>log4j</groupId>
+        <version>1.2.14</version>
+    </dependency>
+
+  </dependencies>
+
+  <scm>
+      <connection>scm:svn:https://guest@core.forge.funambol.org/svn/core/trunk/funambol/ctp/ctp-multi-client-driver</connection>
+      <developerConnection>scm:svn:https://core.forge.funambol.org/svn/core/trunk/funambol/ctp/ctp-multi-client-driver</developerConnection>
+      <url>https://core.forge.funambol.org/svn/core/trunk/funambol/ctp/ctp-multi-client-driver</url>
+  </scm>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <!--
+            The Funambol Maven Plugin enables the use of the following
+            goals:
+            - funambol:properties
+        -->
+        <groupId>funambol</groupId>
+        <artifactId>funambol-plugin</artifactId>
+        <version>1.0.7</version>
+        <executions>
+          <execution>
+            <id>prepare-resources</id>
+            <phase>package</phase>
+            <goals>
+              <goal>resources</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <configuration>
+          <descriptors>
+            <descriptor>src/assembly/bin.xml</descriptor>
+          </descriptors>
+          <appendAssemblyId>true</appendAssemblyId>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>attached</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

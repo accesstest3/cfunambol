@@ -1,0 +1,316 @@
+<?xml version="1.0" ?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>ds-server</artifactId>
+    <groupId>funambol</groupId>
+    <version>9.1.0-SNAPSHOT</version>
+    <name>Funambol DS Server jar</name>
+
+    <parent>
+        <artifactId>funambol</artifactId>
+        <groupId>funambol</groupId>
+        <version>9.1.0</version>
+    </parent>
+
+
+    <dependencies>
+
+        <!--
+            Internal dependencies
+        -->
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>core-framework</artifactId>
+            <version>9.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>server-framework</artifactId>
+            <version>9.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>ext</artifactId>
+            <version>9.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>testing-tool</artifactId>
+            <version>9.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jibx</groupId>
+            <artifactId>jibx-bind</artifactId>
+            <version>1.1.2fun</version>
+        </dependency>
+
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>test-addons</artifactId>
+            <version>1.0.6</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <!--
+            External dependencies
+        -->
+
+        <dependency>
+            <groupId>junit-addons</groupId>
+            <artifactId>junit-addons</artifactId>
+            <version>1.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <artifactId>commons-lang</artifactId>
+            <groupId>commons-lang</groupId>
+            <version>2.3</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>commons-collections</artifactId>
+            <groupId>commons-collections</groupId>
+            <version>3.2</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>commons-logging</artifactId>
+            <groupId>commons-logging</groupId>
+            <version>1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-discovery</groupId>
+            <artifactId>commons-discovery</artifactId>
+            <version>0.4</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>commons-codec</artifactId>
+            <groupId>commons-codec</groupId>
+            <version>1.3</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>commons-httpclient</artifactId>
+            <groupId>commons-httpclient</groupId>
+            <version>3.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>1.8.0.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>directory-naming</groupId>
+            <artifactId>naming-core</artifactId>
+            <version>0.8</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>directory-naming</groupId>
+            <artifactId>naming-java</artifactId>
+            <version>0.8</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.2.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-modeler</groupId>
+            <artifactId>commons-modeler</artifactId>
+            <version>2.0.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.dbunit</groupId>
+            <artifactId>dbunit</artifactId>
+            <version>2.4.5</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.4.3</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.4.3</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>log4j</artifactId>
+            <groupId>log4j</groupId>
+            <version>1.2.14</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>p6spy</artifactId>
+            <groupId>p6spy</groupId>
+            <version>1.3</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>ant</artifactId>
+            <groupId>ant</groupId>
+            <version>1.6.5</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>jdom</artifactId>
+            <groupId>jdom</groupId>
+            <version>0.7</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>vmtools</artifactId>
+            <groupId>org.vmguys</groupId>
+            <version>0.5</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>joda-time</artifactId>
+            <groupId>joda-time</groupId>
+            <version>1.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.beanshell</groupId>
+            <artifactId>bsh</artifactId>
+            <version>2.0b4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <version>2.6.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>bcel</groupId>
+            <artifactId>bcel</artifactId>
+            <version>5.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jgroups</groupId>
+            <artifactId>jgroups</artifactId>
+            <version>2.5.0-GA</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jline</groupId>
+            <artifactId>jline</artifactId>
+            <version>0.9.93</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.axis</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.4</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.axis</groupId>
+            <artifactId>axis-jaxrpc</artifactId>
+            <version>1.4</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.axis</groupId>
+            <artifactId>axis-saaj</artifactId>
+            <version>1.4</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>axis</groupId>
+            <artifactId>axis-wsdl4j</artifactId>
+            <version>1.5.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <!--
+        Build plug-ins
+    -->
+    <build>
+        <plugins>
+        
+        
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <!--
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    -->
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+                    
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <!--
+                        Since the Configuration is a singleton we need to force
+                        always the fork mode.
+                    -->
+                    <forkMode>pertest</forkMode>
+                    <systemProperties>
+                        <property>
+                            <name>funambol.home</name>
+                            <value>./src/test/data</value>
+                        </property>
+                        <property>
+                            <name>funambol.configuration.quiet-initialization</name>
+                            <value>true</value>
+                        </property>
+                        <property>
+                            <name>user.timezone</name>
+                            <value>Europe/Berlin</value>
+                        </property>
+                    </systemProperties>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <scm>
+        <connection>scm:svn:https://guest@core.forge.funambol.org/svn/core/trunk/funambol/ds/ds-server</connection>
+        <developerConnection>scm:svn:https://core.forge.funambol.org/svn/core/trunk/funambol/ds/ds-server</developerConnection>
+        <url>https://core.forge.funambol.org/svn/core/trunk/funambol/ds/ds-server</url>
+    </scm>
+
+</project>

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/test/java/com/funambol/email/mocks
+END
+EmailSyncSourceMock.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/test/java/com/funambol/email/mocks/EmailSyncSourceMock.java
+END
+InboxTable.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/java/com/funambol/email/mocks/InboxTable.java
+END

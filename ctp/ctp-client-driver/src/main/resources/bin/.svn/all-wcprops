@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-client-driver/src/main/resources/bin
+END
+startClient.bat
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-client-driver/src/main/resources/bin/startClient.bat
+END
+startSimpleClient.bat
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-client-driver/src/main/resources/bin/startSimpleClient.bat
+END

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.6.0" class="java.beans.XMLDecoder">
+ <object class="com.funambol.server.db.DataSourceConfiguration">
+   <void method="setProperty">
+    <string>url</string>
+    <string>jdbc:hsqldb:mem:coredb</string>
+   </void>
+   <void method="setProperty">
+    <string>username</string>
+    <string>sa</string>
+   </void>
+   <void method="setProperty">
+    <string>password</string>
+    <string></string>
+   </void>
+   <void method="setProperty">
+    <string>driverClassName</string>
+    <string>org.hsqldb.jdbcDriver</string>
+   </void>
+ </object>
+</java>

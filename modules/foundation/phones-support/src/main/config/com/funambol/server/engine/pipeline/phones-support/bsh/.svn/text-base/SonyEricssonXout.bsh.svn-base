@@ -1,0 +1,203 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+import java.util.List;
+import java.util.Map;
+
+import com.funambol.framework.core.*;
+import com.funambol.framework.core.Sync4jException;
+import com.funambol.framework.engine.pipeline.OutputMessageProcessor;
+import com.funambol.framework.engine.pipeline.MessageProcessingContext;
+import com.funambol.framework.logging.FunambolLogger;
+import com.funambol.framework.logging.FunambolLoggerFactory;
+
+import com.funambol.foundation.synclet.PIMItemsHandler;
+
+/**
+ * Contacts:
+ * =========
+ * Removes the field TEL;PREF;VOICE: because it is not correctly handled by the
+ * phone.
+ *
+ * Calendars:
+ * ==========
+ * . Event
+ *   Sets the empty tokens with dummy value.
+ *   Deletes the CATEGORIES property. 
+ *   
+ * . Todo
+ *   Sets the empty tokens with dummy value.
+ *   Deletes the CATEGORIES property.
+ *
+ * @version $Id: SonyEricssonXout.bsh,v 1.7 2008-06-30 10:01:16 luigiafassina Exp $
+ */
+
+// ---------------------------------------------------------------- Private data
+private final FunambolLogger log =
+    FunambolLoggerFactory.getLogger("engine.pipeline");
+
+// ------------------------------------------------------ Synclet implementation
+importCommands("/com/funambol/server/engine/pipeline/phones-support/bsh/commands");
+
+/**
+ * Process and manipulate the output message.
+ *
+ * @param processingContext the message processing context
+ * @param message the message to be processed
+ *
+ * @throws Sync4jException
+ */
+void postProcessMessage(MessageProcessingContext processingContext,
+                        SyncML message                            )
+throws Sync4jException {
+    if (log.isTraceEnabled()) {
+        log.trace("SonyEricssonXout.postProcessMessage(...)");
+    }
+
+    // This map contains the three lists of items separated based on their type
+    PIMItemsHandler pimItemsHandler = new PIMItemsHandler();
+    Map mapItems = pimItemsHandler.extractOutgoingPIMItems(message);
+    processPIMItems(mapItems);
+}
+
+/**
+ * Processes outgoing items.
+ *
+ * @param mapItems the map that contains the three lists of items separated
+ *                 based on their type
+ *
+ */
+void processPIMItems(Map mapItems) {
+
+    //
+    // Cycle on vcard list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VCARD)) {
+        postProcessContacts(i);
+    }
+
+    //
+    // Cycle on vevent list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VEVENT)) {
+        postProcessEvent(i);
+    }
+        
+    //
+    // Cycle on vtodo list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VTODO)) {
+        postProcessTodo(i);
+    }
+}
+
+/**
+ * Processes outgoing contacts.
+ *
+ * Removes the field TEL;PREF;VOICE:
+ *
+ * @param i the item content
+ *
+ */
+void postProcessContacts(Item i) {
+    data = checkPhonePrefField(i.data.data);
+    i.data.setData(data);
+}
+
+/**
+ * Processes outgoing vevent.
+ *
+ * Sets the empty tokens with dummy value.
+ * Deletes CATEGORIES property that can cause the device restart 
+ *
+ * @param i the item to process
+ * @param userAgent the user-agent from http request header
+ */
+void postProcessEvent(Item i) {
+    data = i.data.data;
+    
+    data = setDummyValue(data, "SUMMARY", "SUMMARY");
+	  data = setDummyValue(data, "DESCRIPTION", "DESCRIPTION");
+    data = deleteOutProperty(data, "CATEGORIES:");
+    
+    i.data.setData(data);
+}
+
+/**
+ * Processes outgoing vtodo.
+ *
+ * Sets dummy value for summary.
+ * Deletes CATEGORIES property that can cause the device restart  
+ *
+ * @param i the item to be processed
+ */
+void postProcessTodo(Item i) {
+    data = i.data.data;
+
+    data = setDummyValue(data, "SUMMARY", "SUMMARY");
+	data = setDummyValue(data, "DESCRIPTION", "DESCRIPTION");
+    data = deleteOutProperty(data, "CATEGORIES:");
+
+    i.data.setData(data);    
+}
+
+/**
+ * Removes in the contact the field TEL;PREF;VOICE: because it is not correctly
+ * handled by the phone.
+ *
+ * @param data the contact item
+ *
+ * @return the modified data
+ */
+String checkPhonePrefField(String data){
+
+    int beginField, endField;
+    
+    beginField = data.indexOf("\r\nTEL;PREF;VOICE:");
+    if(beginField != -1){
+        endField = data.substring(beginField +1).indexOf("\r\n");
+        data = data.substring(0, beginField) +
+               data.substring(beginField + endField + 2);
+    }
+
+    return data;
+}
+
+/**
+ * Called initializing the synclet
+ */
+void init() {
+    // do nothing
+}

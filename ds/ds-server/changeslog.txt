@@ -1,0 +1,1448 @@
+2011-03-08
+- nichele: Changed SyncAdapter to update the thread name adding the device id as
+           soon as it is known.
+2011-02-25
+- nichele: Improved client mapping handling reducing number of queries
+
+-------------------------------------------
+Funambol Data Synchronization Server 9.0.0
+-------------------------------------------
+
+2010-12-07
+- machi: Fixed Bug 10402 - Sometimes a process called ClassLoaderLogManager...
+         Fixed the way the ClientLogCleanUpPlugin is stopped avoiding any waste of
+         time
+
+2010-11-16
+- machi: Updated the ClientLogCleanUpPlugin in order to use default values
+         Updated the ClientLogCleanUpAgent in order to use the lockExpirationTime
+         Updated accordingly the ClientLogCleanUpAgentTest 
+            
+2010-11-12
+- lulu: Improved junits for ClientLogCleanUpAgent class.
+
+2010-11-11
+- machi: Added junits for ClientLogCleanUpAgent class and for CleanUpEventHandler
+         class.
+        
+2010-11-10
+- lulu: Added junits for ClientLogCleanUpPlugin class.
+- machi: Removed the NoTmpFilter in favour of commons-io equivalent classes.
+         Fixed some minor issues on the event hanlder.
+         Added some logs and replaced the isHeldByCurrentThread method in favour
+         of the quietly one in order to avoid annoing exceptions.
+
+2010-11-09
+- machi: Updated the ClientLogCleanup classes and added the first junit. 
+
+2010-11-08
+- machi: Added ClientLogCleanup plugin and agent classes. 
+
+2010-08-27
+- lulu: Changed execNewOperation(..) and execUpdateOperation(..) methods in
+        Sync4jStrategy in order to log at error level the SyncException
+        only when required.
+
+-------------------------------------------
+Funambol Data Synchronization Server 8.7.0
+-------------------------------------------
+2010-06-26
+- nichele: Fixed bug #9579 - "synchronization completed" message is logged when
+           timeout occurs.
+           Improved log messages.
+
+2010-06-24
+- lulu: Fixed bug #9520 - getExceptionCode() returns quite often 'null'
+        Added the handling of the status code for any authentication error 
+        scenario (401,402,403,407).
+        Added status code for the not found sync source error scenario (404).
+        Removed references to deprecated exceptionCode Event methods in favor
+        of the new statusCode property.
+
+2010-06-10
+- lulu: Removed defaultRoles and mandatoryRoles properties from
+        DBUserManager.xml since are not used anymore.
+
+2010-06-08
+- lulu: Added defaultRoles and mandatoryRoles properties in DBUserManager.xml.
+        The manadatory roles are the roles that a user must have set if he want
+        to sync for instance; the default roles are the roles that are set for
+        any user.
+
+2010-05-04
+- lulu: Fixed bug #9260 - Impossible to create a SyncSource from Admin tool
+
+2010-04-27
+- testa: Added method getClientMapping in AdminManager
+
+2010-04-25
+- nichele: Added logging when an error occurs during SyncSource initialization
+
+-------------------------------------------
+Funambol Data Synchronization Server 8.5.1
+-------------------------------------------
+2010-03-30
+- maria: Updated Dependencies
+
+-------------------------------------------
+Funambol Data Synchronization Server 8.5.0
+-------------------------------------------
+2010-03-24
+- machi: Updated the Sync4jEngine in order to create and log error events (SyncEvent)
+         when a sync (sync source scope) is stopped due to some errors. 
+         Updated the SyncSessionHanlder in order to trigger error event if the
+         sync (whole sync scope) is ended in error.
+         Both changes are needed by the NSN callback feature. 
+
+2010-03-17
+- lulu: Fixed bug #8956 - Bad server performance handling server caps
+        Now, the server capabilities will be created only if really required.
+
+2010-02-15
+- testa: Fixed bug #8450 - Picture Sync: DeviceFullException when user is over
+         quota. The stack-trace is no longer logged when the quota is reached.
+
+2010-01-27
+- lulu: Fixed bug #2032 - MaxObjSize incorrectly handled in multi sync
+        Now the server is able to handle the MaxObjSize property when the client
+        sends it (in an Alert or Sync commands) with different values for each
+        source to sync.
+
+2009-12-21 (2010-01-20 in branch us1680)
+- nichele: Reviewed in order to use new SyncItem implementations.
+           Reviewed Sync4jEngine to support OPAQUE items (they are sent using
+           CDATA).
+
+2009-12-21 (2010-01-15 in branch us1680)
+- nichele: Improved memory usage for outgoing items using StreamingSyncItem
+           and CData.
+
+2009-12-21 (2010-01-13 in branch us1680)
+- testa: itemsToSyncItems method in EngineHelper uses the SyncItemFactory
+
+2009-12-21 (2010-01-12 in branch us1680)
+- nichele: Simplified Sync4jEngine and SyncSessionHandler implementation about
+           outgoing streaming items
+
+2010-01-15
+- lulu: Implemented Put command. Now, the server is able to send its capabilities
+        in a Put command even if the client does not require them (using a Get
+        command). In this way, when the server capabilities change, the server
+        is able to communicate them to the client in a transparent way during a
+        sync.
+
+2009-12-22
+- lulu: Fixed bug #8250 - Suboptimal mapping handling implementation in the
+        ds-server
+
+2009-12-18 (2009-12-01 in branch us1680)
+- testa: Added methods getSyncItem, getStreamingSyncItemContentSize, 
+         getAvailableContent and fillItemFromStreamingSyncItemContent in Sync4jEngine.
+         The actual size of an Item is computed retrieving the size from the
+         corresponding StreamingSyncItem.
+
+2009-12-18 (2009-11-29 in branch us1680)
+- testa: Added method newResolvingClientItem in SyncItemHelper.
+         Refactored method newMappedSyncItem in SyncItemHelper.
+         In method applyDataTransformationsOnIncomingItems of Sync4jEngine get
+         the content lenght only if PROPERTY_CONTENT_SIZE is not set.
+         In method execConflictNU and execConflictUU avoid to reset the content
+         of resolvingItem.
+         In Sync4jStrategy use copy method to set resolvingItem SyncItem.
+
+2009-12-18 (2009-11-24 in branch us1680)
+- testa: Refactored method prepareMemorySource of SyncSessionHandler to use the
+         StreamingSyncItem and remove the dependency to ModificationCommand.
+
+2009-12-18 (2009-11-19 in branch us1680)
+- testa: SynSessionHandler provides parameter "syncItemOutputStream" when
+         calling SyncSource's method "addingItems".
+         Added method "getSyncItemOutputStream" in Sync4jEngine.
+
+2009-12-18 (2009-11-16 in branch us1680)
+- testa: fix bug 7877 "Syncs may fail when new large object and replaces are
+         sent from clients"
+         Changed the prepareMemorySource method in order to preserve the
+         client's commands order.
+
+2009-12-14
+- nichele: Changed ds-server capabilities handling: now the server sends the info
+           for all its sources instead of just the ones the client is syncing
+2009-12-07
+- gibi: removed reference to internal project 
+
+-------------------------------------------
+Funambol Data Synchronization Server 8.2.5
+-------------------------------------------
+2009-12-01
+- gibi: Fixed issue 8219 - The sendNotification process driven by the SAPI 
+        "sendNotification" deosn't work 
+
+-------------------------------------------
+Funambol Data Synchronization Server 8.2.4
+-------------------------------------------
+2009-11-05
+- nichele: Changed EngineHelper.generateStatusCommands in order to use a
+           LinkedHashMap instead of an HashMap since the latter guarantees order
+           (with the former tests could be random)
+           
+2009-11-03
+- testa: Fixed Bug 8026 - Reporting - DS_23B fails in counting updated items on 
+         server.
+         Fixed Bug 8027 - Reporting - DS_33B - '404' status from server should 
+         be logged as an error.
+         Reporting - Not count updates for server in N/N conflicts. 
+
+-------------------------------------------
+Funambol Data Synchronization Server 8.2.3
+-------------------------------------------
+2009-10-22
+- testa: Fixed bug for reporting: the number of updated items during a sync.
+
+-------------------------------------------
+Funambol Data Synchronization Server 8.2.2
+-------------------------------------------
+2009-10-08
+- testa: Added number of added/updated/deleted items and duration for logged 
+         end-sync events.
+
+2009-10-05
+- testa: Added logging of events start-sync and end-sync to Sync4jEngine object.
+
+2009-09-28
+- testa: Added check for null values retrieved from database in order to prevent
+         issues using databases like Oracle.
+
+-------------------------------------------
+Funambol Data Synchronization Server 8.2.1
+-------------------------------------------
+2009-09-25
+- maria: Updated the dependencies
+
+-------------------------------------------
+Funambol Data Synchronization Server 8.2.0
+-------------------------------------------
+2009-09-19
+- nichele: Updated to use new BeanTool implementation instead of
+           ConfigTool/ConfigCache.
+
+2009-09-10
+- testa: Fixed bug: send the target parent only if the mapped luid is valid. 
+
+2009-09-09
+- lulu: Fixed issue in EngineHelper.operationToCommand(..) and added the 
+        handling of conflict cases.
+
+2009-07-31
+- gibi: Added the changes about the configuration of the ds server engine and
+        strategy
+
+2009-06-15
+- testa: The NotificationEngineImpl does not extend the 
+         AbstractNotificationEngine and thus the Sync4jEngine anymore.
+
+2009-06-15
+- testa: Added the PushManager, managing synchronous and asynchronous 
+         notification delivery. The PushManager collaborates with the 
+         NotificationEngine but all other classes refer to the PushManager and
+         not to the NotificationEngine anymore.
+
+2009-06-12
+- lulu: Moved default queries from PSDeviceInventory.xml to 
+        ConfigPersistentStore class (this xml configuration file exists in more
+        components for testing and so it's difficult to handle it rightly).
+
+2009-06-11
+- lulu: Updated PSDeviceInventory and ConfigPersistentStore classes since at the
+        ConfigItem class has been added the username and encrypted properties.
+
+2009-05-27
+- testa: Added the "smart one way from client" sync mode.
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 8.0.0
+-------------------------------------------
+2009-05-14
+- nichele: Changed the way SyncInitialization replies to a heart beart alert code.
+           Now the version is based on the pom.properties file contained in ds-server.jar
+           
+2009-05-12
+- nichele: Improved last sync times and sync sources handling in Sync4jEngine in order
+           to reduce the number of queries performed during a sync.
+
+2009-05-12
+- testa: Fixed bug: if the device capabilities contain a DataStore that specifies
+         the display name, the server is not able to understand if that Datastore
+         is already stored in the database (already sent by the device)
+
+2009-05-08
+- testa: If the client wants to sync a data source for which there are no 
+         DataStore capabilities, the server asks the DevInf to the client, even
+         if there are already DevInf for other DataStores.
+         For instance, there are some clients that doesn't send all the DataStores
+         but just the ones that are synced; with this improvement, the server tries
+         to obtain the DataStore info for any source that it is syncing.
+
+2009-04-08
+- nichele: Fixed OW bug #313581 Logging in Sync4jStrategy
+
+2009-04-01
+- machi: Created Junit class SyncSessionHandlerTest in order to test the firing
+         of start/end sync session events.
+         
+2009-03-26
+- lulu:  Moved DEFAULT_SERVER_PASSWORD from DevicePersistentStore to 
+         DeviceInventory interface.
+         Changed DeviceInventoryImpl.setDevice() method in order to set the
+         default server password in the device to store if this property is not
+         already set.
+- machi: Added logging of events start sync session and end sync session to
+         SyncSessyonHandler object.
+
+2009-03-25
+- lulu: Changed the push event logging in NotificationEngineImpl using the new
+        PushFlowEvent object.
+
+-------------------------------------------
+Funambol Data Synchronization Server 7.1.0
+-------------------------------------------
+
+2009-01-22
+- lulu: Now, if there are no device capabilities stored in the database and the
+        server has already required them to the client once, but the device
+        didn't send them, then the server should continue to send the GET
+        command without set id_caps to -1 in the db.
+        (see bug #6689 Symbian capabilities should reflect native sync client
+         capabilities)
+
+2009-01-16
+- nichele: Fixed bug #6678 Missing reading timeout in connection less push sender (STPSender)
+
+2008-12-04
+- nichele: Added DBSMSProvider (simple SMSProvider that logs sms messages
+           in a configurable db table). Usable for testing.
+           
+2008-12-03
+- lulu: Fixed bug #6432 Error when sending a pending notification via COP.
+        Changed the signature of deletePendingNotifications method in order to
+        use String[] instead of a java.util.List since there is an issue using
+        List via web services.
+
+2008-11-27
+- nichele: Added FileSystemSMSProvider (simple SMSProvider that logs sms messages
+           in a configurable directory). Usable for testing.
+
+2008-11-26
+- lulu: Fixed bug #6428 The deprecated sendNotificationMessage() in 
+        NotificationEngineImpl is not able to send the notification rightly.
+        The new deprected processingNotificationRequest(..) method is added in
+        order to handle the notification when the username is null: in this case
+        when it's not possible to deliver the notification message, nothing must
+        be stored in the push history and the push is definitely lost.
+
+2008-11-20
+- lulu: Reviewed NotificationEngineImpl class adding addPendingNotification 
+        method called by processingNotificationRequest method when an exception
+        is thrown during the sending of the push notification.
+
+2008-11-15
+- lulu: Fixed bug #4227 Not delivered push notifications must be collected by
+        the ds-server.
+        Implemented Push History: improved the push notifications architecture
+        in order to collect the not delivered push notifications instead of
+        losing them.
+        Reviewed NotificationEngineImpl class adding getMessageFromPendingNotifications
+        and deletePendingNotifications methods, and changing sendNotificationMessage
+        and sendNotificationMessages in order to handle the pending push
+        notifications.
+        Reviewed NotificationEngineImplTest class adding the test cases for
+        getMessageFromPendingNotifications and fixAlertsUsingPendingNotification
+        methods.
+        Reviewed AdminManager, AdminWS and AdminWSClient classes adding 
+        getMessageFromPendingNotifications and deletePendingNotifications
+        methods in order to handle the pending push notifications.
+        Reviewed the Sync4jAddressListener class in order to test if the address
+        is reachable trying to send the pending notifications (if in the datastore
+        there is at least one not delivered notification) instead of a fake
+        notification message.
+        Added the bean mapping for com.funambol.framework.notification.Message
+        in the server-config.wsdd since this class is sent via web service.
+        Added PendingNotification, PendingNotificationDAO and 
+        PendingNotificationDBAccessException classes in 
+        com.funambol.server.notification package in order to handle the pending
+        push notifications.
+        Added PendingNotificationDAOTest class with test cases for 
+        PendingNotificationDAO class.
+
+2008-10-23
+- testa: Management of the RefusedItemException: if a connector throws this 
+         exception the server deletes the item on the client.
+
+2008-10-15
+- nichele: Reviewed NotificationEngineImpl class adding sendNotificationMessage
+           with the user name as parameter deprecating the old one.
+- nichele: Reviewed AdminWSClient, AdminWS and AdminManager adding sendNotificationMessage
+           with the user name as parameter deprecating the old one.
+           
+2008-10-06
+- lulu: Changed the handling of mapping in order to avoid duplicates. The server
+        stores the mapping validating them (storing also the last anchor) when
+        the client sends the Map commands and not only when Status commands are
+        received by server. 
+
+2008-09-23
+- piter: From now on, class com.funambol.server.admin.ws.client.AdminWSClient
+         has to be used to implement web service clients that invoke ds-server
+         web services.
+- piter: Added tracking of the one time session used by web service call within
+         AdminWSClient.
+- lulu: Improved SyncSource configuration file xml updating in the 
+        AdminManager.setSource(..).
+
+2008-09-22
+- nichele: Updated dependencies
+
+2008-09-13
+- lulu: Updated SyncSessionHandler since MemorySyncSource.initialize(..) has 
+        been renamed in addingItems(..).
+
+-------------------------------------------
+Funambol Data Synchronization Server 7.0.4
+-------------------------------------------
+
+2008-07-02
+- nichele: Added com.funambol.server.sms.SimpleSMSService and
+           com.funambol.server.sms.DummySMSProvider.
+
+2008-06-30
+- nichele: Added SMSService in the configuration. In this way, any component that
+           needs to send a SMS can retrieve the configured SMSService calling:
+               Configuration.getConfiguration().getSMSService()
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 7.0.3
+-------------------------------------------
+
+2008-06-25
+- piter: Fixed DBOfficer MD5 authentication to handle case insensitive username.
+- lulu: Changed CapabilitiesPersistentStore.readById(..) in order to set at 1.1
+        by default the DTD version if it is null or empty.
+
+2008-06-23
+- piter: UserProvisioningOfficer inserts a not existing user with lowercase username.
+- piter: Fixed UserProvisioningOfficer to not allow insertion of an already existent user.
+
+2008-06-18
+- testa: The setOperationStatus is called using allways guids as parameter while
+         handling received status for Add, Replace and Delete commands.
+
+2008-06-05
+- nichele: Added Plugin architecture
+
+2008-05-25
+- nichele: Moved script files from Funambol/ds-server/bin to Funambol/bin.
+
+2008-05-24
+- nichele: Added a way to use the Configuration class in "quiet" mode. If
+           if the system property "funambol.configuration.quiet-initialization"
+           is set to true, any error in initializing a Configuration instance is
+           just logged. The expected usage of this setting is just to use
+           Configuration class in junit testcases.
+
+2008-05-22
+- nichele: Added a check in Configuration.configurePersistentStoreManager to avoid
+           exceptions if there are no persistent stores.
+- nichele: Improved error handling in Configuration.getConfiguration
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 7.0.1
+-------------------------------------------
+
+2008-04-15
+- gibi: Modified the Sync4jEngine.sync() method. The constructor of the SyncContext gets the 'since' and 'to'
+        properties also. In this way the method: beginSync() in the SyncSource can use this properties.
+
+2008-04-10
+- gibi: Added the codec-1.3 dependency (instead of the Http-client codec-1.2 link) 
+
+2008-02-21
+- testa: Updated to funambol:server-framework:7.0.0-SNAPSHOT
+
+2008-02-10
+- nichele: Removed useless logging statements in CapabilitiesPersistentStore
+
+2008-02-03
+- nichele: Reviewed admin-passwd (PasswordSetter) making its behaviour similar to passwd.
+           Added dependency to jline (http://jline.sourceforge.net/) used in PasswordUtils to
+           hide the passwords.
+           Renamed encryptPasswords script files in encrypt-passwords.
+           Renamed changeAdminPassword script files in admin-passwd.
+           Renamed wbxmlToxml script files in wbxml-to-xml.
+           Renamed xmlTowbxml script files in xml-to-wbxml.
+
+2007-12-09
+- nichele: Reviewed TCP Sender in order to not remove the device address if sending
+           a notification message the device is not recheable.
+
+2007-12-06
+- lulu: Fixed issue in the SyncAdapter.getCharSetOfProlog() method during the 
+        check of incoming stream.
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.6.0
+-------------------------------------------
+
+2008-04-12
+- nichele: Fixed admin-passwd and encrypt-passwords in order to use the database
+           configuration in Funambol/config.
+
+2008-04-11
+- nichele: Changed Sync4jServlet and SyncAdapter classes to store the client remote
+           address in the Authetication object. In this way, the officer can know the
+           client address.
+
+2008-04-05
+- nichele: Reviewed all stores implementation to support core and user database
+           separation.
+- nichele: Removed from the PersistentStore xml configuration files the parameter
+           jndiDataSourceName since the BasePersistentStore provides both core and
+           user datasource.
+           Modified files:
+           - com/funambol/server/store/ClientMappingPersistentStore.xml
+           - com/funambol/server/store/IDPersistentStore.xml
+           - com/funambol/server/store/LastTimestampPersistentStore.xml
+           - com/funambol/server/store/ModulesPersistentStore.xml
+           - com/funambol/server/store/PrincipalPersistentStore.xml
+           - com/funambol/server/store/SyncSourcePersistentStore.xml
+
+2008-04-04
+- nichele: Reviewed database access to support core and user database separation
+- nichele: Reviewed ClientMappingPersistentStore in order to store the mapping in
+           the user database.
+
+2008-03-30
+- nichele: Added favicon.ico
+
+2008-03-29
+- nichele: Added xml configuration files for the datasources:
+           - com/funambol/server/db/db.xml
+           - com/funambol/server/db/jdbc/fnblds.xml
+           - com/funambol/server/db/jdbc/fnblcore.xml
+           - com/funambol/server/db/jdbc/fnbluser.xml
+           Those are used by the new datasources handling. The datasources are not
+           defined anymore in the funambol.xml or in webdemo.xml but at Tomcat
+           level in tomcat/conf/context.xml file. In that file three datasources are
+           defined (jdbc/fnblds, jdbc/fnblcore, jdbc/fnbluser) specifying
+           com/funambol/server/db/DataSourceFactory as resource factory. Using this
+           factory the datasources are configured reading the aforementioned files.
+
+2008-03-27
+- nichele: Deprecated Configuration.getSync4jHome() adding a new
+           Configuration.getFunambolHome()
+
+2008-03-10
+- nichele: Reviewed persistent stores in order to mark as read-only the connections
+           used to perform only 'select'.
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.5.14
+-------------------------------------------
+
+2008-02-17
+- nichele: Changed the push event logging in NotificationEngineImpl introducing the
+           concept of notificable devices (at the moment just the WM plugin and the
+           JAM client). Just the notificable devices are taken in consideration
+           logging push events so that the push doens't fail if other devices are
+           not notificable for some reasons.
+
+2008-02-16
+- nichele: Reviewed NotificationEngineImpl.concatenateSourceURIs in order to
+           avoid the first and the last '|'.
+           
+2008-02-15
+- nichele: Reduced log in CapabilitiesPersistentStore.
+
+2008-02-14
+- nichele: Reviewed NotificationEngineImpl in order to have useful logging information in the
+           LogContext calling sendNotificationMessage.
+- nichele: Added in the web.xml used in the bundle the LogContextFilter for /services/*
+           url in order to have log context information also in admin webservice calls.
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.5.13
+-------------------------------------------
+
+2008-02-05
+- lulu: Fixed exception handling in AdminManager and in AdminWS.
+        Added funambol.push logger handling in the NotificationEngineImpl in order
+        to log push events.
+        Reviewed TCPSender since when it is unable to delivery a notification message
+        it must throw an exception.
+        Added in the web.xml the LogContextFilter for /services/* url in order to
+        have log context information also in admin webservice calls.
+
+2008-02-03
+- nichele: Reviewed admin-passwd (PasswordSetter) making its behaviour similar to passwd.
+           Added dependency to jline (http://jline.sourceforge.net/) used in PasswordUtils to
+           hide the passwords.
+           Renamed encryptPasswords script files in encrypt-passwords.
+           Renamed changeAdminPassword script files in admin-passwd.
+           Renamed wbxmlToxml script files in wbxml-to-xml.
+           Renamed xmlTowbxml script files in xml-to-wbxml.
+           
+2008-01-21
+- lulu: Changed the way to get the JIBX binding factory specifying the binding 
+        name because now there are two binding xmls: binding.xml and 
+        bindingHiddenData.xml. This new binding is needed to hide the sensitive
+        data contained in the credential and in the data's item of commands like
+        Add, Replace and Exec.
+        Introduced the concept of debug mode in order to handle the sensitive 
+        data contained in the log messages. If funambol is in debug mode, the 
+        sensitive data can be shown in clear in the log else these data must be
+        hidden (in this case some log messages are not logged or in the SyncML 
+        message the sensitive data are replaced by *****). 
+        To implement the debug mode, a system property funambol.debug is 
+        checked.
+        Changed Configuration class in order to read the system property 
+        funambol.debug and added the isDebugMode() method invoked before 
+        logging messages that could contain sensitive data.
+        Changed start scripts in order to set the property funambol.debug 
+        (default value is false).
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.5.12
+-------------------------------------------
+
+2007-12-06
+- nichele: Reviewed TCP Sender in order to not remove the device address if sending
+           a notification message the device is not recheable.
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.5.11
+-------------------------------------------
+
+2007-11-29
+- nichele: Added 'license' option to the starting script files in order to show
+           the AGPLv3 license.
+           
+2007-11-29
+- nichele: Reviewed web page adding the link 'Terms & Conditions'
+
+2007-11-28
+- nichele: Changed license to AGPLv3.
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.5.10
+-------------------------------------------
+
+2007-11-23
+- lulu: Fixed an installation issue on Windows Vista
+
+2007-11-19
+- nichele: Updated Funambol logo.
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.5.9
+-------------------------------------------
+
+2007-11-16
+- nichele: Moved the java opts "-Xmx512M" from the starting script files of the
+           DS Server to the bundle ones.
+
+2007-11-13
+- nichele: Reviewed starting script files in order to use our own cacerts file.
+
+2007-11-13
+- lulu: Fixed an issue on nsis during uninstall on Windows Vista (the shortcuts 
+        remained after uninstallation).
+
+2007-11-10
+- nichele: Added a new servlet configuration parameter (enable-compression) to enable/disable
+           compression feature. If false, also if a client supports compression, the response
+           is not compressed. Default value is true.
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.5.8
+-------------------------------------------
+
+2007-11-09
+- nichele: Reviewed authorization status handling in order to map
+           Officer.AuthStatus.NOT_AUTHORIZED in the status code 403 (FORBIDDEN).
+           Fixed Sync4jAddressListener implementation to authorize the caller (and not just to
+           authenticate it) calling officer.authorize(...) method.
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.5.7
+-------------------------------------------
+
+2007-11-05
+- piter: Changed drop_table scripts in order to handle possible foreign keys on the principal
+         table.
+
+2007-10-28
+- nichele: Added log message about when an http session is closed.
+           Enabled JMX on port 8101.
+
+2007-10-22
+- lulu: Changed the bundle installation process: installing it, if the selected
+        installation directory is not empty and it seems to contain a bundle 
+        (looking for fnblstatus.exe and for stopall.cmd), the previous one is 
+        stopped before to install the new one.
+- lulu: Changed STPSender in order to read the device from the database before
+        sending the notification message in order to use always the most 
+        updated address.
+        
+        
+-------------------------------------------
+Funambol Data Synchronization Server 6.5.6
+-------------------------------------------
+
+2007-10-19
+- lulu: Fixed logging messages into Officers.
+
+2007-10-18
+- lulu: Changed the Sync4jServlet in order to log just an error message when the
+        request content is null or its lenght is 0. The logged message is 
+        "Received empty content. Returning a BAD REQUEST code to the client." 
+        without throwing exception.
+- lulu: Changed into install.properties the Mysql url adding parameter
+        'characterEncoding=UTF-8' in order to use UTF-8 as character encoding.
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.5.5
+-------------------------------------------
+
+2007-10-11
+- lulu: Changed getCharSet() method in order to set charset to UTF-8 when the
+        charset specified by device is not supported.
+- lulu: Added checks on JAVA_HOME in the scripts to convert message from wbxml
+        to xml format and viceversa.
+
+2007-10-09
+- nichele: Reviewed DevicePersistentStore since the Sync4jDevice class has been
+           changed (convertDate property has been replaced by convertDatePolicy).
+           No db impact.
+
+2007-10-07
+- nichele: Upgraded to funambol:server-framework:6.5.4
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.5.4
+-------------------------------------------
+
+2007-09-27
+- testa: In fnblstatus.exe: increased buffer length to avoid memory overwriting,
+         and avoided unnecessary LoadImage calls to reduce use of GDI object.
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.5.3
+-------------------------------------------
+
+2007-09-26
+- nichele: Renamed encrypt-passwords.sh[.cmd] in encryptPasswords.sh[.cmd]
+           Added changeAdminPassword.sh[.cmd] scripts useful to change the admin
+           password
+
+2007-09-25
+- nichele: Fixed checksum verification in the bundle (.bin version) in order to work on MacOS
+- lulu: Changed the logging directory of the webdemo in order to put its logs in:
+        Funambol
+        |- logs
+           |- ds-server
+              - ds-server.webdemo.log
+
+- lulu: Changed the tomcat configuration in the bundle in order to have its logs in:
+        Funambol
+        |- logs
+           |- http
+
+- lulu: Fixed shutdown scripts for ds-server in the bundle
+
+2007-09-22
+- nichele: Reviewed Sync4jAddressListener configuration. Renamed enableSTP in
+           accept-address-notification and enableCTP in ctpserver-available. If
+           accept-address-notification is true, the address sent by the client is
+           stored in the database if it is reachable; if it is false, the address sent
+           by the client is not stored in the database and if there is already an
+           address in the database, it is deleted.
+           If ctpserver-available is true, and the address sent by the client is not
+           accepted (because it is not reachable or accept-address-notification is
+           false), the server returns 421 as status code. Otherwise, if
+           ctpserver-available is false, and the address sent by the client is not
+           accepted, 420 is returned. According to this status codes, a client could
+           change its behavior (but this is not guaranteed because it is the client
+           that decides what to do).
+           Note that 421 doesn't mean that a ctp server is up and running.
+- nichele: Reorganized senders:
+           - Moved CTPSender and related classes under
+             com.funambol.server.notification.tcp.ctp
+           - Replaced AdvancedTCPSender with
+             com.funambol.server.notification.tcp.TCPSender (it combines STPSender
+             and CTPSender)
+           - Deprecated TCPIPSender
+             (use com.funambol.server.notification.tcp.stp.STPSender)
+           - Changed default sender from AdvancedTCPSender to TCPSender (it is
+             configured in the PushSender.xml file)
+
+2007-09-21
+- lulu: Now the server closes the synchronization session when all databases 
+        to sync are in error.
+
+2007-09-20
+- lulu: Reviewed installation scripts moving the directory check to the top of the scripts.
+        This because if a user runs the script from a wrong directory, the error it gets is
+        referred to JAVA_HOME path instead of the wrong dir.
+- lulu: In the bundle, move the icons from bin to icons directory.
+
+2007-09-19
+- lulu: Removed all files under com.funambol.test.*, com.funambol.test.tools.* 
+        because replaced by com.funambol.tools.test in funambol:testing-tool
+        Removed all files under com.funambol.test.tools.ant.* because replaced
+        by com.funambol.ant in funambol:funambol-ant
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.5.2
+-------------------------------------------
+
+2007-09-13
+- nichele: Made Sync4jAddressListener configurable (via init params in the web.xml file)
+           in order to disable STP (previously called TCP) or CTP notification.
+           If enable-stp is true, the server stores the address received from the client
+           (if it is reachable).
+           If enable-ctp is true, if the address is not valid, the server returns 421 that
+           means that the client could start a ctp connection.
+
+2007-09-12
+- nichele: Added CTPSender and AdvancedTCPSender (to combinate TCPIPSender and CTPSender)
+
+2007-09-10
+- lulu: Changed logs directory to Funambol/logs/ds-server in order to have
+        Funambol
+        |- ds-server
+        |- logs
+           |- ds-server
+              - ds-server.daily.log
+              - ds-server.log
+- lulu: Now the UserProvisioningOfficer supports the MD5 authentication
+
+2007-09-07
+- lulu: Fixed a bug (about item size handling) in itemsToSyncItems replacing 
+        getLOSize with getItemSize method.
+
+2007-09-05
+- nichele: Changed the status code returned by Sync4jAddressListener when the
+           client is not reachable from 420 to 421. In v6 the server responded
+           420 so that based on this new code a client could do some different
+           things.
+           The v6 plug-ins are able to handle also the 421 (it checks just
+           for 200 so 421 is like 420) so no backward compatibility issue will raise.
+- nichele: Reviewed Sync4jServlet.doGet method in order to:
+           1. avoid white page opening a browser on http://server:port/funambol/ds
+           2. provide some basic server information like the version, model,
+              manufacturer
+- nichele: Added http header "X-funambol-ds-server" in the server responses (in
+           Sync4jServlet and in Sync4jAddressListener).
+           This header is set as follow: server-model v. server-version
+           (e.g. 'DS Server v.6.5.2').
+- lulu: Exposed authorizeCredential method via web service
+
+2007-09-04
+- nichele: Added component name in the pom.xml file
+- nichele: Increased version of the required core-framework and server-framework
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.5.1
+-------------------------------------------
+
+2007-08-29
+- nichele: Modified to use the new mavenized components
+           (core-framework, server-framework, ext) and starting its mavenization
+
+2007-08-13
+- lulu: Changed the method to convert XML file in WBXML in order to read the
+        SyncML DTD version from the XML file (used in the test suite)
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.5.0
+-------------------------------------------
+
+2007-07-27
+- nichele: Added bin/encrypt-password.sh[.cmd] scripts to encrypt the user
+           passwords in the database (useful to migrate a v6 db)
+
+2007-07-26
+- nichele: Reviewed Configuration object in order to avoid the initialization
+           of the logging and of the PipelineManager if the configuration is not
+           instantiated in the ds-server. Moreover it has been review in order to
+           avoid logging/pipelinemanager/persistentStore reconfiguration if the
+           file automatically detected as changed is not an xml file.
+ 
+2007-07-19
+- lulu: Added support to MySQL
+
+2007-07-13
+- nichele: Added EncryptionTool class to encrypt a text.
+           Encrypted passwords in the database and reviewed their handling using
+           EncryptionTool.
+           Fixed a issue with the DSNotificationBuilder that in the source uri
+           handling was confused about Source and Target
+
+2007-07-06
+- lulu: Removed warning and deprecation message during installation.
+
+2007-07-04
+- lulu: Added install option 'war' in order to generate only the war file
+        (without a real installation on application server)
+- lulu: Added ds server web content
+- lulu: Removed table fnbl_module_sync_source_type because is not used
+
+2007-07-02
+- nichele: Added dispatcher types (FORWARD, INCLUDE, REQUEST)
+           in the LogContextFilter mapping definition
+- nichele: Make compliant with servlet 2.4 specification
+
+2007-06-29
+- lulu: Added support to Tomcat 6.0
+- lulu: Removed commons-logging-1.1.jar copy into webapps/funambol/WEB-INF/lib
+        under Tomcat 5.5 (this caused a NullPointerException when the funambol
+        application was re-deployed)
+
+2007-06-28
+- lulu: Fixed execNOPOperation method when SyncSource is not a
+        FilterableSyncSource.
+
+2007-06-26
+- piter: Changed drop_engine.ddl script for postgres for compatibility with
+         database version 8.1
+
+2007-06-22
+- piter: Changed drop_engine.ddl scripts in order to avoid errors during first
+         time installation.    
+
+2007-06-22
+- lulu: Changed SyncConflict type from STATE_DELETED_NEW to
+        STATE_DELETED_UPDATED when the client item is deleted an the same item
+        is updated on server
+
+2007-06-15
+- lulu: Updated Funambol copyright
+
+2007-06-13
+- nichele: Reduced minMaxMsgSize to 1800 (some phones don't work with 2500)
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.0.8
+-------------------------------------------
+
+2007-06-10
+- nichele: Changed cookies handling checking the http header x-funambol-force-cookies
+           before to disable them.
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.0.7
+-------------------------------------------
+
+2007-06-01
+- nichele: Changed Sync4jAddressListener servlet in order to avoid to overwrite
+           the changes done by the officer during authentication phase.
+           
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.0.6
+-------------------------------------------
+
+2007-05-09
+- nichele: Reverted changes done in 6.0.3 about overlappings syncs handling (the
+           server doesn't return anymore a 503).
+           Removed table fnbl_running_sync.
+           
+           
+-------------------------------------------
+Funambol Data Synchronization Server 6.0.5
+-------------------------------------------
+
+2007-05-06
+- nichele: Changed received Status handling in order to make the server more
+           flexible if a Status contain an Item with the LUID/GUID specified in
+           the Source/Target.
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.0.4
+-------------------------------------------
+
+2007-04-18
+- mauro: Fixed the Quoted-Printable codec: the usage of character sets has
+         been corrected to allow for proper decoding.
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.0.3
+-------------------------------------------
+
+2007-04-16
+- nichele: Automatically check for updates on the Funambol website
+
+2007-04-06
+- nichele: Introduced running syncs handling in order to avoid two overlapping
+           syncs from the same user on different devices. The second one
+           receives the status code 503 (service unavailable)
+- nichele: Added a new system property "funambol.ds.node.id" in the running
+           scripts in order to unambiguously identify a ds server instance in a
+           cluster environment
+- nichele: Database changes: Added table fnbl_running_sync and its indexes
+- nichele: Reduced session timeout to 15 minutes
+
+2007-04-04
+- nichele: Fixed wrong received status handling (the guid and the luid were
+           inverted)
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.0.2
+-------------------------------------------
+
+2007-03-28
+- lulu: Added 'guest' as default user
+
+2007-03-27
+- lulu: Updated bundle icons
+- lulu: Renamed Pimweb in Web Demo Client
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.0.1
+-------------------------------------------
+
+2007-03-21
+- nichele: Review device inventory in order to set for all devices a default notification
+           builder and a default notification sender
+- nichele: Added a PushSender.xml that is the default notification sender. By
+           default this is configured with a TCPIPSender
+- nichele: Removed fake sender implementations (SMSSender.xml and SMSSenderJ2ME.xml)
+           
+2007-03-19
+- mauro: Removed from the Quoted-Printable codec the management of unrelated
+         backslash-escaping.
+
+2007-03-18
+- nichele: Reviewed incoming items transformation in order to perform the
+           transformation basing it on the item format instead of the
+           transformations required (those are applied on outgoing items)
+- nichele: Added fake sms sender implementations (SMSSender.xml and SMSSenderJ2ME.xml)
+
+2007-03-11
+- nichele: Added index on fnbl_device_ext (caps)
+
+2007-03-09
+- lulu: Added parameter 'supported-encoding' into web.xml to disable gzip,
+        deflate encoding.
+
+2007-03-05
+- nichele: Fixed bug 306611 - incorrect <SourceParent>  for LO items
+
+2007-03-01
+- nichele: Fixed bug 306655 - WBWML  values sent by Sagem myX6-2 are incorrectly decoded
+
+2007-02-28
+- nichele: Fixed bug 306612 - received LO items are incorrectly processed by the server
+- nichele: Fixed bug 306614 - Meta information for base64 encoded LO items
+
+2007-02-27
+- nichele: Changed default installation directory in the linux bundle version
+           according to http://lsbbook.gforge.freestandards.org/install-app.html
+           
+2007-02-25
+- nichele: Added ServerWinsSyncSource and ClientWinsSyncSource interface and
+           changed the strategy to support them.
+
+2007-02-21
+- nichele: Changed preferred-encoding from deflate to gzip
+- nichele: Improved session handling: if the server receives a request for an
+           already expired session, the http status code 408 (request timeout)
+           is returned
+- lulu: Fixed wrong handling closing of CTCap tag
+- lulu: Added AbstractOfficer class that provides the basic Officer
+        functionalities.
+
+2007-02-20
+- lulu: Fixed bug 306613 base64 encoded chunks for LO
+- mauro: Implemented configurable character set in the Quoted-Printable 
+         codec.
+
+2007-02-17
+- nichele: Improved log details about sourceURI
+- nichele: Changed Configuration.getBeanNames() in order to load just the xml
+           files
+
+2007-02-15
+- mauro: Removed unnecessary soft-line-break addition after each line feed at
+         Quoted-Printable encoding time.
+
+2007-02-14
+- piter: Changed log level handling in LoggerConfiguration class
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 6.0.0
+-------------------------------------------
+2007-02-03
+- nichele: Removed support to mysql, db2, oracle, sqlserver, sybase
+
+2007-02-02
+- lulu: Now the item size is always checked.
+        Changed the merge of large object.
+
+2007-02-01
+- nichele: Removed support to jboss, weblogic and websphere
+
+2007-01-27
+- nichele: Updated Officer interface (method authorize)
+
+2007-01-09
+- nichele: Update to HPL  1.1
+
+2006-12-01
+- lulu: Changed settings in the install.properties files: 
+        - Removed duplicated Oracle JDBC setting
+		- Added jdbc.user and jdbc.password properties for MySQL setting
+- lulu: Changed size of the field email in the fnbl_user table from varchar(50) 
+        to varchar(255).
+- lulu: Removed foreign key fk_user on fnbl_user from fnbl_principal.
+
+2006-12-03
+- nichele: New logging architecture based on log4j
+
+2006-11-30
+- lulu: Changed the procedure used to install the server on Tomcat. 
+        Now the installation copy the funambol.war (the old funambol-server.war 
+        renamed with all module's libraries) under webapps whitout unwar it. In 
+        this way there are no issues updating modules.
+
+2006-11-22
+- lulu: Fixed security hole in the DES encryption. The user password is used as
+        encryption key instead of the credentials. This change make incompatible
+        the encryption feature with v3 plug-in.
+- nichele: Added new service to generate unique ids. This new service replaces
+           com.funambol.server.tools.IdSpaceGenerator and 
+		   com.funambol.server.tools.GUIDGenerator
+- nichele: Deprecated:
+		   com.funambol.framework.server.ID
+           com.funambol.server.tools.IdSpaceGenerator
+		   com.funambol.server.tools.GUIDGenerator
+		   com.funambol.server.store.IDPersistentStore
+		   Their functionality has been replaced by the new service to generate unique ids.
+		   
+2006-11-21
+- nichele: Changed the type of the following fields:
+		       'counter' in the table fnbl_id from integer
+			   'id' in the table fnbl_principal from integer
+			   'principal' in the table fnbl_last_sync from integer
+			   'principal' in the table fnbl_client_mapping from integer
+			   'id_caps' in the table fnbl_device from integer
+			   'id' in the table fnbl_device_caps from integer
+			   'id' in the table fnbl_device_ext from integer
+			   'caps' in the table fnbl_device_ext from integer
+			   'id' in the table fnbl_device_datastore from integer
+			   'caps' in the table fnbl_device_datastore from integer
+			   'datastore' in the table fnbl_ds_cttype_rx from integer
+			   'datastore' in the table fnbl_ds_cttype_tx from integer
+			   'id' in the table fnbl_ds_ctcap from integer
+			   'datastore' in the table fnbl_ds_ctcap from integer
+			   'id' in the table fnbl_ds_ctcap_prop from integer
+			   'ctcap' in the table fnbl_ds_ctcap_prop from integer
+			   'property' in the table fnbl_ds_ctcap_prop_param from integer
+			   'datastore' in the table fnbl_ds_filter_rx from integer
+			   'datastore' in the table fnbl_ds_filter_cap from integer
+			   'datastore' in the table fnbl_ds_mem from integer			   
+           from integer(number in oracle) to bigint (number(20) in oracle)
+- lulu: Reviewed Officer interface changing the authentication method:
+        authenticateUser(cred: Cred): Sync4jUser
+- lulu: Removed JAASOfficer: not supported anymore
+- lulu: Changed the clientAuth meaning: now the clientAuth is a comma separeted 
+        list of the supported authentication type.
+- lulu: Changed the MD5 authentication process. Now, if the LocName is specified, 
+        the DBOfficer uses it as username to authenticate the client. 
+        In this way, it is not needed to search principals for device 
+        to individuate the user.
+- lulu: Reviewed Officer interface changing the unauthentication method:
+        unAuthenticate(user: Sync4jUser): void
+        and the method to check if the account is expired:
+        isAccountExpired(credentials: Cred): boolean
+
+2006-11-15
+- lulu: Added shutdown scripts for standalone installation
+- lulu: Changed install options because the JBoss 3.0.x is not supported anymore
+
+2006-11-14
+- lulu: Implemented messages encoding: now the server supports gzip and deflate 
+        encoding
+
+2006-11-10
+- lulu: Fixed an issue in the set of JAVA_OPTS in the funambol-tomcat.sh 
+- lulu: Changed the Engine to read a device with its capabilities in order to
+        establish if device supports the NumberOfChanges and LargeObject.
+        In this way is not necessary to request the capabilities of device at 
+        every sync.
+- lulu: Changed the Sync commands merge to set also the NumberOfChanges. 
+        If NumberOfChanges is not null in a sync, means this property is supported 
+        by device and so it must be set with the number of commands to send by 
+        server in the merged Sync command.
+- lulu: Changed the SessionHandler in order to send the NumberOfChanges only the
+        first time that the server sends the Sync command for source.
+
+2006-11-08
+- lulu: Porting to Tomcat 5.5.20
+
+2006-11-07
+- lulu: Porting to Hypersonic 1.8.0
+
+2006-11-06
+- lulu: Changed the Maps used in the SessionHandle and into Engine (from HashMap
+        to LinkedHashMap) in order to send Alert and Sync server commands using
+        the same order of Alert commands sent by Client
+
+2006-09-19
+- lulu: Removed unused files into bin directory
+
+2006-09-12
+- dragota: Upgraded libraries for:
+               - axis (version 1.4)
+               - jaas (version 1.2)
+               - wsdl (version 1.5.1)
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 5.0.10
+-------------------------------------------
+
+2006-09-07
+- nichele: Changed the COPYING to HPL.
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 5.0.9
+-------------------------------------------
+
+2006-08-08
+- nichele: Changed the license to HPL.
+
+2006-08-07
+- nichele: Added support to weblogic/websphere
+           Added support to oracle/Ms SqlServer/db2/sybase
+           Added a new DeviceInventory to store the capabilities in the database
+           Added synclets for:
+           - Motorola phones
+           - Nokia 6200
+           - Sony Ericsson P900
+           - Siemens S55
+           Added new TCPIPSender
+           Added a new officer for automatic users provisioning
+           Removed ChangeDeviceIdSynclet
+           Added a new transformer for DES encryption
+           
+2006-08-06
+- nichele: Added a new logger with name "funambol.server.notification"
+
+2006-07-27
+- nichele: Set the maximum size of the used memory (512 Mb)
+
+2006-07-26
+- Lorenzo Boiocchi: Fixed the problem that happens when there is only one administrator 
+                    and its role is changed
+
+2006-07-24
+- lulu: Added check on J2EE_HOME installing the server on Tomcat/JBoss.
+        The J2EE_HOME must point to the top-level directory where Tomcat/JBoss reside.
+        
+2006-07-20
+- lulu: Changed install options. Now the user must specify the version of application server.
+        These are the only valid options: jboss30, jboss32, jboss40, tomcat50
+
+2006-07-19
+- lulu: Changed overhead for xml (1475) and wbxml (725) message.
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 5.0.8
+-------------------------------------------
+
+2006-07-21
+- nichele: Fixed bug 305750 Contact duplicating with fast sync
+- nichele: Increased the size of the username and the password fields
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 5.0.7
+-------------------------------------------
+
+2006-07-05
+- nichele: Improved charset handling in the pimweb
+- lulu: Fixed issue about the creation of respURI when the Server URI field is empty
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 5.0.6
+-------------------------------------------
+
+2006-05-28
+- nichele: Fixed bug 305037 ANT - error on install (Fuambol beta 3)
+
+2006-05-22
+- Mircea Bodog: Fixed bug 304586 server side logging not sufficient - related to SS error
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 5.0.5
+-------------------------------------------
+
+2006-05-11
+- Lulu: Fixed bug 305232 Exceptions are thrown when syncing events, if the data from 
+        the "Description" field starts or ends with the "&" character
+
+2006-05-03
+- Lorenzo Boiocchi: Add control to funambol.nsi to check if the bundle is already installed
+
+2006-05-02
+- nichele: Increased the xml max size overhead to 1000
+
+2006-04-30
+- nichele: Added a new logger with name "funambol.engine.pipeline"
+
+2006-04-29
+- nichele: Changed the server-uri handling: now if the configuration contains an empty value,
+           the client uri is used.
+           
+2006-04-28
+- nichele: Fixed bug 305104 Wrong content type code in the wap notification message header
+- lulu: Fixed bug 305103 No info for "dbms=" line in the install.properties file
+
+2006-04-27
+- nichele: Fixed bug 305014 getKeyAsString() is broken
+
+2006-04-24 
+- nichele: Fixed bug 305085 Wrong session timeout handling
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 5.0.4
+-------------------------------------------
+
+2006-04-05
+- nichele: Fixed bug 304963 Wrong message installing the bundle on linux
+
+2006-04-10
+- nichele: Changed the status returned in error case: now the item status contain the error description
+- nichele: Added support to multiple twins
+- nichele: Fix parent key in the twins search
+
+2006-04-08
+- nichele: Fixed bug 304945 The Funambol DS Server can't be started from another partition than JBoss/Tomcat are installed
+
+2006-04-07
+- Lorenzo Boiocchi: Fixed bug 304937 Wrong handling of conflict Update-Delete
+- nichele: Fixed bug 304938 Error message refers to JBoss instead of Tomcat
+
+2006-04-05
+- Mircea Bodog : Renamed the Sync4jStrategy configuration file in Strategy.xml
+
+2006-04-04
+- Lorenzo Boiocchi: Fixed bug 304925 Wrong message installing the server on JBoss 4.0
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 5.0.3
+-------------------------------------------
+
+2006-03-30
+- nichele: Added file.encoding as system property in the sh script files
+           (on some Linux system, using jdk 1.5, this property is used to set
+           the default encoding)
+
+2006-03-28
+- Mircea Bodog: Fixed bug 304754 Wrong devInf using SyncML 1.0
+
+2006-03-24
+- nichele: Fixed an issue in the method fixParent of the Sync4jStrategy
+
+2006-03-24
+- Mircea Bodog: Changed the WS url to services/admin
+
+2006-03-21:
+- nichele: Fixed bug 304843 The Sync4jServlet must not compare the requestURI with "funambol/ds/status"
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 5.0.2
+-------------------------------------------
+
+2006-03-13
+- nichele: Added in the DataTransformationManager the needed transformations for the pdi module
+
+2006-03-09
+- nichele: Added property "sourceQuery" in SyncContext class
+- nichele: Removed method "removeSyncItem(item: SyncItem, timestamp: Timestamp)" from
+           SyncSource interface
+- nichele: Changed the start_sync and end_sync type in the fnbl_last_sync table.
+           Now they are bigint.
+
+2006-03-07
+- Mircea Bodog: Changed SyncSourcePersistentStore.xml bean and SyncSourcePersistentStore
+                class to read the sourceType of the SyncSource from db
+
+2006-03-07
+- Mircea Bodog: Changed SyncSourcePersistentStore.xml bean and SyncSourcePersistentStore 
+                class to read the name of the SyncSource from db
+- Mircea Bodog: Added in Sync4jStrategy class getters for default conflict resolution 
+                and uri conflict resolutions
+
+2006-02-25
+- nichele: Changed the mappings handling: now the mappings are updated executing the operations. 
+           This is required to support the item's parentKey.
+
+2006-02-17
+- nichele: Review the Sync4jPrincipal class
+- nichele: Fixed bug 304499 The principal ID type in the Sync4jPrincipal class
+- nichele: New conflicts handling
+- nichele: Review the syncsource interface. Added new MergeableSyncSource and FilterableSyncSource
+
+2006-02-06
+- Mircea Bodog: Fixed bug 304539 Session id uncorrectly generated
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 5.0.1
+-------------------------------------------
+
+2006-01-30
+- nichele: Added support\resume support
+- nichele: Fixed bug 304555 A status for Alert 222 is returned also if this alert is with NoResp
+
+2006-01-26
+- nichele: Fixed bug 304563 The content type used to create the MessageSizeCalculator is wrong
+- nichele: Fixed an issue with the charset if it is between " 
+
+
+-------------------------------------------
+Funambol Data Synchronization Server 5.0.0
+-------------------------------------------
+
+New Major Release

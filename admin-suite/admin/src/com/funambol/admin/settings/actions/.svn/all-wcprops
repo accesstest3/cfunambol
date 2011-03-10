@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/actions
+END
+DummyEditLogger.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/actions/DummyEditLogger.java
+END
+EditAppender.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/actions/EditAppender.java
+END
+EditServerConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/actions/EditServerConfiguration.java
+END
+EditLogger.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/settings/actions/EditLogger.java
+END

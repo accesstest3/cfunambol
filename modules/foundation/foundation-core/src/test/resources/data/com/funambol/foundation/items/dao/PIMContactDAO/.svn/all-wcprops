@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/core/!svn/ver/34883/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/PIMContactDAO
+END
+dataset.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/core/!svn/ver/34883/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/PIMContactDAO/dataset.dtd
+END
+expected-photo-type-empty.xml
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/core/!svn/ver/34883/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/PIMContactDAO/expected-photo-type-empty.xml
+END
+initial-db-dataset-part1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/core/!svn/ver/34883/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/PIMContactDAO/initial-db-dataset-part1.xml
+END
+expected-photo-type-image.xml
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/core/!svn/ver/34883/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/PIMContactDAO/expected-photo-type-image.xml
+END
+photo_1.jpg
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/core/!svn/ver/34354/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/PIMContactDAO/photo_1.jpg
+END
+photo_2.jpg
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/core/!svn/ver/34354/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/PIMContactDAO/photo_2.jpg
+END

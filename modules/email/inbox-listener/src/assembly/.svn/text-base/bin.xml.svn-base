@@ -1,0 +1,61 @@
+<!--
+    Copyright (C) 2007 Funambol, Inc.  All rights reserved.
+-->
+<assembly>
+    <formats>
+        <format>zip</format>
+        <format>tar.gz</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>Funambol/inbox-listener/lib</outputDirectory>
+            <fileMode>0774</fileMode>
+        </dependencySet>        
+    </dependencySets>
+    <fileSets>
+        <fileSet>
+            <directory>.</directory>
+            <outputDirectory>Funambol/inbox-listener</outputDirectory>
+            <includes>
+                <include>LICENSES/clapper/LICENSE</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>.</directory>
+            <outputDirectory>Funambol/inbox-listener</outputDirectory>
+            <includes>
+                <include>LICENSE.txt</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>target/generated-sources/config</directory>
+            <outputDirectory>Funambol/inbox-listener/config</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>target/generated-sources/bin</directory>
+            <lineEnding>dos</lineEnding>
+            <outputDirectory>Funambol/inbox-listener/bin</outputDirectory>
+            <includes>
+                <include>*.bat</include>
+                <include>*.cmd</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>target/generated-sources/bin</directory>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0775</fileMode>
+            <outputDirectory>Funambol/inbox-listener/bin</outputDirectory>
+            <includes>
+                <include>*.sh</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>target/generated-sources/lib/security</directory>
+            <outputDirectory>Funambol/inbox-listener/lib/security</outputDirectory>
+            <includes>
+                <include>cacerts</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>

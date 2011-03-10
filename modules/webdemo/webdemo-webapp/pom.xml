@@ -1,0 +1,102 @@
+<?xml version="1.0" ?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>funambol</groupId>
+    <artifactId>webdemo-webapp</artifactId>
+    <version>9.1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+    
+    <name>Funambol Web Demo Application</name>
+    <url>http://www.funambol.com/opensource</url>
+    
+    <parent>
+        <groupId>funambol</groupId>
+        <artifactId>funambol</artifactId>
+        <version>9.1.0</version>
+    </parent>
+
+    <dependencies>
+
+        <!--
+            Internal dependencies
+        -->
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>ds-server</artifactId>
+            <version>9.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>pim-framework</artifactId>
+            <version>9.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>foundation-core</artifactId>
+            <version>9.1.0-SNAPSHOT</version>
+        </dependency>
+        
+        <!--
+            External dependencies
+        -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.0.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>1.0.6</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>log4j</artifactId>
+            <groupId>log4j</groupId>
+            <version>1.2.14</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.3</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>commons-httpclient</artifactId>
+            <groupId>commons-httpclient</groupId>
+            <version>3.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-codec</groupId>
+                    <artifactId>commons-codec</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <artifactId>joda-time</artifactId>
+            <groupId>joda-time</groupId>
+            <version>1.4</version>
+        </dependency>
+
+    </dependencies>
+    
+    <scm>
+        <connection>scm:svn:https://guest@core.forge.funambol.org/svn/core/trunk/funambol/modules/webdemo/webdemo-webapp</connection>
+        <developerConnection>scm:svn:https://core.forge.funambol.org/svn/core/trunk/funambol/modules/webdemo/webdemo-webapp</developerConnection>
+        <url>https://core.forge.funambol.org/svn/core/trunk/funambol/modules/webdemo/webdemo-webapp</url>
+    </scm>
+    
+</project>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+
+   
+   <!--FNBL_SMS ID="100" TIME="123456" SENDER="sender" RECIPIENT="recipient" FORMAT="text" BODY="simple message" /-->
+   <FNBL_SMS />
+   <FNBL_OTHER_SMS />
+
+   <FNBL_ID idspace="smsprovider.id" counter="0" increment_by="1" />
+   
+</dataset>
+

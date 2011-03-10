@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/test/resources/data/com/funambol/email/console/dao/ConsoleDAO
+END
+dataset.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/test/resources/data/com/funambol/email/console/dao/ConsoleDAO/dataset.dtd
+END
+numberofunreademails_1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/test/resources/data/com/funambol/email/console/dao/ConsoleDAO/numberofunreademails_1.xml
+END
+numberofunreademails_2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/test/resources/data/com/funambol/email/console/dao/ConsoleDAO/numberofunreademails_2.xml
+END
+lastreceivedtime_1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/test/resources/data/com/funambol/email/console/dao/ConsoleDAO/lastreceivedtime_1.xml
+END
+numberofunreademails_3.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/test/resources/data/com/funambol/email/console/dao/ConsoleDAO/numberofunreademails_3.xml
+END
+lastreceivedtime_2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/test/resources/data/com/funambol/email/console/dao/ConsoleDAO/lastreceivedtime_2.xml
+END
+lastreceivedtime_3.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/test/resources/data/com/funambol/email/console/dao/ConsoleDAO/lastreceivedtime_3.xml
+END
+getaccounts.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/test/resources/data/com/funambol/email/console/dao/ConsoleDAO/getaccounts.xml
+END

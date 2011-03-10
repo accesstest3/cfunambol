@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset-user.dtd">
+<dataset>
+
+  <FNBL_PIM_CONTACT id="14" userid="user1" last_update="1696317537380" first_name="Bob"/>
+  <FNBL_PIM_CONTACT id="15" userid="user1" last_update="1696317537393" first_name="Philip"/>
+  <FNBL_PIM_CONTACT id="16" userid="user1" last_update="1696317537395" first_name="Lucy"/>
+
+</dataset>

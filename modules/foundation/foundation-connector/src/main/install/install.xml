@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<project name="Funambol Foundation Module Installation" default="install" basedir=".">
+    <!-- =================================================================== -->
+    <!-- install - custom module installation                                -->
+    <!-- =================================================================== -->
+    <target name="install">
+        <echo message="Foundation Installation"/>
+        
+        <mkdir dir="${funambol-home}/db/briefcase"/>
+        <mkdir dir="${funambol-home}/db/note"     />
+
+        <echo message="Foundation installation successfully completed"/>
+    </target>
+</project>

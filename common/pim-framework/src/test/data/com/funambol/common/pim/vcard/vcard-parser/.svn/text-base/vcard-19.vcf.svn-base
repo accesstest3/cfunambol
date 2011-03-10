@@ -1,0 +1,9 @@
+BEGIN:VCARD
+VERSION:2.1
+N:Messaggiante;Istantaneo;;;
+IMPP;TYPE=PERSONAL,HOME:aim:carpediem01@aol.com
+IMPP;TYPE=PERSONAL,PREF:ymsgr:carpe_diem@yahoo.com
+IMPP;TYPE=PERSONAL,MOBILE:xmpp:carpe.diem@gmail.com
+IMPP:irc:MeSsAgGiAnTe
+IMPP;TYPE=BUSINESS,WORK,PREF:msn:i_messaggiante@msn.com
+END:VCARD

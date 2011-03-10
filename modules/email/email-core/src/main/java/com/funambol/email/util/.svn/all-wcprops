@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/34121/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/util
+END
+MSTools.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/util/MSTools.java
+END
+UtilityDate.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/util/UtilityDate.java
+END
+Utility.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/util/Utility.java
+END
+DBIDGeneratorTokenSequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/29965/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/util/DBIDGeneratorTokenSequence.java
+END
+Query.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/util/Query.java
+END
+Html2Txt.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/util/Html2Txt.java
+END
+ShowString.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/util/ShowString.java
+END
+UtilityIL.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/util/UtilityIL.java
+END
+DescendingComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/util/DescendingComparator.java
+END
+Def.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/core/!svn/ver/34121/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/util/Def.java
+END
+MailServerChecker.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/30758/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/util/MailServerChecker.java
+END

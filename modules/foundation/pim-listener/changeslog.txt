@@ -1,0 +1,373 @@
+--------------------------------
+Funambol PIM Listener 9.0.0
+--------------------------------
+2010-12-21
+- maria: updated dependencies
+
+--------------------------------
+Funambol PIM Listener 8.7.0
+--------------------------------
+2010-07-12
+- maria: updated dependencies
+
+--------------------------------
+Funambol PIM Listener 8.5.0
+--------------------------------
+2010-02-04
+- nichele: Added in log4j configuration file a new hourly appender
+
+--------------------------------
+Funambol PIM Listener 8.2.3
+--------------------------------
+2009-12-04
+- maria: updated dependencies
+
+--------------------------------
+Funambol PIM Listener 8.2.2
+--------------------------------
+2009-11-13
+- maria: updated dependencies
+
+--------------------------------
+Funambol PIM Listener 8.2.1
+--------------------------------
+2009-11-02
+- maria: updated dependencies
+
+--------------------------------
+Funambol PIM Listener 8.2.0
+--------------------------------
+2009-10-09
+- maria: updated dependencies
+
+--------------------------------
+Funambol PIM Listener 7.1.0
+--------------------------------
+2008-22-12
+- lulu: Fixed bug #3432 Pimlistener console doesn't make a check on the userName
+        edited.
+
+2008-09-12
+- lulu: Fixed bug #2233: PIM Listener should avoid multiple push for the same change.
+        Now the PIM Listener does not send a push notification for the same
+        changes since the way to detect them has been improved (the last check
+        time concept has been introduced).
+        Changed the PIM Listener for Windows Mobile Client in order to check the
+        synchronization status of both 'card' and 'scard' syncsources since the
+        client may have switched from 'scard' to 'card' and removed also the
+        'sifDevicesRegExp' property from PimListenerTask.xml.
+
+2008-11-19
+- testa: Fixed bug #6386: Does not push never synchronized sif syncsources 
+         anymore. 
+
+2008-10-15
+- nichele: Fixed NotificationWrapper.notifyDevice usage in PimTask since now
+           the version to use is the one with the username
+
+2008-09-23
+- piter: Replaced usages of the deprecated classes of push-framework (package
+         com.funambol.pushlistener.service.ws).
+         Replaced WSServerInformation property with serverInformation in file
+         PIMListenerConfiguration.xml .
+- nichele: Updated dependencies.
+
+2008-08-06
+- lulu: Fixed bug #4119: Typo in PimListener Console when deleting an entry
+
+--------------------------------
+Funambol PIM Listener 7.0.7
+--------------------------------
+2008-07-18
+- nichele: updated to funambol:push-framework:7.0.5
+
+--------------------------------
+Funambol PIM Listener 7.0.6
+--------------------------------
+2008-07-13
+- nichele: Fixed wrong version number in docs/release.properties file (using
+           funambol:funambol-plugin:1.0.8)
+- nichele: Fixed bug #5564: PimListener quick start guide should not be included
+           in the bundle
+
+--------------------------------
+Funambol PIM Listener 7.0.5
+--------------------------------
+Released unofficially just for internal usage
+
+--------------------------------
+Funambol PIM Listener 7.0.4
+--------------------------------
+2008-07-06
+- nichele: Change scope of hsqldb:hsqldb in order to have it in the distribution
+- nichele: Fixed bug #5486: PIMListener/Inboxlistener don't start if JAVA_HOME variable is set
+- nichele: Fixed bug #5467: PIM LISTENER ENTRIES CONSOLE displayes an exception
+           if JAVA_HOME environment variable is set
+
+2008-07-03
+- paulo: Changed the packaging, removing the artifact added twice
+
+2008-07-02
+- paulo: Changed the packaging, now sources and javadoc artifacts are not included
+
+--------------------------------
+Funambol PIM Listener 7.0.3
+--------------------------------
+2008-05-29
+- piter: renamed sources used in notes synchronization; for sif format from 
+         sifnote to snote, for plain format from plainnote to note.
+
+2008-05-18
+- nichele: Updated v7 to the new database architecture
+
+--------------------------------
+Funambol PIM Listener 7.0.2
+--------------------------------
+2008-05-15
+- ste: updated to funambol:push-framework:7.0.2
+
+--------------------------------
+Funambol PIM Listener 7.0.1
+--------------------------------
+2008-05-09
+- piter: added possibility to enable/disable push note notification through the 
+         pim listener console
+
+2008-02-25
+- lulu: Fixed wrong logger name in the log4j.xml file (funambol.pimlistener was
+        wrong, the right one is funambol.pushlistener.pim).
+        Reviewed exception handling in calling the ds-server notification method
+        in order to provide better messages.
+
+2008-02-21
+- testa: Updated to funambol:ds-server:7.0.0-SNAPSHOT
+
+
+--------------------------------
+Funambol PIM Listener 6.6.0
+--------------------------------
+2008-04-04
+- nichele: Removed DBConnectionProvider.getConnection() usage
+- nichele: Reviewed database access to support core and user database separation
+
+2008-03-31
+- nichele: Changed log4j configuration for the inbox-listener adding a new
+           RollingFileAppender and using it instead of the DailyRollingFileAppender.
+
+2008-03-29
+- nichele: Removed basicDataSource configuration in PIMListenerConfiguration.xml
+           since with the push-framework:6.0.0 the datasources are handled in a
+           different way.
+
+2008-03-27
+- nichele: Replaced MDC usage with the LogContext.
+- lulu: Reviewed DAOs in order to mark as read-only the connections used to 
+        perform only 'select'.
+
+
+--------------------------------
+Funambol PIM Listener 6.5.10
+--------------------------------
+
+2008-02-14
+- nichele: Increased version of funambol:push-framework
+
+
+--------------------------------
+Funambol PIM Listener 6.5.9
+--------------------------------
+
+2008-02-06
+- nichele: Fixed wrong logger name in the log4j.xml file (funambol.pimlistener was
+           wrong, the right one is funambol.pushlistener.pim)
+           
+2008-02-05
+- nichele: Reviewed exception handling in calling the ds-server notification 
+           method in order to provide better messages.
+
+
+--------------------------------
+Funambol PIM Listener 6.5.8
+--------------------------------
+
+2007-11-29
+- nichele: Added 'license' option to the starting script files in order to show
+           the AGPLv3 license.
+           
+2007-11-28
+- nichele: Changed license to AGPLv3.
+
+
+--------------------------------
+Funambol PIM Listener 6.5.7
+--------------------------------
+
+2007-11-21
+- nichele: Set the idSpace used to create the registry entries in the
+           'pushlistener.id' (it was not really needed since this is the default
+           value).
+           
+2007-11-19
+- nichele: Minor changes in log4j configuration:
+           - set the root level to error
+           - added a new funambol.pimlistener logger (it is commented by default)
+
+           
+--------------------------------
+Funambol PIM Listener 6.5.6
+--------------------------------
+
+2007-11-14
+- nichele: Updated dependencies
+
+2007-11-10
+- nichele: Improved message about push calendar option to make clearer that both
+           events and tasks will be pushed.
+
+
+--------------------------------
+Funambol PIM Listener 6.5.5
+--------------------------------
+
+2007-10-31
+- lulu: Changed the range of the valid values for period: now it must be between
+        1 and 2147483647.
+
+2007-10-28
+- nichele: Improved script files
+
+2007-10-27
+- nichele: Added docs/release.properties file in the distribution
+
+
+--------------------------------
+Funambol PIM Listener 6.5.4
+--------------------------------
+
+2007-09-30
+- nichele: Removed the version from the configuration file because now it is read
+           from META-INF/maven/funambol/pim-listener/pom.properties. This file is
+           automatically created by the maven-jar-plugin when the jar file is
+           built.
+           Upgraded to PushFramework 6.5.4 adding the class PimListener that is the
+           starting class for the PIM Listener.
+           Removed version and service name from the configuration file.
+           Changed the name of the main MBean from com.funambol.pushframework=type:PushFramework
+           to com.funambol.pimlistener=type:PIMListener.
+
+
+--------------------------------
+Funambol PIM Listener 6.5.3
+--------------------------------
+
+2007-09-25
+- nichele: Uncommented cluster configuration
+
+2007-09-22
+- nichele: Added -Dfile.encoding=UTF-8 in the script files
+
+2007-09-21
+- nichele: Changed push-framework dependency to 6.5.3
+- nichele: Fixed a wrong usage of MDC class in PimTask.execute()
+
+
+--------------------------------
+Funambol PIM Listener 6.5.2
+--------------------------------
+
+2007-09-13
+- nichele: Changed JMX port from 3099 to 3101
+
+2007-09-10
+- lulu: Changed logs directory to Funambol/logs/pim-listener in order to have
+        Funambol
+        |- logs
+           |- pim-listener
+              - pim-listener.log
+
+2007-09-09
+- nichele: Added serviceName and version in PIMlistenerConfiguration.xml
+
+2007-09-04
+- nichele: Improved PIMLISTENER_HOME detection in pimlistener.sh(.cmd)
+- nichele: Improved libraries loading in pimlistener.sh(.cmd)
+           (all jars in the lib directory are automatically loaded)
+
+2007-09-03
+- nichele: Put in the configuration a default jgroups.xml file that can be used
+           in a cluster environment.
+- nichele: Added to the PIMlistenerConfiguration.xml the section for the cluster
+           configuration.
+- nichele: Changed the depencendy from push-framework 6.5.1 to push-framework 6.5.2
+
+
+--------------------------------
+Funambol PIM Listener 6.5.1
+--------------------------------
+
+2007-08-30
+- nichele: Porting to the new Push Framework architecture (with new cluster architecture)
+
+2007-08-13
+- nichele: Changed PimTask implementation according to the new ScheduledTask
+           interface
+
+2007-07-28
+- nichele: Renamed log file from pushlistener.log to pimlistener.log.
+- nichele: Changed the configuation file from
+           com/funambol/pushlistener/PushListenerConfiguration.xml to
+           com/funambol/pimlistener/PIMListenerConfiguration.xml
+
+
+--------------------------------
+Funambol PIM Listener 6.5.0
+--------------------------------
+
+2007-06-27
+- piter: Fixed typo in pimlistener.sh script at line 63
+
+2007-06-25
+- gibi: upgraded the code to the new version of the Push-Listener 
+        (modifications about RegistryEntry and RegistryEntryStatus)
+
+2007-06-20
+- piter: Changed comments in PushListenerConfiguration.xml for
+         healthThreadPollingTime and registryMonitorPollingTime
+
+2007-06-18
+- lulu: Updated Funambol copyright
+
+
+--------------------------------
+Funambol PIM Listener 6.0.3
+--------------------------------
+
+- lulu: Upgraded to Funambol Data Synchronization Server 6.0.4
+
+
+--------------------------------
+Funambol PIM Listener 6.0.2
+--------------------------------
+
+2007-04-17
+- nichele: Make compliant with Push Listener Framework 6.0.2
+
+
+-------------------------------
+Funambol PIM Listener 6.0.1
+-------------------------------
+
+2007-02-25
+- nichele: Replaced startPimListener.cmd[.sh] and consolePimListener.cmd[.sh]
+           with pimlistener.cmd[.sh]
+           
+2007-02-20
+- nichele: Removed regular expression to detect J2ME plug-in as SIF device
+           (it uses 'card' and not 'scard')
+           
+           
+-------------------------------
+Funambol PIM Listener 6.0.0
+-------------------------------
+
+First release of PIM listener.

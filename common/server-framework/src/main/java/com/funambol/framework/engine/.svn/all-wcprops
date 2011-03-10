@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/36298/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine
+END
+SyncStrategy.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/31084/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/SyncStrategy.java
+END
+SyncOperationStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/SyncOperationStatus.java
+END
+SyncEngine.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/33359/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/SyncEngine.java
+END
+SyncItemKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/SyncItemKey.java
+END
+StreamingSyncItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/33594/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/StreamingSyncItem.java
+END
+SyncItemMapping.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/SyncItemMapping.java
+END
+SyncItemException.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/33359/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/SyncItemException.java
+END
+InMemorySyncItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/33359/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/InMemorySyncItem.java
+END
+Util.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/Util.java
+END
+SyncItemImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/33359/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/SyncItemImpl.java
+END
+SyncOperationImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/SyncOperationImpl.java
+END
+AbstractSyncItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/33737/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/AbstractSyncItem.java
+END
+SyncStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/SyncStatus.java
+END
+SyncProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/SyncProperty.java
+END
+SyncItemFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/33594/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/SyncItemFactory.java
+END
+AbstractSyncEngine.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/31782/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/AbstractSyncEngine.java
+END
+SyncItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/33359/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/SyncItem.java
+END
+SyncException.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/36298/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/SyncException.java
+END
+SyncItemState.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/SyncItemState.java
+END
+SyncOperation.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/SyncOperation.java
+END
+SyncConflict.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/SyncConflict.java
+END

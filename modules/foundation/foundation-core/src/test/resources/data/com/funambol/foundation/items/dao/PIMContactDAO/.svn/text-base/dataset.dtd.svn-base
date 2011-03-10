@@ -1,0 +1,41 @@
+<!ELEMENT dataset (
+    FNBL_PIM_CONTACT*)>
+
+<!ELEMENT FNBL_PIM_CONTACT EMPTY>
+<!ATTLIST FNBL_PIM_CONTACT
+    id              CDATA #REQUIRED
+    userid          CDATA #IMPLIED
+    last_update     CDATA #IMPLIED
+    status          CDATA #IMPLIED
+    photo_type      CDATA #IMPLIED
+    importance      CDATA #IMPLIED
+    sensitivity     CDATA #IMPLIED
+    subject         CDATA #IMPLIED
+    folder          CDATA #IMPLIED
+    anniversary     CDATA #IMPLIED
+    first_name      CDATA #IMPLIED
+    middle_name     CDATA #IMPLIED
+    last_name       CDATA #IMPLIED
+    display_name    CDATA #IMPLIED
+    birthday        CDATA #IMPLIED
+    body            CDATA #IMPLIED
+    categories      CDATA #IMPLIED
+    children        CDATA #IMPLIED
+    hobbies         CDATA #IMPLIED
+    initials        CDATA #IMPLIED
+    languages       CDATA #IMPLIED
+    nickname        CDATA #IMPLIED
+    spouse          CDATA #IMPLIED
+    suffix          CDATA #IMPLIED
+    title           CDATA #IMPLIED
+    gender          CDATA #IMPLIED
+    assistant       CDATA #IMPLIED
+    company         CDATA #IMPLIED
+    department      CDATA #IMPLIED
+    job_title       CDATA #IMPLIED
+    manager         CDATA #IMPLIED
+    mileage         CDATA #IMPLIED
+    office_location CDATA #IMPLIED
+    profession      CDATA #IMPLIED
+    companies       CDATA #IMPLIED
+> 

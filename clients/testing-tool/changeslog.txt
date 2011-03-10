@@ -1,0 +1,134 @@
+-----------------------------------
+Funambol Testing Tool 9.0.0
+-----------------------------------
+2010-11-10
+- luigia: Used SuffixFileFilter of commons.io instead of the deprecated
+          IOTools.FileTypeFilter class.
+          Added commons.io dependency in the pom.xml.
+
+2010-07-22
+- luigia: Improved the handling of ComparisonFailure exception in order to catch
+          it also during the sync process and not only at the end of it.
+
+-----------------------------------
+Funambol Testing Tool 8.7.0
+-----------------------------------
+2010-07-09
+-maria: updated dependencies
+
+-----------------------------------
+Funambol Testing Tool 8.5.1
+-----------------------------------
+2010-03-30
+-maria: updated dependencies
+
+-----------------------------------
+Funambol Testing Tool 8.5.0
+-----------------------------------
+2010-03-25
+-maria: updated dependencies
+
+-----------------------------------
+Funambol Testing Tool 8.2.3
+-----------------------------------
+2009-11-13
+-maria: updated dependencies
+
+-----------------------------------
+Funambol Testing Tool 8.2.2
+-----------------------------------
+2009-10-22
+- testa: A file containing the error message is written in the 'error' dir if 
+         the end_test target throws a ComparisonFailure exception i.e. if the 
+         sync reports don't match the expected ones.
+
+-----------------------------------
+Funambol Testing Tool 8.2.1
+-----------------------------------
+2009-10-09
+-maria: updated dependencies
+
+-----------------------------------
+Funambol Testing Tool 8.2.0
+-----------------------------------
+2009-05-19
+- luigia: Added pre-processor response message in order to process the response
+          message before writing it in the file (used in comparison with the
+          reference message file). In order to change the response content it's
+          needed to create a responseProcessor.bsh file in the testsuite that
+          will be called by pre-processor.
+
+2009-05-02
+- nichele: Improved logged message if no message files are found in
+           TestSyncMLBaseTask/TestSyncMLWBXMLTask
+- nichele: Made PostWBXMLSyncML subclass of PostSyncML in order to avoid code duplication
+
+2009-04-16
+- nichele: Added headerXXX.properties file handling. In this way we have different
+           http header for different messages (it could be useful to simulate different
+           devices in the same test)
+           
+-----------------------------------
+Funambol Testing Tool 1.0.9
+-----------------------------------
+2008-07-18
+- nichele: Updated dependencies
+
+-----------------------------------
+Funambol Testing Tool 1.0.8
+-----------------------------------
+Released for internal usage.
+
+-----------------------------------
+Funambol Testing Tool 1.0.7
+-----------------------------------
+Released for internal usage.
+
+-----------------------------------
+Funambol Testing Tool 1.0.6
+-----------------------------------
+2008-06-01
+- nichele: Reviewed logging in SimplePostSyncML
+
+-----------------------------------
+Funambol Testing Tool 1.0.5
+-----------------------------------
+2008-05-10
+- ste: releasing 1.0.5
+
+2008-02-25
+- lulu: Changed the way to get the JIBX binding factory specifying the binding 
+        name because now there are two binding xmls: binding.xml and 
+        bindingHiddenData.xml. This new binding is needed to hide the sensitive
+        data contained in the credential and in the data's item of commands like
+        Add, Replace and Exec.
+
+-----------------------------------
+Funambol Testing Tool 1.0.4
+-----------------------------------
+2007-11-28
+- nichele: Changed license to AGPLv3.
+
+-----------------------------------
+Funambol Testing Tool 1.0.3
+-----------------------------------
+2007-11-14
+- nichele: Upgraded to funambol:server-framework:6.5.5
+
+-----------------------------------
+Funambol Testing Tool 1.0.2
+-----------------------------------
+2007-11-01
+- nichele: Upgraded to funambol:server-framework:6.5.4
+
+-----------------------------------
+Funambol Testing Tool 1.0.1
+-----------------------------------
+2007-09-22
+- nichele: Moved classes TestSyncMLBaseTask, TestSyncMLTask and TestSyncMLWBXMLTask
+           from funambol:funambol-ant
+           
+-----------------------------------
+Funambol Testing Tool 1.0.0
+-----------------------------------
+First release.

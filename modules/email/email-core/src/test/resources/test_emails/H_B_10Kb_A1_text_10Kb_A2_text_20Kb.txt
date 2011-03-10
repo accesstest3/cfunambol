@@ -1,0 +1,642 @@
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by a.mail.sonomait.com (Postfix) with ESMTP id E8F2B1EEC037
+	for <dest@somedest.net>; Wed, 17 Oct 2007 07:03:23 -0700 (PDT)
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Score: -0.526
+X-Spam-Level: 
+X-Spam-Status: No, score=-0.526 tagged_above=-10 required=5 tests=[AWL=-1.716,
+	BAYES_00=-2.599, LONGWORDS=3.789]
+Received: from a.mail.sonomait.com ([127.0.0.1])
+	by localhost (a.mail.sonomait.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 47EKPYOIiwlb for <dest@somedest.net>;
+	Wed, 17 Oct 2007 07:03:11 -0700 (PDT)
+Received: from [127.0.0.1] (85-18-37-27.ip.fastwebnet.it [85.18.37.27])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 22AAF1EEC067
+	for <dest@somedest.net>; Wed, 17 Oct 2007 07:03:07 -0700 (PDT)
+Message-ID: <4716162C.6000604@somesource.com>
+Date: Wed, 17 Oct 2007 16:03:24 +0200
+From: source <source@somesource.com>
+User-Agent: Thunderbird 2.0.0.6 (Windows/20070728)
+MIME-Version: 1.0
+To: dest <dest@somedest.net>
+Subject: HBA size equals 10Kb attachment1 text size equals 10Kb attachment2
+ text size equals 20Kb
+Content-Type: multipart/mixed;
+ boundary="------------020700030200080205040508"
+
+This is a multi-part message in MIME format.
+--------------020700030200080205040508
+Content-Type: text/plain; charset=ISO-8859-15; format=flowed
+Content-Transfer-Encoding: 7bit
+
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaaaaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaaaaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa 
+aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa
+
+
+--------------020700030200080205040508
+Content-Type: text/plain;
+ name="attachment20Kb.txt"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline;
+ filename="attachment20Kb.txt"
+
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2 attachment2 attachment2 attachment2 attachm=
+ent2 attachment2 attachment2 attachment2 attachment2 attachment2 attachme=
+nt2 attachment2 attachment2 attachment2 attachment2 attachment2 attachmen=
+t2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment=
+2 attachment2 attachment2 attachment2 attachment2 attachment2 attachment2=
+ attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 =
+attachment2 attachment2 attachment2 attachment2 attachment2 attachment2 a=
+ttachment2 attachment2 attachment2 attachment2 attachment2 attachment2 at=
+tachment2 attachment2 attachment2 attachment2 attachment2 attachment2 att=
+achment2 attachment2 attachment2 attachment2 attachment2 attachment2 atta=
+chment2 attachment2 attachment2 attachment2 attachment2 attachment2 attac=
+hment2 attachment2 attachment2 attachment2 attachment2 attachment2 attach=
+ment2 attachment2 attachment2=20
+
+--------------020700030200080205040508
+Content-Type: text/plain;
+ name="attachment10Kb.txt"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline;
+ filename="attachment10Kb.txt"
+
+attachment attachment attachment attachment attachment attachment attachm=
+ent attachment attachment attachment attachment attachment attachment att=
+achment attachment attachment attachment attachment attachment attachment=
+ attachment attachment attachment attachment attachment attachment attach=
+ment attachment attachment attachment attachment attachment attachment at=
+tachment attachment attachment attachment attachment attachment attachmen=
+t attachment attachment attachment attachment attachment attachment attac=
+hment attachment attachment attachment attachment attachment attachment a=
+ttachment attachment attachment attachment attachment attachment attachme=
+nt attachment attachment attachment attachment attachment attachment atta=
+chment attachment attachment attachment attachment attachment attachment =
+attachment attachment attachment attachment attachment attachment attachm=
+ent attachment attachment attachment attachment attachment attachment att=
+achment attachment attachment attachment attachment attachment attachment=
+ attachment attachment attachment attachment attachment attachment attach=
+ment attachment attachment attachment attachment attachment attachment at=
+tachment attachment attachment attachment attachment attachment attachmen=
+t attachment attachment attachment attachment attachment attachment attac=
+hment attachment attachment attachment attachment attachment attachment a=
+ttachment attachment attachment attachment attachment attachment attachme=
+nt attachment attachment attachment attachment attachment attachment atta=
+chment attachment attachment attachment attachment attachment attachment =
+attachment attachment attachment attachment attachment attachment attachm=
+ent attachment attachment attachment attachment attachment attachment att=
+achment attachment attachment attachment attachment attachment attachment=
+ attachment attachment attachment attachment attachment attachment attach=
+ment attachment attachment attachment attachment attachment attachment at=
+tachment attachment attachment attachment attachment attachment attachmen=
+t attachment attachment attachment attachment attachment attachment attac=
+hment attachment attachment attachment attachment attachment attachment a=
+ttachment attachment attachment attachment attachment attachment attachme=
+nt attachment attachment attachment attachment attachment attachment atta=
+chment attachment attachment attachment attachment attachment attachment =
+attachment attachment attachment attachment attachment attachment attachm=
+ent attachment attachment attachment attachment attachment attachment att=
+achment attachment attachment attachment attachment attachment attachment=
+ attachment attachment attachment attachment attachment attachment attach=
+ment attachment attachment attachment attachment attachment attachment at=
+tachment attachment attachment attachment attachment attachment attachmen=
+t attachment attachment attachment attachment attachment attachment attac=
+hment attachment attachment attachment attachment attachment attachment a=
+ttachment attachment attachment attachment attachment attachment attachme=
+nt attachment attachment attachment attachment attachment attachment atta=
+chment attachment attachment attachment attachment attachment attachment =
+attachment attachment attachment attachment attachment attachment attachm=
+ent attachment attachment attachment attachment attachment attachment att=
+achment attachment attachment attachment attachment attachment attachment=
+ attachment attachment attachment attachment attachment attachment attach=
+ment attachment attachment attachment attachment attachment attachment at=
+tachment attachment attachment attachment attachment attachment attachmen=
+t attachment attachment attachment attachment attachment attachment attac=
+hment attachment attachment attachment attachment attachment attachment a=
+ttachment attachment attachment attachment attachment attachment attachme=
+nt attachment attachment attachment attachment attachment attachment atta=
+chment attachment attachment attachment attachment attachment attachment =
+attachment attachment attachment attachment attachment attachment attachm=
+ent attachment attachment attachment attachment attachment attachment att=
+achment attachment attachment attachment attachment attachment attachment=
+ attachment attachment attachment attachment attachment attachment attach=
+ment attachment attachment attachment attachment attachment attachment at=
+tachment attachment attachment attachment attachment attachment attachmen=
+t attachment attachment attachment attachment attachment attachment attac=
+hment attachment attachment attachment attachment attachment attachment a=
+ttachment attachment attachment attachment attachment attachment attachme=
+nt attachment attachment attachment attachment attachment attachment atta=
+chment attachment attachment attachment attachment attachment attachment =
+attachment attachment attachment attachment attachment attachment attachm=
+ent attachment attachment attachment attachment attachment attachment att=
+achment attachment attachment attachment attachment attachment attachment=
+ attachment attachment attachment attachment attachment attachment attach=
+ment attachment attachment attachment attachment attachment attachment at=
+tachment attachment attachment attachment attachment attachment attachmen=
+t attachment attachment attachment attachment attachment attachment attac=
+hment attachment attachment attachment attachment attachment attachment a=
+ttachment attachment attachment attachment attachment attachment attachme=
+nt attachment attachment attachment attachment attachment attachment atta=
+chment attachment attachment attachment attachment attachment attachment =
+attachment attachment attachment attachment attachment attachment attachm=
+ent attachment attachment attachment attachment attachment attachment att=
+achment attachment attachment attachment attachment attachment attachment=
+ attachment attachment attachment attachment attachment attachment attach=
+ment attachment attachment attachment attachment attachment attachment at=
+tachment attachment attachment attachment attachment attachment attachmen=
+t attachment attachment attachment attachment attachment attachment attac=
+hment attachment attachment attachment attachment attachment attachment a=
+ttachment attachment attachment attachment attachment attachment attachme=
+nt attachment attachment attachment attachment attachment attachment atta=
+chment attachment attachment attachment attachment attachment attachment =
+attachment attachment attachment attachment attachment attachment attachm=
+ent attachment attachment attachment attachment attachment attachment att=
+achment attachment attachment attachment attachment attachment attachment=
+ attachment attachment attachment attachment attachment attachment attach=
+ment attachment attachment attachment attachment attachment attachment at=
+tachment attachment attachment attachment attachment attachment attachmen=
+t attachment attachment attachment attachment attachment attachment attac=
+hment attachment attachment attachment attachment attachment attachment a=
+ttachment attachment attachment attachment attachment attachment attachme=
+nt attachment attachment attachment attachment attachment attachment atta=
+chment attachment attachment attachment attachment attachment attachment =
+attachment attachment attachment attachment attachment attachment attachm=
+ent attachment attachment attachment attachment attachment attachment att=
+achment attachment attachment attachment attachment attachment attachment=
+ attachment attachment attachment attachment attachment attachment attach=
+ment attachment attachment attachment attachment attachment attachment at=
+tachment attachment attachment attachment attachment attachment attachmen=
+t attachment attachment attachment attachment attachment attachment attac=
+hment attachment attachment attachment attachment attachment attachment a=
+ttachment attachment attachment attachment attachment attachment attachme=
+nt attachment attachment attachment attachment attachment attachment atta=
+chment attachment attachment attachment attachment attachment attachment =
+attachment attachment attachment attachment attachment attachment attachm=
+ent attachment attachment attachment attachment attachment attachment att=
+achment attachment attachment attachment attachment attachment attachment=
+ attachment attachment attachment attachment attachment attachment attach=
+ment attachment attachment attachment attachment attachment attachment at=
+tachment attachment attachment attachment attachment attachment attachmen=
+t attachment attachment attachment attachment attachment attachment attac=
+hment attachment attachment attachment attachment attachment attachment a=
+ttachment attachment attachment attachment attachment attachment attachme=
+nt attachment attachment attachment attachment attachment attachment atta=
+chment attachment attachment attachment attachment attachment attachment =
+attachment attachment attachment attachment attachment attachment attachm=
+ent attachment attachment attachment attachment attachment attachment att=
+achment attachment attachment attachment attachment attachment attachment=
+ attachment attachment attachment attachment attachment attachment attach=
+ment attachment attachment attachment attachment attachment attachment at=
+tachment attachment attachment attachment attachment attachment attachmen=
+t attachment attachment attachment attachment attachment attachment attac=
+hment attachment attachment attachment attachment attachment attachment a=
+ttachment attachment attachment attachment attachment attachment attachme=
+nt attachment attachment attachment attachment attachment attachment atta=
+chment attachment attachment attachment attachment attachment attachment =
+attachment attachment attachment attachment attachment attachment attachm=
+ent attachment attachment attachment attachment attachment attachment att=
+achment attachment attachment attachment attachment attachment attachment=
+ attachment attachment attachment attachment attachment attachment attach=
+ment attachment attachment attachment attachment attachment attachment at=
+tachment attachment attachment attachment attachment attachment attachmen=
+t attachment attachment attachment attachment attachment attachment attac=
+hment attachment attachment attachment attachment attachment attachment a=
+ttachment attachment=20
+
+--------------020700030200080205040508--

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/tools/encryption
+END
+EncryptionTool.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/tools/encryption/EncryptionTool.java
+END
+EncryptionException.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/tools/encryption/EncryptionException.java
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/doc/example
+END
+jgroups.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/doc/example/jgroups.xml
+END
+PushListenerConfiguration.xml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/doc/example/PushListenerConfiguration.xml
+END
+DummyTask.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/doc/example/DummyTask.xml
+END
+log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/doc/example/log4j.xml
+END

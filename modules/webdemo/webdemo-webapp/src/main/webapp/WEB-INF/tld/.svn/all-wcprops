@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/tld
+END
+sql-1_0-rt.tld
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/tld/sql-1_0-rt.tld
+END
+c-1_0.tld
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/tld/c-1_0.tld
+END
+sql.tld
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/tld/sql.tld
+END
+fmt-1_0.tld
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/tld/fmt-1_0.tld
+END
+fn.tld
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/tld/fn.tld
+END
+permittedTaglibs.tld
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/tld/permittedTaglibs.tld
+END
+scriptfree.tld
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/tld/scriptfree.tld
+END
+x-1_0-rt.tld
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/tld/x-1_0-rt.tld
+END
+x.tld
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/tld/x.tld
+END
+sql-1_0.tld
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/tld/sql-1_0.tld
+END
+c.tld
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/tld/c.tld
+END
+c-1_0-rt.tld
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/tld/c-1_0-rt.tld
+END
+x-1_0.tld
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/tld/x-1_0.tld
+END
+fmt-1_0-rt.tld
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/tld/fmt-1_0-rt.tld
+END
+fmt.tld
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/tld/fmt.tld
+END

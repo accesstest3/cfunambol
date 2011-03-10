@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/29808/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/notification
+END
+NotificationNotSentException.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/notification/NotificationNotSentException.java
+END
+Message.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/29808/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/notification/Message.java
+END
+NotificationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/29565/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/notification/NotificationException.java
+END
+NotificationEngine.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/29801/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/notification/NotificationEngine.java
+END

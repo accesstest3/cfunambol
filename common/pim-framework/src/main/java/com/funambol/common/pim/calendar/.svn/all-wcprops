@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/32885/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/calendar
+END
+Event.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/29769/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/calendar/Event.java
+END
+Task.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/32814/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/calendar/Task.java
+END
+CalendarContent.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/29867/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/calendar/CalendarContent.java
+END
+Reminder.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/29451/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/calendar/Reminder.java
+END
+SIFT.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/29470/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/calendar/SIFT.java
+END
+SIFE.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/29470/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/calendar/SIFE.java
+END
+ExceptionToRecurrenceRule.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/29409/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/calendar/ExceptionToRecurrenceRule.java
+END
+Calendar.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/29868/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/calendar/Calendar.java
+END
+Attendee.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/32885/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/calendar/Attendee.java
+END
+RecurrencePatternException.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/29594/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/calendar/RecurrencePatternException.java
+END
+SIFCalendar.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/29470/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/calendar/SIFCalendar.java
+END
+RecurrencePattern.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/29786/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/calendar/RecurrencePattern.java
+END

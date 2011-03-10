@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/34417/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/install
+END
+tomcat55.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/install/tomcat55.xml
+END
+install.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/install/install.bsh
+END
+install.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/28716/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/install/install.xml
+END
+war.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/install/war.xml
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/install/log4j.properties
+END
+tomcat50.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/install/tomcat50.xml
+END
+install-modules.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/34417/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/install/install-modules.xml
+END
+tomcat60.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/33642/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/install/tomcat60.xml
+END

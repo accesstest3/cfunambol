@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+ <!--
+    FNBL_PUSH_REGISTRY_BASIC
+    ***************************
+  -->
+
+
+  <FNBL_PUSH_REGISTRY_BASIC    period         ="4543432"
+                               active         ="N"
+                               last_update    ="3432421321342"
+                               status         ="U"
+                               task_bean_file ="com.funambol.task.SmartTask"
+  />                                         
+                                             
+  <FNBL_PUSH_REGISTRY_BASIC    period         ="3334542333"
+                               active         ="N"
+                               last_update    ="33389765432"
+                               status         ="U"
+                               task_bean_file ="com.funambol.task.CustomTask"
+  />
+</dataset>

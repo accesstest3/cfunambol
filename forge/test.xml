@@ -1,0 +1,146 @@
+<?xml version="1.0" ?>
+
+<!--
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2005 - 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+-->
+
+<!-- $Id: test.xml,v 1.20 2008-07-02 16:29:25 luigiafassina Exp $ -->
+
+<!-- ====================================================================== -->
+<!--     Build and packaging the test suite                                 -->
+<!-- ====================================================================== -->
+<project name="Funambol Test Suite" basedir="..">
+    <property name="output.dir" value="automatic-testsuite/output"/>
+
+    <target name="make-automatic-testsuite"
+            depends="init,
+                           make-test,
+                           generate-test-s4j"/>
+
+    <target name="generate-test-s4j">
+        <delete dir="${output.dir}" quiet="true"/>
+        <mkdir dir="${output.dir}"/>
+        <copy todir="${output.dir}" includeEmptyDirs="true" overwrite="true">
+            <fileset dir="automatic-testsuite" defaultexcludes="true" excludes="output/**"/>
+        </copy>
+        <replace dir="${output.dir}">
+            <replacefilter token="{ds-server-version}" value="${ds-server.version}"/>
+            <replacefilter token="{server.pk.name.suffix}" value="${server.pk.name.suffix}"/>
+            <replacefilter token="{foundation-version}" value="${foundation.version}"/>
+            <replacefilter token="{dummy-version}" value="${dummy.version}"/>
+            <replacefilter token="{test-version}" value="${test.version}"/>
+        </replace>
+
+        <delete quiet="true">
+            <fileset dir="${output.dir}/ds-server" excludes="yyy"/>
+        </delete>
+        <copy file="output/${server.pk.name}.zip" todir="automatic-testsuite/output/ds-server"
+              overwrite="true"/>
+        <delete quiet="true">
+            <fileset dir="automatic-testsuite/output/modules"/>
+        </delete>
+        <copy file="modules/test-mod-ds/output/${test.name}-${test.version}.s4j"
+              todir="automatic-testsuite/output/modules"
+              overwrite="true"/>
+       
+    </target>
+
+    <target name="make-test"
+            depends="make-admin,
+                     upd-server-test,upd-admin-test,upd-j2se-test">
+
+        <!-- Compile funambol test module -->
+        <ant antfile="build/build.xml" dir="modules/test-mod-ds"/>
+    </target>
+
+    <target name="upd-server-test">
+        <!-- Update up the test lib -->
+
+        <echo message="Setting up test with funambol-framework.jar"/>
+        <delete>
+            <fileset dir="modules/test-mod-ds/lib/">
+                <include name="funambol-framework.jar"/>
+            </fileset>
+        </delete>
+        <copy file="ds-server/output/funambol-framework.jar"
+              todir="modules/test-mod-ds/lib"
+              overwrite="true"/>
+    </target>
+
+    <target name="upd-admin-test">
+        <echo message="Setting up test with funambol-admin-dev.jar"/>
+        <delete>
+            <fileset dir="modules/test-mod-ds/lib/">
+                <include name="funambol-admin-dev.jar"/>
+            </fileset>
+        </delete>
+        <copy file="admin-suite/output/funambol-admin-dev.jar" todir="modules/test-mod-ds/lib"
+              overwrite="true"/>
+    </target>
+
+    <target name="upd-j2se-test">
+
+        <!--Make the client for the email testsuite.-->
+        <property name="dir.email.client.lib" value="modules/test-mod-ds/src/test/email-testsuite/client/lib"/>
+
+        <!--copy todir="${dir.email.client.lib}">
+            <fileset file="client-api/j2se/output/${funambol-pdi.jar}"/>
+        </copy-->
+
+        <ant antfile="forge/build.xml" target="make-emailconnector"/>
+
+        <mkdir dir="${dir.email.client.lib}/tmp"/>
+        <unjar src="modules/emailconnector/output/funambol-email-${email-connector.version}.s4j"
+               dest="${dir.email.client.lib}/tmp"/>
+               
+        <delete>
+            <fileset dir="${dir.email.client.lib}" includes="funambol-email*.jar"/>
+        </delete>
+  
+        <copy todir="${dir.email.client.lib}">
+            <fileset dir="${dir.email.client.lib}/tmp/lib" includes="**/*.jar"/>
+        </copy>
+        <delete dir="${dir.email.client.lib}/tmp"/>
+
+        <ant dir="modules/test-mod-ds/src/test/email-testsuite/client" antfile="build/build.xml"
+             inheritall="false"/>
+
+    </target>
+
+    <target name="clean-tests">
+        <ant antfile="build/build.xml" dir="test-mod-ds" target="clean"/>
+    </target>
+</project>

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/model
+END
+FileDataObjectWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/model/FileDataObjectWrapper.java
+END
+NoteWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/30673/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/model/NoteWrapper.java
+END
+CalendarWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/core/!svn/ver/30673/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/model/CalendarWrapper.java
+END
+ContactWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/core/!svn/ver/30673/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/model/ContactWrapper.java
+END
+EntityWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/items/model/EntityWrapper.java
+END

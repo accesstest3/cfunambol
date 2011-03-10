@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/35029/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/pim/converter
+END
+VCalendarContentConverterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/32872/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/pim/converter/VCalendarContentConverterTest.java
+END
+CachedTimeZoneHelperTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/pim/converter/CachedTimeZoneHelperTest.java
+END
+ContactToSIFCTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/pim/converter/ContactToSIFCTest.java
+END
+CalendarToSIFETest.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/30638/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/pim/converter/CalendarToSIFETest.java
+END
+VCalendarConverterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/34633/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/pim/converter/VCalendarConverterTest.java
+END
+TimeZoneHelperTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/30649/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/pim/converter/TimeZoneHelperTest.java
+END
+TaskToSIFTTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/35029/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/pim/converter/TaskToSIFTTest.java
+END
+CalendarStatusTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/35029/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/pim/converter/CalendarStatusTest.java
+END
+ContactToVcardTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/33388/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/pim/converter/ContactToVcardTest.java
+END

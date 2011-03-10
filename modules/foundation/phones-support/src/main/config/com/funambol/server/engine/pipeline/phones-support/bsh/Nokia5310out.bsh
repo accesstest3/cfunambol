@@ -1,0 +1,162 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2008 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+import java.util.List;
+import java.util.Map;
+
+import com.funambol.framework.core.*;
+import com.funambol.framework.core.Sync4jException;
+import com.funambol.framework.engine.pipeline.OutputMessageProcessor;
+import com.funambol.framework.engine.pipeline.MessageProcessingContext;
+import com.funambol.framework.engine.pipeline.StopProcessingException;
+import com.funambol.framework.logging.FunambolLogger;
+import com.funambol.framework.logging.FunambolLoggerFactory;
+
+import com.funambol.foundation.synclet.PIMItemsHandler;
+
+/**
+ * Contacts:
+ * =========
+ * Deletes TEL;CAR;VOICE property
+ * Deletes the EMAIL;INTERNET;X-FUNAMBOL-INSTANTMESSENGER
+ * because this field is not supported by the phone
+ *  
+ * Calendar:
+ * =========
+ * . Event
+ * Corrects yearly events recurring rule
+ *  
+ * @version $Id: Nokia5310out.bsh,v 1.4 2008/11/18 14:42:49 scova Exp $
+ */
+ 
+// ---------------------------------------------------------------- Private data
+private final FunambolLogger log =
+    FunambolLoggerFactory.getLogger("engine.pipeline");
+
+// ------------------------------------------------------ Synclet implementation
+importCommands("/com/funambol/server/engine/pipeline/phones-support/bsh/commands");
+
+/**
+ * Process and manipulate the output message.
+ *
+ * @param mpc the message processing context
+ * @param message the message to be processed
+ *
+ * @throws Sync4jException
+ */
+void postProcessMessage(MessageProcessingContext mpc,
+                        SyncML message              )
+throws Sync4jException {
+
+    if (log.isTraceEnabled()) {
+        log.trace("Nokia5310out.postProcessMessage(...)");
+    }
+    
+    fixCommandSize(message);
+    
+    // This map contains the three lists of items separated based on their type
+    PIMItemsHandler pimItemsHandler = new PIMItemsHandler();
+    Map mapItems = pimItemsHandler.extractOutgoingPIMItems(message);
+    
+    processPIMItems(mapItems);
+	
+	  throw new StopProcessingException("Nokia5310out Synclet finished");
+}
+
+/**
+ * Processes outgoing items.
+ *
+ * @param mapItems the map that contains the three lists of items separated
+ *                 based on their type
+ */
+void processPIMItems(Map mapItems) {
+
+    //
+    // Cycle on vcard list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VCARD)) {
+        postProcessVCard(i);
+    }
+    //
+    // Cycle on vevent list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VEVENT)) {
+        postProcessVEvent(i);
+    }
+}
+
+/**
+ * Processes outgoing contacts.
+ *
+ * Deletes TEL;CAR;VOICE property
+ * Deletes the EMAIL;INTERNET;X-FUNAMBOL-INSTANTMESSENGER
+ * because this field is not supported by the phone
+ *
+ * @param i the item to be processed
+ */
+void postProcessVCard(Item i) {
+
+    data = i.data.data;
+    
+  	data = deleteOutProperty(data, "TEL;CAR;VOICE:");
+  	data = deleteOutProperty(data, "EMAIL;INTERNET;X-FUNAMBOL-INSTANTMESSENGER:");
+  	
+  	i.data.data = data;
+}
+
+/**
+ * Processes outgoing vevent.
+ *
+ * Corrects yearly events recurring rule
+ *
+ * @param i the item to be processed
+ *
+ */
+void postProcessVEvent(Item i) {
+    
+    data = i.data.data;
+    
+    // Corrects yearly events recurring rule
+    data = replaceOutProperty(data, "RRULE:MD12 (\\d{0,2} )?#0", "RRULE:YD1 #0");
+
+    i.data.data = data;
+}
+
+/**
+ * Called initializing the synclet
+ */
+void init() {
+    // do nothing
+}

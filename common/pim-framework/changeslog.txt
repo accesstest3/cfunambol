@@ -1,0 +1,633 @@
+2011-02-24
+- matteo: Merged from branch us5417 in order to support rotation on online storage
+2011-02-17
+- lulu: Merged from branch us5418 in order to support online storage
+
+2011-02-10
+- lulu: Added TimeUtils.convertDateFromTo(..) methods in order to convert the
+        given date from a pattern to an other without considering TZ.
+
+-----------------------------
+Funambol PIM Framework 9.0.0
+-----------------------------
+2010-10-27
+- lulu: Fixed bug #10238 - error converting vcard to contact.
+
+2010-09-09
+- machi: Fixed some typos in the methods name
+         Added the logic to mark the incoming file data object as uploded when
+         the syncml messages contain body too
+
+2010-08-30
+- machi: Added UploadStatus class in order to provide all avaible upload statuses
+         Added uploadStatus setter and getter to FileDataObject and FileDataObjectMetadata
+         object.
+         Added uploadStatus attribute to the FileDataObjectMetadata class.
+
+-----------------------------
+Funambol PIM Framework 8.7.0
+-----------------------------
+2010-07-12
+- machi: fixed typo in the copyright
+
+2010-05-26
+- testa: In FileDataObject size is of type long.
+         Removed getActualSize method.
+
+2010-04-28
+- gasparetto: Fixed bug 9162 - Istant Messenger field is not managed correctly
+              in case of multiple IMs
+              The listener of the VCard parser now store multiple IM addresses
+              if more than one were founded in the VCard.
+
+2010-04-14
+- alfredo: Metadata sync for improved file data object sync:
+           - changed FileDataObject.checkSize with a check for undeclared body 
+             size and if neither the declared nor the actual size are defined. 
+           - added support for marshalling of null body FileDataObject
+
+2010-01-27
+- mauro: Introduced support for vCard properties AGENT, PRODID and KEY.
+
+2010-01-21 (2010-01-15 in branch us1680)
+- nichele: Reviewed FileDataObjectMarshaller in order to use byte[] instead of
+           String since the content will be treated as byte[] in the engine
+           (and converting in/to String uses a lot of memory)
+           
+2010-01-18
+- mauro: Fixed bug in conversion of property LABEL with parameter
+         X-FUNAMBOL-PRESERVE.
+         Minor refactoring.
+
+2009-12-18
+- mauro: Implemented support for office location (third component of vCard
+         property ORG).
+
+-----------------------------
+Funambol PIM Framework 8.2.8
+-----------------------------
+2009-12-04
+- mauro: Implemented support for TYPE attribute of vCard property UID.
+
+-----------------------------
+Funambol PIM Framework 8.2.7
+-----------------------------
+2009-12-02
+- mauro: Parsing of x-tags now allows for multiple x-tags with the same name.
+
+2009-12-01
+- mauro: Implemented support for vCard fields IMPP.
+         Improved flexibility of support for x-tags.
+
+2009-11-30
+- mauro: Redesigned merge for lists of mergeable fields that contain a URI.
+
+2009-11-27
+- lulu: Updated the TimeUtils class in order to move forward the end date using
+        the number of days whenever is possible.
+        Updated the VCalendarContentConvert in order to properly handle the allDay
+        format.
+        Added some Junit tests to the VCalendarContentConverter class
+        Added some JUnit tests to the CalendarStatus class.
+
+2009-11-25
+- lulu: Fixed bug #8002 - All day events in iCalendar converted into multiple-
+        day event in vCalendar
+
+
+-----------------------------
+Funambol PIM Framework 8.2.6
+-----------------------------
+2009-11-23
+- machi: Reviewed CalendarStatus mapping in order to replace value not allowed in
+         VCal 1.0 or ICal 2.0 with proper replacement.
+
+-----------------------------
+Funambol PIM Framework 8.2.5
+-----------------------------
+2009-11-20
+- machi: Added normalization of following properties Complete, Status, Percent
+         Complete to the Task object.
+
+2009-11-19
+- machi: Added CalendarStatus enum in order to define mapping between Task status,
+         vcal/ical label and sif status and to perform conversions.
+         Added status translation for TaskToSIFT class.
+         Added the handling the NEEDS ACTION value separately for VCal/ICal
+         Added the handling of label allowed in only one of the VCal/ICal format
+
+-----------------------------
+Funambol PIM Framework 8.2.4
+-----------------------------
+2009-11-06
+- mauro: Implemented support for custom vCard fields TEL;X-DC and TEL;CELL;X-DC.
+         Implemented support for custom vCard field EMAIL;X-CELL.
+         Implemented support for vCard field GEO.
+         Implemented support for vCard field MAILER.
+
+-----------------------------
+Funambol PIM Framework 8.2.3
+-----------------------------
+2009-11-02
+- mauro: Changed design of classes used to parse vCard.
+         Implemented support for vCard field CLASS.
+         Fixed bug #8035: Testcase NOKIA/5320_CAL fails because of TZ caching if
+         run twice in a row
+
+2009-10-30
+- mauro: Implemented composition of vCard field TZ field.
+
+-----------------------------
+Funambol PIM Framework 8.2.2
+-----------------------------
+2009-10-20
+- mauro: Fixed bug #7967: converting from ical to vcal creates wrong rrule for
+         weekly events
+         INTERVAL value within iCalendar RRULEs now defaults to 1
+
+2009-10-14
+- lulu: Fixed bug #7932 - Converting from sif to ical throws exception
+
+
+-----------------------------
+Funambol PIM Framework 8.2.1
+-----------------------------
+2009-10-09
+- maria: updated dependencies
+
+-----------------------------
+Funambol PIM Framework 8.2.0
+-----------------------------
+2009-06-17
+- carlo: VCalendar parsing now relies on the pim-parsers module
+
+2009-06-05
+- testa: The name for the file data object is mandatory
+         Check the file data object size
+         
+2009-06-05
+- mauro: Size declared in metadata is now always kept aligned with actual file 
+         size. If the two sizes don't match, the parsing fails.
+
+2009-06-05
+- mauro: Moved local-time-to-UTC conversion into the file data object parser.
+
+2009-05-17
+- testa: fixed bug - the parser must throw an exception if the document does not
+         start with the "file" element.
+
+2009-05-15
+- mauro: Fixed bug #7272: UTC time lacking trailing "Z" in calendar items if no
+         device time zone is specified
+
+2009-05-12
+- fabius: fixed Bug #7199 - DS version 7.1 generates invalid vCard
+
+2009-05-04
+- fabius: fixed bug #7129 Unexpected calendar sync abort
+
+2009-04-30
+- testa: Added method 'convertLocalTimes' in class FileDataObject
+         Added method 'toString' in class FileDataObject
+
+2009-04-26
+- testa: Added the file data object parsing
+
+2009-04-16
+- lulu: Added set/getType methods in Photo class that override the same 
+        deprecated methods in Property class, and fixed the constructor in order
+        to get/set the propertyType.
+
+2009-04-15
+- testa: Moved methods isEmptyProperty and stringFrom from PIMEntytyDAO to 
+         Property
+
+2009-04-08
+- mauro: Extended FileDataObject to include all data prescribed by the OMA
+         specification.
+         Moved the FileDataObject moved to package com.funambol.common.media.
+         Split fields of FileDataObject into two new classes contained in it:
+         FileDataObjectBody and FileDataObjectMetadata.
+
+2009-04-02
+- piter: Added FileDataObject class to represent a OMA file data object
+
+-----------------------------
+Funambol PIM Framework 7.1.1
+-----------------------------
+2009-03-03
+- garatti: Reimplemented the ICalendar parsing that now relies on the
+  pim-parsers module
+
+2008-12-18
+- mauro: Fixed bug #5979: ContactToVcard.java blocks sync when using malformed 
+         birthday strings
+
+2008-12-17
+- mauro: Fixed bug #6482: Contact updating does not work
+         Contact updates with WebDemo now work again
+
+2008-10-29
+- mauro: Test units in VCalendarConverterTest are now independent from system time
+
+2008-10-16
+- nichele: Reviewed VCard parser handling using the new pim-parsers artifact
+          (adding VCardSyntaxtParserListenerImpl and a new VcardParser implementation
+          required for backward compatibility)
+
+2008-10-08
+- mauro: Fixed bug #6130: X-MICROSOFT-CDO-BUSYSTATUS is not correctly managed
+
+2008-10-01
+- mauro: Fixed bug #6058: ical with X properties including _UID in the name of the 
+         property fails parsing
+         Underscore character is now accepted in property identifiers by the iCalendar 
+         parser
+
+2008-09-30
+- mauro: Fixed bug #6047: The server should send the VALUE parameter for allday events
+
+2008-09-24
+- mauro: Introduced support for contact property free/busy address (FBURL, 
+         InternetFreeBusyAddress)
+- mauro: vCard parser is now case-insensitive
+
+2008-09-22
+- mauro: Fixed regression bug (see bug #5904:iCalendar 2.0 needs escaping comma)
+         Commas must not be escaped in vCalendar 1.0 items
+
+2008-09-17
+- mauro: Fixed bug #5953 (OW 310808): VALARM lost (iCalendar)
+         VALARM is now implemented
+- mauro: Fixed bug with date/time formats: EXDATE and RDATE must follow the same 
+         policy as RRULE
+
+2008-09-03
+- mauro: Fixed bug #5952 (OW 310806): iCalendar all-day items should follow the 
+         specification
+         iCalendar all-day items now use only "yyyyMMdd" format
+
+2008-08-27
+- mauro: Fixed bug #5919 (OW 310465): iCalendar events with more than one EXDATE property 
+         are not supported
+         RDATEs on multiple lines now supported as well
+
+2008-08-26
+- mauro: Fixed bug #5908 (OW 310807, 310817): iCalendar 2.0: quoted-printable not a valid 
+         encoding
+- lulu: Fixed bug #4990: The "IM address" field is not synchronized properly
+        using OL plugin
+
+2008-08-25
+- mauro: Introduced policy-based conversions for date-time fields; changed 
+         behavior with inclusion of time zones in vCalendar and iCalendar items;
+         tests modified accordingly (bug #5903, OW 310714: The server sends iCalendar 
+         items with TZID and UTC date-time)
+
+2008-08-20
+- mauro: Fixed bug #5905 (OW 310810): TZID should be used as a first guess for time zones
+- mauro: Fixed issues with TZ recognition in vCalendar/iCalendar items
+
+2008-08-18
+- mauro: Fixed bug #5904 (OW 310804): iCalendar 2.0 needs escaping comma
+
+-----------------------------
+Funambol PIM Framework 7.0.6
+-----------------------------
+2008-07-24
+- nichele: Fixed bug #5647: Recurring events on Nokia N70 are visualized in GMT
+           Fixed bug #5654: Recurring event not converted in corrected timezone on RAZR v3
+
+2008-07-22
+- nichele: Fixed other scenario of bug #5589.
+           In CalendarToSIFE.createTagsFromRecurrencePattern, when the patternStartDate
+           is converted in local time, also the dayofWeekMask must be converted.
+
+-----------------------------
+Funambol PIM Framework 7.0.5
+-----------------------------
+2008-07-17
+- nichele: Fixed TimeZoneHelper.getDayOfWeekAbbreviation(): wrong constants were
+           used.
+- lulu: Fixed bug #5589 Recurring events compatibility timezone issues.
+
+-----------------------------
+Funambol PIM Framework 7.0.4
+-----------------------------
+2008-07-14
+- piter: Fixed method deepEquals in class com.funambol.common.pim.utility.NoteUtils .
+
+-----------------------------
+Funambol PIM Framework 7.0.3
+-----------------------------
+2008-06-24
+- lulu: Fixed bug #4172 'The last instance of a recurring task synchronized from
+        Outlook is not displayed on phone'
+- lulu: Fixed bug #309663 'RRULEs in iCalendars are encoded by Funambol'
+- mauro: Fixed bug #309654 'When converting to iCalendar format, EXDATEs have to
+         be seperated by commas, not by semi-colons'
+
+2008-06-05
+- lulu: Replaced VCalendarContentConverter.fixEventDates(..) and
+        VCalendarContentConverter.fixTaskDates(..) with fixDates(..) in order to
+        fix the event and task dates in a unique method since the management's
+        logic is common to both.
+
+2008-06-04
+- lulu: Fixed a NullPointerException when duration is null in CalendarContent.
+- lulu: Changed RecurrencePattern.fix() in order to convert the start date 
+        pattern into local time using the TimeZone.
+- lulu: Updated current SIF version to 1.1 for Calendar, Task and Contact.
+- lulu: Deprecated BaseConverter(TimeZone timezone, String charset).
+        Added BaseConverter constructor with convertDateToLocal as parameter in 
+        order to handle the convertion of the dates in local time based on the 
+        convert date policy and not only if the timezone is set for the device.
+- lulu: Updated CalendarToSIFE in order to use BaseConverter constructor with
+        convertDateToLocal set to false because the plug-ins that use SIF are 
+        able to handle date in UTC.
+        Changed CalendarToSIFE.createTagsFromRecurrencePattern(..) in order to 
+        set startDatePattern and endDatePattern in local time when the recurrence
+        timezone is not null.
+        Removed from CalendarToSIFE.createTagFromProperty(..) the conversion of
+        the dates in local time.
+- lulu: Fixed TimeZoneHelper.processID(..)
+        Managed the case in which the DAYLIGHT is FALSE: now the <DayLight/> tag
+        is not returns in the SIF string.
+        Changed TimeZoneHelper.parseOffset(..) in order to parse also the 
+        timezone with semicolon in the value (for instance +03:00).
+- lulu: Deprecated VCalendarContentConverter(TimeZone timezone, String charset).
+        Added VCalendarContentConverter constructor with convertDateToLocal as 
+        parameter in order to handle the convertion of the dates in local time
+        based on the convert date policy and not only if the timezone is set for
+        the device.
+        Changed VCalendarContentConverter in order to handle the recurrence
+        dates and the reminders using the timezone information.
+        Changed the signature of 
+        VCalendarContentConverter.getExceptionsAsList(..) adding the isAllDay
+        boolean parameter because if the recurrence exception is an allday, the
+        dates must be converted in localtime otherwise are converted in UTC.
+        Fixed allday handling in VCalendarContentConverter.fixTaskDates(..).
+- lulu: Deprecated VCalendarConverter(TimeZone timezone, String charset).
+        Added VCalendarConverter constructor with convertDateToLocal as 
+        parameter in order to handle the convertion of the dates in local time
+        based on the convert date policy and not only if the timezone is set for
+        the device.
+        Added VCalendarConverter.composeDateTimeField(..) with a new parameter
+        (isRecurrence).
+
+-----------------------------
+Funambol PIM Framework 7.0.1
+-----------------------------
+2008-04-08
+- diogo: fixed bug: Task duplicates after slow sync
+
+2008-04-03
+- diogo: fixed bug: Task reminder shifted due to timezone,
+         TaskToSIFT convertor didn't handle ConversionToLocalDate for reminder time.
+
+2008-04-02
+- diogo: at TaskToSIF.convert method the comleat value was expected to be Boolean when in all other places it is a String
+         it generated a ClassCastException, now it is fixed.
+
+2008-03-25
+- diogo: fixed Tasks - BillingInformation now we handle this property in a Server to Client sync
+
+2008-03-18
+- diogo: fixed Tasks - com.funambol.common.pim.converter.VCalendarContentConverter.cc2vcc
+         is used to convert both VCal Events and Tasks and on some clients we want to suport 
+         tasks don't use all day property so I updated this method with a check like "if isAllDAy == null do nothing" to avoid NullPointerExceptions in the convertion
+
+2008-03-14
+- diogo: fixed Tasks - Miliage now it is handled if it is an Integer, else it would be ignored
+- diogo: fixed Tasks - ActulWork now we handle this property from Client to Server
+
+2008-02-18
+- mauro: Fixed issue in TimeUtils.rollOneDay since the logic was inverted.
+- mauro: Added support to IMAddress in ContactToVcard.composeEmailType(...).
+
+-----------------------------
+Funambol PIM Framework 6.5.6
+-----------------------------
+
+2007-11-28
+- nichele: Changed license to AGPLv3.
+
+
+-----------------------------
+Funambol PIM Framework 6.5.5
+-----------------------------
+
+2007-11-13
+- mauro: Re-modified the setter of the property value: only spaces and tabs will
+         be removed from the end of string property values.
+
+
+-----------------------------
+Funambol PIM Framework 6.5.4
+-----------------------------
+
+2007-10-30
+- mauro: Fixed bug with unsupported formats in exceptions to recurrence patterns.
+
+2007-10-29
+- mauro: Modified the setter of the property value: trailing whitespaces will be 
+         removed if the value is a string.
+
+
+-----------------------------
+Funambol PIM Framework 6.5.3
+-----------------------------
+
+2007-10-19
+- nichele: Added PHOTO support
+
+2007-10-17
+- nichele: Reviewed method ParamList.add(..) in order to keep at least one TYPE.
+           Deprecated PersonalDetail.getPhoto() replacing it with get/setPhotoObject.
+           Reviewed SIFCParser in handling PHOTO and changed method 
+           createPropertyFromTag in order to keep the property TYPE (then it is handled
+           just with the PHOTO)
+           Reviewed VCardParser in order to keep the photo type property
+           
+2007-10-04
+- mauro: Deprecated unused obsolete code and refactored other code that uses
+         it in order to make the future clean-up easier.
+
+
+-----------------------------
+Funambol PIM Framework 6.5.2
+-----------------------------
+
+2007-09-20
+- mauro: Fixed bug in the vCard parser related with parameters of the TEL
+         property.
+
+
+-----------------------------
+Funambol PIM Framework 6.5.1
+-----------------------------
+
+2007-08-29
+- nichele: Reviewed TEL: handling in order to set its value as TEL:VOICE
+
+2007-08-13
+- ste: renamed the artifact (and therefore the jar) to pim-framework
+
+2007-08-09
+- mauro: Fixed bug with empty RDATE/EXDATE properties.
+
+2007-08-02
+- mauro: Allowed correct parsing of multiple line breaks (they are collapsed
+         into one logical line break) in vCard, vCalendar and iCalendar data.
+
+
+--------------------------
+Funambol Common PIM 6.5.0
+--------------------------
+
+2007-07-25
+- lulu: Changed the way to handle the AALARM property when the calendar is an
+        all day event or task and the timezone is not set.
+
+2007-07-10
+- mauro: Implemented robust parsing of multiple new lines in 
+         vCalendar/iCalendar items.
+
+2007-06-22
+- lulu: Added trim before handling the exception dates
+
+2007-06-21
+- mauro: Implemented inference of completion status from the STATUS property 
+         and vice versa when converting from/to vCalendar/iCalendar format.
+
+2007-06-20
+- mauro: Fixed the bug with "==\r\nXX" sequence (a QP-encoded character split
+         by a soft line break).
+
+2007-06-18
+- lulu: Updated Funambol copyright
+
+2007-06-15
+- nichele: Fixed convertAAlarmToReminder (the reminder time was never set)
+
+
+--------------------------------
+Funambol Common PIM 6.0.5
+--------------------------------
+
+2007-06-04
+- nichele: Changed AALARM parsing
+- mauro: Fixed merge of two tasks when one lacks the percentComplete tag.
+- mauro: Weakened the inference of the completion percentage when only the 
+         the completion status is present in a SIF-T item: incomplete does
+         not imply 0% any more.
+
+2007-05-31
+- mauro: Fixed a bug with SIF-T items lacking the PercentComplete tag. The
+         completion percentage is now being inferred from the value of the
+         Complete tag (if present). For symmetry's sake, the opposite is done
+         in the opposite case.
+
+
+--------------------------------
+Funambol Common PIM 6.0.4
+--------------------------------
+
+2007-05-14
+- mauro: Fixed bugs with vCalendar 1.0 conversions of properties AALARM
+         (time-only alarms) and RRULE (YD case).
+
+
+--------------------------------
+Funambol Common PIM 6.0.3
+--------------------------------
+
+2007-04-20
+- mauro: Added parsing and exploding of vCard LABELs into ADRs.
+
+2007-04-18
+- mauro: Fixed usage of character sets while converting calendar items.
+- mauro: Fixed usage of time zones while converting contact items.
+
+
+--------------------------------
+Funambol Common PIM 6.0.2
+--------------------------------
+
+2007-04-13
+- mauro: Fixed a bug with computation of distance between start date and
+         reminder trigger time, that created a 60'-error when it was across a
+         daylight-saving shift. Implemented a UTC-based difference computation.
+- mauro: Renamed the SIF-C tag InstantMessenger to IMAddress.
+
+2007-04-12
+- mauro: Fixed the vCard parser to accept only one company main phone number and 
+         one primary phone number (the others will be ignored).
+
+2007-04-11
+- mauro: Improved SIF-E/T parser: implemented inference of missing 
+         ReminderMinutesBeforeStart property, when possible.
+
+2007-04-05
+- mauro: Fixed bug in all-day DTEND management.
+
+
+--------------------------------
+Funambol Common PIM 6.0.1
+--------------------------------
+
+2007-03-19
+- mauro: Implemented property X-FUNAMBOL-FOLDER for vCard and
+         vCalendar/iCalendar formats.
+
+2007-03-16
+- mauro: Implemented robust parsing of multiple new lines in vCard's.
+- mauro: Implemented case-sensitive (therefore, faster) vCard parsing.
+- mauro: Fixed performance flaw: the Quoted-Printable encoding is now specified
+         only when actually used, in the vCalendar/iCalendar format.
+
+2007-03-14
+- mauro: Added parsing of new SIF-C tag InstantMessenger.
+
+2007-03-12
+- mauro: Made AALARM's time output format consistent with the format of other
+         vCalendar/iCalendar properties.
+
+2007-03-09
+- mauro: Fixed bug with the parsing of unknown vCard properties.
+
+2007-03-06
+- mauro: Implemented correct line unfolding for the Quoted-Printable encoding in vCard.
+
+2007-02-28
+- mauro: Added VALARM parsing in the iCalendar parser.
+- mauro: Fixed bug that affected the parsing of the Importance tag.
+- nichele: Fixed Event/Task merging
+
+2007-02-27
+- mauro: Improved the vCalendar/iCalendar parsers, that have been made capable of 
+         managing in a proper way parameters and Quoted-Printable special sequences also 
+         if they are split on several lines.
+
+2007-02-23
+- mauro: Implemented full support of sensitivity (aka accessClass or CLASS) in the model, 
+         in the SIF, in the converters etc.
+- mauro: Fixed all-day format in SIF-E.
+
+2007-02-20:
+- mauro: Added property LOCATION also for outgoing tasks in SIF-T.
+
+2007-02-19
+- mauro: Added field "folder" also for calendar data (in the model and in the SIF).
+
+2007-02-15
+- mauro: Fixed the behaviour with all-day events' end dates.
+         Such end dates according to the vCalendar/iCalendar specifications, 
+         are set to one day later than the day when the event actually ends.
+
+
+--------------------------------
+Funambol Common PIM 6.0.0
+--------------------------------
+
+First release of common pim library

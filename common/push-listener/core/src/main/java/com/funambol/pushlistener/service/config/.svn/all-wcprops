@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/28983/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/config
+END
+PushListenerConfigBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/28983/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/config/PushListenerConfigBean.java
+END
+PushListenerConfigurationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/config/PushListenerConfigurationException.java
+END
+PushListenerConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/config/PushListenerConfiguration.java
+END

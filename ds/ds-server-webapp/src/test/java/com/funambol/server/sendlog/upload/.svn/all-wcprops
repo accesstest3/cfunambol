@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/36231/trunk/funambol/ds/ds-server-webapp/src/test/java/com/funambol/server/sendlog/upload
+END
+MimeTypeDictionaryTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/36089/trunk/funambol/ds/ds-server-webapp/src/test/java/com/funambol/server/sendlog/upload/MimeTypeDictionaryTest.java
+END
+LogInformationProviderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/36231/trunk/funambol/ds/ds-server-webapp/src/test/java/com/funambol/server/sendlog/upload/LogInformationProviderTest.java
+END
+FileUploaderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/36132/trunk/funambol/ds/ds-server-webapp/src/test/java/com/funambol/server/sendlog/upload/FileUploaderTest.java
+END
+MockLogInformationProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/36132/trunk/funambol/ds/ds-server-webapp/src/test/java/com/funambol/server/sendlog/upload/MockLogInformationProvider.java
+END

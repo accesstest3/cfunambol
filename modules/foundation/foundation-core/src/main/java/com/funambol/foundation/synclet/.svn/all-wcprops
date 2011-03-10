@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/synclet
+END
+BeanShellSynclet.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/synclet/BeanShellSynclet.java
+END
+SourceUriPrefixSynclet.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/synclet/SourceUriPrefixSynclet.java
+END
+StopProcessingSynclet.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/synclet/StopProcessingSynclet.java
+END
+ChangeDeviceIdSynclet.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/synclet/ChangeDeviceIdSynclet.java
+END
+PIMItemsHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/synclet/PIMItemsHandler.java
+END
+LoggingSynclet.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/synclet/LoggingSynclet.java
+END
+ChangeSourceUriSynclet.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/synclet/ChangeSourceUriSynclet.java
+END

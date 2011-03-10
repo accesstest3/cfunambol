@@ -1,0 +1,84 @@
+Return-Path: bernini@funambol.com
+Received: from a.mail.sonomait.com (LHLO a.mail.sonomait.com)
+ (64.142.123.30) by a.mail.sonomait.com with LMTP; Tue, 4 Nov 2008 03:30:50
+ -0800 (PST)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by a.mail.sonomait.com (Postfix) with ESMTP id D78D3164447
+	for <fabio@funambol.net>; Tue,  4 Nov 2008 03:30:50 -0800 (PST)
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Flag: NO
+X-Spam-Score: -1.142
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.142 tagged_above=-10 required=5 tests=[AWL=-0.862,
+	BAYES_00=-2.599, RDNS_DYNAMIC=0.1, TVD_SPACE_RATIO=2.219]
+Received: from a.mail.sonomait.com ([127.0.0.1])
+	by localhost (a.mail.sonomait.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id ysok1WbsPWX1 for <fabio@funambol.net>;
+	Tue,  4 Nov 2008 03:30:49 -0800 (PST)
+Received: from lanval (89-96-142-253.ip12.fastwebnet.it [89.96.142.253])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 77A8D164490
+	for <fabio@funambol.net>; Tue,  4 Nov 2008 03:30:48 -0800 (PST)
+From: "Davide Bernini" <bernini@funambol.com>
+To: <fabio@funambol.net>
+Subject: outlook 2007
+Date: Tue, 4 Nov 2008 12:30:36 +0100
+Message-ID: <000001c93e70$c2bee740$483cb5c0$@com>
+MIME-Version: 1.0
+Content-Type: text/calendar; method=REQUEST;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: Microsoft Office Outlook 12.0
+Thread-Index: Ack+cMDv+Kk4jW8oQSOuTWph7QYdAQ==
+Content-Language: it
+
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 12.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:REQUEST
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VEVENT
+ATTENDEE;CN=fabio@funambol.net;RSVP=TRUE:mailto:fabio@funambol.net
+CLASS:PUBLIC
+CREATED:20081104T113034Z
+DESCRIPTION:When: martedì 4 novembre 2008 15.00-15.30 (GMT+1.00) Amsterdam
+	\, Berlino\, Berna\, Roma\, Stoccolma\, Vienna.\nWhere: pavia \n\n*~*~*~*~
+	*~*~*~*~*~*\n\ntest invite\n
+DTEND:20081104T143000Z
+DTSTAMP:20081104T113034Z
+DTSTART:20081104T140000Z
+LAST-MODIFIED:20081104T113035Z
+LOCATION:pavia 
+ORGANIZER;CN="Davide Bernini":mailto:bernini@funambol.com
+PRIORITY:5
+SEQUENCE:0
+SUMMARY;LANGUAGE=it:outlook 2007
+TRANSP:OPAQUE
+UID:040000008200E00074C5B7101A82E0080000000090958F22793EC901000000000000000
+	0100000004FB33779B9B95B4E8A6710B01C3627AD
+X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//E
+	N">\n<HTML>\n<HEAD>\n<META NAME="Generator" CONTENT="MS Exchange Server ve
+	rsion 08.00.0681.000">\n<TITLE></TITLE>\n</HEAD>\n<BODY>\n<!-- Converted f
+	rom text/rtf format -->\n\n<P DIR=LTR><SPAN LANG="it"><FONT FACE="Calibri"
+	>When: martedì 4 novembre 2008 15.00-15.30 (GMT+1.00) Amsterdam\, Berlino
+	\, Berna\, Roma\, Stoccolma\, Vienna.</FONT></SPAN></P>\n\n<P DIR=LTR><SPA
+	N LANG="it"><FONT FACE="Calibri">Where: pavia </FONT></SPAN></P>\n\n<P DIR
+	=LTR><SPAN LANG="it"><FONT FACE="Calibri">*~*~*~*~*~*~*~*~*~*</FONT></SPAN
+	></P>\n\n<P DIR=LTR><SPAN LANG="it"></SPAN><SPAN LANG="en-us"><FONT FACE="
+	Calibri">test invite</FONT></SPAN><SPAN LANG="it"></SPAN><SPAN LANG="en-us
+	"></SPAN></P>\n\n</BODY>\n</HTML>
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MS-OLK-ALLOWEXTERNCHECK:TRUE
+X-MS-OLK-AUTOSTARTCHECK:FALSE
+X-MS-OLK-CONFTYPE:0
+X-MS-OLK-SENDER;CN="Davide Bernini":mailto:bernini@funambol.com
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR
+

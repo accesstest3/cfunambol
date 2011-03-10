@@ -1,0 +1,103 @@
+----------------------------------
+Funambol Command Line Client 9.0.0
+----------------------------------
+
+2010-07-30
+-lulu: Fixed bug #9443 - Issues when the installation path contains spaces.
+
+----------------------------------
+Funambol Command Line Client 8.7.0
+----------------------------------
+2010-07-12
+- maria: updated dependencies
+
+----------------------------------
+Funambol Command Line Client 8.5.0
+----------------------------------
+2010-03-25
+- maria: updated dependencies
+
+----------------------------------
+Funambol Command Line Client 8.2.5
+----------------------------------
+2010-01-04
+- nichele: Upgraded to jre 1.6.0_17
+
+----------------------------------
+Funambol Command Line Client 8.2.4
+----------------------------------
+2009-12-04
+- maria: updated dependencies
+
+----------------------------------
+Funambol Command Line Client 8.2.3
+----------------------------------
+2009-12-04
+- maria: updated dependencies
+
+----------------------------------
+Funambol Command Line Client 8.2.2
+----------------------------------
+2009-11-13
+- maria: updated dependencies
+
+----------------------------------
+Funambol Command Line Client 8.2.1
+----------------------------------
+2009-11-02
+- maria: updated dependencies
+
+----------------------------------
+Funambol Command Line Client 8.2.0
+----------------------------------
+2009-10-09
+- maria: updated dependencies
+
+2009-03-02
+- ste: changed run.sh to use JAVA_HOME first, if not given, the jdk of the
+       bundle or the java command in the command path if none of the above.
+
+----------------------------------
+Funambol Command Line Client 7.1.0
+----------------------------------
+2008-09-23
+- nichele: Updated dependencies
+
+----------------------------------
+Funambol Command Line Client 7.0.6
+----------------------------------
+2008-07-26
+- nichele: updated to funambol:jse-sdk:7.0.5
+
+----------------------------------
+Funambol Command Line Client 7.0.5
+----------------------------------
+2008-07-18
+- nichele: updated to funambol:jse-sdk:7.0.4
+
+----------------------------------
+Funambol Command Line Client 7.0.4
+----------------------------------
+2008-07-15
+- nichele: updated to funambol:jse-sdk:7.0.3
+
+----------------------------------
+Funambol Command Line Client 7.0.3
+----------------------------------
+2008-07-08
+- nichele: Changed the packaging: now sources and javadoc artifacts are not included
+
+2008-07-03
+- paulo: fixed location of bundled jre, now cl-plugin uses the bundled jre when JAVA_HOME is not defined
+
+----------------------------------
+Funambol Command Line Client 7.0.2
+----------------------------------
+2008-06-26
+- nichele: updated to funambol:jse-sdk:7.0.2
+
+----------------------------------
+Funambol Command Line Client 7.0.1
+----------------------------------
+2008-05-10
+- ste: releasing 7.0.1

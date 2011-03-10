@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/33359/trunk/funambol/common/server-framework/src/test/java/com/funambol/framework/engine
+END
+FakeSyncSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/33126/trunk/funambol/common/server-framework/src/test/java/com/funambol/framework/engine/FakeSyncSource.java
+END
+FakeStreamingSyncItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/33359/trunk/funambol/common/server-framework/src/test/java/com/funambol/framework/engine/FakeStreamingSyncItem.java
+END
+SyncItemImplTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/33359/trunk/funambol/common/server-framework/src/test/java/com/funambol/framework/engine/SyncItemImplTest.java
+END

@@ -1,0 +1,12 @@
+<!-- $Id: index.html,v 1.5 2007-03-27 15:43:49 luigiafassina Exp $ -->
+
+<HTML>
+<HEAD>
+<TITLE>Web Demo Client</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META HTTP-EQUIV="refresh" CONTENT="0;URL=login.jsp">
+<META HTTP-EQUIV="cache-control" CONTENT="no-cache">
+<META HTTP_EQUIV="pragma" CONTENT="no-cache">
+</HEAD>
+
+</HTML>

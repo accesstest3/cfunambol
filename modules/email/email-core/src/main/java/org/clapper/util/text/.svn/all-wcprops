@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/text
+END
+VariableSubstitutionException.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/text/VariableSubstitutionException.java
+END
+TextUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/text/TextUtil.java
+END
+XStringBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/text/XStringBuilder.java
+END
+XStringBufBase.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/text/XStringBufBase.java
+END
+Unicode.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/text/Unicode.java
+END
+UndefinedVariableException.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/text/UndefinedVariableException.java
+END
+XStringBuffer.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/text/XStringBuffer.java
+END
+Package.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/text/Package.java
+END

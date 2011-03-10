@@ -1,0 +1,25 @@
+# build specific properties
+# These build properties are set for the auto-build
+# system. These should not be changed in CVS unless
+# needed for that system.
+
+javacc.home=<somewhere>/javacc-4.0
+
+nsis.home=<somewhere>
+
+tomcat.pkg=/home/forge/packages/apache-tomcat-6.0.16.zip
+jre.pkg=/home/forge/packages/jre1.6.0_17.zip
+jre.pkgx64=/home/forge/building-tools/jre1.6.0_18-64bit.zip
+hsqldb.pkg=/home/forge/packages/hsqldb_1_8_0_7.zip
+
+jre.name=jre1.6.0_17
+jre.namex64=jre1.6.0_18-64bit
+tomcat.name=apache-tomcat-6.0.16
+hsqldb.name=hsqldb
+
+# Funambol Maven Repository
+funambol-maven-repository=http://localhost:9090/archiva/repository/internal
+funambol-maven-repository-snaphots=http://localhost:9090/archiva/repository/snapshots
+
+# Opensource version
+server.pk.name.suffix=

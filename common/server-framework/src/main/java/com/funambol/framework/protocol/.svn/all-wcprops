@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/core/!svn/ver/31782/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/protocol
+END
+CommandIdGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/31782/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/protocol/CommandIdGenerator.java
+END
+IdGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/31782/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/protocol/IdGenerator.java
+END
+SimpleIdGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/31782/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/protocol/SimpleIdGenerator.java
+END

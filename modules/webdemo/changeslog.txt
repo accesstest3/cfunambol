@@ -1,0 +1,368 @@
+------------------------------
+Web Demo Client 9.0.0
+------------------------------
+
+2010-12-16
+- machi: Fixed Copyright date into termsandconditions.txt
+
+------------------------------
+Web Demo Client 8.7.0
+------------------------------
+2010-07-12
+- maria: updated dependencies
+
+------------------------------
+Web Demo Client 8.5.0
+------------------------------
+2010-03-26
+- maria: updated dependencies
+
+------------------------------
+Web Demo Client 8.2.4
+------------------------------
+2010-01-29
+- lulu: Fixed Copyright date into termsandconditions.txt
+
+------------------------------
+Web Demo Client 8.2.3
+------------------------------
+2009-12-04
+- maria: updated dependencies
+
+------------------------------
+Web Demo Client 8.2.2
+------------------------------
+2009-11-13
+- maria: updated dependencies
+
+------------------------------
+Web Demo Client 8.2.1
+------------------------------
+2009-11-02
+- maria: updated dependencies
+
+------------------------------
+Web Demo Client 8.2.0
+------------------------------
+2009-04-17
+- testa: Refactoring: 
+         - renamed the foundation PIMDBAccessException into DAOException
+         - changed call to deprecated methods
+         
+------------------------------
+Web Demo Client 7.1.0
+------------------------------
+2008-12-18
+- lulu: Fixed Copyright date into termsandconditions.txt
+
+2008-09-23
+- nichele: Updated dependencies
+
+------------------------------
+Web Demo Client 7.0.6
+------------------------------
+2008-07-26
+- nichele: Updated dependencies
+
+------------------------------
+Web Demo Client 7.0.5
+------------------------------
+2008-07-18
+- nichele: Updated dependencies
+
+------------------------------
+Web Demo Client 7.0.4
+------------------------------
+2008-07-15
+- nichele: Updated dependencies
+
+------------------------------
+Web Demo Client 7.0.3
+------------------------------
+2008-07-06
+- nichele: Updated dependencies
+
+------------------------------
+Web Demo Client 7.0.2
+------------------------------
+2008-06-23
+- piter: Logging to the web demo is now case insensitive.
+
+------------------------------
+Web Demo Client 7.0.0
+------------------------------
+2008-03-29
+- stefano_fornari: created a better modular structure (webdemo-module:pom = webdemo-webapp:war + webdemo:s4j)
+
+2008-03-16
+- stefano_fornari: removed context.xml so that the default will be used
+
+2008-02-21
+- testa :Updated to funambol:ds-server:7.0.0-SNAPSHOT
+
+2008-01-10
+- nichele: Reviewed dependencies handling
+
+
+----------------------
+Web Demo Client 6.5.7
+----------------------
+
+2007-12-07
+- nichele: Updated to funambol:foundation:6.5.10
+
+
+----------------------
+Web Demo Client 6.5.6
+----------------------
+
+2007-11-29
+- nichele: Added Terms & Conditions link
+
+2007-11-28
+- nichele: Changed license to AGPLv3.
+
+
+----------------------
+Web Demo Client 6.5.5
+----------------------
+
+2007-11-20
+- lulu: Fixed an issue in dates validation.
+
+2007-11-19
+- nichele: Updated Funambol logo.
+
+
+----------------------
+Web Demo Client 6.5.4
+----------------------
+
+2007-11-14
+- nichele: Updated dependencies
+
+
+----------------------
+Web Demo Client 6.5.3
+----------------------
+
+2007-10-30
+- lulu: Changed view.jsp in order to fix a visualization issue using IE6: the 
+        first name field was shorter than the others during the update of a 
+        contact without photo.
+
+2007-10-26
+- lulu: Added check on Calendar dates in order to verify if the year is between
+        1900 and 2100.
+
+
+----------------------
+Web Demo Client 6.5.2
+----------------------
+
+2007-10-19
+- nichele: Added support to photos in the contacts
+
+2007-10-07
+- nichele: Upgraded to funambol:pim-framework:6.5.3
+
+
+----------------------
+Web Demo Client 6.5.1
+----------------------
+
+2007-09-26
+- nichele: Upgraded to server-framework-6.5.3 and to pim-framework-6.5.2
+
+2007-09-25
+- lulu: Changed the logging directory of the webdemo in order to have:
+        Funambol
+        |- logs
+           |- ds-server
+              - ds-server.webdemo.log
+
+
+----------------------
+Web Demo Client 6.5.0
+----------------------
+
+2007-07-13
+- nichele: Reviewed passwords handling because now on the database are encrypted
+
+2007-07-09
+- lulu: Used JSTL c-1_0-rt.tld library (instead of c-1_0.tld) to fix an issue
+        of compatibility with servlet 2.4: the RT accepts at runtime the
+        expressions as attribute so there is no problem during login.
+
+2007-07-04
+- lulu: Added target install-war in order to generate only the war file
+        (without a real installation on application server)
+
+2007-07-02
+- nichele: Make compliant with servlet 2.4 specification
+
+2007-06-29
+- lulu: Added support to Tomcat 6.0
+
+2007-06-18
+- lulu: Updated Funambol copyright
+
+
+----------------------
+Web Demo Client 6.0.4
+----------------------
+
+2007-04-20
+- nichele: Added commons-httpclient-3.0.jar in the library folder
+
+
+----------------------
+Web Demo Client 6.0.3
+----------------------
+
+2007-04-16
+- lulu: Made compliant with Funambol DS Server 6.0.3
+        Made compliant with Foundation 6.0.2
+
+
+----------------------
+Web Demo Client 6.0.2
+----------------------
+
+2007-03-27
+- nichele: Renamed Pimweb into Web Demo Client
+
+
+-------------------
+pimweb 6.0.1
+-------------------
+
+2007-03-19
+- lulu: Reviewed Task forms
+        Fixed issue on Due Date for task because it is not properly handled
+
+2007-03-05
+- lulu: Added check on email address
+
+2007-03-02
+- lulu: Removed Task links from menu
+
+2007-03-01
+- lulu: Separated Event handling from Task handling
+
+
+-------------------
+pimweb 6.0.0
+-------------------
+
+2007-02-02
+- lulu: Added "Welcome, username" into menu.jsp
+
+2007-01-23
+- lulu: Added Logout menu
+
+2007-01-09
+- lulu: Added Task handling.
+
+2006-12-18
+- lulu: Porting to new foundation connector.
+- lulu: Added the login page in order to make pimweb multiuser.
+
+2006-11-08
+- lulu: Added support to Tomcat 5.5.20
+
+2006-09-18
+- lulu: Fixed issue about refresh contacts in the list.
+        Now the displayname property is constructed with the value of 
+        Last name and\or First name instead of the value of "File as", because 
+        the  "File as" does not dependent from First and Last name.
+        Added field File as into contact form to allow the user to set it.
+
+2006-09-14
+- lulu: Changed the view of the contact list: now the list shows the displayname
+        of the Contact (and not the firstname and\or surname)
+
+
+-------------------
+pimweb 3.0.8
+-------------------
+
+2006-09-07
+- lulu: Added COPYING file.
+
+
+-------------------
+pimweb 3.0.7
+-------------------
+
+2006-08-08
+- nichele: Changed the license.
+
+2006-08-03
+- Lorenzo Boiocchi: Added a control to verify if the year of the Starting and Ending date is not equal to 0000
+
+2006-07-25
+- lulu: Fixed an improper behaviour when refreshing the Pimweb page after sync
+
+2006-07-20
+- lulu: Fixed wrong links
+
+
+-------------------
+pimweb 3.0.6
+-------------------
+
+2006-07-12
+- nichele: Fixed a problem with Opera 8.5 and the "All Day Event" checkbox in the calendar page
+
+2006-07-05
+- nichele: Improved charset handling
+
+
+-------------------
+pimweb 3.0.5
+-------------------
+
+2006-05-19
+- lulu: Fixed bug 305310 HTTP Status 500 Error in PIMWEB, trying to display an event 
+        that was deleted from Java GUI Plug-in
+
+
+-------------------
+pimweb 3.0.4
+-------------------
+2006-04-18
+- lboiocchi: Fixed bug 305005 Events that start in the present and end in the past can be created (pim web demo)
+
+
+-------------------
+pimweb 3.0.3
+-------------------
+
+2006-04-03
+- lulu: Fixed bug 304915 Wrong date not handled inserting/updating an event
+
+
+-------------------
+pimweb 3.0.2
+-------------------
+
+2006-04-03
+- nichele: Made compliant with Funambol DS Server 5.0.3
+- nichele: Made compliant with Foundation 3.0.3
+
+
+-------------------
+pimweb 3.0.1
+-------------------
+
+2006-02-01
+- lulu: Made compliant with Funambol DS Server 5.0.1
+- lulu: Made compliant with Foundation 3.0.1
+
+
+-------------------
+pimweb 3.0.0
+-------------------
+
+New Major Release

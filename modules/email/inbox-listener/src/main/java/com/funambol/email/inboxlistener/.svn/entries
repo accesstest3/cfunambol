@@ -1,0 +1,43 @@
+10
+
+dir
+36744
+https://core.forge.funambol.org/svn/core/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener
+https://core.forge.funambol.org/svn/core
+
+
+
+2010-09-08T13:01:28.570035Z
+35932
+pfernandez
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+e8e8ed6c-164c-0410-afcf-9e9a7c7d8c10
+
+service
+dir
+
+msdao
+dir
+
+engine
+dir
+
+dbdao
+dir
+
+plugin
+dir
+

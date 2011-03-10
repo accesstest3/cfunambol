@@ -1,0 +1,14 @@
+K 13
+svn:eol-style
+V 6
+native
+K 13
+svn:mergeinfo
+V 767
+/branches/us4756/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/icalendar/ICalendarParser.java:34252-34292
+/branches/us4836/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/icalendar/ICalendarParser.java:34488-34610
+/branches/us5417/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/icalendar/ICalendarParser.java:36647-36683
+/branches/us5418/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/icalendar/ICalendarParser.java:36602-36659
+/branches/us5422/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/icalendar/ICalendarParser.java:35155-35929
+/top-level/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/icalendar/ICalendarParser.java:18312-27992
+END

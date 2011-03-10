@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/core/!svn/ver/36293/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification
+END
+PendingNotificationDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/29881/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/PendingNotificationDAO.java
+END
+PendingNotificationDBAccessException.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/29686/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/PendingNotificationDBAccessException.java
+END
+PushManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/32890/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/PushManager.java
+END
+PendingNotification.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/29686/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/PendingNotification.java
+END
+PushManagerMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/31368/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/PushManagerMBean.java
+END
+NotificationEngineImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/35922/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/NotificationEngineImpl.java
+END

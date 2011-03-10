@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/test/resources/config/com/funambol/email/inboxlistener/plugin
+END
+UDPReaderPlugin.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/test/resources/config/com/funambol/email/inboxlistener/plugin/UDPReaderPlugin.xml
+END

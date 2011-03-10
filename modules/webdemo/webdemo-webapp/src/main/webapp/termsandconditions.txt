@@ -1,0 +1,17 @@
+Copyright (C) 2003 - 2011 Funambol, Inc.
+
+This program is provided AS IS, without warranty licensed under AGPLV3. The
+Program is free software; you can redistribute it and/or modify it under the
+terms of the GNU Affero General Public License version 3 as published by the 
+Free Software Foundation including the additional permission set forth source
+code file header.
+
+The interactive user interfaces in modified source and object code versions of
+this program must display Appropriate Legal Notices, as required under Section 5
+of the GNU Affero General Public License version 3. 
+
+In accordance with Section 7(b) of the GNU Affero General Public License 
+version 3, these Appropriate Legal Notices must retain the display of the 
+"Powered by Funambol" logo. If the display of the logo is not reasonably 
+feasible for technical reasons, the Appropriate Legal Notices must display the
+words "Powered by Funambol". Funambol is a trademark of Funambol, Inc.

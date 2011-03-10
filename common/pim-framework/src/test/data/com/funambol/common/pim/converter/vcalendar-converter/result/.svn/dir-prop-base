@@ -1,0 +1,37 @@
+K 10
+svn:ignore
+V 772
+vcalendar-25-result-vcal.vcs
+vcalendar-19-result-vcal.vcs
+icalendar-3-output.ics
+icalendar-8-output.ics
+vcalendar-20-result-vcal.vcs
+icalendar-12-output.ics
+vcalendar-2-output.vcs
+icalendar-6-output.ics
+vcalendar-4-output.vcs
+vcalendar-7-output.vcs
+icalendar-13-output.ics
+vcalendar-1-output.vcs
+vcalendar-3-output.vcs
+vcalendar-5-output.vcs
+vcalendar-24-result-vcal.vcs
+icalendar-14-output.ics
+vcalendar-18-result-vcal.vcs
+icalendar-5-output.ics
+icalendar-9-output.ics
+vcalendar-6-output.vcs
+*.ics
+icalendar-11-output.ics
+icalendar-1-output.ics
+icalendar-10-output.ics
+icalendar-2-output.ics
+icalendar-4-output.ics
+icalendar-7-output.ics
+vcalendar-21-result-vcal.vcs
+vcalendar-23-result-vcal.vcs
+vcalendar-22-result-vcal.vcs
+vcalendar-8-output.vcs
+vcalendar-9-output.vcs
+
+END

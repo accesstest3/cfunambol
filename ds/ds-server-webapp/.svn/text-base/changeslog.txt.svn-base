@@ -1,0 +1,162 @@
+2011-01-24
+- nichele: Added PushSender initialization during servlet inizialization in order
+           to have feedbacks about JGroups channel creation during server startup.
+           
+--------------------------------------------------
+Funambol Data Synchronization Server Web App 9.0.0
+--------------------------------------------------
+
+2010-11-23
+- machi: extended the set of characters to be escaped in the device id while
+         creating a new log file.  
+
+2010-11-22
+- testa: Fixed bug #10349 - Wrong device id header parameter name for send log
+         Fixed bug #10351 - Client logs not handled in the right way if the device 
+         id contains slash ('/')
+
+2010-11-03
+- lulu: Improved send log feature in order to save the incoming client log files
+        as a temporary files.
+
+2010-10-21
+- lulu: Added dependency to 'org.springframework' for testing LogServlet.
+        Added junit for testing
+        HttpBasicAuthenticator.fillCredentialsWithDeviceId(..) method.
+
+2010-10-19
+- lulu: Added LogServlet implementation in order to store on file system the
+        log sent by clients.
+
+2010-04-25
+- nichele: Added 'remoteAddress' handling in LogContextFilter
+
+--------------------------------------------------
+Funambol Data Synchronization Server Web App 8.5.1
+--------------------------------------------------
+2010-03-30
+- maria: Updated Dependencies
+
+--------------------------------------------------
+Funambol Data Synchronization Server Web App 8.5.0
+--------------------------------------------------
+2009-12-31
+- nichele: Added a new MBean registration (available in server-framework) for
+           threads handling
+
+2009-12-12
+- nichele: Improved SyncResponseTimeFilter
+
+- nichele: Improved LogContextFilter: the thread name is changed added the
+           device id (if any) as postfix with the username. For instance 'TP-Processor128'
+           is renamed in 'TP-Processor128 [fwm-12345] [mark]'.
+           In this way it's possible to know which device/user a thread is
+           processing (for troubleshooting long request)
+
+--------------------------------------------------
+Funambol Data Synchronization Server Web App 8.2.4
+--------------------------------------------------
+2009-12-04
+-maria: updated dependencies
+
+--------------------------------------------------
+Funambol Data Synchronization Server Web App 8.2.3
+--------------------------------------------------
+2009-11-13
+-maria: updated dependencies
+
+--------------------------------------------------
+Funambol Data Synchronization Server Web App 8.2.2
+--------------------------------------------------
+2009-11-02
+-maria: updated dependencies
+
+--------------------------------------------------
+Funambol Data Synchronization Server Web App 8.2.1
+--------------------------------------------------
+2009-10-09
+-maria: updated dependencies
+
+--------------------------------------------------
+Funambol Data Synchronization Server Web App 8.2.0
+--------------------------------------------------
+2009-09-25
+- nichele: Added SyncResponseTimeFilter to make available via JMX some statistic
+           information about sync processing time.
+
+2009-09-20
+- nichele: Improved LogContextFilter: the thread name is changed added the
+           username (if any) as postfix so that for instance 'TP-Processor128'
+           is renamed in 'TP-Processor128 [mark]'. In this way it's possible to
+           know which user a thread is processing (for troubleshooting long request)
+- nichele: Set read timeout to 20s in Sync4jAddressListener since in some cases
+           the servlet is able to connect to the device but the device is not
+           able to reply.
+           Refactored Sync4jAddressListener adding some junit tests.
+
+--------------------------------------------------
+Funambol Data Synchronization Server Web App 8.0.0
+--------------------------------------------------
+2009-06-23
+- nichele: Updated dependencies
+
+--------------------------------------------------
+Funambol Data Synchronization Server Web App 7.1.0
+--------------------------------------------------
+
+2009-01-13
+- nichele: Added default values for these servlet config parameters:
+           > preferred-encoding (default gzip)
+           > supported-encoding (default gzip,deflate)
+           > compression-level (default -1)
+           > enable-compression (default true)
+           
+2008-12-19
+- nichele: Fixed bug #6568 Too long session timeout in address notification
+
+2008-12-18
+- lulu: Fixed Copyright date into termsandconditions.txt
+
+2008-12-03
+- lulu: Fixed bug #6432 Error when sending a pending notification via COP.
+        Changed the signature of deletePendingNotifications method in order to
+        use String[] instead of a java.util.List since there is an issue using
+        java.util.List via web services.
+
+2008-10-23
+- testa: Added Ext device properties management
+
+2008-10-16
+- nichele: Reviewed the format of the information returned by /funambol/ds/info
+
+2008-10-15
+- nichele: Reviewed AdminWS adding sendNotificationMessage
+           with the user name as parameter deprecating the old one.
+           
+--------------------------------------------------
+Funambol Data Synchronization Server Web App 7.0.4
+--------------------------------------------------
+
+2008-07-02
+- nichele: Updated dependencies
+
+
+--------------------------------------------------
+Funambol Data Synchronization Server Web App 7.0.3
+--------------------------------------------------
+
+2008-06-16
+- nichele: Added OneCallSessionFilter for /services/* and /rmicl/* in order to
+           invalidate the session at the end of the request processing (this is
+           useful since every webservices and rmicl requests create a new session)
+
+2008-05-22
+- nichele: Reviewed exception handling in AdminWS
+
+
+--------------------------------------------------
+Funambol Data Synchronization Server Web App 7.0.1
+--------------------------------------------------
+
+2008-04-17
+-ste: Added common-logging so that it goes into WEB-INF/lib

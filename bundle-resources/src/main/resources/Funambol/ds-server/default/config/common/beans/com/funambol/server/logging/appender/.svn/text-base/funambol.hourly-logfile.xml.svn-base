@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.5.0_08" class="java.beans.XMLDecoder"> 
+ <object class="org.apache.log4j.DailyRollingFileAppender">
+  <void property="file"> 
+   <string>logs/ds-server/ds-server.hourly.log</string>
+  </void> 
+  <void property="append">
+   <boolean>true</boolean>
+  </void>
+  <void property="layout"> 
+   <object class="org.apache.log4j.PatternLayout"> 
+    <void property="conversionPattern"> 
+     <string>[%d{yyyy-MM-dd HH:mm:ss,SSS}] [%c] [%p] [%X{sessionId}] [%X{remoteAddress}] [%X{deviceId}] [%X{userName}] [%X{sourceURI}] %m%n</string>
+    </void> 
+   </object> 
+  </void> 
+  <void property="datePattern">
+   <string>.yyyy-MM-dd.HH</string>
+  </void> 
+  <void property="name"> 
+   <string>funambol.hourly-logfile</string>
+  </void> 
+ </object> 
+</java> 

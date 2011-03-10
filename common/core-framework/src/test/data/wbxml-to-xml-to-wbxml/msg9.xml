@@ -1,0 +1,41 @@
+<SyncML><SyncHdr><VerDTD>1.1</VerDTD><VerProto>SyncML/1.1</VerProto><SessionID>6</SessionID><MsgID>3</MsgID><Target><LocURI>http://localhost:8080/funambol/ds</LocURI></Target><Source><LocURI>syncml-phone</LocURI></Source><Meta><MaxMsgSize>3100</MaxMsgSize></Meta></SyncHdr><SyncBody><Status><CmdID>1</CmdID><MsgRef>2</MsgRef><CmdRef>0</CmdRef><Cmd>SyncHdr</Cmd><TargetRef>syncml-phone</TargetRef><SourceRef>http://localhost:8080/funambol/ds</SourceRef><Data>200</Data></Status><Sync><CmdID>2</CmdID><Target><LocURI>card</LocURI></Target><Source><LocURI>./C\System\Data\Contacts.cdb</LocURI></Source><Meta><MaxObjSize>786432</MaxObjSize></Meta><Add><CmdID>3</CmdID><Meta><Type>text/x-vcard</Type></Meta><Item><Source><LocURI>35</LocURI></Source><Data>BEGIN:VCARD
+VERSION:2.1
+N:Billingham;Tom;;;
+FN:Billingham, Tom
+EMAIL;INTERNET;HOME:tom@medical.com
+ADR;WORK:;;Street 94A;Redmond;WA;12354;USA
+ORG:Medical Center;
+TEL;FAX;WORK:+1-212-125-8549
+END:VCARD
+</Data></Item></Add><Add><CmdID>4</CmdID><Meta><Type>text/x-vcard</Type></Meta><Item><Source><LocURI>36</LocURI></Source><Data>BEGIN:VCARD
+VERSION:2.1
+N:Parker;Lucy;;;
+FN:Parker, Lucy
+EMAIL;INTERNET:lucy@company.com
+TITLE:Secretary
+ORG:Co &amp; Co;
+TEL;VOICE:+039 123145123
+END:VCARD
+</Data></Item></Add><Add><CmdID>4</CmdID><Meta><Type>text/x-vcard</Type></Meta><Item><Source><LocURI>37</LocURI></Source><Data>BEGIN:VCARD
+VERSION:2.1
+N:Newton;Bob;;;
+FN:Newton, Bob
+TITLE:Hydraulic
+ORG:Plumbers Company;
+TEL;VOICE:+039 918736513
+END:VCARD
+</Data></Item></Add><Add><CmdID>5</CmdID><Meta><Type>text/x-vcard</Type></Meta><Item><Source><LocURI>38</LocURI></Source><Data>BEGIN:VCARD
+VERSION:2.1
+N:Small;Tony;;;
+FN:Small, Tony
+EMAIL;INTERNET:tony@help.com
+ADR;WORK:;;4700 42nd Ave. SW, Suite 440;Seattle;WA;98116;USA
+ORG:Help.Com;
+END:VCARD
+</Data></Item></Add><Add><CmdID>6</CmdID><Meta><Type>text/x-vcard</Type><Size>275</Size></Meta><Item><Source><LocURI>39</LocURI></Source><Data>BEGIN:VCARD
+VERSION:2.1
+N:Heggen;Patty;;;
+FN:Patty Heggen
+URL:http://www.heggenconsulting.com
+EMAIL;INTERNET:heggen@consulting.com
+</Data><MoreData></MoreData></Item></Add></Sync></SyncBody></SyncML>

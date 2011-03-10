@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/29827/trunk/funambol/common/server-framework/src/main/java/com/funambol/server/db
+END
+DataSourceContextHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/server/db/DataSourceContextHelper.java
+END
+RoutingDataSourceException.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/server/db/RoutingDataSourceException.java
+END
+DataSourceConfigurationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/server/db/DataSourceConfigurationException.java
+END
+RoutingDataSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/29827/trunk/funambol/common/server-framework/src/main/java/com/funambol/server/db/RoutingDataSource.java
+END
+DataSourceConfigurationHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/server/db/DataSourceConfigurationHelper.java
+END
+DataSourceFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/server/db/DataSourceFactory.java
+END
+DataSourceConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/server/db/DataSourceConfiguration.java
+END
+DummyPartitioningCriteria.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/server/db/DummyPartitioningCriteria.java
+END
+PartitionConfigurationLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/server/db/PartitionConfigurationLoader.java
+END
+PartitioningCriteriaException.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/server/db/PartitioningCriteriaException.java
+END
+Partition.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/server/db/Partition.java
+END
+PartitioningCriteria.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/server/db/PartitioningCriteria.java
+END
+LockedPartitionException.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/server/db/LockedPartitionException.java
+END
+RoutingDataSourceConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/server/db/RoutingDataSourceConfiguration.java
+END

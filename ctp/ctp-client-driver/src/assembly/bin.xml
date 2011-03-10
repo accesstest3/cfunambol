@@ -1,0 +1,46 @@
+<!--
+    Copyright (C) 2007 Funambol, Inc.  All rights reserved.
+-->
+<assembly>
+    <formats>
+      <format>zip</format>
+      <format>tar.gz</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>Funambol/ctp-client-driver/lib</outputDirectory>
+            <fileMode>0774</fileMode>
+        </dependencySet>
+    </dependencySets>
+    <fileSets>
+      <fileSet>
+        <outputDirectory>Funambol/ctp-client-driver</outputDirectory>
+        <directory>src/main/resources</directory>
+        <lineEnding>keep</lineEnding>
+        <includes>
+            <include>**/*</include>
+        </includes>
+        <excludes>
+            <!-- these will be included by the next fileset -->
+            <exclude>bin/**/*</exclude>
+        </excludes>
+      </fileSet>
+      <fileSet>
+        <directory>target</directory>
+        <outputDirectory>Funambol/ctp-client-driver/lib</outputDirectory>
+        <includes>
+          <include>*.jar</include>
+        </includes>
+        <fileMode>0774</fileMode>
+      </fileSet>
+      <fileSet>
+        <directory>target/generated-sources/bin</directory>
+        <outputDirectory>Funambol/ctp-client-driver/bin</outputDirectory>
+        <includes>
+          <include>*</include>
+        </includes>
+        <fileMode>0775</fileMode>
+      </fileSet>
+    </fileSets>
+</assembly>

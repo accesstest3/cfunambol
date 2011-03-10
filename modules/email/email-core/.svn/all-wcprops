@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/core/!svn/ver/36596/trunk/funambol/modules/email/email-core
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/LICENSE.txt
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/core/!svn/ver/36596/trunk/funambol/modules/email/email-core/pom.xml
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/.cvsignore
+END

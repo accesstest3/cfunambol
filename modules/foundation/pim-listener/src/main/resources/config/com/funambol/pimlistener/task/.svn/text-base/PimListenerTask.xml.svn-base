@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2" class="java.beans.XMLDecoder">
+    <object class="com.funambol.pimlistener.service.PimTask">
+        <void property="excludedDevicesRegExp">
+            <!-- Regular expression to detect the devices that must not be notified -->
+            <string>sc-pim-[\p{ASCII}]*|fol-[\p{ASCII}]*|fmz-[\p{ASCII}]*|fbb-[\p{ASCII}]*|fjg-[\p{ASCII}]*|fip-[\p{ASCII}]*</string>
+        </void>
+    </object>
+</java>

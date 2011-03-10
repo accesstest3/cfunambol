@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/core/!svn/ver/36200/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/cleanup
+END
+CleanUpEventHandlerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/36165/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/cleanup/CleanUpEventHandlerTest.java
+END
+ClientLogCleanUpPluginTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/36200/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/cleanup/ClientLogCleanUpPluginTest.java
+END
+ClientLogCleanUpAgentTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/36181/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/cleanup/ClientLogCleanUpAgentTest.java
+END

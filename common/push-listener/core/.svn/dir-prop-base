@@ -1,0 +1,12 @@
+K 10
+svn:ignore
+V 58
+nbproject
+output
+lib
+target
+.settings
+.classpath
+.project
+
+END

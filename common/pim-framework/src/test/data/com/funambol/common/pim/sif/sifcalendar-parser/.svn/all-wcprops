@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/32794/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/sif/sifcalendar-parser
+END
+sife-1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/sif/sifcalendar-parser/sife-1.xml
+END
+sife-2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/sif/sifcalendar-parser/sife-2.xml
+END
+sift-inprocess.xml
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/32794/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/sif/sifcalendar-parser/sift-inprocess.xml
+END
+sift-declined.xml
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/32794/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/sif/sifcalendar-parser/sift-declined.xml
+END
+sift-accepted.xml
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/32794/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/sif/sifcalendar-parser/sift-accepted.xml
+END
+bb_attendee1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/30836/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/sif/sifcalendar-parser/bb_attendee1.xml
+END
+bb722.xml
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/30832/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/sif/sifcalendar-parser/bb722.xml
+END
+sift-needsaction.xml
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/core/!svn/ver/32794/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/sif/sifcalendar-parser/sift-needsaction.xml
+END
+sift-completed.xml
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/32794/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/sif/sifcalendar-parser/sift-completed.xml
+END

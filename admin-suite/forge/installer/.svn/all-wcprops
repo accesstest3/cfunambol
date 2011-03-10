@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/forge/installer
+END
+admin.nsi
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/forge/installer/admin.nsi
+END
+funambol.url
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/forge/installer/funambol.url
+END

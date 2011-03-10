@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/29873/trunk/funambol/modules/foundation/pim-listener/src/main/java/com/funambol/pimlistener/registry
+END
+PimRegistryEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/pim-listener/src/main/java/com/funambol/pimlistener/registry/PimRegistryEntry.java
+END
+PimRegistryEntryManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/29873/trunk/funambol/modules/foundation/pim-listener/src/main/java/com/funambol/pimlistener/registry/PimRegistryEntryManager.java
+END

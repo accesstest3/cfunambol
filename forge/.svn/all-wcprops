@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/core/!svn/ver/36449/trunk/funambol/forge
+END
+TODO.txt
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/core/!svn/ver/28234/trunk/funambol/forge/TODO.txt
+END
+admin.xml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/core/!svn/ver/28234/trunk/funambol/forge/admin.xml
+END
+changeslog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/core/!svn/ver/36430/trunk/funambol/forge/changeslog.txt
+END
+build.properties
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/core/!svn/ver/33883/trunk/funambol/forge/build.properties
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/core/!svn/ver/36449/trunk/funambol/forge/pom.xml
+END
+fix-modules-to-install.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/core/!svn/ver/28234/trunk/funambol/forge/fix-modules-to-install.bsh
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/core/!svn/ver/36095/trunk/funambol/forge/build.xml
+END
+component-list.ods
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/core/!svn/ver/28234/trunk/funambol/forge/component-list.ods
+END
+init.xml
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/core/!svn/ver/36125/trunk/funambol/forge/init.xml
+END
+forge-all.xml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/core/!svn/ver/36125/trunk/funambol/forge/forge-all.xml
+END
+ds-server.xml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/core/!svn/ver/28731/trunk/funambol/forge/ds-server.xml
+END
+bundled.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/core/!svn/ver/36125/trunk/funambol/forge/bundled.xml
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/core/!svn/ver/28234/trunk/funambol/forge/.cvsignore
+END
+assembly.xml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/core/!svn/ver/28234/trunk/funambol/forge/assembly.xml
+END
+test.xml
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/core/!svn/ver/28234/trunk/funambol/forge/test.xml
+END

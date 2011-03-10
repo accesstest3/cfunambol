@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/core/!svn/ver/29777/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/notification
+END
+NotificationProviderException.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/notification/NotificationProviderException.java
+END
+NotificationProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/notification/NotificationProvider.java
+END
+NotificationManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/29641/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/notification/NotificationManager.java
+END
+NotificationListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/notification/NotificationListener.java
+END
+NotificationDispatcher.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/29777/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/notification/NotificationDispatcher.java
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/core/!svn/ver/31188/trunk/funambol/common/pim-framework/src/main/javacc
+END
+XVCalRRuleParser.jj
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/javacc/XVCalRRuleParser.jj
+END
+VNoteParser.jj
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/javacc/VNoteParser.jj
+END

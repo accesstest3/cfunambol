@@ -1,0 +1,11 @@
+K 10
+svn:ignore
+V 14
+output
+target
+
+K 13
+svn:mergeinfo
+V 43
+/branches/us5422/funambol/forge:34640-35926
+END

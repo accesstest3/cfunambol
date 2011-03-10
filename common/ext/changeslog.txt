@@ -1,0 +1,116 @@
+-------------------
+funambol-ext 8.2.0
+-------------------
+
+2009-10-06
+- nichele: Fixed bug #7879 - MXParser throws ArrayIndexOutOfBoundsException
+
+-------------------
+funambol-ext 6.5.3
+-------------------
+
+2008-01-03
+- nichele: Fixed WbxmlWriter.writeOpaque(OutputStream out, char[] chars, int start, int length)
+           since the chars --> bytes conversion was wrong
+
+
+-------------------
+funambol-ext 6.5.2
+-------------------
+
+2007-13-11:
+- nichele: Fixed typo (XNam was Xnam and XVal was Xval)
+
+
+-------------------
+funambol-ext 6.5.1
+-------------------
+
+2007-07-28
+- ste: fully mavenized release
+
+
+-------------------
+funambol-ext 6.0.3
+-------------------
+
+2007-05-06
+- nichele: changed writeAttributeText, writeTextContent, writeCData in order to
+           avoid an IOException if a char is not a valid UTF-8 char; instead
+           a '?' is append to the xml
+
+
+-------------------
+funambol-ext 6.0.2
+-------------------
+
+2007-04-07
+- nichele: Correct boundary detection in choice of two- vs. three-byte UTF-8
+           representations
+
+
+-------------------
+funambol-ext 6.0.1
+-------------------
+
+2007-03-07
+- lulu: Set expectedVersion to -1 for WAP Extension Event in order to support
+        the WBXML 1.3
+
+2007-02-14
+- lulu: Changed method nextImpl in MXParser when a '\r\n' is added at the end of
+        the token in order to increment size of the array that stores the
+        replacement text
+
+
+-------------------
+funambol-ext 6.0.0
+-------------------
+
+2007-01-30
+- nichele: Changed UTF8StreamWriter implementation in order to avoid xml
+           entities escaping if they are already escaped
+
+
+-------------------
+funambol-ext 3.0.4
+-------------------
+
+2006-08-08
+- nichele: Changed the license.
+
+2006-07-27
+- nichele: Fixed bug 305761 Wrong wbxml encoding for UTF-8 strings
+
+
+-------------------
+funambol-ext 3.0.3
+-------------------
+2006-05-10
+- nichele: Fixed a issue with duplicated ]] if a text contains a CDATA
+
+
+-------------------
+funambol-ext 3.0.2
+-------------------
+
+2006-04-28
+- nichele: Enabled debug option compiling the source code
+
+
+-------------------
+funambol-ext 3.0.1
+-------------------
+
+2006-03-17:
+- nichele: Reviewd the usage of the tab tables
+
+2006-03-16:
+- lulu: Fixed some issues in the DevInf 1.2 support
+
+
+-------------------
+funambol-ext 3.0.0
+-------------------
+
+New Major Release

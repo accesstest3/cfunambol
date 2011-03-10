@@ -1,0 +1,22 @@
+<!-- The contents of this file will be loaded for each web application -->
+<Context>
+
+    <!-- Default set of monitored resources -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    
+    <!-- Uncomment this to disable session persistence across Tomcat restarts -->
+    <Manager pathname="" />
+
+    <Resource name="jdbc/fnblds" auth="Container" type="javax.sql.DataSource"
+              factory="com.funambol.server.db.DataSourceFactory"
+    />
+
+    <Resource name="jdbc/fnblcore" auth="Container" type="javax.sql.DataSource"
+              factory="com.funambol.server.db.DataSourceFactory"
+    />
+
+    <Resource name="jdbc/fnbluser" auth="Container" type="javax.sql.DataSource"
+              factory="com.funambol.server.db.DataSourceFactory"
+    />
+
+</Context>

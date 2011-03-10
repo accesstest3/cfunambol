@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/core/!svn/ver/36445/trunk/funambol/ctp/ctp-multi-client-driver
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/LICENSE.txt
+END
+changeslog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/core/!svn/ver/36359/trunk/funambol/ctp/ctp-multi-client-driver/changeslog.txt
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/core/!svn/ver/36445/trunk/funambol/ctp/ctp-multi-client-driver/pom.xml
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/.cvsignore
+END

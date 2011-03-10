@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/core/!svn/ver/36304/trunk/funambol/admin-suite/admin
+END
+manifest.mf-master
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/manifest.mf-master
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/LICENSE.txt
+END
+admin.properties
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/admin.properties
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/.cvsignore
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/build.xml
+END

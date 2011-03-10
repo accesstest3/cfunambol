@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/core/!svn/ver/34879/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/server/inventory/PSDeviceInventory
+END
+dataset.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/core/!svn/ver/32801/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/server/inventory/PSDeviceInventory/dataset.dtd
+END
+initial-db-dataset-part-1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/core/!svn/ver/34879/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/server/inventory/PSDeviceInventory/initial-db-dataset-part-1.xml
+END

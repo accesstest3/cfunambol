@@ -1,0 +1,62 @@
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 22E582198A78;
+	Tue, 27 Feb 2007 07:15:10 -0800 (PST)
+Date: Tue, 27 Feb 2007 16:14:57 +0100
+From: Marc Doe <magi@mycompany.net>
+To: gibi@mycompany.com, gibi@mycompany.net
+Message-ID: <000001c75a82$0c4698b0$3900a8c0@Mordred>
+Subject: [SPAM]A drink
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_3_23965177.1226485184562"
+X-Priority: 3 (Normal)
+
+------=_Part_3_23965177.1226485184562
+Content-Type: text/calendar; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Summary: Having a drink
+Date: Tuesday 27 February 2007 20.00-20.30 (GMT + 1.00 h) Amsterdam, Berlino, Berna, Roma, Stoccolma, Vienna.
+Luogo: pavia
+
+
+
+Let's have a drink!
+
+
+------=_Part_3_23965177.1226485184562
+Content-Type: text/calendar; charset=us-ascii; name=calendar.ics
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename=calendar.ics
+
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 10.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:REQUEST
+BEGIN:VEVENT
+ATTENDEE;CN=gibi@mycompany.com;ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:gibi@mycompany.com
+ATTENDEE;CN=gibi@mycompany.net;ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:gibi@mycompany.net
+ORGANIZER:MAILTO:magi@mycompany.net
+DTSTART:20070227T190000Z
+DTEND:20070227T193000Z
+LOCATION:pavia
+TRANSP:OPAQUE
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E00800000000F062F76B8A5AC7010000000000000000100
+ 000008A814DB8BCFF314C9D85410397BBD6E0
+DTSTAMP:20070227T151456Z
+DESCRIPTION:Date: Tuesday 27 February 2007 20.00-20.30 (GMT + 1.00 h)
+  Amsterdam\, Berlino\, Berna\, Roma\, Stoccolma\, Vienna.\nLuogo:
+  pavia\n\n\n\nLet's have a drink!\n
+SUMMARY:Having a drink
+PRIORITY:5
+CLASS:PUBLIC
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR
+
+------=_Part_3_23965177.1226485184562--

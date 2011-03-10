@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap
+END
+Wml.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/Wml.java
+END
+SyncMLWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/SyncMLWriter.java
+END
+SyncMLInitialiser.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/SyncMLInitialiser.java
+END
+SyncML.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/SyncML.java
+END
+SyncMLMetaInfInitialiser.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/SyncMLMetaInfInitialiser.java
+END
+WbxmlParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/WbxmlParser.java
+END
+WmlParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/WmlParser.java
+END
+PublicIDEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/PublicIDEntry.java
+END
+WbxmlInitialiserFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/WbxmlInitialiserFactory.java
+END
+SyncMLParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/SyncMLParser.java
+END
+WbxmlInitialiser.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/WbxmlInitialiser.java
+END
+WapExtensionEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/WapExtensionEvent.java
+END
+WbxmlWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/WbxmlWriter.java
+END
+Wbxml.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/Wbxml.java
+END
+VersionMismatchException.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/VersionMismatchException.java
+END
+WMLInitialiser.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/WMLInitialiser.java
+END
+WmlWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/WmlWriter.java
+END
+SyncMLDevInfInitialiser.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/wap/SyncMLDevInfInitialiser.java
+END

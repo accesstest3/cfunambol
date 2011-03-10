@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/34620/trunk/funambol/common/push-listener/core/src/test/resources/data/com/funambol/pushlistener/service/dao/RegistryDao
+END
+dataset.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/31180/trunk/funambol/common/push-listener/core/src/test/resources/data/com/funambol/pushlistener/service/dao/RegistryDao/dataset.dtd
+END
+update-item-db-dataset-username.xml
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/core/!svn/ver/31187/trunk/funambol/common/push-listener/core/src/test/resources/data/com/funambol/pushlistener/service/dao/RegistryDao/update-item-db-dataset-username.xml
+END
+update-item-db-dataset-basic.xml
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/core/!svn/ver/31187/trunk/funambol/common/push-listener/core/src/test/resources/data/com/funambol/pushlistener/service/dao/RegistryDao/update-item-db-dataset-basic.xml
+END
+store-item-db-dataset-complex.xml
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/core/!svn/ver/31187/trunk/funambol/common/push-listener/core/src/test/resources/data/com/funambol/pushlistener/service/dao/RegistryDao/store-item-db-dataset-complex.xml
+END
+initial-db-dataset-core.xml
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/core/!svn/ver/31190/trunk/funambol/common/push-listener/core/src/test/resources/data/com/funambol/pushlistener/service/dao/RegistryDao/initial-db-dataset-core.xml
+END
+update-item-db-dataset-complex.xml
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/core/!svn/ver/34620/trunk/funambol/common/push-listener/core/src/test/resources/data/com/funambol/pushlistener/service/dao/RegistryDao/update-item-db-dataset-complex.xml
+END
+insert-db-dataset.xml
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/31180/trunk/funambol/common/push-listener/core/src/test/resources/data/com/funambol/pushlistener/service/dao/RegistryDao/insert-db-dataset.xml
+END
+store-item-db-dataset-username.xml
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/core/!svn/ver/31187/trunk/funambol/common/push-listener/core/src/test/resources/data/com/funambol/pushlistener/service/dao/RegistryDao/store-item-db-dataset-username.xml
+END
+store-item-db-dataset-basic.xml
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/core/!svn/ver/31187/trunk/funambol/common/push-listener/core/src/test/resources/data/com/funambol/pushlistener/service/dao/RegistryDao/store-item-db-dataset-basic.xml
+END

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+    <FNBL_FILE_DATA_OBJECT id="0" userid="username1" source_uri="fdo" status="D"  upload_status="N" true_name="expiredIncompleteFDO" object_size="333333" />
+    <FNBL_FILE_DATA_OBJECT id="1" userid="username1" source_uri="fdo" status="N"  upload_status="P" local_name="notExpiredIncompleteFDO.jpg" true_name="notExpiredIncompleteFDO" object_size="444444" />
+    <FNBL_FILE_DATA_OBJECT id="2" userid="username1" source_uri="fdo" status="N"  upload_status="U" local_name="oldCompleteFDO.jpg" true_name="oldCompleteFDO" object_size="4545454" />
+    <FNBL_FILE_DATA_OBJECT id="3" userid="username1" source_uri="fdo" status="N"  upload_status="U" true_name="oldCompleteFDO2" object_size="4545454" />
+    <FNBL_FILE_DATA_OBJECT id="4" userid="username1" source_uri="fdo" status="N"  upload_status="U" local_name="recentCompleteFDO.jpg" true_name="recentCompleteFDO" object_size="4545454" />
+    <FNBL_FILE_DATA_OBJECT id="20" userid="username1" source_uri="fdo" status="D" upload_status="P" true_name="expiredIncompleteFDO2" object_size="333333" />
+    <FNBL_FILE_DATA_OBJECT id="21" userid="username1" source_uri="fdo" status="D" upload_status="P" true_name="expiredIncompleteFDO3" object_size="333333" />
+</dataset>

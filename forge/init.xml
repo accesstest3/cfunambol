@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+
+<!--
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2005 - 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+-->
+
+<!-- $Id: init.xml,v 1.70 2008-07-02 16:30:40 luigiafassina Exp $ -->
+
+<!-- ====================================================================== -->
+<!--      Init build environment                                            -->
+<!-- ====================================================================== -->
+<project name="Common initialization" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+
+  <!--
+    Funambol Maven repository
+  -->
+  <artifact:remoteRepository id="funambol.repository" url="http://m2.funambol.com">
+    <snapshots updatePolicy="always" />
+  </artifact:remoteRepository>
+
+  <artifact:remoteRepository id="remote.repository" url="${funambol-maven-repository}">
+      <snapshots updatePolicy="always" />
+  </artifact:remoteRepository>
+
+  <condition property="maven.executable" value="mvn.bat">
+    <and>
+      <os family="windows"/>
+    </and>
+  </condition>
+
+  <condition property="maven.executable" value="mvn">
+    <and>
+      <not>
+        <os family="windows"/>
+      </not>
+    </and>
+  </condition>
+
+  <!--
+    Why this ?
+    See 'import' ant task documentation (Resolving files against the imported file)
+  -->
+  <dirname property="init.basedir" file="${ant.file.init}/"/>
+
+  <target name="init-vars" unless="initialized">
+
+    <property environment="ENV"/>
+    <!-- we do allow for account specific properties -->
+    <property file="~/funambol.properties" />
+
+    <!-- The version properties for this build -->
+    <property file="${init.basedir}/build.properties" />
+
+    <!-- Retrieve the neded artifacts -->
+    <exec failonerror="true" executable="${maven.executable}" dir=".">
+        <arg line="clean package" />
+    </exec>
+
+    <!-- funambol-server package properties -->
+    <artifact:pom id="ds-server" file="output/funambol-comed.dir/poms/ds-server.pom" />
+    <artifact:pom id="ds-server-webapp"  file="output/funambol-comed.dir/poms/ds-server-webapp.pom" />
+    <property name="server.pk.name" value="ds-server-${ds-server.version}${server.pk.name.suffix}"/>
+    <property name="server.pk.prefix" value="ds-server"/>
+    <property name="server.dist"    value="funambol-server-${ds-server.version}" />
+    <property name="ds-server.jar" value="${ds-server.groupId}/${ds-server.artifactId}/${ds-server.version}/${ds-server.artifactId}-${ds-server.version}.jar"/>
+    <property name="ds-server.version" value="${ds-server.version}"/>
+    <property name="ds-server-webapp.war" value="${ds-server-webapp.groupId}/${ds-server-webapp.artifactId}/${ds-server-webapp.version}/${ds-server-webapp.artifactId}-${ds-server-webapp.version}.war"/>
+    <property name="ds-server-webapp.version" value="${ds-server-webapp.version}"/>
+    <echo message="Build with ${ds-server.artifactId} version: ${ds-server.version}"/>
+    <echo message="Build with ${ds-server-webapp.artifactId} version: ${ds-server-webapp.version}"/>
+
+    <!-- funambol admin tool properties -->
+    <artifact:pom id="admin-pom" file="output/funambol-comed.dir/poms/admin.pom" />
+    <property name="admin.tgz" value="${admin-pom.groupId}/${admin-pom.artifactId}/${admin-pom.version}/${admin-pom.artifactId}-${admin-pom.version}.tgz"/>
+    <property name="admin.version" value="${admin-pom.version}"/>
+    <property name="admin.name" value="funambol-admin" />
+    <echo message="Build with ${admin-pom.artifactId} version: ${admin.version}"/>
+    
+    <!-- Funambol foundation module properties -->
+    <artifact:pom id="foundation" file="output/funambol-comed.dir/poms/foundation.pom"/>
+    <property name="foundation.s4j" value="${foundation.groupId}/${foundation.artifactId}/${foundation.version}/${foundation.artifactId}-${foundation.version}.s4j"/>
+    <echo message="Build with ${foundation.artifactId} version: ${foundation.version}"/>
+
+    <!-- funambol phones support module properties -->
+    <artifact:pom id="phones-support" file="output/funambol-comed.dir/poms/phones-support.pom"/>
+    <property name="phones-support.s4j" value="${phones-support.groupId}/${phones-support.artifactId}/${phones-support.version}/${phones-support.artifactId}-${phones-support.version}.s4j"/>
+    <echo message="Build with ${phones-support.artifactId} version: ${phones-support.version}"/>
+
+    <!-- funambol pim listener properties -->
+    <artifact:pom id="pim-listener-pom" file="output/funambol-comed.dir/poms/pim-listener.pom" />
+    <property name="pim-listener.zip" value="${pim-listener-pom.groupId}/${pim-listener-pom.artifactId}/${pim-listener-pom.version}/${pim-listener-pom.artifactId}-${pim-listener-pom.version}.zip"/>
+    <property name="pim-listener.version" value="${pim-listener-pom.version}"/>
+    <echo message="Build with ${pim-listener-pom.artifactId} version: ${pim-listener.version}"/>
+
+    <!-- funambol web demo client module properties -->
+    <artifact:pom id="webdemo" file="output/funambol-comed.dir/poms/webdemo.pom" />
+    <property name="webdemo.s4j" value="${webdemo.groupId}/${webdemo.artifactId}/${webdemo.version}/${webdemo.artifactId}-${webdemo.version}.s4j"/>
+    <echo message="Build with ${webdemo.artifactId} version: ${webdemo.version}"/>
+
+    <!-- funambol content provider module properties -->
+    <artifact:pom id="content-provider" file="output/funambol-comed.dir/poms/content-provider.pom" />
+    <property name="content-provider.s4j" value="${content-provider.groupId}/${content-provider.artifactId}/${content-provider.version}/${content-provider.artifactId}-${content-provider.version}.s4j"/>
+    <echo message="Build with ${content-provider.artifactId} version: ${content-provider.version}"/>
+
+    <!-- funambol email module properties -->
+    <artifact:pom id="email-connector-pom" file="output/funambol-comed.dir/poms/email-connector.pom" />
+    <artifact:pom id="inbox-listener-pom" file="output/funambol-comed.dir/poms/inbox-listener.pom"/>
+    <property name="inbox-listener.zip" value="${inbox-listener-pom.groupId}/${inbox-listener-pom.artifactId}/${inbox-listener-pom.version}/${inbox-listener-pom.artifactId}-${inbox-listener-pom.version}.zip"/>
+    <property name="email.s4j" value="${email-connector-pom.groupId}/${email-connector-pom.artifactId}/${email-connector-pom.version}/${email-connector-pom.artifactId}-${email-connector-pom.version}.s4j"/>
+    <property name="email-connector.version" value="${email-connector-pom.version}"/>
+    <property name="inbox-listener.version" value="${inbox-listener-pom.version}"/>
+    <echo message="Build with ${email-connector-pom.artifactId} version: ${email-connector.version}"/>
+    <echo message="Build with ${inbox-listener-pom.artifactId} version: ${inbox-listener.version}"/>
+
+    <!-- Funambol Command Line Tool -->
+    <artifact:pom id="cl-plugin" file="output/funambol-comed.dir/poms/cl-plugin.pom" />
+    <property name="cl-plugin.tar.gz" value="${cl-plugin.groupId}/${cl-plugin.artifactId}/${cl-plugin.version}/${cl-plugin.artifactId}-${cl-plugin.version}.tar.gz"/>
+    <echo message="Build with ${cl-plugin.artifactId} version: ${cl-plugin.version}"/>
+
+    <!-- Funambol Java Demo Plug-in -->
+    <artifact:pom id="javademo-pom" file="output/funambol-comed.dir/poms/javademo.pom" />
+    <property name="javademo.tar.gz" value="${javademo-pom.groupId}/${javademo-pom.artifactId}/${javademo-pom.version}/${javademo-pom.artifactId}-${javademo-pom.version}.tar.gz"/>
+    <property name="javademo.version" value="${javademo-pom.version}" />
+    <echo message="Build with ${javademo-pom.artifactId} version: ${javademo.version}"/>
+
+    <!-- Funambol CTP Server properties -->
+    <artifact:pom id="ctp-server-pom" file="output/funambol-comed.dir/poms/ctp-server.pom"/>
+    <property name="ctp-server.zip" value="${ctp-server-pom.groupId}/${ctp-server-pom.artifactId}/${ctp-server-pom.version}/${ctp-server-pom.artifactId}-${ctp-server-pom.version}.zip"/>
+    <property name="ctp-server.version" value="${ctp-server-pom.version}"/>
+    <echo message="Build with ${ctp-server-pom.artifactId} version: ${ctp-server.version}"/>
+
+    <!-- Bundle properties -->
+    <tstamp>
+      <format property="TODAY" pattern="yyyyMMdd" locale="en"/>
+    </tstamp>
+
+    <artifact:pom id="bundle-resources" file="output/funambol-comed.dir/poms/bundle-resources.pom" />
+    <property name="bundle-resources.tar.gz" value="${bundle-resources.groupId}/${bundle-resources.artifactId}/${bundle-resources.version}/${bundle-resources.artifactId}-${bundle-resources.version}.tar.gz"/>
+    <echo message="Build with ${bundle-resources.artifactId} version: ${bundle-resources.version}"/>
+
+    <artifact:pom id="forge" file="pom.xml"/>
+    <property name="funambol.version" value="${forge.version}"/>
+
+    <script language="beanshell">
+        String funambolVersion = project.getProperty("funambol.version");
+        String appId = "Funambol " + funambolVersion;
+        String today = project.getProperty("TODAY");
+        if (funambolVersion.toUpperCase().endsWith("-SNAPSHOT")) {
+            appId = appId + " (built on " + today + ")";
+        }
+        project.setProperty("funambol.appid", appId);
+    </script>
+
+    <property name="funambol.appid" value="Funambol ${forge.version} Dev ${TODAY}" />
+
+    <echo message="Funambol version: ${funambol.version}" />
+    <echo message="Funambol appid: ${funambol.appid}" />
+
+  </target>
+
+  <target name="init-debug" if="debug">
+    <echo message="============================================================"/>
+    <echoproperties/>
+  </target>
+
+  <target name="init" depends="init-vars, init-debug" unless="initialized">
+
+    <property name="initialized" value="true" />
+
+  </target>
+
+</project>

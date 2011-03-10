@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/core/!svn/ver/36577/trunk/funambol/ds/ds-server-webapp
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server-webapp/LICENSE.txt
+END
+changeslog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/core/!svn/ver/36577/trunk/funambol/ds/ds-server-webapp/changeslog.txt
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/core/!svn/ver/36445/trunk/funambol/ds/ds-server-webapp/pom.xml
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server-webapp/.cvsignore
+END

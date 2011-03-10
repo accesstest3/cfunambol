@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/36684/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/util
+END
+UploadCompletedStatusProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/util/UploadCompletedStatusProvider.java
+END
+MediaUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/36684/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/util/MediaUtils.java
+END
+FileSystemDAOHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/util/FileSystemDAOHelper.java
+END
+SyncSourceUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/34865/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/util/SyncSourceUtil.java
+END
+FileDataObjectNamingStrategy.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/util/FileDataObjectNamingStrategy.java
+END
+Def.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/34862/trunk/funambol/modules/foundation/foundation-core/src/main/java/com/funambol/foundation/util/Def.java
+END

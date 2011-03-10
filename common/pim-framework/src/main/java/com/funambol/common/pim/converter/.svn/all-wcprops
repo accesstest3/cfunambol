@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/35029/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter
+END
+BaseConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/32328/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter/BaseConverter.java
+END
+ContactToSIFC.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/32625/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter/ContactToSIFC.java
+END
+TimeZoneTransition.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter/TimeZoneTransition.java
+END
+ConverterUnit.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter/ConverterUnit.java
+END
+ICalendarTimeZoneTransition.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter/ICalendarTimeZoneTransition.java
+END
+CalendarStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/35029/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter/CalendarStatus.java
+END
+ContactToVcard.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/34773/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter/ContactToVcard.java
+END
+CalendarToIcalendar.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter/CalendarToIcalendar.java
+END
+VCalendarContentConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/34633/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter/VCalendarContentConverter.java
+END
+CachedTimeZoneHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/32513/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter/CachedTimeZoneHelper.java
+END
+CalendarToSIFE.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/29020/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter/CalendarToSIFE.java
+END
+VComponentWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter/VComponentWriter.java
+END
+ConverterException.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter/ConverterException.java
+END
+VCalendarConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/30927/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter/VCalendarConverter.java
+END
+NoteToSIFN.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter/NoteToSIFN.java
+END
+TimeZoneHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/32513/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter/TimeZoneHelper.java
+END
+TaskToSIFT.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/32799/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/converter/TaskToSIFT.java
+END

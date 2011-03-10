@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/java/com/funambol/ctp/client/driver
+END
+MinaClientHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/java/com/funambol/ctp/client/driver/MinaClientHandler.java
+END
+MinaClientException.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/java/com/funambol/ctp/client/driver/MinaClientException.java
+END
+MultiClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/java/com/funambol/ctp/client/driver/MultiClient.java
+END
+AddUsers.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/java/com/funambol/ctp/client/driver/AddUsers.java
+END
+MinaClientManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/java/com/funambol/ctp/client/driver/MinaClientManager.java
+END

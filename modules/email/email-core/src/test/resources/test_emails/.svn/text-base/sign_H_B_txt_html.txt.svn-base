@@ -1,0 +1,80 @@
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 4706E1EEC06B
+	for <gibi@funambol.net>; Mon, 17 Dec 2007 06:07:11 -0800 (PST)
+X-Spam-Score: 0.009
+X-Spam-Level: 
+X-Spam-Status: No, score=0.009 tagged_above=-10 required=5 tests=[AWL=-1.530,
+	BAYES_00=-2.599, HTML_50_60=0.134, HTML_MESSAGE=0.001,
+	HTML_TITLE_EMPTY=0.214, LONGWORDS=3.789]
+Received: from a.mail.sonomait.com ([127.0.0.1])
+	by localhost (a.mail.sonomait.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Kko42cVyZYqj for <gibi@funambol.net>;
+	Mon, 17 Dec 2007 06:07:00 -0800 (PST)
+Received: from [192.168.0.52] (85-18-37-27.ip.fastwebnet.it [85.18.37.27])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 967C11EEC039
+	for <gibi@funambol.net>; Mon, 17 Dec 2007 06:06:59 -0800 (PST)
+Message-ID: <47668283.50809@funambol.net>
+Date: Mon, 17 Dec 2007 15:06:59 +0100
+From: marco magistrali <magi@funambol.net>
+User-Agent: Thunderbird 1.5.0.13 (Windows/20070809)
+MIME-Version: 1.0
+To:  gibi@funambol.net
+Subject: test without signature html format
+Content-Type: multipart/alternative;
+ boundary="------------050502000708050809030102"
+
+This is a multi-part message in MIME format.
+--------------050502000708050809030102
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+
+Hi test,
+
+this is an html  body
+
+list:
+
+   1. one one
+   2. two two
+   3. three three
+
+
+result must be with signature
+
+_*title*_
+article content, article content article content article content
+article content article content article content article content
+
+--------------050502000708050809030102
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
+  <title></title>
+</head>
+<body bgcolor="#ffffff" text="#000000">
+Hi test,<br>
+<br>
+this is an html&nbsp; body <br>
+
+<br>
+list:<br>
+<ol>
+  <li>one one</li>
+  <li>two two</li>
+  <li>three three</li>
+</ol>
+<br>
+result must be with signature<br>
+<br>
+<u><b>title</b></u><br>
+article content, article content article content article content<br>
+article content article content article content article content
+
+</body>
+</html>
+
+--------------050502000708050809030102--

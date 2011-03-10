@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/33302/trunk/funambol/modules/foundation/pim-listener/src/test/resources/database/engine
+END
+init_engine.sql
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/pim-listener/src/test/resources/database/engine/init_engine.sql
+END
+create_engine.ddl
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/33302/trunk/funambol/modules/foundation/pim-listener/src/test/resources/database/engine/create_engine.ddl
+END
+drop_engine.ddl
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/pim-listener/src/test/resources/database/engine/drop_engine.ddl
+END

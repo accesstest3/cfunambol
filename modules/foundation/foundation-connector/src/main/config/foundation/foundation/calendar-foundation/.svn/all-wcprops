@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/29426/trunk/funambol/modules/foundation/foundation-connector/src/main/config/foundation/foundation/calendar-foundation
+END
+VCalendarSource.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-connector/src/main/config/foundation/foundation/calendar-foundation/VCalendarSource.xml
+END
+SIFEventSource.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-connector/src/main/config/foundation/foundation/calendar-foundation/SIFEventSource.xml
+END
+SIFTaskSource.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-connector/src/main/config/foundation/foundation/calendar-foundation/SIFTaskSource.xml
+END
+VEventSource.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-connector/src/main/config/foundation/foundation/calendar-foundation/VEventSource.xml
+END
+VTodoSource.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/foundation-connector/src/main/config/foundation/foundation/calendar-foundation/VTodoSource.xml
+END

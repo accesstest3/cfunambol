@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/36089/trunk/funambol/ds/ds-server-webapp/src/test/resources/data/com/funambol/server/sendlog/provider/FileUploader
+END
+synclog.zip
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/core/!svn/ver/36089/trunk/funambol/ds/ds-server-webapp/src/test/resources/data/com/funambol/server/sendlog/provider/FileUploader/synclog.zip
+END
+synclog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/core/!svn/ver/36089/trunk/funambol/ds/ds-server-webapp/src/test/resources/data/com/funambol/server/sendlog/provider/FileUploader/synclog.txt
+END

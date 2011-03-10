@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/core/!svn/ver/31180/trunk/funambol/common/push-listener/core/src/test/resources/sql
+END
+create_schema.sql
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/31180/trunk/funambol/common/push-listener/core/src/test/resources/sql/create_schema.sql
+END

@@ -1,0 +1,11 @@
+K 10
+svn:ignore
+V 17
+nbproject
+target
+
+K 13
+svn:mergeinfo
+V 59
+/branches/us5422/funambol/common/core-framework:35155-35929
+END

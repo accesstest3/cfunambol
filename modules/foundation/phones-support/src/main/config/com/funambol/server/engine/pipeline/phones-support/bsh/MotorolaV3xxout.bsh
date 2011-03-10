@@ -1,0 +1,207 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+import java.io.UnsupportedEncodingException;
+
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.net.QuotedPrintableCodec;
+
+import com.funambol.framework.core.*;
+import com.funambol.framework.core.Sync4jException;
+import com.funambol.framework.engine.pipeline.OutputMessageProcessor;
+import com.funambol.framework.engine.pipeline.MessageProcessingContext;
+import com.funambol.framework.engine.pipeline.StopProcessingException;
+import com.funambol.framework.logging.FunambolLogger;
+import com.funambol.framework.logging.FunambolLoggerFactory;
+import com.funambol.framework.server.Sync4jDevice;
+import com.funambol.framework.server.inventory.*;
+
+import com.funambol.server.config.*;
+
+import com.funambol.foundation.synclet.PIMItemsHandler;
+
+/**
+ * Contacts:
+ * =========
+ * Remaps the 7 supported TEL properties to the predefined properties and slots.
+ * Removes all other TEL properties.
+ * Renames FN to SOUND and CATEGORIES to X-MOT-CAT.
+ *
+ * @version $Id: MotorolaV3xxout.bsh,v 1.4 2008-06-30 09:07:08 luigiafassina Exp $
+ */
+// ------------------------------------------------------------------- Constants
+private final String PRINTABLE_CHARS = ";ENCODING=QUOTED-PRINTABLE;CHARSET=";
+
+// ---------------------------------------------------------------- Private data
+private QuotedPrintableCodec qp = new QuotedPrintableCodec();
+
+private final FunambolLogger log =
+    FunambolLoggerFactory.getLogger("engine.pipeline");
+
+private Map missingCardTokens;
+
+// ------------------------------------------------------ Synclet implementation
+importCommands("/com/funambol/server/engine/pipeline/phones-support/bsh/commands");
+
+/**
+ * Process and manipulate the output message.
+ *
+ * @param processingContext the message processing context
+ * @param message the message to be processed
+
+ * @throws Sync4jException
+ */
+void postProcessMessage(MessageProcessingContext processingContext,
+                        SyncML message                            )
+throws Sync4jException {
+
+    if (log.isTraceEnabled()) {
+        log.trace("MotorolaV3xxout.postProcessMessage(...)");
+    }
+
+    if (message.syncHdr.target.locURI != null) {
+        this.deviceId = message.syncHdr.target.locURI;
+    }
+
+    // This map contains the three lists of items separated based on their type
+    PIMItemsHandler pimItemsHandler = new PIMItemsHandler();
+    Map mapItems = pimItemsHandler.extractOutgoingPIMItems(message);
+    processPIMItems(mapItems, message.syncHdr.target.locURI);
+
+    throw new StopProcessingException("MotorolaV3xxout Synclet finished");
+}
+
+/**
+ * Processes outgoing items.
+ *
+ * @param mapItems the map that contains the three lists of items separated
+ *                 based on their type
+ * @param deviId the device identifier
+ *
+ */
+void processPIMItems(Map mapItems, String deviceId) {
+    String softwareVersion = null;
+    
+    if (log.isTraceEnabled()) {
+        log.trace("MotorolaV3xxout.processPIMItems(...)");
+    }
+
+    //
+    // Cycle on VCARD list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VCARD)) {
+        postProcessContact(i);
+    }
+}
+
+/**
+ * Processes outgoing contacts.
+ * Remaps the 7 supported TEL properties to the predefined properties and slots,
+ * putting them in the correct order in the end of the VCARD. All 7 properties
+ * must be present, therefore explicit empty slots are defined if necessary.
+ * Removes all other TEL properties.
+ * Renames FN to SOUND and CATEGORIES to X-MOT-CAT.
+ *
+ * @param i the item to process
+ *
+ */
+void postProcessContact(Item i) {
+
+    data = i.data.data;
+   
+    //
+    // Adds void tokens if they are missing in VCARD item
+    //
+    data = addVoidTokens(data, "END:VCARD", missingCardTokens);
+    
+    data = movePropertyToTheEnd(data, "TEL;VOICE"     );
+    data = keepFirstProperty   (data, "TEL;VOICE;HOME");
+    data = movePropertyToTheEnd(data, "TEL;VOICE;HOME");
+    data = movePropertyToTheEnd(data, "TEL;CELL"      );
+    data = keepFirstProperty   (data, "TEL;VOICE;WORK");
+    data = movePropertyToTheEnd(data, "TEL;VOICE;WORK");
+    data = movePropertyToTheEnd(data, "TEL;WORK;PREF" );
+    data = movePropertyToTheEnd(data, "TEL;FAX;HOME"  );
+    data = movePropertyToTheEnd(data, "TEL;FAX;WORK"  );
+   
+    data = replaceOutProperty(data, "TEL;VOICE:",     "TEL;VOICE;X-MOT-POSITION=1:"    );
+    data = replaceOutProperty(data, "TEL;VOICE;HOME", "TEL;VOICE;HOME;X-MOT-POSITION=2");
+    data = replaceOutProperty(data, "TEL;CELL:",      "TEL;CELL;X-MOT-POSITION=3:"     );
+    data = replaceOutProperty(data, "TEL;VOICE;WORK", "TEL;VOICE;WORK;X-MOT-POSITION=4");
+    data = replaceOutProperty(data, "TEL;WORK;PREF:", "TEL;WORK;PREF;X-MOT-POSITION=5:");
+    data = replaceOutProperty(data, "TEL;FAX;HOME:",  "TEL;FAX;HOME;X-MOT-POSITION=6:" );
+    data = replaceOutProperty(data, "TEL;FAX;WORK:",  "TEL;FAX;WORK;X-MOT-POSITION=7:" );
+
+    //
+    // Removes all other TEL properties
+    //
+    data = deleteOutProperty(data, "TEL;FAX:");
+    data = deleteOutProperty(data, "TEL;CAR;VOICE:");
+    data = deleteOutProperty(data, "TEL;PAGER:");
+    data = deleteOutProperty(data, "TEL;PREF;VOICE:");
+    
+    //
+    // Removes all other funambol custom TEL properties
+    //
+    data = deleteOutProperty(data, "TEL;X-FUNAMBOL-[A-Z]*:");
+    
+    data = replaceOutProperty(data, "NICKNAME",   "SOUND"    );
+    data = replaceOutProperty(data, "CATEGORIES", "X-MOT-CAT");
+   
+    data = switchAdrValues(data, false);
+    
+    i.data.data = data;
+}
+
+/**
+ * Called initializing the synclet
+ */
+void init() {
+    missingCardTokens  = new HashMap();
+    
+    missingCardTokens.put("\nTEL;VOICE"     , "TEL;VOICE:"     );
+    missingCardTokens.put("\nTEL;VOICE;HOME", "TEL;VOICE;HOME:");
+    missingCardTokens.put("\nTEL;CELL"      , "TEL;CELL:"      );
+    missingCardTokens.put("\nTEL;VOICE;WORK", "TEL;VOICE;WORK:");
+    missingCardTokens.put("\nTEL;WORK;PREF" , "TEL;WORK;PREF:" );
+    missingCardTokens.put("\nTEL;FAX;HOME"  , "TEL;FAX;HOME:"  );
+    missingCardTokens.put("\nTEL;FAX;WORK"  , "TEL;FAX;WORK:"  );
+}

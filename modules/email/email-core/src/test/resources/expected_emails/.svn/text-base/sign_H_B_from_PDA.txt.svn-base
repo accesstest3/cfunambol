@@ -1,0 +1,33 @@
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by a.mail.sonomait.com (Postfix) with ESMTP id E72891EEC02C
+	for <gibi@funambol.net>; Tue, 18 Dec 2007 00:45:38 -0800 (PST)
+X-Spam-Score: -1.433
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.433 tagged_above=-10 required=5 tests=[AWL=-0.502,
+	BAYES_00=-2.599, DATE_IN_FUTURE_06_12=1.668]
+Received: from a.mail.sonomait.com ([127.0.0.1])
+	by localhost (a.mail.sonomait.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 38W7vTulJroz for <gibi@funambol.net>;
+	Tue, 18 Dec 2007 00:45:32 -0800 (PST)
+Received: from ARGANTE (85-18-37-27.ip.fastwebnet.it [85.18.37.27])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 5AE171EEC066
+	for <gibi@funambol.net>; Tue, 18 Dec 2007 00:45:32 -0800 (PST)
+Date: Tue, 18 Dec 2007 09:44:14 -0800
+From: gibi gibi <gibi@funambol.net>
+To: gibi@funambol.net
+Message-ID: <17224938.31197967530977.JavaMail.gibi@ARGANTE>
+Subject: Test from pda without attachment
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Importance: normal
+X-Priority: 3
+X-Funambol: true
+
+Test from pda without attachment
+Qwert oiuyt cvdfg lsjdo 
+gibi
+
+
+__________
+Funambol :: mobile open source :: http://www.funambol.com

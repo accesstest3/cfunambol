@@ -1,0 +1,11 @@
+Received: from 64.142.123.30  (EHLO a.mail.sonomait.com) (64.142.123.30)
+  by mta108.mail.re3.yahoo.com with SMTP; Wed, 07 Feb 2007 08:13:41 -0800
+Date: Wed, 07 Feb 2007 17:13:35 +0100
+From: gibidemo <gibidemo@mycompany.com>
+To: gbmiglia@yahoo.it
+Message-ID: <45C9FAAF.4050102@mycompany.com>
+Subject: test da mozilla
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+

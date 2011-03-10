@@ -1,0 +1,204 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2009 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+
+package com.funambol.framework.tools;
+
+
+import java.util.ArrayList;
+
+import junit.framework.TestCase;
+
+import com.funambol.framework.core.Add;
+import com.funambol.framework.core.CData;
+import com.funambol.framework.core.CmdID;
+import com.funambol.framework.core.ComplexData;
+import com.funambol.framework.core.Item;
+import com.funambol.framework.core.Replace;
+import com.funambol.framework.core.Sync;
+import com.funambol.framework.core.SyncML;
+
+/**
+ * SyncMLUtil test case
+ * @version $Id: SyncMLUtilTest.java 34844 2010-07-01 12:58:36Z rainbowbreeze $
+ */
+public class SyncMLUtilTest extends TestCase {
+
+    private static final String XML_DIR = "./src/test/resources/data/com/funambol/framework/tools/SyncMLUtil";
+
+
+    /**
+     * Test of fromXML method, of class SyncMLUtil.
+     */
+    public void testFromXML() throws Exception {
+
+        // syncml1.xml is done to verify bug #7879. It's coming from a client
+        // but it doesn't contain real data.
+        String xml = IOTools.readFileString(XML_DIR  + "/" + "syncml1.xml");
+        //
+        // just to be sure to have \r\n
+        //
+        xml = xml.replaceAll("\r\n", "<EOL>");
+        xml = xml.replaceAll("\r", "<EOL>");
+        xml = xml.replaceAll("\n", "<EOL>");
+        xml = xml.replaceAll("<EOL>", "\r\n");
+
+        boolean dataFound = false;
+        
+        SyncML result = SyncMLUtil.fromXML(xml);
+        ArrayList commands = result.getSyncBody().getCommands();
+
+        for (int i = 0; i<commands.size(); i++) {
+            if (commands.get(i) instanceof Sync) {
+                Sync sync = (Sync)commands.get(i);
+                ArrayList syncCommands = sync.getCommands();
+                Replace r = (Replace) syncCommands.get(0);
+                String d = ((Item)(r.getItems().get(0))).getData().getData();
+                dataFound = true;
+                d = d.trim();
+                assertTrue("Data is not a vcard", d.startsWith("BEGIN:VCARD") && d.endsWith("END:VCARD"));
+                assertEquals("Wrong VCARD size", 8203, d.length());
+            }
+        }
+        assertTrue("vcard not found", dataFound);
+    }
+
+
+    /**
+     * Test of toXML method, of class SyncMLUtil.
+     */
+    public void testToXML_item_with_CDATA() throws Exception {
+
+        Item i = new Item();
+        CData d = new CData();
+
+        String text = "this is & &amp; <   > the data";
+        d.setData(text);
+        i.setData(d);
+
+        String xml = SyncMLUtil.toXML(i, true);
+
+        xml = xml.replaceAll("\\n", "").replaceAll("\\r", "");
+
+        String expectedXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
+                             "<Item>" +
+                             "<Data><![CDATA[" + text + "]]></Data>" +
+                             "</Item>";
+
+        assertEquals("Wrong toXML conversion", expectedXML, xml);
+    }
+
+    /**
+     * Test of toXML method, of class SyncMLUtil.
+     */
+    public void testToXML_item_no_CDATA() throws Exception {
+
+        Item i = new Item();
+        ComplexData d = new ComplexData();
+
+        d.setData("this is & &amp; <   > the data");
+        i.setData(d);
+
+        String xml = SyncMLUtil.toXML(i, true);
+
+        xml = xml.replaceAll("\\n", "").replaceAll("\\r", "");
+
+        String expectedXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
+                             "<Item>" +
+                             "<Data>this is &amp; &amp; &lt;   > the data</Data>" +
+                             "</Item>";
+
+        assertEquals("Wrong toXML conversion", expectedXML, xml);
+    }
+
+    /**
+     * Test of toXML method, of class SyncMLUtil.
+     */
+    public void testToXML_item_with_CDATA_hiddenData() throws Exception {
+
+        // we need to put the item in a command to have hidden data
+        Add a = new Add(new CmdID(1), true, null, null, null);
+        Item i = new Item();
+
+        a.setItems(new Item[] {i});
+        
+        CData d = new CData();
+
+        String text = "this is & &amp; <   > the data";
+        d.setData(text);
+        i.setData(d);
+
+        String xml = SyncMLUtil.toXML(a, false);
+
+        xml = xml.replaceAll("\\n", "").replaceAll("\\r", "");
+
+        String expectedXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
+                             "<Add><CmdID>1</CmdID><NoResp/><Item>" +
+                             "<Data>*****</Data>" +
+                             "</Item></Add>";
+
+        assertEquals("Wrong toXML conversion", expectedXML, xml);
+    }
+
+    /**
+     * Test of toXML method, of class SyncMLUtil.
+     */
+    public void testToXML_item_no_CDATA_hiddenData() throws Exception {
+
+        // we need to put the item in a command to have hidden data
+        Add a = new Add(new CmdID(1), true, null, null, null);
+        Item i = new Item();
+
+        a.setItems(new Item[] {i});
+
+        ComplexData d = new ComplexData();
+
+        d.setData("this is & &amp; <   > the data");
+        i.setData(d);
+
+        String xml = SyncMLUtil.toXML(a, false);
+
+        xml = xml.replaceAll("\\n", "").replaceAll("\\r", "");
+
+        String expectedXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
+                             "<Add><CmdID>1</CmdID><NoResp/><Item>" +
+                             "<Data>*****</Data>" +
+                             "</Item></Add>";
+
+        assertEquals("Wrong toXML conversion", expectedXML, xml);
+    }
+
+
+}

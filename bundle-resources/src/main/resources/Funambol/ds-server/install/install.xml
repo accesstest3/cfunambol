@@ -1,0 +1,487 @@
+<?xml version="1.0"?>
+
+<!--
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2003 - 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+-->
+
+<!--
+  =============================================================================
+    Build file for the installation and configuration of Funambol.
+
+    $Id: install.xml,v 1.1 2008-07-01 21:54:11 nichele Exp $
+
+  =============================================================================
+-->
+<project name="Funambol Data Synchronization Server Setup" default="usage"
+         basedir="..">
+
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties" />
+
+    <!-- =================================================================== -->
+    <!-- Help on usage. List available targets                               -->
+    <!-- =================================================================== -->
+    <target name="usage" depends="init">
+
+        <echo message=""/>
+        <echo message="Welcome to Funambol DS Server setup"/>
+        <echo message="-----------------------------------"/>
+        <echo message=""/>
+        <echo message=" Available targets are :"/>
+        <echo message=""/>
+        <echo message=" usage   --> help on usage"/>
+        <echo message=" install --> install Funambol DS Server into the server specified by ENV.APPSRV"/>
+        <echo message=""/>
+
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- Properties setting                                                  -->
+
+    <property file="install.properties" />
+    <property file="install/install.properties" />
+    
+    <!-- Pick up the environment variables -->
+    <property environment="ENV"/>
+
+    <property name="xmlsrcdir"
+              value="${basedir}/output/config/common/xml"/>
+    <property name="sourcedir"                    value="${basedir}/db"       />
+    <property name="libdir"                       value="${basedir}/lib"      />
+    <property name="syncserver-jarfilename"       value="ds-server-{funambol:ds-server.version}.jar" />
+    <property name="syncserver-warfilename"       value="ds-server-webapp-{funambol:ds-server-webapp.version}.war" />
+    <property name="funambol-framework-jarfilename"
+              value="funambol-framework.jar" />
+    <property name="commons-lang-jarfilename"     value="commons-lang-2.2.jar"/>
+    <property name="commons-collections-jarfilename"
+              value="commons-collections-3.2.jar"/>
+
+    <property name="jndi-ds"     value="jdbc/fnblcore"/>
+    <property name="jndi-coredb" value="jdbc/fnblcore"/>
+    <property name="jndi-userdb" value="jdbc/fnbluser"/>
+
+    <import file="${ENV.APPSRV}.xml"/>
+
+
+    <!-- =================================================================== -->
+    <!-- init - initialize the build directories                             -->
+    <!-- =================================================================== -->
+    <target name="init">
+        <!-- Directory preparation -->
+        <mkdir dir="output" />
+    </target>
+
+
+    <!-- =================================================================== -->
+    <!-- install - deploying the enterprise archive                          -->
+    <!-- =================================================================== -->
+    <target name="install" depends="init,
+                                    as-init,
+                                    as-undeploy,
+                                    pre-inst-common,
+                                    as-inst,
+                                    post-inst-common,
+                                    post-inst-specific,
+                                    as-deploy,
+                                    clean">
+    </target>
+
+
+    <!-- =================================================================== -->
+    <!-- pre-inst-common                                                     -->
+    <!-- Installation tasks common to any application server                 -->
+    <!-- =================================================================== -->
+    <target name="pre-inst-common" depends="init">
+        <copy todir="output/config" overwrite="true">
+            <fileset dir="default/config">
+                <exclude name="common/beans/**/*"/>
+            </fileset>
+        </copy>
+
+        <antcall target="set-default-server-config"/>
+
+        <copy todir="output" overwrite="true">
+            <!--
+                 naming-core*.*, naming-java*.* must be excluded since they get
+                 conflict with Tomcat classes and the datasources will be not
+                 available (the loookup fails).
+                 See also tomcat50.xml, tomcat55.xml and tomcat60.xml since also
+                 there they are excluded.
+            -->
+            <fileset dir="default/lib"
+                     includes="*"
+                     excludes="naming-core*.*, naming-java*.*"
+            />
+        </copy>
+
+        <!--
+             Update configuration files with the properties specified in
+             install.properties and the tokenfilter specified in
+             tokenfilter.properties
+        -->
+        <replace dir="output/config"
+                 propertyFile="install.properties"
+                 summary="true">
+            <include name="**/*"/>
+            <replacefilter token="{server-uri}"    property="server-uri"     />
+            <replacefilter token="{context-path}"  property="context-path"   />
+            <replacefilter token="{funambol-path}" value   ="${basedir}"     />
+            <replacefilter token="{source-path}"   value   ="${sourcedir}"   />
+            <replacefilter token="{jdbc-driver}"   property="jdbc.driver"    />
+            <replacefilter token="{jdbc-url}"      property="jdbc.url"       />
+            <replacefilter token="{jdbc-user}"     property="jdbc.user"      />
+            <replacefilter token="{jdbc-password}" property="jdbc.password"  />
+            <replacefilter token="{jndi-ds}"       value   ="${jndi-ds}"     />
+            <replacefilter token="{jndi-coredb}"   value   ="${jndi-coredb}" />
+            <replacefilter token="{jndi-userdb}"   value   ="${jndi-userdb}" />
+        </replace>
+
+        <!-- Database initialization -->
+        <antcall target="install-db" inheritAll="true"/>
+
+    </target>
+    
+    <!-- =================================================================== -->
+    <!-- post-inst-common                                                    -->
+    <!-- Installation tasks common to any application server after the       -->
+    <!-- installation of modules                                             -->
+    <!-- =================================================================== -->
+    <target name="post-inst-common" depends="init">
+
+        <!--
+             extract the server-config.wsdd in order to deploy new wsdd
+             installing a module
+        -->
+        <unzip src="output/${syncserver-warfilename}"
+               dest="output">
+            <patternset>
+                <include name="WEB-INF/server-config.wsdd"/>
+            </patternset>
+        </unzip>
+        
+        <copy file="output/WEB-INF/server-config.wsdd" todir="." />
+
+        <!-- Modules pre-installation -->
+        <ant antfile="install/install-modules.xml" target="pre-install">
+          <property name="dir.output" value="${basedir}/output"/>
+        </ant>
+
+        <!--
+             Update configuration files with the properties specified in
+             install.properties and the tokenfilter specified in
+             tokenfilter.properties
+        -->
+        <replace dir="output/config"
+                 propertyFile="install.properties"
+                 summary="true">
+            <include name="**/*"/>
+            <replacefilter token="{server-uri}"    property="server-uri"   />
+            <replacefilter token="{context-path}"  property="context-path" />
+            <replacefilter token="{funambol-path}" value   ="${basedir}"   />
+            <replacefilter token="{source-path}"   value   ="${sourcedir}" />
+            <replacefilter token="{jdbc-driver}"   property="jdbc.driver"  />
+            <replacefilter token="{jdbc-url}"      property="jdbc.url"     />
+            <replacefilter token="{jdbc-user}"     property="jdbc.user"    />
+            <replacefilter token="{jdbc-password}" property="jdbc.password"/>
+            <replacefilter token="{jndi-ds}"       value   ="${jndi-ds}"   />
+            <replacefilter token="{jndi-coredb}"   value   ="${jndi-coredb}" />
+            <replacefilter token="{jndi-userdb}"   value   ="${jndi-userdb}" />            
+        </replace>
+        <replace file="lib/logging/spy.properties"
+                 propertyFile="install.properties"
+                 summary="true">
+            <replacefilter token="{jdbc-driver}" property="jdbc.driver"/>
+        </replace>
+
+        <echo message="" />
+        <echo message="Copying configuration files" />
+        <echo message="" />
+        
+        <!-- Copy configuration files to the configuration path -->
+        <copy todir="../config" overwrite="true">
+            <fileset dir="output/config/common/beans" includes="**/*"/>
+        </copy>
+
+        <!-- Modules installation -->
+        <ant antfile="install/install-modules.xml" target="post-install">
+            <property name="dir.output" value="${basedir}/output"/>
+        </ant>
+        
+        <!--
+             Updates server-config.wsdd in the war
+        -->
+        <copy file="server-config.wsdd" todir="output/WEB-INF" />
+
+        <zip destfile="output/${syncserver-warfilename}"
+             basedir="output"
+             update="true"
+             includes="WEB-INF/server-config.wsdd"/>
+            
+         </target>
+
+    <!-- =================================================================== -->
+    <!-- funambol-server.jar                                                 -->
+    <!-- Updating the jar archive file with configuration files              -->
+    <!-- =================================================================== -->
+    <target name="${syncserver-jarfilename}" depends="init">
+
+        <property file="modules-classpath.properties" />
+
+        <!--
+            If modules-classpath is still not set, it must be initialized to
+            the empty string
+        -->
+        <condition property = "modules-classpath"
+                   value    = "">
+          <not>
+            <isset property="modules-classpath"/>
+          </not>
+        </condition>
+
+        <echo message="modules-classpath: ${modules-classpath}" level="debug"/>
+
+        <jar jarfile  = "output/${syncserver-jarfilename}"
+             update   = "true"
+             compress = "true">
+        </jar>
+    </target>
+
+
+    <!-- =================================================================== -->
+    <!-- funambol-server.war                                                 -->
+    <!-- Updating the web archive file with configuration files              -->
+    <!-- =================================================================== -->
+    <target name="${syncserver-warfilename}" depends="init">
+        <jar jarfile="output/${syncserver-warfilename}" update="true">
+        </jar>
+    </target>
+
+
+    <!-- =================================================================== -->
+    <!-- clean                                                               -->
+    <!-- Delete output dir after installation except war if install.war true -->
+    <!-- =================================================================== -->
+    <target name="clean">
+        <condition property="install.war">
+            <equals arg1="war" arg2="${ENV.APPSRV}"/>
+        </condition>
+        
+        <antcall target="clean-output"            inheritAll="true"/>
+        <antcall target="clean-output-except-war" inheritAll="true"/>
+    </target>
+
+
+    <!-- =================================================================== -->
+    <!-- clean-output                                                        -->
+    <!-- Delete output dir after installation                                -->
+    <!-- =================================================================== -->
+    <target name="clean-output" unless="install.war">
+        <echo message="Remove output dir"/>
+        <delete dir="output" quiet="true"/>
+    </target>
+
+
+    <!-- =================================================================== -->
+    <!-- clean-output-except-war                                             -->
+    <!-- Delete output dir after installation except funambol.war            -->
+    <!-- =================================================================== -->
+    <target name="clean-output-except-war" if="install.war">
+        <echo message="Remove output dir except war files"/>
+        <delete quiet="true" includeemptydirs="true">
+            <fileset dir="output" excludes="warfiles/*.war"/>
+        </delete>
+        <move todir="output">
+            <fileset dir="output/warfiles"/>
+        </move>
+    </target>
+
+
+    <!-- =================================================================== -->
+    <!-- set-default-server-config                                           -->
+    <!-- Copy the default server configuration unless you are installing the -->
+    <!-- modules only                                                        -->
+    <!-- =================================================================== -->
+    <target name="set-default-server-config" unless="do.install-modules-only">
+        <!-- Copy default configuration files in destination directories -->
+        <copy todir="output/config/common/beans" overwrite="true">
+            <fileset dir="default/config/common/beans"/>
+        </copy>    
+
+        <copy todir="${libdir}/logging" overwrite="true">
+            <fileset dir="default/config/common/properties/p6spy"
+                     includes="spy.properties"/>
+        </copy>
+    </target>
+
+
+    <!-- =================================================================== -->
+    <!-- Install, drop, create and initialize database                       -->
+    <!-- =================================================================== -->
+    <target name="install-db" depends="init" if="do.install-db">
+        <antcall target="install-db-base"/>
+    </target>
+
+    <target name="install-db-base" unless="do.install-modules-only">
+
+      <if>
+          <isfalse value="${force-db-creation}"/>
+          <then>
+              <input validargs="y,n" addproperty="in.createdb">
+The Funambol Data Synchronization Server installation program can now create the database.
+You can skip this step if you have already a valid database created.
+
+If you choose 'y' your existing data will be deleted.
+
+Do you want to recreate the database?
+              </input>
+
+              <condition property="do.createdb">
+                  <equals arg1="y" arg2="${in.createdb}"/>
+              </condition>
+          </then>
+          <else>
+              <property name="in.createdb" value="y" />
+              <property name="do.createdb" value="true" />
+          </else>
+      </if>
+      
+      <antcall target="check-dbms" inheritall="true"/>
+
+    </target>
+    
+    <target name="check-dbms" if="do.createdb">
+
+      <fail unless="dbms" message="Please, add dbms property into install.properties."/>
+      <fail message="Please, set dbms property into install.properties.">
+        <condition>
+            <equals arg1="" arg2="${dbms}"/>
+        </condition>
+       </fail>
+
+      <fail message="The dbms '${dbms}' is not supported.">
+      <condition>
+        <and>
+        <not>
+          <available file="default/sql/${dbms}" type="dir"/>
+        </not>
+        <equals arg1="y" arg2="${in.createdb}"/>
+        </and>
+      </condition>
+      </fail>
+      
+      <fail message="File drop_engine.ddl does not exist.">
+      <condition>
+        <and>
+        <not>
+          <available file="default/sql/${dbms}/drop_engine.ddl"/>
+        </not>
+        <equals arg1="y" arg2="${in.createdb}"/>
+        </and>
+      </condition>
+      </fail>
+      
+      <fail message="File create_engine.ddl does not exist.">
+      <condition>
+        <and>
+        <not>
+          <available file="default/sql/${dbms}/create_engine.ddl"/>
+        </not>
+        <equals arg1="y" arg2="${in.createdb}"/>
+        </and>
+      </condition>
+      </fail>
+      
+      <fail message="File init_engine.sql does not exist.">
+      <condition>
+        <and>
+        <not>
+          <available file="default/sql/${dbms}/init_engine.sql"/>
+        </not>
+        <equals arg1="y" arg2="${in.createdb}"/>
+        </and>
+      </condition>
+      </fail>      
+
+      <antcall target="dropdb"   inheritAll="true"/>
+      <antcall target="createdb" inheritAll="true"/>    
+      <antcall target="initdb"   inheritAll="true"/>    
+    </target>
+
+    <target name="dropdb" depends="init" if="do.createdb">
+
+      <sql driver     = "${jdbc.driver}"
+           url        = "${jdbc.url}"
+           userid     = "${jdbc.user}"
+           password   = "${jdbc.password}"
+           classpath  = "${jdbc.classpath}"
+           onerror    = "continue"
+           autocommit = "true"
+           src        = "default/sql/${dbms}/drop_engine.ddl"
+      />
+    </target>
+
+    <target name="createdb" depends="init" if="do.createdb">
+    
+      <sql driver    = "${jdbc.driver}"
+           url       = "${jdbc.url}"
+           userid    = "${jdbc.user}"
+           password  = "${jdbc.password}"
+           classpath = "${jdbc.classpath}"
+           onerror   = "stop"
+           src       = "default/sql/${dbms}/create_engine.ddl"
+      />
+    </target>
+
+    <target name="initdb" depends="init" if="do.createdb">
+      <sql driver    = "${jdbc.driver}"
+           url       = "${jdbc.url}"
+           userid    = "${jdbc.user}"
+           password  = "${jdbc.password}"
+           classpath = "${jdbc.classpath}"
+           onerror   = "stop"
+           src       = "default/sql/${dbms}/init_engine.sql"
+      />
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- end - Print environment configuration                               -->
+    <!-- =================================================================== -->
+    <target name="env">
+      <echo message="user.home   = ${user.home}"/>
+      <echo message="J2EE HOME   = ${ENV.J2EE_HOME}"/>
+      <echo message="TOMCAT HOME = ${ENV.J2EE_HOME}"/>
+    </target>
+
+</project>

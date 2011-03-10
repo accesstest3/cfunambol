@@ -1,0 +1,18 @@
+<File>
+<name>simpletext.txt</name>
+<created>20030807T231830</created>
+<modified>20030809T015500</modified>
+<accessed>20030809T016500</accessed>
+<attributes>
+<h>false</h>
+<s>false</s>
+<a>true</a>
+<d>false</d>
+<w>true</w>
+<r>true</r>
+<x>false</x>
+</attributes>
+<cttype>text/plain</cttype>
+<body>Simple text</body>
+<size>11</size>
+</File>

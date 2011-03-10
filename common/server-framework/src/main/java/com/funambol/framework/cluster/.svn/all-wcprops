@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/36592/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/cluster
+END
+ClusterException.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/36592/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/cluster/ClusterException.java
+END
+Cluster.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/36592/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/cluster/Cluster.java
+END
+Utility.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/36592/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/cluster/Utility.java
+END
+ClusterMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/36592/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/cluster/ClusterMBean.java
+END
+ClusterListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/36592/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/cluster/ClusterListener.java
+END
+ClusterConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/36592/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/cluster/ClusterConfiguration.java
+END

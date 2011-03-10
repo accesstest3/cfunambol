@@ -1,0 +1,369 @@
+2011-02-01
+- nichele: Removed cluster-framework dependency
+
+--------------------------------
+Funambol Push Listener 8.7.0
+--------------------------------
+2010-12-20
+- maria: Updated Dependencies
+
+--------------------------------
+Funambol Push Listener 8.7.1
+--------------------------------
+2010-09-28
+- lulu: Fixed bug #10132 - Inbox Listener cluster does not work properly.
+        Fixed bug #10133 - PIM Listener cluster does not work properly.
+
+--------------------------------
+Funambol Push Listener 8.7.0
+--------------------------------
+2010-07-12
+- machi: fixed typo in the copyright
+
+2010-07-06
+- nichele: Added user.timezone property for surefire plugin
+
+2010-06-15
+- dimuro: updated version
+
+2010-05-26
+- dimuro: merge from v85 branch
+
+2010-03-25
+- dimuro: Changed version pom 8.7
+
+--------------------------------
+Funambol Push Listener 8.5.0
+--------------------------------
+2009-12-31
+- nichele: Added a new MBean registration (available in server-framework) for
+           threads handling
+
+--------------------------------
+Funambol Push Listener 8.2.4
+--------------------------------
+2009-12-04
+- maria: Updated Dependencies
+
+--------------------------------
+Funambol Push Listener 8.2.3
+--------------------------------
+2009-11-13
+- maria: Updated Dependencies
+
+--------------------------------
+Funambol Push Listener 8.2.2
+--------------------------------
+2009-11-02
+- maria: Updated Dependencies
+
+--------------------------------
+Funambol Push Listener 8.2.1
+--------------------------------
+2009-10-09
+- maria: Updated Dependencies
+
+--------------------------------
+Funambol Push Listener 8.2.0
+--------------------------------
+2009-09-25
+- maria: Updated Dependencies
+
+--------------------------------
+Funambol Push Listener 7.1.0
+--------------------------------
+2009-06-18
+- machi:   Added the smart handling of the discovery phase, introducing a ReentrantLock
+           and the QueryDescriptor object.
+           Added new logic in the update method.
+      	   Added some JUnit tests for RegistryEntry, RegistryDao and RegistryMonitor classes.
+
+
+2009-06-16
+- machi:   Added the handling of the extra columns in the RegistryEntry and in the RegistryDAO
+           classes. 
+      	   Added some JUnit tests.
+
+2009-01-18
+- nichele: Exposed via JMX the following parameters and added the required infrastucture:
+           - NumberOfNotifications: number of notifications since the startup
+           - InstantNumberOfNotifications: number of notifications in the last minute
+           - AverageExecutionTime: average execution time
+           - NumberOfExecutionsOutOfPeriod: number of executions run after the
+                                            expected period
+           - InstantNumberOfExceedPeriodWarnings: number of executions run after the
+                                                  expected period in the last minute
+- nichele: Renamed JMX operation resetLoadFactor in resetStatistics
+
+2008-11-12
+- nichele: Exposed instantLoad property via JMX: it represents the number of
+           executed tasks in the last minute.
+           Exposed new resetLoadFactor method via JMX: it allows to reset the
+           load factor.
+
+2008-10-15
+- nichele: Reviewed NotificationWrapper class adding notifyDevice
+           with the user name as parameter deprecating the old one.
+
+2008-09-23
+- piter: Updated framework to use com.funambol.server.admin.ws.client.AdminWSClient.
+         Deprecated configuration property wsServerInformation from PushListenerConfigBean;
+         replaced by property serverInformation.
+- piter: Deprecated classes under package com.funambol.pushlistener.service.ws:
+         - AdminException
+           (use com.funambol.server.admin.AdminException instead instead)
+         - ServerException
+           (use com.funambol.framework.server.error.ServerException instead)
+         - UnauthorizedException
+           (use com.funambol.server.admin.UnauthorizedException instead)
+         - WSServerInformation
+           (use com.funambol.server.admin.ws.client.ServerInformation instead)
+         - WSTools
+           (use com.funambol.server.admin.ws.client.AdminWSClient instead)
+         
+2008-09-22
+- nichele: Updated dependencies
+
+--------------------------------
+Funambol Push Listener 7.0.5
+--------------------------------
+2008-07-16
+- nichele: Fixed bug #5610 - Error with two instances in cluster
+
+--------------------------------
+Funambol Push Listener 7.0.4
+--------------------------------
+2008-07-07
+- nichele: Updated dependencies
+
+--------------------------------
+Funambol Push Listener 7.0.3
+--------------------------------
+2008-05-18
+- nichele: Updated v7 with new database architecture from v66
+
+--------------------------------
+Funambol Push Listener 7.0.2
+--------------------------------
+2008-05-14
+- ste: releasing 7.0.2 with no snapshot dependencies
+
+--------------------------------
+Funambol Push Listener 7.0.1
+--------------------------------
+2008-02-25
+- lulu: Added isTaskInQueue method in the PushListenerInterface and its 
+        implementations in ScheduledTaskExecutor class.
+        Reviewed exceptions handling in WSTools in order to provide better 
+        messages if an error occurs in calling the ds-server notification 
+        methods.
+
+2008-02-21
+- testa: Updated to funambol:server-framework:7.0.0-SNAPSHOT
+
+
+--------------------------------
+Funambol Push Listener 6.6.0
+--------------------------------
+
+2008-03-29
+- nichele: Improved datasources handling:
+           - More than one datasource can be defined
+           - The datasources configuration is read from com/funambol/server/db/jdbc
+             directory under common config path (Funambol/config).
+             Any xml file in that directory is use to create, configure and bind a
+             datasource to a Context; as jndi name, the file name is use with 'jdbc/' as prefix.
+             In this way, any component that needs database access can just lookup the
+             datasource.
+           - The DBConnectionProvider class can be used just to access to the jdbc/fnblcore
+             datasource that is the default one.
+           - Removed basicDataSource configuration from PushListenerConfigBean. Any
+             xml configuration file must be reviewed.
+           - The datasources can be monitored via JMX
+- nichele: Removed DBConnectionProviderHealthStatus since it can not be used anymore
+           with the new datasources handling.
+
+2008-03-27
+- nichele: Introduced the LogContext usage in order to set the entryId at the beginning
+           of the task execution.
+- lulu: Reviewed RegistryDAO in order to mark as read-only the connections used to 
+        perform only 'select'.
+
+
+--------------------------------
+Funambol Push Listener 6.5.10
+--------------------------------
+
+2008-02-14
+- nichele: Added isTaskInQueue method in the PushListenerInterface and its implementations
+           in ScheduledTaskExecutor class.
+
+
+--------------------------------
+Funambol Push Listener 6.5.9
+--------------------------------
+
+2008-02-05
+- nichele: Reviewed exceptions handling in WSTools in order to provide better messages
+           if an error occurs in calling the ds-server notification methods.
+
+
+--------------------------------
+Funambol Push Listener 6.5.8
+--------------------------------
+
+2007-11-28
+- nichele: Changed license to AGPLv3.
+
+
+--------------------------------
+Funambol Push Listener 6.5.7
+--------------------------------
+
+2007-11-21
+- nichele: Updated dependencies.
+           Made the idSpace used in the registry entries handling configurable.
+
+
+--------------------------------
+Funambol Push Listener 6.5.6
+--------------------------------
+
+2007-11-14
+- nichele: Upgraded to funambol:ext:6.5.2, funambol:core-framework:6.5.3,
+           funambol:server-framework:6.5.6
+
+
+--------------------------------
+Funambol Push Listener 6.5.5
+--------------------------------
+
+2007-10-31
+- lulu: Changed ScheduledTaskExecutor.scheduleTask() in order to allow 0 as 
+        period (actually, if it is 0, one nano second is used).
+
+
+--------------------------------
+Funambol Push Listener 6.5.4
+--------------------------------
+
+2007-09-30
+- nichele: Removed build.xml and build.properties file since the project is mavenized.
+- nichele: Reviewed PushListener in order to be able to create and start a PushListener
+           instance extending the PushListener class. Moreover a PushListener instance
+           must be created with a ServiceDescriptor in order to be able to set specific
+           properties like the service name and the version.
+           Changed PushListenerConfigBean.java removing service name and version.
+           
+
+--------------------------------
+Funambol Push Listener 6.5.3
+--------------------------------
+
+2007-09-21
+- nichele: Synchronized method PushListener.clusterChange()
+- nichele: Synchronized methods RegistryMonitor.run() and RegistryMonitor.setScheduledTaskExecutor().
+           Those methods must be synchronized in order to be sure that the scheduledTaskExecutor
+           is not changed when the registry is checking the entries.
+
+
+--------------------------------
+Funambol Push Listener 6.5.2
+--------------------------------
+
+2007-09-14
+- nichele: Added cluster information in StatusMXBeanImpl
+
+2007-09-12
+- nichele: Moved cluster classes to funambol:cluster-framework
+
+2007-09-09
+- nichele: Added StatusMXBeanImpl with serviceName and version handling
+
+2007-09-04
+- nichele: Updated core-framework and server-framework version in the dependency list to 6.5.2
+           (in the pom.xml file)
+
+2007-09-03
+- nichele: Fixed the cluster member list shown at the startup (it was always empty
+           because the cluster was not initialized yet))
+- nichele: Fixed RegistryMonitor constructor (clusterSize and serverIndex was always 0)
+
+
+--------------------------------
+Funambol Push Listener 6.5.1
+--------------------------------
+
+2007-08-29
+- nichele: Introduced a new cluster architecture based on JGroups; with this new
+           architecture, the entries are automatically partitioned between the
+           push listener instances based on the cluster size (number of server in
+           the cluster) and on the server index. If there is just one server, all
+           entries are handled by that.
+           Removed the field 'idPushListener' from the table 'fnbl_push_registry_entry'
+           because now the entries are partitioned with the new cluster architecture.
+           Added a new MBean (com.funambol:type=Cluster) to see some basic cluster information.
+           
+2007-08-13
+- nichele: Added plugins handling and some examples
+           Added one shot task handling
+           Renamed old Task interface in ScheduledTask
+           Introduced a new Task interface to implement simple one shot tasks
+           Improved JMX interface exposing some information about PushListener's state
+
+2007-07-28
+- nichele: Made the configuration bean file configurable specifying the system
+           property funambol.pushlistener.config.bean
+           
+           
+--------------------------------
+Funambol Push Listener 6.5.0
+--------------------------------
+
+2007-06-25
+- gibi: Added the Class RegistryEntryStatus, removed the class
+        RegistryStatus in the RegistryEntry class
+
+2007-06-21
+- piter: Removed useless logging from
+         com.funambol.pushlistener.service.ws.NotificationWrapper         
+
+2007-06-20
+- piter: Changed comments in doc/example/PushListenerConfiguration.xml for
+         healthThreadPollingTime and registryMonitorPollingTime
+
+2007-06-18
+- lulu: Updated Funambol copyright
+
+
+--------------------------------
+Funambol Push Listener 6.0.3
+--------------------------------
+
+- lulu: Upgraded to Funambol Data Synchronization Server 6.0.4
+
+
+--------------------------------
+Funambol Push Listener 6.0.2
+--------------------------------
+
+2007-04-17
+- nichele: Renamed some variables
+
+--------------------------------
+Funambol Push Listener 6.0.1
+--------------------------------
+
+2007-02-26
+- nichele: Renamed mbean in com.funambol.pushlistener:type=PushListener
+
+2007-02-24
+- nichele: Added ManagementTools class used to stop the push listener and to
+           show its status
+
+
+--------------------------------
+Funambol Push Listener 6.0.0
+--------------------------------
+
+First release of push listener framework

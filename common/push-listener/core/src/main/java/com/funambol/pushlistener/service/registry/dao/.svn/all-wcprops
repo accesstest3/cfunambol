@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/36032/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/registry/dao
+END
+QueryDescriptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/core/!svn/ver/35029/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/registry/dao/QueryDescriptor.java
+END
+DataAccessException.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/registry/dao/DataAccessException.java
+END
+RegistryDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/36032/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/registry/dao/RegistryDao.java
+END

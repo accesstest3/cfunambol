@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2" class="java.beans.XMLDecoder">
+    <object class="com.funambol.framework.tools.beans.SimpleNotCloneableBean">
+    
+        <void property="prop1">
+            <string>value1</string>
+        </void>
+        <void property="prop2">
+            <string>value2</string>
+        </void>
+
+    </object>
+</java>

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/core/!svn/ver/36445/trunk/funambol/clients/javademo
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/LICENSE.txt
+END
+changeslog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/core/!svn/ver/36425/trunk/funambol/clients/javademo/changeslog.txt
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/core/!svn/ver/36445/trunk/funambol/clients/javademo/pom.xml
+END
+readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/readme.txt
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/core/!svn/ver/27993/trunk/funambol/clients/javademo/.cvsignore
+END

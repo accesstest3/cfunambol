@@ -1,0 +1,92 @@
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 752281EEC093
+	for <fabio@funambol.net>; Mon, 19 Nov 2007 03:54:26 -0800 (PST)
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Score: -1.08
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.08 tagged_above=-10 required=5 tests=[AWL=0.012,
+	BAYES_00=-2.599, HTML_90_100=0.113, HTML_MESSAGE=0.001,
+	MSGID_FROM_MTA_ID=1.393]
+Received: from a.mail.sonomait.com ([127.0.0.1])
+	by localhost (a.mail.sonomait.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 1xK+3+YJg2Ls for <fabio@funambol.net>;
+	Mon, 19 Nov 2007 03:54:20 -0800 (PST)
+Received: from Nyneve (85-18-37-27.ip.fastwebnet.it [85.18.37.27])
+	by a.mail.sonomait.com (Postfix) with ESMTP id B06921EEC067
+	for <fabio@funambol.net>; Mon, 19 Nov 2007 03:54:19 -0800 (PST)
+From: "Lusetti" <cristina@funambol.com>
+To: <fabio@funambol.net>
+Subject: Prova
+Date: Mon, 19 Nov 2007 12:54:24 +0100
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_0052_01C82AAB.50ADC9C0"
+X-Mailer: Microsoft Office Outlook, Build 11.0.5510
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.3198
+Thread-Index: Acgqou2uA4hykwSOTjSQ0M4axp89hg==
+Message-Id: <20071119115419.B06921EEC067@a.mail.sonomait.com>
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0052_01C82AAB.50ADC9C0
+Content-Type: text/plain;
+	charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+
+Ciao
+Cri
+ 
+-- 
+
+Cristina Lusetti       cristina <blocked::mailto:cristina@funambol.com>
+@funambol.com
+
+funambol :: mobile open source ::  <blocked::http://www.funambol.com/>
+http://www.funambol.com
+
+
+
+------=_NextPart_000_0052_01C82AAB.50ADC9C0
+Content-Type: text/html;
+	charset="US-ASCII"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Dus-ascii">
+<META content=3D"MSHTML 6.00.2900.3199" name=3DGENERATOR></HEAD>
+<BODY>
+<DIV><SPAN class=3D734095411-19112007><FONT face=3DVerdana=20
+size=3D2>Ciao</FONT></SPAN></DIV>
+
+<DIV><SPAN class=3D734095411-19112007><FONT face=3DVerdana=20
+size=3D2>Cri</FONT></SPAN></DIV>
+<DIV>&nbsp;</DIV>
+<DIV align=3Dleft><FONT face=3DArial size=3D2>
+<DIV><FONT size=3D+0><SPAN class=3D718085513-27072007>
+<P><FONT face=3DVerdana size=3D2>-- </FONT></P>
+
+<P><FONT face=3DVerdana><FONT size=3D2><SPAN =
+class=3D718085513-27072007>Cristina=20
+Lusetti</SPAN>&nbsp;<SPAN=20
+class=3D718085513-27072007>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+</SPAN></FONT></FONT><FONT face=3DVerdana><FONT size=3D2><SPAN=20
+class=3D718085513-27072007><A title=3Dmailto:cristina@funambol.com=20
+href=3D"blocked::mailto:cristina@funambol.com">cristina</SPAN>@funambol.c=
+om</A></FONT></FONT></P>
+
+<P><FONT face=3DVerdana size=3D2>funambol :: mobile open source :: =
+</FONT><A=20
+title=3Dhttp://www.funambol.com/ =
+href=3D"blocked::http://www.funambol.com/"><U=20
+title=3Dhttp://www.funambol.com/><FONT title=3Dhttp://www.funambol.com/=20
+color=3D#0000ff><FONT title=3Dhttp://www.funambol.com/ face=3DVerdana=20
+size=3D2>http://www.funambol.com</FONT></U></FONT></A></P></SPAN></FONT><=
+/DIV></FONT></DIV>
+
+<DIV>&nbsp;</DIV></BODY></HTML>
+
+------=_NextPart_000_0052_01C82AAB.50ADC9C0--
+
+

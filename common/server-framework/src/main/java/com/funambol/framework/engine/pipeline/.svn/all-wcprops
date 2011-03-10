@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/pipeline
+END
+PipelineManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/pipeline/PipelineManager.java
+END
+StopProcessingException.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/pipeline/StopProcessingException.java
+END
+InputMessageProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/pipeline/InputMessageProcessor.java
+END
+OutputMessageProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/pipeline/OutputMessageProcessor.java
+END
+MessageProcessingContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/main/java/com/funambol/framework/engine/pipeline/MessageProcessingContext.java
+END

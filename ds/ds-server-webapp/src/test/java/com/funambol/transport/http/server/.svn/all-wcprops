@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/33086/trunk/funambol/ds/ds-server-webapp/src/test/java/com/funambol/transport/http/server
+END
+Sync4jServletTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/29377/trunk/funambol/ds/ds-server-webapp/src/test/java/com/funambol/transport/http/server/Sync4jServletTest.java
+END
+LogContextFilterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/33086/trunk/funambol/ds/ds-server-webapp/src/test/java/com/funambol/transport/http/server/LogContextFilterTest.java
+END

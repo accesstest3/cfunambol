@@ -1,0 +1,10 @@
+#
+#Thu Oct 14 23:59:14 CEST 2004
+#
+name=Contacts
+sourceDirectory=db/contacts
+sourceClass=com.funambol.syncclient.spds.source.SIFSyncSource
+type=text/x-s4j-sifc
+encode=true
+sync=two-way
+sourceURI=scard

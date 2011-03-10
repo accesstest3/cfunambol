@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/regex
+END
+RegexUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/regex/RegexUtil.java
+END
+RegexException.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/regex/RegexException.java
+END
+Package.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/org/clapper/util/regex/Package.java
+END

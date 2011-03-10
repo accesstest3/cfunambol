@@ -1,0 +1,77 @@
+<!ELEMENT dataset (
+    FNBL_EMAIL_ACCOUNT*,
+    FNBL_EMAIL_ENABLE_ACCOUNT*,
+    FNBL_EMAIL_INBOX*,
+    FNBL_EMAIL_PUSH_REGISTRY*)>
+
+<!ELEMENT FNBL_EMAIL_ACCOUNT EMPTY>
+<!ATTLIST FNBL_EMAIL_ACCOUNT
+    account_id     CDATA #REQUIRED
+    username       CDATA #REQUIRED
+    ms_login       CDATA #REQUIRED
+    ms_password    CDATA #REQUIRED
+    ms_address     CDATA #REQUIRED
+    ms_mailboxname CDATA #IMPLIED
+    push           CDATA #IMPLIED
+    soft_delete    CDATA #IMPLIED
+    max_num_email  CDATA #IMPLIED
+    max_imap_email CDATA #IMPLIED
+    mailserver_id  CDATA #IMPLIED
+    server_public  CDATA #IMPLIED
+    server_type    CDATA #IMPLIED
+    description    CDATA #IMPLIED
+    protocol       CDATA #IMPLIED
+    out_server     CDATA #IMPLIED
+    out_port       CDATA #IMPLIED
+    out_auth       CDATA #IMPLIED
+    in_server      CDATA #IMPLIED
+    in_port        CDATA #IMPLIED
+    sslin          CDATA #IMPLIED
+    sslout         CDATA #IMPLIED
+    inbox_name     CDATA #IMPLIED
+    inbox_active   CDATA #IMPLIED
+    outbox_name    CDATA #IMPLIED
+    outbox_active  CDATA #IMPLIED
+    sent_name      CDATA #IMPLIED
+    sent_active    CDATA #IMPLIED
+    drafts_name    CDATA #IMPLIED
+    drafts_active  CDATA #IMPLIED
+    trash_name     CDATA #IMPLIED
+    trash_active   CDATA #IMPLIED
+    out_login      CDATA #IMPLIED
+    out_password   CDATA #IMPLIED
+>
+
+<!ELEMENT FNBL_EMAIL_PUSH_REGISTRY EMPTY>
+<!ATTLIST FNBL_EMAIL_PUSH_REGISTRY
+    id             CDATA #REQUIRED
+    period         CDATA #IMPLIED
+    active         CDATA #IMPLIED
+    last_update    CDATA #IMPLIED
+    status         CDATA #IMPLIED
+    task_bean_file CDATA #IMPLIED
+>
+
+<!ELEMENT FNBL_EMAIL_ENABLE_ACCOUNT EMPTY>
+<!ATTLIST FNBL_EMAIL_ENABLE_ACCOUNT
+    account_id     CDATA #REQUIRED
+    username       CDATA #IMPLIED
+>
+
+<!ELEMENT FNBL_EMAIL_INBOX EMPTY>
+<!ATTLIST FNBL_EMAIL_INBOX
+    guid           CDATA #REQUIRED
+    username       CDATA #REQUIRED
+    protocol       CDATA #REQUIRED
+    last_crc       CDATA #IMPLIED
+    invalid        CDATA #IMPLIED
+    internal       CDATA #IMPLIED
+    messageid      CDATA #IMPLIED
+    headerdate     CDATA #IMPLIED
+    received       CDATA #IMPLIED
+    subject        CDATA #IMPLIED
+    sender         CDATA #IMPLIED
+    token          CDATA #IMPLIED
+    status         CDATA #IMPLIED
+>
+

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/core/!svn/ver/36744/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/engine
+END
+Sync4jOperationStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/engine/Sync4jOperationStatus.java
+END
+Sync4jEngine.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/core/!svn/ver/36692/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/engine/Sync4jEngine.java
+END
+Sync4jOperationStatusConflict.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/engine/Sync4jOperationStatusConflict.java
+END
+Sync4jOperationStatusDelete.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/engine/Sync4jOperationStatusDelete.java
+END
+SyncStatistic.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/32207/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/engine/SyncStatistic.java
+END
+EngineHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/core/!svn/ver/33358/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/engine/EngineHelper.java
+END
+Sync4jOperationStatusError.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/engine/Sync4jOperationStatusError.java
+END
+Sync4jOperationStatusOK.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/engine/Sync4jOperationStatusOK.java
+END
+SyncItemHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/33358/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/engine/SyncItemHelper.java
+END
+Sync4jStrategy.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/35638/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/engine/Sync4jStrategy.java
+END
+SyncAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/36744/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/engine/SyncAdapter.java
+END

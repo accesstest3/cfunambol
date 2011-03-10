@@ -1,0 +1,11 @@
+K 10
+svn:ignore
+V 226
+sife-with-reminder-result-ical.ics
+sife-with-recurrence-result-ical.ics
+sife-without-sensitivity-result-ical.ics
+sife-with-reminder-result-vcal.vcs
+sife-with-recurrence-result-vcal.vcs
+sife-without-sensitivity-result-vcal.vcs
+
+END

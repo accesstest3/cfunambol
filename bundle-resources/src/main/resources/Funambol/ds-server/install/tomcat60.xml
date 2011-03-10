@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+
+<!--
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+-->
+
+<!--
+  =============================================================================
+    Deployment tasks for Tomcat 6.0.x
+
+    $Id: tomcat60.xml,v 1.1 2008-07-01 21:54:11 nichele Exp $
+
+  =============================================================================
+-->
+<project name="Funambol DS Server Setup for Tomcat 6.0.x"
+         default="usage" basedir="..">
+
+    <!-- =================================================================== -->
+    <!-- tomcat - undeploy the war application                               -->
+    <!-- =================================================================== -->
+    <target name="as-undeploy">
+
+        <!-- Checks if funambol is already deployed                          -->
+        <condition property="already-deployed">
+          <available file="${ENV.J2EE_HOME}/conf/Catalina/localhost/funambol.xml"/>
+        </condition>
+
+        <antcall target="remove-webapp" />
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- tomcat - install the web application                                -->
+    <!-- =================================================================== -->
+    <target name="as-deploy" depends="init, fix-war">
+
+        <!-- Copy the war renaming it in funambol.war because otherwise  -->
+        <!-- tomcat is not able to resolve the context.                  -->
+        <copy file="output/funambol-server.war" 
+              tofile="${ENV.J2EE_HOME}/webapps/funambol.war"
+              overwrite="true"/>
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- as-init - initialize the project for Tomcat                         -->
+    <!-- =================================================================== -->
+    <target name="as-init">
+      <echo message="Funambol Data Synchronization Server will be installed on the Tomcat 6.0.x application server"/>
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- as-inst - Tomcat specific installation tasks                        -->
+    <!-- =================================================================== -->
+    <target name="as-inst" depends="init" unless="do.install-modules-only">
+
+        <property name="tomcat-lib" value="${ENV.J2EE_HOME}/lib" />
+        <script language="beanshell" src="${basedir}/install/install.bsh">
+            copyJDBCDriverFiles("tomcat-lib");
+        </script>  
+        
+        <condition property="isWindowsOS">
+          <and>
+            <os family="windows"/>
+          </and>
+        </condition>
+
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- Set context path into funambol-tomcat6.0.xml: if context-path is    -->
+    <!-- not set to "/", than read the value from install.properties and     -->
+    <!-- replace funambol-tomcat6.0.xml with it.                             -->
+    <!-- =================================================================== -->
+    <target name="replaceContextPath">
+        <replace file="output/config/tomcat/xml/funambol-tomcat6.0.xml"
+                 token="{context_path}"
+                 value="${contextPath}"/>
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- Set the context-path in funambol-tomcat6.0.xml and then copy it     -->
+    <!-- in the META-INF directory with name context.xml.                    --> 
+    <!-- Copy all *.jar in the WEB-INF/lib.                                  -->
+    <!-- Update the output/funambol-server.war                               -->
+    <!-- Note that output/funambol-server.war is created from the content    -->
+    <!-- of $syncserver-warfilename                                          -->
+    <!-- =================================================================== -->
+    <target name="fix-war">
+
+        <!--
+           If context-path is set to "/", it must be set to the empty
+           string into funambol.xml
+        -->
+        <condition property="contextPath" value="">
+            <equals arg1="${context-path}" arg2="/" casesensitive="false"/>
+        </condition>
+        <!--
+           Else if context-path is not set to "/", it must be set to the value
+           read from install.properties
+        -->
+        <condition property="contextPath" value="${context-path}">
+            <not>
+                <equals arg1="${context-path}" arg2="/" casesensitive="false"/>
+            </not>
+        </condition>
+
+        <antcall target="replaceContextPath"/>
+        
+        <unzip src="output/${syncserver-warfilename}" dest="output/tmpwar"/>
+        
+        <copy tofile   ="output/tmpwar/META-INF/context.xml" 
+              overwrite="true"
+              file     ="output/config/tomcat/xml/funambol-tomcat6.0.xml"/>
+
+        <copy todir="output/tmpwar/WEB-INF/lib" overwrite="true" flatten="true">
+            <!--
+                 naming-core*.*, naming-java*.* must be excluded since they get
+                 conflict with Tomcat classes and the datasources will be not
+                 available (the loookup fails). They are excluded also in the
+                 install.xml file but also here this is required since they can be
+                 included in some module.
+            -->
+            <fileset dir="output">
+                <include name="*.jar"/>
+                <include name="**/*.jar"/>
+                <exclude name="**/exclude/**"/>
+                <exclude name="config/**/*"/>
+                <exclude name="**/naming-core*.jar"/>
+                <exclude name="**/naming-java*.jar"/>
+            </fileset>
+            <fileset dir="lib">
+                <include name="commons-httpclient-3.0.jar"/>
+                <include name="funambol-admin-dev.jar"/>
+            </fileset>
+        </copy>
+        
+        <war destfile="output/funambol-server.war"
+             webxml="output/config/tomcat/xml/WEB-INF/web.xml"
+             update="true">
+             <fileset dir="output/tmpwar" excludes="META-INF/context.xml"/>
+             <metainf dir="output/tmpwar/META-INF">
+                 <include name="context.xml"/>
+             </metainf>   
+        </war>
+
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- In the case of Tomcat this target is empty but is necessary for     -->
+    <!-- compatibility with install.xml                                      -->
+    <!-- =================================================================== -->
+    <target name="post-inst-specific" depends="init"
+            unless="do.install-modules-only">
+      <!-- do nothing -->
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- Removes the funambol webapp                                         -->
+    <!-- =================================================================== -->
+    <target name="remove-webapp" if="already-deployed">
+
+        <delete file ="${ENV.J2EE_HOME}/conf/Catalina/localhost/funambol.xml"
+                quiet="true"/>
+
+        <delete dir="${ENV.J2EE_HOME}/webapps/funambol" quiet="true"/>
+        <delete file="${ENV.J2EE_HOME}/webapps/funambol.war" quiet="true"/>
+
+        <echo message="Undeploying funambol..."/>
+        <sleep seconds="10"/>
+    </target>
+
+</project>

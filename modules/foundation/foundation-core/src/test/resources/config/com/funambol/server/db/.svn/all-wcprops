@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/34901/trunk/funambol/modules/foundation/foundation-core/src/test/resources/config/com/funambol/server/db
+END
+db.xml
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/30673/trunk/funambol/modules/foundation/foundation-core/src/test/resources/config/com/funambol/server/db/db.xml
+END

@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/model
+END
+ServerSearchFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/model/ServerSearchFilter.java
+END
+ItemMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/model/ItemMessage.java
+END
+InternalPart.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/model/InternalPart.java
+END
+SyncItemInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/model/SyncItemInfo.java
+END
+SyncItemInfoInbox.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/model/SyncItemInfoInbox.java
+END
+MailServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/model/MailServer.java
+END
+UserSearchFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/model/UserSearchFilter.java
+END
+DefaultFolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/model/DefaultFolder.java
+END
+SyncItemInfoAdmin.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/model/SyncItemInfoAdmin.java
+END
+MailServerAccount.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/model/MailServerAccount.java
+END
+FlagProperties.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/29351/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/model/FlagProperties.java
+END
+SendResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/model/SendResult.java
+END
+ItemFolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/model/ItemFolder.java
+END
+UpdatedMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/model/UpdatedMessage.java
+END
+EmailFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/model/EmailFilter.java
+END

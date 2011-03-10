@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2" class="java.beans.XMLDecoder">
+
+    <object class="com.funambol.email.inboxlistener.service.InboxListenerTask">
+    
+      <!-- true for debug mode; false in production -->
+      <void property="startupNotification">
+        <boolean>false</boolean>
+      </void>
+    
+      <!-- if true the notification is sent just when a new email is detected -->
+      <void property="justNewNotification">
+        <boolean>false</boolean>
+      </void>
+      
+      <!-- true for debug mode; false in production -->
+      <void property="saveSubject">
+        <boolean>false</boolean>
+      </void>
+      
+      <!-- true for debug mode; false in production -->
+      <void property="saveSender">
+        <boolean>false</boolean>
+      </void>
+
+      <!-- mail server access object timeout -->
+      <void property="timeoutStore">
+        <string>300000</string>
+      </void>  
+    
+      <!-- mail server connection timeout -->
+      <void property="timeoutConnection">
+        <string>15000</string>
+      </void>  
+
+      <!-- account registry table -->
+      <void property="pushRegistryTableName">
+        <string>fnbl_email_push_registry</string>
+      </void>  
+
+      <!-- must ssl certificates be validated ? -->
+      <void property="checkCertificates">
+        <boolean>false</boolean>
+      </void>  
+                
+      <!-- fnbl_email_inbox refresh time -->
+      <void property="period">
+           <!-- 1 minute -->
+          <long>60000</long>
+      </void>
+      
+    </object>
+    
+</java>

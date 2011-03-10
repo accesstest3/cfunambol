@@ -1,0 +1,31 @@
+Core components sites
+
+*-----*------*------*
+{{{api-testing-tool/index.html}api-testing-tool}} | {{{bundle-resources/index.html}bundle-resources}} | {{{clients-common/index.html}clients-common}}
+*-----*------*------*
+{{{cl-plugin/index.html}cl-plugin}} | {{{cluster-framework/index.html}cluster-framework}} | {{{content-provider/index.html}content-provider}}
+*-----*------*------*
+{{{content-provider-webapp/index.html}content-provider-webapp}} | {{{core-framework/index.html}core-framework}}| {{{ctp-client-driver/index.html}ctp-client-driver}}
+*-----*------*------*
+{{{ctp-core/index.html}ctp-core}} | {{{ctp-mina-codec/index.html}ctp-mina-codec}} | {{{ctp-multi-client-driver/index.html}ctp-multi-client-driver}}
+*-----*------*------*
+{{{ctp-sender-driver/index.html}ctp-sender-driver}} | {{{ctp-server/index.html}ctp-server}} | {{{ds-server/index.html}ds-server}}
+*-----*------*------*
+{{{ds-server-webapp/index.html}ds-server-webapp}} | {{{email-connector/index.html}email-connector}} | {{{email-core/index.html}email-core}}
+*-----*------*------*
+{{{email-module/index.html}email-module}} | {{{ext/index.html}ext}} | {{{fctf/index.html}fctf}}
+*-----*------*------*
+{{{json-core/index.html}json-core}} | {{{foundation/index.html}foundation}} | {{{foundation-core/index.html}foundation-core}}
+*-----*------*------*
+{{{lanciadelta-report-plugin/index.html}lanciadelta-report-plugin}} | {{{inbox-listener/index.html}inbox-listener}} | {{{javademo/index.html}javademo}}
+*-----*------*------*
+{{{jse-sdk/index.html}jse-sdk}} | {{{phones-support/index.html}phones-support}} | {{{pim-framework/index.html}pim-framework}}
+*-----*------*------*
+{{{pim-listener/index.html}pim-listener}} | {{{pim-parsers/index.html}pim-parsers}} | {{{push-framework/index.html}push-framework}}
+*-----*------*------*
+{{{sdk/index.html}sdk}} | {{{server-framework/index.html}server-framework}} | {{{test-addons/index.html}test-addons}}
+*-----*------*------*
+{{{testing-tool/index.html}testing-tool}} | {{{webdemo/index.html}webdemo}} | {{{webdemo-module/index.html}webdemo-module}}
+*-----*------*------*
+{{{webdemo-webapp/index.html}webdemo-webapp}} | {{{job-executor/index.html}job-executor}}
+*-----*------*------*

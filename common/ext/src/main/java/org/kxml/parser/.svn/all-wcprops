@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/parser
+END
+AbstractXmlParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/parser/AbstractXmlParser.java
+END
+StartTag.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/parser/StartTag.java
+END
+Tag.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/parser/Tag.java
+END
+ParseEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/parser/ParseEvent.java
+END
+XmlParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/core/!svn/ver/27993/trunk/funambol/common/ext/src/main/java/org/kxml/parser/XmlParser.java
+END

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appointment>
+<SIFVersion>1.1</SIFVersion>
+<AllDayEvent>0</AllDayEvent>
+<BillingInformation/>
+<Body>body</Body>
+<BusyStatus>2</BusyStatus>
+<Categories>Business</Categories>
+<Companies/>
+<End>20091010T073000Z</End>
+<Folder>DEFAULT_FOLDER</Folder>
+<Importance>1</Importance>
+<IsRecurring>0</IsRecurring>
+<Location>Location</Location>
+<MeetingStatus>0</MeetingStatus>
+<Mileage/>
+<NoAging>0</NoAging>
+<ReminderMinutesBeforeStart>15</ReminderMinutesBeforeStart>
+<ReminderSet>1</ReminderSet>
+<ReminderSoundFile>C:\Documents.wma</ReminderSoundFile>
+<ReplyTime/>
+<Start>20091010T070000Z</Start>
+<Subject>subject</Subject>
+</appointment>

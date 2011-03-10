@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/core/!svn/ver/29807/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/sms/DBSMSProvider
+END
+dataset.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/29807/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/sms/DBSMSProvider/dataset.dtd
+END
+dataset-binary-1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/29807/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/sms/DBSMSProvider/dataset-binary-1.xml
+END
+dataset-binary-2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/29807/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/sms/DBSMSProvider/dataset-binary-2.xml
+END
+dataset-textual-1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/29807/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/sms/DBSMSProvider/dataset-textual-1.xml
+END
+dataset-textual-2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/29807/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/sms/DBSMSProvider/dataset-textual-2.xml
+END
+initial-db-dataset.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/29807/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/sms/DBSMSProvider/initial-db-dataset.xml
+END

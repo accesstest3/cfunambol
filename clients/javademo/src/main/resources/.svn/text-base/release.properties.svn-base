@@ -1,0 +1,3 @@
+# Funambol Java Demo Client
+release.version=@funambol:javademo.version@
+build.date=${today}

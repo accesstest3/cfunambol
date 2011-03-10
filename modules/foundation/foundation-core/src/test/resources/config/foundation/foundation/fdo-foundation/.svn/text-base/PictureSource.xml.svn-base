@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java class="java.beans.XMLDecoder" version="1.5.0_11"> 
+ <object class="com.funambol.foundation.engine.source.FileDataObjectSyncSource"> 
+  <void property="name"> 
+   <string>picture</string> 
+  </void> 
+  <void property="sourceURI"> 
+   <string>picture</string> 
+  </void> 
+  <void property="maxSize"> 
+   <string>50M</string>
+  </void> 
+  <void property="localRootPath">
+   <string>../../../ds-server/db/picture/fdo-container</string>
+  </void>
+  <void property="storageFilesystemRootPath">
+   <string>../../../ds-server/db/picture</string>
+  </void>
+  <void property="storageProvider">
+   <string>filesystem</string>
+  </void>
+  <void property="storageIdentity">
+   <string>s3-accesskey</string>
+  </void>
+  <void property="storageCredential">
+   <string>s3-secretkey</string>
+  </void>
+  <void property="storageContainerName">
+   <string>fdo-container</string>
+  </void>
+  <void property="roleQuota">
+   <object class="java.util.HashMap">
+    <void method="put">
+    <!-- 'demo' role has 25Mb of Storage Quota -->
+     <string>demo</string>
+     <string>25M</string>
+    </void>
+    <!-- 'standard' role has 50Mb of Storage Quota -->
+    <void method="put">
+     <string>standard</string>
+     <string>50M</string>
+    </void>
+    <!-- 'premium' role has 250Mb of Storage Quota -->
+    <void method="put">
+     <string>premium</string>
+     <string>250M</string>
+    </void>
+    <!-- 'premiumplus' role has 1Gb of Storage Quota -->
+    <void method="put">
+     <string>premiumplus</string>
+     <string>1G</string>
+    </void>
+    <!-- 'ultimate' role has 2Gb of Storage Quota -->
+    <void method="put">
+     <string>ultimate</string>
+     <string>2G</string>
+    </void>
+   </object>
+  </void>
+  <void property="info">
+   <object class="com.funambol.framework.engine.source.SyncSourceInfo"> 
+    <void property="supportedTypes"> 
+     <array class="com.funambol.framework.engine.source.ContentType" length="1"> 
+      <void index="0"> 
+       <object class="com.funambol.framework.engine.source.ContentType"> 
+        <void property="type"> 
+         <string>application/vnd.omads-file+xml</string> 
+        </void> 
+        <void property="version"> 
+         <string>1.0</string> 
+        </void> 
+       </object> 
+      </void> 
+     </array> 
+     </void>  <!-- supportedTypes -->
+     <void property="preferred">
+       <int>0</int>
+     </void>
+   </object> 
+  </void> <!-- info -->
+ </object> 
+</java>

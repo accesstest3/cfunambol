@@ -1,0 +1,21 @@
+K 13
+svn:eol-style
+V 6
+native
+K 12
+svn:keywords
+V 31
+Date Author Id Revision HeadURL
+K 13
+svn:mergeinfo
+V 819
+/branches/us4756/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/items/dao/DataBaseFileDataObjectMetadataDAOTest.java:34251-34296
+/branches/us4836/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/items/dao/DataBaseFileDataObjectMetadataDAOTest.java:34485-34613
+/branches/us5422/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/items/dao/DataBaseFileDataObjectMetadataDAOTest.java:35155-35926
+/branches/us5484/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/items/dao/DataBaseFileDataObjectMetadataDAOTest.java:36158-36450
+/top-level/trunk/funambol/modules/foundation/foundation-core/src/test/java/com/funambol/foundation/items/dao/DataBaseFileDataObjectMetadataDAOTest.java:23311-27992
+K 13
+svn:mime-type
+V 10
+text/plain
+END

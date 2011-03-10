@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/36089/trunk/funambol/ds/ds-server-webapp/src/main/java/com/funambol/server/sendlog/authentication
+END
+UnauthorizedException.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/36089/trunk/funambol/ds/ds-server-webapp/src/main/java/com/funambol/server/sendlog/authentication/UnauthorizedException.java
+END
+HttpBasicAuthenticator.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/core/!svn/ver/36089/trunk/funambol/ds/ds-server-webapp/src/main/java/com/funambol/server/sendlog/authentication/HttpBasicAuthenticator.java
+END

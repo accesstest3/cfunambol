@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/sender/tcp/ctp
+END
+ChannelNotificationDispatcher.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/sender/tcp/ctp/ChannelNotificationDispatcher.java
+END
+CTPSender.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/sender/tcp/ctp/CTPSender.java
+END
+CTPNotificationResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/sender/tcp/ctp/CTPNotificationResponse.java
+END
+CTPNotification.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/sender/tcp/ctp/CTPNotification.java
+END
+ChannelNotificationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/notification/sender/tcp/ctp/ChannelNotificationException.java
+END

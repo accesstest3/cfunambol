@@ -1,0 +1,9 @@
+K 10
+svn:ignore
+V 126
+sift-completed-result-vcal.vcs
+sift-completed-result-ical.ics
+sift-inprogress-result-vcal.vcs
+sift-inprogress-result-ical.ics
+
+END

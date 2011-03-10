@@ -1,0 +1,32 @@
+<!ELEMENT dataset (
+    FNBL_SMS*,
+    FNBL_OTHER_SMS*,
+    FNBL_ID*)>
+
+<!ELEMENT FNBL_SMS EMPTY>
+<!ATTLIST FNBL_SMS
+    id CDATA #REQUIRED
+    time CDATA #IMPLIED
+    sender CDATA #IMPLIED
+    recipient CDATA #IMPLIED
+    format CDATA #IMPLIED
+    udh CDATA #IMPLIED
+    body CDATA #IMPLIED
+>
+<!ELEMENT FNBL_OTHER_SMS EMPTY>
+<!ATTLIST FNBL_OTHER_SMS
+    id CDATA #REQUIRED
+    time CDATA #IMPLIED
+    sender CDATA #IMPLIED
+    recipient CDATA #IMPLIED
+    format CDATA #IMPLIED
+    udh CDATA #IMPLIED
+    body CDATA #IMPLIED
+>
+<!ELEMENT FNBL_ID EMPTY>
+<!ATTLIST FNBL_ID
+    idspace CDATA #REQUIRED
+    counter CDATA #REQUIRED
+    increment_by CDATA #IMPLIED
+>
+

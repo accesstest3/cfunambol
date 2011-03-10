@@ -1,0 +1,347 @@
+<SyncML><SyncHdr><VerDTD>1.1</VerDTD><VerProto>SyncML/1.1</VerProto><SessionID>80801</SessionID><MsgID>1</MsgID><Target><LocURI>http://localhost:8080/funambol/ds</LocURI></Target><Source><LocURI>syncml-phone</LocURI></Source><Cred><Meta><Type>syncml:auth-basic</Type></Meta><Data>Z3Vlc3Q6Z3Vlc3Q=</Data></Cred><Meta><MaxMsgSize>10000</MaxMsgSize></Meta></SyncHdr><SyncBody><Alert><CmdID>1</CmdID><Data>201</Data><Item><Target><LocURI>./card</LocURI></Target><Source><LocURI>./C:Contacts.cdb</LocURI></Source><Meta><Anchor><Last></Last><Next>20070525T063108Z</Next></Anchor></Meta></Item></Alert><Alert><CmdID>2</CmdID><Data>201</Data><Item><Target><LocURI>./cal</LocURI></Target><Source><LocURI>./C:Calendar</LocURI></Source><Meta><Anchor><Last></Last><Next>20070525T063108Z</Next></Anchor></Meta></Item></Alert><Put><CmdID>3</CmdID><Meta><Type>application/vnd.syncml-devinf+wbxml</Type></Meta><Item><Source><LocURI>./devinf11</LocURI></Source><Data>
+<DevInf xmlns="syncml:devinf">
+ <VerDTD>1.1</VerDTD>
+ <Man>NOKIA</Man>
+ <Mod>N80</Mod>
+ <FwV />
+ <SwV>V 4.0632.0.38</SwV>
+ <HwV />
+ <DevID>syncml-phone</DevID>
+ <DevTyp>phone</DevTyp>
+ <UTC />
+ <SupportLargeObjs />
+ <SupportNumberOfChanges />
+ <DataStore>
+  <SourceRef>./C:Contacts.cdb</SourceRef>
+  <DisplayName>Contacts</DisplayName>
+  <MaxGUIDSize>8</MaxGUIDSize>
+  <Rx-Pref>
+   <CTType>text/x-vcard</CTType>
+   <VerCT>2.1</VerCT>
+  </Rx-Pref>
+  <Tx-Pref>
+   <CTType>text/x-vcard</CTType>
+   <VerCT>2.1</VerCT>
+  </Tx-Pref>
+  <SyncCap>
+   <SyncType>1</SyncType>
+   <SyncType>2</SyncType>
+   <SyncType>3</SyncType>
+   <SyncType>4</SyncType>
+   <SyncType>5</SyncType>
+   <SyncType>6</SyncType>
+   <SyncType>7</SyncType>
+  </SyncCap>
+ </DataStore>
+ <DataStore>
+  <SourceRef>./C:Calendar</SourceRef>
+  <DisplayName>Calendar</DisplayName>
+  <MaxGUIDSize>8</MaxGUIDSize>
+  <Rx-Pref>
+   <CTType>text/x-vcalendar</CTType>
+   <VerCT>1.0</VerCT>
+  </Rx-Pref>
+  <Tx-Pref>
+   <CTType>text/x-vcalendar</CTType>
+   <VerCT>1.0</VerCT>
+  </Tx-Pref>
+  <SyncCap>
+   <SyncType>1</SyncType>
+   <SyncType>2</SyncType>
+   <SyncType>3</SyncType>
+   <SyncType>4</SyncType>
+   <SyncType>5</SyncType>
+   <SyncType>6</SyncType>
+   <SyncType>7</SyncType>
+  </SyncCap>
+ </DataStore>
+ <CTCap>
+  <CTType>text/x-vcard</CTType>
+  <PropName>BEGIN</PropName>
+  <ValEnum>VCARD</ValEnum>
+  <DisplayName>Begin</DisplayName>
+  <PropName>END</PropName>
+  <ValEnum>VCARD</ValEnum>
+  <DisplayName>End</DisplayName>
+  <PropName>VERSION</PropName>
+  <ValEnum>2.1</ValEnum>
+  <DisplayName>Version</DisplayName>
+  <PropName>REV</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Revision</DisplayName>
+  <PropName>N</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Name</DisplayName>
+  <PropName>ADR</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Address</DisplayName>
+  <ParamName>HOME</ParamName>
+  <DataType />
+  <DisplayName>Home address</DisplayName>
+  <ParamName>WORK</ParamName>
+  <DataType />
+  <DisplayName>Work address</DisplayName>
+  <PropName>TEL</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Telephone number</DisplayName>
+  <ParamName>HOME</ParamName>
+  <DataType />
+  <DisplayName>Home telephone</DisplayName>
+  <ParamName>WORK</ParamName>
+  <DataType />
+  <DisplayName>Work telephone</DisplayName>
+  <ParamName>CELL</ParamName>
+  <DataType />
+  <DisplayName>Cellular number</DisplayName>
+  <ParamName>PAGER</ParamName>
+  <DataType />
+  <DisplayName>Pager number</DisplayName>
+  <ParamName>FAX</ParamName>
+  <DataType />
+  <DisplayName>Fax number</DisplayName>
+  <ParamName>VIDEO</ParamName>
+  <DataType />
+  <DisplayName>Video number</DisplayName>
+  <ParamName>PREF</ParamName>
+  <DataType />
+  <DisplayName>Default number</DisplayName>
+  <ParamName>CAR</ParamName>
+  <DataType />
+  <DisplayName>Car telephone</DisplayName>
+  <PropName>FN</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>FullName</DisplayName>
+  <PropName>EMAIL</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Email address</DisplayName>
+  <ParamName>HOME</ParamName>
+  <DataType />
+  <DisplayName>Home email</DisplayName>
+  <ParamName>WORK</ParamName>
+  <DataType />
+  <DisplayName>Work email</DisplayName>
+  <PropName>URL</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>URL address</DisplayName>
+  <ParamName>HOME</ParamName>
+  <DataType />
+  <DisplayName>Home URL</DisplayName>
+  <ParamName>WORK</ParamName>
+  <DataType />
+  <DisplayName>Work URL</DisplayName>
+  <PropName>NOTE</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Note</DisplayName>
+  <PropName>TITLE</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Title</DisplayName>
+  <PropName>ORG</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Organisation</DisplayName>
+  <PropName>PHOTO</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Photo</DisplayName>
+  <PropName>BDAY</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Birthday</DisplayName>
+  <PropName>SOUND</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Sound</DisplayName>
+  <PropName>X-WV-ID</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Wireless Village Id</DisplayName>
+  <PropName>X-ASSISTANT</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Assistant name</DisplayName>
+  <PropName>X-ASSISTANT-TEL</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Assistant phone</DisplayName>
+  <PropName>X-ANNIVERSARY</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Anniversary</DisplayName>
+  <PropName>X-SPOUSE</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Spouse</DisplayName>
+  <PropName>X-CHILDREN</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Children</DisplayName>
+  <PropName>X-CLASS</PropName>
+  <ValEnum>PUBLIC</ValEnum>
+  <ValEnum>PRIVATE</ValEnum>
+  <ValEnum>CONFIDENTIAL</ValEnum>
+  <DisplayName>Class</DisplayName>
+  <PropName>X-SIP</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>SIP protocol</DisplayName>
+  <ParamName>POC</ParamName>
+  <DataType />
+  <DisplayName>POC</DisplayName>
+  <ParamName>SWIS</ParamName>
+  <DataType />
+  <DisplayName>SWIS</DisplayName>
+  <ParamName>VOIP</ParamName>
+  <DataType />
+  <DisplayName>Voice over IP</DisplayName>
+  <CTType>text/x-vcalendar</CTType>
+  <PropName>BEGIN</PropName>
+  <ValEnum>VCALENDAR</ValEnum>
+  <ValEnum>VEVENT</ValEnum>
+  <ValEnum>VTODO</ValEnum>
+  <DisplayName>Begin</DisplayName>
+  <PropName>END</PropName>
+  <ValEnum>VCALENDAR</ValEnum>
+  <ValEnum>VEVENT</ValEnum>
+  <ValEnum>VTODO</ValEnum>
+  <DisplayName>End</DisplayName>
+  <PropName>VERSION</PropName>
+  <ValEnum>1.0</ValEnum>
+  <DisplayName>Version</DisplayName>
+  <PropName>UID</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Uid</DisplayName>
+  <PropName>SUMMARY</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Summary</DisplayName>
+  <PropName>DESCRIPTION</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Description</DisplayName>
+  <PropName>DTSTART</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Dstart</DisplayName>
+  <PropName>DTEND</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Dtend</DisplayName>
+  <PropName>AALARM</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Aalarm</DisplayName>
+  <PropName>CLASS</PropName>
+  <ValEnum>PUBLIC</ValEnum>
+  <ValEnum>PRIVATE</ValEnum>
+  <ValEnum>CONFIDENTIAL</ValEnum>
+  <DisplayName>Class</DisplayName>
+  <PropName>LOCATION</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Location</DisplayName>
+  <PropName>LAST-MODIFIED</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Last Modified</DisplayName>
+  <PropName>PRIORITY</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Priority</DisplayName>
+  <PropName>STATUS</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Status</DisplayName>
+  <PropName>RRULE</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Rrule</DisplayName>
+  <PropName>COMPLETED</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Completed</DisplayName>
+  <PropName>DCREATED</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Dcreated</DisplayName>
+  <PropName>DUE</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Due</DisplayName>
+  <PropName>EXDATE</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>ExDate</DisplayName>
+  <PropName>CATEGORIES</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Categories</DisplayName>
+  <PropName>SEQUENCE</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Sequence</DisplayName>
+  <PropName>TZ</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>TZ</DisplayName>
+  <PropName>DAYLIGHT</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Daylight</DisplayName>
+  <PropName>RDATE</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>RDate</DisplayName>
+  <PropName>ATTENDEE</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Attendee</DisplayName>
+  <ParamName>ROLE</ParamName>
+  <DataType />
+  <DisplayName>Role</DisplayName>
+  <ParamName>STATUS</ParamName>
+  <DataType />
+  <DisplayName>Status</DisplayName>
+  <ParamName>X-CN</ParamName>
+  <DataType />
+  <DisplayName>X-CN</DisplayName>
+  <ParamName>X-ROLE</ParamName>
+  <DataType />
+  <DisplayName>Role</DisplayName>
+  <ParamName>X-SENTBY</ParamName>
+  <DataType />
+  <DisplayName>Sent by</DisplayName>
+  <ParamName>X-STATUS</ParamName>
+  <DataType />
+  <DisplayName>Sent by</DisplayName>
+  <PropName>X-RECURRENCE-ID</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Recurrence</DisplayName>
+  <PropName>X-METHOD</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Method</DisplayName>
+  <PropName>X-SYMBIAN-LUID</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Local UID</DisplayName>
+  <PropName>X-SYMBIAN-DTSTAMP</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>Time stamp</DisplayName>
+  <PropName>X-EPOCAGENDAENTRYTYPE</PropName>
+  <DataType />
+  <Size>256</Size>
+  <DisplayName>X-Epoc Agenda Entry Type</DisplayName>
+ </CTCap>
+</DevInf></Data></Item></Put><Final></Final></SyncBody></SyncML>

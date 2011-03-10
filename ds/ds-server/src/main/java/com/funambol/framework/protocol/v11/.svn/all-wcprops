@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/protocol/v11
+END
+BasicRequirements.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/protocol/v11/BasicRequirements.java
+END
+SyncModificationsRequirements.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/protocol/v11/SyncModificationsRequirements.java
+END
+ClientModificationsRequirements.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/protocol/v11/ClientModificationsRequirements.java
+END
+InitializationRequirements.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/protocol/v11/InitializationRequirements.java
+END
+Errors.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/framework/protocol/v11/Errors.java
+END

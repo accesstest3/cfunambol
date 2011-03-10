@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/resources/config
+END
+ctpclient.properties
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/resources/config/ctpclient.properties
+END
+ctpaddusers.properties
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/resources/config/ctpaddusers.properties
+END
+log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-multi-client-driver/src/main/resources/config/log4j.xml
+END

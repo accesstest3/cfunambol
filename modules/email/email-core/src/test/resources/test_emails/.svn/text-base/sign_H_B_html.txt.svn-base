@@ -1,0 +1,52 @@
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by a.mail.sonomait.com (Postfix) with ESMTP id 888FC1EEC076
+	for <gibi@funambol.net>; Mon, 17 Dec 2007 08:57:58 -0800 (PST)
+X-Spam-Score: -0.21
+X-Spam-Level: 
+X-Spam-Status: No, score=-0.21 tagged_above=-10 required=5 tests=[AWL=-1.750,
+	BAYES_00=-2.599, HTML_50_60=0.134, HTML_MESSAGE=0.001,
+	HTML_TITLE_EMPTY=0.214, LONGWORDS=3.789, MIME_HTML_ONLY=0.001]
+Received: from a.mail.sonomait.com ([127.0.0.1])
+	by localhost (a.mail.sonomait.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id FXqRpxGQ+LGs for <gibi@funambol.net>;
+	Mon, 17 Dec 2007 08:57:44 -0800 (PST)
+Received: from [192.168.0.52] (85-18-37-27.ip.fastwebnet.it [85.18.37.27])
+	by a.mail.sonomait.com (Postfix) with ESMTP id F1FB31EEC06C
+	for <gibi@funambol.net>; Mon, 17 Dec 2007 08:57:43 -0800 (PST)
+Message-ID: <4766AA89.5040705@funambol.net>
+Date: Mon, 17 Dec 2007 17:57:45 +0100
+From: gibidemo <gibi@funambol.net>
+User-Agent: Thunderbird 1.5.0.13 (Windows/20070809)
+MIME-Version: 1.0
+To:  gibi@funambol.net
+Subject: test without signature html format 2
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
+  <title></title>
+</head>
+<body bgcolor="#ffffff" text="#000000">
+Hi test,<br>
+<br>
+this is an html&nbsp; body <br>
+
+<br>
+list:<br>
+<ol>
+  <li>one one</li>
+  <li>two two</li>
+  <li>three three</li>
+</ol>
+<br>
+result must be with signature<br>
+<br>
+<u><b>title</b></u><br>
+article content, article content article content article content<br>
+article content article content article content article content
+
+</body>
+</html>

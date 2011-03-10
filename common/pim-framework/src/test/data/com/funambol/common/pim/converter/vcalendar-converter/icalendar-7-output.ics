@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:20060416T204136Z-4272-727-1-247@gollum
+SUMMARY:all fields
+DESCRIPTION:this is an appointment with plenty of fields set\, and special attributes...\N\Nempty line above\, line\Nbreak\N\Nspecial characters:\Na-umlaut ä\Nexclamation mark !\Nampersand disabled\Nhash #\Nleft angle bracket disabled\Nright angle bracket disabled\Nleft square bracket [\Nright square bracket ]\Nleft bracket (\Nright bracket )\Nbackslash \\\Nbackslash lf \\n\Nbackslash cr \\r\Nstar *\Ncarret ^\Npercent %\Ntilde ~\Ntick `\Nbacktick `\Ndouble quotation - not tested because Evolution encodes it incorrectly\Nsingle quotation '\Ncolon : \Nsemicolon \;\Ncomma \,\N
+LOCATION:virtual
+CATEGORIES:Business,test,bar
+CLASS:PRIVATE
+DTSTART:20060406T190000Z
+DTEND:20060406T193000Z
+SEQUENCE:4
+DTSTAMP:20060416T204136Z
+TRANSP:TRANSPARENT
+LAST-MODIFIED:20080809T193645Z
+X-FUNAMBOL-ALLDAY:0
+END:VEVENT
+END:VCALENDAR

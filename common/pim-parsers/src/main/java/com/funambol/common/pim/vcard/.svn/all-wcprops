@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/35930/trunk/funambol/common/pim-parsers/src/main/java/com/funambol/common/pim/vcard
+END
+VCardSyntaxParserListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/35930/trunk/funambol/common/pim-parsers/src/main/java/com/funambol/common/pim/vcard/VCardSyntaxParserListener.java
+END
+AbstractVCardSyntaxParserListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/33387/trunk/funambol/common/pim-parsers/src/main/java/com/funambol/common/pim/vcard/AbstractVCardSyntaxParserListener.java
+END

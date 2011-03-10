@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf
+END
+RowEditorModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/RowEditorModel.java
+END
+CTCapPropertiesTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/CTCapPropertiesTableModel.java
+END
+ExtValuesDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/ExtValuesDialog.java
+END
+FilterCapTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/FilterCapTableModel.java
+END
+DataStoresTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/DataStoresTableModel.java
+END
+CTCapPropParamTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/CTCapPropParamTableModel.java
+END
+CapabilitiesPropsTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/CapabilitiesPropsTableModel.java
+END
+ExtValuesTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/ExtValuesTableModel.java
+END
+Bundle.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/Bundle.java
+END
+CapabilitiesPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/CapabilitiesPanel.java
+END
+CTCapPropValEnumTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/CTCapPropValEnumTableModel.java
+END
+FilterCapPropertiesTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/FilterCapPropertiesTableModel.java
+END
+ExtTableEditor.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/ExtTableEditor.java
+END
+DataStorePropTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/DataStorePropTableModel.java
+END
+RXTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/RXTableModel.java
+END
+CTCapTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/CTCapTableModel.java
+END
+PropertiesCellRenderer.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/PropertiesCellRenderer.java
+END
+TXTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/TXTableModel.java
+END
+Bundle.properties
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/Bundle.properties
+END
+JTableCap.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/JTableCap.java
+END
+CTCapPropertiesTableEditor.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/CTCapPropertiesTableEditor.java
+END
+CTCapPropertiesDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/CTCapPropertiesDialog.java
+END
+FilterRXTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/FilterRXTableModel.java
+END
+FilterCapTableEditor.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/FilterCapTableEditor.java
+END
+FilterCapDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/FilterCapDialog.java
+END
+ExtTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/ExtTableModel.java
+END
+SyncCapTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/SyncCapTableModel.java
+END
+FilterCapKeywordsTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/FilterCapKeywordsTableModel.java
+END
+CTCapPropParamValEnumTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/CTCapPropParamValEnumTableModel.java
+END
+DSMemTableModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/devinf/DSMemTableModel.java
+END

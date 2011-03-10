@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/32831/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/sift-to-calendar/result
+END
+sift-inprocess-result-vcal.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/core/!svn/ver/32831/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/sift-to-calendar/result/sift-inprocess-result-vcal.vcs
+END
+sift-accepted-result-vcal.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/core/!svn/ver/32814/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/sift-to-calendar/result/sift-accepted-result-vcal.vcs
+END
+sift-inprocess-result-ical.ics
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/core/!svn/ver/32814/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/sift-to-calendar/result/sift-inprocess-result-ical.ics
+END
+sift-needsaction-result-vcal.vcs
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/core/!svn/ver/32814/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/sift-to-calendar/result/sift-needsaction-result-vcal.vcs
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/32315/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/sift-to-calendar/result/README.txt
+END

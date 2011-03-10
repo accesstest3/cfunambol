@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/36704/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO
+END
+init-reserved-storage-space-2GB.xml
+K 25
+svn:wc:ra_dav:version-url
+V 186
+/svn/core/!svn/ver/36704/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/init-reserved-storage-space-2GB.xml
+END
+dataset-userdb-10.xml
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/dataset-userdb-10.xml
+END
+dataset-userdb-11.xml
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/dataset-userdb-11.xml
+END
+exp-expired-incomplete-delete.xml
+K 25
+svn:wc:ra_dav:version-url
+V 184
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/exp-expired-incomplete-delete.xml
+END
+dataset-userdb-12.xml
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/dataset-userdb-12.xml
+END
+dataset-userdb-13.xml
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/core/!svn/ver/36663/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/dataset-userdb-13.xml
+END
+dataset-userdb-14.xml
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/core/!svn/ver/36663/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/dataset-userdb-14.xml
+END
+dataset-userdb-15.xml
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/core/!svn/ver/36663/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/dataset-userdb-15.xml
+END
+exp-expired-incomplete-with-properties-delete.xml
+K 25
+svn:wc:ra_dav:version-url
+V 200
+/svn/core/!svn/ver/36663/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/exp-expired-incomplete-with-properties-delete.xml
+END
+exp-deleted-1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/exp-deleted-1.xml
+END
+exp-deleted-2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/exp-deleted-2.xml
+END
+exp-deleted-3.xml
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/exp-deleted-3.xml
+END
+init-storage-space-usage.xml
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/core/!svn/ver/34867/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/init-storage-space-usage.xml
+END
+dataset.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/dataset.dtd
+END
+exp-deleted-4.xml
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/exp-deleted-4.xml
+END
+exp-deleted-5.xml
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/exp-deleted-5.xml
+END
+exp-deleted-6.xml
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/exp-deleted-6.xml
+END
+dataset-userdb-0.xml
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/dataset-userdb-0.xml
+END
+dataset-userdb-1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/dataset-userdb-1.xml
+END
+dataset-userdb-2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/dataset-userdb-2.xml
+END
+init-dataset-userdb.xml
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/core/!svn/ver/36662/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/init-dataset-userdb.xml
+END
+dataset-userdb-4.xml
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/core/!svn/ver/34787/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/dataset-userdb-4.xml
+END
+dataset-userdb-5.xml
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/core/!svn/ver/34787/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/dataset-userdb-5.xml
+END
+dataset-userdb-6.xml
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/dataset-userdb-6.xml
+END
+dataset-userdb-7.xml
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/dataset-userdb-7.xml
+END
+init-reserved-storage-space.xml
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/svn/core/!svn/ver/34867/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/init-reserved-storage-space.xml
+END
+dataset-userdb-8.xml
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/core/!svn/ver/34362/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/dataset-userdb-8.xml
+END
+dataset-userdb-9.xml
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/dao/FileDataObjectDAO/dataset-userdb-9.xml
+END

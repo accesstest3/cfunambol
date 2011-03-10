@@ -1,0 +1,497 @@
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/core/!svn/ver/36698/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh
+END
+SonyEricssonK750Iin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonK750Iin.bsh
+END
+Nokia7610in.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/Nokia7610in.bsh
+END
+Nokia3109out.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/34267/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/Nokia3109out.bsh
+END
+DetectSonyEricssonJAMout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/DetectSonyEricssonJAMout.bsh
+END
+MotorolaXout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MotorolaXout.bsh
+END
+BlackBerryPIMout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/core/!svn/ver/30367/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/BlackBerryPIMout.bsh
+END
+Nokia6610Iout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/Nokia6610Iout.bsh
+END
+NokiaXin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/core/!svn/ver/33861/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/NokiaXin.bsh
+END
+SiemensM55out.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SiemensM55out.bsh
+END
+SiemensS5Xout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SiemensS5Xout.bsh
+END
+SonyEricssonW8Xin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonW8Xin.bsh
+END
+SonyEricssonW8Xout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonW8Xout.bsh
+END
+Nokia3110out.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/Nokia3110out.bsh
+END
+SonyEricssonK800Iin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonK800Iin.bsh
+END
+Nokia6111in.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/Nokia6111in.bsh
+END
+MotorolaPEBLU6out.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MotorolaPEBLU6out.bsh
+END
+SonyEricssonK750Iout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonK750Iout.bsh
+END
+Nokia9500out.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/Nokia9500out.bsh
+END
+NokiaS40-5FP1LEin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/core/!svn/ver/30132/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/NokiaS40-5FP1LEin.bsh
+END
+MotorolaXin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MotorolaXin.bsh
+END
+SonyEricssonZ52Xin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonZ52Xin.bsh
+END
+MotorolaV5XXin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MotorolaV5XXin.bsh
+END
+SonyEricssonW910Iout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonW910Iout.bsh
+END
+MotorolaEPOCXin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MotorolaEPOCXin.bsh
+END
+NokiaS40-6out.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/core/!svn/ver/30353/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/NokiaS40-6out.bsh
+END
+MozillaSyncClientout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/core/!svn/ver/34067/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MozillaSyncClientout.bsh
+END
+PanasonicX70in.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/PanasonicX70in.bsh
+END
+MotorolaV8in.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/30321/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MotorolaV8in.bsh
+END
+Nokia5310in.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/Nokia5310in.bsh
+END
+Nokia6111out.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/34267/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/Nokia6111out.bsh
+END
+SonyEricssonK800Iout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonK800Iout.bsh
+END
+SonyEricssonV800in.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonV800in.bsh
+END
+MotorolaZ8in.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MotorolaZ8in.bsh
+END
+DetectSonyEricssonJAMin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/DetectSonyEricssonJAMin.bsh
+END
+Nokia7610out.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/34859/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/Nokia7610out.bsh
+END
+SonyEricssonK608Iout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonK608Iout.bsh
+END
+SyncEvolutionin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SyncEvolutionin.bsh
+END
+SonyEricssonJP9in.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonJP9in.bsh
+END
+SyncEvolutionout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SyncEvolutionout.bsh
+END
+SonyEricssonJP9out.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonJP9out.bsh
+END
+NokiaS40-5FP1LEout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/core/!svn/ver/30584/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/NokiaS40-5FP1LEout.bsh
+END
+SonyEricssonXin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonXin.bsh
+END
+Nokia6610Iin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/Nokia6610Iin.bsh
+END
+MotorolaK1in.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MotorolaK1in.bsh
+END
+SonyEricssonW910Iin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonW910Iin.bsh
+END
+SynthesisIn.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SynthesisIn.bsh
+END
+NokiaS40out.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/NokiaS40out.bsh
+END
+SynthesisOut.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SynthesisOut.bsh
+END
+NokiaS60out.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/core/!svn/ver/33226/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/NokiaS60out.bsh
+END
+SonyEricssonEPOCXin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonEPOCXin.bsh
+END
+SonyEricssonEPOCXout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonEPOCXout.bsh
+END
+SiemensS5Xin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SiemensS5Xin.bsh
+END
+SiemensSK65Xout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SiemensSK65Xout.bsh
+END
+MotorolaV600in.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MotorolaV600in.bsh
+END
+SonyEricssonT610in.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonT610in.bsh
+END
+SonyEricssonK610Iin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/33873/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonK610Iin.bsh
+END
+SonyEricssonK610Iout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonK610Iout.bsh
+END
+SonyEricssonM600Iin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonM600Iin.bsh
+END
+MotorolaV8out.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/core/!svn/ver/30719/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MotorolaV8out.bsh
+END
+PanasonicX70out.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/PanasonicX70out.bsh
+END
+Nokia5310out.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/Nokia5310out.bsh
+END
+SonyEricssonK608Iin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonK608Iin.bsh
+END
+MotorolaWin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MotorolaWin.bsh
+END
+iPodXout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/core/!svn/ver/30004/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/iPodXout.bsh
+END
+FixV65RecurrentEventout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/FixV65RecurrentEventout.bsh
+END
+MotorolaV3xxin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MotorolaV3xxin.bsh
+END
+MotorolaV3xxout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MotorolaV3xxout.bsh
+END
+BlackBerryPIMin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/core/!svn/ver/30318/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/BlackBerryPIMin.bsh
+END
+SonyEricssonXout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonXout.bsh
+END
+SonyEricssonZ52Xout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonZ52Xout.bsh
+END
+SiemensS55Xin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SiemensS55Xin.bsh
+END
+NokiaS40in.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/NokiaS40in.bsh
+END
+SiemensM55in.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SiemensM55in.bsh
+END
+NokiaS40-6in.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/30353/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/NokiaS40-6in.bsh
+END
+MotorolaEPOCXout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MotorolaEPOCXout.bsh
+END
+MozillaSyncClientin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/core/!svn/ver/29962/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MozillaSyncClientin.bsh
+END
+SiemensSK65Xin.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SiemensSK65Xin.bsh
+END
+Nokia3110in.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/Nokia3110in.bsh
+END
+Nokia6200in.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/Nokia6200in.bsh
+END
+Nokia6200out.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/Nokia6200out.bsh
+END
+MotorolaPEBLU6in.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MotorolaPEBLU6in.bsh
+END
+SonyEricssonM600Iout.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/core/!svn/ver/29963/trunk/funambol/modules/foundation/phones-support/src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/SonyEricssonM600Iout.bsh
+END

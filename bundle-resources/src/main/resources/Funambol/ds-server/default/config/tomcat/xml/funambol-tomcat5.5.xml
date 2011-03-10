@@ -1,0 +1,11 @@
+<!--
+    Context configuration file for the Tomcat Funambol DS Web App
+-->
+<Context path="{context_path}" docBase="funambol" debug="9" 
+         privileged="true" verbosity="4" unpackWAR="true" antiJARLocking="true"
+         antiResourceLocking="true">
+
+  <Logger className="org.apache.catalina.logger.FileLogger" 
+          prefix="localhost_funambol_log." suffix=".txt" timestamp="true" />
+
+</Context>

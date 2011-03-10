@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/35942/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/media/file/parser
+END
+FileDataObjectStreamingUnmarshallerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/core/!svn/ver/35942/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/media/file/parser/FileDataObjectStreamingUnmarshallerTest.java
+END
+Base64DecoderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/33362/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/media/file/parser/Base64DecoderTest.java
+END
+FileDataObjectMarshallerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/core/!svn/ver/34613/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/media/file/parser/FileDataObjectMarshallerTest.java
+END
+FileDataObjectXMLParserTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/core/!svn/ver/34613/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/media/file/parser/FileDataObjectXMLParserTest.java
+END

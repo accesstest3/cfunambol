@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/core/!svn/ver/32189/trunk/funambol/ds/ds-server-systray/src
+END
+normal.ico
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/core/!svn/ver/29901/trunk/funambol/ds/ds-server-systray/src/normal.ico
+END
+red.ico
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/core/!svn/ver/29901/trunk/funambol/ds/ds-server-systray/src/red.ico
+END
+resur.rc
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/core/!svn/ver/29901/trunk/funambol/ds/ds-server-systray/src/resur.rc
+END
+status.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/core/!svn/ver/32189/trunk/funambol/ds/ds-server-systray/src/status.cpp
+END
+yellow.ico
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/core/!svn/ver/29901/trunk/funambol/ds/ds-server-systray/src/yellow.ico
+END
+green.ico
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/core/!svn/ver/29901/trunk/funambol/ds/ds-server-systray/src/green.ico
+END
+resource.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/core/!svn/ver/29901/trunk/funambol/ds/ds-server-systray/src/resource.h
+END

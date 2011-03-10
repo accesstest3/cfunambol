@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/core/!svn/ver/36445/trunk/funambol/modules/webdemo
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/LICENSE.txt
+END
+changeslog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/core/!svn/ver/36412/trunk/funambol/modules/webdemo/changeslog.txt
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/core/!svn/ver/36445/trunk/funambol/modules/webdemo/pom.xml
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/.cvsignore
+END

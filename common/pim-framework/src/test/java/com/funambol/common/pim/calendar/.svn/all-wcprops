@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/35029/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/pim/calendar
+END
+TaskTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/35029/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/pim/calendar/TaskTest.java
+END
+ExceptionToRecurrenceRuleTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/pim/calendar/ExceptionToRecurrenceRuleTest.java
+END
+CalendarTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/30926/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/pim/calendar/CalendarTest.java
+END
+RecurrencePatternTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/java/com/funambol/common/pim/calendar/RecurrencePatternTest.java
+END

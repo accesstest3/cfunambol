@@ -1,0 +1,254 @@
+<SyncML>
+<SyncHdr>
+<VerDTD>1.2</VerDTD>
+<VerProto>SyncML/1.2</VerProto>
+<SessionID>1203</SessionID>
+<MsgID>1</MsgID>
+<Target>
+<LocURI>http://localhost:8080/funambol/ds</LocURI>
+</Target>
+<Source>
+<LocURI>syncml-phone</LocURI>
+</Source>
+<Cred>
+<Meta>
+<Format>b64</Format>
+<Type>syncml:auth-basic</Type>
+</Meta>
+<Data>Z3Vlc3Q6Z3Vlc3Q=</Data>
+</Cred>
+<Meta>
+<MaxMsgSize>5000</MaxMsgSize>
+</Meta>
+</SyncHdr>
+<SyncBody>
+<Put>
+<CmdID>1</CmdID>
+<Item>
+<Source>
+<LocURI>./devinf12</LocURI>
+</Source>
+<Meta>
+<Type>application/vnd.syncml-devinf+wbxml</Type>
+</Meta>
+<Data>
+<DevInf xmlns="syncml:devinf">
+  <VerDTD>1.2</VerDTD>
+  <Man>Nokia</Man>
+  <Mod>Nokia 5610d-1</Mod>
+  <FwV>V 04.20
+26-09-07
+RM-242
+(c) N..</FwV>
+  <SwV>V 04.20
+26-09-07
+RM-242
+(c) N..</SwV>
+  <HwV>1000</HwV>
+  <DevID>IMEI:xxxxxxxxxxxxxxx</DevID>
+  <DevTyp>phone</DevTyp>
+  <SupportLargeObjs />
+  <SupportNumberOfChanges />
+  <DataStore>
+   <SourceRef>/telecom/pb.vcf</SourceRef>
+   <MaxGUIDSize>8</MaxGUIDSize>
+   <Rx-Pref>
+    <CTType>text/x-vcard</CTType>
+    <VerCT>2.1</VerCT>
+   </Rx-Pref>
+   <Tx-Pref>
+    <CTType>text/x-vcard</CTType>
+    <VerCT>2.1</VerCT>
+   </Tx-Pref>
+   <SyncCap>
+    <SyncType>1</SyncType>
+    <SyncType>2</SyncType>
+    <SyncType>4</SyncType>
+    <SyncType>6</SyncType>
+    <SyncType>7</SyncType>
+   </SyncCap>
+   <CTCap>
+    <CTType>text/x-vcard</CTType>
+    <VerCT>2.1</VerCT>
+    <Property>
+     <PropName>BEGIN</PropName>
+     <ValEnum>VCARD</ValEnum>
+    </Property>
+    <Property>
+     <PropName>END</PropName>
+     <ValEnum>VCARD</ValEnum>
+    </Property>
+    <Property>
+     <PropName>N</PropName>
+    </Property>
+    <Property>
+     <PropName>FN</PropName>
+    </Property>
+    <Property>
+     <PropName>TEL</PropName>
+     <ParamName>PREF</ParamName>
+     <ParamName>WORK</ParamName>
+     <ParamName>HOME</ParamName>
+     <ParamName>VOICE</ParamName>
+     <ParamName>FAX</ParamName>
+     <ParamName>CELL</ParamName>
+     <ParamName>VIDEO</ParamName>
+     <ParamName>POC</ParamName>
+    </Property>
+    <Property>
+     <PropName>NOTE</PropName>
+    </Property>
+    <Property>
+     <PropName>URL</PropName>
+    </Property>
+    <Property>
+     <PropName>EMAIL</PropName>
+    </Property>
+    <Property>
+     <PropName>ADR</PropName>
+    </Property>
+    <Property>
+     <PropName>PHOTO</PropName>
+    </Property>
+    <Property>
+     <PropName>BDAY</PropName>
+    </Property>
+    <Property>
+     <PropName>TITLE</PropName>
+    </Property>
+    <Property>
+     <PropName>ORG</PropName>
+    </Property>
+    <Property>
+     <PropName>X-NICKNAME</PropName>
+    </Property>
+    <Property>
+     <PropName>X-SIP</PropName>
+    </Property>
+    <Property>
+     <PropName>X-WV-ID</PropName>
+    </Property>
+   </CTCap>
+  </DataStore>
+  <DataStore>
+   <SourceRef>/telecom/cal.vcs</SourceRef>
+   <MaxGUIDSize>8</MaxGUIDSize>
+   <Rx-Pref>
+    <CTType>text/x-vcalendar</CTType>
+    <VerCT>1.0</VerCT>
+   </Rx-Pref>
+   <Tx-Pref>
+    <CTType>text/x-vcalendar</CTType>
+    <VerCT>1.0</VerCT>
+   </Tx-Pref>
+   <SyncCap>
+    <SyncType>1</SyncType>
+    <SyncType>2</SyncType>
+    <SyncType>4</SyncType>
+    <SyncType>6</SyncType>
+    <SyncType>7</SyncType>
+   </SyncCap>
+   <CTCap>
+    <CTType>text/x-vcalendar</CTType>
+    <VerCT>1.0</VerCT>
+    <Property>
+     <PropName>BEGIN</PropName>
+     <ValEnum>VCALENDAR</ValEnum>
+     <ValEnum>VEVENT</ValEnum>
+     <ValEnum>VTODO</ValEnum>
+    </Property>
+    <Property>
+     <PropName>END</PropName>
+     <ValEnum>VCALENDAR</ValEnum>
+     <ValEnum>VEVENT</ValEnum>
+     <ValEnum>VTODO</ValEnum>
+    </Property>
+    <Property>
+     <PropName>DTSTART</PropName>
+    </Property>
+    <Property>
+     <PropName>DTEND</PropName>
+    </Property>
+    <Property>
+     <PropName>SUMMARY</PropName>
+    </Property>
+    <Property>
+     <PropName>DESCRIPTION</PropName>
+    </Property>
+    <Property>
+     <PropName>DUE</PropName>
+    </Property>
+    <Property>
+     <PropName>AALARM</PropName>
+    </Property>
+    <Property>
+     <PropName>DALARM</PropName>
+    </Property>
+    <Property>
+     <PropName>RRULE</PropName>
+    </Property>
+    <Property>
+     <PropName>CATEGORIES</PropName>
+     <ParamName>SPECIAL OCCASION</ParamName>
+     <ParamName>MEETING</ParamName>
+     <ParamName>PHONE CALL</ParamName>
+     <ParamName>MISCELLANEOUS</ParamName>
+     <ParamName>REMINDER</ParamName>
+    </Property>
+    <Property>
+     <PropName>LOCATION</PropName>
+    </Property>
+    <Property>
+     <PropName>STATUS</PropName>
+     <ParamName>NEEDS ACTION</ParamName>
+     <ParamName>COMPLETED</ParamName>
+    </Property>
+    <Property>
+     <PropName>PRIORITY</PropName>
+     <ParamName>1</ParamName>
+     <ParamName>2</ParamName>
+     <ParamName>3</ParamName>
+    </Property>
+    <Property>
+     <PropName>EXDATE</PropName>
+    </Property>
+    <Property>
+     <PropName>DAYLIGHT</PropName>
+    </Property>
+   </CTCap>
+  </DataStore>
+  <DataStore>
+   <SourceRef>/telecom/note.txt</SourceRef>
+   <MaxGUIDSize>8</MaxGUIDSize>
+   <Rx-Pref>
+    <CTType>text/plain</CTType>
+    <VerCT></VerCT>
+   </Rx-Pref>
+   <Tx-Pref>
+    <CTType>text/plain</CTType>
+    <VerCT></VerCT>
+   </Tx-Pref>
+   <SyncCap>
+    <SyncType>1</SyncType>
+    <SyncType>2</SyncType>
+    <SyncType>4</SyncType>
+    <SyncType>6</SyncType>
+    <SyncType>7</SyncType>
+   </SyncCap>
+   <CTCap>
+    <CTType>text/plain</CTType>
+    <VerCT></VerCT>
+    <Property>
+     <PropName></PropName>
+     <DataType>chr</DataType>
+     <MaxSize>3000</MaxSize>
+    </Property>
+   </CTCap>
+  </DataStore>
+</DevInf>
+</Data>
+</Item>
+</Put>
+<Final/>
+</SyncBody>
+</SyncML>

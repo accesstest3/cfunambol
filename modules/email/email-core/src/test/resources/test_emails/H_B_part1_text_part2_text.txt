@@ -1,0 +1,58 @@
+Return-Path: <aaaaa@gmail.com>
+Delivered-To: 205-bbbbb@somedomain.com
+X-Spam-Checker-Version: SpamAssassin 3.1.7 (2006-10-05) on 
+	rs1000.servadmin.com
+X-Spam-Level: 
+X-Spam-Status: No, score=0.0 required=7.0 tests=AWL,HTML_MESSAGE 
+	autolearn=ham version=3.1.7
+Received: (qmail 22356 invoked by uid 110); 21 Dec 2006 03:38:38 -0600
+Delivered-To: 205-cccccc@somedomain.com
+Received: (qmail 22320 invoked by uid 110); 21 Dec 2006 03:38:37 -0600
+Delivered-To: 205-dddddd@somedomain.com
+Received: (qmail 22301 invoked by uid 110); 21 Dec 2006 03:38:37 -0600
+Delivered-To: 205-eeeeeee@somedomain.com
+Received: (qmail 22296 invoked from network); 21 Dec 2006 03:38:37 -0600
+Received: from ug-out-1314.google.com (66.249.92.168)
+  by rs1000.servadmin.com with SMTP; 21 Dec 2006 03:38:37 -0600
+Received-SPF: pass (rs1000.servadmin.com: SPF record at _spf.google.com designates 66.249.92.168 as permitted sender)
+Received: by ug-out-1314.google.com with SMTP id m2so3237305ugc
+        for <eeeeeee@somedomain.com>; Thu, 21 Dec 2006 01:38:35 -0800 (PST)
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws;
+        s=beta; d=gmail.com;
+        h=received:mime-version:message-id:content-type:to:subject:from:date:x-mailer:sender;
+        b=XGzzHfMPEmVMKkxBhWO013VgHZwspWQ3zFEpKz+35gWbEGPnAIJql0znQHEP402bLhP3Zi9CTHEApJwLA1EHsIPZ5y81P+EeUYco3c4kGLTsRD3pR38+Ico/CmPgliXmoSPn94xgmksI14JZLE2Sp2q94giA9sGBa0dQI6Ba2p4=
+Received: by 10.78.139.1 with SMTP id m1mr197613hud.1166693914620;
+        Thu, 21 Dec 2006 01:38:34 -0800 (PST)
+Return-Path: <aaaaa@gmail.com>
+Received: from ?192.168.1.40? ( [89.251.0.64])
+        by mx.google.com with ESMTP id 38sm12352975hua.2006.12.21.01.38.32;
+        Thu, 21 Dec 2006 01:38:33 -0800 (PST)
+Mime-Version: 1.0 (Apple Message framework v752.3)
+Message-Id: <19F062D3-88D9-4628-964C-D8841AC01D83@somedomain.com>
+Content-Type: multipart/mixed; boundary=Apple-Mail-2--591866374
+To: somedomain eeeeeee <eeeeeee@somedomain.com>
+Subject: Fwd: Email download issue
+From: aaaaaaa <aaaaaaa@somedomain.com>
+Date: Thu, 21 Dec 2006 10:38:14 +0100
+X-Mailer: Apple Mail (2.752.3)
+Sender: aaaaaaa <aaaaa@gmail.com>
+
+
+--Apple-Mail-2--591866374
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain;
+	charset=US-ASCII;
+	delsp=yes;
+	format=flowed
+
+
+A text part.
+
+--Apple-Mail-2--591866374
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain;
+	charset=US-ASCII;
+	format=flowed
+
+
+Another text part.

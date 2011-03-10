@@ -1,0 +1,19 @@
+Received: by 10.150.139.10 with SMTP id m10cs349822ybd;
+        Wed, 29 Oct 2008 04:31:02 -0700 (PDT)
+Date: Wed, 29 Oct 2008 04:30:51 -0700 (PDT)
+From: piter@funambol.com
+To: pit.may.imap.2@gmail.com
+Message-ID: <20081029113051.C737C164487@a.mail.sonomait.com>
+Subject: Invito evento: evento, thunderbird
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Si è stati invitati da piter <piter@funambol.com> a evento, thunderbird
+
+
+Summary: evento, thunderbird
+When: from Wednesday 29 Oct 2008, 12:00 (CEST)
+to Wednesday 29 Oct 2008, 13:00 (CEST)
+Where: location of the event
+Description: this is an event defined by thunderbird

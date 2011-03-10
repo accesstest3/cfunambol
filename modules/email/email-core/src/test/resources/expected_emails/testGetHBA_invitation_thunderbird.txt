@@ -1,0 +1,123 @@
+Received: by 10.150.139.10 with SMTP id m10cs349822ybd;
+        Wed, 29 Oct 2008 04:31:02 -0700 (PDT)
+Date: Wed, 29 Oct 2008 04:30:51 -0700 (PDT)
+From: piter@funambol.com
+To: pit.may.imap.2@gmail.com
+Message-ID: <20081029113051.C737C164487@a.mail.sonomait.com>
+Subject: Invito evento: evento, thunderbird
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_12_20935297.1225969893578"
+
+------=_Part_12_20935297.1225969893578
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Si è stati invitati da piter <piter@funambol.com> a evento, thunderbird
+
+
+Summary: evento, thunderbird
+When: from Wednesday 29 Oct 2008, 12:00 (CEST)
+to Wednesday 29 Oct 2008, 13:00 (CEST)
+Where: location of the event
+Description: this is an event defined by thunderbird
+
+------=_Part_12_20935297.1225969893578
+Content-Type: application/ics; name=invite.ics
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename=invite.ics
+
+BEGIN:VCALENDAR
+PRODID:-//Mozilla.org/NONSGML Mozilla Calendar V1.1//EN
+VERSION:2.0
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+X-LIC-LOCATION:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=3
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=10
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+CREATED:20081029T112954Z
+LAST-MODIFIED:20081029T113158Z
+DTSTAMP:20081029T113158Z
+UID:b988a410-af2e-412e-a94f-0d7bbf822064
+SUMMARY:evento\, thunderbird
+ORGANIZER;RSVP=TRUE;CN=piter;PARTSTAT=ACCEPTED;ROLE=CHAIR:mailto:
+ piter@funambol.com
+ATTENDEE;RSVP=TRUE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT:mailto:
+ pit.may.imap.2@gmail.com
+RRULE:FREQ=WEEKLY;INTERVAL=1
+CATEGORIES:Idee
+DTSTART;TZID=Europe/Berlin:20081029T130000
+DTEND;TZID=Europe/Berlin:20081029T140000
+LOCATION:location of the event
+DESCRIPTION:this is an event defined by thunderbird
+TRANSP:OPAQUE
+SEQUENCE:0
+END:VEVENT
+END:VCALENDAR
+
+
+------=_Part_12_20935297.1225969893578
+Content-Type: text/calendar; charset=us-ascii; name=calendar.ics
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename=calendar.ics
+
+BEGIN:VCALENDAR
+PRODID:-//Mozilla.org/NONSGML Mozilla Calendar V1.1//EN
+VERSION:2.0
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+X-LIC-LOCATION:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=3
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=10
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+CREATED:20081029T112954Z
+LAST-MODIFIED:20081029T113158Z
+DTSTAMP:20081029T113158Z
+UID:b988a410-af2e-412e-a94f-0d7bbf822064
+SUMMARY:evento\, thunderbird
+ORGANIZER;RSVP=TRUE;CN=piter;PARTSTAT=ACCEPTED;ROLE=CHAIR:mailto:
+ piter@funambol.com
+ATTENDEE;RSVP=TRUE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT:mailto:
+ pit.may.imap.2@gmail.com
+RRULE:FREQ=WEEKLY;INTERVAL=1
+CATEGORIES:Idee
+DTSTART;TZID=Europe/Berlin:20081029T130000
+DTEND;TZID=Europe/Berlin:20081029T140000
+LOCATION:location of the event
+DESCRIPTION:this is an event defined by thunderbird
+TRANSP:OPAQUE
+SEQUENCE:0
+END:VEVENT
+END:VCALENDAR
+
+
+------=_Part_12_20935297.1225969893578--

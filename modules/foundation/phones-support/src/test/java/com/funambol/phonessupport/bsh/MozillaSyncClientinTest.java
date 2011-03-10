@@ -1,0 +1,123 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2009 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+package com.funambol.phonessupport.bsh;
+
+import com.funambol.tools.test.BeanShellTestCase;
+
+/**
+ * MozillaSyncClientinTest
+ * @version $Id: MozillaSyncClientinTest.java 34067 2010-03-25 17:26:52Z gazza $
+ */
+public class MozillaSyncClientinTest extends BeanShellTestCase {
+
+    // ------------------------------------------------------------ Private data
+
+    private String bshFileName =
+            "src/main/config/com/funambol/server/engine/pipeline/phones-support/bsh/MozillaSyncClientin.bsh";
+
+    // ---------------------------------------------------------- Public methods
+    public MozillaSyncClientinTest(String testName) throws Exception {
+        super(testName);
+        setBshFileName(bshFileName);
+    }
+
+    // -------------------------------------------------------------- Test cases
+
+    public void testFixAlarmAction() throws Throwable {
+
+        String method = "fixAlarmAction";
+
+        //
+        // Simple ical with AALARM
+        //
+        String ical = "BEGIN:VEVENT\n" +
+                      "CREATED:20070510T090525Z\n" +
+                      "LAST-MODIFIED:20070511T174627Z\n" +
+                      "DTSTAMP:20070510T090609Z\n" +
+                      "UID:aa90d6f6-4ad8-46da-ad25-85c0add8c1d9\n" +
+                      "SUMMARY:Conf per V6\n" +
+                      "PRIORITY:0\n" +
+                      "CLASS:PUBLIC\n" +
+                      "DTSTART;TZID=Europe/Rome:20070511T173000\n" +
+                      "DTEND;TZID=Europe/Rome:20070511T183000\n" +
+                      "BEGIN:VALARM\n" +
+                      "TRIGGER;VALUE=DURATION:-PT30M\n" +
+                      "DESCRIPTION:Mozilla Alarm: Conf per V6\n" +
+                      "ACTION:DISPLAY\n" +
+                      "END:VALARM\n" +
+                      "END:VEVENT";
+
+        String expectedical =
+                      "BEGIN:VEVENT\n" +
+                      "CREATED:20070510T090525Z\n" +
+                      "LAST-MODIFIED:20070511T174627Z\n" +
+                      "DTSTAMP:20070510T090609Z\n" +
+                      "UID:aa90d6f6-4ad8-46da-ad25-85c0add8c1d9\n" +
+                      "SUMMARY:Conf per V6\n" +
+                      "PRIORITY:0\n" +
+                      "CLASS:PUBLIC\n" +
+                      "DTSTART;TZID=Europe/Rome:20070511T173000\n" +
+                      "DTEND;TZID=Europe/Rome:20070511T183000\n" +
+                      "BEGIN:VALARM\n" +
+                      "TRIGGER;VALUE=DURATION:-PT30M\n" +
+                      "DESCRIPTION:Mozilla Alarm: Conf per V6\n" +
+                      "ACTION:AUDIO\n" +
+                      "END:VALARM\n" +
+                      "END:VEVENT";
+        
+        String result = exec(method, ical);
+        assertEquals(expectedical, result);
+
+        //
+        // Simple ical without AALARM
+        //
+        ical = "BEGIN:VEVENT\n" +
+               "CREATED:20070510T090525Z\n" +
+               "LAST-MODIFIED:20070511T174627Z\n" +
+               "DTSTAMP:20070510T090609Z\n" +
+               "UID:aa90d6f6-4ad8-46da-ad25-85c0add8c1d9\n" +
+               "SUMMARY:Conf per V6\n" +
+               "PRIORITY:0\n" +
+               "CLASS:PUBLIC\n" +
+               "DTSTART;TZID=Europe/Rome:20070511T173000\n" +
+               "DTEND;TZID=Europe/Rome:20070511T183000\n" +
+               "END:VEVENT";
+
+        result = exec(method, ical);
+        assertEquals(ical, result);
+    }
+
+}

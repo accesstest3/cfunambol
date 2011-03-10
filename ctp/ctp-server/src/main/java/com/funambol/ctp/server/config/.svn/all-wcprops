@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/core/!svn/ver/29764/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/config
+END
+CTPServerConfigurationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/config/CTPServerConfigurationException.java
+END
+CTPServerConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/29764/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/config/CTPServerConfiguration.java
+END
+CTPServerConfigBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/29700/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/config/CTPServerConfigBean.java
+END

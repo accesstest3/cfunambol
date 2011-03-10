@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2" class="java.beans.XMLDecoder">
+    <object class="com.funambol.email.inboxlistener.plugin.UDPReaderPlugin">
+
+        <!-- enable the entire plug-in -->
+        <void property="enabled">
+            <boolean>false</boolean>
+        </void>
+
+        <!-- enable the Unicast reader.
+        used in the notification from an external source i.e. MailServer -->
+        <void property="enableUnicast">
+            <boolean>true</boolean>
+        </void>
+
+        <!-- used in both: multicast and unicast reader -->
+        <void property="unicastPort">
+            <int>4242</int>
+        </void>
+
+        <!-- enable the Unicast reader.
+        used in the notification from an internal source i.e. Officer -->
+        <void property="enableMulticast">
+            <boolean>false</boolean>
+        </void>
+
+        <!-- used in the multicast reader -->
+        <void property="multicastGroup">
+            <string>228.10.45.01</string>
+        </void>
+
+        <!-- used in both: multicast and unicast reader -->
+        <void property="multicastPort">
+            <int>4501</int>
+        </void>
+
+        <void property="taskBeanFile">
+            <string>com/funambol/email/inboxlistener/task/InboxListenerOneShotTask.xml</string>
+        </void>
+
+        <void property="submitter">
+            <object class="com.funambol.email.inboxlistener.plugin.submitter.BufferedSubmitter">
+                <void property="maxThread">
+                    <int>5</int>
+                </void>
+                <void property="prefix">
+                    <string>il-udp-reader</string>
+                </void>
+            </object>
+        </void>
+
+        <void property="parser">
+            <object class="com.funambol.email.inboxlistener.plugin.parser.MailboxNameParser">
+                <void property="prefix">
+                    <string>PREFIX</string>
+                </void>
+                <void property="postfix">
+                    <string></string>
+                </void>
+            </object>
+        </void>
+
+    </object>
+</java>

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels
+END
+ButtonResultSearchDevicePanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/ButtonResultSearchDevicePanel.java
+END
+CreateDevicePanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/CreateDevicePanel.java
+END
+ResultSearchDevicePanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/ResultSearchDevicePanel.java
+END
+SearchDevicePanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/SearchDevicePanel.java
+END
+FormSearchDevicePanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/device/panels/FormSearchDevicePanel.java
+END

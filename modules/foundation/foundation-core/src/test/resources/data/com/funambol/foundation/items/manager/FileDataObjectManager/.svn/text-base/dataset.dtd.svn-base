@@ -1,0 +1,28 @@
+<!ELEMENT dataset (
+    FNBL_FILE_DATA_OBJECT*)>
+
+<!ELEMENT FNBL_FILE_DATA_OBJECT EMPTY>
+<!ATTLIST FNBL_FILE_DATA_OBJECT
+    id CDATA #REQUIRED
+    userid CDATA #IMPLIED
+    source_uri CDATA #IMPLIED
+    last_update CDATA #IMPLIED
+    status CDATA #IMPLIED
+    upload_status CDATA #IMPLIED
+    local_name CDATA #IMPLIED
+    crc CDATA #IMPLIED
+    true_name CDATA #IMPLIED
+    created CDATA #IMPLIED
+    modified CDATA #IMPLIED
+    accessed CDATA #IMPLIED
+    h CDATA #IMPLIED
+    s CDATA #IMPLIED
+    a CDATA #IMPLIED
+    d CDATA #IMPLIED
+    w CDATA #IMPLIED
+    r CDATA #IMPLIED
+    x CDATA #IMPLIED
+    cttype CDATA #IMPLIED
+    object_size CDATA #IMPLIED
+    size_on_storage CDATA #IMPLIED
+>

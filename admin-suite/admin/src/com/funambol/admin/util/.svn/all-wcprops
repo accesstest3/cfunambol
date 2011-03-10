@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/core/!svn/ver/36304/trunk/funambol/admin-suite/admin/src/com/funambol/admin/util
+END
+Log.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/util/Log.java
+END
+ObjectsSortTools.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/util/ObjectsSortTools.java
+END
+ErrorManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/util/ErrorManager.java
+END
+BrowserTools.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/util/BrowserTools.java
+END
+DeepObjectCloner.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/util/DeepObjectCloner.java
+END
+Bundle.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/core/!svn/ver/28913/trunk/funambol/admin-suite/admin/src/com/funambol/admin/util/Bundle.java
+END
+WSTools.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/util/WSTools.java
+END
+Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/36304/trunk/funambol/admin-suite/admin/src/com/funambol/admin/util/Constants.java
+END
+ClauseTools.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/util/ClauseTools.java
+END
+Bundle-master.properties
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/36303/trunk/funambol/admin-suite/admin/src/com/funambol/admin/util/Bundle-master.properties
+END

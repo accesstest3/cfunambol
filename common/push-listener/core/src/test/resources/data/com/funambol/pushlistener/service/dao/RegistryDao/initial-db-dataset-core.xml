@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+
+<!--
+    FNBL_ID
+    ************************
+-->
+
+<FNBL_ID IDSPACE='email.registryid' COUNTER='10' INCREMENT_BY='1' />
+
+<!--
+    FNBL_PUSH_REGISTRY_BASIC
+    ************************
+-->
+
+<FNBL_PUSH_REGISTRY_BASIC id             ="1"
+                          period         ="1000"
+                          active         ="N"
+                          last_update    ="1234556666666"
+                          status         ="N"
+                          task_bean_file ="S"
+/>                                      
+                                        
+<FNBL_PUSH_REGISTRY_BASIC id             ="2"
+                          period         ="1000"
+                          active         ="Y"
+                          last_update    ="1234556667777"
+                          status         ="N"
+                          task_bean_file ="S"
+/>                                      
+                                        
+<FNBL_PUSH_REGISTRY_BASIC id             ="3"
+                          period         ="1000"
+                          active         ="Y"
+                          last_update    ="1234556668888"
+                          status         ="N"
+                          task_bean_file ="S"
+/>                                      
+                                        
+<FNBL_PUSH_REGISTRY_BASIC id             ="4"
+                          period         ="1000"
+                          active         ="Y"
+                          last_update    ="3234556666666"
+                          status         ="N"
+                          task_bean_file ="com.funambol.task.ScheduledTask"
+/>                                      
+                                        
+<FNBL_PUSH_REGISTRY_BASIC id             ="5"
+                          period         ="1005"
+                          active         ="N"
+                          last_update    ="43389765432"
+                          status         ="D"
+                          task_bean_file ="com.funambol.task.OneShotTask"
+/>
+
+<!--
+    FNBL_PUSH_REGISTRY_USERNAME
+    ***************************
+-->
+
+
+<FNBL_PUSH_REGISTRY_USERNAME id             ="1"
+                             period         ="1000"
+                             active         ="N"
+                             last_update    ="1234556666666"
+                             status         ="N"
+                             task_bean_file ="com.funambol.task.MagicTask"
+/>                                         
+                                           
+<FNBL_PUSH_REGISTRY_USERNAME id             ="2"
+                             period         ="1000"
+                             active         ="Y"
+                             last_update    ="1234556665555"
+                             status         ="N"
+                             task_bean_file ="com.funambol.task.MagicTask"
+                             USERNAME       ="john"
+/>
+
+<FNBL_PUSH_REGISTRY_USERNAME id             ="3"
+                             period         ="1000"
+                             active         ="Y"
+                             last_update    ="1233556666666"
+                             status         ="N"
+                             task_bean_file ="com.funambol.task.MagicTask"
+                             USERNAME       ="abigail"
+/>
+
+<FNBL_PUSH_REGISTRY_USERNAME id             ="4"
+                             period         ="1000"
+                             active         ="N"
+                             last_update    ="1232556226666"
+                             status         ="N"
+                             task_bean_file ="com.funambol.task.ScheduledTask"
+                             USERNAME       ="thomas"
+/>
+
+<FNBL_PUSH_REGISTRY_USERNAME id             ="5"
+                             period         ="1005"
+                             active         ="N"
+                             last_update    ="33389765432"
+                             status         ="D"
+                             task_bean_file ="com.funambol.task.OneShotTask"
+                             USERNAME       ="andrew"
+/>
+
+<!--
+    FNBL_PUSH_REGISTRY_COMPLEX
+    ***************************
+-->
+
+<FNBL_PUSH_REGISTRY_COMPLEX  id             ="1"
+                             period         ="1000"
+                             active         ="Y"
+                             last_update    ="1234556666666"
+                             status         ="U"
+                             task_bean_file ="com.funambol.task.MagicTask"
+                             VAR_FIELD       ="string for 1"
+                             BOOL_FIELD      ="true"
+                             OLD_BOOL_FIELD  ="N"
+                             LONG_FIELD      ="2321423231231"
+                             DECIMAL_FIELD   ="2453"
+                             DOUBLE_FIELD   ="2453"
+                             INTEGER_FIELD   ="123"
+                             DATE_FIELD      ="2008-04-16"
+                             TIME_FIELD      ="12:54:11"
+                             TIMESTAMP_FIELD ="2008-01-01 21:34:12"
+/>
+
+<FNBL_PUSH_REGISTRY_COMPLEX  id              ="2"
+                             period         ="1000"
+                             active         ="N"
+                             last_update    ="1234556666677"
+                             status         ="U"
+                             task_bean_file ="com.funambol.tasks.OneShotTask"
+                             VAR_FIELD       ="It's the value for 2"
+                             BOOL_FIELD      ="true"
+                             OLD_BOOL_FIELD  ="N"
+                             LONG_FIELD      ="2321423231231"
+                             DECIMAL_FIELD   ="556432"
+                             DOUBLE_FIELD    ="37.5"
+                             INTEGER_FIELD   ="123"
+                             DATE_FIELD      ="2009-12-23"
+                             TIME_FIELD      ="09:42:12"
+                             TIMESTAMP_FIELD ="2009-07-12 21:23:00"
+/>
+
+<FNBL_PUSH_REGISTRY_COMPLEX  id             ="3"
+                             period         ="1023"
+                             active         ="N"
+                             last_update    ="6578556661333"
+                             status         ="N"
+                             task_bean_file ="com.funambol.task.MagicTask"
+                             VAR_FIELD       ="3rd string value"
+                             BOOL_FIELD      ="false"
+                             OLD_BOOL_FIELD  ="N"
+                             LONG_FIELD      ="12222224444"
+                             DECIMAL_FIELD   ="2453"
+                             DOUBLE_FIELD    ="56.86"
+                             INTEGER_FIELD   ="5686"
+                             DATE_FIELD      ="2008-11-17"
+                             TIME_FIELD      ="2:32:10"
+                             TIMESTAMP_FIELD ="2009-06-22 12:34:23"
+/>
+
+<FNBL_PUSH_REGISTRY_COMPLEX  id             ="4"
+                             period         ="1000"
+                             active         ="Y"
+                             last_update    ="1234556666666"
+                             status         ="N"
+                             task_bean_file ="com.funambol.task.ScheduledTask"
+                             VAR_FIELD       ="the new value for 4"
+                             BOOL_FIELD      ="true"
+                             OLD_BOOL_FIELD  ="N"
+                             LONG_FIELD      ="2321423231231"
+                             DECIMAL_FIELD   ="2453"
+                             DOUBLE_FIELD    ="23.45"
+                             INTEGER_FIELD   ="123"
+                             DATE_FIELD      ="2009-03-12"
+                             TIME_FIELD      ="12:34:45"
+                             TIMESTAMP_FIELD ="2009-09-27 23:22:00"
+/>
+
+<FNBL_PUSH_REGISTRY_COMPLEX  id             ="5"
+                             period         ="1005"
+                             active         ="Y"
+                             last_update    ="33389765432"
+                             status         ="D"
+                             task_bean_file ="com.funambol.task.OneShotTask"
+                             VAR_FIELD       ="another string value"
+                             BOOL_FIELD      ="false"
+                             OLD_BOOL_FIELD  ="Y"
+                             LONG_FIELD      ="2321423231231"
+                             DECIMAL_FIELD   ="999999999992453"
+                             DOUBLE_FIELD   ="99.9"
+                             INTEGER_FIELD   ="123"
+                             DATE_FIELD      ="2009-06-06"
+                             TIME_FIELD      ="18:05:12"
+                             TIMESTAMP_FIELD ="2009-03-12 12:21:00"
+/>
+
+</dataset>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/36660/trunk/funambol/modules/foundation/foundation-connector/src/main/sql/postgresql
+END
+create_schema.sql
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/36660/trunk/funambol/modules/foundation/foundation-connector/src/main/sql/postgresql/create_schema.sql
+END
+init_schema.sql
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/33128/trunk/funambol/modules/foundation/foundation-connector/src/main/sql/postgresql/init_schema.sql
+END
+drop_schema.sql
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/36660/trunk/funambol/modules/foundation/foundation-connector/src/main/sql/postgresql/drop_schema.sql
+END

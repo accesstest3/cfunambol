@@ -1,0 +1,274 @@
+2011-02-26
+-nichele: Removed sql queries from ClientMappingPersistentStore.xml
+
+2011-02-01
+- nichele: Added numTestsPerEvictionRun parameter in db configuration file (db.xml).
+           It doesn't affect performance but it should help in avoiding timeout issue
+
+2011-01-26
+- nichele: Added "java.rmi.server.hostname" as JAVA_OPTS in the scripts setting
+           it to $HOSTNAME on linux and to %COMPUTERNAME% on windows.
+
+---------------------------------
+Funambol Bundle Resources 9.0.0
+---------------------------------
+2010-12-16
+- machi: Updated Copyright in About panel and Readme.txt.
+         Updated documentation link.
+
+2010-11-16
+- lulu: Added ClientLogCleanUpPlugin.xml for handling the clean up of client
+        logs.
+
+2010-10-29
+- testa: Removed job executor from start scripts and schema creation scripts
+
+2010-10-20
+- lulu: Added LogServlet in order to store on file system the log sent by
+        clients.
+
+2010-07-09
+- nichele: Added log-filter script to filter log files
+
+---------------------------------
+Funambol Bundle Resources 8.7.0
+---------------------------------
+2010-06-10
+- lulu: Removed defaultRoles and mandatoryRoles properties from
+        DBUserManager.xml since are not used anymore.
+        
+2010-06-08
+- lulu: Added defaultRoles and mandatoryRoles properties in DBUserManager.xml.
+        The manadatory roles are the roles that a user must have set if he want
+        to sync for instance; the default roles are the roles that are set for
+        any user.
+
+2010-06-05
+- nichele: Added "manager" option to hypersonic script file to start
+           Hypersonic Database Manager
+2010-05-04
+- lulu: Fixed bug #9260 - Impossible to create a SyncSource from Admin tool
+
+2010-04-25
+- nichele: Added remote address logging in the ds-server log
+
+---------------------------------
+Funambol Bundle Resources 8.5.1
+---------------------------------
+2010-03-29
+- nichele: Improved patch.xml file
+
+---------------------------------
+Funambol Bundle Resources 8.5.0
+---------------------------------
+2010-03-23
+- nichele: Improved db connection pool configuration.
+
+2010-03-17
+- lulu: Now, the list of the sync sources supported by server is retrieved from
+        database sort by source uri.
+
+2010-02-04
+- morresi: fixed 6845 - server installation copies files in modules' exclude directory
+
+2010-02-04
+- nichele: Added an hourly log appender.
+- nichele: Fixed daily log appender name.           
+
+2010-01-29
+- lulu: Updated Copyright in About panel and Readme.txt.
+        Updated documentation link.
+
+2010-01-15
+- lulu: Added sent_server_caps in fnbl_device in order to understand if the
+        server has to sent its capabilities to the client even if the client
+        does not required them sending a Get command. Now, the server is able
+        to send a Put command with its capabilities.
+        Changed queries into PSDeviceInventory.xml in order to handle this flag.
+
+2010-01-04
+- nichele: Upgraded to jre 1.6.0_17
+- nichele: Added Funambol/bin/patch[.cmd]: useful scripts to patch Funambol installation
+
+2009-12-23
+- testa: Added license for xmltask (Apache license 1.1)
+
+---------------------------------
+Funambol Bundle Resources 8.2.2
+---------------------------------
+2009-11-08
+- nichele: Updated documentation link
+
+---------------------------------
+Funambol Bundle Resources 8.2.1
+---------------------------------
+2009-10-31
+- nichele: Reverted changes done for bug #3665 (Check on used ports) since the
+           checks failed some times (false positive).
+           
+---------------------------------
+Funambol Bundle Resources 8.2.0
+---------------------------------
+2009-09-25
+- nichele: Added SyncResponseTimeFilter to make available via JMX some statistic
+           information about sync processing time.
+
+2009-09-17
+- fabius: Fixed bug #7813: Catalina environment variables are not set by the catalina.sh
+
+2009-09-02
+- fabius: Fixed bug #3665: Check on used ports for PimListener, Inboxlistener, CtpServer
+
+2009-07-10
+- nichele: Changed validationQuery in db.xml from "select 1" to
+           "select idspace from fnbl_id where idspace!='' limit 1;"
+           since the former doesn't work on hypersonic
+           
+2009-07-09
+- nichele: Reviewed db.xml adding some tuning parameters
+
+2009-06-24
+- lulu: Rollback: the items of ConfigSyncSource are exchanged in text/plain
+        format.
+
+2009-06-15
+- testa: Added the PushManager configuration, to tune the asynchronous 
+         notification delivery.
+
+2009-06-12
+- lulu: Moved default queries from PSDeviceInventory.xml to 
+        ConfigPersistentStore class (this xml configuration file exists in more
+        components for testing and so it's difficult to handle it rightly).
+        Now the items of ConfigSyncSource are exchanged in DES;B64 format.
+
+2009-06-11
+- lulu: Added username and encrypted columns in fnbl_device_config.
+        Updated the query used to insert records in fnbl_device_config.
+
+--------------------------------
+Funambol Bundle Resources 7.1.2
+--------------------------------
+2009-02-01
+- nichele: Removed useless "order by guid" in ClientMappingPersistentStore.xml
+
+--------------------------------
+Funambol Bundle Resources 7.1.1
+--------------------------------
+2009-02-01
+- nichele: Imported Funambol certificate in cacerts file
+
+--------------------------------
+Funambol Bundle Resources 7.1.0
+--------------------------------
+2009-01-25
+- nichele: Fixed bug #6712: Missing database indexes:
+               - fnbl_client_mapping(principal, sync_source)
+               - fnbl_principal(username)
+
+2009-01-19
+- nichele: Changed STP configuration in the sender configuration file,
+           in order to avoid useless and long attempts.
+
+2009-01-10
+- lulu: Updated documentation path
+
+2008-12-23
+- lulu: Fixed bug #6580 Failed to install the Funambol Server ComEd with MySQL
+
+2008-12-19
+- nichele: Fixed bug #6568 Too long session timeout in address notification
+
+2008-12-18
+- lulu: Fixed Copyright date into fnblstatus.exe and readme.txt file.
+
+2008-11-26
+- nichele: Reviewed some scripts in order to remove funambol-ds-server-nativelib-6.5.0.jar
+           from classpaths
+
+2008-11-15
+- lulu: Added fnbl_pending_notification table in order to store the not delivered
+        push notifications.
+        Added 'pending.notification.id' into fnbl_id to use to generate the id 
+        values of the pending notifications.
+
+2008-10-23
+-testa: Added X-funambol-smartslow Ext device capabilities property in Funambol.xml
+
+2008-09-14
+- nichele: Updated version
+- nichele: Added force-db-creation property in ds-server/install/install.xml and
+           in ds-server/install/install-modules.xml. Setting this property to
+           true, the questions about db creation are skipped (and the db created).
+           This is usefull building the bundle since the questions are not done.
+
+--------------------------------
+Funambol Bundle Resources 7.0.8
+--------------------------------
+2008-07-25
+- nichele: Exporting FUNAMBOL_HOME directory in funambol-server script file
+
+--------------------------------
+Funambol Bundle Resources 7.0.7
+--------------------------------
+2008-07-17
+- nichele: Fixed bug #5618 - The funambol script doesn't start the server
+
+--------------------------------
+Funambol Bundle Resources 7.0.6
+--------------------------------
+2008-07-07
+- nichele: Fix ds-server version in Funambol.xml file
+
+2008-07-06
+- nichele: Added hsqldb.jar to the classpath in hypersonic script files in order
+           to work with a jdk different from the one embedded in the bundle.
+
+2008-07-03
+- nichele: Set 'funambol' as default sms sender in SMSService.xml file.
+
+2008-07-02
+- nichele: Added com/funambol/server/sms/SMSProvider.xml file
+
+2008-07-01
+- nichele: Fixed bug #5352 - Admin guide and test drive guide must be updated on our website
+
+2008-06-30
+- nichele: Added -Djava.awt.headless=true in the funambol-server script files
+           (required by the carrier edition)
+
+2008-06-29
+- nichele: Added com/funambol/server/sms/SMSService.xml file
+
+--------------------------------
+Funambol Bundle Resources 7.0.5
+--------------------------------
+2008-06-27
+- nichele: Fixed EOL in Funambol/admin/bin/unix/funamboladmin
+- nichele: Fixed bug starting the server at the end of the installation on Linux
+
+--------------------------------
+Funambol Bundle Resources 7.0.4
+--------------------------------
+2008-06-16
+- testa: Added the java.net.preferIPv4Stack property to the start scripts for 
+         the modules using JGroups.
+         Removed files funambol-tomcat e funambol-tomcat-shutdown (cmd and sh) 
+         from ds-server/default/bin
+
+2008-06-16
+- testa: Changed the fnblstatus.exe default copyright to 2003-2008
+
+2008-06-04
+- testa: Added the ContentProvider module to the bundle module list
+
+2008-05-17
+- nichele: Updated to Apache Tomcat 6.0.16
+
+2008-05-03
+- nichele: Added ant-contrib.jar under ds-server/ant/lib directory
+
+--------------------------------
+Funambol Bundle Resources 7.0.1
+--------------------------------
+2008-05-10
+- ste: released version 7.0.1

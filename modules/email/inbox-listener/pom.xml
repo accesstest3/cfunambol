@@ -1,0 +1,225 @@
+<?xml version="1.0" ?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>funambol</groupId>
+    <artifactId>inbox-listener</artifactId>
+    <version>9.1.0-SNAPSHOT</version>
+    <name>Funambol Inbox Listener</name>
+    <packaging>jar</packaging>
+
+    <parent>
+        <artifactId>funambol</artifactId>
+        <groupId>funambol</groupId>
+        <version>9.1.0</version>
+    </parent>
+
+    <dependencies>
+
+        <!--
+            Internal dependencies
+        -->
+
+        <dependency>
+          <groupId>funambol</groupId>
+          <artifactId>server-framework</artifactId>
+          <version>9.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>ds-server</artifactId>
+            <version>9.1.0-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>push-framework</artifactId>
+            <version>9.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>email-core</artifactId>
+            <version>9.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--
+            External dependencies
+        -->
+        <dependency>
+            <groupId>org.apache.axis</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.4</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.apache.axis</groupId>
+            <artifactId>axis-jaxrpc</artifactId>
+            <version>1.4</version>
+        </dependency>        
+
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1</version>
+        </dependency>  
+
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4</version>
+        </dependency> 
+
+        <dependency>
+            <groupId>hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>1.8.0.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.14</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit-addons</groupId>
+            <artifactId>junit-addons</artifactId>
+            <version>1.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>simple-jndi</groupId>
+            <artifactId>simple-jndi</artifactId>
+            <version>0.11.2</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <scm>
+        <connection>scm:svn:https://guest@core.forge.funambol.org/svn/core/trunk/funambol/modules/email/inbox-listener</connection>
+        <developerConnection>scm:svn:https://core.forge.funambol.org/svn/core/trunk/funambol/modules/email/inbox-listener</developerConnection>
+        <url>https://core.forge.funambol.org/svn/core/trunk/funambol/modules/email/inbox-listener</url>
+    </scm>
+
+    <!--
+        Build plug-ins
+    -->
+    <build>
+
+        <resources>
+
+        </resources>
+
+        <plugins>
+
+            <plugin>
+              <groupId>funambol</groupId>
+              <artifactId>funambol-plugin</artifactId>
+              <version>1.0.8</version>
+              <executions>
+                <execution>
+                  <id>prepare-resources</id>
+                  <phase>package</phase>
+                  <goals>
+                    <goal>resources</goal>
+                  </goals>
+                </execution>
+              </executions>
+              <configuration>
+                <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+              </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/assembly/bin.xml</descriptor>
+                    </descriptors>
+                    <appendAssemblyId>true</appendAssemblyId>
+                    <finalName>${project.groupId}-${project.artifactId}-${project.version}</finalName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attached</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>-Dfile.encoding=UTF-8 -Dfunambol.pushlistener.config.bean=&quot;com/funambol/email/inboxlistener/InboxListenerConfiguration.xml&quot;</argLine>
+                    <systemProperties>
+                        <property>
+                            <name>log4j.configuration</name>
+                            <value>config/log4j.xml</value>
+                        </property>
+                        <property>
+                            <name>test.resources.dir</name>                            
+                            <value>src/test/resources</value>
+                        </property>
+                        <property>
+                           <name>funambol.home</name>
+                           <value>./src/test/resources</value>
+                        </property>                        
+                    </systemProperties>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+    <profiles>
+      <profile>
+         <id>debug</id>
+         <activation>
+             <property>
+                 <name>debug</name>
+                 <value>true</value>
+             </property>
+         </activation>
+         <build>
+             <plugins>
+                 <plugin>
+                     <groupId>org.apache.maven.plugins</groupId>
+                     <artifactId>maven-surefire-plugin</artifactId>
+                     <version>2.4</version>
+                     <configuration>
+                         <argLine>-Ddebug=true ${argLine}</argLine>
+                     </configuration>
+                 </plugin>
+             </plugins>
+         </build>
+      </profile>
+    </profiles>
+    
+</project>

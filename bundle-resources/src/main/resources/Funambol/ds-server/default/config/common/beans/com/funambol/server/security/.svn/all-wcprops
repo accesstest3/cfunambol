@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/security
+END
+UserProvisioningOfficer.xml
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/security/UserProvisioningOfficer.xml
+END
+DBOfficer.xml
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/core/!svn/ver/27993/trunk/funambol/bundle-resources/src/main/resources/Funambol/ds-server/default/config/common/beans/com/funambol/server/security/DBOfficer.xml
+END

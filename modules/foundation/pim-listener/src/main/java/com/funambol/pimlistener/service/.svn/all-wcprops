@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/29969/trunk/funambol/modules/foundation/pim-listener/src/main/java/com/funambol/pimlistener/service
+END
+PimTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/29969/trunk/funambol/modules/foundation/pim-listener/src/main/java/com/funambol/pimlistener/service/PimTask.java
+END
+PimListenerException.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/pim-listener/src/main/java/com/funambol/pimlistener/service/PimListenerException.java
+END
+PimListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/modules/foundation/pim-listener/src/main/java/com/funambol/pimlistener/service/PimListener.java
+END

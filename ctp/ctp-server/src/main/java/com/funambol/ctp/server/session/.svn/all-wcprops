@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/29805/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/session
+END
+StateDiconnected.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/session/StateDiconnected.java
+END
+State.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/session/State.java
+END
+StateAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/session/StateAdapter.java
+END
+SessionLogger.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/session/SessionLogger.java
+END
+StateConnected.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/session/StateConnected.java
+END
+StateAuthenticated.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/29805/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/session/StateAuthenticated.java
+END
+StateReady.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/session/StateReady.java
+END
+StateLeaving.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/session/StateLeaving.java
+END
+SessionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/core/!svn/ver/29804/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/session/SessionManager.java
+END

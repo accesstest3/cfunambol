@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/core/!svn/ver/32903/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/sms
+END
+FileSystemSMSProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/29798/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/sms/FileSystemSMSProvider.java
+END
+DBSMSProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/core/!svn/ver/32903/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/sms/DBSMSProvider.java
+END
+DummySMSProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/sms/DummySMSProvider.java
+END
+SimpleSMSService.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/sms/SimpleSMSService.java
+END

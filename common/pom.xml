@@ -1,0 +1,40 @@
+<?xml version="1.0" ?><!--
+    * Copyright (C) 2006 Funambol
+    *
+    * This program is free software; you can redistribute it and/or modify
+    * it under the terms of the Honest Public License.
+    *
+    * This program is distributed in the hope that it will be useful,
+    * but WITHOUT ANY WARRANTY; without even the implied warranty of
+    * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    * Honest Public License for more details.
+    *
+    * You should have received a copy of the Honest Public License
+    * along with this program; if not, write to Funambol,
+    * 643 Bair Island Road, Suite 305 - Redwood City, CA 94063, USA
+--><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>funambol</groupId>
+    <artifactId>common</artifactId>
+    <version>9.1.0-SNAPSHOT</version>
+    <name>Funambol Common</name>
+    <packaging>pom</packaging>
+
+    <parent>
+        <artifactId>funambol</artifactId>
+        <groupId>funambol</groupId>
+        <version>9.1.0</version>
+    </parent>
+
+    <!--
+        MODULES
+    -->
+    <modules>
+        <module>core-framework</module>
+        <module>pim-parsers</module>
+        <module>pim-framework</module>
+        <module>ext</module>
+        <module>server-framework</module>
+        <module>push-listener/core</module>
+    </modules>
+</project>

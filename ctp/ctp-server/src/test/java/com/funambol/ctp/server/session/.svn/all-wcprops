@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/test/java/com/funambol/ctp/server/session
+END
+StateAdapterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/test/java/com/funambol/ctp/server/session/StateAdapterTest.java
+END
+StateConnectedTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/test/java/com/funambol/ctp/server/session/StateConnectedTest.java
+END
+MockIoSession.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/test/java/com/funambol/ctp/server/session/MockIoSession.java
+END
+SessionManagerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/test/java/com/funambol/ctp/server/session/SessionManagerTest.java
+END

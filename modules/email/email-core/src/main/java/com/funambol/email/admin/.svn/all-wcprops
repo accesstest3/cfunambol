@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin
+END
+AccountController.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/28933/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/AccountController.java
+END
+ResultSearchAccountPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/ResultSearchAccountPanel.java
+END
+OperationType.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/OperationType.java
+END
+SearchAccountPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/28933/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/SearchAccountPanel.java
+END
+ValidationError.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/ValidationError.java
+END
+ComponentObserver.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/ComponentObserver.java
+END
+Step.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/Step.java
+END
+EmailSyncSourceConfigPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/EmailSyncSourceConfigPanel.java
+END
+Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/Constants.java
+END
+MailServerController.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/MailServerController.java
+END
+AccountDetailsPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/AccountDetailsPanel.java
+END
+ArrayFocusTraversalPolicy.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/ArrayFocusTraversalPolicy.java
+END
+ConsolePanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/28933/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/ConsolePanel.java
+END
+FormSearchAccountPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/FormSearchAccountPanel.java
+END
+FolderListPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/FolderListPanel.java
+END
+ArrayComboBoxModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/admin/ArrayComboBoxModel.java
+END

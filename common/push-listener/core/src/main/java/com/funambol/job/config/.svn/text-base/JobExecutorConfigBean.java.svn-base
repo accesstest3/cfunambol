@@ -1,0 +1,190 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+package com.funambol.job.config;
+
+import java.io.File;
+
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.log4j.Logger;
+
+import com.funambol.pushlistener.service.config.PushListenerConfigBean;
+import com.funambol.pushlistener.service.config.PushListenerConfigurationException;
+import java.util.HashMap;
+
+/**
+ * Configuration parameters for a JobExecutor instance.
+ * @version $Id$
+ */
+public class JobExecutorConfigBean  extends PushListenerConfigBean {
+
+    public static final int DEFAULT_WAIT_FOR_RESPONSE_TIMEOUT = 1000;
+    // ------------------------------------------------------------ Private data
+    /** The logger */
+    private final static Logger log = Logger.getLogger("funambol.pushlistener.jobexecutorconfig");
+    /**
+     * the map of class name to full classname
+     */
+    private HashMap<String, String> jobList = new HashMap<String, String>();
+
+    /**
+     * @return the jobList
+     */
+    public HashMap<String, String> getJobList() {
+        return jobList;
+    }
+
+    /**
+     * @param classlist the jobList to set
+     */
+    public void setClasslist(HashMap<String, String> jobList) {
+        this.jobList = jobList;
+    }
+    /**
+     *  The JGroups configuration file for the notification group
+     */
+    private String notificationGroupConfigFileName;
+
+    public String getNotificationGroupConfigFileName() {
+        return notificationGroupConfigFileName;
+    }
+
+    public void setNotificationGroupConfigFileName(String notificationGroupConfigFileName) {
+        this.notificationGroupConfigFileName = notificationGroupConfigFileName;
+    }
+    /**
+     *  The JGroups name of the notification group
+     */
+    private String notificationGroupName;
+
+    public String getNotificationGroupName() {
+        return notificationGroupName;
+    }
+
+    public void setNotificationGroupName(String notificationGroupName) {
+        this.notificationGroupName = notificationGroupName;
+    }
+    /**
+     * Time while the JobExecutor should wait for response, milliseconds
+     */
+    private int waitForResponseTimeout = -1;
+
+    public int getWaitForResponseTimeout() {
+        return waitForResponseTimeout;
+    }
+
+    public void setWaitForResponseTimeout(int waitForResponseTimeout) {
+        this.waitForResponseTimeout = waitForResponseTimeout;
+    }
+
+    // ------------------------------------------------------------ Constructors
+    /**
+     * Constructor
+     */
+    public JobExecutorConfigBean() {
+    }
+
+    // ---------------------------------------------------------- Public methods
+    public void init() {
+    }
+
+    /**
+     * Checks the config bean values
+     * @throws PushListenerConfigurationException if the configuration object is
+     *         not valid
+     */
+    protected void validateConfigBean() throws PushListenerConfigurationException {
+        if (notificationGroupName == null) {
+            throw new JobExecutorConfigurationException("The configuration bean doesn't "
+                    + "contain the notificationGroupName");
+        }
+
+        if (notificationGroupConfigFileName == null) {
+            throw new JobExecutorConfigurationException("The configuration bean doesn't "
+                    + "contain the notificationGroupConfigFileName");
+        }
+
+        if (waitForResponseTimeout == -1) {
+            log.warn("The configuration bean "
+                    + "doesn't contain the waitForResponseTimeout...using the default "
+                    + "value: " + JobExecutorConfigBean.DEFAULT_WAIT_FOR_RESPONSE_TIMEOUT);
+
+            setWaitForResponseTimeout(DEFAULT_WAIT_FOR_RESPONSE_TIMEOUT);
+        }
+
+    }
+
+    // --------------------------------------------------------- Private methods
+    /**
+     * Called by JobExecutorConfiguration to say to the bean the config path.
+     * In this waym the config bean can arrange relative path.
+     * @param configPath the configuration path
+     */
+    public void fixConfigPath(String configPath) {
+        //
+        // We updated the jgroups configuration files in order to have them
+        // under config dir
+        //
+        if (notificationGroupConfigFileName != null) {
+            File file = new File(notificationGroupConfigFileName);
+            String filePath = file.getPath();
+            if (!file.isAbsolute()) {
+                File newFile = new File(configPath + File.separator + filePath);
+                notificationGroupConfigFileName = newFile.getPath();
+            }
+        }
+    }
+
+    /**
+     * Returns a string representation of the object.
+     * @return a string representation of the object.
+     */
+    public String toString() {
+        ToStringBuilder sb = new ToStringBuilder(this);
+        sb.append("notificationGroupConfigFileName", notificationGroupConfigFileName);
+        sb.append("notificationGroupName", notificationGroupName);
+        return sb.toString();
+    }
+
+    /**
+     * Returns a string representation of the object.
+     * @return a string representation of the object.
+     */
+    public String toFormattedString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("> notificationGroupConfigFileName        : ").append(notificationGroupConfigFileName).append("\n");
+        sb.append("> notificationGroupName                  : ").append(notificationGroupName).append("\n");
+        return sb.toString();
+    }
+}

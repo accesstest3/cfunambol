@@ -1,0 +1,71 @@
+<?xml version="1.0" ?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>funambol</groupId>
+    <artifactId>webdemo</artifactId>
+    <version>9.1.0-SNAPSHOT</version>
+    <packaging>s4j</packaging>
+    
+    <name>Funambol Web Demo</name>
+    <url>http://www.funambol.com/opensource</url>
+    
+    <parent>
+        <groupId>funambol</groupId>
+        <artifactId>funambol</artifactId>
+        <version>9.1.0</version>
+    </parent>
+
+    <dependencies>
+
+        <!--
+            Internal dependencies
+        -->
+        <dependency>
+            <groupId>funambol</groupId>
+            <artifactId>webdemo-webapp</artifactId>
+            <version>9.1.0-SNAPSHOT</version>
+            <type>war</type>
+            <exclusions>
+                <exclusion>
+                    <artifactId>foundation</artifactId>
+                    <groupId>funambol</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>foundation-core</artifactId>
+                    <groupId>funambol</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>pim-framework</artifactId>
+                    <groupId>funambol</groupId>
+                </exclusion>
+            </exclusions>
+
+        </dependency>
+    </dependencies>
+    
+    <scm>
+        <connection>scm:svn:https://guest@core.forge.funambol.org/svn/core/trunk/funambol/modules/webdemo/webdemo</connection>
+        <developerConnection>scm:svn:https://core.forge.funambol.org/svn/core/trunk/funambol/modules/webdemo/webdemo</developerConnection>
+        <url>https://core.forge.funambol.org/svn/core/trunk/funambol/modules/webdemo/webdemo</url>
+    </scm>
+
+    <!--
+        Build plug-ins
+    -->
+    <build>
+        <plugins>            
+            <plugin>
+                <!--
+                    The Funambol Maven Plugin enables the use of the following
+                    goals:
+                      - funambol:s4j -} to create a Funambol module archive
+                -->
+                <groupId>funambol</groupId>
+                <artifactId>funambol-plugin</artifactId>
+                <version>1.0.7</version>
+                <extensions>true</extensions>
+            </plugin>
+            
+        </plugins>
+    </build> 
+</project>

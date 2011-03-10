@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core
+END
+Auth.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core/Auth.java
+END
+MessageException.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core/MessageException.java
+END
+NotAuthenticated.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core/NotAuthenticated.java
+END
+Ready.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core/Ready.java
+END
+GenericCommandCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core/GenericCommandCode.java
+END
+Ok.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core/Ok.java
+END
+Jump.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core/Jump.java
+END
+GenericCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core/GenericCommand.java
+END
+ParameterCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core/ParameterCode.java
+END
+Sync.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core/Sync.java
+END
+Command.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core/Command.java
+END
+Bye.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core/Bye.java
+END
+Unauthorized.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core/Unauthorized.java
+END
+Status.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core/Status.java
+END
+Message.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core/Message.java
+END
+Error.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core/Error.java
+END
+Forbidden.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-core/src/main/java/com/funambol/ctp/core/Forbidden.java
+END

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/33388/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/contact-to-vcard
+END
+vcard-6.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/32889/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/contact-to-vcard/vcard-6.vcf
+END
+vcard-1.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/contact-to-vcard/vcard-1.vcf
+END
+vcard-2.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/contact-to-vcard/vcard-2.vcf
+END
+photo-1.gif
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/contact-to-vcard/photo-1.gif
+END
+vcard-3.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/29521/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/contact-to-vcard/vcard-3.vcf
+END
+vcard-4.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/32959/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/contact-to-vcard/vcard-4.vcf
+END
+vcard-5.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/33388/trunk/funambol/common/pim-framework/src/test/data/com/funambol/common/pim/converter/contact-to-vcard/vcard-5.vcf
+END

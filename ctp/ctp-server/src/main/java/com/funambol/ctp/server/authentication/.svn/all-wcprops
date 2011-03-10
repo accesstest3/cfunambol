@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/29700/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/authentication
+END
+WSAuthenticationManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/29700/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/authentication/WSAuthenticationManagerImpl.java
+END
+AuthenticationManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/29640/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/authentication/AuthenticationManager.java
+END
+AuthenticationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/ctp/ctp-server/src/main/java/com/funambol/ctp/server/authentication/AuthenticationException.java
+END

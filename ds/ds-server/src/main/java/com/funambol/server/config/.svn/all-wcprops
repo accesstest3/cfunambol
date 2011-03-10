@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/core/!svn/ver/32890/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/config
+END
+ConfigurationConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/config/ConfigurationConstants.java
+END
+Configuration.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/32890/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/config/Configuration.java
+END
+EngineConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/32006/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/config/EngineConfiguration.java
+END
+ServerConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/config/ServerConfiguration.java
+END

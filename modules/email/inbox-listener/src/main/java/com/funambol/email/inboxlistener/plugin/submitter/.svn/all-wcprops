@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/plugin/submitter
+END
+BufferedSubmitter.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/plugin/submitter/BufferedSubmitter.java
+END
+ISubmitter.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/inbox-listener/src/main/java/com/funambol/email/inboxlistener/plugin/submitter/ISubmitter.java
+END

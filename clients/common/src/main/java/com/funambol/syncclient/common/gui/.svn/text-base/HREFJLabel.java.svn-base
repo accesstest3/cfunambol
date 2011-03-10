@@ -1,0 +1,179 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+package com.funambol.syncclient.common.gui;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Graphics;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.geom.Rectangle2D;
+
+import javax.swing.JLabel;
+
+import com.funambol.syncclient.common.web.BrowserTools;
+
+/**
+ * It is a JLabel that can be used to create a link that opens a browser on the
+ * configured url.
+ * @version $Id$
+ */
+public class HREFJLabel extends JLabel {
+
+    /**
+     * The url
+     */
+    private String url = null;
+
+    /**
+     * Must the text be underlined ?
+     */
+    private boolean drawUnderline = true;
+
+    /**
+     * The MouseAdapter used to detect mouse click
+     */
+    private MouseAdapter mouseAdapter = null;
+
+    // ------------------------------------------------------------ Constructors
+    /**
+     * Creates a new instance of HREFJLabel
+     */
+    public HREFJLabel(String url) {
+        this();
+        setUrl(url);
+    }
+
+    /**
+     * Creates a new instance of HREFJLabel
+     */
+    public HREFJLabel() {
+        mouseAdapter =  new HREFMouseAdapter();
+        this.addMouseListener(mouseAdapter);
+    }
+
+    // ---------------------------------------------------------- Public methods
+
+    /**
+     * Returns the url
+     * @return the url
+     */
+    public String getUrl() {
+        return url;
+    }
+
+    /**
+     * Sets the url
+     * @param url the url to set
+     */
+    public void setUrl(String url) {
+        this.url = url;
+        if (url != null && !"".equals(url)) {
+            // Change the component's cursor to HAND_CURSOR
+            setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            drawUnderline = true;
+        } else {
+            setCursor(Cursor.getDefaultCursor());
+            drawUnderline = false;
+        }
+    }
+
+    /**
+     * Getter for property drawUnderline
+     * @return the property drawUnderline
+     */
+    public boolean getDrawUnderline() {
+        return drawUnderline;
+    }
+
+    /**
+     * Setter for property drawUnderline
+     * @param drawUnderline the drawUnderline value
+     */
+    public void setDrawUnderline(boolean drawUnderline) {
+        this.drawUnderline = drawUnderline;
+    }
+
+    public void paint(Graphics g) {
+        super.paint(g);
+        if (drawUnderline) {
+            Color underline = getForeground();
+
+            // really all this size stuff below only needs to be recalculated if font or text changes
+            Rectangle2D textBounds =  getFontMetrics(getFont()).getStringBounds(getText(), g);
+
+            //this layout stuff assumes the icon is to the left, or null
+            int y = getHeight()/2 + (int)(textBounds.getHeight()/2);
+            int w = (int)textBounds.getWidth();
+            int x = (getIcon()==null ? 0 : getIcon().getIconWidth() + getIconTextGap());
+
+            g.setColor(underline);
+            g.drawLine(0, y, x + w, y);
+        }
+    }
+
+    // ------------------------------------------------------------- Inner class
+    class HREFMouseAdapter extends MouseAdapter {
+
+        public HREFMouseAdapter() {
+        }
+
+        public void mouseClicked(MouseEvent e) {
+            if (e == null) {
+                return;
+            }
+            if (e.getButton() != MouseEvent.BUTTON1) {
+                return;
+            }
+            String url = null;
+            Component c = e.getComponent();
+            if (c instanceof HREFJLabel) {
+                url = ((HREFJLabel)c).getUrl();
+            }
+            if (url != null && !"".equals(url)) {
+                try {
+                    BrowserTools.openBrowser(url);
+                } catch (Exception ex) {
+                    //
+                    // Nothing to do
+                    //
+                }
+            }
+        }
+    }
+
+}

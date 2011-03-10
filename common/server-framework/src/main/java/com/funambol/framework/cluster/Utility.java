@@ -1,0 +1,112 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+package com.funambol.framework.cluster;
+
+import java.util.Vector;
+import org.jgroups.Address;
+import org.jgroups.Channel;
+import org.jgroups.View;
+import org.jgroups.stack.IpAddress;
+
+/**
+ * Usefull methods working with a cluster
+ * @version $Id: Utility.java 36592 2011-02-01 09:26:08Z nichele $
+ */
+public class Utility {
+
+    /**
+     * Returns the list of the members of the cluster. The list is in this form:
+     * <p><code>[address1,address2,address3]</code> and if the Cluster is not initialized
+     * just <code>[]</code> is returned.
+     * @param channel the jgroups channel
+     * @return the list of the members of the cluster in the form
+     *         <code>[address1,address2,...]</code>. If the cluster is not initialized,
+     *         <code>[]</code> is returned.
+     */
+    public static String getMemberList(Channel channel) {
+
+        if (channel == null) {
+            //
+            // We are not in a cluster, so no member
+            //
+            return "[]";
+        }
+
+        View   clusterView = channel.getView();
+        return getMemberList(clusterView) ;
+    }
+
+    /**
+     * Returns the list of the members of the cluster. The list is in this form:
+     * <p><code>[address1,address2,address3]</code> and if the Cluster is not initialized
+     * just <code>[]</code> is returned.
+     * @param clusterView the cluster view
+     * @return the list of the members of the cluster in the form
+     *         <code>[address1,address2,...]</code>. If the cluster is not initialized,
+     *         <code>[]</code> is returned.
+     */
+    public static String getMemberList(View   clusterView) {
+
+        if (clusterView == null) {
+            return "[]";
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        Vector members     = clusterView.getMembers();
+        if (members == null || members.size() == 0) {
+            sb.append("[]");
+        } else {
+            sb.append("[");
+            int numMembers = members.size();
+            for (int i = 0; i < numMembers; i++)  {
+                if (i > 0) {
+                    sb.append(',');
+                }
+                Address address = (Address)members.elementAt(i);
+                if (address instanceof IpAddress) {
+                    sb.append(((IpAddress)address).getIpAddress().getHostAddress());
+                } else {
+                    sb.append(address);
+                }
+            }
+            sb.append("]");
+        }
+        return sb.toString();
+    }
+
+
+}

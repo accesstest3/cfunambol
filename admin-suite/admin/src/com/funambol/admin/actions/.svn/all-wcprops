@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/actions
+END
+ViewOutputWindowAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/actions/ViewOutputWindowAction.java
+END
+HelpContentsAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/actions/HelpContentsAction.java
+END
+CreateConsole.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/actions/CreateConsole.java
+END
+LoginAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/actions/LoginAction.java
+END
+AboutAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/actions/AboutAction.java
+END
+AutoUpdateAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/actions/AutoUpdateAction.java
+END
+OptionsAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/actions/OptionsAction.java
+END
+ExplorerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/core/!svn/ver/28251/trunk/funambol/admin-suite/admin/src/com/funambol/admin/actions/ExplorerAction.java
+END

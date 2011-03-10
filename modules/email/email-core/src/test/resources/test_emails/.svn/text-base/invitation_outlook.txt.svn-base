@@ -1,0 +1,95 @@
+From - Tue Oct 28 16:27:24 2008
+X-Account-Key: account2
+X-UIDL: 49712.5XBHR+aovyRPUBm+jjN2BV53Olc=
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+X-Mozilla-Keys:                                                                                 
+Return-Path: pit.may.imap.2@gmail.com
+Received: from b.mail.sonomait.com (LHLO b.mail.sonomait.com)
+ (64.142.123.31) by a.mail.sonomait.com with LMTP; Tue, 28 Oct 2008 08:24:53
+ -0700 (PDT)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by b.mail.sonomait.com (Postfix) with ESMTP id 29C675E6001C
+	for <maggi@funambol.com>; Tue, 28 Oct 2008 07:24:53 -0800 (PST)
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Flag: NO
+X-Spam-Score: -0.38
+X-Spam-Level: 
+X-Spam-Status: No, score=-0.38 tagged_above=-10 required=5
+	tests=[BAYES_00=-2.599, TVD_SPACE_RATIO=2.219]
+Received: from b.mail.sonomait.com ([127.0.0.1])
+	by localhost (b.mail.sonomait.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id N3dMFe5sVnRj for <maggi@funambol.com>;
+	Tue, 28 Oct 2008 07:24:49 -0800 (PST)
+Received: from yx-out-2324.google.com (yx-out-2324.google.com [74.125.44.29])
+	by b.mail.sonomait.com (Postfix) with ESMTP id DB7B65E6001B
+	for <piter@funambol.com>; Tue, 28 Oct 2008 07:24:48 -0800 (PST)
+Received: by yx-out-2324.google.com with SMTP id 3so594992yxj.5
+        for <piter@funambol.com>; Tue, 28 Oct 2008 08:24:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:received:received:from:to:subject:date
+         :message-id:mime-version:content-type:content-transfer-encoding
+         :x-mailer:thread-index:x-mimeole;
+        bh=u1NwxZfIDktJxOGzEAIBZ985VwjILgGAmhv7Gy+rGbk=;
+        b=qF3B1ixQh0XXgr2S5jn/V5xnL/RuUj8HkOzHU3FPgPwGl+WUpobaYZ7YxKXiuOw9Yp
+         xcL3+da7qbrD/753U7Gk9PwpIiPfYLEOMN4Uadsmf3k9vYVj8bHj32Fa5wBVa9Xkp6mG
+         stPm/Q4ZYnZ3BdHW3I4YTuUBsnB0ntY+4Org0=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=from:to:subject:date:message-id:mime-version:content-type
+         :content-transfer-encoding:x-mailer:thread-index:x-mimeole;
+        b=JJte8K6fHQ0aU0U9TsSXax5WwV9XVEj634fqoFS/GnvnAbbd9XThrNogPOJyrxv8yP
+         jjhXBuSTqOmYaA9u0+D0fgst0rwu0CsvEWVVL2ZW5pr/eDIeURnLT65nVopwIkDfpRp4
+         oDT3t7Szxk1fneKiIM4lMbOrWZT/og3V373E0=
+Received: by 10.90.117.20 with SMTP id p20mr6180653agc.2.1225207488208;
+        Tue, 28 Oct 2008 08:24:48 -0700 (PDT)
+Received: from Keu (89-96-142-253.ip12.fastwebnet.it [89.96.142.253])
+        by mx.google.com with ESMTPS id 10sm2016306wrl.11.2008.10.28.08.24.45
+        (version=SSLv3 cipher=RC4-MD5);
+        Tue, 28 Oct 2008 08:24:47 -0700 (PDT)
+From: "gimap" <pit.may.imap.2@gmail.com>
+To: <piter@funambol.com>
+Subject: Invitation subject
+Date: Tue, 28 Oct 2008 16:25:56 +0100
+Message-ID: <000001c93911$7c478920$66faa8c0@Keu>
+MIME-Version: 1.0
+Content-Type: text/calendar; method=REQUEST;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: Microsoft Office Outlook 11
+Thread-Index: Ack5EVGFe+rqvWMCR16djSDYY6Qxag==
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.3350
+
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 11.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:REQUEST
+BEGIN:VEVENT
+ATTENDEE;ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:piter@funambol.com
+ORGANIZER:MAILTO:pit.may.imap.2@gmail.com
+DTSTART:20081028T153000Z
+DTEND:20081028T160000Z
+LOCATION:location of the invitation
+TRANSP:OPAQUE
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E00800000000C05145B31939C9010000000000000000100
+ 0000059B733456E388840B34A2201EA52B265
+DTSTAMP:20081028T152450Z
+DESCRIPTION:When: martedì 28 ottobre 2008 16.30-17.00 (GMT + 1.00 h)
+  Amsterdam\, Berlino\, Berna\, Roma\, Stoccolma\, Vienna.\nWhere: location
+  of the invitation\n\n*~*~*~*~*~*~*~*~*~*\n\nSome free notes.\n
+SUMMARY:Invitation subject
+PRIORITY:5
+X-MICROSOFT-CDO-IMPORTANCE:1
+CLASS:PUBLIC
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR
+
+
+

@@ -1,0 +1,481 @@
+## Resource bundle for Funambol Admininistration Tool
+
+#
+# AutoUpdate
+#
+Services/AutoupdateType/com_funambol_admin_au_type.settings=Funambol Update Center
+AUTO_UPDATE_TYPE_NAME=Funambol Update Center
+AUTO_UPDATE_ACTION_LABEL=Search for &Updates
+
+#
+#  Module
+#
+OpenIDE-Module-Display-Category=Funambol
+OpenIDE-Module-Name=Funambol Administration Tool
+OpenIDE-Module-Short-Description=Funambol Administration Tool
+Funambol=Funambol
+
+EXPLORER_TITLE=Funambol Administration Tool
+
+ERROR_LAUNCH_BROWSER = Error attempting to launch web browser
+
+URL_DOCUMENTATION =  http://funambol.com/docs/v90/funambol-installation-and-administration-guide.pdf
+
+#
+#  Nodes
+#
+LABEL_NODE_ROLES=Roles
+LABEL_NODE_DEVICES=Devices
+LABEL_NODE_PRINCIPALS=Principals
+LABEL_NODE_MODULES=Modules
+LABEL_SERVER_CONFIGURATION=Configuration
+
+# panels title/name
+INSERT_USER_PANEL_NAME               = Add User
+EDIT_USER_PANEL_NAME                 = User Details
+INSERT_DEVICE_PANEL_NAME             = Add Device
+INSERT_PRINCIPAL_PANEL_NAME          = Add Principal
+SEARCH_USER_PANEL_NAME               = Search Users
+SEARCH_DEVICE_PANEL_NAME             = Search Devices
+EDIT_DEVICE_PANEL_NAME               = Device Details
+SEARCH_PRINCIPAL_PANEL_NAME          = Search Principals
+SHOW_SYNCSOURCE_EXCEPTION_TITLE      = SyncSource Failed
+EDIT_SERVER_CONFIGURATION_PANEL_NAME = Server Settings
+LABEL_MESSAGES_TAB                   = Messages
+LAST_TIMESTAMPS_PANEL_NAME           = Last Synchronization Timestamps
+CAPABILITIES_DETAILS_PANEL_NAME      = Capabilities Details
+
+#
+# Actions
+#
+ACTION_ADD_USER_NAME = Add User
+ACTION_SEARCH_USER_NAME = Search Users
+ACTION_ADD_DEVICE_NAME = Add Device
+ACTION_SEARCH_DEVICE_NAME = Search Devices
+ACTION_ADD_PRINCIPAL_NAME = Add Principal
+ACTION_SEARCH_PRINCIPAL_NAME = Search Principals
+ACTION_DELETE_NAME = Delete
+ACTION_EDIT_NAME = Edit
+ACTION_LOGIN_NAME = &Login
+ACTION_CREATE_SYNC_CONSOLE_NAME = &Funambol Administration Tool
+ACTION_ADD_SYNC_SOURCE_NAME = Add SyncSource
+ACTION_REFRESH = Refresh
+ACTION_EDIT_CONNECTOR = Edit
+ACTION_SHOW_OUTPUT_WINDOW = Show &Messages
+ACTION_HELP_CONTENTS = Help Contents
+ACTION_ABOUT = About
+ACTION_OPTIONS = Options
+
+#
+#  Button label
+#
+LABEL_BUTTON_ADD=Add
+LABEL_BUTTON_SEARCH=Search
+LABEL_BUTTON_SAVE=Save
+LABEL_BUTTON_EDIT=Edit
+LABEL_BUTTON_DELETE=Delete
+LABEL_BUTTON_SYNC_DETAILS=Details
+LABEL_BUTTON_LOGIN=Login
+LABEL_BUTTON_CANCEL=Cancel
+LABEL_BUTTON_ADD_PRINCIPAL=Add Principal
+LABEL_BUTTON_RESET=Reset
+LABEL_BUTTON_REFRESH=Refresh
+LABEL_BUTTON_CAPABILITIES=Capabilities
+
+#
+# Login labels
+#
+LOGIN_PANEL_TITLE = Login
+LOGIN_PANEL_HOST_NAME = Hostname/IP
+LOGIN_PANEL_PORT = Port
+LOGIN_PANEL_USER = User name
+LOGIN_PANEL_PWD = Password
+LOGIN_PANEL_REMEMBER_PASSWORD = Remember password
+LOGIN_PANEL_CONTEXT_PATH = Context path
+
+#
+# Updates notification labels
+#
+NEW_DS_SERVER_VERSION_NOTIFICATION_1 = A new version of Funambol DS Server is now available (version {0}).
+NEW_DS_SERVER_VERSION_NOTIFICATION_2 = You may download it from
+NEW_DS_SERVER_VERSION_NOTIFICATION_URL = http://www.funambol.com/opensource/downloads.html
+SUPPRESS_UPDATES_NOTIFICATION = Don't remind me again about this update.
+UPDATE_NOTIFICATION_PANEL_TITLE = Available DS Server update
+
+#
+# User labels
+#
+USER_PANEL_ROLES = Roles
+USER_PANEL_USERNAME = Username
+USER_PANEL_FIRSTNAME = First Name
+USER_PANEL_LASTNAME = Last Name
+USER_PANEL_PASSWORD = Password
+USER_PANEL_CONFPASSWORD = Confirm password
+USER_PANEL_EMAIL = E-mail
+USER_PANEL_NAME = Name
+
+#
+# User questions
+#
+USER_QUESTION_DELETE = Do you really want to delete the user?
+USER_DELETE_NOT_ALLOWED = You are not allowed to delete the user you are logged in with.
+USER_QUESTION_UPDATE = Update the user?
+
+#
+# User messages
+#
+USER_MESSAGE_USERNAME_EXISTS = Username {0} already exists
+USER_MESSAGE_USERS_FOUND = Found {0} users
+USER_MESSAGE_USER_FOUND = Found 1 user
+USER_MESSAGE_USER_NOT_FOUND = No user found
+USER_MESSAGE_EDIT_OK = User correctly updated
+USER_MESSAGE_CHECK_ROLES = You must select a role!
+USER_MESSAGE_INSERT_OK = User correctly added
+USER_MESSAGE_DELETE_OK = User correctly deleted
+USER_MESSAGE_CHECK_PASSWORD = are different! Please verify them.
+
+#
+# Device label
+#
+DEVICE_PANEL_ID = ID
+DEVICE_PANEL_TYPE = Type
+DEVICE_PANEL_TIMEZONE = Timezone (TZ)
+DEVICE_PANEL_CONVERSION_TO_CURRENT_TZ = Conversion to current TZ
+DEVICE_PANEL_CONVERSION_TO_CURRENT_TZ_ENABLED = Enabled
+DEVICE_PANEL_CONVERSION_TO_CURRENT_TZ_ENABLED_DEFAULT = Enabled (default)
+DEVICE_PANEL_CONVERSION_TO_CURRENT_TZ_DISABLED = Disabled
+DEVICE_PANEL_CONVERSION_TO_CURRENT_TZ_DISABLED_DEFAULT = Disabled (default)
+DEVICE_PANEL_CHARSET = Charset
+DEVICE_PANEL_ADDRESS = Address
+DEVICE_PANEL_MSISDN = Phone Number
+DEVICE_PANEL_NOTIFICATION_BUILDER = Notification Type
+DEVICE_PANEL_NOTIFICATION_BUILDER_11 = NOKIA OMA DS 1.1
+DEVICE_PANEL_NOTIFICATION_BUILDER_12 = OMA DS 1.2
+DEVICE_PANEL_NOTIFICATION_PUSH_SENDER = Push Sender
+DEVICE_PANEL_DESCRIPTION = Description
+
+#
+# Device questions
+#
+DEVICE_QUESTION_DELETE = Do you really want to delete the device?
+DEVICE_QUESTION_UPDATE = Update the device?
+
+#
+# Device messages
+#
+DEVICE_MESSAGE_INSERT_OK = Device correctly added
+DEVICE_MESSAGE_ID_EXISTS = A device with id {0} already exists
+DEVICE_MESSAGE_SAVE_OK = Device correctly updated
+DEVICE_MESSAGE_DELETE_OK = Device correctly deleted
+DEVICE_MESSAGE_DEVICES_FOUND = Found {0} devices
+DEVICE_MESSAGE_DEVICE_FOUND = Found 1 device
+DEVICE_MESSAGE_DEVICE_NOT_FOUND = No device found
+
+#
+# Capabilities messages
+#
+CAPABILITIES_MESSAGE_INSERT_OK = Capabilities correctly added
+
+#
+# Principal labels
+#
+PRINCIPAL_PANEL_USERNAME = Username
+PRINCIPAL_PANEL_DEVICEID = Device Id
+PRINCIPAL_PANEL_PRINCIPALID = Principal Id
+
+#
+# Principal questions
+#
+PRINCIPAL_QUESTION_DELETE = Do you really want to delete the principal?
+
+#
+# Principal messages
+#
+PRINCIPAL_MESSAGE_INSERT_OK = Principal correctly added
+PRINCIPAL_MESSAGE_DELETE_OK = Principal correctly deleted
+PRINCIPAL_MESSAGE_PRINCIPALS_FOUND = Found {0} principals
+PRINCIPAL_MESSAGE_PRINCIPAL_FOUND = Found 1 principal
+PRINCIPAL_MESSAGE_PRINCIPAL_NOT_FOUND = No principal found
+
+#
+# Last timestamps labels
+#
+LAST_TIMESTAMPS_PANEL_PRINCIPAL  = Principal
+LAST_TIMESTAMPS_PANEL_DATABASE   = Database
+LAST_TIMESTAMPS_PANEL_SYNC_TYPE  = Sync Type
+LAST_TIMESTAMPS_PANEL_STATUS     = Status
+LAST_TIMESTAMPS_PANEL_TAG_CLIENT = Client anchor
+LAST_TIMESTAMPS_PANEL_TAG_SERVER = Server anchor
+LAST_TIMESTAMPS_PANEL_START      = Start
+LAST_TIMESTAMPS_PANEL_END        = End
+
+#
+# Last timestamps questions
+#
+LAST_TIMESTAMP_QUESTION_RESET = Resetting the last synchronization data will force the principal to do a slow sync the next time the selected database is synchronized.\nDo you really want to proceed?
+
+#
+# Last timestamps messages
+#
+LAST_TIMESTAMP_MESSAGE_RESET_OK = Last timestamp correctly reset
+LAST_TIMESTAMP_MESSAGE_LAST_TIMESTAMPS_FOUND = Found {0} last timestamps
+LAST_TIMESTAMP_MESSAGE_LAST_TIMESTAMP_FOUND = Found 1 last timestamp
+LAST_TIMESTAMP_MESSAGE_LAST_TIMESTAMP_NOT_FOUND = No last timestamp found
+
+#
+# Logging labels
+#
+EDIT_LOGGER_PANEL_NAME=Logger settings
+LABEL_LOGGING_SETTINGS=Logging
+LABEL_LOGGERS_SETTINGS=Loggers
+LABEL_APPENDERS_SETTINGS=Appenders
+LABEL_USERS_WITH_LEVEL_ALL =Users with Level.ALL
+LABEL_LOGLEVEL_OFF=OFF
+LABEL_LOGLEVEL_FATAL=FATAL
+LABEL_LOGLEVEL_ERROR=ERROR
+LABEL_LOGLEVEL_WARN=WARN
+LABEL_LOGLEVEL_INFO=INFO
+LABEL_LOGLEVEL_DEBUG=DEBUG
+LABEL_LOGLEVEL_TRACE=TRACE
+LABEL_LOGLEVEL_ALL=ALL
+LABEL_LOGGER_NAME=Logger name
+LABEL_LOGGER_LEVEL=Logging level
+LABEL_APPENDERS=Appenders
+LABEL_DEFAULT_APPENDER_SETTINGS=Appender settings
+EDIT_CONSOLE_APPENDER_PANEL_NAME=ConsoleAppender settings
+EDIT_ROLLING_FILE_APPENDER_PANEL_NAME=RollingFileAppender settings
+EDIT_DAILY_ROLLING_FILE_APPENDER_PANEL_NAME=DailyRollingFileAppender settings
+LABEL_APPENDER_NAME=Appender name
+LABEL_PATTERN_LAYOUT=Pattern layout
+LABEL_MAX_FILE_SIZE=File size limit
+LABEL_MAX_BACKUP_INDEX=Rotation file count
+LABEL_FILE_NAME=File name
+LABEL_MB=MB
+LABEL_DATE_PATTERN=Date pattern
+LABEL_FILE_APPENDER_NOTE=Note that for a correct behavior the specified file name must be used only by this appender
+
+#
+# Logging messages
+#
+MSG_LOGGING_SETTINGS_SAVED=Logging settings saved
+MSG_LOGGER_CONFIGURATION_SAVED=Logger configuration saved successfully
+ERROR_SAVING_LOGGER_CONFIGURATION=Error saving logger configuration
+ERROR_LOADING_APPENDER_CONFIG_PANEL=Unable to load the configuration panel for this appender
+ERROR_NUMERIC_INPUT={0} must be a number between {1} and {2}
+
+MSG_APPENDER_NOT_CONFIGURABLE = This appender is not configurable since no configuration panel is available.
+
+#
+# Server settings
+#
+LABEL_DEVICE_INVENTORY = Device inventory
+LABEL_DATA_TRANSFORMER_MANAGER = Data transformer manager
+LABEL_ENGINE_INFO = Engine
+LABEL_SERVER_URI = Server URI
+LABEL_OFFICER = Officer
+LABEL_LOGGING_CONFIGURATION = Logging configuration
+LABEL_PIPELINE_MANAGER = Pipeline manager
+LABEL_HANDLER = Handler
+LABEL_STRATEGY = Strategy
+LABEL_USER_MANAGER = User manager
+LABEL_SMS_SERVICE = SMS service
+LABEL_PERSISTENCE_STORE_MANAGER = Persistence store manager
+LABEL_MIN_MAX_MSG_SIZE = Min. value for max. msg size
+LABEL_CHECK_FOR_UPDATES = Check for server updates
+LABEL_DEV_INF = Capabilities
+LABEL_DEV_ID = Device id
+LABEL_DEV_TYP = Device type
+LABEL_MAN = Manufacturer
+LABEL_MOD = Model
+LABEL_SWV = Software version
+LABEL_HWV = Hardware version
+LABEL_FWV = Firmware version
+LABEL_OEM = OEM
+LABEL_VER_DTD = DTD version
+LABEL_SUPPORT_LARGE_OBJECT = Support large object
+LABEL_SUPPORT_NUMBER_OF_CHANGES = Support number of changes
+LABEL_UTC = UTC
+
+MSG_SERVER_CONFIGURATION_SETTINGS_SAVED = Server configuration saved
+
+#
+# SyncSource labels
+#
+SYNCSOURCE_EXCEPTION_NO_MESSAGE_AVAILABLE = No error message available.
+
+LABEL_SYNC_SOURCE_URI = Source URI
+LABEL_SYNC_SOURCE_NAME = Name
+LABEL_SYNC_SOURCE_SUPPORTED_TYPES = Supported types
+LABEL_SYNC_SOURCE_SUPPORTED_VERSIONS = Supported versions
+LABEL_SYNC_SOURCE_ENCRYPTION = Encrypt data
+LABEL_SYNC_SOURCE_ENCODING = Encode data in Base 64
+LABEL_SYNC_SOURCE_EDIT = Edit
+
+#
+# SyncSource questions
+#
+SYNC_SOURCE_QUESTION_DELETE = Do you really want to delete the syncsource?
+
+#
+# SyncSource messages
+#
+SYNC_SOURCE_MESSAGE_URI_OR_NAME_EXISTS = A SyncSource with Source URI {0} or with Name {1} already exists
+SYNC_SOURCE_MESSAGE_NAME_EXISTS = A SyncSource with Name {0} already exists
+SYNC_SOURCE_MESSAGE_INSERT_OK = SyncSource correctly added
+SYNC_SOURCE_MESSAGE_UPDATED_OK = SyncSource correctly updated
+SYNC_SOURCE_MESSAGE_DELETED_OK = SyncSource correctly deleted
+SYNC_SOURCE_MESSAGE_NOT_CONFIGURABLE = This SyncSource is not configurable since no configuration panel is available.
+SYNC_SOURCE_MESSAGE_INSERT_NOT_CONFIGURABLE = It is not possible to add a new SyncSource since no configuration panel is available.
+
+#
+# General messages
+#
+CONNECTION_ERROR_MESSAGE = Host not found or not reachable, please verify the connection parameters
+CONNECT_EXCEPTION_ERROR_MESSAGE = Connection lost. Try to reconnect
+AUTHENTICATION_FAILED_ERROR_MESSAGE = Authentication failed. Make sure username and password are correct (letter case is important) and the user has Administrator role.
+AUTHENTICATION_FAILED_DATA_STORE = Authentication failed, because the server is unable to access to the datastore. Please see server log for the causes.
+
+ERROR_LOADING_CONFIG_PANEL = Unable to load the configuration panel for this SyncSource
+ERROR_LOADING_CONNECTOR_CONFIG_PANEL = Unable to load the configuration panel for this connector
+INPUT_DATA_ERROR_MESSAGE = Please check the value of
+NO_DATA_SELECTED = No data selected!
+MESSAGE_MAX_NUMBER_OF_RESULTS = The query would return too many records ({0}), please narrow the query search criteria
+SYNC_WORKSPACE_NAME = Funambol Administration
+DOUBLE_CLICK_TO_OPEN = Double click to open the data view
+
+Menu/Help/HelpShortcuts/com-funambol-admin-help-mainpage.xml=Funambol Administration help
+Actions/Help/com-funambol-admin-help-mainpage.xml=Funambol Administration help
+
+UPDATING=updating
+
+DELETING=deleting
+
+SEARCHING=searching
+
+EDITING=editing
+
+ADDING=adding
+
+ERROR=Error
+ERROR_CREATING=Error creating
+
+ERROR_HANDLING_PRINCIPAL=Error {0} principal
+
+ERROR_HANDLING_LAST_TIMESTAMP=Error {0} last timestamp
+
+ERROR_HANDLING_DEVICE=Error {0} device
+
+ERROR_HANDLING_USER=Error {0} user
+
+ERROR_HANDLING_SYNCSOURCE=Error {0} syncsource
+
+UNEXPECTED_ERROR=Unexpected error
+
+UNEXPECTED_SERVER_ERROR=Unexpected server error. Check the server log for details.
+
+ERROR_READING_MODULES=Error reading modules
+
+ERROR_SAVING_SERVER_CONFIGURATION=Error saving server configuration
+
+ERROR_LOADING_SYNCSOURCE_TYPE=Error loading the SyncSource Type {0}
+
+LABEL_SERVER_SETTINGS=Server settings
+
+ERROR_LOADING_SERVER_CONFIGURATION=Error loading server configuration
+
+ERROR_LOADING_SERVER_LOGGERS=Error loading server loggers
+
+ERROR_LOADING_SERVER_APPENDERS=Error loading server appenders
+
+ERROR_INVALID_ACTION_EVENT=Invalid event from management panel. Make sure the event source is set to the originating management panel.
+
+ACTION_EDIT=Edit
+
+LOGIN_PANEL_USE_PROXY=Use proxy
+
+LOGIN_PANEL_PROXY_SETTINGS=Proxy settings
+
+ERROR_EMPTY_INPUT={0} cannot be empty
+
+ERROR_SERVER_URI_NOT_VALID = {0} is not a valid URI
+
+LOGIN_PANEL_PROXY_PORT=Proxy port
+
+LOGIN_PANEL_PROXY_HOST=Proxy host name
+
+LOGIN_PANEL_PROXY_PWD=Proxy user password
+
+LOGIN_PANEL_PROXY_USER=Proxy user name
+
+VERSION=%VERSION%
+
+WARNING_SERVER_VERSION=WARNING\: this version of the Funambol Administration has not been tested with Funambol Data Synchronization Server {0}. Some features may not work properly.
+
+LABEL_NODE_USERS=Users
+
+LABEL_LOGGER_INHERIT=Same as
+
+LABEL_LOGGER_SYSTEM_CONFIGURATION=default
+
+#
+#  DataTransformerProperties
+#
+DATA_TRANSFORMERS_MANAGER_PANEL_NAME = DataTransformer Manager
+DATA_TRANSFORMER_CONFIGURE_BUTTON = Configure
+ERROR_GETTING_DTM_CONFIGURATION = Error getting the Data Transformer Manager configuration
+ERROR_SAVING_DTM_CONFIGURATION = Error saving Data Transformer Manager configuration
+MSG_DTM_CONFIGURATION_SAVED = Data Transformer Manager configuration saved.
+DTM_LABEL_TITLE = DataTransformer Manager Configuration
+DTM_LABEL_INCOMING = Transformers for incoming items
+DTM_LABEL_OUTGOING = Transformers for outgoing items
+DTM_COL_CLASS = Class
+DTM_COL_NAME = Name
+DTM_COL_SOURCE_URI = Source URI
+DTM_COL_TRANSFORMATION = Transformation
+DTM_LABEL_TRANSF_REQUIRED = Data transformations
+DTM_BUTTON_SAVE = Save
+DTM_NEW_ITEM = New Item
+DTM_MSG_DELETE = Are you sure you want to delete this row?
+DTM_MSG_DELETE_TITLE = Delete confirmation
+
+#
+# Strategy properties
+#
+LABEL_BUTTON_CONFIGURE = Configure
+ERROR_GETTING_STRATEGY_CONFIGURATION = Error getting the Strategy configuration
+SYNC4JSTRATEGY_PANEL_NAME = Strategy Panel
+STRATEGY_PANEL_TITLE = Strategy Configuration
+STRATEGY_LABEL_CONFLICT_RESOLUTION = Conflict resolution
+STRATEGY_LABEL_DEFAULT_CONFLICT = Default conflict resolution :
+STRATEGY_OPTION_SERVER_WINS = Server wins
+STRATEGY_OPTION_CLIENT_WINS = Client wins
+STRATEGY_OPTION_MERGE_DATA = Merge data
+STRATEGY_COL_NAME = Source Name (uri)
+STRATEGY_COL_RESOLUTION = Resolution
+STRATEGY_OPTION_DEFAULT_VALUE = Default value
+STRATEGY_NOTE = * This is a MergeableSyncSource 
+STRATEGY_BUTTON_SAVE = Save
+ERROR_GETTING_SYNCSOURCES = Error getting the available SyncSources.
+MSG_STRATEGY_CONFIGURATION_SAVED = Strategy configuration saved.
+ERROR_SAVING_STRATEGY_CONFIGURATION = Error saving Strategy configuration.
+STRATEGY_NEW_URI = Select SyncSource
+STRATEGY_NEW_RESOLUTION = Select resolution
+STRATEGY_MSG_DELETE = Are you sure you want to delete selected resolution?
+STRATEGY_MSG_DELETE_TITLE = Delete strategy resolution
+
+#
+# About panel
+#
+ABOUT_COPYRIGHT = Copyright (c) 2004 - 2011 Funambol, Inc.
+ABOUT_URL = www.funambol.com
+ABOUT_LICENSE = This program is provided AS IS, without warranty licensed under AGPLV3. The\nProgram is free software; you can redistribute it and/or modify it under the\nterms of the GNU Affero General Public License version 3 as published by the \nFree Software Foundation including the additional permission set forth source\ncode file header.\n\nThe interactive user interfaces in modified source and object code versions of\nthis program must display Appropriate Legal Notices, as required under Section 5\nof the GNU Affero General Public License version 3. \n\nIn accordance with Section 7(b) of the GNU Affero General Public License \nversion 3, these Appropriate Legal Notices must retain the display of the \n"Powered by Funambol" logo. If the display of the logo is not reasonably \nfeasible for technical reasons, the Appropriate Legal Notices must display the\nwords "Powered by Funambol". Funambol is a trademark of Funambol, Inc.
+ABOUT_PANEL_NAME = About
+
+#
+# Options label
+#
+OPTIONS_PANEL_CONTEXT_PATH = Context path (*)
+OPTIONS_PANEL_MAX_RESULTS = Max results
+OPTIONS_PANEL_DEBUG = Enable debug
+OPTIONS_PANEL_NOTE = (*) The change will take effect at the next login
+OPTIONS_PANEL_NAME = Options

@@ -1,0 +1,139 @@
+#!/bin/sh
+#
+#  Copyright (C) 2010 Funambol, Inc.  All rights reserved.
+#
+
+#
+# Message about this program and how to use it
+#
+usage()
+{
+    cat << USAGE 
+
+LOG FILTER: search strings in the Funambol log.
+
+usage: $0 [-h] [-t timespec] [-m module] [-l level] [-s sessionid] [-d device] [-u user] [-i ipaddress] [file]
+
+-h        : this (help) message
+-t        : match log lines after the specified time
+-m        : match only lines from the specified module (regexp allowed)
+-l        : match only lines of the specified log level or above (literal string)
+-s        : match only lines of the specified session (regexp allowed)
+-i        : match only lines from the specified ip address (regexp allowed)
+-d        : match only lines from the specified device (regexp allowed)
+-u        : match only lines from the user name (regexp allowed)
+
+example: $0 -u john /opt/Funambol/logs/ds-server/ds-server.log
+USAGE
+    exit 2
+}
+
+# Return a numeric code (from 1 to 7) for the log levels. 
+getLevel()
+{
+    LEVEL_NAME=`echo "$1" | tr "[:lower:]" "[:upper:]"`
+
+    case $LEVEL_NAME in
+      ALL)   LEVEL=0;; # must be 7 , but this will be faster with same result
+      TRACE) LEVEL=6;;
+      DEBUG) LEVEL=5;;
+      INFO)  LEVEL=4;;
+      WARN)  LEVEL=3;;
+      ERROR) LEVEL=2;;
+      FATAL) LEVEL=1;;
+      *)     LEVEL=0
+    esac
+}
+
+gen_log_condition()
+{
+  LOG_LEVEL=$1; LEVEL_PATTERN="$LEVEL_PATTERN|$LOG_LEVEL"
+}
+
+append_log_condition()
+{
+  LEVEL_CODE=$LEVEL
+
+  if [ $LEVEL -eq 0 ]; then return; fi
+
+  while [ $LEVEL_CODE -gt 0 ]
+  do
+     case $LEVEL_CODE in
+       6) gen_log_condition TRACE;;
+       5) gen_log_condition DEBUG;;
+       4) gen_log_condition INFO;;
+       3) gen_log_condition WARN;;
+       2) gen_log_condition ERROR;;
+       1) gen_log_condition FATAL 
+     esac
+     LEVEL_CODE=$[ $LEVEL_CODE - 1 ]
+  done
+ 
+  LEVEL_PATTERN=`echo $LEVEL_PATTERN| sed 's/^|//'`
+
+  FIND_CONDITION="$FIND_CONDITION && \$4 ~ /$LEVEL_PATTERN/"
+}
+
+append_condition()
+{
+  PARAMETER="$1"; PATTERN="$2";
+
+  FIND_CONDITION="$FIND_CONDITION && \$$PARAMETER ~ /$PATTERN/"
+}
+
+#
+# Command line options processing
+#
+if [ "$1 " = " " ]; then usage; fi
+
+while getopts 'ht:m:l:s:i:d:u:' OPTION
+do
+  case $OPTION in
+    h) usage
+       ;;
+    t) TIME0=`date -d "$OPTARG" +"%Y%m%d%H%M%S%N" | awk '{print substr($1,1,17)}' ||  echo "error"`
+       ;;
+    m) append_condition "3" "$OPTARG";;
+    l) getLevel "$OPTARG";
+       ;;
+    s) append_condition "5" "$OPTARG";;
+    i) append_condition "6" "$OPTARG";;
+    d) append_condition "7" "$OPTARG";;
+    u) append_condition "8" "$OPTARG";;
+    *) usage
+       ;;
+  esac
+done
+
+if [ "$TIME0 " != " " ]
+then
+  if [ "$TIME0" == "error" ]; then usage; fi
+
+  SYSTEM_CONDITION="dateGreaterThan( \$1\$2, \"$TIME0\" )"
+
+  FIND_CONDITION="$FIND_CONDITION && $SYSTEM_CONDITION"
+fi
+
+if [ "$LEVEL " != " " ]; then append_log_condition; fi
+
+FIND_CONDITION=`echo "$FIND_CONDITION"| sed 's/^\ &&\ //'`
+
+shift $((OPTIND-1))
+
+LOG_FILE="$1"
+
+###################################### MAIN ################################
+AWK_CODE='
+function dateGreaterThan( t, t0 ) {
+  time = t; gsub(/[:,\-\]]/, "", time );
+  return time >= t0;
+} 
+BEGIN { RS = "\n\\[" ; FS = " "; } 
+( '$FIND_CONDITION' ) { print "[" $0 }
+'
+# number of processed lines
+#END { print NR }
+
+#echo $AWK_CODE 1>&2
+
+awk "$AWK_CODE" "$LOG_FILE"

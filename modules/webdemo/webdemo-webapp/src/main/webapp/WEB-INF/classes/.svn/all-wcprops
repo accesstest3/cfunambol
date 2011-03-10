@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/classes
+END
+login.properties
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/classes/login.properties
+END
+calendar.properties
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/classes/calendar.properties
+END
+contact.properties
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/classes/contact.properties
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/webapp/WEB-INF/classes/log4j.properties
+END

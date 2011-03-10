@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2_01" class="java.beans.XMLDecoder">
+    <object class="com.funambol.server.notification.sender.tcp.TCPSender">
+        <void property="enableSTP">
+            <boolean>true</boolean>
+        </void>
+        <void property="enableCTP">
+            <boolean>true</boolean>
+        </void>
+        <void property="stpSender">
+            <object class="com.funambol.server.notification.sender.tcp.stp.STPSender">
+
+                <!-- Connection timeout in seconds -->
+                <void property="timeout">
+                    <int>20</int>
+                </void>
+
+                <!-- Numbers of attempts  -->
+                <void property="attempts">
+                    <int>1</int>
+                </void>
+
+                <!-- Waiting time between the attempts in seconds  -->
+                <void property="waitingTime">
+                    <int>10</int>
+                </void>
+
+                <!-- Default port  -->
+                <void property="defaultPort">
+                    <int>745</int>
+                </void>
+
+            </object>
+        </void>
+
+        <void property="ctpSender">
+            <object class="com.funambol.server.notification.sender.tcp.ctp.CTPSender">
+
+                <void property="groupName">
+                    <string>ctp-notification-group</string>
+                </void>
+
+                <void property="jgroupsConfigFileName">
+                    <string>com/funambol/server/notification/tcp/ctp/jgroups-ctp-notification-group.xml</string>
+                </void>
+                
+                <!--
+                 How long the sender should wait for the ctpserver responses ?
+                 0 means no wait
+                -->
+                <void property="notificationResponseTimeout">
+                    <long>10000</long> <!-- in milliseconds -->
+                </void>
+
+            </object>
+            
+        </void>
+    </object>
+</java>

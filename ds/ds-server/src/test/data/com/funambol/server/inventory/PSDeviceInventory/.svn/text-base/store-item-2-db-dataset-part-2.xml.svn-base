@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+  <FNBL_DEVICE_CONFIG USERNAME="user_part2" PRINCIPAL="10" URI="./Email/Address" VALUE="email@address.com" LAST_UPDATE="0" STATUS ="N" ENCRYPTED="false"/>
+  <FNBL_DEVICE_CONFIG USERNAME="user_part2" PRINCIPAL="20" URI="./NodeA" VALUE="ValueB" LAST_UPDATE="0" STATUS ="U" ENCRYPTED="false"/>
+</dataset>

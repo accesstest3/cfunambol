@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/core/!svn/ver/30769/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/java
+END
+PDIServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/30769/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/java/PDIServlet.java
+END
+RequestEncodingFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/java/RequestEncodingFilter.java
+END
+PhotoServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/core/!svn/ver/30769/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/java/PhotoServlet.java
+END
+LoginFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/core/!svn/ver/27993/trunk/funambol/modules/webdemo/webdemo-webapp/src/main/java/LoginFilter.java
+END

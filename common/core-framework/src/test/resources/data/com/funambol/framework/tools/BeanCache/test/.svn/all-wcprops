@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/32003/trunk/funambol/common/core-framework/src/test/resources/data/com/funambol/framework/tools/BeanCache/test
+END
+SimpleLazyInitBean.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/32003/trunk/funambol/common/core-framework/src/test/resources/data/com/funambol/framework/tools/BeanCache/test/SimpleLazyInitBean.xml
+END
+SimpleCloneableBean.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/31944/trunk/funambol/common/core-framework/src/test/resources/data/com/funambol/framework/tools/BeanCache/test/SimpleCloneableBean.xml
+END
+SimpleNotCloneableBean.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/core/!svn/ver/31944/trunk/funambol/common/core-framework/src/test/resources/data/com/funambol/framework/tools/BeanCache/test/SimpleNotCloneableBean.xml
+END
+SimpleLazyInitCloneableBean.xml
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/core/!svn/ver/32003/trunk/funambol/common/core-framework/src/test/resources/data/com/funambol/framework/tools/BeanCache/test/SimpleLazyInitCloneableBean.xml
+END

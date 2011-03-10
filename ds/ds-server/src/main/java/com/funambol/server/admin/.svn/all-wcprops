@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/core/!svn/ver/34379/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/admin
+END
+UnauthorizedException.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/admin/UnauthorizedException.java
+END
+AdminManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/core/!svn/ver/34379/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/admin/AdminManager.java
+END
+AdminException.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/main/java/com/funambol/server/admin/AdminException.java
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/java/com/funambol/server/db
+END
+DataSourceContextHelperTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/java/com/funambol/server/db/DataSourceContextHelperTest.java
+END
+DataSourceFactoryTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/java/com/funambol/server/db/DataSourceFactoryTest.java
+END
+DataSourceConfigurationTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/java/com/funambol/server/db/DataSourceConfigurationTest.java
+END
+RoutingDataSourceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/java/com/funambol/server/db/RoutingDataSourceTest.java
+END
+DataSourceConfigurationHelperTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/java/com/funambol/server/db/DataSourceConfigurationHelperTest.java
+END
+MockPartitioningCriteria.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/java/com/funambol/server/db/MockPartitioningCriteria.java
+END
+PartitionTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/java/com/funambol/server/db/PartitionTest.java
+END
+RoutingDataSourceConfigurationTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/27993/trunk/funambol/common/server-framework/src/test/java/com/funambol/server/db/RoutingDataSourceConfigurationTest.java
+END

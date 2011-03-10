@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/36684/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/utility
+END
+TimeUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/36684/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/utility/TimeUtils.java
+END
+XMLBuilderUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/30850/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/utility/XMLBuilderUtil.java
+END
+NoteUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/utility/NoteUtils.java
+END
+PDIMergeUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/32885/trunk/funambol/common/pim-framework/src/main/java/com/funambol/common/pim/utility/PDIMergeUtils.java
+END

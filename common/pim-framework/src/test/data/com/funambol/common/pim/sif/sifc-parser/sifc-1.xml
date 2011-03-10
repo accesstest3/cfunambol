@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contact>
+<Anniversary/>
+<AssistantName/>
+<AssistantTelephoneNumber/>
+<BillingInformation/>
+<Birthday/>
+<Body/>
+<Business2TelephoneNumber/>
+<BusinessAddressCity>BusinessCity100</BusinessAddressCity>
+<BusinessAddressCountry>Italy</BusinessAddressCountry>
+<BusinessAddressPostOfficeBox/>
+<BusinessAddressPostalCode>BusinessZip100</BusinessAddressPostalCode>
+<BusinessAddressState>BusinessState100</BusinessAddressState>
+<BusinessAddressStreet>BusinessStreet100</BusinessAddressStreet>
+<BusinessFaxNumber/>
+<BusinessTelephoneNumber>+39 0010000100</BusinessTelephoneNumber>
+<BusinessWebPage>http://www.funambol.com</BusinessWebPage>
+<CallbackTelephoneNumber/>
+<CarTelephoneNumber/>
+<Categories/>
+<Children/>
+<Companies/>
+<CompanyMainTelephoneNumber/>
+<CompanyName>Funambol</CompanyName>
+<ComputerNetworkName/>
+<Department>Dep100</Department>
+<Email1Address>contact100@funambol.com</Email1Address>
+<Email1AddressType>SMTP</Email1AddressType>
+<Email2Address/>
+<Email2AddressType/>
+<Email3Address/>
+<Email3AddressType/>
+<FileAs>Dr. Contact100 I</FileAs>
+<FirstName>Contact100</FirstName>
+<Folder>DEFAULT_FOLDER</Folder>
+<Gender>0</Gender>
+<Hobby/>
+<Home2TelephoneNumber/>
+<HomeAddressCity>CityHome100</HomeAddressCity>
+<HomeAddressCountry>Italy</HomeAddressCountry>
+<HomeAddressPostOfficeBox/>
+<HomeAddressPostalCode>HomeZip100</HomeAddressPostalCode>
+<HomeAddressState>HomeState100</HomeAddressState>
+<HomeAddressStreet>HomeStreet100</HomeAddressStreet>
+<HomeFaxNumber/>
+<HomeTelephoneNumber>+39 0020000100</HomeTelephoneNumber>
+<HomeWebPage/>
+<IMAddress/>
+<Importance>1</Importance>
+<Initials>C.</Initials>
+<JobTitle>JobTitle100</JobTitle>
+<Language/>
+<LastName/>
+<MailingAddress>BusinessStreet100
+BusinessZip100  BusinessCity100  (BusinessState100)</MailingAddress>
+<ManagerName/>
+<MiddleName/>
+<Mileage/>
+<MobileTelephoneNumber>+39 0040000100</MobileTelephoneNumber>
+<NickName/>
+<OfficeLocation>Dep100</OfficeLocation>
+<OrganizationalIDNumber/>
+<OtherAddressCity>OtherCity100</OtherAddressCity>
+<OtherAddressCountry>Italy</OtherAddressCountry>
+<OtherAddressPostOfficeBox/>
+<OtherAddressPostalCode>OtherZip100</OtherAddressPostalCode>
+<OtherAddressState>OtherState100</OtherAddressState>
+<OtherAddressStreet>OtherStreet100</OtherAddressStreet>
+<OtherFaxNumber/>
+<OtherTelephoneNumber/>
+<PagerNumber/>
+<Photo/>
+<PrimaryTelephoneNumber/>
+<Profession>Profession100</Profession>
+<RadioTelephoneNumber/>
+<Sensitivity>0</Sensitivity>
+<Spouse/>
+<Subject>Contact100 I</Subject>
+<Suffix>I</Suffix>
+<TelexNumber/>
+<Title>Dr.</Title>
+<WebPage>http://www.funambol.com</WebPage>
+<YomiCompanyName/>
+<YomiFirstName/>
+<YomiLastName/>
+</contact>

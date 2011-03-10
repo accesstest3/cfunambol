@@ -1,0 +1,107 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.funambol.framework.core.*;
+import com.funambol.framework.logging.FunambolLogger;
+import com.funambol.framework.logging.FunambolLoggerFactory;
+
+// ------------------------------------------------------ Synclet implementation
+/**
+ * Handles Status commands with data 500, 506 or 511.
+ * When on server side there is an error on Item sent by client, the server
+ * responses at the client command with a Status Error that contains an Item in
+ * which the data explain the cause of the error.
+ * The client is not able to understand this Status command and so it interrupts
+ * the sync.
+ * It needs to remove the data and to add the SourceRef into Status command.
+ * Note: the client is not able to understand also a Status with Item in which
+ * the data is empty.
+ * The Nokia series 40 are an example of device that don't understand this
+ * command (even if they can send commands with empty data that are the cause
+ * of Status 500 server side).
+ *
+ * @param message the SyncML message
+ * @param cmds the array of the commands to send at the client
+ *
+ * @version $Id: handleStatusError.bsh,v 1.4 2008-06-30 08:47:46 luigiafassina Exp $
+ */
+void handleStatusError(SyncML message, AbstractCommand[] cmds) {
+
+    if (log.isTraceEnabled()) {
+        log.trace("Handle Status Error command if needs");
+    }
+    
+    Status      status     = null;
+    Status      newStatus  = null;
+    Item[]      item       = null;
+    ArrayList   items      = null;
+    TargetRef[] targetRefs = null;
+
+    for (int i=0; i< cmds.length; i++) {
+        if (cmds[i] instanceof Status) {
+            status = (Status)cmds[i];
+            data = status.data.data;
+            if ("500".equals(data) || 
+                "506".equals(data) || 
+                "511".equals(data)) {
+                items = status.getItems();
+                if (items != null && items.size() > 0) {
+                    locURI = ((Item)items.get(0)).source.locURI;
+                }
+                if (status.getTargetRef() == null) {
+                    targetRefs = new TargetRef[0];
+                } else {
+                    targetRefs = (TargetRef[])status.getTargetRef()
+                                                    .toArray(new TargetRef[0]);
+                }
+                newStatus = new Status(status.cmdID                          ,
+                                       status.msgRef                         ,
+                                       status.cmdRef                         ,
+                                       status.cmd                            ,
+                                       targetRefs                            ,
+                                       new SourceRef[]{new SourceRef(locURI)},
+                                       status.cred                           ,
+                                       status.chal                           ,
+                                       status.data                           ,
+                                       item);
+                cmds[i] = newStatus;
+            }
+        }
+    }
+    message.getSyncBody().setCommands(cmds);
+}

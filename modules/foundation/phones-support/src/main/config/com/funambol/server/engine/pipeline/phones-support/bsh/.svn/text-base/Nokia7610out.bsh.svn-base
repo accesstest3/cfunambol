@@ -1,0 +1,272 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+import com.funambol.framework.core.*;
+import com.funambol.framework.core.Sync4jException;
+import com.funambol.framework.engine.pipeline.OutputMessageProcessor;
+import com.funambol.framework.engine.pipeline.MessageProcessingContext;
+import com.funambol.framework.engine.pipeline.StopProcessingException;
+import com.funambol.framework.logging.FunambolLogger;
+import com.funambol.framework.logging.FunambolLoggerFactory;
+import com.funambol.framework.server.Capabilities;
+
+import com.funambol.foundation.synclet.PIMItemsHandler;
+
+/**
+ * Contacts:
+ * =========
+ * Nokia 7610 and Nokia 6630 are not able to handle updates on fields that have the
+ * same name. In this case the Telephone field is wrongly updated. 
+ * To avoid the issue PREF telephone numbers are removed from sync both in input
+ * and output.
+ *
+ * The issue is described by these different scenarios:
+ * Case A)
+ * 1) on device create the contact:
+ * First Name: John
+ * Telephone: 1
+ * Default Telephone: 8
+ * 2) sync / contact correctly stored on Portal (Main Phone: 1, Alternate Phone: 8)
+ * 3) on server modify Alternate Phone: 80 / sync
+ * As result on device there are 2 default telephones:
+ * Default Telephone: 1
+ * Default Telephone: 8
+ *
+ * Case B)
+ * 1) on device create the contact:
+ * First Name: Karl
+ * Telephone: 1
+ * Default Telephone: 8
+ * 2) sync / contact correctly stored on Portal (Main Phone: 1, Alternate Phone: 8)
+ * 3) on server modify Main Phone: 10 / sync
+ * As result on device there are 2 default telephones:
+ * Default Telephone: 10
+ * Default Telephone: 8
+ *
+ * The device modifies only the first Telephone in its database according to the
+ * value written in the last line of the vcard that is correct in case B) but not
+ * in case A).
+ * Same issue occurs for the couple TEL;VOICE;WORK and
+ * TEL;VOICE;WORK;PREF sent by device.
+ *
+ * Removed TYPE information from PHOTO token because the phone is not able 
+ * to understand this information rightly.
+ *
+ *
+ * Another issue solded by this synclet is the wrong management of the email
+ * datastore sent by the funambol 8.7 server to the phone when server capabilities
+ * are asked. When this datastore is returned, the sync fails.
+ * The workaround remove the email datastore from the list of server's datastores
+ *   
+ * @version $Id: Nokia7610out.bsh,v 1.4 2008-03-26 22:22:12 stefano_fornari Exp $
+ */
+ 
+// ---------------------------------------------------------------- Private data
+private final FunambolLogger log =
+    FunambolLoggerFactory.getLogger("engine.pipeline");
+
+// ------------------------------------------------------ Synclet implementation
+importCommands("/com/funambol/server/engine/pipeline/phones-support/bsh/commands");
+
+/**
+ * Process and manipulate the output message.
+ *
+ * @param mpc the message processing context
+ * @param message the message to be processed
+ *
+ * @throws Sync4jException
+ */
+void postProcessMessage(MessageProcessingContext mpc,
+                        SyncML message              )
+throws Sync4jException {
+
+    if (log.isTraceEnabled()) {
+        log.trace("Nokia7610out.postProcessMessage(...)");
+    }
+
+    // Retrieves the device model from the DB
+    Capabilities capabilities = 
+        deviceCapabilitiesLookup(message.syncHdr.target.locURI);
+    
+    String model = null;
+    
+    if (capabilities != null) {
+        DevInf devInf = capabilities.getDevInf();
+        
+        if (devInf != null) {
+            model = devInf.getMod();            
+        }
+    }
+    
+    if (isInSeries60SecondEdition(model)) {
+    
+        if (log.isTraceEnabled()) {
+            log.trace("Nokia " + model + " belongs to Series 60 Second Edition");
+        }
+        
+        // This map contains the three lists of items separated based on their type
+        PIMItemsHandler pimItemsHandler = new PIMItemsHandler();
+        Map mapItems = pimItemsHandler.extractOutgoingPIMItems(message);
+
+        processPIMItems(mapItems);
+    }
+    
+    else {
+        if (log.isTraceEnabled()) {
+            log.trace("Nokia " + model + " does not belongs to Series 60 Second Edition");
+        }
+    }
+    
+    //remove email-type datastore from the list of server's datastores
+    removeEmailDataStoresFromResultsItem(message);
+}
+
+/**
+ * Processes outgoing items.
+ *
+ * @param mapItems the map that contains the three lists of items separated
+ *                 based on their type
+ */
+void processPIMItems(Map mapItems) {
+
+    //
+    // Cycle on vcard list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VCARD)) {
+        postProcessVCard(i);
+    } 
+}
+
+/**
+ * Processes outgoing contacts.
+ * 
+ * @param i the item to be processed
+ */
+void postProcessVCard(Item i) {
+
+    data = i.data.data;
+    
+    data = deleteOutProperty(data, "TEL;PREF;VOICE");
+    data = deleteOutProperty(data, "TEL;WORK;PREF" );
+    
+    data = removeDepartmentProperty(data);
+    
+    //
+    // Removes TYPE information from PHOTO token because this phone is not able 
+    // to understand this information rightly.
+    //
+    data = removePhotoType(data);
+    
+    i.data.data = data;
+}
+
+
+/**
+ * Called at synclet's initialization time.
+ */
+void init() {
+    // do nothing
+}
+
+
+/**
+ * Remove the email datastores from Results and Put item
+ */
+public static void removeEmailDataStoresFromResultsItem(SyncML message)
+{
+    //
+    // Checks if the server sends the result command
+    //
+    ArrayList cmds = (ArrayList)message.syncBody.getCommands();
+
+    for (int i=0; cmds != null && i<cmds.size(); i++) {
+        AbstractCommand bodycmd = (AbstractCommand)cmds.get(i);
+
+        if (bodycmd instanceof Results || bodycmd instanceof Put) {
+            //Results items are DevInfItem
+            List items = bodycmd.getItems();
+
+            for(int counterDevInfItem=0; items != null && counterDevInfItem<items.size(); counterDevInfItem++) {
+                //cast each generic item in a specific DevInfItem
+                DevInfItem devInfItem = (DevInfItem) items.get(counterDevInfItem);
+
+                //if the cast success...
+                if (null != devInfItem) {
+                    //inside each DevInfItem, there is a DevInfData object
+                    //Item.getData() returns null because Results items have DevInfData, and not ComplextData
+                    DevInfData devInfData = devInfItem.getDevInfData();
+
+                    if (null != devInfData) {
+                        //inside each DevInfData, there is a DevInf object
+                        DevInf devInf = devInfData.getDevInf();
+                        if (null != devInf) {
+                            //inside the DevInf object, there is the DataStores list
+                            ArrayList dataStores = devInf.getDataStores();
+                            String elementsToDelete = "";
+
+                            //cycles thru datastores, searching for the ones referred to email
+                            for (int counterDatastores=0; dataStores != null && counterDatastores<dataStores.size(); counterDatastores++) {
+                                DataStore datastore = (DataStore)dataStores.get(counterDatastores);
+                                CTInfo txPref = datastore.getTxPref();
+                                CTInfo rxPref = datastore.getRxPref();
+                                //use the following text to recognise the email datastore
+                                if ((null != txPref && txPref.getCTType().contains("vnd.omads-email")) ||
+                                        (null != rxPref && rxPref.getCTType().contains("vnd.omads-email"))) {
+                                    //collects the datastores to delete
+                                    elementsToDelete += counterDatastores + "ZZ";
+                                }
+                            }
+
+                            if (!"".equals(elementsToDelete)) {
+                                if (log.isTraceEnabled()) log.trace("Nokia7610out.postProcessMessage - removing email datastores");                                //remove datastores in invers order
+                                String[] indexesToRemove = elementsToDelete.split("ZZ");
+                                for (int counter=indexesToRemove.length-1; counter >=0; counter--) {
+                                    int indexToRemove = Integer.valueOf(indexesToRemove[counter]);
+                                    if (log.isTraceEnabled()) log.trace("  Removing datastore at position: " + indexToRemove);
+                                    dataStores.remove(indexToRemove);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

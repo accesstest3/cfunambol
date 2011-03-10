@@ -1,0 +1,26 @@
+void getModuleList(String dirModulesPropertyName) {
+    
+    dir = project.getProperty(dirModulesPropertyName);
+
+    fs = project.createDataType("fileset");
+    fs.setDir(new File(project.getBaseDir(), dir));
+    fs.setIncludes("*.s4j");
+    ds = fs.getDirectoryScanner(project);
+    srcFiles = ds.getIncludedFiles();
+ 
+    StringBuffer sb = new StringBuffer();
+    // iterate over that array
+    for (i=0; i<srcFiles.length; i++) {
+
+        // get the values via Java API
+        basedir  = fs.getDir(project);
+        filename = srcFiles[i];
+        index = filename.indexOf(".s4j");
+        filename = filename.substring(0, index); 
+        if (i != 0) {
+            sb.append(',');
+        }
+        sb.append(filename);	
+    } 
+    project.setProperty("modules-to-install", sb.toString());   
+}

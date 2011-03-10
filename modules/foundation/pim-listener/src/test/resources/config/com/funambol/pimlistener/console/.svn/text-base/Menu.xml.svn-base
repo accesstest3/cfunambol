@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2" class="java.beans.XMLDecoder">
+    <object class="com.funambol.pimlistener.console.Menu">
+        <void property="defaultTaskBeanFile">
+            <!-- Default taskBeanFile -->
+            <string>com/funambol/pimlistener/task/PimListenerTask.xml</string>
+        </void>
+        <void property="defaultPeriod">
+            <!-- Default period (15 minutes) -->
+            <int>15</int>
+        </void>    
+        <void property="defaultActive">
+            <!-- Default active -->
+            <boolean>true</boolean>
+        </void>    
+        <void property="defaultPushContacts">
+            <!-- Default pushContacts-->
+            <boolean>true</boolean>
+        </void>    
+        <void property="defaultPushCalendars">
+            <!-- Default pushCalendars -->
+            <boolean>true</boolean>
+        </void>    
+    </object>
+</java>

@@ -1,0 +1,383 @@
+<?xml version="1.0"?>
+
+<!--
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2003 - 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+-->
+
+<!--
+  =============================================================================
+    Build file for the installation and configuration of Funambol modules.
+
+    Funambol modules are found under the directory modules. Modules are provided
+    as jar files called <module-name>-<major-version>.<minor-version>.s4j.
+
+    Modules to install are passed as a comma separated list of modules names
+    and versions in the property modules-to-install.
+
+    $Id: install-modules.xml,v 1.1 2008-07-01 21:54:11 nichele Exp $
+
+  =============================================================================
+-->
+<project name="Funambol Modules Installation" default="usage" basedir="..">
+
+  <taskdef resource="net/sf/antcontrib/antcontrib.properties" />
+
+  <path id="lib.path">
+    <fileset dir="${basedir}/default/lib" includes="funambol-ant-*.jar"/>
+  </path>
+
+  <echo message="install.modules basedir ${basedir}"/>
+  <taskdef name         = "iterate"
+           classname    = "com.funambol.ant.IterateTask"
+           classpathref = "lib.path"
+  />
+
+  <!--
+     ========================================================================
+       Help on usage. List available targets
+     ========================================================================
+  -->
+  <target name="usage" depends="init">
+    <echo message=""/>
+    <echo message="Welcome to Funambol DS Server setup"/>
+    <echo message="-----------------------------------"/>
+    <echo message=""/>
+    <echo message=" Available targets are :"/>
+    <echo message=""/>
+    <echo message=" usage         --> help on usage"/>
+    <echo message=" pre-install   --> run pre installation tasks"/>
+    <echo message=" post-install  --> run post installation tasks"/>
+    <echo message=""/>
+    <echo message="This ant script is not intended to be run alone, but"/>
+    <echo message="called by the main installation script."/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- init - initialization                                               -->
+  <!-- =================================================================== -->
+  <target name="init">
+    <delete file="modules-classpath.properties"/>
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- pre-install - start modules installation                            -->
+  <!-- =================================================================== -->
+  <target name="pre-install" depends="init">
+    <echo message="Pre installation for modules ${modules-to-install}"/>
+
+    <iterate target    = "pre-install-module"
+             items     = "${modules-to-install}"
+             property  = "module"
+             delimiter = ","
+    />
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- post-install - start modules installation                           -->
+  <!-- =================================================================== -->
+  <target name="post-install" depends="init">
+    <echo message="Post installation for modules ${modules-to-install}"/>
+
+    <iterate target    = "post-install-module"
+             items     = "${modules-to-install}"
+             property  = "module"
+             delimiter = ","
+    />
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- pre-install-module - install the given module                       -->
+  <!-- =================================================================== -->
+  <target name="pre-install-module">
+    <echo message="${module} pre-installation..."/>
+
+    <mkdir dir="${dir.output}/${module}"/>
+    <unjar src="modules/${module}.s4j" dest="${dir.output}/${module}"/>
+    <move todir="${dir.output}/config/common/beans" failonerror="false">
+      <fileset dir="${dir.output}/${module}/config" includes="**/*"/>
+    </move>
+
+    <echo message="${module} pre-installation successfully completed"/>
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- post-install-module - install the given module                      -->
+  <!-- =================================================================== -->
+  <target name="post-install-module" depends="check-custom-install,
+                                              custom-install-module">
+    <echo message="${module} installation..."/>
+
+    <condition property="module-classpath">
+      <and>
+        <available file="${dir.output}/${module}/lib/${module}.jar"/>
+      </and>
+    </condition>
+    
+    <antcall target="set-module-classpath" inheritAll="true"/>
+
+    <condition property="isMacOsButNotMacOsX">
+    <and>
+      <os family="mac"/>
+
+      <not>
+        <os family="unix"/>
+
+      </not>
+    </and>
+    </condition>
+    
+    <antcall target="deploy-wsdds" inheritAll="true"/>
+
+    <antcall target="install-db" inheritAll="true"/>
+    
+    <echo message="${module} installation successfully completed"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- set-module-classpath - Set the module classpath                     -->
+  <!-- =================================================================== -->
+  <target name="set-module-classpath" if="module-classpath">
+      <propertyfile file="modules-classpath.properties">
+          <entry key="modules-classpath"
+                 operation="+"
+                 value=" ${module}/lib/${module}.jar"/>
+      </propertyfile>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- check-custom-install - Is there a custom installation script?       -->
+  <!-- =================================================================== -->
+  <target name="check-custom-install">
+      <available file     = "${dir.output}/${module}/install/install.xml"
+                 property = "has.install"
+      />
+
+    <echo message="has.install: ${has.install}"/>
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- custom-install-module - execute custom module installation          -->
+  <!-- =================================================================== -->
+  <target name="custom-install-module" if="has.install">
+      <echo message="Starting custom installation..."/>
+
+      <ant antfile = "${dir.output}/${module}/install/install.xml"
+           target  = "install"
+           dir     = "${dir.output}/${module}"
+      >
+          <property name="funambol-home" value="${basedir}"/>
+      </ant>
+  </target>
+
+  <!-- =============================================== -->
+  <!-- INSTALL, DROP, CREATE and INIT DB               -->
+  <!-- =============================================== -->
+  <target name="install-db" if="do.install-db">
+      <echo message="Database installation for module ${module} on ${dbms} (${basedir})"/>
+
+      <if>
+          <isfalse value="${force-db-creation}"/>
+          <then>
+              <input validargs="y,n" addproperty="in.createdb">
+The Funambol Data Synchronization Server installation program can now create
+the database required by the module ${module} (if any is needed).
+You can skip this step if you have already a valid database created
+or the module does not require a database.
+
+If you choose 'y' your existing data will be deleted.
+
+Do you want to recreate the database?
+              </input>
+
+              <condition property="create.database">
+                  <equals arg1="y" arg2="${in.createdb}"/>
+              </condition>
+          </then>
+          <else>
+              <property name="in.createdb"    value="y" />
+              <property name="create.database" value="true" />
+          </else>
+      </if>
+
+      <antcall target="check-dbms" inheritall="true"/>
+
+    </target>
+
+    <target name="check-dbms" if="create.database">
+
+      <fail unless="dbms" message="Please, add dbms property into install.properties."/>
+      <fail message="Please, set dbms property into install.properties.">
+        <condition>
+            <equals arg1="" arg2="${dbms}"/>
+        </condition>
+       </fail>
+       
+      <condition property="notexist">
+        <and>
+        <not>
+          <available file="default/sql/${dbms}" type="dir"/>
+        </not>
+        <equals arg1="y" arg2="${in.createdb}"/>
+        </and>
+      </condition>
+      <antcall target="check-module-db" inheritall="true"/>
+      
+      <condition property="do.createdb">
+        <and>
+          <available file="${dir.output}/${module}/sql/${dbms}/create_schema.sql"/>
+          <equals arg1="y" arg2="${in.createdb}"/>
+        </and>
+      </condition>
+
+      <condition property="do.dropdb">
+        <and>
+          <available file="${dir.output}/${module}/sql/${dbms}/drop_schema.sql"/>
+          <equals arg1="y" arg2="${in.createdb}"/>
+        </and>
+      </condition>
+
+      <condition property="do.initdb">
+        <and>
+          <available file="${dir.output}/${module}/sql/${dbms}/init_schema.sql"/>
+          <equals arg1="y" arg2="${in.createdb}"/>
+        </and>
+      </condition>
+      
+      <antcall target="dropdb"   inheritAll="true"/>
+      <antcall target="createdb" inheritAll="true"/>
+      <antcall target="initdb"   inheritAll="true"/>
+
+    </target>
+    
+    
+    <target name="deploy-wsdds">
+        <property name="wsdd-directory" value="${dir.output}/${module}/wsdd" />
+        
+        <script language="beanshell" src="${basedir}/install/install.bsh">
+            setFileList("wsdd-directory", ".wsdd", ",", "fileList");
+        </script>
+        
+        <iterate target    = "deploy-wsdd"
+                 items     = "${fileList}"
+                 property  = "file-wsdd"
+                 delimiter = ","
+        />
+        
+    </target>
+    
+    <target name="deploy-wsdd">
+        <condition property="wsdd-exist">
+          <and>
+            <available file="${dir.output}/${module}/wsdd/${file-wsdd}"
+                       type="file"/>
+          </and>
+        </condition>
+
+        <antcall target="deploy-wsdd-file" inheritAll="true"/>
+    </target>
+    
+    <target name="deploy-wsdd-file" if="wsdd-exist">
+    
+       <echo message="Deploying ${file-wsdd}..." />
+
+       <java classname="org.apache.axis.utils.Admin"
+             fork="true"
+             dir="${basedir}"
+             failonerror="true"
+             inputstring="">
+            <arg value="server"/>
+            <arg value="${dir.output}/${module}/wsdd/${file-wsdd}"/>
+            <classpath>
+               <fileset dir="default/lib">
+                   <include name="**/*.jar"/>
+               </fileset>
+               <fileset dir="output">
+                   <include name="**/*.jar"/>
+               </fileset>
+               <dirset dir="install"/>
+            </classpath>
+       </java>
+       
+    </target>
+    
+    <target name="check-module-db" if="notexist">
+
+      <echo message=" "/>
+      <echo message="NOTE: No scripts found for dbms '${dbms}'"/>
+      <echo message=" "/>
+      
+    </target>
+    
+    <target name="dropdb" if="do.dropdb">
+      <sql driver     = "${jdbc.driver}"
+           url        = "${jdbc.url}"
+           userid     = "${jdbc.user}"
+           password   = "${jdbc.password}"
+           classpath  = "${jdbc.classpath}"
+           onerror    = "continue"
+           autocommit = "true"
+           src        = "${dir.output}/${module}/sql/${dbms}/drop_schema.sql"
+    />
+    </target>
+
+    <target name="createdb" if="do.createdb">
+      <sql driver    = "${jdbc.driver}"
+           url       = "${jdbc.url}"
+           userid    = "${jdbc.user}"
+           password  = "${jdbc.password}"
+           classpath = "${jdbc.classpath}"
+           onerror   = "stop"
+           src       = "${dir.output}/${module}/sql/${dbms}/create_schema.sql"
+    />
+    </target>
+
+    <target name="initdb" if="do.initdb">
+      <sql driver    = "${jdbc.driver}"
+           url       = "${jdbc.url}"
+           userid    = "${jdbc.user}"
+           password  = "${jdbc.password}"
+           classpath = "${jdbc.classpath}"
+           onerror   = "stop"
+           src       = "${dir.output}/${module}/sql/${dbms}/init_schema.sql"
+    />
+  </target>
+  
+</project>

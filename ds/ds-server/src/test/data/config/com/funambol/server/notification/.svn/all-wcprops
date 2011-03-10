@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/core/!svn/ver/32890/trunk/funambol/ds/ds-server/src/test/data/config/com/funambol/server/notification
+END
+DSNotificationBuilder.xml
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/core/!svn/ver/29687/trunk/funambol/ds/ds-server/src/test/data/config/com/funambol/server/notification/DSNotificationBuilder.xml
+END
+DS11NotificationBuilder.xml
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/29687/trunk/funambol/ds/ds-server/src/test/data/config/com/funambol/server/notification/DS11NotificationBuilder.xml
+END
+PushManager.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/32890/trunk/funambol/ds/ds-server/src/test/data/config/com/funambol/server/notification/PushManager.xml
+END

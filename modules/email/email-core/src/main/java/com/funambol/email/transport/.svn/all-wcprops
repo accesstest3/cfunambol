@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/transport
+END
+MailServerErrorHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/transport/MailServerErrorHandler.java
+END
+ImapMailServerWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/transport/ImapMailServerWrapper.java
+END
+MailServerWrapperFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/transport/MailServerWrapperFactory.java
+END
+CommonMailServerWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/transport/CommonMailServerWrapper.java
+END
+IMailServerWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/transport/IMailServerWrapper.java
+END
+MailServerError.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/transport/MailServerError.java
+END
+ConnectorAuthenticator.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/transport/ConnectorAuthenticator.java
+END
+PopMailServerWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/transport/PopMailServerWrapper.java
+END
+ImapMessageCountListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/transport/ImapMessageCountListener.java
+END
+ImapSemaphore.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/transport/ImapSemaphore.java
+END

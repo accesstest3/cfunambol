@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2" class="java.beans.XMLDecoder">
+
+    <object class="com.funambol.email.inboxlistener.service.InboxListenerDummyTask">
+
+      <!-- true for debug mode; false in production -->
+      <void property="startupNotification">
+        <boolean>false</boolean>
+      </void>
+    
+      <!-- if true the notification is sent just when a new email is detected -->
+      <void property="justNewNotification">
+        <boolean>false</boolean>
+      </void>
+      
+      <!-- true for debug mode; false in production -->
+      <void property="saveSubject">
+        <boolean>true</boolean>
+      </void>
+      
+      <!-- true for debug mode; false in production -->
+      <void property="saveSender">
+        <boolean>false</boolean>
+      </void>
+
+      <!-- execution time of this task in ms -->
+      <void property="executionTime">
+        <long>1000</long>
+      </void>
+    </object>
+    
+</java>

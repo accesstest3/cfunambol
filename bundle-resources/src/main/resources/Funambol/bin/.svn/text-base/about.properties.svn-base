@@ -1,0 +1,4 @@
+ABOUT_MSG:Funambol Data Synchronization Server
+ABOUT_TEXT:   Funambol Data Synchronization Server v. {funambol.version}
+ABOUT_COPYRIGHT:            Copyright (c) 2003-2011 Funambol
+TOOL_TIP:Funambol Data Synchronization Server v. {funambol.version}

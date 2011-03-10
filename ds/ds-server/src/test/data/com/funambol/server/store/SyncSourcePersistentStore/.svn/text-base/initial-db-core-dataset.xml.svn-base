@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "../../../dataset.dtd">
+<dataset>
+
+<FNBL_SYNC_SOURCE URI        = "card"
+                  CONFIG     = "foundation/foundation/contact-foundation/VCardSource.xml"
+                  NAME       = "card"
+                  SOURCETYPE = "contact-foundation"
+/>
+
+<FNBL_SYNC_SOURCE URI        = "cal"
+                  CONFIG     = "foundation/foundation/calendar-foundation/VCalendarSource.xml"
+                  NAME       = "cal"
+                  SOURCETYPE = "calendar-foundation"
+/>
+
+<FNBL_SYNC_SOURCE URI        = "scal"
+                  CONFIG     = "foundation/foundation/calendar-foundation/SIFEventSource.xml"
+                  NAME       = "scal"
+                  SOURCETYPE = "calendar-foundation"
+/>
+
+<FNBL_SYNC_SOURCE URI        = "note"
+                  CONFIG     = "foundation/foundation/calendar-foundation/PlainTextNoteSource.xml"
+                  NAME       = "note"
+                  SOURCETYPE = "note-foundation"
+/>
+
+<FNBL_SYNC_SOURCE URI        = "snote"
+                  CONFIG     = "foundation/foundation/calendar-foundation/SIFNoteSource.xml"
+                  NAME       = "snote"
+                  SOURCETYPE = "note-foundation"
+/>
+
+</dataset>
+
+

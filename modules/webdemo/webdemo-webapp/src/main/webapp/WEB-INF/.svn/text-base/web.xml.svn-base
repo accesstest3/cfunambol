@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--                                                               -->
+<!-- $Id: web.xml,v 1.8 2007-10-19 09:01:57 nichele Exp $ -->
+<!--                                                               -->
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+     	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	     version="2.4">
+
+    <display-name>Funambol Web Demo Client</display-name>
+    <description>Funambol Web Demo Client</description>
+
+    <filter>
+        <filter-name>Request Encoding Filter</filter-name>
+        <filter-class>RequestEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+
+    <filter>
+        <filter-name>Login Filter</filter-name>
+        <filter-class>LoginFilter</filter-class>
+        <init-param>
+            <param-name>skip-pages</param-name>
+            <param-value>login.jsp,index.html</param-value>
+        </init-param>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>Request Encoding Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>Login Filter</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>Login Filter</filter-name>
+        <url-pattern>/main</url-pattern>
+    </filter-mapping>
+    
+    <servlet>
+        <servlet-name>PDIServlet</servlet-name>
+        <display-name>Web Demo Servlet</display-name>
+        <servlet-class>PDIServlet</servlet-class>
+
+        <init-param>
+            <param-name>ds-name</param-name>
+            <param-value>jdbc/fnblds</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet>
+        <servlet-name>PhotoServlet</servlet-name>
+        <display-name>Photo Servlet</display-name>
+        <servlet-class>PhotoServlet</servlet-class>
+
+        <init-param>
+            <param-name>ds-name</param-name>
+            <param-value>jdbc/fnblds</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PDIServlet</servlet-name>
+        <url-pattern>/main</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>PhotoServlet</servlet-name>
+        <url-pattern>/main/img</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list id="WelcomeFileList_WebDemo">
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+    <taglib>
+        <taglib-uri>c_uri</taglib-uri>
+        <taglib-location>/WEB-INF/tld/c-1_0-rt.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>fmt_uri</taglib-uri>
+        <taglib-location>/WEB-INF/tld/fmt-1_0.tld</taglib-location>
+    </taglib>
+
+    <resource-ref>
+        <description>DB Connection</description>
+        <res-ref-name>jdbc/fnblds</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+</web-app>

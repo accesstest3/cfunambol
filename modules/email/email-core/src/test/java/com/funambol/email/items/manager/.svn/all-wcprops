@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/test/java/com/funambol/email/items/manager
+END
+UnsupportedEncodingTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/test/java/com/funambol/email/items/manager/UnsupportedEncodingTest.java
+END
+MessageCreatorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/29818/trunk/funambol/modules/email/email-core/src/test/java/com/funambol/email/items/manager/MessageCreatorTest.java
+END
+EntityManagerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/test/java/com/funambol/email/items/manager/EntityManagerTest.java
+END
+MessageCreatorMethodWrappers.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/core/!svn/ver/29660/trunk/funambol/modules/email/email-core/src/test/java/com/funambol/email/items/manager/MessageCreatorMethodWrappers.java
+END
+EntityManagerFilterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/test/java/com/funambol/email/items/manager/EntityManagerFilterTest.java
+END

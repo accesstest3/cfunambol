@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/29974/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/ws
+END
+UnauthorizedException.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/core/!svn/ver/28926/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/ws/UnauthorizedException.java
+END
+UnexpectedException.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/27993/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/ws/UnexpectedException.java
+END
+ServerException.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/28926/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/ws/ServerException.java
+END
+WSServerInformation.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/28926/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/ws/WSServerInformation.java
+END
+NotificationWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/29974/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/ws/NotificationWrapper.java
+END
+AdminException.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/28926/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/ws/AdminException.java
+END
+WSTools.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/core/!svn/ver/28926/trunk/funambol/common/push-listener/core/src/main/java/com/funambol/pushlistener/service/ws/WSTools.java
+END

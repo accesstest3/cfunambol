@@ -1,0 +1,285 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+import com.funambol.framework.core.*;
+import com.funambol.framework.core.Sync4jException;
+import com.funambol.framework.engine.pipeline.OutputMessageProcessor;
+import com.funambol.framework.engine.pipeline.MessageProcessingContext;
+import com.funambol.framework.engine.pipeline.StopProcessingException;
+import com.funambol.framework.logging.FunambolLogger;
+import com.funambol.framework.logging.FunambolLoggerFactory;
+
+import com.funambol.foundation.synclet.PIMItemsHandler;
+
+/**
+ * Contacts:
+ * =========
+ * Processes the incoming VCARD items and adds the missing properties.
+ * Remaps the 7 supported TEL properties to the predefined properties and slots,
+ * putting them in the correct order in the end of the VCARD. All 7 properties
+ * must be present, therefore explicit empty slots are defined if necessary.
+ * Removes all other TEL properties.
+ * Renames NICKNAME to X-MOT-NICKNAME and CATEGORIES to X-MOT-CAT.
+ *
+ * @version $Id: MotorolaV8out.bsh,v 1.6 2008-07-04 14:22:40 luigiafassina Exp $
+ */
+// ------------------------------------------------------------------- Constants
+private final FunambolLogger log =
+    FunambolLoggerFactory.getLogger("engine.pipeline");
+
+private Map missingCardTokens;
+
+// ------------------------------------------------------ Synclet implementation
+importCommands("/com/funambol/server/engine/pipeline/phones-support/bsh/commands");
+
+/**
+ * Process and manipulate the output message.
+ *
+ * @param processingContext the message processing context
+ * @param message the message to be processed
+
+ * @throws Sync4jException
+ */
+void postProcessMessage(MessageProcessingContext processingContext,
+                        SyncML message                            )
+throws Sync4jException {
+
+    if (log.isTraceEnabled()) {
+        log.trace("MotorolaV8out.postProcessMessage(...)");
+    }
+
+    // This map contains the three lists of items separated based on their type
+    PIMItemsHandler pimItemsHandler = new PIMItemsHandler();
+    Map mapItems = pimItemsHandler.extractOutgoingPIMItems(message);
+    processPIMItems(mapItems);
+
+    throw new StopProcessingException("MotorolaV8out Synclet finished");
+}
+
+/**
+ * Processes outgoing items.
+ *
+ * @param mapItems the map that contains the three lists of items separated
+ *                 based on their type
+ *
+ */
+void processPIMItems(Map mapItems) {
+
+    if (log.isTraceEnabled()) {
+        log.trace("MotorolaV8out.processPIMItems(...)");
+    }
+
+    //
+    // Cycle on VCARD list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VCARD)) {
+        postProcessContact(i);
+    }
+    
+    //
+    // Cycle on vevent list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VEVENT)) {
+        postProcessEvent(i);
+    }    
+    
+    //
+    // Cycle on VTODO list
+    //
+    for (i: (List)mapItems.get(PIMItemsHandler.KEY_VTODO)) {
+        postProcessTodo(i);
+    }
+}
+
+/**
+ * Processes outgoing contacts.
+ * Remaps the 7 supported TEL properties to the predefined properties and slots,
+ * putting them in the correct order in the end of the VCARD. All 7 properties
+ * must be present, therefore explicit empty slots are defined if necessary.
+ * Removes all other TEL properties.
+ * Renames NICKNAME to X-MOT-NICKNAME and CATEGORIES to X-MOT-CAT.
+ *
+ * @param i the item to process
+ *
+ */
+void postProcessContact(Item i) {
+
+    data = i.data.data;
+   
+    //
+    // Adds void tokens if they are missing in VCARD item
+    //
+    data = addVoidTokens(data, "END:VCARD", missingCardTokens);
+    
+    data = replaceOutProperty(data, "TEL;CELL:"              , "TEL;CELL;HOME:"    );
+    data = replaceOutProperty(data, "NICKNAME:"              , "X-MOT-NICKNAME:"   );
+    data = replaceOutProperty(data, "CATEGORIES:"            , "X-MOT-CAT:"        );
+    data = replaceOutProperty(data, "X-FUNAMBOL-MANAGER"     , "X-MOT-MANAGER"     );
+    data = replaceOutProperty(data, "X-FUNAMBOL-ASSISTANT"   , "X-MOT-ASSISTANT"   );    
+    data = replaceOutProperty(data, "X-FUNAMBOL-SPOUSE:"     , "X-MOT-SPOUSE:"     );
+    data = replaceOutProperty(data, "X-FUNAMBOL-CHILDREN:"   , "X-MOT-CHILD:"      );
+    data = replaceOutProperty(data, "X-FUNAMBOL-ANNIVERSARY:", "X-MOT-ANNIVERSARY:");
+    data = replaceOutProperty(data, 
+           "EMAIL;INTERNET;HOME;X-FUNAMBOL-INSTANTMESSENGER:", "X-MOT-IM:"         ); 
+   
+    i.data.data = data;
+}
+
+
+/**
+ * Processes outgoing events.
+ * Fixes end date time from T235900 to T240000
+ *
+ * @param i the Item to process
+ *
+ */
+void postProcessEvent(Item i) {
+    
+    data = i.data.data;
+    
+    // Fix events end date time 
+    data = fixEndDate(data);
+
+    i.data.data = data;
+}
+
+
+/**
+ * Processes outgoing todos.
+ * Remaps todo priority.  
+ *
+ * @param i the item to process
+ *
+ */
+
+void postProcessTodo(Item i) {
+
+    data = i.data.data;
+    
+    data = remapPriority(data);
+
+    i.data.data = data;
+}
+
+/**
+ * Called initializing the synclet
+ */
+void init() {
+    
+    // Used LinkedHashMap in order to keep the same order
+    // in different environments while iterating over tokens
+    missingCardTokens = new LinkedHashMap();
+    
+    missingCardTokens.put("\nTEL;VOICE"     , "TEL;VOICE:"     );
+    missingCardTokens.put("\nTEL;FAX;WORK"  , "TEL;FAX;WORK:"  );
+    missingCardTokens.put("\nTEL;CELL"      , "TEL;CELL;HOME:" );
+    missingCardTokens.put("\nTEL;VOICE;WORK", "TEL;VOICE;WORK:");
+    missingCardTokens.put("\nTEL;WORK;PREF" , "TEL;WORK;PREF:" );
+    missingCardTokens.put("\nTEL;FAX;HOME"  , "TEL;FAX;HOME:"  );
+    missingCardTokens.put("\nTEL;VOICE;HOME", "TEL;VOICE;HOME:");
+}
+
+/**
+ * Remaps todo priority.
+ * Device sets the tasks priority in a 1-9 range:
+ *  HIGH:   1-3
+ *  NORMAL: 4-6
+ *  LOW:    7-9
+ * while the server uses a 1-3 range:
+ *  HIGH:   1
+ *  NORMAL: 2
+ *  LOW:    3  
+ * 
+ * @param data  
+ */ 
+String remapPriority(String data){
+    
+    // The pattern matches the PRIORITY property
+    Pattern p = Pattern.compile("PRIORITY:(\\d)");
+    Matcher m = p.matcher(data);
+    // The default priority is Normal that corresponds to value 5 for the device
+    String priority = "5";
+    
+    if (m.find()) {
+        
+        // High priority tasks
+        if ("1".equals(m.group(1))) {
+            priority = "1";
+        }
+        // Normal priority tasks
+        else if ("2".equals(m.group(1))) {
+            priority = "5";
+        }
+        // Low priority tasks
+        else {
+            priority = "7";
+        }
+        StringBuffer sb = new StringBuffer();
+        m.appendReplacement(sb, "PRIORITY:" + priority);
+        m.appendTail(sb);
+        data = sb.toString();
+    }
+    
+    return data;
+        
+}
+
+/**
+ * Fixes ALL-DAY event end date that's expressed as yyyymmddT240000.
+ * 
+ * @param data  
+ */ 
+String fixEndDate(String data){
+      
+    // The pattern matches the RRULE property
+    Pattern p = Pattern.compile("DTEND:([0-9]{8}T)(235900)(Z)?");
+    Matcher m = p.matcher(data);    
+    
+    if (m.find()) {
+        StringBuffer sb = new StringBuffer();
+        m.appendReplacement(sb, "DTEND:" + m.group(1) + "240000");
+        m.appendTail(sb);
+        data = sb.toString();
+    }
+    
+    return data;
+
+}

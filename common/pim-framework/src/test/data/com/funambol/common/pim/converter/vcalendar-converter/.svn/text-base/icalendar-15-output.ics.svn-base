@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VTIMEZONE
+TZID:America/New_York
+BEGIN:DAYLIGHT
+DTSTART:20070311T020000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=+2SU;BYMONTH=3
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+TZNAME:America/New_York
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:20071104T020000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=+1SU;BYMONTH=11
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+TZNAME:America/New_York
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:89A1CC7C4245BF9665257458002EECAE-Lotus_Notes_Generated
+SUMMARY:Webinar - "Agile made us Better\, but we signed up for Great!"
+DESCRIPTION:ThoughtWorks Webinar with Ross Pettit.\\n\\n\\nTo join the online meeting (WebEx)\\n------------------------------------------------------- \\n1. Go to \\nhttps://thoughtworks.webex.com/thoughtworks/j.php?ED=97881862&UID=0&PW=044c59525858455b \\n\\n2. Enter your name and email address. \\n3. Enter the meeting password: 654321 \\n4. Click "Join Now". \\n5. Follow the instructions that appear on your screen. \\n\\nWebEx will automatically setup Meeting Manager for Windows the first time \\nyou join a meeting. To save time\, you can setup prior to the meeting by \\nclicking this link: \\nhttps://thoughtworks.webex.com/thoughtworks/meetingcenter/mcsetup.php \\n\\nAudio Component\\n------------------------------------------------------- \\nUS Toll free: 1 866 268 3606 \\nInternational: 1 952 352 7800 \\nMeeting ID: 54321 \\n
+CLASS:PUBLIC
+DTSTART;TZID=America/New_York:20080626T105500
+DTEND;TZID=America/New_York:20080626T120000
+SEQUENCE:0
+DTSTAMP;TZID=America/New_York:20080925T054829
+TRANSP:OPAQUE
+LAST-MODIFIED:20080613T090708Z
+X-FUNAMBOL-ALLDAY:0
+END:VEVENT
+END:VCALENDAR

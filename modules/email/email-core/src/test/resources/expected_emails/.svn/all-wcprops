@@ -1,0 +1,539 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/core/!svn/ver/33587/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails
+END
+testGetHBA_truncation4_H_B_html_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation4_H_B_html_A1_pdf_A2_pic.txt
+END
+sign_H_B.txt
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/sign_H_B.txt
+END
+testGetHB_truncation1_issue_030.txt
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/29663/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_truncation1_issue_030.txt
+END
+testGetHBA_H_B_html_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_H_B_html_A1_pdf_A2_pic.txt
+END
+testGetH_issue_4245.txt
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetH_issue_4245.txt
+END
+testGetHB_issue_4245.txt
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_issue_4245.txt
+END
+testGetHBA_invitation_apple.txt
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/29591/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_invitation_apple.txt
+END
+testGetHB_truncation1_issue_038.txt
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_truncation1_issue_038.txt
+END
+testGetHB_issue_030.txt
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/29663/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_issue_030.txt
+END
+H_B_2Kb_trunc4b_A_no.txt
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/H_B_2Kb_trunc4b_A_no.txt
+END
+testGetHBA_truncation_2_H_B_text_A1_pic_1Mb_A2_pdf.txt
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation_2_H_B_text_A1_pic_1Mb_A2_pdf.txt
+END
+testGetHB_truncation2_H_B_text_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_truncation2_H_B_text_A1_pdf_A2_pic.txt
+END
+testGetHBA_thunderbird_ics_picture_attachment.txt
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/29591/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_thunderbird_ics_picture_attachment.txt
+END
+testGetHBA_truncation5_H_B_text_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation5_H_B_text_A1_pdf_A2_pic.txt
+END
+sign_H_B_txt_html.txt
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/sign_H_B_txt_html.txt
+END
+testGetHB_issue_038.txt
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_issue_038.txt
+END
+testGetHB_with_truncation_issue_028.txt
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_with_truncation_issue_028.txt
+END
+testGetHB_truncation_H_B_text_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_truncation_H_B_text_A1_pdf_A2_pic.txt
+END
+testGetHBA_invitation_thunderbird_outlook_compatible.txt
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/core/!svn/ver/29591/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_invitation_thunderbird_outlook_compatible.txt
+END
+H_B_10Kb_trunc15Kb_A1_text_10Kb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/H_B_10Kb_trunc15Kb_A1_text_10Kb.txt
+END
+testGetHBA_truncation3_H_B_html_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation3_H_B_html_A1_pdf_A2_pic.txt
+END
+H_B_10Kb_A1_text_10Kb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/H_B_10Kb_A1_text_10Kb.txt
+END
+testGetH_H_B_html_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetH_H_B_html_A1_pdf_A2_pic.txt
+END
+testGetHBA_truncation1_issue_020.txt
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/29663/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation1_issue_020.txt
+END
+testGetHB_H_B_html_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_H_B_html_A1_pdf_A2_pic.txt
+END
+sign_H_B_from_PDA.txt
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/sign_H_B_from_PDA.txt
+END
+testGetH_issue_020.txt
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/29663/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetH_issue_020.txt
+END
+testGetHBA_truncation1_issue_027.txt
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation1_issue_027.txt
+END
+testGetHBA_truncation1_issue_028.txt
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation1_issue_028.txt
+END
+testGetHBA_issue_020.txt
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/29663/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_issue_020.txt
+END
+testGetHB_thunderbird_ics_picture_attachment.txt
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/29591/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_thunderbird_ics_picture_attachment.txt
+END
+testGetHBA_truncation4_H_B_text_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation4_H_B_text_A1_pdf_A2_pic.txt
+END
+testGetH_issue_027.txt
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetH_issue_027.txt
+END
+testGetHBA_text_calendar.txt
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/core/!svn/ver/29663/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_text_calendar.txt
+END
+testGetH_issue_028.txt
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetH_issue_028.txt
+END
+testGetHB_multipart_alternative_plain_html_calendar.txt
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/core/!svn/ver/33587/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_multipart_alternative_plain_html_calendar.txt
+END
+testGetHBA_invitation_thunderbird.txt
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/29663/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_invitation_thunderbird.txt
+END
+testGetHBA_issue_027.txt
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_issue_027.txt
+END
+sign_H_B_from_CELL.txt
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/sign_H_B_from_CELL.txt
+END
+testGetHBA_issue_028.txt
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_issue_028.txt
+END
+testGetHB_H_B_2Kb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_H_B_2Kb.txt
+END
+testGetHB_truncation_2_H_B_html_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_truncation_2_H_B_html_A1_pdf_A2_pic.txt
+END
+testGetHBA_truncation_2_H_B_html_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation_2_H_B_html_A1_pdf_A2_pic.txt
+END
+testGetHB_truncation3_H_B_html_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_truncation3_H_B_html_A1_pdf_A2_pic.txt
+END
+testGetHBA_truncation1_issue_4245.txt
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation1_issue_4245.txt
+END
+H_B_2Kb_complete_A_no.txt
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/H_B_2Kb_complete_A_no.txt
+END
+H_B_10Kb_A1_text_10Kb_A2_text_20Kb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/H_B_10Kb_A1_text_10Kb_A2_text_20Kb.txt
+END
+testGetHBA_truncation1_issue_030.txt
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/29663/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation1_issue_030.txt
+END
+testGetH_issue_030.txt
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/29663/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetH_issue_030.txt
+END
+testGetHBA_truncation1_issue_038.txt
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation1_issue_038.txt
+END
+testGetHBA_issue_030.txt
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/29663/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_issue_030.txt
+END
+H_B_10Kb_trunc5Kb_A1_text_10Kb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/H_B_10Kb_trunc5Kb_A1_text_10Kb.txt
+END
+testGetHBA_truncation3_H_B_text_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation3_H_B_text_A1_pdf_A2_pic.txt
+END
+H_B_2Kb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/H_B_2Kb.txt
+END
+testGetHB_invitation_thunderbird.txt
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/29591/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_invitation_thunderbird.txt
+END
+testGetH_issue_038.txt
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetH_issue_038.txt
+END
+testGetH_H_B_text_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetH_H_B_text_A1_pdf_A2_pic.txt
+END
+sign_H_B_html.txt
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/sign_H_B_html.txt
+END
+testGetHBA_H_B_text_A1_pic_1Mb_A2_pdf.txt
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_H_B_text_A1_pic_1Mb_A2_pdf.txt
+END
+testGetHB_H_B_text_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_H_B_text_A1_pdf_A2_pic.txt
+END
+testGetHBA_issue_038.txt
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_issue_038.txt
+END
+H_B_10Kb_A_no.txt
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/H_B_10Kb_A_no.txt
+END
+testGetHB_invitation_thunderbird_outlook_compatible.txt
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/core/!svn/ver/29663/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_invitation_thunderbird_outlook_compatible.txt
+END
+testGetHBA_truncation_H_B_text_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation_H_B_text_A1_pdf_A2_pic.txt
+END
+H_B_10Kb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/H_B_10Kb.txt
+END
+testGetHB_truncation1_issue_4245.txt
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_truncation1_issue_4245.txt
+END
+r_email_with_blocked_signature.txt
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/29663/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/r_email_with_blocked_signature.txt
+END
+testGetHBA_truncation5_H_B_html_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation5_H_B_html_A1_pdf_A2_pic.txt
+END
+testGetHB_truncation1_issue_020.txt
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/29663/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_truncation1_issue_020.txt
+END
+testGetHBA_truncation2_issue_020.txt
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/29663/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation2_issue_020.txt
+END
+testGetHB_invitation_apple.txt
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/29591/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_invitation_apple.txt
+END
+sign_H_B_A_from_PDA.txt
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/sign_H_B_A_from_PDA.txt
+END
+testGetHBA_issue_4245.txt
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_issue_4245.txt
+END
+testGetHB_truncation1_issue_027.txt
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_truncation1_issue_027.txt
+END
+testGetHB_truncation_H_B_html_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_truncation_H_B_html_A1_pdf_A2_pic.txt
+END
+H_B_2Kb_A_no.txt
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/H_B_2Kb_A_no.txt
+END
+testGetHB_issue_020.txt
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/29663/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_issue_020.txt
+END
+testGetHBA_truncation2_issue_027.txt
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation2_issue_027.txt
+END
+testGetHBA_truncation2_issue_028.txt
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation2_issue_028.txt
+END
+testGetH_H_B_html.txt
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetH_H_B_html.txt
+END
+testGetHBA_truncation3_H_B_text_A1_pic_1Mb_A2_pdf.txt
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation3_H_B_text_A1_pic_1Mb_A2_pdf.txt
+END
+testGetHB_truncation3_H_B_text_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_truncation3_H_B_text_A1_pdf_A2_pic.txt
+END
+testGetHBA_truncation2_H_B_text_A1_pdf_A2_pic.txt
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHBA_truncation2_H_B_text_A1_pdf_A2_pic.txt
+END
+testGetHB_truncation1_H_B_2Kb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_truncation1_H_B_2Kb.txt
+END
+testGetH_multipart_alternative_plain_html_calendar.txt
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/core/!svn/ver/33587/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetH_multipart_alternative_plain_html_calendar.txt
+END
+testGetHB_text_calendar.txt
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/core/!svn/ver/29663/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_text_calendar.txt
+END
+testGetHB_issue_027.txt
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_issue_027.txt
+END
+testGetHB_issue_028.txt
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testGetHB_issue_028.txt
+END
+testUnsupportedEncoding_01.txt
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/test/resources/expected_emails/testUnsupportedEncoding_01.txt
+END

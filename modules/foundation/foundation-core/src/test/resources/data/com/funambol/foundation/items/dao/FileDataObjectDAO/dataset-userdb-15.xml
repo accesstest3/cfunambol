@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+    <FNBL_FILE_DATA_OBJECT id="20" userid="username1" source_uri="fdo" last_update="1234" status="N" local_name="localname1" upload_status="N" true_name="picture.jpg" created="2011-04-22 09:19:42" modified="2011-04-22 10:42:32" accessed="2011-04-22 23:24:00" crc="4274335913" h="1" s="0" a="1" d="0" w="1" r="0" x="1" cttype="image/jpeg" object_size="1234" />
+    <FNBL_FILE_DATA_OBJECT id="21" userid="username1" source_uri="fdo" last_update="1234" status="N" upload_status="U" true_name="ship.jpg" crc="-1" h="0" s="0" a="0" d="0" w="0" r="0" x="0"/>
+
+    <FNBL_FILE_DATA_OBJECT_PROPERTY id="0" fdo_id="20" name="exif" value="{&quot;Make&quot;:&quot;'Panasonic'&quot;,&quot;Model&quot;:&quot;'DMC-FX3'&quot;}"/>
+    <FNBL_FILE_DATA_OBJECT_PROPERTY id="1" fdo_id="20" name="Orientation" value="8"/>
+    
+    <FNBL_FILE_DATA_OBJECT_PROPERTY id="2" fdo_id="21" name="Make" value="FunambolMake"/>
+    <FNBL_FILE_DATA_OBJECT_PROPERTY id="3" fdo_id="21" name="Model" value="InCloud"/>
+    <FNBL_FILE_DATA_OBJECT_PROPERTY id="4" fdo_id="21" name="Print IM" value="80, 114, 105, 110, 116"/>
+
+</dataset>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/core/!svn/ver/36032/trunk/funambol/common/push-listener/core/src/test/resources/data/com/funambol/pushlistener/service/registry/RegistryMonitor
+END
+dataset.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/core/!svn/ver/36032/trunk/funambol/common/push-listener/core/src/test/resources/data/com/funambol/pushlistener/service/registry/RegistryMonitor/dataset.dtd
+END
+initial-db-dataset-core.xml
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/core/!svn/ver/36032/trunk/funambol/common/push-listener/core/src/test/resources/data/com/funambol/pushlistener/service/registry/RegistryMonitor/initial-db-dataset-core.xml
+END
+update-db-dataset-core.xml
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/core/!svn/ver/36032/trunk/funambol/common/push-listener/core/src/test/resources/data/com/funambol/pushlistener/service/registry/RegistryMonitor/update-db-dataset-core.xml
+END

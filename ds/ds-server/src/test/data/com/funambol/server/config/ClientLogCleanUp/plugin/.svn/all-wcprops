@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/core/!svn/ver/36152/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/config/ClientLogCleanUp/plugin
+END
+ClientLogCleanUpPlugin-nodirs.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/core/!svn/ver/36152/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/config/ClientLogCleanUp/plugin/ClientLogCleanUpPlugin-nodirs.xml
+END
+ClientLogCleanUpPlugin-onlydirs.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/36152/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/config/ClientLogCleanUp/plugin/ClientLogCleanUpPlugin-onlydirs.xml
+END
+ClientLogCleanUpPlugin-complete.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/core/!svn/ver/36152/trunk/funambol/ds/ds-server/src/test/data/com/funambol/server/config/ClientLogCleanUp/plugin/ClientLogCleanUpPlugin-complete.xml
+END

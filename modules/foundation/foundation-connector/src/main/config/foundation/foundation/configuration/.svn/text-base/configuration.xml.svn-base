@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.5.0_04" class="java.beans.XMLDecoder">
+ <object class="com.funambol.foundation.engine.source.ConfigSyncSource">
+
+  <void property="sourceURI">
+   <string>configuration</string>
+  </void>
+
+  <void property="name">
+   <string>configuration</string>
+  </void>
+
+  <void property="type">
+   <string>text/plain</string>
+  </void>
+
+ <void property="info">
+   <object class="com.funambol.framework.engine.source.SyncSourceInfo">
+
+     <void property="supportedTypes">
+     <array class="com.funambol.framework.engine.source.ContentType" length="1">
+      <void index="0">
+       <object class="com.funambol.framework.engine.source.ContentType">
+        <void property="type">
+         <string>text/plain</string>
+        </void>
+        <void property="version">
+         <string>1.0</string>
+        </void>
+       </object>
+      </void>
+     </array>
+     </void>  <!-- supportedTypes -->
+
+   </object>
+ </void> <!-- info -->
+
+
+ </object>
+</java>

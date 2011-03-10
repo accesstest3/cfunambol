@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/manager/FileDataObjectManager
+END
+dataset.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/manager/FileDataObjectManager/dataset.dtd
+END
+waterfall.jpg
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/core/!svn/ver/33402/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/manager/FileDataObjectManager/waterfall.jpg
+END
+dataset-userdb-0.xml
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/manager/FileDataObjectManager/dataset-userdb-0.xml
+END
+dataset-userdb-1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/manager/FileDataObjectManager/dataset-userdb-1.xml
+END
+dataset-userdb-2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/manager/FileDataObjectManager/dataset-userdb-2.xml
+END
+expected-completed-0.xml
+K 25
+svn:wc:ra_dav:version-url
+V 183
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/manager/FileDataObjectManager/expected-completed-0.xml
+END
+init-dataset-userdb.xml
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/svn/core/!svn/ver/34471/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/manager/FileDataObjectManager/init-dataset-userdb.xml
+END
+expected-completed-1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 183
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/manager/FileDataObjectManager/expected-completed-1.xml
+END
+completely_uploaded
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/manager/FileDataObjectManager/completely_uploaded
+END
+partially_uploaded.tmp
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/manager/FileDataObjectManager/partially_uploaded.tmp
+END
+flower.jpg
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/core/!svn/ver/33402/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/manager/FileDataObjectManager/flower.jpg
+END
+expected-noresumed-2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 183
+/svn/core/!svn/ver/36000/trunk/funambol/modules/foundation/foundation-core/src/test/resources/data/com/funambol/foundation/items/manager/FileDataObjectManager/expected-noresumed-2.xml
+END

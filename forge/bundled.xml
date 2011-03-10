@@ -1,0 +1,684 @@
+<?xml version="1.0"?>
+
+<!--
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2005 - 2007 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+-->
+ 
+<!-- $Id: bundled.xml,v 1.84 2008-08-03 10:18:55 nichele Exp $ -->
+
+<!-- ====================================================================== -->
+<!--     Build and packaging the bundled                                    -->
+<!-- ====================================================================== -->
+<project name="Funambol Data Synchronization Server Bundle Forge" default="usage" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+
+  <taskdef resource="net/sf/antcontrib/antcontrib.properties" />
+
+  <property file="${user.home}/build-forge-diablo.properties"/>
+
+  <!-- ======================================= -->
+  <!--  Help on usage. List available targets  -->
+  <!-- ======================================= -->
+  <target name="usage">
+    <echo message=""/>
+    <echo message="${project-name-text} build file"/>
+    <echo message="------------------------------------------------"/>
+    <echo message=""/>
+    <echo message=" Available targets are :"/>
+    <echo message=""/>
+    <echo message=" usage              --> help on usage"/>
+    <echo message=" forge-bundle-win   --> forge bundle for Windows"/>
+    <echo message=" forge-bundle-unix  --> forge bundle for Unix"/>
+    <echo message=" forge-bundle-win-64   --> forge bundle for Windows"/>
+    <echo message=" forge-bundle-unix-64  --> forge bundle for Unix"/>
+    <echo message=""/>
+  </target>
+
+  <!-- ====================================================== -->
+  <!--  Initialize properties and create working directories  -->
+  <!-- ====================================================== -->
+  <target name="init-bundle" depends="init">
+        
+    <property name="bundle.funambol.dir"  value="output/Funambol"/>
+    <property name="bundle.tools.dir"     value="${bundle.funambol.dir}/tools"/>
+    <property name="bundle.jre.home"      value="${bundle.funambol.dir}/tools/jre-1.6.0/jre"/>
+    <property name="bundle.tomcat.home"   value="${bundle.funambol.dir}/tools/tomcat"/>
+    <property name="bundle.hsqldb.home"   value="${bundle.funambol.dir}/tools/hypersonic"/>
+
+    <!--
+     Delete output directory (it will be used in this process so it is
+     better delete it in order to start from a clean state)
+    -->
+    <delete dir="${bundle.funambol.dir}" />
+    
+    <!-- Create root dir Funambol -->
+    <mkdir dir="${bundle.funambol.dir}"/>
+    <!-- Create dir tools -->
+    <mkdir dir="${bundle.tools.dir}"/>
+    <!-- Create dir jre-1.6.0 -->
+    <mkdir dir="${bundle.jre.home}"/>
+    <!-- Create dir tomcat-->
+    <mkdir dir="${bundle.tomcat.home}"/>
+    <!-- Create dir hsqldb-->
+    <mkdir dir="${bundle.hsqldb.home}"/>
+    
+    <dirname property="bundle-dir" file="${bundle.funambol.dir}/ds-server/install.properties"/>
+
+  </target>
+
+  <!-- ======================================================= -->
+  <!-- Forge bundle on Tomcat                                  -->
+  <!--                                                         -->
+  <!-- The admin's package have to exist into output directory -->
+  <!--                                                         -->
+  <!-- ======================================================= -->
+  <target name="forge-bundle" depends="verify-required-packages,
+                                       init-bundle,
+                                       preparing-ds-server">
+
+    <!-- Put the components in place -->
+    <antcall target="bundle-copy-components" inheritAll="true"/>
+
+    <!-- Install Funambol Data Synchronization Server without database -->
+    <antcall target="bundle-install-syncserver" inheritAll="true"/>
+
+    <antcall target="fix-readme-about" inheritAll="true"/>
+
+    <antcall target="fix-eol" />
+    
+    <!-- Move configuration files under common configuration directory -->
+    <antcall target="move-config-files" inheritAll="true"/>
+    
+    <antcall target="copy-tomcat-common-libs" />
+
+    <!-- Remove files/dir from Funambol bundled -->
+    <antcall target="remove-unneeded-bundled" inheritAll="true"/>
+
+    <fixcrlf eol="crlf" eof="remove"
+       srcdir="${bundle.funambol.dir}" includes="**/*.log"/>
+    <fixcrlf eol="crlf" eof="remove"
+       srcdir="${bundle.funambol.dir}" includes="**/*.txt"/>
+    <fixcrlf eol="crlf" eof="remove"
+       srcdir="${bundle.funambol.dir}" includes="**/*.properties"/>
+
+    <antcall target="fix-path" inheritAll="true"/>
+
+  </target>
+  
+  
+  <!-- ========================== -->
+  <!--  Forge bundle for Windows  -->
+  <!-- ========================== -->
+  <target name="forge-bundle-win" depends="version-bundle, forge-bundle, generate-exe" if="nsis.home"/>
+  <target name="forge-bundle-win-64" depends="version-bundle-x64, forge-bundle, generate-exe" if="nsis.home"/>
+ 
+  <target name="generate-exe">  
+    <copy todir="${bundle.funambol.dir}/admin/etc" 
+          file="${bundle.funambol.dir}/admin/etc/win/funamboladmin.conf"
+          overwrite="true"
+    />
+    
+    <delete dir="${bundle.funambol.dir}/admin/etc/win" />
+    <delete dir="${bundle.funambol.dir}/admin/etc/unix"/>
+    
+    <copy todir="output/installer/installer">
+      <fileset dir="${bundle.funambol.dir}" includes="Readme.txt"/>
+    </copy>
+
+    <copy todir="output/installer/Presetup">
+      <fileset dir="${bundle.funambol.dir}" includes="Readme.txt"/>
+    </copy>
+
+    <exec executable="${nsis.home}/makensis.exe" dir="output">
+        <arg line="/DPRODUCT_VERSION=${funambol.version}
+                   /DDIR_OUTPUT=${basedir}/${bundle.funambol.dir}
+                   /DPK_NAME=${name.package}
+                   /DINSTALL_DIR='Funambol'
+                   installer/funambol.nsi"/>
+    </exec>
+    
+  </target>
+
+
+  <!-- ======================== -->
+  <!--  Forge bundle for Unix  -->
+  <!-- ======================== -->
+  <target name="forge-bundle-unix" depends="version-bundle,forge-bundle,generate-bin"/>  
+  <target name="forge-bundle-unix-64" depends="version-bundle-x64,forge-bundle,generate-bin"/>
+
+  <target name="generate-bin">
+    <echo message="Name Package: ${name.package}"/>
+    <var name="tempfile" value="${name.package}.tgz"/>
+    
+    <copy todir="${bundle.funambol.dir}/admin/etc" 
+          file="${bundle.funambol.dir}/admin/etc/unix/funamboladmin.conf"
+          overwrite="true"
+    />
+    
+    <copy todir="${bundle.funambol.dir}/admin/bin" 
+          file="${bundle.funambol.dir}/admin/bin/unix/funamboladmin"
+          overwrite="true"
+    />
+      
+    <!-- Ensure correct line endings -->
+    <fixcrlf eol="lf" eof="remove" srcdir="${bundle.funambol.dir}/admin/bin"           includes="funamboladmin"/>
+    <fixcrlf eol="lf" eof="remove" srcdir="${bundle.funambol.dir}/admin/etc"           includes="*.conf"/>
+    <fixcrlf eol="lf" eof="remove" srcdir="${bundle.funambol.dir}/admin/platform6/lib" includes="nbexec"/>      
+    
+    <fixcrlf eol="lf" eof="remove" srcdir="${bundle.funambol.dir}/bin" includes="*, *.sh" excludes="*.*" />
+    
+    <fixcrlf eol="unix" eof="remove"
+          srcdir="${bundle.funambol.dir}/tools/tomcat" includes="**/*.sh"/>
+             
+             
+    <delete dir="${bundle.funambol.dir}/admin/etc/win" />
+    <delete dir="${bundle.funambol.dir}/admin/etc/unix"/>
+    
+    <delete>
+      <fileset dir="${bundle.funambol.dir}/">
+        <include name="webdemo-client.url"/>
+        <include name="Funambol Web Site.url"/>
+      </fileset>
+      <fileset dir="${bundle.funambol.dir}/admin/">
+        <include name="funambol.url"/>
+      </fileset>
+    </delete>
+
+    <fixcrlf eol="unix" eof="remove"
+          srcdir="output/installer/linux/bin" includes="**/*.sh"/>
+
+    <fixcrlf eol="unix" eof="remove"
+          srcdir="output/installer/linux" includes="**/*"/>
+
+    <exec executable="sh">
+      <arg line="output/installer/linux/bin/run-forge-bundled.sh ${name.package} ${tempfile}"/>
+    </exec>
+  </target>
+
+  
+  <!-- ========================================================================================== -->
+  <!--  Copy JRE/Javademo/Tomcat/Hypersonic/Server/Admin/EmailConnector/InboxListener/PimListener -->
+  <!-- ========================================================================================== -->
+  <target name="bundle-copy-components">
+
+    <echo message="Install JRE"/>
+    <condition property="is-windows">
+      <and>
+        <os family="windows"/>      
+      </and>
+    </condition>
+   <regexp id="version.pattern" pattern="^(.*)x64(.*)$"/>
+   <condition property="is-x64">
+    <matches string="${name.package}">
+    <regexp refid="version.pattern"/>
+  </matches>
+   </condition>
+<echo message="is x64: ${is-x64}" />
+
+    <antcall target="install-jre" inheritAll="true"/>
+    <antcall target="install-jre-x64" inheritAll="true"/>
+    
+    <!-- Unzip Tomcat and rename dir -->
+    <echo message="Unzip Tomcat"/>
+    <unzip src="${tomcat.pkg}" dest="${bundle.tools.dir}"/>
+    <move todir="${bundle.tomcat.home}">
+      <fileset dir="${bundle.tools.dir}/${tomcat.name}"/>
+    </move>
+
+    <!-- Unzip Hypersonic and rename dir -->
+    <echo message="Unzip Hypersonic"/>
+    <unzip src="${hsqldb.pkg}" dest="${basedir}/output"/>
+    <move todir="${bundle.hsqldb.home}" includeEmptyDirs="true">
+      <fileset dir="${basedir}/output/${hsqldb.name}"
+               includes="lib/**, data/**"/>
+    </move>
+    <delete dir="${basedir}/output/${hsqldb.name}"/>
+
+    <!-- Email connector -->
+    <unzip src="output/funambol-comed.dir/artifacts/${inbox-listener.zip}" dest="output"/>
+
+    <copy file="output/funambol-comed.dir/artifacts/${email.s4j}" todir="output/Funambol/ds-server/modules"/>
+    
+    <!-- PIM listener  -->
+    <unzip src="output/funambol-comed.dir/artifacts/${pim-listener.zip}" dest="output"/>
+           
+    <!-- Unzip the ctp server -->
+    <unzip src="output/funambol-comed.dir/artifacts/${ctp-server.zip}" dest="output"/>
+
+    <!-- Unzip Admin and rename dir -->
+    <echo message="Unzip Admin"/>
+    <untar src="output/funambol-comed.dir/artifacts/${admin.tgz}" dest="output" compression="gzip"/>
+    
+    <!--move todir="output/Funambol/admin" includeEmptyDirs="true">
+      <fileset dir="output/funamboladmin" includes="**/*"/>
+    </move-->
+
+    <!-- Java Demo Client  -->
+    <echo message="Java Demo Client"/>
+    <untar src="output/funambol-comed.dir/artifacts/${javademo.tar.gz}" dest="output" compression="gzip"/>
+    <chmod dir="output/Funambol/plug-ins/javademo/bin" includes="**/*.sh" perm="ugo+rx"/>
+
+    <!-- Funambol command line plug-in -->
+    <echo message="Funambol command line plug-in"/>
+    <untar src="output/funambol-comed.dir/artifacts/${cl-plugin.tar.gz}" dest="output" compression="gzip"/>
+    <chmod dir="output/Funambol/plug-ins/cl/bin" includes="**/*.sh" perm="ugo+rx"/>
+    
+    <!--
+        Untar bundle files (it must be the latest packages otherwise we can not
+        overwrite any files)
+    -->
+    <untar
+        src="output/funambol-comed.dir/artifacts/${bundle-resources.tar.gz}"
+        dest="output" compression="gzip"
+    />
+
+    <!-- Server dir -->
+    <echo message="Preparing server"/>
+
+    <!-- Fix ds-server version in install.xml file -->
+    <replace file="${server.forge.dir}/install/install.xml" summary="true">
+      <replacefilter token="{funambol:ds-server.version}" value="${ds-server.version}"/>
+      <replacefilter token="{funambol:ds-server-webapp.version}" value="${ds-server-webapp.version}"/>
+    </replace>
+
+    <!-- Fix ds-server version in Funambol.xml file -->
+    <replace file="${server.forge.dir}/default/config/common/beans/Funambol.xml" summary="true">
+      <replacefilter token="{ds-server.version}" value="${ds-server.version}"/>
+    </replace>
+
+    <copy todir="${server.forge.dir}/modules" file="output/funambol-comed.dir/artifacts/${foundation.s4j}"/>
+    <copy todir="${server.forge.dir}/modules" file="output/funambol-comed.dir/artifacts/${phones-support.s4j}"/>
+    <copy todir="${server.forge.dir}/modules" file="output/funambol-comed.dir/artifacts/${webdemo.s4j}"/>
+    <copy todir="${server.forge.dir}/modules" file="output/funambol-comed.dir/artifacts/${content-provider.s4j}"/>
+
+  </target>
+  
+  <!-- ===================================================== -->
+  <!-- Move all configuration files under Funambol/config    -->
+  <!-- ===================================================== -->
+  <target name="move-config-files">
+  
+    <mkdir dir="output/Funambol/config" />
+    
+    <move todir="output/Funambol/config">
+      <fileset dir="output/Funambol/ds-server/config"/>
+    </move>
+    <move todir="output/Funambol/config">
+      <fileset dir="output/Funambol/inbox-listener/config"/>
+    </move>
+    <move todir="output/Funambol/config">
+      <fileset dir="output/Funambol/pim-listener/config"/>
+    </move>
+    <move todir="output/Funambol/config">
+      <fileset dir="output/Funambol/ctp-server/config"/>
+    </move>
+
+  </target>
+  
+  <target name="copy-tomcat-common-libs">
+    <copy todir="output/Funambol/tools/tomcat/lib" overwrite="true">
+      <fileset dir="output/Funambol/ds-server/default/lib"
+               includes="core-framework*.jar, server-framework*.jar, log4j-1.2.14*.jar"/>
+    </copy>
+  </target>
+
+  <!-- ========================================================================== -->
+  <!-- Fixed the properties in the Readme.txt and in the about.properties file    -->
+  <!-- ========================================================================== -->
+  <target name="fix-readme-about">
+
+    <tstamp>
+      <format property="RELEASE_DATE" pattern="MMMM dd, yyyy" locale="en"/>
+    </tstamp>
+
+    <replace file="${bundle.funambol.dir}/Readme.txt" summary="true">
+      <replacefilter token="{funambol.appid}"    value="${funambol.appid}"   />
+      <replacefilter token="{funambol.version}"  value="${funambol.version}" />
+      <replacefilter token="{funambol.release.date.text}" value="${RELEASE_DATE}"   />
+      <replacefilter token="{ds-server.version}"  value="${ds-server.version}"/>
+      <replacefilter token="{admin.version}"      value="${admin.version}"    />
+      <replacefilter token="{javademo.version}"   value="${javademo.version}"  />
+      <replacefilter token="{inboxlistener.version}" 
+                     value="${email-connector.version}"/>
+      <replacefilter token="{pim-listener.version}"
+                     value="${pim-listener.version}"/>
+      <replacefilter token="{ctp-server.version}"
+                     value="${ctp-server.version}"/>
+    </replace>
+
+    <replace file="${bundle.funambol.dir}/bin/about.properties"
+             summary="true">
+      <replacefilter token="{ds-server.version}" value="${ds-server.version}"/>
+      <replacefilter token="{funambol.version}"  value="${funambol.version}"/>
+    </replace>
+
+  </target>
+
+  <target name="fix-eol">
+    <!-- Enforce correct line endings, because we may have done  -->
+    <!-- a replace on the 'opposing' OS.                         -->
+    <fixcrlf eol="unix" eof="remove"
+             srcdir="${bundle.funambol.dir}/bin"
+             includes="**/*"
+             excludes="**/*.*" /> <!-- This means all files without extension -->
+
+    <fixcrlf eol="unix" eof="remove"
+             srcdir="${bundle.funambol.dir}/bin" includes="**/*.sh"/>
+             
+    <fixcrlf eol="dos" eof="remove"
+             srcdir="${bundle.funambol.dir}/bin" includes="**/*.cmd"/>
+  </target>
+
+  <!-- ==================================== -->
+  <!-- Install Server                       -->
+  <!-- ==================================== -->
+  <target name="bundle-install-syncserver">
+    <property name="ENV.APPSRV"    value="tomcat60"/>
+    <property name="j2ee_home_tmp" value="${bundle.tomcat.home}"/>
+
+    <replace file="${bundle.tomcat.home}/conf/logging.properties" summary="true">
+      <replacefilter token="${catalina.base}/logs"  
+                     value="${catalina.base}/../../logs/http"/>
+    </replace>
+    
+    <touch file="${j2ee_home_tmp}/file.tmp"/>
+
+    <dirname property="ENV.J2EE_HOME" file="${j2ee_home_tmp}/file.tmp"/>
+
+    <delete file="${j2ee_home_tmp}/file.tmp" />
+
+    <echo message="ENV.J2EE_HOME: ${ENV.J2EE_HOME}" />
+    <echo message="ENV.ANT_HOME: ${ENV.ANT_HOME}" />
+    
+    <!--
+        Fix modules to install list (it will be set in modules-to-install property)
+    -->
+    <property name="dir.ds-server.modules" value="${bundle.funambol.dir}/ds-server/modules" />
+
+    <script language="beanshell" src="${basedir}/fix-modules-to-install.bsh">
+        getModuleList("dir.ds-server.modules");
+    </script>
+
+    <replace file="${bundle.funambol.dir}/ds-server/install.properties"
+             summary="true">
+      <replacefilter token="{modules-to-install}" value="${modules-to-install}"/>
+    </replace>
+
+    <copy file="${bundle.funambol.dir}/ds-server/install.properties"
+          tofile="${bundle.funambol.dir}/ds-server/install-copy.properties" />
+
+    <dirname property="absolute_hsqldb" file="${bundle.hsqldb.home}/lib/hsqldb.jar"/>
+
+    <propertyfile file="${bundle.funambol.dir}/ds-server/install.properties">
+      <entry key="dbms" value="hypersonic" />
+      <entry key="jdbc.classpath" value="${absolute_hsqldb}/hsqldb.jar" />
+      <entry key="jdbc.driver"    value="org.hsqldb.jdbcDriver" />
+      <entry key="jdbc.url"       value="jdbc:hsqldb:file:${absolute_hsqldb}/../data/funambol" />
+      <entry key="jdbc.user"      value="sa" />
+      <entry key="jdbc.password"  value="" />
+    </propertyfile>
+
+    <property file="${bundle.funambol.dir}/ds-server/install.properties"/>
+
+    <ant antfile="install/install.xml" 
+         dir="${bundle.funambol.dir}/ds-server" 
+         target="install"
+         inheritAll="false">
+      <property name="do.install-db"  value="true"/>
+      <property name="ENV.APPSRV"     value="${ENV.APPSRV}"/>
+      <property name="ENV.J2EE_HOME"  value="${ENV.J2EE_HOME}"/>
+      <property name="force-db-creation" value="true"/>
+    </ant>
+    
+    <!-- Replace jdbc url in db.xml configuration file -->
+    <replace file="${bundle.funambol.dir}/config/com/funambol/server/db/db.xml" summary="true">
+      <replacefilter token="jdbc:hsqldb:file:${absolute_hsqldb}/../data/funambol"
+                     value="jdbc:hsqldb:hsql://localhost/funambol"/>
+    </replace>
+
+    <!-- We have to shutdown the db to delete the lock file -->    
+    <sql driver="org.hsqldb.jdbcDriver"
+         url="jdbc:hsqldb:file:${absolute_hsqldb}/../data/funambol"
+         userid="sa"
+         password=""
+         classpath="${absolute_hsqldb}/hsqldb.jar"
+    >
+      shutdown
+    </sql>
+    
+    <move file="${bundle.funambol.dir}/ds-server/install-copy.properties"
+          tofile="${bundle.funambol.dir}/ds-server/install.properties" />
+          
+
+  </target>
+
+  <!-- ==================================== -->
+  <!--   Install JRE on Windows and Unix system      -->
+  <!-- ==================================== -->
+  <target name="install-jre" unless="is-x64" >    
+    <unzip src="${jre.pkg}" dest="${bundle.tools.dir}"/>
+    <delete dir="${bundle.jre.home}" /> 
+    <move todir="${bundle.jre.home}">
+      <fileset dir="${bundle.tools.dir}/${jre.name}"/>
+    </move>
+    <delete dir="${bundle.tools.dir}/${jre.name}" quiet="true"/>
+  </target>
+
+<target name="install-jre-x64" if="is-x64" >
+    <unzip src="${jre.pkgx64}" dest="${bundle.tools.dir}"/>
+     <delete dir="${bundle.jre.home}" />
+    <move todir="${bundle.jre.home}">
+      <fileset dir="${bundle.tools.dir}/${jre.namex64}"/>
+    </move>
+    <delete dir="${bundle.tools.dir}/${jre.namex64}" quiet="true"/>
+  </target>
+
+  
+  <!-- ============================================== -->
+  <!-- Remove all unneeded dir and files from bundled -->
+  <!-- ============================================== -->
+  <target name="remove-unneeded-bundled">
+    <delete includeEmptyDirs="true">
+      <fileset dir="${bundle.tomcat.home}/webapps" 
+               includes="**/*" excludes="ROOT/, webdemo/, funambol.war, content/"/>
+      <!--fileset dir="${bundle.tomcat.home}/conf/Catalina/localhost" includes="balancer.xml"/-->
+      <fileset dir="${bundle.funambol.dir}/ds-server" includes="output/**"/>
+    </delete>
+    
+    <delete file="${bundle.funambol.dir}/admin/docs/release.properties" />
+    <delete file="${bundle.funambol.dir}/pim-listener/docs/release.properties" />
+    <delete file="${bundle.funambol.dir}/inbox-listener/docs/release.properties" />
+    <delete file="${bundle.funambol.dir}/ctp-server/docs/release.properties" />
+    <delete file="${bundle.funambol.dir}/plug-ins/cl/docs/release.properties" />
+    <delete file="${bundle.funambol.dir}/plug-ins/javademo/docs/release.properties" />
+  </target>
+
+  <!-- ============================================== -->
+  <!--   Replace absolute path with relative path     -->
+  <!-- ============================================== -->    
+  <target name="fix-path">
+
+    <!-- replace log directory for the web demo app -->
+    <propertyfile file="${bundle.tomcat.home}/webapps/webdemo/WEB-INF/classes/log4j.properties">
+      <entry key="log4j.appender.webdemo-logfile.File" value="../../../logs/ds-server/ds-server.webdemo.log" />
+    </propertyfile>
+    
+    <!-- it seems no more usefull  -->
+    <replace dir = "${bundle.tomcat.home}/webapps/webdemo/WEB-INF"
+             token = "${bundle-dir}"
+             value = "../../../ds-server"
+    >
+        <include name="web.xml"/>
+    </replace>
+
+    <!-- to be checked  -->
+    <replace dir   = "${bundle.funambol.dir}/config"
+             token = "${bundle-dir}"
+             value = "../../../ds-server"
+    >
+        <include name="**/*.xml"/>
+    </replace>
+  </target>
+
+  <target name="verify-required-packages">
+  
+    <available file="${jre.pkg}" property="jre.pkg.ok"/>
+    <antcall target="jre.pkg-missing" />
+    
+    <available file="${tomcat.pkg}" property="tomcat.pkg.ok"/>
+    <antcall target="tomcat.pkg-missing" />
+    
+    <available file="${hsqldb.pkg}" property="hsqldb.pkg.ok"/>
+    <antcall target="hsqldb.pkg-missing" />
+    
+  </target>
+
+  <target name="jre.pkg-missing" unless="jre.pkg.ok">
+    <fail message="Unable to find the JRE package. Please verify the value of jre.pkg in the build.properties file" />
+  </target>
+
+  <target name="tomcat.pkg-missing" unless="tomcat.pkg.ok">
+    <fail message="Unable to find the tomcat package. Please verify the value of tomcat.pkg in the build.properties file" />
+  </target>
+  
+  <target name="hsqldb.pkg-missing" unless="hsqldb.pkg.ok">
+    <fail message="Unable to find the hsqldb package. Please verify the value of hsqldb.pkg in the build.properties file" />
+  </target>
+
+  <target name="version-bundle">
+    <echo message="Versioning bundle..." />
+
+    <echo message="Version: ${funambol.version} "/>
+    <artifact:pom id="forge" file="pom.xml"/>
+    <property name="funambol.version" value="${forge.version}"/>
+    <echo message="Version: ${funambol.version} "/>
+    <var name="name.package" value="funambol-${funambol.version}"/>
+    <echo message="Name Package: ${name.package} "/>
+  </target>
+
+  <target name="version-bundle-x64">
+    <echo message="Versioning bundle x64bits..." />
+
+    <echo message="Version: ${funambol.version} "/>
+    <artifact:pom id="forge" file="pom.xml"/>
+    <property name="funambol.version" value="${forge.version}"/>
+    <echo message="Version: ${funambol.version} "/>
+    <var name="name.package" value="funambol-${funambol.version}-x64"/>
+    <echo message="Name Package: ${name.package} "/>
+  </target>
+
+  <!--
+        DEPLOY BUNDLE
+  -->
+  <target name="deploy-bundle">
+    <echo message="Deploying bundle..." />
+    <if>
+        <os family="windows"/>
+        <then>
+              <property name="comed.extension" value="exe" />
+        </then>
+        <else>
+              <property name="comed.extension" value="tgz" />
+        </else>
+    </if>
+
+    <script language="beanshell">
+        String version = project.getProperty("funambol.version");
+        if (version == null) {
+            return;
+        }
+        if (version.endsWith("-SNAPSHOT")) {
+            project.setProperty("is-snapshot", "true");
+        }
+    </script>
+    <echo message="is snapshot: ${is-snapshot}" />
+    
+    <if>
+    <isset property="is-snapshot"/>
+        <then>
+            <property name="maven-repository-url" value="${maven-snapshot-repository-url}" />
+            <property name="maven-repository-id" value="${maven-snapshot-repository-id}" />
+        </then>
+        <else>
+            <property name="maven-repository-url" value="${maven-artifact-repository-url}" />
+            <property name="maven-repository-id" value="${maven-artifact-repository-id}" />
+        </else>
+    </if>
+
+    <antcall target="run-maven"  inheritAll="true">
+        <param name="params"
+               value="deploy:deploy-file
+                      -DgroupId=funambol
+                      -DartifactId=funambol-comed
+                      -Dversion=${funambol.version}
+                      -DuniqueVersion=false
+                      -Dpackaging=${comed.extension}
+                      -Dfile=output/${name.package}.${comed.extension}
+                      -Durl=${maven-repository-url}
+                      -DrepositoryId=${maven-repository-id}" />
+    </antcall>
+  </target>
+
+  <target name="run-maven">
+    <condition property="isWindowsOS">
+      <and>
+          <os family="windows"/>
+      </and>
+    </condition>
+
+    <antcall target="run-maven-win"  inheritAll="true"/>
+    <antcall target="run-maven-linux" inheritAll="true"/>
+
+  </target>
+
+  <target name="run-maven-win" if="isWindowsOS">
+    <exec dir="${basedir}" executable="mvn.bat" searchpath="true" failonerror="true">
+      <arg line="${params}"/>
+      <env key="MAVEN_OPTS" value="-Xmx512M"/>
+    </exec>
+  </target>
+
+  <target name="run-maven-linux" unless="isWindowsOS">
+    <exec dir="${basedir}" executable="mvn" searchpath="true"  failonerror="true">
+      <arg line="${params}"/>
+      <env key="MAVEN_OPTS" value="-Xmx512M"/>
+    </exec>
+  </target>
+
+  <target name="=nothing">
+  </target>
+
+</project>
+

@@ -1,0 +1,66 @@
+Received: from a.mail.sonomait.com (LHLO a.mail.sonomait.com)
+ (64.142.123.30) by a.mail.sonomait.com with LMTP; Mon, 3 Nov 2008 07:09:00
+ -0800 (PST)
+Date: Mon, 3 Nov 2008 16:08:41 +0100
+From: Michele Rallo <michele.rallo@funambol.com>
+To: piter <piter@funambol.com>
+Message-ID: <F1BCEE09-DA9F-4961-B5A0-49959CB94F2D@funambol.com>
+Subject: iCal event invitation: Weekly call
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_13_23387093.1225965128078"
+
+------=_Part_13_23387093.1225965128078
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Michele Rallo has invited you to the iCal event: Weekly call,  
+scheduled for November 4, 2008 at 11:00 AM (Europe/Rome). To accept  
+or decline this invitation, click the link below.
+
+Summary: Weekly call
+When: from Tuesday 04 Nov 2008, 10:00 (CEST)
+to Tuesday 04 Nov 2008, 11:00
+Where: N/A
+Description: N/A
+
+------=_Part_13_23387093.1225965128078
+Content-Type: text/calendar; x-unix-mode=0644; name=iCal-20081103-160841.ics; 
+	charset=us-ascii
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename=iCal-20081103-160841.ics
+
+BEGIN:VCALENDAR
+PRODID:-//Apple Computer\, Inc//iCal 2.0//EN
+METHOD:REQUEST
+CALSCALE:GREGORIAN
+VERSION:2.0
+BEGIN:VTIMEZONE
+TZID:Europe/Rome
+LAST-MODIFIED:20081103T150841Z
+BEGIN:STANDARD
+DTSTART:20081026T010000
+TZOFFSETTO:+0100
+TZOFFSETFROM:+0000
+TZNAME:CET
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:20090329T030000
+TZOFFSETTO:+0200
+TZOFFSETFROM:+0100
+TZNAME:CEST
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+DURATION:PT1H
+ATTENDEE;CN="piter":mailto:piter@funambol.com
+DTSTAMP:20081103T150830Z
+UID:C0CC3539-B339-447A-B490-38B96CE199E2
+SEQUENCE:7
+DTSTART;TZID=Europe/Rome:20081104T110000
+SUMMARY:Weekly call
+ORGANIZER;CN="Michele Rallo":mailto:michele.rallo@funambol.com
+END:VEVENT
+END:VCALENDAR
+
+------=_Part_13_23387093.1225965128078--

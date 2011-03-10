@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+    <FNBL_ID IDSPACE='email.registryid' COUNTER='10' INCREMENT_BY='1' />
+    <FNBL_PUSH_REGISTRY_BASIC/>
+    <FNBL_PUSH_REGISTRY_COMPLEX/>
+</dataset>

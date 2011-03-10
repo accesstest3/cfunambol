@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/core/!svn/ver/29807/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/sms
+END
+FileSystemSMSProviderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/core/!svn/ver/29798/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/sms/FileSystemSMSProviderTest.java
+END
+DBSMSProviderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/core/!svn/ver/29807/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/sms/DBSMSProviderTest.java
+END

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/core/!svn/ver/36075/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/items/manager
+END
+MessageParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/36067/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/items/manager/MessageParser.java
+END
+ContentProviderInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/27993/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/items/manager/ContentProviderInfo.java
+END
+MessageCreator.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/core/!svn/ver/36075/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/items/manager/MessageCreator.java
+END
+PopEntityManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/core/!svn/ver/34121/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/items/manager/PopEntityManager.java
+END
+EntityManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/core/!svn/ver/34121/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/items/manager/EntityManager.java
+END
+EntityManagerFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/core/!svn/ver/32612/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/items/manager/EntityManagerFilter.java
+END
+ImapEntityManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/core/!svn/ver/34121/trunk/funambol/modules/email/email-core/src/main/java/com/funambol/email/items/manager/ImapEntityManager.java
+END

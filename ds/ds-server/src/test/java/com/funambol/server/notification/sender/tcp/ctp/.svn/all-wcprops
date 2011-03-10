@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/notification/sender/tcp/ctp
+END
+CTPNotificationResponseTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/notification/sender/tcp/ctp/CTPNotificationResponseTest.java
+END
+CTPNotificationTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/core/!svn/ver/27993/trunk/funambol/ds/ds-server/src/test/java/com/funambol/server/notification/sender/tcp/ctp/CTPNotificationTest.java
+END

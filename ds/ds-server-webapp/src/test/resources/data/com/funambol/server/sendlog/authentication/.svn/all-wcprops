@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/core/!svn/ver/36098/trunk/funambol/ds/ds-server-webapp/src/test/resources/data/com/funambol/server/sendlog/authentication
+END
+dataset.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/core/!svn/ver/36098/trunk/funambol/ds/ds-server-webapp/src/test/resources/data/com/funambol/server/sendlog/authentication/dataset.dtd
+END
+store-item-db-dataset.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/core/!svn/ver/36098/trunk/funambol/ds/ds-server-webapp/src/test/resources/data/com/funambol/server/sendlog/authentication/store-item-db-dataset.xml
+END
+initial-db-dataset.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/core/!svn/ver/36098/trunk/funambol/ds/ds-server-webapp/src/test/resources/data/com/funambol/server/sendlog/authentication/initial-db-dataset.xml
+END

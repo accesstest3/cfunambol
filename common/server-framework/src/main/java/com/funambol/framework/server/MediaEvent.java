@@ -1,0 +1,257 @@
+/*
+ * Funambol is a mobile platform developed by Funambol, Inc.
+ * Copyright (C) 2010 Funambol, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by
+ * the Free Software Foundation with the addition of the following permission
+ * added to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED
+ * WORK IN WHICH THE COPYRIGHT IS OWNED BY FUNAMBOL, FUNAMBOL DISCLAIMS THE
+ * WARRANTY OF NON INFRINGEMENT  OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program; if not, see http://www.gnu.org/licenses or write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
+ *
+ * You can contact Funambol, Inc. headquarters at 643 Bair Island Road, Suite
+ * 305, Redwood City, CA 94063, USA, or at email address info@funambol.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License
+ * version 3, these Appropriate Legal Notices must retain the display of the
+ * "Powered by Funambol" logo. If the display of the logo is not reasonably
+ * feasible for technical reasons, the Appropriate Legal Notices must display
+ * the words "Powered by Funambol".
+ */
+package com.funambol.framework.server;
+
+import java.io.Serializable;
+
+/**
+ * This class represents a logging event for media events.
+ *
+ * @version $Id: MediaEvent.java 34826 2010-06-25 16:32:04Z luigiafassina $
+ */
+public class MediaEvent extends Event implements Serializable {
+
+    // --------------------------------------------------------------- Constants
+    private static final String START_MEDIA_UPLOAD = "START_MEDIA_UPLOAD";
+    private static final String END_MEDIA_UPLOAD   = "END_MEDIA_UPLOAD"  ;
+
+    // ------------------------------------------------------------ Constructors
+    /** Creates a new instance of MediaEvent */
+    public MediaEvent() {
+    }
+
+    /**
+     * Creates a new instance of MediaEvent.
+     *
+     * @param eventType the event type
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param source the source involved in the sync
+     * @param message the error message
+     * @param duration the duration in milliseconds
+     * @param originator the component that produced the event
+     * @param error is true if an error occurred
+     */
+    public MediaEvent(String  eventType ,
+                      String  userName  ,
+                      String  deviceId  ,
+                      String  sessionId ,
+                      String  source    ,
+                      String  message   ,
+                      int     duration  ,
+                      String  originator,
+                      boolean error     ) {
+
+        super(null, eventType, null, userName, deviceId, sessionId, source,
+              message, null, 0, 0, 0, 0, duration, originator, null, error);
+    }
+
+    /**
+     * Creates a new instance of MediaEvent.
+     *
+     * @param eventType the event type
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param source the source involved in the sync
+     * @param message the error message
+     * @param originator the component that produced the event
+     * @param error is true if an error occurred
+     */
+    public MediaEvent(String  eventType ,
+                      String  userName  ,
+                      String  deviceId  ,
+                      String  sessionId ,
+                      String  source    ,
+                      String  message   ,
+                      String  originator,
+                      boolean error     ) {
+
+        this(eventType, userName, deviceId, sessionId, source,
+             message, 0, originator, error);
+    }
+
+    // ---------------------------------------------------------- Public methods
+
+    /**
+     * Creates an event of type START_MEDIA_UPLOAD.
+     *
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param source the source involved in the sync
+     * @param message the error message
+     * @param originator the component that produced the event
+     * @return the event of type START_MEDIA_UPLOAD
+     */
+    public static Event createStartMediaUploadEvent(String userName  ,
+                                                    String deviceId  ,
+                                                    String sessionId ,
+                                                    String source    ,
+                                                    String message   ,
+                                                    String originator) {
+        return new MediaEvent(START_MEDIA_UPLOAD, userName, deviceId,
+                              sessionId, source, message, 0, originator, false);
+    }
+
+    /**
+     * Creates an event of type START_MEDIA_UPLOAD when an error occurred.
+     *
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param source the source involved in the sync
+     * @param message the error message
+     * @param originator the component that produced the event
+     * @return the event of type START_MEDIA_UPLOAD when an error occurred
+     */
+    public static Event createStartMediaUploadEventOnError(String userName ,
+                                                           String deviceId ,
+                                                           String sessionId,
+                                                           String source   ,
+                                                           String message  ,
+                                                           String originator) {
+        return new MediaEvent(START_MEDIA_UPLOAD, userName, deviceId,
+                              sessionId, source, message, 0, originator, true);
+    }
+
+    /**
+     * Creates an event of type END_MEDIA_UPLOAD.
+     *
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param source the source involved in the sync
+     * @param message the error message
+     * @param duration the duration in milliseconds
+     * @param originator the component that produced the event
+     * @return the event of type END_MEDIA_UPLOAD
+     */
+    public static Event createEndMediaUploadEvent(String userName ,
+                                                  String deviceId ,
+                                                  String sessionId,
+                                                  String source   ,
+                                                  String message  ,
+                                                  int    duration ,
+                                                  String originator) {
+        return new MediaEvent(END_MEDIA_UPLOAD, userName, deviceId, sessionId,
+                              source, message, duration, originator, false);
+    }
+
+    /**
+     * Creates an event of type END_MEDIA_UPLOAD.
+     *
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param source the source involved in the sync
+     * @param message the error message
+     * @param originator the component that produced the event
+     * @return the event of type END_MEDIA_UPLOAD
+     */
+    public static Event createEndMediaUploadEvent(String userName ,
+                                                  String deviceId ,
+                                                  String sessionId,
+                                                  String source   ,
+                                                  String message  ,
+                                                  String originator) {
+        return createEndMediaUploadEvent(userName, deviceId, sessionId,
+                                         source, message, 0, originator);
+    }
+
+    /**
+     * Creates an event of type END_MEDIA_UPLOAD when an error occurred.
+     *
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param source the source involved in the sync
+     * @param message the error message
+     * @param duration the duration in milliseconds
+     * @param originator the component that produced the event
+     * @return the event of type END_MEDIA_UPLOAD when an error occurred
+     */
+    public static Event createEndMediaUploadEventOnError(String userName ,
+                                                         String deviceId ,
+                                                         String sessionId,
+                                                         String source   ,
+                                                         String message  ,
+                                                         int    duration ,
+                                                         String originator) {
+        return new MediaEvent(END_MEDIA_UPLOAD, userName, deviceId, sessionId,
+                              source, message, duration, originator, true);
+    }
+
+    /**
+     * Creates an event of type END_MEDIA_UPLOAD when an error occurred.
+     *
+     * @param userName the user involved in the event
+     * @param deviceId the device id involved in the event
+     * @param sessionId the session id involved in the event
+     * @param source the source involved in the sync
+     * @param message the error message
+     * @param originator the component that produced the event
+     * @return the event of type END_MEDIA_UPLOAD when an error occurred
+     */
+    public static Event createEndMediaUploadEventOnError(String userName  ,
+                                                         String deviceId  ,
+                                                         String sessionId ,
+                                                         String source    ,
+                                                         String message   ,
+                                                         String originator) {
+        return createEndMediaUploadEventOnError(userName, deviceId, sessionId,
+                                                source, message, 0, originator);
+    }
+
+    /**
+     *
+     * @return true if the event is triggered when the media upload starts,
+     * false otherwise.
+     */
+    public boolean isStartMediaUploadEvent() {
+        return START_MEDIA_UPLOAD.equals(getEventType());
+    }
+
+    /**
+     *
+     * @return true if the event is triggered when the whole media upload ends,
+     * false otherwise.
+     */
+    public boolean isEndMediaUploadEvent() {
+        return END_MEDIA_UPLOAD.equals(getEventType());
+    }
+
+}
